@@ -39,8 +39,9 @@ function checkGuess(btn, itemId, guess, correct) {
   row.querySelectorAll('.guess-btn').forEach(function(b){
     var picked = (b.dataset.guess === guess);
     b.setAttribute('aria-pressed', picked ? 'true' : 'false');
-    var base = b.dataset.label || (b.dataset.label = b.textContent.trim());
-    b.textContent = picked ? ('✓ ' + base) : base;
+    // data-label holds the raw label (it may contain \( ... \) math), so rebuild the text and re-render the math each time
+    b.textContent = (picked ? '✓ ' : '') + b.dataset.label;
+    if (window.renderMathInElement) renderMathInElement(b, { delimiters: [{left:"\\(",right:"\\)",display:false}], throwOnError:false });
   });
   fb.setAttribute('tabindex','-1');
   fb.focus();
