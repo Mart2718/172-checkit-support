@@ -15,6 +15,7 @@ for it in soup.select('div.item'):
         svg_title=svg.title.get_text() if svg else None, has_svg=bool(svg),
         table_caption=tbl.caption.get_text() if tbl and tbl.caption else None,
         table_rows=[[c.get_text().strip() for c in r.find_all(['th', 'td'])] for r in tbl.find_all('tr')] if tbl else None,
+        table_headers=('row' if tbl and tbl.find('th', attrs={'scope': 'col'}) else 'col') if tbl else None,   # 'row' = first ROW holds the header cells
         math=math.decode_contents().strip() if math else None))
 json.dump(items, open(sys.argv[2], 'w'), indent=1, ensure_ascii=False)
 print(len(items), 'items')

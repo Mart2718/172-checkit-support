@@ -62,8 +62,10 @@ const strip = (h) => stripTags(h).split(BS + '(').join('').split(BS + ')').join(
 
 function figure(it) {
   const png = fs.readFileSync(`${__dirname}/${it.id}.png`);
-  const wide = it.id.startsWith('map');
-  const w = wide ? 500 : 330, h = wide ? 301 : 330;
+  // Fit the picture inside 500 x 330 px (Word points) keeping its true proportions, whatever the outcome's figures look like.
+  const pw = png.readUInt32BE(16), ph = png.readUInt32BE(20);   // width and height stored in the PNG header
+  const scale = Math.min(500 / pw, 330 / ph);
+  const w = Math.round(pw * scale), h = Math.round(ph * scale);
   const cap = stripTags(it.figcaption || '');
   const dataTex = (cap.startsWith('Plotted data') ? cap.slice(cap.indexOf(':') + 1) : cap).trim();
   const data = strip(dataTex);
@@ -90,13 +92,14 @@ function dataTable(it, n) {
     para([new TextRun({ text: `Table ${n}. `, bold: true }), new TextRun({ text: it.table_caption || 'Values of x and y' })], { keepNext: true }),
     new Table({
       width: { size: widths.reduce((a, b) => a + b), type: WidthType.DXA }, columnWidths: widths,
-      rows: rows.map((r) => new TableRow({
-        children: r.map((c, ci) => new TableCell({
+      rows: rows.map((r, ri) => new TableRow({
+        children: r.map((c, ci) => { const head = it.table_headers === 'row' ? ri === 0 : ci === 0;   // shade and bold the header cells
+          return new TableCell({
           borders, width: { size: widths[ci], type: WidthType.DXA },
-          shading: ci === 0 ? { fill: 'E6F4F4', type: ShadingType.CLEAR } : undefined,
+          shading: head ? { fill: 'E6F4F4', type: ShadingType.CLEAR } : undefined,
           margins: { top: 80, bottom: 80, left: 120, right: 120 },
-          children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: c.trim(), bold: ci === 0, size: SZ })] })]
-        }))
+          children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: c.trim(), bold: head, size: SZ })] })]
+        }); })
       }))
     })
   ];
