@@ -86,7 +86,7 @@ function texToSpeech(tex) {
     le:'is less than or equal to', leq:'is less than or equal to', ge:'is greater than or equal to', geq:'is greater than or equal to', ne:'is not equal to', neq:'is not equal to',
     cdot:'times', times:'times', pm:'plus or minus', to:'approaches', rightarrow:'approaches', in:'is in', cup:'union', ldots:'dot dot dot', dots:'dot dot dot', cdots:'dot dot dot', div:'divided by'};
   var IGNORE = {left:1, right:1, ',':1, ';':1, ':':1, '!':1, ' ':1, quad:1, qquad:1, displaystyle:1, '\\':1};
-  var s = String(tex).replace(/−/g, '-');
+  var s = String(tex).replace(/\u2212/g, '-').replace(/\\(left|right)\s*/g, '');
   var i = 0;
   function peekCmd() { var m = /^\\([a-zA-Z]+|.)/.exec(s.slice(i)); return m ? m[1] : null; }
   function skipWs() { while (i < s.length && /\s/.test(s[i])) i++; }
@@ -107,6 +107,8 @@ function texToSpeech(tex) {
     if (p === '2') return ' squared';
     if (p === '3') return ' cubed';
     if (/^\d+$/.test(p)) return ' to the ' + ordinal(+p) + ' power';
+    var fr = /^(-?)\s*(\d+)\s*\/\s*(\d+)$/.exec(p);
+    if (fr) return ' to the power ' + (fr[1] ? 'negative ' : '') + fr[2] + ' over ' + fr[3];
     var sp = texToSpeech(p);
     return ' to the power ' + sp + (/^(negative )?[\w.]+$/.test(sp) ? '' : ',');
   }
@@ -134,7 +136,7 @@ function texToSpeech(tex) {
           push(name + ' of ' + (single ? sp2 : 'the quantity ' + sp2), false);
           skipWs(); if (s[i] === '+' || s[i] === '-' || s[i] === '−') out[out.length - 1] += ',';
         } else if (i < s.length && /[A-Za-z0-9\\{]/.test(s[i])) {
-          var arg = group(), sp3 = texToSpeech(arg);
+          var nm = /^\d+(\.\d+)?/.exec(s.slice(i)), arg = nm ? (i += nm[0].length, nm[0]) : group(), sp3 = texToSpeech(arg);
           if (s[i] === '^') { i++; sp3 += power(group()); }
           push(name + ' of ' + sp3, false);
         } else push(name, false);

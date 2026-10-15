@@ -1,0 +1,195 @@
+# EL3 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math needs a "speak" line: the plain-words reading that screen readers announce.
+code: EL3
+h1: "EL3 Support: Introduction to Logarithms"
+pageTitle: "EL3 Support: Introduction to Logarithms — Math 172, Santa Ana College"
+hubSummary: "Introduction to logarithms: converting between forms and evaluating"
+videoIntro: "A narrated walkthrough of how to convert between exponential and logarithmic form and how to evaluate logarithms, including common and natural logarithms."
+# Phrases that must NOT appear in text shown before the student guesses (table captions, item titles).
+banPhrases: '(logarithmic|exponential) form (is|of)|(is|equals) the exponent|the (log|logarithm) (is|equals)|base (is|stays)'
+worked:   # used for the worked-examples recording document
+  title: "EL3 Worked Examples: Introduction to Logarithms"
+  coreQuestion: "What power do I raise the base to in order to get the number inside the logarithm?"
+  coreFollowup: "That power is the value of the logarithm. An exponential equation and a logarithmic equation say the same thing in two different ways."
+summary:   # the Quick Summary tab
+  intro: 'Every EL3 question comes back to one idea: <strong>a logarithm is an exponent.</strong> The value of \( \log_b x \) is the power you raise \( b \) to in order to get \( x \).'
+  caption: "How the two forms match, and the slip to avoid"
+  columns: ["What you need", "How to do it", "Common slip"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Exponential to logarithmic form'
+      - '<span>\( b^y=x \)</span> becomes <span>\( \log_b x=y \)</span>. The base stays the base, the exponent becomes the value of the log, and the result goes inside.'
+      - 'Swapping the base and the exponent, or putting the exponent inside the log.'
+    -
+      - 'Logarithmic to exponential form'
+      - '<span>\( \log_b x=y \)</span> becomes <span>\( b^y=x \)</span>. Start at the base, raise it to the value of the log, and you land on the number inside.'
+      - 'Putting the value of the log where the number inside belongs.'
+    -
+      - 'Evaluate a logarithm'
+      - 'Ask: what power of the base gives the number inside? Rewrite the number inside as a power of the base.'
+      - 'Answering with the number inside, or missing that <span>\( \tfrac{1}{9}=3^{-2} \)</span> and <span>\( 4=16^{1/2} \)</span> call for negative and fractional exponents.'
+    -
+      - 'Common and natural logarithms'
+      - '<span>\( \log x \)</span> with no base written means base 10. <span>\( \ln x \)</span> means base <span>\( e \)</span>. Both follow the same rule as every other logarithm.'
+      - 'Treating <span>\( \ln \)</span> as a different kind of operation, or thinking that <span>\( \log \)</span> has no base.'
+  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+tabs:
+  - id: convert
+    label: "Try It: Convert Between Forms"
+    heading: "Try It: Convert Between Forms"
+    intro: |-
+      Make your best guess on each one, then check it. Ask yourself: which number is the base, which is the exponent, and which is the result?
+    items:
+      - id: conv1
+        title: "Convert 1"
+        math:
+          display: '3^4=81'
+          speak: "3 to the 4th power equals 81"
+        prompt: 'Which equation is the logarithmic form of this exponential equation?'
+        choices:
+          - {value: a, label: '\( \log_3 4=81 \)', speak: "log base 3 of 4 equals 81"}
+          - {value: b, label: '\( \log_4 81=3 \)', speak: "log base 4 of 81 equals 3"}
+          - {value: c, label: '\( \log_3 81=4 \)', speak: "log base 3 of 81 equals 4"}
+          - {value: d, label: '\( \log_{81} 3=4 \)', speak: "log base 81 of 3 equals 4"}
+        correct: c
+        explanation: |-
+          The base of the exponential, 3, becomes the base of the log. The exponent, 4, becomes the value of the log, and 81 goes inside. Read it back as a check: \( \log_3 81=4 \) says "3 to the 4th power is 81." <strong>The logarithmic form is \( \log_3 81=4 \).</strong>
+      - id: conv2
+        title: "Convert 2"
+        math:
+          display: '7^n=p'
+          speak: "7 to the n equals p"
+        prompt: 'Which equation is the logarithmic form of this exponential equation?'
+        choices:
+          - {value: a, label: '\( \log_7 n=p \)', speak: "log base 7 of n equals p"}
+          - {value: b, label: '\( \log_p 7=n \)', speak: "log base p of 7 equals n"}
+          - {value: c, label: '\( \log_7 p=n \)', speak: "log base 7 of p equals n"}
+          - {value: d, label: '\( \log_n 7=p \)', speak: "log base n of 7 equals p"}
+        correct: c
+        explanation: |-
+          Letters follow the same pattern as numbers. The base, 7, stays the base. The exponent, \( n \), is the value of the log. The result, \( p \), goes inside the log. Read it back: \( \log_7 p=n \) says "7 to the \( n \) is \( p \)." <strong>The logarithmic form is \( \log_7 p=n \).</strong>
+      - id: conv3
+        title: "Convert 3"
+        math:
+          display: '\log_5 125=3'
+          speak: "log base 5 of 125 equals 3"
+        prompt: 'Which equation is the exponential form of this logarithmic equation?'
+        choices:
+          - {value: a, label: '\( 3^5=125 \)', speak: "3 to the 5th power equals 125"}
+          - {value: b, label: '\( 5^{125}=3 \)', speak: "5 to the 125th power equals 3"}
+          - {value: c, label: '\( 5^3=125 \)', speak: "5 to the 3rd power equals 125"}
+          - {value: d, label: '\( 125^3=5 \)', speak: "125 to the 3rd power equals 5"}
+        correct: c
+        explanation: |-
+          The base of the log, 5, is the base of the power. The value of the log, 3, is the exponent. The number inside, 125, is the result. Check it: \( 5\cdot 5\cdot 5=125 \). <strong>The exponential form is \( 5^3=125 \).</strong>
+      - id: conv4
+        title: "Convert 4"
+        math:
+          display: '\log_b a=c'
+          speak: "log base b of a equals c"
+        prompt: 'Which equation is the exponential form of this logarithmic equation?'
+        choices:
+          - {value: a, label: '\( a^c=b \)', speak: "a to the c equals b"}
+          - {value: b, label: '\( b^c=a \)', speak: "b to the c equals a"}
+          - {value: c, label: '\( c^b=a \)', speak: "c to the b equals a"}
+          - {value: d, label: '\( b^a=c \)', speak: "b to the a equals c"}
+        correct: b
+        explanation: |-
+          Start at the base, \( b \). The value of the log, \( c \), is the exponent. The number inside, \( a \), is the result. Read it back: \( b^c=a \) says "\( b \) to the \( c \) is \( a \)." <strong>The exponential form is \( b^c=a \).</strong>
+  - id: evaluate
+    label: "Try It: Evaluate"
+    heading: "Try It: Evaluate"
+    intro: |-
+      Rewrite the number inside as a power of the base, or ask: what power of the base gives this number?
+    items:
+      - id: ev1
+        title: "Evaluate 1"
+        math:
+          display: '\log_2 32'
+          speak: "log base 2 of 32"
+        prompt: 'What is the value of this logarithm?'
+        choices:
+          - {value: a, label: "16"}
+          - {value: b, label: "64"}
+          - {value: c, label: "5"}
+          - {value: d, label: "2"}
+        correct: c
+        explanation: |-
+          Ask: 2 to what power gives 32? Count the factors: \( 2\cdot 2\cdot 2\cdot 2\cdot 2=32 \), so \( 2^5=32 \). The value of the logarithm is that exponent. <strong>\( \log_2 32=5 \).</strong>
+      - id: ev2
+        title: "Evaluate 2"
+        math:
+          display: '\log_3\left(\tfrac{1}{9}\right)'
+          speak: "log base 3 of one ninth"
+        prompt: 'What is the value of this logarithm?'
+        choices:
+          - {value: a, label: "2"}
+          - {value: b, label: "−2", speak: "negative 2"}
+          - {value: c, label: "−9", speak: "negative 9"}
+          - {value: d, label: '\( \tfrac{1}{2} \)', speak: "one half"}
+        correct: b
+        explanation: |-
+          Ask: 3 to what power gives \( \tfrac{1}{9} \)? Since \( 3^2=9 \), a negative exponent flips it to \( 3^{-2}=\tfrac{1}{9} \). A logarithm can be negative when the number inside is between 0 and 1. <strong>\( \log_3\left(\tfrac{1}{9}\right)=-2 \).</strong>
+      - id: ev3
+        title: "Evaluate 3"
+        math:
+          display: '\log_{16} 4'
+          speak: "log base 16 of 4"
+        prompt: 'What is the value of this logarithm?'
+        choices:
+          - {value: a, label: "4"}
+          - {value: b, label: "2"}
+          - {value: c, label: '\( \tfrac{1}{2} \)', speak: "one half"}
+          - {value: d, label: '\( \tfrac{1}{4} \)', speak: "one fourth"}
+        correct: c
+        explanation: |-
+          Ask: 16 to what power gives 4? A square root undoes a square, so \( 16^{1/2}=\sqrt{16}=4 \), and the power is \( \tfrac{1}{2} \). Do not flip the base and the number: \( \log_4 16 \) would be 2, but here the base is 16. <strong>\( \log_{16}4=\tfrac{1}{2} \).</strong>
+  - id: special
+    label: "Try It: Common & Natural Logs"
+    heading: "Try It: Common & Natural Logs"
+    intro: |-
+      A log with no base written is a common logarithm, which means base 10. The natural logarithm, written <span>\( \ln \)</span>, means base <span>\( e \)</span>, where <span>\( e\approx 2.718 \)</span>.
+    items:
+      - id: spec1
+        title: "Common Log"
+        math:
+          display: '\log 0.01'
+          speak: "log of 0.01"
+        prompt: 'What is the value of this logarithm?'
+        choices:
+          - {value: a, label: "2"}
+          - {value: b, label: "−2", speak: "negative 2"}
+          - {value: c, label: "−100", speak: "negative 100"}
+          - {value: d, label: "0.1"}
+        correct: b
+        explanation: |-
+          With no base written, the base is 10. Ask: 10 to what power gives 0.01? Since \( 0.01=\tfrac{1}{100}=\tfrac{1}{10^2}=10^{-2} \), the power is \(-2\). <strong>\( \log 0.01=-2 \).</strong>
+      - id: spec2
+        title: "Natural Log 1"
+        math:
+          display: '\ln 7=x'
+          speak: "natural log of 7 equals x"
+        prompt: 'Which equation is the exponential form of this logarithmic equation?'
+        choices:
+          - {value: a, label: '\( e^7=x \)', speak: "e to the 7th power equals x"}
+          - {value: b, label: '\( 7^x=e \)', speak: "7 to the x equals e"}
+          - {value: c, label: '\( e^x=7 \)', speak: "e to the x equals 7"}
+          - {value: d, label: '\( x^e=7 \)', speak: "x to the e equals 7"}
+        correct: c
+        explanation: |-
+          \( \ln \) is a logarithm with base \( e \), so \( \ln 7=x \) means \( \log_e 7=x \). The base is \( e \), the exponent is \( x \), and the result is 7. <strong>The exponential form is \( e^x=7 \).</strong>
+      - id: spec3
+        title: "Natural Log 2"
+        math:
+          display: '\ln\left(e^5\right)'
+          speak: "natural log of e to the 5th power"
+        prompt: 'What is the value of this logarithm?'
+        choices:
+          - {value: a, label: '\( e \)', speak: "e"}
+          - {value: b, label: '\( e^5 \)', speak: "e to the 5th power"}
+          - {value: c, label: "5"}
+          - {value: d, label: '\( \tfrac{1}{5} \)', speak: "one fifth"}
+        correct: c
+        explanation: |-
+          Ask: \( e \) to what power gives \( e^5 \)? The power is 5. The natural log undoes a power of \( e \). <strong>\( \ln\left(e^5\right)=5 \).</strong>
