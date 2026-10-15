@@ -1,0 +1,153 @@
+# FN1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+code: FN1
+h1: "FN1 Support: Is It a Function?"
+pageTitle: "FN1 Support: Is a Relation a Function? — Math 172, Santa Ana College"
+hubSummary: "Is a relation a function?"
+videoIntro: "A narrated walkthrough of how to decide whether a relation is a function, covering mapping diagrams, tables, ordered pairs, equations, and graphs."
+# Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
+banPhrases: '(is|are|represents|defines|does not define|not) (a )?function|not a function|one-to-one'
+worked:   # used for the worked-examples recording document
+  title: "FN1 Worked Examples: Is It a Function?"
+  coreQuestion: "Can one input ever correspond to more than one output?"
+  coreFollowup: "If yes, it is not a function."
+summary:   # the Quick Summary tab
+  intro: 'Every FN1 question asks the same thing: <strong>can one input ever correspond to more than one output?</strong> If yes, it is not a function.'
+  caption: "What to check in each representation"
+  columns: ["Representation", "What to check", "Not a function when…"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Mapping diagram'
+      - 'Arrows leaving each input'
+      - 'an input has two arrows'
+    -
+      - 'Table'
+      - 'The x-values'
+      - 'an x-value repeats with a different y'
+    -
+      - 'Ordered pairs'
+      - 'The x-coordinates'
+      - 'two pairs share an x but have different y'
+    -
+      - 'Equation'
+      - 'The power on <span>\( y \)</span>'
+      - '<span>\( y \)</span> has an even power (<span>\( y^2, y^4 \)</span>). With <span>\( y \)</span> in just one term, an odd power always gives a function'
+    -
+      - 'Graph'
+      - 'The vertical line test'
+      - 'a vertical line crosses the graph more than once'
+  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+tabs:
+  - id: mapping
+    label: "Try It: Mapping, Table & Ordered Pairs"
+    heading: "Try It: Mapping, Table & Ordered Pairs"
+    intro: |-
+      Make your best guess on each one, then check it. The data under each picture lists the same information the picture shows — use it however's easiest.
+    items:
+      - id: map1
+        title: "Mapping Diagram"
+        figure:
+          file: figures/FN1/map1.svg
+          title: "A mapping diagram from six inputs to six outputs"
+          caption: '<strong>Plotted data (arrows, input → output):</strong> 2 → 6, 5 → 24, 8 → 9, 8 → 17, 11 → 13, 14 → 20, 17 → 6.'
+        prompt: 'Does this mapping define a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: no
+        explanation: |-
+          The input <strong>8</strong> appears twice in the list — once going to 9, once going to 17. One input can't correspond to two different outputs, so <strong>this mapping does not define a function.</strong> (Every other input appears only once, so that one repeat is the whole story.)
+      - id: tab1
+        title: "Table"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table of x and y values"
+          rows:
+            - ["x", "4", "7", "10", "13", "16", "19"]
+            - ["y", "11", "2", "15", "8", "3", "9"]
+        prompt: 'Does this table define a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: yes
+        explanation: |-
+          Scan the x-row: 4, 7, 10, 13, 16, 19 — every value appears exactly once. No input is repeated, so <strong>this table defines a function.</strong> (It doesn't matter that some y-values might repeat — only repeats in x break the definition.)
+      - id: pairs1
+        title: "Ordered Pairs"
+        math:
+          inline: ['(3, 9)', '(3, 14)', '(6, 2)', '(10, 5)', '(15, 8)', '(18, 1)']
+        prompt: 'Do these ordered pairs define a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: no
+        explanation: |-
+          \( (3, 9) \) and \( (3, 14) \) share the same x-value, 3, but disagree on y. That's the same conflict as a repeated input in a mapping diagram — just written as coordinates. So <strong>these ordered pairs do not define a function.</strong>
+  - id: equations
+    label: "Try It: Equations"
+    heading: "Try It: Equations"
+    intro: 'For each equation, decide whether it defines <span>\( y \)</span> as a function of <span>\( x \)</span>. Look at the power on <span>\( y \)</span>.'
+    items:
+      - id: eq1
+        title: "Equation 1"
+        math:
+          display: '3y^5 + 2x^4 = 0'
+        prompt: 'Does this equation define a function of <span>\( x \)</span>?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: yes
+        explanation: 'Solving for <span>\( y \)</span> here means taking a <strong>fifth root</strong> — an odd root. Odd roots are invertible, with no sign ambiguity: each real number has exactly one real fifth root. So <strong>this equation defines a function of \(x\).</strong>'
+      - id: eq2
+        title: "Equation 2"
+        math:
+          display: '2y^4 + 3x^5 = 0'
+        prompt: 'Does this equation define a function of <span>\( x \)</span>?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: no
+        explanation: |-
+          Solving for <span>\( y \)</span> here means taking a <strong>fourth root</strong> — an even root. Even roots aren't invertible: the fourth root can't tell you whether the original number was positive or negative, so one value of \(x\) can correspond to two values of \(y\). So <strong>this equation does not define a function of \(x\).</strong>
+  - id: graphs
+    label: "Try It: Graphs"
+    heading: "Try It: Graphs"
+    intro: |-
+      Apply the vertical line test: if any vertical line would cross the graph more than once, it's not a function.
+    items:
+      - id: graph1
+        title: "Graph 1"
+        figure:
+          file: figures/FN1/graph1.svg
+          title: "A straight line crossing the grid diagonally"
+          caption: '<strong>Plotted data:</strong> a straight line passing through points including \((0, 3)\) and \((1, 1)\), extending from the upper-left to the lower-right of the grid with no breaks or turns.'
+        prompt: 'Does this graph represent a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: yes
+        explanation: 'This is the line \(y=-2x+3\). Any vertical line you draw crosses a straight (non-vertical) line exactly once. <strong>This graph represents a function.</strong>'
+      - id: graph2
+        title: "Graph 2"
+        figure:
+          file: figures/FN1/graph2.svg
+          title: "A smooth curve extending to the right from a leftmost point"
+          caption: '<strong>Plotted data:</strong> a smooth curve whose leftmost point is at \((-4, 0)\). It extends to the right and passes through approximately \((-1.1, 1.7)\), \((-1.1, -1.7)\), \((1.8, 2.4)\), and \((1.8, -2.4)\).'
+        prompt: 'Does this graph represent a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: no
+        explanation: 'This is the graph of \(x=y^2-4\) — a parabola opened sideways instead of up. A vertical line through the open side of the curve crosses it twice (once above the x-axis, once below). <strong>This graph does not represent a function.</strong>'
+      - id: graph3
+        title: "Graph 3"
+        figure:
+          file: figures/FN1/graph3.svg
+          title: "Five isolated plotted points"
+          caption: '<strong>Plotted data:</strong> five isolated points, not connected to each other, at approximately \((-4, 2)\), \((-2, -3)\), \((0, 4)\), \((2, -1)\), and \((4, 3)\).'
+        prompt: 'Does this graph represent a function?'
+        choices:
+          - {value: yes, label: "Function"}
+          - {value: no, label: "Not a function"}
+        correct: yes
+        explanation: 'Check the x-coordinates: \(-4, -2, 0, 2, 4\) — all five are different, so no vertical line can pass through more than one point. <strong>This graph represents a function.</strong>'
