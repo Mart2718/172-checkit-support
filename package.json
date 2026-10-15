@@ -1,0 +1,12 @@
+{
+  "name": "172-checkit-support",
+  "version": "1.0.0",
+  "description": "CheckIt support pages for Math 172 (Santa Ana College): one content file per TBIL outcome, one shared template.",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
