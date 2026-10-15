@@ -9,7 +9,8 @@ for it in soup.select('div.item'):
     fig, svg, tbl = it.select_one('figcaption'), it.select_one('svg'), it.select_one('table')
     math = it.select_one('p[style*="font-size"]')
     items.append(dict(
-        id=it['id'], title=it.h3.get_text(), prompt=' '.join(it.select_one('.prompt').get_text().split()),
+        id=it['id'], title=it.h3.get_text(),
+        choices=[b.get_text().strip().removeprefix('I think: ') for b in it.select('.guess-btn')], prompt=' '.join(it.select_one('.prompt').get_text().split()),
         explanation=it.select_one('[id$=-explanation]').decode_contents().strip(), correct=correct,
         figcaption=fig.decode_contents().strip() if fig else None,
         svg_title=svg.title.get_text() if svg else None, has_svg=bool(svg),

@@ -1,0 +1,164 @@
+# EL4 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+code: EL4
+h1: "EL4 Support: Graphing Logarithmic Functions"
+pageTitle: "EL4 Support: Graphing Logarithmic Functions — Math 172, Santa Ana College"
+hubSummary: "Graphing logarithmic functions: domain, range, and asymptotes"
+videoIntro: "A narrated walkthrough of how to find the domain, range, and vertical asymptote of a logarithmic function and how to recognize its graph."
+# Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
+banPhrases: '(domain|range) (is|are|of)|asymptote (is|at|of)|(is|are) (the )?(domain|range)|defined (for|when|only)|undefined|has domain|has range'
+worked:   # used for the worked-examples recording document
+  title: "EL4 Worked Examples: Graphing Logarithmic Functions"
+  coreQuestion: "Where does the inside of the logarithm equal zero, and on which side of that value is it positive?"
+  coreFollowup: "The first answer is the vertical asymptote. The second tells you the domain."
+summary:   # the Quick Summary tab
+  intro: 'Every EL4 question comes back to one idea: <strong>find the value of \(x\) that makes the inside of the logarithm equal to zero, and check which side of it the inside is positive.</strong> That value is the vertical asymptote, and the positive side is the domain.'
+  caption: "What to find for a logarithmic function, and the slip to avoid"
+  columns: ["What you need", "How to find it", "Common slip"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Domain'
+      - 'Set the inside of the log greater than 0 and solve.'
+      - 'Copying the sign from the equation. For <span>\( \log_4(x+2) \)</span> the inside is positive when <span>\( x>-2 \)</span>, not when <span>\( x>2 \)</span>.'
+    -
+      - 'Vertical asymptote'
+      - 'Set the inside of the log equal to 0 and solve. The asymptote is the vertical line <span>\( x= \)</span> that value.'
+      - 'Using the number added at the end as an asymptote. Adding to the outside moves the graph up or down. It cannot move a vertical line.'
+    -
+      - 'Range'
+      - 'All real numbers, <span>\( (-\infty, \infty) \)</span>, for every logarithmic function in this outcome.'
+      - 'Thinking a flip or a vertical shift puts a ceiling or a floor on the outputs. The outputs of a log never stop in either direction.'
+    -
+      - 'Graph'
+      - 'Draw the dashed asymptote. Mark where the inside equals 1 (the log is 0) and where the inside equals the base (the log is 1). Then sketch the curve hugging the dashed line.'
+      - 'Missing a flip. A minus sign outside the log flips the graph upside down. A minus sign on the <span>\( x \)</span> inside flips it left to right.'
+  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+tabs:
+  - id: domain
+    label: "Try It: Domain & Range"
+    heading: "Try It: Domain & Range"
+    intro: |-
+      Make your best guess on each one, then check it. Ask yourself: for which values of <span>\( x \)</span> is the inside of the log positive?
+    items:
+      - id: dom1
+        title: "Domain 1"
+        math:
+          display: 'f(x)=\log_4(x+2)'
+        prompt: 'What is the domain of this function?'
+        choices:
+          - {value: a, label: "(2, ∞)"}
+          - {value: b, label: "(−2, ∞)"}
+          - {value: c, label: "(0, ∞)"}
+          - {value: d, label: "(−∞, −2)"}
+        correct: b
+        explanation: |-
+          A logarithm only accepts positive inputs, so the inside must be positive: \( x+2>0 \). Subtract 2 from both sides to get \( x>-2 \). Adding 2 inside the log shifts the graph left, so it starts at \(-2\), not at 2. <strong>The domain is \( (-2, \infty) \).</strong>
+      - id: dom2
+        title: "Domain 2"
+        math:
+          display: 'f(x)=\log_5(-x)+2'
+        prompt: 'What is the domain of this function?'
+        choices:
+          - {value: a, label: "(0, ∞)"}
+          - {value: b, label: "(−∞, 2)"}
+          - {value: c, label: "(−∞, 0)"}
+          - {value: d, label: "(−∞, ∞)"}
+        correct: c
+        explanation: |-
+          The inside of the log is \( -x \), and it must be positive: \( -x>0 \). Multiply both sides by \(-1\), which flips the inequality, to get \( x<0 \). The +2 on the outside moves the graph up, but it does not change which values of \( x \) are allowed. <strong>The domain is \( (-\infty, 0) \).</strong>
+      - id: rng1
+        title: "Range 1"
+        math:
+          display: 'f(x)=-\log_2(x-3)'
+        prompt: 'What is the range of this function?'
+        choices:
+          - {value: a, label: "(3, ∞)"}
+          - {value: b, label: "(−∞, 0)"}
+          - {value: c, label: "(0, ∞)"}
+          - {value: d, label: "(−∞, ∞)"}
+        correct: d
+        explanation: |-
+          Far to the right the graph keeps going in one direction without stopping, and close to the vertical asymptote it keeps going the other way without stopping. The minus sign turns the graph upside down, but it does not create a ceiling or a floor. The numbers 3 and \( \infty \) describe the domain, which is about \( x \), not the range, which is about \( y \). <strong>The range is \( (-\infty, \infty) \).</strong>
+  - id: asymptotes
+    label: "Try It: Asymptotes"
+    heading: "Try It: Asymptotes"
+    intro: |-
+      A logarithmic function has a vertical asymptote. Find the value of <span>\( x \)</span> that makes the inside of the log equal to zero.
+    items:
+      - id: asy1
+        title: "Asymptote 1"
+        math:
+          display: 'f(x)=\log_2(x+5)'
+        prompt: 'What is the equation of the asymptote of this function?'
+        choices:
+          - {value: a, label: "x = 5"}
+          - {value: b, label: "y = −5"}
+          - {value: c, label: "x = −5"}
+          - {value: d, label: "y = 0"}
+        correct: c
+        explanation: |-
+          The asymptote sits at the one input the log can never accept: the value that makes the inside equal to zero. Solve \( x+5=0 \) to get \( x=-5 \). It is a vertical line, so its equation starts with \( x \). <strong>The asymptote is \( x=-5 \).</strong>
+      - id: asy2
+        title: "Asymptote 2"
+        math:
+          display: 'f(x)=-\log_4(x)+3'
+        prompt: 'What is the equation of the asymptote of this function?'
+        choices:
+          - {value: a, label: "y = 3"}
+          - {value: b, label: "x = 0"}
+          - {value: c, label: "x = 3"}
+          - {value: d, label: "y = 0"}
+        correct: b
+        explanation: |-
+          The inside of the log is just \( x \), and it equals zero when \( x=0 \). The +3 on the outside moves every point of the graph up 3 units, but it cannot move a vertical line left or right. (Exponential functions have horizontal asymptotes. Logarithmic functions have vertical ones.) <strong>The asymptote is \( x=0 \).</strong>
+  - id: graphs
+    label: "Try It: Graphs"
+    heading: "Try It: Graphs"
+    intro: |-
+      Each picture shows a dashed vertical line and a curve. Use the dashed line and the points listed under the picture to work out what you need.
+    items:
+      - id: graph1
+        title: "Graph 1"
+        figure:
+          file: figures/EL4/graph1.svg
+          title: "A curve to the right of a dashed vertical line"
+          caption: '<strong>Plotted data:</strong> a dashed vertical line at \(x=2\). A smooth curve lies only to the right of the dashed line. It begins very close to the line near the bottom of the grid, climbs steeply at first, and then rises more and more slowly. It passes through \((3, 0)\), \((5, 1)\), and \((11, 2)\).'
+        prompt: 'Which function has this graph?'
+        choices:
+          - {value: a, label: "f(x) = log base 2 of (x − 2)"}
+          - {value: b, label: "f(x) = log base 3 of (x + 2)"}
+          - {value: c, label: "f(x) = log base 3 of (x − 2)"}
+          - {value: d, label: "f(x) = (log base 3 of x) − 2"}
+        correct: c
+        explanation: |-
+          The dashed line is at \( x=2 \), so the inside of the log must equal zero there. That means the inside is \( x-2 \). This rules out \( x+2 \) (dashed line at \( x=-2 \)) and \( \log_3 x-2 \) (dashed line at \( x=0 \)). Two options are left. Both pass through \( (3, 0) \), but only base 3 passes through \( (5, 1) \): \( \log_3(5-2)=\log_3 3=1 \), while \( \log_2 3\approx 1.58 \). <strong>The graph is \( f(x)=\log_3(x-2) \).</strong>
+      - id: graph2
+        title: "Graph 2"
+        figure:
+          file: figures/EL4/graph2.svg
+          title: "A falling curve to the right of a dashed vertical line"
+          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at \(x=0\). A smooth curve lies only to the right of the dashed line. It begins high up, very close to the line, falls steeply at first, and then falls more and more slowly. It passes through \((0.5, 2)\), \((1, 1)\), \((2, 0)\), and \((4, -1)\).'
+        prompt: 'Which function has this graph?'
+        choices:
+          - {value: a, label: "f(x) = −(log base 2 of x) + 1"}
+          - {value: b, label: "f(x) = (log base 2 of x) + 1"}
+          - {value: c, label: "f(x) = −(log base 2 of x) − 1"}
+          - {value: d, label: "f(x) = (log base 2 of (−x)) + 1"}
+        correct: a
+        explanation: |-
+          The curve falls as \( x \) increases, so it has been flipped upside down: a minus sign goes outside the log. A flip left to right would put the curve on the other side of the dashed line, which is not what we see. Check a point: \( -\log_2 1+1=1 \), which matches \( (1, 1) \), and \( -\log_2 2+1=0 \), which matches \( (2, 0) \). The version with \(-1\) at the end would give \(-1\) at \( x=1 \). <strong>The graph is \( f(x)=-\log_2(x)+1 \).</strong>
+      - id: graph3
+        title: "Graph 3"
+        figure:
+          file: figures/EL4/graph3.svg
+          title: "A curve and a dashed vertical line, with four labeled points"
+          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at \(x=0\). A smooth curve passes through \((-9, 1)\), \((-3, 0)\), \((-1, -1)\), and \((-1/3, -2)\). Moving left along the curve it rises slowly. Moving right it drops steeply toward the bottom of the grid, very close to the dashed line.'
+        prompt: 'What is the domain of the function graphed here?'
+        choices:
+          - {value: a, label: "(0, ∞)"}
+          - {value: b, label: "(−∞, 0)"}
+          - {value: c, label: "(−∞, −1)"}
+          - {value: d, label: "(−∞, ∞)"}
+        correct: b
+        explanation: |-
+          The domain is about the \( x \)-values, so read across the bottom of the graph. Every point on the curve has a negative \( x \)-value. The curve gets closer and closer to the dashed line but never touches it or crosses it. The \( y \)-values run up and down forever, which is the range, not the domain. This is the graph of \( f(x)=\log_3(-x)-1 \), a left-to-right flip. <strong>The domain is \( (-\infty, 0) \).</strong>
