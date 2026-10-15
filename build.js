@@ -39,6 +39,7 @@ function validate(file, c) {
       claim(it.id, 'item');
       need(Array.isArray(it.choices) && it.choices.length >= 2, `${w} needs at least 2 choices`);
       need((it.choices || []).some((x) => x.value === it.correct), `${w}: "correct" must equal one of the choice values`);
+      (it.choices || []).forEach((x) => need(!/\\\(|\\\[/.test(x.label || '') || x.speak, `${w}: choice "${x.value}" contains math, so it needs a "speak" field (plain-words reading for screen readers)`));
       need(it.figure || it.table || it.math, `${w} needs a figure, table or math block`);
       if (!stripTags(it.explanation || '').trim() || !(it.explanation || '').includes('<strong>')) warnings.push(`${file}: ${w}: explanation should end with the verdict in <strong>...</strong> (the worked-examples tool reads it)`);
       if (it.figure) {
@@ -81,7 +82,10 @@ function renderTable(it) {
   return `      <div class="table-wrap" role="region" aria-label="${esc(t.label || t.caption)}" tabindex="0">\n      <table class="data-table">\n        <caption class="tbl-cap">${esc(t.caption)}</caption>\n${rows}\n      </table>\n      </div>`;
 }
 function renderMath(m) {
-  if (m.display) return `      <p style="font-size:18px;text-align:center;">${BS}[ ${m.display} ${BS}]</p>`;
+  // optional "speak": a plain-words reading. It becomes the accessible name, so screen readers read the equation reliably.
+  if (m.display) return m.speak
+    ? `      <div role="img" aria-label="${esc(m.speak)}" style="font-size:18px;text-align:center;margin:1em 0;">${BS}[ ${m.display} ${BS}]</div>`
+    : `      <p style="font-size:18px;text-align:center;">${BS}[ ${m.display} ${BS}]</p>`;
   return `      <p style="font-size:16px;">${m.inline.map((x) => `${BS}( ${x} ${BS})`).join(', ')}</p>`;
 }
 function renderItem(it, prefix) {
@@ -91,7 +95,7 @@ function renderItem(it, prefix) {
   if (it.math) parts.push(renderMath(it.math));
   parts.push(`      <p class="prompt" id="${it.id}-q">${it.prompt}</p>`);
   parts.push(`      <div class="guess-row" role="group" aria-labelledby="${it.id}-q">`);
-  it.choices.forEach((ch) => parts.push(`        <button type="button" class="guess-btn" data-guess="${esc(ch.value)}" data-label="${esc(prefix + ch.label)}" aria-pressed="false" onclick="checkGuess(this,'${it.id}','${ch.value}','${it.correct}')">${esc(prefix + ch.label)}</button>`));
+  it.choices.forEach((ch) => parts.push(`        <button type="button" class="guess-btn" data-guess="${esc(ch.value)}" data-label="${esc(prefix + ch.label)}"${ch.speak ? ` aria-label="${esc(prefix + ch.speak)}"` : ''} aria-pressed="false" onclick="checkGuess(this,'${it.id}','${ch.value}','${it.correct}')">${esc(prefix + ch.label)}</button>`));
   parts.push('      </div>');
   parts.push(`      <div id="${it.id}-feedback" class="feedback" hidden aria-live="polite"></div>`);
   parts.push(`      <div id="${it.id}-explanation" hidden>${it.explanation}</div>`);
