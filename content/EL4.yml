@@ -44,6 +44,7 @@ tabs:
         title: "Domain 1"
         math:
           display: 'f(x)=\log_4(x+2)'
+          speak: "f of x equals log base 4 of the quantity x plus 2"
         prompt: 'What is the domain of this function?'
         choices:
           - {value: a, label: "(2, ∞)"}
@@ -57,6 +58,7 @@ tabs:
         title: "Domain 2"
         math:
           display: 'f(x)=\log_5(-x)+2'
+          speak: "f of x equals log base 5 of negative x, plus 2"
         prompt: 'What is the domain of this function?'
         choices:
           - {value: a, label: "(0, ∞)"}
@@ -70,6 +72,7 @@ tabs:
         title: "Range 1"
         math:
           display: 'f(x)=-\log_2(x-3)'
+          speak: "f of x equals negative log base 2 of the quantity x minus 3"
         prompt: 'What is the range of this function?'
         choices:
           - {value: a, label: "(3, ∞)"}
@@ -89,6 +92,7 @@ tabs:
         title: "Asymptote 1"
         math:
           display: 'f(x)=\log_2(x+5)'
+          speak: "f of x equals log base 2 of the quantity x plus 5"
         prompt: 'What is the equation of the asymptote of this function?'
         choices:
           - {value: a, label: "x = 5"}
@@ -102,6 +106,7 @@ tabs:
         title: "Asymptote 2"
         math:
           display: 'f(x)=-\log_4(x)+3'
+          speak: "f of x equals negative log base 4 of x, plus 3"
         prompt: 'What is the equation of the asymptote of this function?'
         choices:
           - {value: a, label: "y = 3"}
@@ -125,10 +130,10 @@ tabs:
           caption: '<strong>Plotted data:</strong> a dashed vertical line at \(x=2\). A smooth curve lies only to the right of the dashed line. It begins very close to the line near the bottom of the grid, climbs steeply at first, and then rises more and more slowly. It passes through \((3, 0)\), \((5, 1)\), and \((11, 2)\).'
         prompt: 'Which function has this graph?'
         choices:
-          - {value: a, label: '\( f(x)=\log_2(x-2) \)'}
-          - {value: b, label: '\( f(x)=\log_3(x+2) \)'}
-          - {value: c, label: '\( f(x)=\log_3(x-2) \)'}
-          - {value: d, label: '\( f(x)=\log_3(x)-2 \)'}
+          - {value: a, label: '\( f(x)=\log_2(x-2) \)', speak: "f of x equals log base 2 of the quantity x minus 2"}
+          - {value: b, label: '\( f(x)=\log_3(x+2) \)', speak: "f of x equals log base 3 of the quantity x plus 2"}
+          - {value: c, label: '\( f(x)=\log_3(x-2) \)', speak: "f of x equals log base 3 of the quantity x minus 2"}
+          - {value: d, label: '\( f(x)=\log_3(x)-2 \)', speak: "f of x equals the quantity log base 3 of x, minus 2"}
         correct: c
         explanation: |-
           The dashed line is at \( x=2 \), so the inside of the log must equal zero there. That means the inside is \( x-2 \). This rules out \( x+2 \) (dashed line at \( x=-2 \)) and \( \log_3 x-2 \) (dashed line at \( x=0 \)). Two options are left. Both pass through \( (3, 0) \), but only base 3 passes through \( (5, 1) \): \( \log_3(5-2)=\log_3 3=1 \), while \( \log_2 3\approx 1.58 \). <strong>The graph is \( f(x)=\log_3(x-2) \).</strong>
@@ -140,10 +145,10 @@ tabs:
           caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at \(x=0\). A smooth curve lies only to the right of the dashed line. It begins high up, very close to the line, falls steeply at first, and then falls more and more slowly. It passes through \((0.5, 2)\), \((1, 1)\), \((2, 0)\), and \((4, -1)\).'
         prompt: 'Which function has this graph?'
         choices:
-          - {value: a, label: '\( f(x)=-\log_2(x)+1 \)'}
-          - {value: b, label: '\( f(x)=\log_2(x)+1 \)'}
-          - {value: c, label: '\( f(x)=-\log_2(x)-1 \)'}
-          - {value: d, label: '\( f(x)=\log_2(-x)+1 \)'}
+          - {value: a, label: '\( f(x)=-\log_2(x)+1 \)', speak: "f of x equals negative log base 2 of x, plus 1"}
+          - {value: b, label: '\( f(x)=\log_2(x)+1 \)', speak: "f of x equals log base 2 of x, plus 1"}
+          - {value: c, label: '\( f(x)=-\log_2(x)-1 \)', speak: "f of x equals negative log base 2 of x, minus 1"}
+          - {value: d, label: '\( f(x)=\log_2(-x)+1 \)', speak: "f of x equals log base 2 of negative x, plus 1"}
         correct: a
         explanation: |-
           The curve falls as \( x \) increases, so it has been flipped upside down: a minus sign goes outside the log. A flip left to right would put the curve on the other side of the dashed line, which is not what we see. Check a point: \( -\log_2 1+1=1 \), which matches \( (1, 1) \), and \( -\log_2 2+1=0 \), which matches \( (2, 0) \). The version with \(-1\) at the end would give \(-1\) at \( x=1 \). <strong>The graph is \( f(x)=-\log_2(x)+1 \).</strong>

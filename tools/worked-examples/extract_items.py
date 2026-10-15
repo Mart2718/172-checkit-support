@@ -7,7 +7,7 @@ for it in soup.select('div.item'):
     btn = it.select_one('.guess-btn')
     correct = btn['onclick'].split(',')[-1].strip(" )'")   # last argument of checkGuess(...)
     fig, svg, tbl = it.select_one('figcaption'), it.select_one('svg'), it.select_one('table')
-    math = it.select_one('p[style*="font-size"]')
+    math = it.select_one('p[style*="font-size"], div[role="img"][style*="font-size"]')
     items.append(dict(
         id=it['id'], title=it.h3.get_text(),
         choices=[b.get_text().strip().removeprefix('I think: ') for b in it.select('.guess-btn')], prompt=' '.join(it.select_one('.prompt').get_text().split()),
