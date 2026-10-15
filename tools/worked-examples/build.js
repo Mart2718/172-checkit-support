@@ -19,18 +19,49 @@ const items = JSON.parse(fs.readFileSync(__dirname + '/items.json', 'utf8'));
 // ---------- text helpers: <strong> -> bold, LaTeX math -> plain text with real superscripts (no regex needed) ----------
 const BS = String.fromCharCode(92);                       // backslash
 const OPEN = [BS + '(', BS + '['], CLOSE = [BS + ')', BS + ']'];
-function mathRuns(tex, base) {
-  tex = tex.split(BS + ',').join(' ').split('-').join('−');   // every hyphen inside math is a minus sign
-  const out = []; let buf = '';
+// LaTeX command -> plain Unicode text. Anything not listed keeps its name without the backslash (for example sin, cos).
+const CMD = { left: '', right: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', log: 'log', ln: 'ln' };
+const FUNC = ['log', 'ln', 'sin', 'cos', 'tan', 'sec', 'csc', 'cot'];   // written upright, not italic
+function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, index just after the closing brace]
+  let d = 0;
+  for (let k = i; k < s.length; k++) { if (s[k] === '{') d++; else if (s[k] === '}') { d--; if (d === 0) return [s.slice(i + 1, k), k + 1]; } }
+  return [s.slice(i + 1), s.length];
+}
+function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
+  let out = '';
+  const wrap = (t) => (t.length > 1 && !/^[0-9.]+$/.test(t) ? '(' + t + ')' : t);
   for (let i = 0; i < tex.length; i++) {
-    if (tex[i] === '^') {
-      if (buf) { out.push(new TextRun({ ...base, text: buf, italics: true })); buf = ''; }
-      let sup;
-      if (tex[i + 1] === '{') { const e = tex.indexOf('}', i); sup = tex.slice(i + 2, e); i = e; } else { sup = tex[i + 1]; i += 1; }
-      out.push(new TextRun({ ...base, text: sup, superScript: true, italics: true }));
-    } else buf += tex[i];
+    if (tex[i] !== BS) { out += tex[i]; continue; }
+    const m = /^[a-zA-Z]+/.exec(tex.slice(i + 1));
+    if (!m) { const c = tex[i + 1] || ''; out += (c === ',' || c === ';' || c === ' ') ? ' ' : (c === '!' ? '' : c); i += 1; continue; }
+    const name = m[0]; i += name.length;
+    if (name === 'frac' || name === 'tfrac' || name === 'dfrac') {
+      const [a, j] = braceGroup(tex, i + 1); const [b, k] = braceGroup(tex, j);
+      out += wrap(texToText(a)) + '/' + wrap(texToText(b)); i = k - 1;
+    } else if (name === 'sqrt') {
+      const [a, j] = braceGroup(tex, i + 1); out += '√' + wrap(texToText(a)); i = j - 1;
+    } else out += (name in CMD) ? CMD[name] : name;
   }
-  if (buf) out.push(new TextRun({ ...base, text: buf, italics: true }));
+  return out;
+}
+function mathRuns(tex, base) {
+  tex = texToText(tex).split('-').join('−');   // every hyphen inside math is a minus sign
+  const out = []; let buf = '';
+  const flush = () => { if (buf) { out.push(new TextRun({ ...base, text: buf, italics: true })); buf = ''; } };
+  for (let i = 0; i < tex.length; i++) {
+    if (tex[i] === '^' || tex[i] === '_') {   // superscript or subscript: a {group} or a single character
+      flush();
+      const isSup = tex[i] === '^';
+      let part;
+      if (tex[i + 1] === '{') { const [g, j] = braceGroup(tex, i + 1); part = g; i = j - 1; } else { part = tex[i + 1]; i += 1; }
+      out.push(new TextRun({ ...base, text: part, italics: true, ...(isSup ? { superScript: true } : { subScript: true }) }));
+      continue;
+    }
+    const fn = FUNC.find((f) => tex.startsWith(f, i) && !/[a-zA-Z]/.test(tex[i - 1] || '') && !/[a-zA-Z]/.test(tex[i + f.length] || ''));
+    if (fn) { flush(); out.push(new TextRun({ ...base, text: fn })); i += fn.length - 1; continue; }
+    buf += tex[i];
+  }
+  flush();
   return out;
 }
 function plainWithMath(text, base) {
@@ -46,7 +77,7 @@ function plainWithMath(text, base) {
   }
   return out;
 }
-function stripTags(s) { let o = '', t = false; for (const c of s) { if (c === '<') t = true; else if (c === '>') t = false; else if (!t) o += c; } return o.split('&nbsp;').join(' ').split('&amp;').join('&'); }
+function stripTags(s) { let o = '', t = false; for (const c of s) { if (c === '<') t = true; else if (c === '>') t = false; else if (!t) o += c; } return o.split('&nbsp;').join(' ').split('&lt;').join('<').split('&gt;').join('>').split('&quot;').join('"').split('&#39;').join("'").split('&amp;').join('&'); }
 function runsFromHtml(h, base = {}) {
   const out = [];
   h.split('<strong>').forEach((p, i) => {
@@ -64,7 +95,8 @@ function figure(it) {
   const png = fs.readFileSync(`${__dirname}/${it.id}.png`);
   // Fit the picture inside 500 x 330 px (Word points) keeping its true proportions, whatever the outcome's figures look like.
   const pw = png.readUInt32BE(16), ph = png.readUInt32BE(20);   // width and height stored in the PNG header
-  const scale = Math.min(500 / pw, 330 / ph);
+  const maxH = (it.choices && it.choices.length >= 3) ? 260 : 330;   // leave room on the page for the list of choices
+  const scale = Math.min(500 / pw, maxH / ph);
   const w = Math.round(pw * scale), h = Math.round(ph * scale);
   const cap = stripTags(it.figcaption || '');
   const dataTex = (cap.startsWith('Plotted data') ? cap.slice(cap.indexOf(':') + 1) : cap).trim();
@@ -131,6 +163,9 @@ items.forEach((it, idx) => {
   if (it.math) children.push(...mathBlock(it));
   children.push(new Paragraph({ heading: HeadingLevel.HEADING_3, keepNext: true, children: [new TextRun('Question')] }));
   children.push(para(runsFromHtml(it.prompt)));
+  if (it.choices && it.choices.length >= 3) {   // list the answer choices (A, B, C ...) when there are more than a yes/no pair
+    it.choices.forEach((c, k) => children.push(new Paragraph({ spacing: { before: 20, after: 40 }, indent: { left: 360 }, children: [new TextRun({ text: String.fromCharCode(65 + k) + '.  ', bold: true }), new TextRun({ text: c })] })));
+  }
   children.push(new Paragraph({ heading: HeadingLevel.HEADING_3, keepNext: true, children: [new TextRun('Answer and reasoning')] }));
   children.push(para(runsFromHtml(it.explanation)));
 });
