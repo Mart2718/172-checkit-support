@@ -127,7 +127,7 @@ tabs:
         figure:
           file: figures/EL4/graph1.svg
           title: "A curve to the right of a dashed vertical line"
-          caption: '<strong>Plotted data:</strong> a dashed vertical line at \(x=2\). A smooth curve lies only to the right of the dashed line. It begins very close to the line near the bottom of the grid, climbs steeply at first, and then rises more and more slowly. It passes through \((3, 0)\), \((5, 1)\), and \((11, 2)\).'
+          caption: '<strong>Plotted data:</strong> a dashed vertical line at x = 2. A smooth curve lies only to the right of the dashed line. It begins very close to the line near the bottom of the grid, climbs steeply at first, and then rises more and more slowly. It passes through (3, 0), (5, 1), and (11, 2).'
         prompt: 'Which function has this graph?'
         choices:
           - {value: a, label: '\( f(x)=\log_2(x-2) \)', speak: "f of x equals log base 2 of the quantity x minus 2"}
@@ -142,7 +142,7 @@ tabs:
         figure:
           file: figures/EL4/graph2.svg
           title: "A falling curve to the right of a dashed vertical line"
-          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at \(x=0\). A smooth curve lies only to the right of the dashed line. It begins high up, very close to the line, falls steeply at first, and then falls more and more slowly. It passes through \((0.5, 2)\), \((1, 1)\), \((2, 0)\), and \((4, -1)\).'
+          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at x = 0. A smooth curve lies only to the right of the dashed line. It begins high up, very close to the line, falls steeply at first, and then falls more and more slowly. It passes through (0.5, 2), (1, 1), (2, 0), and (4, −1).'
         prompt: 'Which function has this graph?'
         choices:
           - {value: a, label: '\( f(x)=-\log_2(x)+1 \)', speak: "f of x equals negative log base 2 of x, plus 1"}
@@ -157,7 +157,7 @@ tabs:
         figure:
           file: figures/EL4/graph3.svg
           title: "A curve and a dashed vertical line, with four labeled points"
-          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at \(x=0\). A smooth curve passes through \((-9, 1)\), \((-3, 0)\), \((-1, -1)\), and \((-1/3, -2)\). Moving left along the curve it rises slowly. Moving right it drops steeply toward the bottom of the grid, very close to the dashed line.'
+          caption: '<strong>Plotted data:</strong> a dashed vertical line along the y-axis, at x = 0. A smooth curve passes through (−9, 1), (−3, 0), (−1, −1), and (−1/3, −2). Moving left along the curve it rises slowly. Moving right it drops steeply toward the bottom of the grid, very close to the dashed line.'
         prompt: 'What is the domain of the function graphed here?'
         choices:
           - {value: a, label: "(0, ∞)"}
