@@ -164,7 +164,7 @@ items.forEach((it, idx) => {
   children.push(new Paragraph({ heading: HeadingLevel.HEADING_3, keepNext: true, children: [new TextRun('Question')] }));
   children.push(para(runsFromHtml(it.prompt)));
   if (it.choices && it.choices.length >= 3) {   // list the answer choices (A, B, C ...) when there are more than a yes/no pair
-    it.choices.forEach((c, k) => children.push(new Paragraph({ spacing: { before: 20, after: 40 }, indent: { left: 360 }, children: [new TextRun({ text: String.fromCharCode(65 + k) + '.  ', bold: true }), new TextRun({ text: c })] })));
+    it.choices.forEach((c, k) => children.push(new Paragraph({ spacing: { before: 20, after: 40 }, indent: { left: 360 }, children: [new TextRun({ text: String.fromCharCode(65 + k) + '.  ', bold: true }), ...plainWithMath(c, {})] })));
   }
   children.push(new Paragraph({ heading: HeadingLevel.HEADING_3, keepNext: true, children: [new TextRun('Answer and reasoning')] }));
   children.push(para(runsFromHtml(it.explanation)));

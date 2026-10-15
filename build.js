@@ -91,7 +91,7 @@ function renderItem(it, prefix) {
   if (it.math) parts.push(renderMath(it.math));
   parts.push(`      <p class="prompt" id="${it.id}-q">${it.prompt}</p>`);
   parts.push(`      <div class="guess-row" role="group" aria-labelledby="${it.id}-q">`);
-  it.choices.forEach((ch) => parts.push(`        <button type="button" class="guess-btn" data-guess="${esc(ch.value)}" aria-pressed="false" onclick="checkGuess(this,'${it.id}','${ch.value}','${it.correct}')">${esc(prefix + ch.label)}</button>`));
+  it.choices.forEach((ch) => parts.push(`        <button type="button" class="guess-btn" data-guess="${esc(ch.value)}" data-label="${esc(prefix + ch.label)}" aria-pressed="false" onclick="checkGuess(this,'${it.id}','${ch.value}','${it.correct}')">${esc(prefix + ch.label)}</button>`));
   parts.push('      </div>');
   parts.push(`      <div id="${it.id}-feedback" class="feedback" hidden aria-live="polite"></div>`);
   parts.push(`      <div id="${it.id}-explanation" hidden>${it.explanation}</div>`);
