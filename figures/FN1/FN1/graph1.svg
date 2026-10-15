@@ -1,7 +1,0 @@
-<svg viewBox="0 0 300 300">
-          <g stroke="#6b6b6b" stroke-width="1">
-            <line x1="10" y1="150" x2="290" y2="150"/>
-            <line x1="150" y1="10" x2="150" y2="290"/>
-          </g>
-          <line x1="108" y1="30" x2="228" y2="270" stroke="#1a6b6b" stroke-width="3"/>
-</svg>
