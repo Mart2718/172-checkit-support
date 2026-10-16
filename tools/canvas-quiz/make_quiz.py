@@ -38,20 +38,27 @@ def label_md(v):
     return to_md('Function' if v is True else 'Not a function' if v is False else v)
 
 def table_html(t):
+    # Canvas strips most CSS, so borders are set with plain attributes it keeps.
+    # The caption is also written as a visible bold line above the table, because
+    # some Canvas views drop <caption> and leave the table looking unlabeled.
     row_headers_in_first_row = t.get('headers') == 'row'
+    cell_style = 'border:1px solid #333; padding:6px 10px; text-align:center;'
     rows = []
     for ri, r in enumerate(t['rows']):
         cells = []
         for ci, cell in enumerate(r):
             cell = html.escape(str(cell))
             if row_headers_in_first_row and ri == 0:
-                cells.append(f'<th scope="col">{cell}</th>')
+                cells.append(f'<th scope="col" style="{cell_style} background:#e8eef2;">{cell}</th>')
             elif not row_headers_in_first_row and ci == 0:
-                cells.append(f'<th scope="row">{cell}</th>')
+                cells.append(f'<th scope="row" style="{cell_style} background:#e8eef2;">{cell}</th>')
             else:
-                cells.append(f'<td>{cell}</td>')
+                cells.append(f'<td style="{cell_style}">{cell}</td>')
         rows.append('<tr>' + ''.join(cells) + '</tr>')
-    return f'<table><caption>{html.escape(t["caption"])}</caption>' + ''.join(rows) + '</table>'
+    cap = html.escape(t["caption"])
+    return (f'<p><strong>{cap}</strong></p>'
+            f'<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;" summary="{cap}">'
+            + ''.join(rows) + '</table>')
 
 url = f'https://172checkit.netlify.app/{code.lower()}/'
 lines = [

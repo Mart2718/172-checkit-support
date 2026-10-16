@@ -244,4 +244,17 @@ for (const f of files) {
 }
 if (failed) { console.error('\nBuild stopped: fix the errors above. (Netlify keeps the last good version live.)'); process.exit(1); }
 fs.writeFileSync(path.join(dist, 'index.html'), renderHub(built));
+// Publish the figure files too, so other tools (e.g. MyOpenMath) can link to them by URL: /figures/CODE/graph1.svg
+// Only top-level CODE folders are copied; stray nested folders are skipped.
+const figSrc = path.join(ROOT, 'figures');
+if (fs.existsSync(figSrc)) {
+  for (const d of fs.readdirSync(figSrc, { withFileTypes: true })) {
+    if (!d.isDirectory()) continue;
+    const out = path.join(dist, 'figures', d.name);
+    fs.mkdirSync(out, { recursive: true });
+    for (const f of fs.readdirSync(path.join(figSrc, d.name), { withFileTypes: true })) {
+      if (f.isFile() && /\.(svg|png)$/i.test(f.name)) fs.copyFileSync(path.join(figSrc, d.name, f.name), path.join(out, f.name));
+    }
+  }
+}
 console.log(`built hub  ->  /   (${built.length} outcome page${built.length === 1 ? '' : 's'})`);
