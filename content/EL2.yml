@@ -1,0 +1,226 @@
+# EL2 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+code: EL2
+h1: "EL2 Support: Graphing Exponential Functions"
+pageTitle: "EL2 Support: Graphing Exponential Functions — Math 172, Santa Ana College"
+hubSummary: "Graphing exponential functions: domain, range, and horizontal asymptotes"
+videoIntro: "A narrated walkthrough of how to find the horizontal asymptote, domain, and range of an exponential function and how to recognize its graph."
+# Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
+banPhrases: '(domain|range) (is|are|of)|asymptote (is|at|of)|(is|are) (the )?(domain|range)|has domain|has range|levels off at|(above|below) the asymptote'
+worked:   # used for the worked-examples recording document
+  title: "EL2 Worked Examples: Graphing Exponential Functions"
+  coreQuestion: "What value does the graph level off to, and does the curve sit above that level or below it?"
+  coreFollowup: "The level-off value is the horizontal asymptote. Above it, the range runs from the asymptote up. Below it, the range runs from the asymptote down. The domain is all real numbers."
+summary:   # the Quick Summary tab
+  intro: 'Every EL2 question comes back to one idea: <strong>an exponential graph levels off to a horizontal line, and it lies on one side of that line.</strong> The number added or subtracted outside the exponential sets the line. A flip decides which side.'
+  caption: "What to find for an exponential function, and the slip to avoid"
+  columns: ["What you need", "How to find it", "Common slip"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Horizontal asymptote'
+      - 'Look at the number added or subtracted outside the exponential. The asymptote is <span>\( y= \)</span> that number. If nothing is added or subtracted, it is <span>\( y=0 \)</span>.'
+      - 'Using the shift inside the exponent. For <span>\( -2^{x+3} \)</span> the <span>\( +3 \)</span> slides the graph left but does not move the asymptote. Or writing <span>\( x= \)</span> for a horizontal line.'
+    -
+      - 'Domain'
+      - 'All real numbers, <span>\( (-\infty, \infty) \)</span>, for every exponential function in this outcome. You can put any number in the exponent.'
+      - 'Thinking a shift or a flip limits the inputs.'
+    -
+      - 'Range'
+      - 'Start at the asymptote. If the curve lies above it, the range is <span>\( (\text{asymptote}, \infty) \)</span>. If a minus sign out front flips the curve below it, the range is <span>\( (-\infty, \text{asymptote}) \)</span>.'
+      - 'Writing <span>\( (0, \infty) \)</span> every time, or thinking that <span>\( b^{-x} \)</span> turns the graph upside down. A flip across the y-axis turns it left to right and it stays on the same side of the asymptote.'
+    -
+      - 'Graph'
+      - 'Draw the dashed horizontal asymptote. Plot two points by trying easy inputs such as <span>\( x=0 \)</span> and <span>\( x=1 \)</span>. Sketch a curve that hugs the dashed line on one end and rises or falls steeply on the other.'
+      - 'Letting the curve cross the asymptote, or missing a flip.'
+  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+tabs:
+  - id: asymptote
+    label: "Try It: Asymptote"
+    heading: "Try It: Horizontal Asymptote"
+    intro: |-
+      Make your best guess on each one, then check it. Ask yourself: what number would you have to add or subtract outside the exponential to move the graph?
+    items:
+      - id: as1
+        title: "Asymptote 1"
+        math:
+          display: 'f(x)=2^{x}+3'
+          speak: "f of x equals 2 to the x plus 3"
+        prompt: 'What is the equation of the horizontal asymptote of this function?'
+        choices:
+          - {value: a, label: "y = 0"}
+          - {value: b, label: "y = 3"}
+          - {value: c, label: "y = −3"}
+          - {value: d, label: "x = 3"}
+        correct: b
+        explanation: |-
+          On its own, \( 2^{x} \) levels off at \( y=0 \) as \( x \) gets very negative. Adding 3 outside the exponential lifts the whole graph up 3, so the level-off line moves from \( y=0 \) to \( y=3 \). It is a horizontal line, so its equation starts with \( y \). <strong>The asymptote is \( y=3 \).</strong>
+      - id: as2
+        title: "Asymptote 2"
+        math:
+          display: 'f(x)=-3^{x}-2'
+          speak: "f of x equals the negative of 3 to the x, minus 2"
+        prompt: 'What is the equation of the horizontal asymptote of this function?'
+        choices:
+          - {value: a, label: "x = −2"}
+          - {value: b, label: "y = 2"}
+          - {value: c, label: "y = 0"}
+          - {value: d, label: "y = −2"}
+        correct: d
+        explanation: |-
+          The minus sign in front flips the graph over the x-axis, and the line \( y=0 \) stays where it is. Then subtracting 2 outside the exponential moves the whole graph down 2, so the line moves to \( y=-2 \). <strong>The asymptote is \( y=-2 \).</strong>
+      - id: as3
+        title: "Asymptote 3"
+        math:
+          display: 'f(x)=-2^{x+3}'
+          speak: "f of x equals the negative of 2 to the power of the quantity x plus 3, end quantity"
+        prompt: 'What is the equation of the horizontal asymptote of this function?'
+        choices:
+          - {value: a, label: "y = 3"}
+          - {value: b, label: "y = −3"}
+          - {value: c, label: "y = 0"}
+          - {value: d, label: "x = −3"}
+        correct: c
+        explanation: |-
+          The \( +3 \) is inside the exponent, so it slides the graph left 3. It does not lift or lower the graph, so the level-off line stays at \( y=0 \). Nothing is added or subtracted outside the exponential. <strong>The asymptote is \( y=0 \).</strong>
+      - id: as4
+        title: "Asymptote 4"
+        math:
+          display: 'f(x)=\left(\tfrac{1}{e}\right)^{x}-3'
+          speak: "f of x equals the quantity one over e, to the x, minus 3"
+        prompt: 'What is the equation of the horizontal asymptote of this function?'
+        choices:
+          - {value: a, label: "y = −3"}
+          - {value: b, label: "y = 3"}
+          - {value: c, label: '\( y=\tfrac{1}{e} \)', speak: "y equals one over e"}
+          - {value: d, label: "x = −3"}
+        correct: a
+        explanation: |-
+          The base \( \tfrac{1}{e} \) is only the base of the exponential. It is not added or subtracted outside, so it does not set the asymptote. The \( -3 \) outside moves the level-off line from \( y=0 \) down to \( y=-3 \). <strong>The asymptote is \( y=-3 \).</strong>
+  - id: range
+    label: "Try It: Domain & Range"
+    heading: "Try It: Domain & Range"
+    intro: |-
+      Find the horizontal asymptote first. Then ask: is the curve above that line or below it?
+    items:
+      - id: dr1
+        title: "Range 1"
+        math:
+          display: 'f(x)=2^{x}+3'
+          speak: "f of x equals 2 to the x plus 3"
+        prompt: 'What is the range of this function? Use interval notation.'
+        choices:
+          - {value: a, label: "(−∞, 3)"}
+          - {value: b, label: "(3, ∞)"}
+          - {value: c, label: "(0, ∞)"}
+          - {value: d, label: "(−∞, ∞)"}
+        correct: b
+        explanation: |-
+          The asymptote is \( y=3 \). The outputs of \( 2^{x} \) are always positive, and adding 3 makes them always greater than 3. They get as close to 3 as you like but never reach it, and they grow without limit. <strong>The range is \( (3, \infty) \).</strong>
+      - id: dr2
+        title: "Range 2"
+        math:
+          display: 'f(x)=-3^{x}-2'
+          speak: "f of x equals the negative of 3 to the x, minus 2"
+        prompt: 'What is the range of this function? Use interval notation.'
+        choices:
+          - {value: a, label: "(−∞, −2)"}
+          - {value: b, label: "(−2, ∞)"}
+          - {value: c, label: "(−∞, 0)"}
+          - {value: d, label: "(2, ∞)"}
+        correct: a
+        explanation: |-
+          The asymptote is \( y=-2 \). The minus sign out front flips the graph upside down, so the curve lies below the asymptote. The outputs are always less than \(-2\), and they fall without limit. <strong>The range is \( (-\infty, -2) \).</strong>
+      - id: dr3
+        title: "Range 3"
+        math:
+          display: 'f(x)=\left(\tfrac{1}{2}\right)^{x}-1'
+          speak: "f of x equals the quantity one half, to the x, minus 1"
+        prompt: 'What is the range of this function? Use interval notation.'
+        choices:
+          - {value: a, label: "(0, ∞)"}
+          - {value: b, label: "(−∞, −1)"}
+          - {value: c, label: "(−1, ∞)"}
+          - {value: d, label: "(−∞, ∞)"}
+        correct: c
+        explanation: |-
+          The asymptote is \( y=-1 \). The base \( \tfrac{1}{2} \) is the same as \( 2^{-x} \), which flips the graph left to right, not upside down. The values of \( \left(\tfrac{1}{2}\right)^{x} \) are still positive, so the curve stays above the asymptote. <strong>The range is \( (-1, \infty) \).</strong>
+      - id: dr4
+        title: "Range 4"
+        math:
+          display: 'f(x)=-e^{x+1}'
+          speak: "f of x equals the negative of e to the power of the quantity x plus 1, end quantity"
+        prompt: 'What is the range of this function? Use interval notation.'
+        choices:
+          - {value: a, label: "(0, ∞)"}
+          - {value: b, label: "(−∞, −1)"}
+          - {value: c, label: "(−1, ∞)"}
+          - {value: d, label: "(−∞, 0)"}
+        correct: d
+        explanation: |-
+          Nothing is added or subtracted outside, so the asymptote is \( y=0 \). The \( +1 \) in the exponent only slides the graph left. The minus sign out front flips the curve below the x-axis, so the outputs are always negative. <strong>The range is \( (-\infty, 0) \).</strong>
+      - id: dr5
+        title: "Domain 1"
+        math:
+          display: 'f(x)=-4^{x-2}+1'
+          speak: "f of x equals the negative of 4 to the power of the quantity x minus 2, end quantity, plus 1"
+        prompt: 'What is the domain of this function? Use interval notation.'
+        choices:
+          - {value: a, label: "(0, ∞)"}
+          - {value: b, label: "(−∞, ∞)"}
+          - {value: c, label: "(2, ∞)"}
+          - {value: d, label: "(−∞, 1)"}
+        correct: b
+        explanation: |-
+          You can put any real number in an exponent, including negative numbers, fractions, and zero. Shifts and flips move the graph around but do not remove any inputs. The number 1 is the asymptote, and it limits the outputs, not the inputs. <strong>The domain is \( (-\infty, \infty) \).</strong>
+  - id: graphs
+    label: "Try It: Graphs"
+    heading: "Try It: Reading Graphs"
+    intro: |-
+      Each graph below is described in words as well as shown. Use the dashed line and the labeled points to decide which function or range matches.
+    items:
+      - id: graph1
+        title: "Graph 1"
+        figure:
+          file: figures/EL2/graph1.svg
+          title: "A rising curve above a dashed horizontal line"
+          caption: '<strong>Plotted data:</strong> a dashed horizontal line at y = −1. A smooth curve lies above the dashed line. Moving left, it gets closer and closer to the dashed line without touching it. Moving right, it rises faster and faster. It passes through (0, 0) and (1, 1).'
+        prompt: 'Which function has this graph?'
+        choices:
+          - {value: a, label: '\( f(x)=2^{x}+1 \)', speak: "f of x equals 2 to the x plus 1"}
+          - {value: b, label: '\( f(x)=2^{x}-1 \)', speak: "f of x equals 2 to the x minus 1"}
+          - {value: c, label: '\( f(x)=2^{x-1} \)', speak: "f of x equals 2 to the power of the quantity x minus 1, end quantity"}
+          - {value: d, label: '\( f(x)=-2^{x}-1 \)', speak: "f of x equals the negative of 2 to the x, minus 1"}
+        correct: b
+        explanation: |-
+          The dashed line at \( y=-1 \) is the asymptote, so a 1 is subtracted outside the exponential. Check a point: \( 2^{0}-1=0 \), which matches \( (0,0) \), and \( 2^{1}-1=1 \), which matches \( (1,1) \). The other choices have the wrong asymptote or miss the points. <strong>The function is \( f(x)=2^{x}-1 \).</strong>
+      - id: graph2
+        title: "Graph 2"
+        figure:
+          file: figures/EL2/graph2.svg
+          title: "A falling curve below a dashed horizontal line"
+          caption: '<strong>Plotted data:</strong> a dashed horizontal line at y = 2. A smooth curve lies below the dashed line. Moving left, it gets closer and closer to the dashed line without touching it. Moving right, it falls faster and faster. It passes through (0, 1) and (1, −1).'
+        prompt: 'What is the range of the function graphed here? Use interval notation.'
+        choices:
+          - {value: a, label: "(−∞, 2)"}
+          - {value: b, label: "(2, ∞)"}
+          - {value: c, label: "(−∞, ∞)"}
+          - {value: d, label: "(−∞, 1)"}
+        correct: a
+        explanation: |-
+          The dashed line at \( y=2 \) is the asymptote, and the whole curve lies below it. Every output is less than 2. Moving right, the outputs keep falling with no lowest value. The point \( (0,1) \) is just one point on the curve. It is not the highest output. <strong>The range is \( (-\infty, 2) \).</strong>
+      - id: graph3
+        title: "Graph 3"
+        figure:
+          file: figures/EL2/graph3.svg
+          title: "A falling curve above a dashed horizontal line, with two labeled points"
+          caption: '<strong>Plotted data:</strong> a dashed horizontal line at y = −2. A smooth curve lies above the dashed line. Moving left, it rises steeply. Moving right, it falls and gets closer and closer to the dashed line without touching it. It passes through (−1, 0) and (0, −1).'
+        prompt: 'Which function has this graph?'
+        choices:
+          - {value: a, label: '\( f(x)=2^{x}-2 \)', speak: "f of x equals 2 to the x, minus 2"}
+          - {value: b, label: '\( f(x)=\left(\tfrac{1}{2}\right)^{x}+2 \)', speak: "f of x equals the quantity one half, to the x, plus 2"}
+          - {value: c, label: '\( f(x)=-\left(\tfrac{1}{2}\right)^{x}-2 \)', speak: "f of x equals the negative of the quantity one half, to the x, minus 2"}
+          - {value: d, label: '\( f(x)=\left(\tfrac{1}{2}\right)^{x}-2 \)', speak: "f of x equals the quantity one half, to the x, minus 2"}
+        correct: d
+        explanation: |-
+          The dashed line at \( y=-2 \) means 2 is subtracted outside. The curve is above the line, so it is not flipped upside down. It falls as \( x \) increases, so the base is between 0 and 1. Check a point: \( \left(\tfrac{1}{2}\right)^{-1}-2=2-2=0 \), which matches \( (-1,0) \). <strong>The function is \( f(x)=\left(\tfrac{1}{2}\right)^{x}-2 \).</strong>
