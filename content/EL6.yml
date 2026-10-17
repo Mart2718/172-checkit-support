@@ -73,7 +73,7 @@ tabs:
           - {value: d, label: "Subtract 9 from both sides."}
         correct: a
         explanation: |-
-          The 6 is outside the power, so the power is not alone yet. Add 6 to both sides first: \( 2^{x}=15 \). Choice b moves the 6 into the exponent, but the exponent is only \( x \). <strong>The first move is to add 6 to both sides, giving \( 2^{x}=15 \).</strong>
+          The 6 is outside the power, so the power is not alone yet. Add 6 to both sides first: \( 2^{x}=15 \). Writing \( x-6=\log_2 9 \) moves the 6 into the exponent, but the exponent is only \( x \). <strong>The first move is to add 6 to both sides, giving \( 2^{x}=15 \).</strong>
       - id: fm3
         title: "First Move 3"
         math:
@@ -87,7 +87,7 @@ tabs:
           - {value: d, label: "Divide both sides by 4."}
         correct: d
         explanation: |-
-          The 4 multiplies the logarithm, so the logarithm is not alone yet. Divide both sides by 4 first: \( \log_3(2x)=2 \). Only then switch forms: \( 2x=3^{2}=9 \). Choice a skips the division and leaves out the 4. <strong>The first move is to divide both sides by 4, giving \( \log_3(2x)=2 \).</strong>
+          The 4 multiplies the logarithm, so the logarithm is not alone yet. Divide both sides by 4 first: \( \log_3(2x)=2 \). Only then switch forms: \( 2x=3^{2}=9 \). Writing \( 3^{8}=2x \) skips the division and leaves out the 4. <strong>The first move is to divide both sides by 4, giving \( \log_3(2x)=2 \).</strong>
       - id: fm4
         title: "First Move 4"
         math:
@@ -101,7 +101,7 @@ tabs:
           - {value: d, label: "Divide both sides by 5."}
         correct: b
         explanation: |-
-          The 7 is added to the logarithm, so subtract it first: \( \log_2(5x)=3 \). Now the logarithm is alone, and switching forms gives \( 5x=2^{3}=8 \). Choice a ignores the 7. <strong>The first move is to subtract 7 from both sides, giving \( \log_2(5x)=3 \).</strong>
+          The 7 is added to the logarithm, so subtract it first: \( \log_2(5x)=3 \). Now the logarithm is alone, and switching forms gives \( 5x=2^{3}=8 \). Writing \( 2^{10}=5x \) ignores the 7. <strong>The first move is to subtract 7 from both sides, giving \( \log_2(5x)=3 \).</strong>
   - id: exponential
     label: "Try It: Exponential Equations"
     heading: "Try It: Exponential Equations"
@@ -135,7 +135,7 @@ tabs:
           - {value: d, label: '\( x=\log_{14}(2) \)', speak: "x equals log base 14 of 2"}
         correct: a
         explanation: |-
-          The 5 is outside the power, so add it first: \( 2^{x}=14 \). Now switch forms: \( x=\log_2(14) \). Check: \( 2^{\log_2 14}=14 \), and \( 14-5=9 \). Choice b moves the 5 into the exponent, and choice c subtracts 5 when it should add. <strong>The solution is \( x=\log_2(14) \).</strong>
+          The 5 is outside the power, so add it first: \( 2^{x}=14 \). Now switch forms: \( x=\log_2(14) \). Check: \( 2^{\log_2 14}=14 \), and \( 14-5=9 \). The answer \( \log_2(9)+5 \) moves the 5 into the exponent, and \( \log_2(4) \) subtracts 5 when it should add. <strong>The solution is \( x=\log_2(14) \).</strong>
       - id: ex3
         title: "Exponential 3"
         math:
@@ -149,7 +149,7 @@ tabs:
           - {value: d, label: '\( k=\log_4(9) \)', speak: "k equals log base 4 of 9"}
         correct: b
         explanation: |-
-          The variable is \( k \) this time, and that changes nothing. The power is alone, so switch forms with base 4: \( k-3=\log_4 6 \). Add 3 to both sides: \( k=\log_4(6)+3 \). Choice d adds 3 inside the logarithm, but the 3 was never with the 6. <strong>The solution is \( k=\log_4(6)+3 \).</strong>
+          The variable is \( k \) this time, and that changes nothing. The power is alone, so switch forms with base 4: \( k-3=\log_4 6 \). Add 3 to both sides: \( k=\log_4(6)+3 \). The answer \( \log_4(9) \) adds 3 inside the logarithm, but the 3 was never with the 6. <strong>The solution is \( k=\log_4(6)+3 \).</strong>
       - id: ex4
         title: "Exponential 4"
         math:
@@ -163,7 +163,7 @@ tabs:
           - {value: d, label: '\( m=\log_3(-4) \)', speak: "m equals log base 3 of negative 4"}
         correct: c
         explanation: |-
-          Add 8 to both sides first: \( 3^{m}=12 \). Then switch forms: \( m=\log_3(12) \). Choice d subtracts 8, which gives a logarithm of a negative number. That is not defined, which is a sign something went wrong. <strong>The solution is \( m=\log_3(12) \).</strong>
+          Add 8 to both sides first: \( 3^{m}=12 \). Then switch forms: \( m=\log_3(12) \). Subtracting 8 instead gives \( \log_3(-4) \), a logarithm of a negative number. That is not defined, which is a sign something went wrong. <strong>The solution is \( m=\log_3(12) \).</strong>
   - id: logarithmic
     label: "Try It: Logarithmic Equations"
     heading: "Try It: Logarithmic Equations"
@@ -183,7 +183,7 @@ tabs:
           - {value: d, label: '\( x=\dfrac{5}{8} \)', speak: "x equals the fraction 5 over 8, end fraction"}
         correct: a
         explanation: |-
-          Divide by 3 first: \( \log_2(5x)=3 \). Switch forms: \( 5x=2^{3}=8 \). Divide by 5: \( x=\tfrac{8}{5} \). Check: \( 5\cdot\tfrac{8}{5}=8 \), \( \log_2 8=3 \), and \( 3\cdot 3=9 \). Choice b is \( \tfrac{2^{9}}{5} \), which skips dividing by 3. Choice c uses \( 2\cdot 3 \) instead of \( 2^{3} \). <strong>The solution is \( x=\tfrac{8}{5} \).</strong>
+          Divide by 3 first: \( \log_2(5x)=3 \). Switch forms: \( 5x=2^{3}=8 \). Divide by 5: \( x=\tfrac{8}{5} \). Check: \( \log_2 8=3 \), and \( 3\cdot 3=9 \). The answer \( \tfrac{512}{5} \) is \( \tfrac{2^{9}}{5} \), which skips dividing by 3. The answer \( \tfrac{6}{5} \) uses \( 2\cdot 3 \) instead of \( 2^{3} \). <strong>The solution is \( x=\tfrac{8}{5} \).</strong>
       - id: lg2
         title: "Logarithmic 2"
         math:
@@ -197,7 +197,7 @@ tabs:
           - {value: d, label: '\( x=\dfrac{6561}{4} \)', speak: "x equals the fraction 6561 over 4, end fraction"}
         correct: c
         explanation: |-
-          Subtract 6 first: \( \log_3(4x)=2 \). Switch forms: \( 4x=3^{2}=9 \). Divide by 4: \( x=\tfrac{9}{4} \). Choice d is \( \tfrac{3^{8}}{4} \), which ignores the 6. Choice a uses \( 3\cdot 2 \) instead of \( 3^{2} \). Choice b divides the wrong way. <strong>The solution is \( x=\tfrac{9}{4} \).</strong>
+          Subtract 6 first: \( \log_3(4x)=2 \). Switch forms: \( 4x=3^{2}=9 \). Divide by 4: \( x=\tfrac{9}{4} \). The answer \( \tfrac{6561}{4} \) is \( \tfrac{3^{8}}{4} \), which ignores the 6. The answer \( \tfrac{3}{2} \) uses \( 3\cdot 2 \) instead of \( 3^{2} \), and \( \tfrac{4}{9} \) divides the wrong way. <strong>The solution is \( x=\tfrac{9}{4} \).</strong>
       - id: lg3
         title: "Logarithmic 3"
         math:
@@ -211,7 +211,7 @@ tabs:
           - {value: d, label: '\( w=\dfrac{25}{3} \)', speak: "w equals the fraction 25 over 3, end fraction"}
         correct: d
         explanation: |-
-          Divide by 2 first: \( \log_5(3w)=2 \). Switch forms: \( 3w=5^{2}=25 \). Divide by 3: \( w=\tfrac{25}{3} \). Choice a is \( \tfrac{5^{4}}{3} \), which skips dividing by 2. Choice b multiplies by 3 at the end instead of dividing. <strong>The solution is \( w=\tfrac{25}{3} \).</strong>
+          Divide by 2 first: \( \log_5(3w)=2 \). Switch forms: \( 3w=5^{2}=25 \). Divide by 3: \( w=\tfrac{25}{3} \). The answer \( \tfrac{625}{3} \) is \( \tfrac{5^{4}}{3} \), which skips dividing by 2. The answer 75 multiplies by 3 at the end instead of dividing. <strong>The solution is \( w=\tfrac{25}{3} \).</strong>
       - id: lg4
         title: "Logarithmic 4"
         math:
@@ -225,12 +225,12 @@ tabs:
           - {value: d, label: '\( n=\dfrac{7}{64} \)', speak: "n equals the fraction 7 over 64, end fraction"}
         correct: a
         explanation: |-
-          Subtract 9 first: \( \log_4(7n)=3 \). Switch forms: \( 7n=4^{3}=64 \). Divide by 7: \( n=\tfrac{64}{7} \). Choice c switches forms before subtracting the 9. Choice b uses \( 4\cdot 3 \) instead of \( 4^{3} \). <strong>The solution is \( n=\tfrac{64}{7} \).</strong>
+          Subtract 9 first: \( \log_4(7n)=3 \). Switch forms: \( 7n=4^{3}=64 \). Divide by 7: \( n=\tfrac{64}{7} \). The answer \( \tfrac{4^{12}}{7} \) switches forms before subtracting the 9, and \( \tfrac{12}{7} \) uses \( 4\cdot 3 \) instead of \( 4^{3} \). <strong>The solution is \( n=\tfrac{64}{7} \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
     intro: |-
-      Each line below was written by a student, and each one has a mistake. Decide what went wrong before you check. Finding a mistake in someone else's work is good practice for checking your own.
+      Each set of lines below was written by a student. Decide whether the work is right, and if not, what went wrong, before you check. Finding a mistake in someone else's work is good practice for checking your own.
     items:
       - id: sl1
         title: "Slip 1"
@@ -253,9 +253,9 @@ tabs:
           speak: "4 to the power x, end power, minus 7, equals 9. Next line: x minus 7 equals log base 4 of 9"
         prompt: 'A student wrote these lines. What is the mistake?'
         choices:
-          - {value: a, label: "The 7 is not in the exponent. The student should add 7 before switching forms."}
-          - {value: b, label: "The base of the logarithm should be 9."}
-          - {value: c, label: "The student should have divided both sides by 4."}
+          - {value: a, label: "The 7 is outside the power. Add it before switching forms."}
+          - {value: b, label: "The base of the logarithm should be 9, not 4."}
+          - {value: c, label: "Both sides should be divided by 4 first."}
           - {value: d, label: "There is no mistake."}
         correct: a
         explanation: |-
@@ -281,10 +281,10 @@ tabs:
           speak: "4 plus log base 2 of the quantity 3 x, end quantity, equals 7. Next line: log base 2 of the quantity 3 x, end quantity, equals 3. Next line: 3 x equals 6"
         prompt: 'A student wrote these lines. What is the mistake?'
         choices:
-          - {value: a, label: "The 4 should have been divided, not subtracted."}
-          - {value: b, label: "The base should be 3, not 2."}
+          - {value: a, label: "Both sides should have been divided by 4, not had 4 subtracted."}
+          - {value: b, label: "The base of the logarithm should be 3, not 2."}
           - {value: c, label: "There is no mistake."}
-          - {value: d, label: "In the last step, 3 x should equal 2 to the 3rd power, which is 8, not 2 times 3."}
+          - {value: d, label: "In the last step, 2 and 3 were multiplied instead of using 3 as an exponent."}
         correct: d
         explanation: |-
           Subtracting 4 was right: \( \log_2(3x)=3 \). But switching forms means the 3 becomes an exponent: \( 3x=2^{3}=8 \). The student multiplied \( 2\cdot 3 \) instead. So \( x=\tfrac{8}{3} \). Check: \( \log_2 8=3 \), and \( 4+3=7 \). <strong>The correct solution is \( x=\tfrac{8}{3} \).</strong>
