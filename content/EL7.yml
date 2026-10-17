@@ -22,7 +22,7 @@ summary:   # the Quick Summary tab
     -
       - 'Compound interest'
       - '<span>\( A(t)=P\left(1+\dfrac{r}{n}\right)^{nt} \)</span>'
-      - 'Write the rate as a decimal: 4% is <span>\( 0.04 \)</span>. Use <span>\( n=1 \)</span> annually, <span>\( 2 \)</span> semiannually, <span>\( 4 \)</span> quarterly, <span>\( 12 \)</span> monthly. The <span>\( n \)</span> goes in two places.'
+      - 'The rate is divided by <span>\( n \)</span> first, and then 1 is added. Write the rate as a decimal: 4% is <span>\( 0.04 \)</span>. Use <span>\( n=1 \)</span> annually, <span>\( 2 \)</span> semiannually, <span>\( 4 \)</span> quarterly, <span>\( 12 \)</span> monthly. The <span>\( n \)</span> goes in two places.'
     -
       - 'A growing population'
       - '<span>\( P(t)=a\cdot b^{t} \)</span>'
@@ -45,7 +45,7 @@ tabs:
     label: "Try It: Set Up the Model"
     heading: "Try It: Set Up the Model"
     intro: |-
-      Before you calculate anything, write the model with the numbers in it. Make your best guess, then check it. Ask yourself: what is the starting amount, and what happens to it each period?
+      Start with this tab: the later tabs use these same situations. Before you calculate anything, write the model with the numbers in it. Make your best guess, then check it. Ask yourself: what is the starting amount, and what happens to it each period?
     items:
       - id: su1
         title: "Set Up 1"
@@ -60,7 +60,7 @@ tabs:
           - {value: d, label: '\( A(t)=15000\left(1+0.04\right)^{4t} \)', speak: "A of t equals 15000 times the quantity 1 plus 0.04, end quantity, to the power 4 t, end power"}
         correct: b
         explanation: |-
-          The starting amount is \( P=15000 \). The rate 4% is \( r=0.04 \) as a decimal. Quarterly means 4 times a year, so \( n=4 \), and \( n \) appears twice: once dividing the rate and once multiplying \( t \). Using 4 instead of 0.04 would double the money every quarter. <strong>The model is \( A(t)=15000\left(1+\tfrac{0.04}{4}\right)^{4t} \).</strong>
+          The starting amount is \( P=15000 \). The rate 4% is \( r=0.04 \) as a decimal. Quarterly means 4 times a year, so \( n=4 \), and \( n \) appears twice: once dividing the rate and once multiplying \( t \). Inside the parentheses, \( 0.04 \) divided by 4 is \( 0.01 \), so the base is \( 1.01 \). Using 4 instead of 0.04 would double the money every quarter. <strong>The model is \( A(t)=15000(1.01)^{4t} \), written with the rate 0.04 divided by 4.</strong>
       - id: su2
         title: "Set Up 2"
         math:
@@ -112,8 +112,8 @@ tabs:
       - id: am1
         title: "Amount 1"
         math:
-          display: 'A(t)=15000\left(1+\dfrac{0.04}{4}\right)^{4t}'
-          speak: "A of t equals 15000 times the quantity 1 plus the fraction 0.04 over 4, end fraction, end quantity, to the power 4 t, end power"
+          display: 'A(t)=15000\left(1.01\right)^{4t}'
+          speak: "A of t equals 15000 times 1.01 to the power 4 t, end power"
         prompt: 'How much will be in the certificate of deposit after 10 years? Round to the nearest dollar.'
         choices:
           - {value: a, label: "$22,204"}
@@ -122,7 +122,7 @@ tabs:
           - {value: d, label: "$72,015"}
         correct: c
         explanation: |-
-          Plug in \( t=10 \): the exponent is \( 4\cdot 10=40 \), and the base is \( 1+0.01=1.01 \). So \( A(10)=15000(1.01)^{40}\approx 22332.96 \). The answer $22,204 ignores the compounding, $16,569 uses an exponent of 10 instead of 40, and $72,015 forgets to divide the rate by 4. <strong>The account will have about $22,333.</strong>
+          Plug in \( t=10 \): the exponent is \( 4\cdot 10=40 \), and the base is \( 1.01 \), because 0.04 divided by 4 is 0.01. So \( A(10)=15000(1.01)^{40}\approx 22332.96 \). The answer $22,204 compounds once a year instead of quarterly, $16,569 uses an exponent of 10 instead of 40, and $72,015 forgets to divide the rate by 4. <strong>The account will have about $22,333.</strong>
       - id: am2
         title: "Amount 2"
         math:
@@ -133,10 +133,10 @@ tabs:
           - {value: a, label: "$29,404"}
           - {value: b, label: "$28,000"}
           - {value: c, label: "$53,604"}
-          - {value: d, label: "$39,999.70"}
+          - {value: d, label: "$38,000"}
         correct: a
         explanation: |-
-          Plug in \( t=6 \): \( A(6)=40000(0.95)^{6}\approx 29403.68 \). The answer $28,000 takes off $2,000 every year, which is a line, but each year the car loses 5% of a smaller value. The answer $53,604 uses \( 1.05 \), so the car gains value. <strong>The car will be worth about $29,404.</strong>
+          Plug in \( t=6 \): \( A(6)=40000(0.95)^{6}\approx 29403.68 \). The answer $28,000 takes off $2,000 every year, which is a line, but each year the car loses 5% of a smaller value. The answer $53,604 uses \( 1.05 \), so the car gains value, and $38,000 applies the 5% loss only once. <strong>The car will be worth about $29,404.</strong>
       - id: am3
         title: "Amount 3"
         math:
@@ -174,12 +174,12 @@ tabs:
       - id: ti1
         title: "Time 1"
         math:
-          display: '28590=20000\left(1+\dfrac{0.03}{2}\right)^{2t}'
-          speak: "28590 equals 20000 times the quantity 1 plus the fraction 0.03 over 2, end fraction, end quantity, to the power 2 t, end power"
+          display: '28590=20000\left(1.015\right)^{2t}'
+          speak: "28590 equals 20000 times 1.015 to the power 2 t, end power"
         prompt: 'A savings account starts with $20,000 and earns 3% compounded semiannually. How many years until it has $28,590?'
         choices:
-          - {value: a, label: "12 years"}
-          - {value: b, label: "24 years"}
+          - {value: a, label: "about 12 years"}
+          - {value: b, label: "about 24 years"}
           - {value: c, label: "about 6 years"}
           - {value: d, label: "about 0.7 years"}
         correct: a
@@ -194,7 +194,7 @@ tabs:
         choices:
           - {value: a, label: "about 7 years"}
           - {value: b, label: "about 0.75 years"}
-          - {value: c, label: "8 years"}
+          - {value: c, label: "about 8 years"}
           - {value: d, label: "about negative 8.3 years"}
         correct: c
         explanation: |-
@@ -221,7 +221,7 @@ tabs:
         prompt: 'For the bacteria colony, after how many days will there be 34,172 bacteria?'
         choices:
           - {value: a, label: "about 11.4 days"}
-          - {value: b, label: "7 days"}
+          - {value: b, label: "about 7 days"}
           - {value: c, label: "about 25.7 days"}
           - {value: d, label: "about 20.3 days"}
         correct: b
@@ -240,9 +240,9 @@ tabs:
           speak: "A of t equals 8000 times the quantity 1 plus 4.5, end quantity, to the power t"
         prompt: 'A student wrote this model for $8,000 earning 4.5% interest, compounded annually. What is the mistake, if any?'
         choices:
-          - {value: a, label: "The exponent should be 4.5 t."}
-          - {value: b, label: "The rate should be written as the decimal 0.045, not 4.5."}
-          - {value: c, label: "The plus sign should be a minus sign."}
+          - {value: a, label: "The exponent should be 4.5 t, because the rate goes in the exponent."}
+          - {value: b, label: "The rate should be the decimal 0.045, not 4.5."}
+          - {value: c, label: "The plus sign should be a minus sign, because interest is taken out."}
           - {value: d, label: "There is no mistake."}
         correct: b
         explanation: |-
@@ -254,13 +254,13 @@ tabs:
           speak: "A of t equals P times the quantity 1 plus the fraction 0.03 over 6, end fraction, end quantity, to the power 6 t, end power"
         prompt: 'A student wrote this model for an account earning 3% interest, compounded semiannually. What is the mistake, if any?'
         choices:
-          - {value: a, label: "The rate should be 3, not 0.03."}
-          - {value: b, label: "The 6 should appear only in the exponent."}
+          - {value: a, label: "The rate should be 3, because the percent is already given."}
+          - {value: b, label: "The 6 should appear only in the exponent, not under the rate."}
           - {value: c, label: "Semiannually means twice a year, so both 6s should be 2."}
           - {value: d, label: "There is no mistake."}
         correct: c
         explanation: |-
-          Semiannually means every six months, which is 2 times a year. The 6 counts months, not compounding periods. Both places need \( n=2 \). <strong>The correct model is \( A(t)=P\left(1+\tfrac{0.03}{2}\right)^{2t} \).</strong>
+          Semiannually means every six months, which is 2 times a year. The 6 counts months, not compounding periods. Both places need \( n=2 \): the rate is 0.03 divided by 2, which is \( 0.015 \). <strong>The correct model is \( A(t)=P(1.015)^{2t} \).</strong>
       - id: sl3
         title: "Slip 3"
         math:
@@ -268,9 +268,9 @@ tabs:
           speak: "A of t equals 30000 times 1.06 to the power t"
         prompt: 'A student wrote this model for a $30,000 RV that loses 6% of its value each year. What is the mistake, if any?'
         choices:
-          - {value: a, label: "Losing value means the factor is 1 minus 0.06, which is 0.94."}
-          - {value: b, label: "The factor should be 0.06."}
-          - {value: c, label: "The exponent should be 6 t."}
+          - {value: a, label: "Losing value means the factor should be 0.94."}
+          - {value: b, label: "The factor should be 0.06, the amount lost each year."}
+          - {value: c, label: "The exponent should be 6 t, to match the 6 percent."}
           - {value: d, label: "There is no mistake."}
         correct: a
         explanation: |-
@@ -283,9 +283,9 @@ tabs:
         prompt: 'A student wrote these lines. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "The 20000 should have been divided by 1.2."}
-          - {value: c, label: "The student should have subtracted 5000 from both sides."}
-          - {value: d, label: "Only the 1.2 is raised to the power t, so 5000 cannot be multiplied into it. Divide by 5000 instead."}
+          - {value: b, label: "The student should divide 20000 by 1.2 to undo the power."}
+          - {value: c, label: "The student should subtract 5000 from both sides first."}
+          - {value: d, label: "Only 1.2 is raised to the power t. Divide by 5000 first."}
         correct: d
         explanation: |-
           The exponent belongs to 1.2 only. Divide by 5000 first: \( 1.2^{t}=4 \). Then \( t=\tfrac{\ln 4}{\ln 1.2}\approx 7.6 \). The student's line gives about 1.14, which is wrong. <strong>The correct next line is \( 1.2^{t}=4 \).</strong>
