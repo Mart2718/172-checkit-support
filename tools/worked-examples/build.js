@@ -139,6 +139,12 @@ function dataTable(it, n) {
 
 function mathBlock(it) {
   const isDisplay = it.math.startsWith(BS + '[');
+  const BEGIN = BS + 'begin{aligned}', END = BS + 'end{aligned}';
+  if (isDisplay && it.math.includes(BEGIN)) {   // stacked lines (student work): one centered line per row
+    const body = it.math.slice(it.math.indexOf(BEGIN) + BEGIN.length, it.math.indexOf(END)).split('&amp;').join('').split('&').join('');
+    const rows = body.split(BS + BS).map((r) => r.trim()).filter(Boolean);
+    return rows.map((r, n) => para(mathRuns(r, { size: 40 }), { alignment: AlignmentType.CENTER, spacing: { before: n ? 40 : 200, after: n === rows.length - 1 ? 200 : 40 } }));
+  }
   return [para(plainWithMath(it.math, { size: isDisplay ? 40 : SZ }), { alignment: isDisplay ? AlignmentType.CENTER : AlignmentType.LEFT, spacing: { before: 200, after: 200 } })];
 }
 
