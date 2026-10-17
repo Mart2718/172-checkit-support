@@ -25,7 +25,8 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 
 ## Source notes (CheckIt, not this page)
 - The figures are drawn by tools/figures/make_pf2.py, which labels x in multiples of π/4.
-- How CheckIt typesets a negative or shifted input (for example whether tan(−2x) is shown as −tan(2x)) could not be confirmed, so the Quick Summary teaches both forms.
+- Confirmed from a CheckIt screenshot (2026-10-17): CheckIt keeps a negative inside, as in tan(−4x), and writes a shift with the number first, as in sec(−(3/2)π + x). The page now uses those forms, and a new item (Reading the Notation) practices reading the shift-first form.
+- The template's speech reads −(3/2)π as "negative 3 over 2 pi", which can be heard as 3 over 2π. The feedback and summary that use this form also say it in plain words ("negative three halves of π, plus x").
 
 ## Needs a live screen reader
 - How NVDA reads each equation, interval, and graph caption, and whether feedback is announced once.

@@ -51,7 +51,7 @@ summary:   # the Quick Summary tab
       - 'Subtract it from each location: <span>\( x=\tfrac{\pi}{4}+k\pi \)</span>. Adding shifts left.'
       - 'No change.'
       - 'No change.'
-  note: 'The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end, such as <span>\( \ldots\cup\left(-\tfrac{\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{3\pi}{4}\right)\cup\ldots \)</span>. A negative number inside, such as <span>\( \tan(-2x) \)</span>, can also be written with the minus sign in front, as <span>\( -\tan(2x) \)</span>. Either way it flips the graph upside down and does not move the asymptotes. For secant there is no flip, since <span>\( \sec(-2x)=\sec(2x) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
+  note: 'The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end, such as <span>\( \ldots\cup\left(-\tfrac{\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{3\pi}{4}\right)\cup\ldots \)</span>. CheckIt keeps a negative number inside, as in <span>\( \tan(-4x) \)</span>. For tangent, cotangent, and cosecant that flips the graph upside down, the same as <span>\( -\tan(4x) \)</span>; for secant there is no flip, since <span>\( \sec(-4x)=\sec(4x) \)</span>. It never moves the asymptotes or changes the period. CheckIt also writes a shift with the number first, as in <span>\( \sec\left(-\tfrac{3}{2}\pi+x\right) \)</span> (secant of negative three halves of π, plus x), which is <span>\( \sec\left(x-\tfrac{3\pi}{2}\right) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
 tabs:
   - id: asym
     label: "Try It: Asymptotes & Period"
@@ -104,8 +104,8 @@ tabs:
       - id: ap4
         title: "Period 1"
         math:
-          display: 'f(x)=-\cot(2x)'
-          speak: "f of x equals negative cotangent of 2 x"
+          display: 'f(x)=\cot(-2x)'
+          speak: "f of x equals cotangent of negative 2 x"
         prompt: 'What is the period of this function?'
         choices:
           - {value: a, label: '\( 2\pi \)', speak: "2 pi"}
@@ -114,7 +114,21 @@ tabs:
           - {value: d, label: '\( \tfrac{\pi}{4} \)', speak: "pi over 4"}
         correct: b
         explanation: |-
-          The period of cotangent is \( \pi \). The 2 inside squeezes the graph, so divide: \( \tfrac{\pi}{2} \). The minus sign in front flips the graph upside down. It does not change the period or move the asymptotes, which are at \( x=\tfrac{k\pi}{2} \). The answer \( 2\pi \) multiplies by 2 instead of dividing, and \( \tfrac{\pi}{4} \) divides by 2 twice. <strong>The period is \( \tfrac{\pi}{2} \).</strong>
+          The period of cotangent is \( \pi \). The 2 inside squeezes the graph, so divide: \( \tfrac{\pi}{2} \). The negative sign inside flips the graph upside down, the same as \( -\cot(2x) \). It does not change the period or move the asymptotes, which are at \( x=\tfrac{k\pi}{2} \). Only the size of the number matters for the period. The answer \( 2\pi \) multiplies by 2 instead of dividing, and \( \tfrac{\pi}{4} \) divides by 2 twice. <strong>The period is \( \tfrac{\pi}{2} \).</strong>
+      - id: ap5
+        title: "Reading the Notation"
+        math:
+          display: 'g(x)=\sec\left(-\dfrac{3}{2}\pi+x\right)'
+          speak: "g of x equals secant of the quantity negative 3 halves pi, plus x, end quantity"
+        prompt: 'CheckIt sometimes writes the shift first, like this. Which function is the same?'
+        choices:
+          - {value: a, label: '\( g(x)=\sec\left(x+\tfrac{3\pi}{2}\right) \)', speak: "g of x equals secant of the quantity x plus 3 pi over 2, end quantity"}
+          - {value: b, label: '\( g(x)=\sec\left(-\tfrac{3\pi}{2}x\right) \)', speak: "g of x equals secant of the quantity negative 3 pi over 2 times x, end quantity"}
+          - {value: c, label: '\( g(x)=\sec\left(x-\tfrac{3\pi}{2}\right) \)', speak: "g of x equals secant of the quantity x minus 3 pi over 2, end quantity"}
+          - {value: d, label: '\( g(x)=\sec(x)-\tfrac{3\pi}{2} \)', speak: "g of x equals secant of x, minus 3 pi over 2"}
+        correct: c
+        explanation: |-
+          The input is negative three halves of \( \pi \), plus \( x \). Adding can be done in either order, so it is the same as \( x-\tfrac{3\pi}{2} \). The \( x \) is added to the number, not multiplied by it. The number is subtracted, so the graph shifts right by \( \tfrac{3\pi}{2} \). For the asymptotes, solve \( x-\tfrac{3\pi}{2}=\tfrac{\pi}{2}+k\pi \): \( x=2\pi+k\pi \), which is every multiple of \( \pi \). <strong>It is the same as \( g(x)=\sec\left(x-\tfrac{3\pi}{2}\right) \).</strong>
   - id: domain
     label: "Try It: Domain & Range"
     heading: "Try It: Domain and Range"
@@ -208,11 +222,11 @@ tabs:
         choices:
           - {value: a, label: '\( f(x)=\sec(2x) \)', speak: "f of x equals secant of 2 x"}
           - {value: b, label: '\( f(x)=\csc(2x) \)', speak: "f of x equals cosecant of 2 x"}
-          - {value: c, label: '\( f(x)=-\csc(2x) \)', speak: "f of x equals negative cosecant of 2 x"}
+          - {value: c, label: '\( f(x)=\csc(-2x) \)', speak: "f of x equals cosecant of negative 2 x"}
           - {value: d, label: '\( f(x)=\csc\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals cosecant of the quantity one half x, end quantity"}
         correct: b
         explanation: |-
-          The dashed lines are at \( x=0 \) and every \( \tfrac{\pi}{2} \), so the asymptotes are \( x=\tfrac{k\pi}{2} \). Cosecant has an asymptote at 0, and \( 2x=k\pi \) gives exactly these. Secant of \( 2x \) would put them at \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. Now check the direction: \( \csc\left(2\cdot\tfrac{\pi}{4}\right)=\csc\left(\tfrac{\pi}{2}\right)=1 \), which matches \( \left(\tfrac{\pi}{4}, 1\right) \). With the minus sign in front, that point would be at \(-1\). Cosecant of one half \( x \) would have dashed lines \( 2\pi \) apart. <strong>The graph is \( f(x)=\csc(2x) \).</strong>
+          The dashed lines are at \( x=0 \) and every \( \tfrac{\pi}{2} \), so the asymptotes are \( x=\tfrac{k\pi}{2} \). Cosecant has an asymptote at 0, and \( 2x=k\pi \) gives exactly these. Secant of \( 2x \) would put them at \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. Now check the direction: \( \csc\left(2\cdot\tfrac{\pi}{4}\right)=\csc\left(\tfrac{\pi}{2}\right)=1 \), which matches \( \left(\tfrac{\pi}{4}, 1\right) \). With \( -2x \) inside, the graph flips and that point would be at \(-1\). Cosecant of one half \( x \) would have dashed lines \( 2\pi \) apart. <strong>The graph is \( f(x)=\csc(2x) \).</strong>
       - id: graph3
         title: "Graph 3"
         figure:
@@ -237,12 +251,12 @@ tabs:
         prompt: 'Which function has this graph?'
         choices:
           - {value: a, label: '\( f(x)=\tan\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals tangent of the quantity one half x, end quantity"}
-          - {value: b, label: '\( f(x)=-\tan\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals negative tangent of the quantity one half x, end quantity"}
-          - {value: c, label: '\( f(x)=-\tan(2x) \)', speak: "f of x equals negative tangent of 2 x"}
+          - {value: b, label: '\( f(x)=\tan\left(-\tfrac{1}{2}x\right) \)', speak: "f of x equals tangent of the quantity negative one half x, end quantity"}
+          - {value: c, label: '\( f(x)=\tan(-2x) \)', speak: "f of x equals tangent of negative 2 x"}
           - {value: d, label: '\( f(x)=\cot\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals cotangent of the quantity one half x, end quantity"}
         correct: b
         explanation: |-
-          The dashed lines are \( 2\pi \) apart at \( \pm\pi \), and the curve crosses the x-axis at 0. For \( \tan\left(\tfrac{x}{2}\right) \), \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) gives \( x=\pi+2k\pi \), which matches. Cotangent of \( \tfrac{x}{2} \) would have a dashed line at 0 instead, and \( -\tan(2x) \) would have dashed lines only \( \tfrac{\pi}{2} \) apart. But the curve falls, while tangent rises, so the graph is flipped: there is a minus sign. Check: \( -\tan\left(\tfrac{\pi}{4}\right)=-1 \) at \( x=\tfrac{\pi}{2} \). This is the same function as \( \tan\left(-\tfrac{x}{2}\right) \). <strong>The graph is \( f(x)=-\tan\left(\tfrac{x}{2}\right) \).</strong>
+          The dashed lines are \( 2\pi \) apart at \( \pm\pi \), and the curve crosses the x-axis at 0. For \( \tan\left(\tfrac{x}{2}\right) \), \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) gives \( x=\pi+2k\pi \), which matches. Cotangent of \( \tfrac{x}{2} \) would have a dashed line at 0 instead, and \( \tan(-2x) \) would have dashed lines only \( \tfrac{\pi}{2} \) apart. But the curve falls, while tangent rises, so the graph is flipped: the number inside is negative. Check: \( \tan\left(-\tfrac{\pi}{4}\right)=-1 \) at \( x=\tfrac{\pi}{2} \). This is the same function as \( -\tan\left(\tfrac{x}{2}\right) \). <strong>The graph is \( f(x)=\tan\left(-\tfrac{1}{2}x\right) \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
