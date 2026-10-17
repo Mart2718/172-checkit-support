@@ -145,7 +145,7 @@ tabs:
         choices:
           - {value: a, label: '\( y=3\cdot 2^{x} \)', speak: "y equals 3 times 2 to the x"}
           - {value: b, label: '\( y=-3\cdot 4^{x} \)', speak: "y equals negative 3 times 4 to the x"}
-          - {value: c, label: '\( y=-3\cdot(-2)^{x} \)', speak: "y equals negative 3 times negative 2 to the x"}
+          - {value: c, label: '\( y=-3\cdot(-2)^{x} \)', speak: "y equals negative 3 times the quantity negative 2, to the x"}
           - {value: d, label: '\( y=-3\cdot 2^{x} \)', speak: "y equals negative 3 times 2 to the x"}
         correct: d
         explanation: |-
@@ -201,7 +201,7 @@ tabs:
         title: "Evaluate 3"
         math:
           display: 'h(x)=2^{3x-1}'
-          speak: "h of x equals 2 to the power 3 x minus 1"
+          speak: "h of x equals 2 to the power of the quantity 3 x minus 1, end quantity"
         prompt: 'What is the value of \( h(2) \)?'
         choices:
           - {value: a, label: "5"}
