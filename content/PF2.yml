@@ -100,7 +100,7 @@ tabs:
           - {value: d, label: '\( x=2k\pi \)', speak: "x equals 2 k pi"}
         correct: a
         explanation: |-
-          Secant breaks where its input is \( \tfrac{\pi}{2}+k\pi \). Set \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) and multiply by 2: \( x=\pi+2k\pi \). Dividing by one half is the same as multiplying by 2, so the graph is stretched and the asymptotes spread out. <strong>The asymptotes are at \( x=\pi+2k\pi \).</strong>
+          Secant breaks where its input is \( \tfrac{\pi}{2}+k\pi \). Set \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) and multiply by 2: \( x=\pi+2k\pi \). Dividing by one half is the same as multiplying by 2, so the graph is stretched and the asymptotes spread out. The answer \( x=2k\pi \) uses cosecant's asymptotes. <strong>The asymptotes are at \( x=\pi+2k\pi \).</strong>
       - id: ap4
         title: "Period 1"
         math:
@@ -114,7 +114,7 @@ tabs:
           - {value: d, label: '\( \tfrac{\pi}{4} \)', speak: "pi over 4"}
         correct: b
         explanation: |-
-          The period of cotangent is \( \pi \). The 2 inside squeezes the graph, so divide: \( \tfrac{\pi}{2} \). The minus sign in front flips the graph upside down. It does not change the period or move the asymptotes, which are at \( x=\tfrac{k\pi}{2} \). The answer \( 2\pi \) multiplies by 2 instead of dividing. <strong>The period is \( \tfrac{\pi}{2} \).</strong>
+          The period of cotangent is \( \pi \). The 2 inside squeezes the graph, so divide: \( \tfrac{\pi}{2} \). The minus sign in front flips the graph upside down. It does not change the period or move the asymptotes, which are at \( x=\tfrac{k\pi}{2} \). The answer \( 2\pi \) multiplies by 2 instead of dividing, and \( \tfrac{\pi}{4} \) divides by 2 twice. <strong>The period is \( \tfrac{\pi}{2} \).</strong>
   - id: domain
     label: "Try It: Domain & Range"
     heading: "Try It: Domain and Range"
@@ -134,7 +134,7 @@ tabs:
           - {value: d, label: '\( (-\infty,\infty) \)', speak: "the open interval from negative infinity to infinity: all real numbers"}
         correct: b
         explanation: |-
-          The asymptotes are where \( 2x=\tfrac{\pi}{2}+k\pi \), so \( x=\tfrac{\pi}{4}+\tfrac{k\pi}{2} \): at \( -\tfrac{\pi}{4} \), \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. The domain is the open intervals between them. The first answer ignores the 2. The intervals starting at 0 belong to \( \cot(2x) \). All real numbers is the range, not the domain. <strong>The domain is the open intervals between \( -\tfrac{\pi}{4} \), \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on.</strong>
+          The asymptotes are where \( 2x=\tfrac{\pi}{2}+k\pi \), so \( x=\tfrac{\pi}{4}+\tfrac{k\pi}{2} \): at \( -\tfrac{\pi}{4} \), \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. The domain is the open intervals between them. The intervals around \( \tfrac{\pi}{2} \) ignore the 2. The intervals starting at 0 belong to \( \cot(2x) \). All real numbers is the range, not the domain. <strong>The domain is the open intervals between \( -\tfrac{\pi}{4} \), \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on.</strong>
       - id: dr2
         title: "Range 1"
         math:
@@ -162,7 +162,7 @@ tabs:
           - {value: d, label: '\( \ldots\cup(-\pi,0)\cup(0,\pi)\cup\ldots \)', speak: "and so on, union the open interval from negative pi to 0, union the open interval from 0 to pi, union and so on"}
         correct: a
         explanation: |-
-          Cotangent breaks where its input is \( k\pi \). Set \( \tfrac{x}{3}=k\pi \) and multiply by 3: \( x=3k\pi \), so the asymptotes are at \( -3\pi \), \( 0 \), \( 3\pi \), and so on. The intervals with \( \tfrac{\pi}{3} \) divide by 3 instead of multiplying. The intervals ending at \( \tfrac{3\pi}{2} \) use tangent's asymptotes. <strong>The domain is the open intervals between \( -3\pi \), \( 0 \), \( 3\pi \), and so on.</strong>
+          Cotangent breaks where its input is \( k\pi \). Set \( \tfrac{x}{3}=k\pi \) and multiply by 3: \( x=3k\pi \), so the asymptotes are at \( -3\pi \), \( 0 \), \( 3\pi \), and so on. The intervals with \( \tfrac{\pi}{3} \) divide by 3 instead of multiplying. The intervals ending at \( \tfrac{3\pi}{2} \) use tangent's asymptotes, and the intervals at \( \pi \) ignore the one third. <strong>The domain is the open intervals between \( -3\pi \), \( 0 \), \( 3\pi \), and so on.</strong>
       - id: dr4
         title: "Domain 3"
         math:
@@ -176,7 +176,7 @@ tabs:
           - {value: d, label: '\( \ldots\cup(-\pi,0)\cup(0,\pi)\cup\ldots \)', speak: "and so on, union the open interval from negative pi to 0, union the open interval from 0 to pi, union and so on"}
         correct: c
         explanation: |-
-          Set \( x+\tfrac{3\pi}{4}=\tfrac{\pi}{2}+k\pi \) and subtract: \( x=-\tfrac{\pi}{4}+k\pi \). So the asymptotes are at \( -\tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), \( \tfrac{7\pi}{4} \), and so on. The intervals starting at \( \tfrac{\pi}{4} \) shift the wrong way, to the right. The intervals around \( \tfrac{\pi}{2} \) ignore the shift. <strong>The domain is the open intervals between \( -\tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), \( \tfrac{7\pi}{4} \), and so on.</strong>
+          Set \( x+\tfrac{3\pi}{4}=\tfrac{\pi}{2}+k\pi \) and subtract: \( x=-\tfrac{\pi}{4}+k\pi \). So the asymptotes are at \( -\tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), \( \tfrac{7\pi}{4} \), and so on. The intervals starting at \( \tfrac{\pi}{4} \) shift the wrong way, to the right. The intervals around \( \tfrac{\pi}{2} \) ignore the shift, and the intervals at \( \pi \) use cotangent's asymptotes. <strong>The domain is the open intervals between \( -\tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), \( \tfrac{7\pi}{4} \), and so on.</strong>
   - id: graphs
     label: "Try It: Graphs"
     heading: "Try It: Graphs"
@@ -187,7 +187,7 @@ tabs:
         title: "Graph 1"
         figure:
           file: figures/PF2/graph1.svg
-          title: "A repeating curve between dashed vertical lines"
+          title: "A repeating curve between dashed vertical lines, with four labeled points"
           caption: '<strong>Plotted data:</strong> dashed vertical lines at x = −3π/4, π/4, and 5π/4, spaced π apart. Between each pair of neighboring dashed lines, the curve rises from the bottom of the grid to the top, getting very close to the dashed lines at both ends. It crosses the x-axis at (−π/4, 0) and (3π/4, 0), and passes through (−π/2, −1) and (0, 1). The same rising shape continues past the dashed lines at both edges.'
         prompt: 'Which function has this graph?'
         choices:
@@ -202,8 +202,8 @@ tabs:
         title: "Graph 2"
         figure:
           file: figures/PF2/graph2.svg
-          title: "U-shaped pieces between dashed vertical lines"
-          caption: '<strong>Plotted data:</strong> dashed vertical lines at x = −π, −π/2, 0, π/2, and π, spaced π/2 apart. Between each pair of neighboring dashed lines is one U-shaped piece whose ends climb toward the dashed lines. From left to right the pieces alternate: a U opening upward with lowest point (−3π/4, 1), a U opening downward with highest point (−π/4, −1), a U opening upward with lowest point (π/4, 1), and a U opening downward with highest point (3π/4, −1). No part of the curve lies strictly between y = −1 and y = 1.'
+          title: "U-shaped pieces between dashed vertical lines, with four labeled points"
+          caption: '<strong>Plotted data:</strong> dashed vertical lines at x = −π, −π/2, 0, π/2, and π, spaced π/2 apart. Between each pair of neighboring dashed lines is one U-shaped piece. Each upward U climbs toward the dashed lines at both ends, and each downward U drops toward them. From left to right the pieces alternate: a U opening upward with lowest point (−3π/4, 1), a U opening downward with highest point (−π/4, −1), a U opening upward with lowest point (π/4, 1), and a U opening downward with highest point (3π/4, −1). No part of the curve lies strictly between y = −1 and y = 1.'
         prompt: 'Which function has this graph?'
         choices:
           - {value: a, label: '\( f(x)=\sec(2x) \)', speak: "f of x equals secant of 2 x"}
@@ -212,13 +212,13 @@ tabs:
           - {value: d, label: '\( f(x)=\csc\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals cosecant of the quantity one half x, end quantity"}
         correct: b
         explanation: |-
-          The dashed lines are at \( x=0 \) and every \( \tfrac{\pi}{2} \), so the asymptotes are \( x=\tfrac{k\pi}{2} \). Cosecant has an asymptote at 0, and \( 2x=k\pi \) gives exactly these. Secant of \( 2x \) would put them at \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. Now check the direction: \( \csc\left(2\cdot\tfrac{\pi}{4}\right)=\csc\left(\tfrac{\pi}{2}\right)=1 \), which matches \( \left(\tfrac{\pi}{4}, 1\right) \). With the minus sign in front, that point would be at \(-1\). <strong>The graph is \( f(x)=\csc(2x) \).</strong>
+          The dashed lines are at \( x=0 \) and every \( \tfrac{\pi}{2} \), so the asymptotes are \( x=\tfrac{k\pi}{2} \). Cosecant has an asymptote at 0, and \( 2x=k\pi \) gives exactly these. Secant of \( 2x \) would put them at \( \tfrac{\pi}{4} \), \( \tfrac{3\pi}{4} \), and so on. Now check the direction: \( \csc\left(2\cdot\tfrac{\pi}{4}\right)=\csc\left(\tfrac{\pi}{2}\right)=1 \), which matches \( \left(\tfrac{\pi}{4}, 1\right) \). With the minus sign in front, that point would be at \(-1\). Cosecant of one half \( x \) would have dashed lines \( 2\pi \) apart. <strong>The graph is \( f(x)=\csc(2x) \).</strong>
       - id: graph3
         title: "Graph 3"
         figure:
           file: figures/PF2/graph3.svg
           title: "U-shaped pieces between dashed vertical lines, with two labeled points"
-          caption: '<strong>Plotted data:</strong> dashed vertical lines at x = −3π/4, π/4, and 5π/4, spaced π apart. Between −3π/4 and π/4 is a U opening upward with lowest point (−π/4, 1). Between π/4 and 5π/4 is a U opening downward with highest point (3π/4, −1). Pieces of the same shapes continue past the dashed lines at both edges. No part of the curve lies strictly between y = −1 and y = 1.'
+          caption: '<strong>Plotted data:</strong> dashed vertical lines at x = −3π/4, π/4, and 5π/4, spaced π apart. Between −3π/4 and π/4 is a U opening upward with lowest point (−π/4, 1). Between π/4 and 5π/4 is a U opening downward with highest point (3π/4, −1). At the left edge, left of −3π/4, part of a downward U reaches −1 at x = −5π/4. At the right edge, right of 5π/4, part of an upward U reaches 1 at x = 7π/4. No part of the curve lies strictly between y = −1 and y = 1.'
         prompt: 'Which function has this graph?'
         choices:
           - {value: a, label: '\( f(x)=\sec\left(x-\tfrac{\pi}{4}\right) \)', speak: "f of x equals secant of the quantity x minus pi over 4, end quantity"}
@@ -227,7 +227,7 @@ tabs:
           - {value: d, label: '\( f(x)=\csc\left(x-\tfrac{\pi}{4}\right) \)', speak: "f of x equals cosecant of the quantity x minus pi over 4, end quantity"}
         correct: c
         explanation: |-
-          Two answers have dashed lines in the right places. For \( \sec\left(x+\tfrac{\pi}{4}\right) \), \( x+\tfrac{\pi}{4}=\tfrac{\pi}{2}+k\pi \) gives \( x=\tfrac{\pi}{4}+k\pi \). For \( \csc\left(x-\tfrac{\pi}{4}\right) \), \( x-\tfrac{\pi}{4}=k\pi \) gives the same lines. A point decides it: \( \sec\left(-\tfrac{\pi}{4}+\tfrac{\pi}{4}\right)=\sec 0=1 \), which matches \( \left(-\tfrac{\pi}{4}, 1\right) \), but \( \csc\left(-\tfrac{\pi}{2}\right)=-1 \). <strong>The graph is \( f(x)=\sec\left(x+\tfrac{\pi}{4}\right) \).</strong>
+          Two answers have dashed lines in the right places. For \( \sec\left(x+\tfrac{\pi}{4}\right) \), \( x+\tfrac{\pi}{4}=\tfrac{\pi}{2}+k\pi \) gives \( x=\tfrac{\pi}{4}+k\pi \). For \( \csc\left(x-\tfrac{\pi}{4}\right) \), \( x-\tfrac{\pi}{4}=k\pi \) gives the same lines. A point decides it: \( \sec\left(-\tfrac{\pi}{4}+\tfrac{\pi}{4}\right)=\sec 0=1 \), which matches \( \left(-\tfrac{\pi}{4}, 1\right) \), but \( \csc\left(-\tfrac{\pi}{2}\right)=-1 \). Secant of \( x-\tfrac{\pi}{4} \) and cosecant of \( x+\tfrac{\pi}{4} \) put the dashed lines elsewhere. <strong>The graph is \( f(x)=\sec\left(x+\tfrac{\pi}{4}\right) \).</strong>
       - id: graph4
         title: "Graph 4"
         figure:
@@ -242,7 +242,7 @@ tabs:
           - {value: d, label: '\( f(x)=\cot\left(\tfrac{1}{2}x\right) \)', speak: "f of x equals cotangent of the quantity one half x, end quantity"}
         correct: b
         explanation: |-
-          The dashed lines are \( 2\pi \) apart at \( \pm\pi \), and the curve crosses the x-axis at 0. For \( \tan\left(\tfrac{x}{2}\right) \), \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) gives \( x=\pi+2k\pi \), which matches. Cotangent of \( \tfrac{x}{2} \) would have a dashed line at 0 instead. But the curve falls, while tangent rises, so the graph is flipped: there is a minus sign. Check: \( -\tan\left(\tfrac{\pi}{4}\right)=-1 \) at \( x=\tfrac{\pi}{2} \). This is the same function as \( \tan\left(-\tfrac{x}{2}\right) \). <strong>The graph is \( f(x)=-\tan\left(\tfrac{x}{2}\right) \).</strong>
+          The dashed lines are \( 2\pi \) apart at \( \pm\pi \), and the curve crosses the x-axis at 0. For \( \tan\left(\tfrac{x}{2}\right) \), \( \tfrac{x}{2}=\tfrac{\pi}{2}+k\pi \) gives \( x=\pi+2k\pi \), which matches. Cotangent of \( \tfrac{x}{2} \) would have a dashed line at 0 instead, and \( -\tan(2x) \) would have dashed lines only \( \tfrac{\pi}{2} \) apart. But the curve falls, while tangent rises, so the graph is flipped: there is a minus sign. Check: \( -\tan\left(\tfrac{\pi}{4}\right)=-1 \) at \( x=\tfrac{\pi}{2} \). This is the same function as \( \tan\left(-\tfrac{x}{2}\right) \). <strong>The graph is \( f(x)=-\tan\left(\tfrac{x}{2}\right) \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -282,7 +282,7 @@ tabs:
         math:
           display: 'h(x)=\cot\left(x-\dfrac{\pi}{4}\right)'
           speak: "h of x equals cotangent of the quantity x minus pi over 4, end quantity"
-        prompt: 'A student says the asymptotes are at \( x=-\tfrac{\pi}{4}+k\pi \). What is the mistake, if any?'
+        prompt: 'A student says the asymptotes are at \( -\tfrac{\pi}{4} \) plus any multiple of \( \pi \). What is the mistake, if any?'
         choices:
           - {value: a, label: 'Subtracting inside shifts right, so the asymptotes are at \( x=\tfrac{\pi}{4}+k\pi \).', speak: "Subtracting inside shifts right, so the asymptotes are at x equals pi over 4, plus k pi."}
           - {value: b, label: "There is no mistake."}
@@ -296,7 +296,7 @@ tabs:
         math:
           display: 'f(x)=\sec(3x)'
           speak: "f of x equals secant of 3 x"
-        prompt: 'A student says the asymptotes are at \( x=\tfrac{\pi}{6}+\tfrac{k\pi}{3} \), so the period is \( \tfrac{\pi}{3} \). What is the mistake, if any?'
+        prompt: 'A student says the asymptotes are at \( \tfrac{\pi}{6} \) plus any multiple of \( \tfrac{\pi}{3} \), so the period is \( \tfrac{\pi}{3} \). What is the mistake, if any?'
         choices:
           - {value: a, label: 'Secant matches cosecant, so the asymptotes are at \( x=\tfrac{k\pi}{3} \).', speak: "Secant matches cosecant, so the asymptotes are at x equals k pi over 3."}
           - {value: b, label: 'One period holds two branches, so the period is \( \tfrac{2\pi}{3} \).', speak: "One period holds two branches, so the period is 2 pi over 3."}
@@ -310,7 +310,7 @@ tabs:
         math:
           display: 'f(x)=\tan\left(\tfrac{1}{2}x\right)'
           speak: "f of x equals tangent of the quantity one half x, end quantity"
-        prompt: 'A student says the asymptotes are at \( x=\pi+2k\pi \), and the domain is every real number except those. What is the mistake, if any?'
+        prompt: 'A student says the asymptotes are at \( \pi \) plus any multiple of \( 2\pi \), and the domain is every real number except those. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: 'The asymptotes should be at \( x=\tfrac{\pi}{4}+\tfrac{k\pi}{2} \).', speak: "The asymptotes should be at x equals pi over 4, plus k pi over 2."}

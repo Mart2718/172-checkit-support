@@ -23,11 +23,11 @@ def trig_graph(name, f, xr, yr, asym, pts, step=Fraction(1, 4), label_every=2, c
     pts: list of (x_fraction_of_pi, y, anchor, dx, dy) labeled points."""
     x0, x1 = xr; y0, y1 = yr
     nx = int((x1 - x0) / step)
-    L, T, R, B = 34, 12, 16, 30
+    L, T, R, B = 38, 14, 30, 34
     W = nx * cell; H = (y1 - y0) * cell
     sx = lambda q: L + float((q - x0) / step) * cell
     sy = lambda y: T + (y1 - y) * cell
-    o = [f'<svg viewBox="0 0 {W+L+R} {H+T+B}" font-family="Arial, Helvetica, sans-serif" font-size="13">']
+    o = [f'<svg viewBox="0 0 {W+L+R} {H+T+B}" font-family="Arial, Helvetica, sans-serif" font-size="17">']
     o.append(f'<rect x="{L}" y="{T}" width="{W}" height="{H}" fill="#fcfcfc"/>')
     o.append('<g stroke="#e0e0e0" stroke-width="1">')
     for i in range(nx + 1): o.append(f'<line x1="{fmt(L+i*cell)}" y1="{T}" x2="{fmt(L+i*cell)}" y2="{T+H}"/>')
@@ -40,7 +40,7 @@ def trig_graph(name, f, xr, yr, asym, pts, step=Fraction(1, 4), label_every=2, c
     o.append('<g fill="#333" text-anchor="middle">')
     for i in range(nx + 1):
         q = x0 + i * step
-        if q != 0 and (q / step) % label_every == 0: o.append(f'<text x="{fmt(L+i*cell)}" y="{T+H+16}">{pi_label(q)}</text>')
+        if q != 0 and (q / step) % label_every == 0: o.append(f'<text x="{fmt(L+i*cell)}" y="{T+H+19}">{pi_label(q)}</text>')
     o.append('</g><g fill="#333" text-anchor="end">')
     for j in range(y0, y1 + 1):
         if j != 0: o.append(f'<text x="{L-4}" y="{fmt(sy(j)+4)}">{str(j).replace("-", "−")}</text>')
@@ -79,14 +79,14 @@ F = Fraction
 tan = math.tan; sec = lambda t: 1 / math.cos(t); csc = lambda t: 1 / math.sin(t)
 # Graph 1: tan(x + pi/4). Asymptotes at pi/4 + k pi; zeros at -pi/4 + k pi; (0, 1), (-pi/2, -1).
 trig_graph('graph1.svg', lambda x: tan(x + PI / 4), (F(-5, 4), F(7, 4)), (-4, 4),
-           [F(-3, 4), F(1, 4), F(5, 4)], [(F(0), 1, 'start', 8, -6), (F(-1, 2), -1, 'start', 8, 18), (F(-1, 4), 0, 'end', -8, -8), (F(3, 4), 0, 'start', 8, -8)], label_every=1, cell=44)
+           [F(-3, 4), F(1, 4), F(5, 4)], [(F(0), 1, 'start', 8, -6), (F(-1, 2), -1, 'start', 8, 18), (F(-1, 4), 0, 'end', -8, -8), (F(3, 4), 0, 'start', 8, -8)], label_every=1, cell=54)
 # Graph 2: csc(2x). Asymptotes at k pi/2; (pi/4, 1), (3pi/4, -1), (-pi/4, -1).
 trig_graph('graph2.svg', lambda x: csc(2 * x), (F(-1, 1), F(1, 1)), (-4, 4),
            [F(-1), F(-1, 2), F(0), F(1, 2), F(1)], [(F(1, 4), 1, 'middle', 0, 22), (F(3, 4), -1, 'middle', 0, -12), (F(-1, 4), -1, 'middle', 0, -12), (F(-3, 4), 1, 'middle', 0, 22)], label_every=1, cell=56)
 # Graph 3: sec(x + pi/4). Asymptotes at pi/4 + k pi; (-pi/4, 1), (3pi/4, -1).
 trig_graph('graph3.svg', lambda x: sec(x + PI / 4), (F(-5, 4), F(7, 4)), (-4, 4),
-           [F(-3, 4), F(1, 4), F(5, 4)], [(F(-1, 4), 1, 'end', -8, 16), (F(3, 4), -1, 'start', 8, -6)], label_every=1, cell=44)
+           [F(-3, 4), F(1, 4), F(5, 4)], [(F(-1, 4), 1, 'end', -8, 16), (F(3, 4), -1, 'start', 8, -6)], label_every=1, cell=54)
 # Graph 4: tan(-x/2) = -tan(x/2). Asymptotes at pi + 2k pi; zero at 0; (pi/2, -1), (-pi/2, 1).
-trig_graph('graph4.svg', lambda x: tan(-x / 2), (F(-2), F(2)), (-4, 4),
-           [F(-1), F(1)], [(F(0), 0, 'start', 8, -8), (F(1, 2), -1, 'start', 8, 16), (F(-1, 2), 1, 'end', -8, -6)], step=F(1, 4), label_every=2, cell=40)
+trig_graph('graph4.svg', lambda x: tan(-x / 2), (F(-3, 2), F(3, 2)), (-4, 4),
+           [F(-1), F(1)], [(F(0), 0, 'start', 8, -8), (F(1, 2), -1, 'start', 8, 16), (F(-1, 2), 1, 'end', -8, -6)], step=F(1, 4), label_every=2, cell=50)
 print('wrote', sorted(os.listdir(OUT)))
