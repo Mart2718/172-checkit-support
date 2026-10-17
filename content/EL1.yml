@@ -1,0 +1,260 @@
+# EL1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math needs a "speak" line: the plain-words reading that screen readers announce.
+code: EL1
+h1: "EL1 Support: Introduction to Exponentials"
+pageTitle: "EL1 Support: Introduction to Exponentials — Math 172, Santa Ana College"
+hubSummary: "Introduction to exponentials: recognizing, writing, and evaluating exponential functions"
+videoIntro: "A narrated walkthrough of how to tell whether a table shows an exponential function, how to find an equation from two points, and how to evaluate exponential functions, including base e."
+# Phrases that must NOT appear in text shown before the student guesses (table captions, item titles).
+banPhrases: '(common|constant) (ratio|difference)|growth factor|(is|are) (exponential|linear)|exponential (growth|decay)|(ratio|difference)s? (is|are)'
+worked:   # used for the worked-examples recording document
+  title: "EL1 Worked Examples: Introduction to Exponentials"
+  coreQuestion: "What number does the output get multiplied by each time the input goes up by 1?"
+  coreFollowup: "That number is the base b, and the starting value when x is 0 is a. Together they give the exponential function f(x) = a times b to the x."
+summary:   # the Quick Summary tab
+  intro: 'Every EL1 question comes back to one idea: <strong>an exponential function is multiplied by the same number every time \( x \) goes up by 1.</strong> In \( f(x)=a\cdot b^{x} \), the value \( a \) is where it starts (when \( x=0 \)) and \( b \) is the number it is multiplied by each step.'
+  caption: "What to do for each kind of EL1 question, and the slip to avoid"
+  columns: ["What you need", "How to do it", "Common slip"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Tell if a table is exponential'
+      - 'With x going up by 1, divide each y-value by the one before it. If you get the same number every time, the table is exponential. If the <em>differences</em> are the same every time, it is linear.'
+      - 'Checking differences instead of ratios, or deciding that a table that goes down cannot be exponential.'
+    -
+      - 'Find an equation from two points'
+      - 'Use the point with <span>\( x=0 \)</span>: its y-value is <span>\( a \)</span>. Put the other point into <span>\( y=a\cdot b^{x} \)</span> and solve for <span>\( b \)</span>. The base must be positive.'
+      - 'Stopping at <span>\( b^{2}=9 \)</span> without taking the root, swapping <span>\( a \)</span> and <span>\( b \)</span>, or using a negative base.'
+    -
+      - 'Evaluate an exponential function'
+      - 'Substitute for <span>\( x \)</span>, find the power first, then multiply by <span>\( a \)</span>. A negative exponent flips the base: <span>\( b^{-n}=\tfrac{1}{b^{n}} \)</span>.'
+      - 'Multiplying <span>\( a \)</span> and <span>\( b \)</span> before applying the exponent, or ignoring the negative sign in the exponent.'
+    -
+      - 'Work with base e'
+      - '<span>\( e\approx 2.718 \)</span> is a number, and it follows the same rules as any other base. <span>\( e^{0}=1 \)</span>, and <span>\( e^{-x}=\left(\tfrac{1}{e}\right)^{x} \)</span> has a base less than 1, so it decays.'
+      - 'Reading <span>\( e^{2} \)</span> as <span>\( 2e \)</span>, or treating <span>\( e \)</span> as a variable.'
+  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+tabs:
+  - id: tables
+    label: "Try It: Tables"
+    heading: "Try It: Is the Table Exponential?"
+    intro: |-
+      Make your best guess on each table, then check it. Look at how the y-values change each time x goes up by 1.
+    items:
+      - id: tab1
+        title: "Table 1"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table 1 of x and y values"
+          rows:
+            - ["x", "1", "2", "3", "4", "5"]
+            - ["y", "3", "6", "12", "24", "48"]
+        prompt: 'What kind of function does this table show?'
+        choices:
+          - {value: exp, label: "Exponential"}
+          - {value: lin, label: "Linear"}
+          - {value: neither, label: "Neither exponential nor linear"}
+        correct: exp
+        explanation: |-
+          Divide each y-value by the one before it: 6 ÷ 3 = 2, 12 ÷ 6 = 2, 24 ÷ 12 = 2, 48 ÷ 24 = 2. The y-value is multiplied by 2 every time. The differences are 3, 6, 12, 24, so they are not constant. <strong>This table shows an exponential function.</strong>
+      - id: tab2
+        title: "Table 2"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table 2 of x and y values"
+          rows:
+            - ["x", "1", "2", "3", "4", "5"]
+            - ["y", "5", "8", "11", "14", "17"]
+        prompt: 'What kind of function does this table show?'
+        choices:
+          - {value: exp, label: "Exponential"}
+          - {value: lin, label: "Linear"}
+          - {value: neither, label: "Neither exponential nor linear"}
+        correct: lin
+        explanation: |-
+          The differences are 8 − 5 = 3, 11 − 8 = 3, 14 − 11 = 3, 17 − 14 = 3. Adding 3 every time is a constant rate of change, which is linear. The ratios 8 ÷ 5 = 1.6 and 11 ÷ 8 = 1.375 are not the same. <strong>This table shows a linear function, not an exponential one.</strong>
+      - id: tab3
+        title: "Table 3"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table 3 of x and y values"
+          rows:
+            - ["x", "1", "2", "3", "4", "5"]
+            - ["y", "81", "27", "9", "3", "1"]
+        prompt: 'What kind of function does this table show?'
+        choices:
+          - {value: exp, label: "Exponential"}
+          - {value: lin, label: "Linear"}
+          - {value: neither, label: "Neither exponential nor linear"}
+        correct: exp
+        explanation: |-
+          Divide each y-value by the one before it: 27 ÷ 81 = 1/3, 9 ÷ 27 = 1/3, 3 ÷ 9 = 1/3, 1 ÷ 3 = 1/3. The y-value is multiplied by 1/3 every time. The values go down, but a constant ratio is what makes a table exponential. <strong>This table shows an exponential function that decays.</strong>
+      - id: tab4
+        title: "Table 4"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table 4 of x and y values"
+          rows:
+            - ["x", "1", "2", "3", "4", "5"]
+            - ["y", "2", "5", "10", "17", "26"]
+        prompt: 'What kind of function does this table show?'
+        choices:
+          - {value: exp, label: "Exponential"}
+          - {value: lin, label: "Linear"}
+          - {value: neither, label: "Neither exponential nor linear"}
+        correct: neither
+        explanation: |-
+          The differences are 3, 5, 7, 9, so they are not constant. The ratios are 5 ÷ 2 = 2.5, 10 ÷ 5 = 2, 17 ÷ 10 = 1.7, 26 ÷ 17 ≈ 1.53, so they are not constant either. <strong>This table shows neither an exponential nor a linear function.</strong>
+  - id: equations
+    label: "Try It: Find the Equation"
+    heading: "Try It: Find the Equation"
+    intro: |-
+      Each exponential function below has the form <span>\( y=a\cdot b^{x} \)</span>. In each problem, one of the points has an x-value of 0. Think about what that point tells you.
+    items:
+      - id: eq1
+        title: "Equation 1"
+        math:
+          inline: ['(0, 5)', '(2, 45)']
+        prompt: 'Which equation describes the exponential function that passes through these two points?'
+        choices:
+          - {value: a, label: '\( y=3\cdot 5^{x} \)', speak: "y equals 3 times 5 to the x"}
+          - {value: b, label: '\( y=5\cdot 9^{x} \)', speak: "y equals 5 times 9 to the x"}
+          - {value: c, label: '\( y=5\cdot 3^{x} \)', speak: "y equals 5 times 3 to the x"}
+          - {value: d, label: '\( y=20x+5 \)', speak: "y equals 20 x plus 5"}
+        correct: c
+        explanation: |-
+          The point \( (0,5) \) has \( x=0 \), and \( b^{0}=1 \), so \( a=5 \). Now use \( (2,45) \): \( 5\cdot b^{2}=45 \), so \( b^{2}=9 \) and \( b=3 \). The base must be positive. Check: \( 5\cdot 3^{2}=45 \). <strong>The function is \( y=5\cdot 3^{x} \).</strong>
+      - id: eq2
+        title: "Equation 2"
+        math:
+          inline: ['(0, 8)', '(3, 1)']
+        prompt: 'Which equation describes the exponential function that passes through these two points?'
+        choices:
+          - {value: a, label: '\( y=8\cdot\left(\tfrac{1}{2}\right)^{x} \)', speak: "y equals 8 times one half to the x"}
+          - {value: b, label: '\( y=8\cdot 2^{x} \)', speak: "y equals 8 times 2 to the x"}
+          - {value: c, label: '\( y=8\cdot\left(\tfrac{1}{8}\right)^{x} \)', speak: "y equals 8 times one eighth to the x"}
+          - {value: d, label: '\( y=\tfrac{1}{2}\cdot 8^{x} \)', speak: "y equals one half times 8 to the x"}
+        correct: a
+        explanation: |-
+          The point \( (0,8) \) gives \( a=8 \). Now use \( (3,1) \): \( 8\cdot b^{3}=1 \), so \( b^{3}=\tfrac{1}{8} \) and \( b=\tfrac{1}{2} \). The output goes down from 8 to 1, so a base less than 1 makes sense. Check: \( 8\cdot\left(\tfrac{1}{2}\right)^{3}=1 \). <strong>The function is \( y=8\cdot\left(\tfrac{1}{2}\right)^{x} \).</strong>
+      - id: eq3
+        title: "Equation 3"
+        math:
+          inline: ['(0, -3)', '(2, -12)']
+        prompt: 'Which equation describes the exponential function that passes through these two points?'
+        choices:
+          - {value: a, label: '\( y=3\cdot 2^{x} \)', speak: "y equals 3 times 2 to the x"}
+          - {value: b, label: '\( y=-3\cdot 4^{x} \)', speak: "y equals negative 3 times 4 to the x"}
+          - {value: c, label: '\( y=-3\cdot(-2)^{x} \)', speak: "y equals negative 3 times the quantity negative 2, to the x"}
+          - {value: d, label: '\( y=-3\cdot 2^{x} \)', speak: "y equals negative 3 times 2 to the x"}
+        correct: d
+        explanation: |-
+          The point \( (0,-3) \) gives \( a=-3 \). Now use \( (2,-12) \): \( -3\cdot b^{2}=-12 \), so \( b^{2}=4 \). Both 2 and −2 square to 4, but the base of an exponential function must be positive, so \( b=2 \). Check: \( -3\cdot 2^{2}=-12 \). <strong>The function is \( y=-3\cdot 2^{x} \).</strong>
+      - id: eq4
+        title: "Equation 4"
+        math:
+          inline: ['(-1, 6)', '(0, 2)']
+        prompt: 'Which equation describes the exponential function that passes through these two points?'
+        choices:
+          - {value: a, label: '\( y=2\cdot 3^{x} \)', speak: "y equals 2 times 3 to the x"}
+          - {value: b, label: '\( y=2\cdot\left(\tfrac{1}{3}\right)^{x} \)', speak: "y equals 2 times one third to the x"}
+          - {value: c, label: '\( y=6\cdot\left(\tfrac{1}{3}\right)^{x} \)', speak: "y equals 6 times one third to the x"}
+          - {value: d, label: '\( y=-4x+2 \)', speak: "y equals negative 4 x plus 2"}
+        correct: b
+        explanation: |-
+          This time the point with \( x=0 \) is the second one, \( (0,2) \), so \( a=2 \). Now use \( (-1,6) \): \( 2\cdot b^{-1}=6 \), which means \( \tfrac{2}{b}=6 \), so \( b=\tfrac{1}{3} \). Check: \( 2\cdot\left(\tfrac{1}{3}\right)^{-1}=2\cdot 3=6 \). <strong>The function is \( y=2\cdot\left(\tfrac{1}{3}\right)^{x} \).</strong>
+  - id: evaluate
+    label: "Try It: Evaluate"
+    heading: "Try It: Evaluate"
+    intro: |-
+      Substitute the x-value, work out the power, and then multiply. Pay attention to what the exponent applies to.
+    items:
+      - id: ev1
+        title: "Evaluate 1"
+        math:
+          display: 'f(x)=3\cdot 2^{x}'
+          speak: "f of x equals 3 times 2 to the x"
+        prompt: 'What is the value of \( f(4) \)?'
+        choices:
+          - {value: a, label: "24"}
+          - {value: b, label: "48"}
+          - {value: c, label: "1296"}
+          - {value: d, label: "12"}
+        correct: b
+        explanation: |-
+          Substitute 4 for \( x \): \( f(4)=3\cdot 2^{4} \). The exponent applies only to the 2, so work out the power first: \( 2^{4}=16 \). Then multiply: \( 3\cdot 16=48 \). Multiplying 3 and 2 first would give \( 6^{4}=1296 \), which is a different problem. <strong>\( f(4)=48 \).</strong>
+      - id: ev2
+        title: "Evaluate 2"
+        math:
+          display: 'g(x)=4\cdot\left(\tfrac{1}{2}\right)^{x}'
+          speak: "g of x equals 4 times one half to the x"
+        prompt: 'What is the value of \( g(-3) \)?'
+        choices:
+          - {value: a, label: '\( \tfrac{1}{8} \)', speak: "one eighth"}
+          - {value: b, label: '\( \tfrac{1}{2} \)', speak: "one half"}
+          - {value: c, label: "32"}
+          - {value: d, label: "6"}
+        correct: c
+        explanation: |-
+          Substitute −3 for \( x \): \( g(-3)=4\cdot\left(\tfrac{1}{2}\right)^{-3} \). A negative exponent flips the base: \( \left(\tfrac{1}{2}\right)^{-3}=2^{3}=8 \). Then multiply: \( 4\cdot 8=32 \). <strong>\( g(-3)=32 \).</strong>
+      - id: ev3
+        title: "Evaluate 3"
+        math:
+          display: 'h(x)=2^{3x-1}'
+          speak: "h of x equals 2 to the power of the quantity 3 x minus 1, end quantity"
+        prompt: 'What is the value of \( h(2) \)?'
+        choices:
+          - {value: a, label: "5"}
+          - {value: b, label: "10"}
+          - {value: c, label: "63"}
+          - {value: d, label: "32"}
+        correct: d
+        explanation: |-
+          The whole expression \( 3x-1 \) is the exponent. Substitute 2 for \( x \): \( 3(2)-1=5 \), so \( h(2)=2^{5} \). Then \( 2^{5}=32 \). The answer 5 is only the exponent, and 63 comes from subtracting 1 after raising the power. <strong>\( h(2)=32 \).</strong>
+  - id: basee
+    label: "Try It: Base e"
+    heading: "Try It: Base e"
+    intro: |-
+      The number <span>\( e\approx 2.718 \)</span> is an irrational constant, like <span>\( \pi \)</span>. When it is the base of an exponential function, it follows the same rules as every other base.
+    items:
+      - id: e1
+        title: "Base e 1"
+        math:
+          display: 'e^{2}'
+          speak: "e squared"
+        prompt: 'About how large is this number? Use \( e\approx 2.718 \).'
+        choices:
+          - {value: a, label: "About 2.7"}
+          - {value: b, label: "About 5.4"}
+          - {value: c, label: "About 7.4"}
+          - {value: d, label: "About 9.0"}
+        correct: c
+        explanation: |-
+          The exponent 2 means two factors of \( e \): \( e^{2}=e\cdot e\approx 2.718\cdot 2.718\approx 7.39 \). It is not \( 2e\approx 5.4 \), and it is not \( 3^{2}=9 \), because \( e \) is a little less than 3. <strong>\( e^{2}\approx 7.4 \).</strong>
+      - id: e2
+        title: "Base e 2"
+        math:
+          display: 'f(x)=5e^{x}'
+          speak: "f of x equals 5 times e to the x"
+        prompt: 'What is the value of \( f(0) \)?'
+        choices:
+          - {value: a, label: "0"}
+          - {value: b, label: "5"}
+          - {value: c, label: '\( 5e \)', speak: "5 e"}
+          - {value: d, label: '\( e \)', speak: "e"}
+        correct: b
+        explanation: |-
+          Substitute 0 for \( x \): \( f(0)=5e^{0} \). Any nonzero number to the power 0 is 1, and that includes \( e \). So \( f(0)=5\cdot 1=5 \), which is the starting value \( a \). <strong>\( f(0)=5 \).</strong>
+      - id: e3
+        title: "Base e 3"
+        math:
+          display: 'f(x)=2e^{-x}'
+          speak: "f of x equals 2 e to the negative x"
+        prompt: 'Does this function show exponential growth or exponential decay?'
+        choices:
+          - {value: growth, label: "Exponential growth"}
+          - {value: decay, label: "Exponential decay"}
+          - {value: neither, label: "Neither, because the exponent is negative"}
+        correct: decay
+        explanation: |-
+          Rewrite the power using a negative exponent: \( e^{-x}=\left(\tfrac{1}{e}\right)^{x} \). The base is \( \tfrac{1}{e}\approx 0.37 \), which is between 0 and 1, so the function decays. Seeing the number \( e \) in the formula is not enough to call it growth; the sign of the exponent matters. <strong>\( f(x)=2e^{-x} \) shows exponential decay.</strong>
