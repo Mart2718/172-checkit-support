@@ -86,7 +86,7 @@ function texToSpeech(tex) {
     le:'is less than or equal to', leq:'is less than or equal to', ge:'is greater than or equal to', geq:'is greater than or equal to', ne:'is not equal to', neq:'is not equal to',
     cdot:'times', times:'times', pm:'plus or minus', to:'approaches', rightarrow:'approaches', in:'is in', cup:'union', ldots:'dot dot dot', dots:'dot dot dot', cdots:'dot dot dot', div:'divided by'};
   var IGNORE = {left:1, right:1, ',':1, ';':1, ':':1, '!':1, ' ':1, quad:1, qquad:1, displaystyle:1, '\\':1};
-  var s = String(tex).replace(/\u2212/g, '-').replace(/\\(left|right)\s*/g, '');
+  var s = String(tex).replace(/\u2212/g, '-').replace(/\\(left|right)\s*/g, '').replace(/\\!/g, '');
   var i = 0;
   function peekCmd() { var m = /^\\([a-zA-Z]+|.)/.exec(s.slice(i)); return m ? m[1] : null; }
   function skipWs() { while (i < s.length && /\s/.test(s[i])) i++; }
@@ -141,12 +141,14 @@ function texToSpeech(tex) {
         if (s[i] === '(') {
           var inner = parenGroup(), single = /^\s*-?\s*([A-Za-z]|\d+(\.\d+)?)(\^\{?\w+\}?)?\s*$/.test(inner);
           var sp2 = texToSpeech(inner);
-          push(name + ' of ' + (single ? sp2 : 'the quantity ' + sp2), false);
+          var oneFrac = /^the fraction /.test(sp2) && /, end fraction$/.test(sp2) && (sp2.match(/the fraction /g) || []).length === 1;
+          push(name + ' of ' + (single || oneFrac ? sp2 : 'the quantity ' + sp2 + ', end quantity'), false);
           skipWs(); if (s[i] === '+' || s[i] === '-' || s[i] === '−') out[out.length - 1] += ',';
         } else if (i < s.length && /[A-Za-z0-9\\{]/.test(s[i])) {
           var nm = /^\d+(\.\d+)?/.exec(s.slice(i)), arg = nm ? (i += nm[0].length, nm[0]) : group(), sp3 = texToSpeech(arg);
           if (s[i] === '^') { i++; sp3 += power(group()); }
           push(name + ' of ' + sp3, false);
+          skipWs(); if (/^(\+|-|\\cdot|\\times)/.test(s.slice(i))) out[out.length - 1] += ",";   // so "log of x, plus log of y" is not heard as log of (x plus ...)
         } else push(name, false);
         continue;
       }
@@ -156,7 +158,8 @@ function texToSpeech(tex) {
     if (c === '^') {
       i++; var pw = power(group()); out.push(pw);
       skipWs();   // a word-form exponent followed by + or - gets a comma, so "2 to the power x, plus 3" is not heard as 2 to the power x plus 3
-      if ((s[i] === '+' || s[i] === '-') && /to the power/.test(pw) && !/,$/.test(pw)) out[out.length - 1] += ',';
+      if ((s[i] === '+' || s[i] === '-' || /[A-Za-z0-9\\(]/.test(s[i] || '')) && /to the power/.test(pw) && !/,$/.test(pw)) out[out.length - 1] += ',';
+      if (/[A-Za-z0-9(]/.test(s[i] || '')) out.push('times');   // x^2 y is heard as "x squared times y"
       continue;
     }
     if (c === '_') { i++; out.push(' sub ' + texToSpeech(group())); continue; }

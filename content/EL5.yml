@@ -135,7 +135,7 @@ tabs:
         title: "Expand 3"
         math:
           display: '\log_4\left(x^{5}y^{-2}z^{3}\right)'
-          speak: "log base 4 of the quantity x to the 5th power times y to the power negative 2 times z cubed, end quantity"
+          speak: "log base 4 of the quantity x to the 5th power, times y to the power negative 2, times z cubed, end quantity"
         prompt: 'Which expression is the expanded form of this logarithm?'
         choices:
           - {value: a, label: '\( 5\log_4 x+2\log_4 y+3\log_4 z \)', speak: "5 times log base 4 of x, plus 2 times log base 4 of y, plus 3 times log base 4 of z"}
@@ -265,7 +265,7 @@ tabs:
           - {value: a, label: "There is no mistake. An exponent always comes out front as a positive number."}
           - {value: b, label: "The 2 should have been added to the logarithm."}
           - {value: c, label: "The logarithm should have been divided by 2."}
-          - {value: d, label: "The negative sign was lost. The exponent −2 should come out front as −2."}
+          - {value: d, label: "The negative sign was lost. The exponent negative 2 should come out front as negative 2."}
         correct: d
         explanation: |-
           The exponent keeps its sign when it comes out front: \( \log_5\!\left(a^{-2}\right)=-2\log_5 a \). Check with \( a=5 \): \( \log_5\!\left(5^{-2}\right)=-2 \), but \( 2\log_5 5=2 \). <strong>The correct line is \( \log_5\!\left(a^{-2}\right)=-2\log_5 a \).</strong>

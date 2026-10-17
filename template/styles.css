@@ -60,3 +60,6 @@
   .direct-link-row{margin:14px 0;font-size:15px;}
   footer{background:var(--navy);color:#aaa;padding:14px 24px;font-size:12px;text-align:center;margin-top:40px;}
   .katex-display{margin:0.6em 0;}
+
+/* very narrow screens (320 px): scale display math down slightly so long expressions do not push the page wider than the screen */
+@media (max-width:360px){ .katex-display > .katex{font-size:1.05em;} }
