@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL2 Support: Graphing Exponential Functions — Math 172, Santa Ana College</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{
+    --teal-dark:#1a6b6b;
+    --teal-mid:#2a8f8f;
+    --teal-light:#e6f4f4;
+    --orange-action:#a84d16;   /* darkened for text/button contrast, not the decorative #e07020 */
+    --orange-light:#fff3e6;
+    --navy:#1a1a2e;
+    --white:#ffffff;
+    --gray-light:#f5f5f5;
+    --gray-mid:#cccccc;
+    --gray-text:#333333;
+    --correct-bg:#e6f4ea;
+    --correct-text:#1e5c33;
+    --incorrect-bg:#fdecea;
+    --incorrect-text:#8a2e20;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:Georgia,serif;margin:0;background:#f9f9f9;color:var(--gray-text);line-height:1.5;}
+  .skip-link{position:absolute;left:-999px;top:auto;}
+  .skip-link:focus{position:fixed;left:8px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:4px;z-index:100;}
+  *:focus-visible{outline:3px solid var(--orange-action);outline-offset:3px;}
+  header{background:var(--navy);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  header p{margin:0;font-size:12px;letter-spacing:1px;opacity:0.8;text-transform:uppercase;}
+  header h1{margin:4px 0 0;font-size:22px;font-weight:normal;font-family:Georgia,serif;}
+  div.tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--navy);padding:0 16px;}
+  .tab-btn{background:transparent;color:#cfd8e3;border:none;padding:12px 16px;font-size:14px;font-family:Georgia,serif;cursor:pointer;border-bottom:3px solid transparent;}
+  .tab-btn[aria-selected="true"]{background:#242444;color:#fff;border-bottom:3px solid #e07020;}
+  .tab-btn:hover{color:#fff;}
+  main{max-width:860px;margin:0 auto;padding:24px;}
+  .tab-panel h2{color:var(--teal-dark);border-bottom:2px solid var(--teal-light);padding-bottom:6px;}
+  .item{background:#fff;border:1px solid var(--gray-mid);border-radius:8px;padding:18px 20px;margin:22px 0;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+  .item h3{color:var(--teal-dark);margin-top:0;font-size:18px;}
+  figure{margin:14px 0;text-align:center;}
+  figure svg{width:100%;max-width:340px;height:auto;background:#fcfcfc;border:1px solid var(--gray-mid);border-radius:6px;}
+  figcaption{text-align:left;font-size:13.5px;color:#555;background:var(--gray-light);border-radius:6px;padding:8px 12px;margin-top:8px;}
+  table.data-table{border-collapse:collapse;margin:10px auto;font-size:15px;}
+  table.data-table th, table.data-table td{border:1px solid var(--gray-mid);padding:6px 14px;text-align:center;}
+  table.data-table th{background:var(--teal-light);}
+  .prompt{font-weight:bold;margin:14px 0 8px;}
+  .guess-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+  .guess-btn{background:var(--teal-dark);color:#fff;border:none;padding:9px 16px;border-radius:5px;font-size:14px;cursor:pointer;font-family:Georgia,serif;}
+  .guess-btn:hover{text-decoration:underline;}
+  .guess-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 3px #ffffff;}
+  div.tabs .tab-btn:focus-visible{outline-color:#ffffff;outline-offset:-3px;}
+  figure svg.map-svg{max-width:500px;}
+  .embed footer{display:none;}
+  .embed header{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}  /* keep the h1 for screen readers */
+  .table-wrap{overflow-x:auto;max-width:100%;}
+  table.summary-table td, table.summary-table th{text-align:left;}
+  caption.tbl-cap, table.data-table caption{caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px;color:var(--gray-text);}
+  .item h3, .prompt{overflow-wrap:anywhere;}
+  .feedback{padding:12px 14px;border-radius:6px;margin-top:6px;font-size:15px;}
+  .feedback-correct{background:var(--correct-bg);color:var(--correct-text);}
+  .feedback-incorrect{background:var(--incorrect-bg);color:var(--incorrect-text);}
+  .note-box{background:var(--orange-light);border-left:5px solid var(--orange-action);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0;}
+  .ai-statement{background:#fff;border:1px solid var(--gray-mid);border-left:5px solid var(--teal-dark);border-radius:0 8px 8px 0;padding:14px 18px;margin:32px 0 0;font-size:14px;}
+  .ai-statement h2{font-size:16px;color:var(--teal-dark);margin:0 0 6px;border:none;padding:0;}
+  .ai-statement p{margin:6px 0;}
+  .video-wrap{background:#fff;border:1px dashed var(--gray-mid);border-radius:8px;padding:24px;text-align:center;color:#666;}
+  .direct-link-row{margin:14px 0;font-size:15px;}
+  footer{background:var(--navy);color:#aaa;padding:14px 24px;font-size:12px;text-align:center;margin-top:40px;}
+  .katex-display{margin:0.6em 0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div>
+    <p>Math 172 — Santa Ana College</p>
+    <h1>EL2 Support: Graphing Exponential Functions</h1>
+  </div>
+  <div style="font-size:12px;opacity:0.75;text-align:right;">CheckIt Practice Companion</div>
+</header>
+
+<nav aria-label="Page sections">
+<div class="tabs" role="tablist" aria-label="Sections of this page" onkeydown="handleTabKey(event)">
+  <button class="tab-btn" id="tab-btn-video" role="tab" aria-selected="true" aria-controls="tab-video" tabindex="0" onclick="switchTab('video')">Watch a Video to Learn</button>
+  <button class="tab-btn" id="tab-btn-method" role="tab" aria-selected="false" aria-controls="tab-method" tabindex="-1" onclick="switchTab('method')">Quick Summary</button>
+  <button class="tab-btn" id="tab-btn-asymptote" role="tab" aria-selected="false" aria-controls="tab-asymptote" tabindex="-1" onclick="switchTab('asymptote')">Try It: Asymptote</button>
+  <button class="tab-btn" id="tab-btn-range" role="tab" aria-selected="false" aria-controls="tab-range" tabindex="-1" onclick="switchTab('range')">Try It: Domain &amp; Range</button>
+  <button class="tab-btn" id="tab-btn-graphs" role="tab" aria-selected="false" aria-controls="tab-graphs" tabindex="-1" onclick="switchTab('graphs')">Try It: Graphs</button>
+</div>
+</nav>
+
+<main id="main">
+
+  <section id="tab-video" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-video">
+    <h2 tabindex="-1">Watch a Video to Learn</h2>
+    <p>A narrated walkthrough of how to find the horizontal asymptote, domain, and range of an exponential function and how to recognize its graph.</p>
+    <div class="video-wrap">
+      <p style="margin:0;">The video walkthrough is coming soon. In the meantime, the Quick Summary and the Try It tabs cover the same ideas.</p>
+    </div>
+  </section>
+
+  <section id="tab-method" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-method" tabindex="0" hidden>
+    <h2 tabindex="-1">Quick Summary</h2>
+    <p>Every EL2 question comes back to one idea: <strong>an exponential graph levels off to a horizontal line, and it lies on one side of that line.</strong> The number added or subtracted outside the exponential sets the line. A flip decides which side.</p>
+    <div class="table-wrap" role="region" aria-label="Summary table" tabindex="0">
+    <table class="data-table summary-table">
+      <caption class="tbl-cap">What to find for an exponential function, and the slip to avoid</caption>
+      <thead><tr><th scope="col">What you need</th><th scope="col">How to find it</th><th scope="col">Common slip</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Horizontal asymptote</th><td>Look at the number added or subtracted outside the exponential. The asymptote is <span>\( y= \)</span> that number. If nothing is added or subtracted, it is <span>\( y=0 \)</span>.</td><td>Using the shift inside the exponent. For <span>\( 3^{x-4} \)</span> the <span>\( -4 \)</span> slides the graph right but does not move the asymptote. Or writing <span>\( x= \)</span> for a horizontal line.</td></tr>
+        <tr><th scope="row">Domain</th><td>All real numbers, <span>\( (-\infty, \infty) \)</span>, for every exponential function in this outcome. You can put any number in the exponent.</td><td>Thinking a shift or a flip limits the inputs.</td></tr>
+        <tr><th scope="row">Range</th><td>Start at the asymptote. If the curve lies above it, the range is <span>\( (\text{asymptote}, \infty) \)</span>. If a minus sign out front flips the curve below it, the range is <span>\( (-\infty, \text{asymptote}) \)</span>.</td><td>Writing <span>\( (0, \infty) \)</span> every time, or thinking that <span>\( b^{-x} \)</span> turns the graph upside down. A flip across the y-axis turns it left to right and it stays on the same side of the asymptote.</td></tr>
+        <tr><th scope="row">Graph</th><td>Draw the dashed horizontal asymptote. Plot two points by trying easy inputs such as <span>\( x=0 \)</span> and <span>\( x=1 \)</span>. Sketch a curve that hugs the dashed line on one end and rises or falls steeply on the other.</td><td>Letting the curve cross the asymptote, or missing a flip.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note-box">
+      <p style="margin:0;">Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.</p>
+    </div>
+  </section>
+
+  <section id="tab-asymptote" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-asymptote" hidden>
+    <h2 tabindex="-1">Try It: Horizontal Asymptote</h2>
+    <p>Make your best guess on each one, then check it. Ask yourself: what number would you have to add or subtract outside the exponential to move the graph?</p>
+
+    <div class="item" id="as1">
+      <h3>Asymptote 1</h3>
+      <div role="img" aria-label="f of x equals 2 to the x, plus 3" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=2^{x}+3 \]</div>
+      <p class="prompt" id="as1-q">What is the equation of the horizontal asymptote of this function?</p>
+      <div class="guess-row" role="group" aria-labelledby="as1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: y = 0" aria-pressed="false" onclick="checkGuess(this,'as1','a','b')">I think: y = 0</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: y = 3" aria-pressed="false" onclick="checkGuess(this,'as1','b','b')">I think: y = 3</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: y = −3" aria-pressed="false" onclick="checkGuess(this,'as1','c','b')">I think: y = −3</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: x = 3" aria-pressed="false" onclick="checkGuess(this,'as1','d','b')">I think: x = 3</button>
+      </div>
+      <div id="as1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="as1-explanation" hidden>On its own, \( 2^{x} \) levels off at \( y=0 \) as \( x \) gets very negative. Adding 3 outside the exponential lifts the whole graph up 3, so the level-off line moves from \( y=0 \) to \( y=3 \). It is a horizontal line, so its equation starts with \( y \). <strong>The asymptote is \( y=3 \).</strong></div>
+    </div>
+
+    <div class="item" id="as2">
+      <h3>Asymptote 2</h3>
+      <div role="img" aria-label="f of x equals the negative of 3 to the x, minus 2" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=-3^{x}-2 \]</div>
+      <p class="prompt" id="as2-q">What is the equation of the horizontal asymptote of this function?</p>
+      <div class="guess-row" role="group" aria-labelledby="as2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: x = −2" aria-pressed="false" onclick="checkGuess(this,'as2','a','d')">I think: x = −2</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: y = 2" aria-pressed="false" onclick="checkGuess(this,'as2','b','d')">I think: y = 2</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: y = 0" aria-pressed="false" onclick="checkGuess(this,'as2','c','d')">I think: y = 0</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: y = −2" aria-pressed="false" onclick="checkGuess(this,'as2','d','d')">I think: y = −2</button>
+      </div>
+      <div id="as2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="as2-explanation" hidden>The minus sign in front flips the graph over the x-axis, and the line \( y=0 \) stays where it is. Then subtracting 2 outside the exponential moves the whole graph down 2, so the line moves to \( y=-2 \). <strong>The asymptote is \( y=-2 \).</strong></div>
+    </div>
+
+    <div class="item" id="as3">
+      <h3>Asymptote 3</h3>
+      <div role="img" aria-label="f of x equals the negative of 2 to the power of the quantity x plus 3, end quantity" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=-2^{x+3} \]</div>
+      <p class="prompt" id="as3-q">What is the equation of the horizontal asymptote of this function?</p>
+      <div class="guess-row" role="group" aria-labelledby="as3-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: y = 3" aria-pressed="false" onclick="checkGuess(this,'as3','a','c')">I think: y = 3</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: y = −3" aria-pressed="false" onclick="checkGuess(this,'as3','b','c')">I think: y = −3</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: y = 0" aria-pressed="false" onclick="checkGuess(this,'as3','c','c')">I think: y = 0</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: x = −3" aria-pressed="false" onclick="checkGuess(this,'as3','d','c')">I think: x = −3</button>
+      </div>
+      <div id="as3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="as3-explanation" hidden>The \( +3 \) is inside the exponent, so it slides the graph left 3. It does not lift or lower the graph, so the level-off line stays at \( y=0 \). Nothing is added or subtracted outside the exponential. <strong>The asymptote is \( y=0 \).</strong></div>
+    </div>
+
+    <div class="item" id="as4">
+      <h3>Asymptote 4</h3>
+      <div role="img" aria-label="f of x equals the quantity one over e, to the x, minus 3" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=\left(\tfrac{1}{e}\right)^{x}-3 \]</div>
+      <p class="prompt" id="as4-q">What is the equation of the horizontal asymptote of this function?</p>
+      <div class="guess-row" role="group" aria-labelledby="as4-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: y = −3" aria-pressed="false" onclick="checkGuess(this,'as4','a','a')">I think: y = −3</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: y = 3" aria-pressed="false" onclick="checkGuess(this,'as4','b','a')">I think: y = 3</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( y=\tfrac{1}{e} \)" aria-label="I think: y equals one over e" aria-pressed="false" onclick="checkGuess(this,'as4','c','a')">I think: \( y=\tfrac{1}{e} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: x = −3" aria-pressed="false" onclick="checkGuess(this,'as4','d','a')">I think: x = −3</button>
+      </div>
+      <div id="as4-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="as4-explanation" hidden>The base \( \tfrac{1}{e} \) is only the base of the exponential. It is not added or subtracted outside, so it does not set the asymptote. The \( -3 \) outside moves the level-off line from \( y=0 \) down to \( y=-3 \). <strong>The asymptote is \( y=-3 \).</strong></div>
+    </div>
+  </section>
+
+  <section id="tab-range" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-range" hidden>
+    <h2 tabindex="-1">Try It: Domain &amp; Range</h2>
+    <p>Find the horizontal asymptote first. Then ask: is the curve above that line or below it?</p>
+
+    <div class="item" id="dr1">
+      <h3>Range 1</h3>
+      <div role="img" aria-label="f of x equals 2 to the x, plus 3" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=2^{x}+3 \]</div>
+      <p class="prompt" id="dr1-q">What is the range of this function? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="dr1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (−∞, 3)" aria-pressed="false" onclick="checkGuess(this,'dr1','a','b')">I think: (−∞, 3)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (3, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr1','b','b')">I think: (3, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (0, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr1','c','b')">I think: (0, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (−∞, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr1','d','b')">I think: (−∞, ∞)</button>
+      </div>
+      <div id="dr1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="dr1-explanation" hidden>The asymptote is \( y=3 \). The outputs of \( 2^{x} \) are always positive, and adding 3 makes them always greater than 3. They get as close to 3 as you like but never reach it, and they grow without limit. <strong>The range is \( (3, \infty) \).</strong></div>
+    </div>
+
+    <div class="item" id="dr2">
+      <h3>Range 2</h3>
+      <div role="img" aria-label="f of x equals the negative of 3 to the x, minus 2" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=-3^{x}-2 \]</div>
+      <p class="prompt" id="dr2-q">What is the range of this function? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="dr2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (−∞, −2)" aria-pressed="false" onclick="checkGuess(this,'dr2','a','a')">I think: (−∞, −2)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (−2, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr2','b','a')">I think: (−2, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (−∞, 0)" aria-pressed="false" onclick="checkGuess(this,'dr2','c','a')">I think: (−∞, 0)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (2, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr2','d','a')">I think: (2, ∞)</button>
+      </div>
+      <div id="dr2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="dr2-explanation" hidden>The asymptote is \( y=-2 \). The minus sign out front flips the graph upside down, so the curve lies below the asymptote. The outputs are always less than \(-2\), and they fall without limit. <strong>The range is \( (-\infty, -2) \).</strong></div>
+    </div>
+
+    <div class="item" id="dr3">
+      <h3>Range 3</h3>
+      <div role="img" aria-label="f of x equals the quantity one half, to the x, minus 1" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=\left(\tfrac{1}{2}\right)^{x}-1 \]</div>
+      <p class="prompt" id="dr3-q">What is the range of this function? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="dr3-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (0, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr3','a','c')">I think: (0, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (−∞, −1)" aria-pressed="false" onclick="checkGuess(this,'dr3','b','c')">I think: (−∞, −1)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (−1, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr3','c','c')">I think: (−1, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (−∞, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr3','d','c')">I think: (−∞, ∞)</button>
+      </div>
+      <div id="dr3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="dr3-explanation" hidden>The asymptote is \( y=-1 \). The base \( \tfrac{1}{2} \) is the same as \( 2^{-x} \), which flips the graph left to right, not upside down. The values of \( \left(\tfrac{1}{2}\right)^{x} \) are still positive, so the curve stays above the asymptote. <strong>The range is \( (-1, \infty) \).</strong></div>
+    </div>
+
+    <div class="item" id="dr4">
+      <h3>Range 4</h3>
+      <div role="img" aria-label="f of x equals the negative of e to the power of the quantity x plus 1, end quantity" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=-e^{x+1} \]</div>
+      <p class="prompt" id="dr4-q">What is the range of this function? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="dr4-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (0, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr4','a','d')">I think: (0, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (−∞, −1)" aria-pressed="false" onclick="checkGuess(this,'dr4','b','d')">I think: (−∞, −1)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (−1, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr4','c','d')">I think: (−1, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (−∞, 0)" aria-pressed="false" onclick="checkGuess(this,'dr4','d','d')">I think: (−∞, 0)</button>
+      </div>
+      <div id="dr4-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="dr4-explanation" hidden>Nothing is added or subtracted outside, so the asymptote is \( y=0 \). The \( +1 \) in the exponent only slides the graph left. The minus sign out front flips the curve below the x-axis, so the outputs are always negative. <strong>The range is \( (-\infty, 0) \).</strong></div>
+    </div>
+
+    <div class="item" id="dr5">
+      <h3>Domain 1</h3>
+      <div role="img" aria-label="f of x equals the negative of 4 to the power of the quantity x minus 2, end quantity, plus 1" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=-4^{x-2}+1 \]</div>
+      <p class="prompt" id="dr5-q">What is the domain of this function? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="dr5-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (0, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr5','a','b')">I think: (0, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (−∞, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr5','b','b')">I think: (−∞, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (2, ∞)" aria-pressed="false" onclick="checkGuess(this,'dr5','c','b')">I think: (2, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (−∞, 1)" aria-pressed="false" onclick="checkGuess(this,'dr5','d','b')">I think: (−∞, 1)</button>
+      </div>
+      <div id="dr5-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="dr5-explanation" hidden>You can put any real number in an exponent, including negative numbers, fractions, and zero. Shifts and flips move the graph around but do not remove any inputs. The number 1 is the asymptote, and it limits the outputs, not the inputs. <strong>The domain is \( (-\infty, \infty) \).</strong></div>
+    </div>
+  </section>
+
+  <section id="tab-graphs" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-graphs" hidden>
+    <h2 tabindex="-1">Try It: Reading Graphs</h2>
+    <p>Each graph below is described in words as well as shown. Use the dashed line and the labeled points to decide which function or range matches.</p>
+
+    <div class="item" id="graph1">
+      <h3>Graph 1</h3>
+      <figure>
+<svg role="img" aria-labelledby="graph1-svg-title" aria-describedby="graph1-caption" viewBox="0 0 314 271" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title id="graph1-svg-title">A rising curve above a dashed horizontal line</title>
+<rect x="34" y="12" width="264" height="231" fill="#fcfcfc"/>
+<g stroke="#e0e0e0" stroke-width="1">
+<line x1="34" y1="12" x2="34" y2="243"/>
+<line x1="67" y1="12" x2="67" y2="243"/>
+<line x1="100" y1="12" x2="100" y2="243"/>
+<line x1="133" y1="12" x2="133" y2="243"/>
+<line x1="166" y1="12" x2="166" y2="243"/>
+<line x1="199" y1="12" x2="199" y2="243"/>
+<line x1="232" y1="12" x2="232" y2="243"/>
+<line x1="265" y1="12" x2="265" y2="243"/>
+<line x1="298" y1="12" x2="298" y2="243"/>
+<line x1="34" y1="243" x2="298" y2="243"/>
+<line x1="34" y1="210" x2="298" y2="210"/>
+<line x1="34" y1="177" x2="298" y2="177"/>
+<line x1="34" y1="144" x2="298" y2="144"/>
+<line x1="34" y1="111" x2="298" y2="111"/>
+<line x1="34" y1="78" x2="298" y2="78"/>
+<line x1="34" y1="45" x2="298" y2="45"/>
+<line x1="34" y1="12" x2="298" y2="12"/>
+</g>
+<g stroke="#6b6b6b" stroke-width="1.5"><line x1="34" y1="144" x2="298" y2="144"/><line x1="166" y1="12" x2="166" y2="243"/></g>
+<g fill="#333" text-anchor="middle">
+<text x="34" y="258">−4</text>
+<text x="67" y="258">−3</text>
+<text x="100" y="258">−2</text>
+<text x="133" y="258">−1</text>
+<text x="199" y="258">1</text>
+<text x="232" y="258">2</text>
+<text x="265" y="258">3</text>
+<text x="298" y="258">4</text>
+</g><g fill="#333" text-anchor="end">
+<text x="30" y="247">−3</text>
+<text x="30" y="214">−2</text>
+<text x="30" y="181">−1</text>
+<text x="30" y="115">1</text>
+<text x="30" y="82">2</text>
+<text x="30" y="49">3</text>
+<text x="30" y="16">4</text>
+</g>
+<text x="300" y="139" text-anchor="end" fill="#333" font-style="italic">x</text>
+<text x="172" y="22" fill="#333" font-style="italic">y</text>
+<line x1="34" y1="177" x2="298" y2="177" stroke="#a84d16" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polyline points="34,174.9 34.4,174.9 34.9,174.9 35.3,174.9 35.8,174.9 36.2,174.8 36.6,174.8 37.1,174.8 37.5,174.8 38,174.8 38.4,174.7 38.8,174.7 39.3,174.7 39.7,174.7 40.2,174.7 40.6,174.6 41,174.6 41.5,174.6 41.9,174.6 42.4,174.5 42.8,174.5 43.2,174.5 43.7,174.5 44.1,174.4 44.6,174.4 45,174.4 45.4,174.4 45.9,174.4 46.3,174.3 46.8,174.3 47.2,174.3 47.6,174.3 48.1,174.2 48.5,174.2 49,174.2 49.4,174.1 49.8,174.1 50.3,174.1 50.7,174.1 51.2,174 51.6,174 52,174 52.5,174 52.9,173.9 53.4,173.9 53.8,173.9 54.2,173.8 54.7,173.8 55.1,173.8 55.6,173.8 56,173.7 56.4,173.7 56.9,173.7 57.3,173.6 57.8,173.6 58.2,173.6 58.6,173.5 59.1,173.5 59.5,173.5 60,173.4 60.4,173.4 60.8,173.4 61.3,173.3 61.7,173.3 62.2,173.3 62.6,173.2 63,173.2 63.5,173.2 63.9,173.1 64.4,173.1 64.8,173.1 65.2,173 65.7,173 66.1,173 66.6,172.9 67,172.9 67.4,172.8 67.9,172.8 68.3,172.8 68.8,172.7 69.2,172.7 69.6,172.6 70.1,172.6 70.5,172.6 71,172.5 71.4,172.5 71.8,172.4 72.3,172.4 72.7,172.3 73.2,172.3 73.6,172.3 74,172.2 74.5,172.2 74.9,172.1 75.4,172.1 75.8,172 76.2,172 76.7,171.9 77.1,171.9 77.6,171.9 78,171.8 78.4,171.8 78.9,171.7 79.3,171.7 79.8,171.6 80.2,171.6 80.6,171.5 81.1,171.5 81.5,171.4 82,171.4 82.4,171.3 82.8,171.2 83.3,171.2 83.7,171.1 84.2,171.1 84.6,171 85,171 85.5,170.9 85.9,170.9 86.4,170.8 86.8,170.7 87.2,170.7 87.7,170.6 88.1,170.6 88.6,170.5 89,170.5 89.4,170.4 89.9,170.3 90.3,170.3 90.8,170.2 91.2,170.1 91.6,170.1 92.1,170 92.5,169.9 93,169.9 93.4,169.8 93.8,169.8 94.3,169.7 94.7,169.6 95.2,169.5 95.6,169.5 96,169.4 96.5,169.3 96.9,169.3 97.4,169.2 97.8,169.1 98.2,169 98.7,169 99.1,168.9 99.6,168.8 100,168.8 100.4,168.7 100.9,168.6 101.3,168.5 101.8,168.4 102.2,168.4 102.6,168.3 103.1,168.2 103.5,168.1 104,168 104.4,168 104.8,167.9 105.3,167.8 105.7,167.7 106.2,167.6 106.6,167.5 107,167.4 107.5,167.3 107.9,167.3 108.4,167.2 108.8,167.1 109.2,167 109.7,166.9 110.1,166.8 110.6,166.7 111,166.6 111.4,166.5 111.9,166.4 112.3,166.3 112.8,166.2 113.2,166.1 113.6,166 114.1,165.9 114.5,165.8 115,165.7 115.4,165.6 115.8,165.5 116.3,165.4 116.7,165.3 117.2,165.2 117.6,165.1 118,164.9 118.5,164.8 118.9,164.7 119.4,164.6 119.8,164.5 120.2,164.4 120.7,164.3 121.1,164.1 121.6,164 122,163.9 122.4,163.8 122.9,163.7 123.3,163.5 123.8,163.4 124.2,163.3 124.6,163.2 125.1,163 125.5,162.9 126,162.8 126.4,162.6 126.8,162.5 127.3,162.4 127.7,162.2 128.2,162.1 128.6,162 129,161.8 129.5,161.7 129.9,161.5 130.4,161.4 130.8,161.2 131.2,161.1 131.7,161 132.1,160.8 132.6,160.7 133,160.5 133.4,160.3 133.9,160.2 134.3,160 134.8,159.9 135.2,159.7 135.6,159.6 136.1,159.4 136.5,159.2 137,159.1 137.4,158.9 137.8,158.7 138.3,158.6 138.7,158.4 139.2,158.2 139.6,158 140,157.9 140.5,157.7 140.9,157.5 141.4,157.3 141.8,157.2 142.2,157 142.7,156.8 143.1,156.6 143.6,156.4 144,156.2 144.4,156 144.9,155.8 145.3,155.6 145.8,155.4 146.2,155.2 146.6,155 147.1,154.8 147.5,154.6 148,154.4 148.4,154.2 148.8,154 149.3,153.8 149.7,153.6 150.2,153.3 150.6,153.1 151,152.9 151.5,152.7 151.9,152.4 152.4,152.2 152.8,152 153.2,151.8 153.7,151.5 154.1,151.3 154.6,151 155,150.8 155.4,150.6 155.9,150.3 156.3,150.1 156.8,149.8 157.2,149.6 157.6,149.3 158.1,149.1 158.5,148.8 159,148.5 159.4,148.3 159.8,148 160.3,147.7 160.7,147.5 161.2,147.2 161.6,146.9 162,146.6 162.5,146.4 162.9,146.1 163.4,145.8 163.8,145.5 164.2,145.2 164.7,144.9 165.1,144.6 165.6,144.3 166,144 166.4,143.7 166.9,143.4 167.3,143.1 167.8,142.8 168.2,142.4 168.6,142.1 169.1,141.8 169.5,141.5 170,141.1 170.4,140.8 170.8,140.5 171.3,140.1 171.7,139.8 172.2,139.4 172.6,139.1 173,138.7 173.5,138.4 173.9,138 174.4,137.7 174.8,137.3 175.2,136.9 175.7,136.6 176.1,136.2 176.6,135.8 177,135.4 177.4,135 177.9,134.6 178.3,134.3 178.8,133.9 179.2,133.5 179.6,133.1 180.1,132.6 180.5,132.2 181,131.8 181.4,131.4 181.8,131 182.3,130.5 182.7,130.1 183.2,129.7 183.6,129.2 184,128.8 184.5,128.3 184.9,127.9 185.4,127.4 185.8,127 186.2,126.5 186.7,126 187.1,125.6 187.6,125.1 188,124.6 188.4,124.1 188.9,123.6 189.3,123.1 189.8,122.6 190.2,122.1 190.6,121.6 191.1,121.1 191.5,120.6 192,120.1 192.4,119.5 192.8,119 193.3,118.5 193.7,117.9 194.2,117.4 194.6,116.8 195,116.3 195.5,115.7 195.9,115.1 196.4,114.6 196.8,114 197.2,113.4 197.7,112.8 198.1,112.2 198.6,111.6 199,111 199.4,110.4 199.9,109.8 200.3,109.1 200.8,108.5 201.2,107.9 201.6,107.2 202.1,106.6 202.5,105.9 203,105.3 203.4,104.6 203.8,103.9 204.3,103.3 204.7,102.6 205.2,101.9 205.6,101.2 206,100.5 206.5,99.8 206.9,99.1 207.4,98.3 207.8,97.6 208.2,96.9 208.7,96.1 209.1,95.4 209.6,94.6 210,93.8 210.4,93.1 210.9,92.3 211.3,91.5 211.8,90.7 212.2,89.9 212.6,89.1 213.1,88.3 213.5,87.5 214,86.6 214.4,85.8 214.8,84.9 215.3,84.1 215.7,83.2 216.2,82.4 216.6,81.5 217,80.6 217.5,79.7 217.9,78.8 218.4,77.9 218.8,77 219.2,76 219.7,75.1 220.1,74.2 220.6,73.2 221,72.2 221.4,71.3 221.9,70.3 222.3,69.3 222.8,68.3 223.2,67.3 223.6,66.3 224.1,65.2 224.5,64.2 225,63.1 225.4,62.1 225.8,61 226.3,59.9 226.7,58.9 227.2,57.8 227.6,56.7 228,55.5 228.5,54.4 228.9,53.3 229.4,52.1 229.8,51 230.2,49.8 230.7,48.6 231.1,47.4 231.6,46.2 232,45 232.4,43.8 232.9,42.5 233.3,41.3 233.8,40 234.2,38.8 234.6,37.5 235.1,36.2 235.5,34.9 236,33.6 236.4,32.2 236.8,30.9 237.3,29.5 237.7,28.1 238.2,26.8 238.6,25.4 239,24 239.5,22.5 239.9,21.1 240.4,19.7 240.8,18.2 241.2,16.7 241.7,15.2 242.1,13.7 242.6,12.2" fill="none" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="166" cy="144" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="174" y="160" text-anchor="start" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(0, 0)</text>
+<circle cx="199" cy="111" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="191" y="103" text-anchor="end" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(1, 1)</text>
+</svg>
+        <figcaption id="graph1-caption"><strong>Plotted data:</strong> a dashed horizontal line at y = −1. A smooth curve lies above the dashed line. Moving left, it gets closer and closer to the dashed line without touching it. Moving right, it rises faster and faster. It passes through (0, 0) and (1, 1).</figcaption>
+      </figure>
+      <p class="prompt" id="graph1-q">Which function has this graph?</p>
+      <div class="guess-row" role="group" aria-labelledby="graph1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( f(x)=2^{x}+1 \)" aria-label="I think: f of x equals 2 to the x, plus 1" aria-pressed="false" onclick="checkGuess(this,'graph1','a','b')">I think: \( f(x)=2^{x}+1 \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( f(x)=2^{x}-1 \)" aria-label="I think: f of x equals 2 to the x, minus 1" aria-pressed="false" onclick="checkGuess(this,'graph1','b','b')">I think: \( f(x)=2^{x}-1 \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( f(x)=2^{x-1} \)" aria-label="I think: f of x equals 2 to the power of the quantity x minus 1, end quantity" aria-pressed="false" onclick="checkGuess(this,'graph1','c','b')">I think: \( f(x)=2^{x-1} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( f(x)=-2^{x}-1 \)" aria-label="I think: f of x equals the negative of 2 to the x, minus 1" aria-pressed="false" onclick="checkGuess(this,'graph1','d','b')">I think: \( f(x)=-2^{x}-1 \)</button>
+      </div>
+      <div id="graph1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="graph1-explanation" hidden>The dashed line at \( y=-1 \) is the asymptote, so a 1 is subtracted outside the exponential. Check a point: \( 2^{0}-1=0 \), which matches \( (0,0) \), and \( 2^{1}-1=1 \), which matches \( (1,1) \). The other choices have the wrong asymptote or miss the points. <strong>The function is \( f(x)=2^{x}-1 \).</strong></div>
+    </div>
+
+    <div class="item" id="graph2">
+      <h3>Graph 2</h3>
+      <figure>
+<svg role="img" aria-labelledby="graph2-svg-title" aria-describedby="graph2-caption" viewBox="0 0 248 337" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title id="graph2-svg-title">A falling curve below a dashed horizontal line</title>
+<rect x="34" y="12" width="198" height="297" fill="#fcfcfc"/>
+<g stroke="#e0e0e0" stroke-width="1">
+<line x1="34" y1="12" x2="34" y2="309"/>
+<line x1="67" y1="12" x2="67" y2="309"/>
+<line x1="100" y1="12" x2="100" y2="309"/>
+<line x1="133" y1="12" x2="133" y2="309"/>
+<line x1="166" y1="12" x2="166" y2="309"/>
+<line x1="199" y1="12" x2="199" y2="309"/>
+<line x1="232" y1="12" x2="232" y2="309"/>
+<line x1="34" y1="309" x2="232" y2="309"/>
+<line x1="34" y1="276" x2="232" y2="276"/>
+<line x1="34" y1="243" x2="232" y2="243"/>
+<line x1="34" y1="210" x2="232" y2="210"/>
+<line x1="34" y1="177" x2="232" y2="177"/>
+<line x1="34" y1="144" x2="232" y2="144"/>
+<line x1="34" y1="111" x2="232" y2="111"/>
+<line x1="34" y1="78" x2="232" y2="78"/>
+<line x1="34" y1="45" x2="232" y2="45"/>
+<line x1="34" y1="12" x2="232" y2="12"/>
+</g>
+<g stroke="#6b6b6b" stroke-width="1.5"><line x1="34" y1="111" x2="232" y2="111"/><line x1="133" y1="12" x2="133" y2="309"/></g>
+<g fill="#333" text-anchor="middle">
+<text x="34" y="324">−3</text>
+<text x="67" y="324">−2</text>
+<text x="100" y="324">−1</text>
+<text x="166" y="324">1</text>
+<text x="199" y="324">2</text>
+<text x="232" y="324">3</text>
+</g><g fill="#333" text-anchor="end">
+<text x="30" y="313">−6</text>
+<text x="30" y="280">−5</text>
+<text x="30" y="247">−4</text>
+<text x="30" y="214">−3</text>
+<text x="30" y="181">−2</text>
+<text x="30" y="148">−1</text>
+<text x="30" y="82">1</text>
+<text x="30" y="49">2</text>
+<text x="30" y="16">3</text>
+</g>
+<text x="234" y="106" text-anchor="end" fill="#333" font-style="italic">x</text>
+<text x="139" y="22" fill="#333" font-style="italic">y</text>
+<line x1="34" y1="45" x2="232" y2="45" stroke="#a84d16" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polyline points="34,46.2 34.3,46.2 34.7,46.2 35,46.3 35.3,46.3 35.6,46.3 36,46.3 36.3,46.3 36.6,46.3 37,46.3 37.3,46.4 37.6,46.4 38,46.4 38.3,46.4 38.6,46.4 38.9,46.4 39.3,46.5 39.6,46.5 39.9,46.5 40.3,46.5 40.6,46.5 40.9,46.5 41.3,46.6 41.6,46.6 41.9,46.6 42.2,46.6 42.6,46.6 42.9,46.6 43.2,46.7 43.6,46.7 43.9,46.7 44.2,46.7 44.6,46.7 44.9,46.8 45.2,46.8 45.6,46.8 45.9,46.8 46.2,46.8 46.5,46.9 46.9,46.9 47.2,46.9 47.5,46.9 47.9,46.9 48.2,47 48.5,47 48.9,47 49.2,47 49.5,47 49.8,47.1 50.2,47.1 50.5,47.1 50.8,47.1 51.2,47.2 51.5,47.2 51.8,47.2 52.1,47.2 52.5,47.3 52.8,47.3 53.1,47.3 53.5,47.3 53.8,47.4 54.1,47.4 54.5,47.4 54.8,47.4 55.1,47.5 55.4,47.5 55.8,47.5 56.1,47.6 56.4,47.6 56.8,47.6 57.1,47.6 57.4,47.7 57.8,47.7 58.1,47.7 58.4,47.8 58.8,47.8 59.1,47.8 59.4,47.8 59.7,47.9 60.1,47.9 60.4,47.9 60.7,48 61.1,48 61.4,48 61.7,48.1 62.1,48.1 62.4,48.1 62.7,48.2 63,48.2 63.4,48.2 63.7,48.3 64,48.3 64.4,48.4 64.7,48.4 65,48.4 65.4,48.5 65.7,48.5 66,48.5 66.3,48.6 66.7,48.6 67,48.7 67.3,48.7 67.7,48.7 68,48.8 68.3,48.8 68.7,48.9 69,48.9 69.3,49 69.6,49 70,49 70.3,49.1 70.6,49.1 71,49.2 71.3,49.2 71.6,49.3 71.9,49.3 72.3,49.4 72.6,49.4 72.9,49.5 73.3,49.5 73.6,49.6 73.9,49.6 74.3,49.7 74.6,49.7 74.9,49.8 75.2,49.8 75.6,49.9 75.9,49.9 76.2,50 76.6,50 76.9,50.1 77.2,50.2 77.6,50.2 77.9,50.3 78.2,50.3 78.6,50.4 78.9,50.4 79.2,50.5 79.5,50.6 79.9,50.6 80.2,50.7 80.5,50.8 80.9,50.8 81.2,50.9 81.5,50.9 81.8,51 82.2,51.1 82.5,51.1 82.8,51.2 83.2,51.3 83.5,51.4 83.8,51.4 84.2,51.5 84.5,51.6 84.8,51.6 85.2,51.7 85.5,51.8 85.8,51.9 86.1,51.9 86.5,52 86.8,52.1 87.1,52.2 87.5,52.2 87.8,52.3 88.1,52.4 88.4,52.5 88.8,52.6 89.1,52.7 89.4,52.7 89.8,52.8 90.1,52.9 90.4,53 90.8,53.1 91.1,53.2 91.4,53.3 91.8,53.4 92.1,53.5 92.4,53.5 92.7,53.6 93.1,53.7 93.4,53.8 93.7,53.9 94.1,54 94.4,54.1 94.7,54.2 95.1,54.3 95.4,54.4 95.7,54.5 96,54.6 96.4,54.7 96.7,54.9 97,55 97.4,55.1 97.7,55.2 98,55.3 98.3,55.4 98.7,55.5 99,55.6 99.3,55.8 99.7,55.9 100,56 100.3,56.1 100.7,56.2 101,56.4 101.3,56.5 101.6,56.6 102,56.7 102.3,56.9 102.6,57 103,57.1 103.3,57.3 103.6,57.4 104,57.6 104.3,57.7 104.6,57.8 105,58 105.3,58.1 105.6,58.3 105.9,58.4 106.3,58.6 106.6,58.7 106.9,58.9 107.3,59 107.6,59.2 107.9,59.3 108.2,59.5 108.6,59.6 108.9,59.8 109.2,60 109.6,60.1 109.9,60.3 110.2,60.5 110.6,60.6 110.9,60.8 111.2,61 111.5,61.2 111.9,61.3 112.2,61.5 112.5,61.7 112.9,61.9 113.2,62.1 113.5,62.3 113.9,62.4 114.2,62.6 114.5,62.8 114.9,63 115.2,63.2 115.5,63.4 115.8,63.6 116.2,63.8 116.5,64.1 116.8,64.3 117.2,64.5 117.5,64.7 117.8,64.9 118.1,65.1 118.5,65.4 118.8,65.6 119.1,65.8 119.5,66 119.8,66.3 120.1,66.5 120.5,66.7 120.8,67 121.1,67.2 121.5,67.5 121.8,67.7 122.1,68 122.4,68.2 122.8,68.5 123.1,68.7 123.4,69 123.8,69.3 124.1,69.5 124.4,69.8 124.8,70.1 125.1,70.4 125.4,70.6 125.7,70.9 126.1,71.2 126.4,71.5 126.7,71.8 127.1,72.1 127.4,72.4 127.7,72.7 128.1,73 128.4,73.3 128.7,73.6 129,73.9 129.4,74.2 129.7,74.6 130,74.9 130.4,75.2 130.7,75.6 131,75.9 131.4,76.2 131.7,76.6 132,76.9 132.3,77.3 132.7,77.6 133,78 133.3,78.4 133.7,78.7 134,79.1 134.3,79.5 134.6,79.9 135,80.2 135.3,80.6 135.6,81 136,81.4 136.3,81.8 136.6,82.2 137,82.7 137.3,83.1 137.6,83.5 137.9,83.9 138.3,84.3 138.6,84.8 138.9,85.2 139.3,85.7 139.6,86.1 139.9,86.6 140.3,87 140.6,87.5 140.9,88 141.2,88.4 141.6,88.9 141.9,89.4 142.2,89.9 142.6,90.4 142.9,90.9 143.2,91.4 143.6,91.9 143.9,92.4 144.2,92.9 144.6,93.5 144.9,94 145.2,94.6 145.5,95.1 145.9,95.7 146.2,96.2 146.5,96.8 146.9,97.3 147.2,97.9 147.5,98.5 147.9,99.1 148.2,99.7 148.5,100.3 148.8,100.9 149.2,101.5 149.5,102.2 149.8,102.8 150.2,103.4 150.5,104.1 150.8,104.7 151.1,105.4 151.5,106.1 151.8,106.7 152.1,107.4 152.5,108.1 152.8,108.8 153.1,109.5 153.5,110.2 153.8,110.9 154.1,111.7 154.4,112.4 154.8,113.1 155.1,113.9 155.4,114.7 155.8,115.4 156.1,116.2 156.4,117 156.8,117.8 157.1,118.6 157.4,119.4 157.8,120.2 158.1,121.1 158.4,121.9 158.7,122.7 159.1,123.6 159.4,124.5 159.7,125.3 160.1,126.2 160.4,127.1 160.7,128 161.1,129 161.4,129.9 161.7,130.8 162,131.8 162.4,132.7 162.7,133.7 163,134.7 163.4,135.7 163.7,136.7 164,137.7 164.3,138.7 164.7,139.7 165,140.8 165.3,141.8 165.7,142.9 166,144 166.3,145.1 166.7,146.2 167,147.3 167.3,148.4 167.7,149.6 168,150.7 168.3,151.9 168.6,153.1 169,154.3 169.3,155.5 169.6,156.7 170,158 170.3,159.2 170.6,160.5 171,161.7 171.3,163 171.6,164.3 171.9,165.6 172.3,167 172.6,168.3 172.9,169.7 173.3,171.1 173.6,172.5 173.9,173.9 174.2,175.3 174.6,176.7 174.9,178.2 175.2,179.7 175.6,181.1 175.9,182.6 176.2,184.2 176.6,185.7 176.9,187.3 177.2,188.8 177.5,190.4 177.9,192 178.2,193.7 178.5,195.3 178.9,197 179.2,198.6 179.5,200.3 179.9,202 180.2,203.8 180.5,205.5 180.8,207.3 181.2,209.1 181.5,210.9 181.8,212.7 182.2,214.6 182.5,216.5 182.8,218.4 183.2,220.3 183.5,222.2 183.8,224.2 184.2,226.2 184.5,228.2 184.8,230.2 185.1,232.2 185.5,234.3 185.8,236.4 186.1,238.5 186.5,240.6 186.8,242.8 187.1,245 187.5,247.2 187.8,249.4 188.1,251.7 188.4,254 188.8,256.3 189.1,258.6 189.4,261 189.8,263.4 190.1,265.8 190.4,268.2 190.8,270.7 191.1,273.2 191.4,275.7 191.7,278.2 192.1,280.8 192.4,283.4 192.7,286 193.1,288.7 193.4,291.4 193.7,294.1 194,296.9 194.4,299.7 194.7,302.5 195,305.3 195.4,308.2" fill="none" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="133" cy="78" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="141" y="94" text-anchor="start" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(0, 1)</text>
+<circle cx="166" cy="144" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="174" y="148" text-anchor="start" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(1, −1)</text>
+</svg>
+        <figcaption id="graph2-caption"><strong>Plotted data:</strong> a dashed horizontal line at y = 2. A smooth curve lies below the dashed line. Moving left, it gets closer and closer to the dashed line without touching it. Moving right, it falls faster and faster. It passes through (0, 1) and (1, −1).</figcaption>
+      </figure>
+      <p class="prompt" id="graph2-q">What is the range of the function graphed here? Use interval notation.</p>
+      <div class="guess-row" role="group" aria-labelledby="graph2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: (−∞, 2)" aria-pressed="false" onclick="checkGuess(this,'graph2','a','a')">I think: (−∞, 2)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: (2, ∞)" aria-pressed="false" onclick="checkGuess(this,'graph2','b','a')">I think: (2, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: (−∞, ∞)" aria-pressed="false" onclick="checkGuess(this,'graph2','c','a')">I think: (−∞, ∞)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: (−∞, 1)" aria-pressed="false" onclick="checkGuess(this,'graph2','d','a')">I think: (−∞, 1)</button>
+      </div>
+      <div id="graph2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="graph2-explanation" hidden>The dashed line at \( y=2 \) is the asymptote, and the whole curve lies below it. Every output is less than 2. Moving right, the outputs keep falling with no lowest value. The point \( (0,1) \) is just one point on the curve. It is not the highest output. <strong>The range is \( (-\infty, 2) \).</strong></div>
+    </div>
+
+    <div class="item" id="graph3">
+      <h3>Graph 3</h3>
+      <figure>
+<svg role="img" aria-labelledby="graph3-svg-title" aria-describedby="graph3-caption" viewBox="0 0 314 304" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<title id="graph3-svg-title">A falling curve above a dashed horizontal line, with two labeled points</title>
+<rect x="34" y="12" width="264" height="264" fill="#fcfcfc"/>
+<g stroke="#e0e0e0" stroke-width="1">
+<line x1="34" y1="12" x2="34" y2="276"/>
+<line x1="67" y1="12" x2="67" y2="276"/>
+<line x1="100" y1="12" x2="100" y2="276"/>
+<line x1="133" y1="12" x2="133" y2="276"/>
+<line x1="166" y1="12" x2="166" y2="276"/>
+<line x1="199" y1="12" x2="199" y2="276"/>
+<line x1="232" y1="12" x2="232" y2="276"/>
+<line x1="265" y1="12" x2="265" y2="276"/>
+<line x1="298" y1="12" x2="298" y2="276"/>
+<line x1="34" y1="276" x2="298" y2="276"/>
+<line x1="34" y1="243" x2="298" y2="243"/>
+<line x1="34" y1="210" x2="298" y2="210"/>
+<line x1="34" y1="177" x2="298" y2="177"/>
+<line x1="34" y1="144" x2="298" y2="144"/>
+<line x1="34" y1="111" x2="298" y2="111"/>
+<line x1="34" y1="78" x2="298" y2="78"/>
+<line x1="34" y1="45" x2="298" y2="45"/>
+<line x1="34" y1="12" x2="298" y2="12"/>
+</g>
+<g stroke="#6b6b6b" stroke-width="1.5"><line x1="34" y1="177" x2="298" y2="177"/><line x1="166" y1="12" x2="166" y2="276"/></g>
+<g fill="#333" text-anchor="middle">
+<text x="34" y="291">−4</text>
+<text x="67" y="291">−3</text>
+<text x="100" y="291">−2</text>
+<text x="133" y="291">−1</text>
+<text x="199" y="291">1</text>
+<text x="232" y="291">2</text>
+<text x="265" y="291">3</text>
+<text x="298" y="291">4</text>
+</g><g fill="#333" text-anchor="end">
+<text x="30" y="280">−3</text>
+<text x="30" y="247">−2</text>
+<text x="30" y="214">−1</text>
+<text x="30" y="148">1</text>
+<text x="30" y="115">2</text>
+<text x="30" y="82">3</text>
+<text x="30" y="49">4</text>
+<text x="30" y="16">5</text>
+</g>
+<text x="300" y="172" text-anchor="end" fill="#333" font-style="italic">x</text>
+<text x="172" y="22" fill="#333" font-style="italic">y</text>
+<line x1="34" y1="243" x2="298" y2="243" stroke="#a84d16" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polyline points="73.6,13.2 74,15.3 74.5,17.4 74.9,19.5 75.4,21.5 75.8,23.6 76.2,25.6 76.7,27.6 77.1,29.6 77.6,31.5 78,33.5 78.4,35.4 78.9,37.3 79.3,39.2 79.8,41.1 80.2,42.9 80.6,44.8 81.1,46.6 81.5,48.4 82,50.2 82.4,52 82.8,53.7 83.3,55.5 83.7,57.2 84.2,58.9 84.6,60.6 85,62.3 85.5,63.9 85.9,65.6 86.4,67.2 86.8,68.8 87.2,70.4 87.7,72 88.1,73.6 88.6,75.1 89,76.7 89.4,78.2 89.9,79.7 90.3,81.2 90.8,82.7 91.2,84.2 91.6,85.7 92.1,87.1 92.5,88.5 93,90 93.4,91.4 93.8,92.8 94.3,94.1 94.7,95.5 95.2,96.9 95.6,98.2 96,99.6 96.5,100.9 96.9,102.2 97.4,103.5 97.8,104.8 98.2,106 98.7,107.3 99.1,108.5 99.6,109.8 100,111 100.4,112.2 100.9,113.4 101.3,114.6 101.8,115.8 102.2,117 102.6,118.1 103.1,119.3 103.5,120.4 104,121.5 104.4,122.7 104.8,123.8 105.3,124.9 105.7,125.9 106.2,127 106.6,128.1 107,129.1 107.5,130.2 107.9,131.2 108.4,132.3 108.8,133.3 109.2,134.3 109.7,135.3 110.1,136.3 110.6,137.3 111,138.2 111.4,139.2 111.9,140.2 112.3,141.1 112.8,142 113.2,143 113.6,143.9 114.1,144.8 114.5,145.7 115,146.6 115.4,147.5 115.8,148.4 116.3,149.2 116.7,150.1 117.2,150.9 117.6,151.8 118,152.6 118.5,153.5 118.9,154.3 119.4,155.1 119.8,155.9 120.2,156.7 120.7,157.5 121.1,158.3 121.6,159.1 122,159.8 122.4,160.6 122.9,161.4 123.3,162.1 123.8,162.9 124.2,163.6 124.6,164.3 125.1,165.1 125.5,165.8 126,166.5 126.4,167.2 126.8,167.9 127.3,168.6 127.7,169.3 128.2,169.9 128.6,170.6 129,171.3 129.5,171.9 129.9,172.6 130.4,173.2 130.8,173.9 131.2,174.5 131.7,175.1 132.1,175.8 132.6,176.4 133,177 133.4,177.6 133.9,178.2 134.3,178.8 134.8,179.4 135.2,180 135.6,180.6 136.1,181.1 136.5,181.7 137,182.3 137.4,182.8 137.8,183.4 138.3,183.9 138.7,184.5 139.2,185 139.6,185.5 140,186.1 140.5,186.6 140.9,187.1 141.4,187.6 141.8,188.1 142.2,188.6 142.7,189.1 143.1,189.6 143.6,190.1 144,190.6 144.4,191.1 144.9,191.6 145.3,192 145.8,192.5 146.2,193 146.6,193.4 147.1,193.9 147.5,194.3 148,194.8 148.4,195.2 148.8,195.7 149.3,196.1 149.7,196.5 150.2,197 150.6,197.4 151,197.8 151.5,198.2 151.9,198.6 152.4,199.1 152.8,199.5 153.2,199.9 153.7,200.3 154.1,200.6 154.6,201 155,201.4 155.4,201.8 155.9,202.2 156.3,202.6 156.8,202.9 157.2,203.3 157.6,203.7 158.1,204 158.5,204.4 159,204.7 159.4,205.1 159.8,205.4 160.3,205.8 160.7,206.1 161.2,206.5 161.6,206.8 162,207.1 162.5,207.5 162.9,207.8 163.4,208.1 163.8,208.4 164.2,208.8 164.7,209.1 165.1,209.4 165.6,209.7 166,210 166.4,210.3 166.9,210.6 167.3,210.9 167.8,211.2 168.2,211.5 168.6,211.8 169.1,212.1 169.5,212.4 170,212.6 170.4,212.9 170.8,213.2 171.3,213.5 171.7,213.7 172.2,214 172.6,214.3 173,214.5 173.5,214.8 173.9,215.1 174.4,215.3 174.8,215.6 175.2,215.8 175.7,216.1 176.1,216.3 176.6,216.6 177,216.8 177.4,217 177.9,217.3 178.3,217.5 178.8,217.8 179.2,218 179.6,218.2 180.1,218.4 180.5,218.7 181,218.9 181.4,219.1 181.8,219.3 182.3,219.6 182.7,219.8 183.2,220 183.6,220.2 184,220.4 184.5,220.6 184.9,220.8 185.4,221 185.8,221.2 186.2,221.4 186.7,221.6 187.1,221.8 187.6,222 188,222.2 188.4,222.4 188.9,222.6 189.3,222.8 189.8,223 190.2,223.2 190.6,223.3 191.1,223.5 191.5,223.7 192,223.9 192.4,224 192.8,224.2 193.3,224.4 193.7,224.6 194.2,224.7 194.6,224.9 195,225.1 195.5,225.2 195.9,225.4 196.4,225.6 196.8,225.7 197.2,225.9 197.7,226 198.1,226.2 198.6,226.3 199,226.5 199.4,226.7 199.9,226.8 200.3,227 200.8,227.1 201.2,227.2 201.6,227.4 202.1,227.5 202.5,227.7 203,227.8 203.4,228 203.8,228.1 204.3,228.2 204.7,228.4 205.2,228.5 205.6,228.6 206,228.8 206.5,228.9 206.9,229 207.4,229.2 207.8,229.3 208.2,229.4 208.7,229.5 209.1,229.7 209.6,229.8 210,229.9 210.4,230 210.9,230.1 211.3,230.3 211.8,230.4 212.2,230.5 212.6,230.6 213.1,230.7 213.5,230.8 214,230.9 214.4,231.1 214.8,231.2 215.3,231.3 215.7,231.4 216.2,231.5 216.6,231.6 217,231.7 217.5,231.8 217.9,231.9 218.4,232 218.8,232.1 219.2,232.2 219.7,232.3 220.1,232.4 220.6,232.5 221,232.6 221.4,232.7 221.9,232.8 222.3,232.9 222.8,233 223.2,233.1 223.6,233.2 224.1,233.3 224.5,233.3 225,233.4 225.4,233.5 225.8,233.6 226.3,233.7 226.7,233.8 227.2,233.9 227.6,234 228,234 228.5,234.1 228.9,234.2 229.4,234.3 229.8,234.4 230.2,234.4 230.7,234.5 231.1,234.6 231.6,234.7 232,234.8 232.4,234.8 232.9,234.9 233.3,235 233.8,235 234.2,235.1 234.6,235.2 235.1,235.3 235.5,235.3 236,235.4 236.4,235.5 236.8,235.5 237.3,235.6 237.7,235.7 238.2,235.8 238.6,235.8 239,235.9 239.5,235.9 239.9,236 240.4,236.1 240.8,236.1 241.2,236.2 241.7,236.3 242.1,236.3 242.6,236.4 243,236.5 243.4,236.5 243.9,236.6 244.3,236.6 244.8,236.7 245.2,236.7 245.6,236.8 246.1,236.9 246.5,236.9 247,237 247.4,237 247.8,237.1 248.3,237.1 248.7,237.2 249.2,237.2 249.6,237.3 250,237.4 250.5,237.4 250.9,237.5 251.4,237.5 251.8,237.6 252.2,237.6 252.7,237.7 253.1,237.7 253.6,237.8 254,237.8 254.4,237.9 254.9,237.9 255.3,237.9 255.8,238 256.2,238 256.6,238.1 257.1,238.1 257.5,238.2 258,238.2 258.4,238.3 258.8,238.3 259.3,238.3 259.7,238.4 260.2,238.4 260.6,238.5 261,238.5 261.5,238.6 261.9,238.6 262.4,238.6 262.8,238.7 263.2,238.7 263.7,238.8 264.1,238.8 264.6,238.8 265,238.9 265.4,238.9 265.9,239 266.3,239 266.8,239 267.2,239.1 267.6,239.1 268.1,239.1 268.5,239.2 269,239.2 269.4,239.2 269.8,239.3 270.3,239.3 270.7,239.3 271.2,239.4 271.6,239.4 272,239.4 272.5,239.5 272.9,239.5 273.4,239.5 273.8,239.6 274.2,239.6 274.7,239.6 275.1,239.7 275.6,239.7 276,239.7 276.4,239.8 276.9,239.8 277.3,239.8 277.8,239.8 278.2,239.9 278.6,239.9 279.1,239.9 279.5,240 280,240 280.4,240 280.8,240 281.3,240.1 281.7,240.1 282.2,240.1 282.6,240.1 283,240.2 283.5,240.2 283.9,240.2 284.4,240.3 284.8,240.3 285.2,240.3 285.7,240.3 286.1,240.4 286.6,240.4 287,240.4 287.4,240.4 287.9,240.4 288.3,240.5 288.8,240.5 289.2,240.5 289.6,240.5 290.1,240.6 290.5,240.6 291,240.6 291.4,240.6 291.8,240.7 292.3,240.7 292.7,240.7 293.2,240.7 293.6,240.7 294,240.8 294.5,240.8 294.9,240.8 295.4,240.8 295.8,240.8 296.2,240.9 296.7,240.9 297.1,240.9 297.6,240.9 298,240.9" fill="none" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="133" cy="177" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="141" y="171" text-anchor="start" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(−1, 0)</text>
+<circle cx="166" cy="210" r="4.5" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="158" y="228" text-anchor="end" fill="#1a1a2e" paint-order="stroke" stroke="#fff" stroke-width="3">(0, −1)</text>
+</svg>
+        <figcaption id="graph3-caption"><strong>Plotted data:</strong> a dashed horizontal line at y = −2. A smooth curve lies above the dashed line. Moving left, it rises steeply. Moving right, it falls and gets closer and closer to the dashed line without touching it. It passes through (−1, 0) and (0, −1).</figcaption>
+      </figure>
+      <p class="prompt" id="graph3-q">Which function has this graph?</p>
+      <div class="guess-row" role="group" aria-labelledby="graph3-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( f(x)=2^{x}-2 \)" aria-label="I think: f of x equals 2 to the x, minus 2" aria-pressed="false" onclick="checkGuess(this,'graph3','a','d')">I think: \( f(x)=2^{x}-2 \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( f(x)=\left(\tfrac{1}{2}\right)^{x}+2 \)" aria-label="I think: f of x equals the quantity one half, to the x, plus 2" aria-pressed="false" onclick="checkGuess(this,'graph3','b','d')">I think: \( f(x)=\left(\tfrac{1}{2}\right)^{x}+2 \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( f(x)=-\left(\tfrac{1}{2}\right)^{x}-2 \)" aria-label="I think: f of x equals the negative of the quantity one half, to the x, minus 2" aria-pressed="false" onclick="checkGuess(this,'graph3','c','d')">I think: \( f(x)=-\left(\tfrac{1}{2}\right)^{x}-2 \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( f(x)=\left(\tfrac{1}{2}\right)^{x}-2 \)" aria-label="I think: f of x equals the quantity one half, to the x, minus 2" aria-pressed="false" onclick="checkGuess(this,'graph3','d','d')">I think: \( f(x)=\left(\tfrac{1}{2}\right)^{x}-2 \)</button>
+      </div>
+      <div id="graph3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="graph3-explanation" hidden>The dashed line at \( y=-2 \) means 2 is subtracted outside. The curve is above the line, so it is not flipped upside down. It falls as \( x \) increases, so the base is between 0 and 1. Check a point: \( \left(\tfrac{1}{2}\right)^{-1}-2=2-2=0 \), which matches \( (-1,0) \). <strong>The function is \( f(x)=\left(\tfrac{1}{2}\right)^{x}-2 \).</strong></div>
+    </div>
+  </section>
+
+  <section class="ai-statement" aria-labelledby="ai-statement-heading">
+    <h2 id="ai-statement-heading">Sources &amp; Credits</h2>
+    <p>Content on this page adapts the EL2 outcome and exercise types from <a href="https://github.com/TeamBasedInquiryLearning/library" target="_blank" rel="noopener">TBIL Precalculus</a> by Steven Clontz and Drew Lewis, used under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.</p>
+    <p>AI use statement: The explanations, diagrams, and this page&rsquo;s structure were drafted using Claude (Anthropic) based on TBIL source content, with guidance, review, and editing by Dr. Marty Romero.</p>
+    <p>This page is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> and freely available for reuse and adaptation under the same terms.</p>
+  </section>
+
+</main>
+
+<footer>
+  Math 172 &nbsp;|&nbsp; EL2 CheckIt Support &nbsp;|&nbsp; Santa Ana College &nbsp;|&nbsp; Built for SAC
+</footer>
+
+<script>
+var TAB_ORDER = ["video","method","asymptote","range","graphs"];
+
+function switchTab(name) {
+  var panels = document.querySelectorAll('.tab-panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  panels.forEach(function(p){ p.hidden = (p.id !== 'tab-' + name); });
+  btns.forEach(function(b){
+    var active = (b.id === 'tab-btn-' + name);
+    b.setAttribute('aria-selected', active ? 'true' : 'false');
+    b.setAttribute('tabindex', active ? '0' : '-1');
+  });
+  var shown = document.getElementById('tab-' + name);
+  var heading = shown.querySelector('h2');
+  if (heading) { heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:false}); }
+}
+
+function handleTabKey(event) {
+  if (['ArrowRight','ArrowLeft','Home','End'].indexOf(event.key) === -1) return;
+  var current = TAB_ORDER.indexOf(event.target.id.replace('tab-btn-',''));
+  if (current === -1) return;
+  var next = event.key === 'Home' ? 0
+    : event.key === 'End' ? TAB_ORDER.length - 1
+    : event.key === 'ArrowRight' ? (current + 1) % TAB_ORDER.length
+    : (current - 1 + TAB_ORDER.length) % TAB_ORDER.length;
+  var nextBtn = document.getElementById('tab-btn-' + TAB_ORDER[next]);
+  switchTab(TAB_ORDER[next]);
+  nextBtn.focus();
+  event.preventDefault();
+}
+
+function checkGuess(btn, itemId, guess, correct) {
+  var isCorrect = (guess === correct);
+  var fb = document.getElementById(itemId + '-feedback');
+  var explanation = document.getElementById(itemId + '-explanation').innerHTML;
+  fb.innerHTML = (isCorrect ? '<strong><span aria-hidden="true">✅</span> That’s right.</strong> ' : '<strong><span aria-hidden="true">❌</span> Not quite — here’s why:</strong> ') + explanation;
+  fb.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-incorrect');
+  fb.hidden = false;
+  var row = btn.closest('.guess-row');
+  row.querySelectorAll('.guess-btn').forEach(function(b){
+    var picked = (b.dataset.guess === guess);
+    b.setAttribute('aria-pressed', picked ? 'true' : 'false');
+    // data-label holds the raw label (it may contain \( ... \) math), so rebuild the text and re-render the math each time
+    b.textContent = (picked ? '✓ ' : '') + b.dataset.label;
+    if (window.renderMathInElement) { renderMathInElement(b, { delimiters: [{left:"\\(",right:"\\)",display:false}], throwOnError:false }); makeMathSpeakable(b); }
+  });
+  if (window.renderMathInElement) {
+    renderMathInElement(fb, { delimiters: [{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}], throwOnError:false });
+    makeMathSpeakable(fb);
+  }
+  fb.setAttribute('tabindex','-1');
+  fb.focus();   // after the math is rendered, so the screen reader reads the finished text
+}
+
+// When embedded in LibreTexts with ?embed=1 appended to the iframe src, the video is already on the host page,
+// so hide the Video tab here and open on the Quick Summary instead. The standalone link (no ?embed) keeps the Video tab first.
+if (/[?&]embed(=|&|$)/.test(window.location.search)) {
+  (function() {
+    document.documentElement.classList.add('embed');
+    var vb = document.getElementById('tab-btn-video'), vp = document.getElementById('tab-video');
+    var mb = document.getElementById('tab-btn-method'), mp = document.getElementById('tab-method');
+    TAB_ORDER = TAB_ORDER.filter(function(t){ return t !== 'video'; });
+    vb.hidden = true; vp.hidden = true;
+    vb.setAttribute('aria-selected','false'); vb.setAttribute('tabindex','-1');
+    mb.setAttribute('aria-selected','true'); mb.setAttribute('tabindex','0'); mp.hidden = false;
+  })();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (!window.renderMathInElement) return;   // KaTeX CDN blocked/offline: equations stay readable as plain LaTeX
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+  makeMathSpeakable(document.body);
+});
+
+/*SPEECH-START*/
+// Screen-reader support for math. NVDA and several other screen readers do not read the MathML that KaTeX writes,
+// so every rendered equation gets a plain-words reading generated from its TeX source (the visible math is unchanged).
+function texToSpeech(tex) {
+  var FUNCS = {log:'log', ln:'natural log', sin:'sine', cos:'cosine', tan:'tangent', sec:'secant', csc:'cosecant', cot:'cotangent', exp:'e to the'};
+  var WORDS = {infty:'infinity', pi:'pi', theta:'theta', alpha:'alpha', beta:'beta', Delta:'delta', delta:'delta', approx:'is approximately equal to',
+    le:'is less than or equal to', leq:'is less than or equal to', ge:'is greater than or equal to', geq:'is greater than or equal to', ne:'is not equal to', neq:'is not equal to',
+    cdot:'times', times:'times', pm:'plus or minus', to:'approaches', rightarrow:'approaches', in:'is in', cup:'union', ldots:'dot dot dot', dots:'dot dot dot', cdots:'dot dot dot', div:'divided by'};
+  var IGNORE = {left:1, right:1, ',':1, ';':1, ':':1, '!':1, ' ':1, quad:1, qquad:1, displaystyle:1, '\\':1};
+  var s = String(tex).replace(/\u2212/g, '-').replace(/\\(left|right)\s*/g, '');
+  var i = 0;
+  function peekCmd() { var m = /^\\([a-zA-Z]+|.)/.exec(s.slice(i)); return m ? m[1] : null; }
+  function skipWs() { while (i < s.length && /\s/.test(s[i])) i++; }
+  function group() {        // reads {...} (or one character) and returns its raw TeX
+    skipWs();
+    if (s[i] === '{') { var d = 0, st = i + 1; for (; i < s.length; i++) { if (s[i] === '{') d++; else if (s[i] === '}') { d--; if (d === 0) { i++; return s.slice(st, i - 1); } } } return s.slice(st); }
+    var m = /^\\[a-zA-Z]+/.exec(s.slice(i)); if (m) { i += m[0].length; return m[0]; }
+    return s[i++] || '';
+  }
+  function parenGroup() {   // at "(", returns raw TeX up to the matching ")"
+    var d = 0, st = i + 1;
+    for (; i < s.length; i++) { if (s[i] === '(') d++; else if (s[i] === ')') { d--; if (d === 0) { i++; return s.slice(st, i - 1); } } }
+    return s.slice(st);
+  }
+  function ordinal(n) { var t = n % 100, u = n % 10; return n + ((t >= 11 && t <= 13) ? 'th' : u === 1 ? 'st' : u === 2 ? 'nd' : u === 3 ? 'rd' : 'th'); }
+  function power(p) {
+    p = p.trim();
+    if (p === '2') return ' squared';
+    if (p === '3') return ' cubed';
+    if (/^\d+$/.test(p)) return ' to the ' + ordinal(+p) + ' power';
+    var fr = /^(-?)\s*(\d+)\s*\/\s*(\d+)$/.exec(p);
+    if (fr) return ' to the power ' + (fr[1] ? 'negative ' : '') + fr[2] + ' over ' + fr[3];
+    var sp = texToSpeech(p);
+    return /^(negative )?[\w.]+$/.test(sp) ? ' to the power ' + sp : ' to the power of the quantity ' + sp + ', end quantity';
+  }
+  function powerFollows(j) {   // true when the operand starting at s[j] (a number, a letter, or a parenthesized group) is raised to a power
+    var m = /^\s*(\d+(\.\d+)?|[A-Za-z])\s*\^/.exec(s.slice(j));
+    if (m) return true;
+    var k = j; while (k < s.length && /\s/.test(s[k])) k++;
+    if (s[k] !== '(') return false;
+    var d = 0; for (; k < s.length; k++) { if (s[k] === '(') d++; else if (s[k] === ')') { d--; if (d === 0) break; } }
+    return /^\s*\^/.test(s.slice(k + 1));
+  }
+  var out = [];
+  var prevOp = true;        // true at the start and after an operator, "(" or ",": a "-" here means "negative"
+  var pendingComma = false;
+  function push(t, op) { out.push(t); prevOp = !!op; }
+  while (i < s.length) {
+    var c = s[i];
+    if (/\s/.test(c)) { i++; continue; }
+    if (c === '\\') {
+      var cmd = peekCmd(); i += 1 + (cmd ? cmd.length : 0);
+      if (IGNORE[cmd]) continue;
+      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + ' over ' + b + ', end fraction', false); continue; }
+      if (cmd === 'sqrt') { var r = texToSpeech(group()); push(/^[\w.]+$/.test(r) ? 'the square root of ' + r : 'the square root of the quantity ' + r + ', end root', false); continue; }
+      if (cmd === 'text' || cmd === 'mathrm' || cmd === 'textbf' || cmd === 'mathbf') { push(group(), false); continue; }
+      if (cmd === 'mathbb') { var g = group(); push(g === 'R' ? 'the real numbers' : g, false); continue; }
+      if (FUNCS[cmd]) {
+        var name = FUNCS[cmd];
+        if (cmd === 'log' && s[i] === '_') { i++; name += ' base ' + texToSpeech(group()); }
+        skipWs();
+        if (s[i] === '(') {
+          var inner = parenGroup(), single = /^\s*-?\s*([A-Za-z]|\d+(\.\d+)?)(\^\{?\w+\}?)?\s*$/.test(inner);
+          var sp2 = texToSpeech(inner);
+          push(name + ' of ' + (single ? sp2 : 'the quantity ' + sp2), false);
+          skipWs(); if (s[i] === '+' || s[i] === '-' || s[i] === '−') out[out.length - 1] += ',';
+        } else if (i < s.length && /[A-Za-z0-9\\{]/.test(s[i])) {
+          var nm = /^\d+(\.\d+)?/.exec(s.slice(i)), arg = nm ? (i += nm[0].length, nm[0]) : group(), sp3 = texToSpeech(arg);
+          if (s[i] === '^') { i++; sp3 += power(group()); }
+          push(name + ' of ' + sp3, false);
+        } else push(name, false);
+        continue;
+      }
+      if (WORDS[cmd]) { push(WORDS[cmd], cmd !== 'infty' && cmd !== 'pi' && cmd !== 'theta' && cmd !== 'alpha' && cmd !== 'beta'); continue; }
+      push(cmd || '', false); continue;
+    }
+    if (c === '^') {
+      i++; var pw = power(group()); out.push(pw);
+      skipWs();   // a word-form exponent followed by + or - gets a comma, so "2 to the power x, plus 3" is not heard as 2 to the power x plus 3
+      if ((s[i] === '+' || s[i] === '-') && /to the power/.test(pw) && !/,$/.test(pw)) out[out.length - 1] += ',';
+      continue;
+    }
+    if (c === '_') { i++; out.push(' sub ' + texToSpeech(group())); continue; }
+    if (c === '{' || c === '}') { i++; continue; }
+    if (/\d/.test(c)) { var m = /^\d+(\.\d+)?/.exec(s.slice(i)); i += m[0].length; push(m[0], false); continue; }
+    if (/[A-Za-z]/.test(c)) {
+      var nx = s[i + 1];
+      if (/[fgFGhH]/.test(c) && nx === '(' && !/[A-Za-z]/.test(s[i - 1] || '')) { i++; push(c + ' of ' + texToSpeech(parenGroup()), false); skipWs(); if (s[i] === '+' || s[i] === '-') out[out.length - 1] += ','; continue; }
+      i++; push(c, false); continue;
+    }
+    if (c === '=') { i++; push('equals', true); continue; }
+    if (c === '<') { i++; push('is less than', true); continue; }
+    if (c === '>') { i++; push('is greater than', true); continue; }
+    if (c === '+') { i++; push('plus', true); continue; }
+    if (c === '-') { i++; push(prevOp ? (powerFollows(i) ? 'the negative of' : 'negative') : 'minus', true); continue; }
+    if (c === '*') { i++; push('times', true); continue; }
+    if (c === '/') { i++; push('divided by', true); continue; }
+    if (c === ',') { i++; out.push('comma'); prevOp = true; continue; }
+    if (c === '(') { i++; push('open paren', true); continue; }
+    if (c === ')') { i++; push('close paren', false); continue; }
+    if (c === '[') { i++; push('open bracket', true); continue; }
+    if (c === ']') { i++; push('close bracket', false); continue; }
+    if (c === '.') { var d3 = s.slice(i, i + 3) === '...'; i += d3 ? 3 : 1; push(d3 ? 'dot dot dot' : 'point', false); continue; }
+    if (c === '|') { i++; push('absolute value bars', false); continue; }
+    if (c === '%') { i++; push('percent', false); continue; }
+    i++;
+  }
+  return out.join(' ').replace(/\s+,/g, ',').replace(/\s+/g, ' ').trim();
+}
+
+// Replaces the hidden MathML that KaTeX writes with a plain-words reading, for every equation under root.
+function makeMathSpeakable(root) {
+  var nodes = root.querySelectorAll('.katex');
+  Array.prototype.forEach.call(nodes, function(k) {
+    if (k.getAttribute('data-spoken')) return;
+    var ann = k.querySelector('annotation[encoding="application/x-tex"]');
+    var holder = k.querySelector('.katex-mathml');
+    if (!ann || !holder) return;
+    holder.textContent = ' ' + texToSpeech(ann.textContent) + ' ';
+    k.setAttribute('data-spoken', '1');
+  });
+}
+/*SPEECH-END*/
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { texToSpeech: texToSpeech };
+</script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL1 Support: Introduction to Exponentials — Math 172, Santa Ana College</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{
+    --teal-dark:#1a6b6b;
+    --teal-mid:#2a8f8f;
+    --teal-light:#e6f4f4;
+    --orange-action:#a84d16;   /* darkened for text/button contrast, not the decorative #e07020 */
+    --orange-light:#fff3e6;
+    --navy:#1a1a2e;
+    --white:#ffffff;
+    --gray-light:#f5f5f5;
+    --gray-mid:#cccccc;
+    --gray-text:#333333;
+    --correct-bg:#e6f4ea;
+    --correct-text:#1e5c33;
+    --incorrect-bg:#fdecea;
+    --incorrect-text:#8a2e20;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:Georgia,serif;margin:0;background:#f9f9f9;color:var(--gray-text);line-height:1.5;}
+  .skip-link{position:absolute;left:-999px;top:auto;}
+  .skip-link:focus{position:fixed;left:8px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:4px;z-index:100;}
+  *:focus-visible{outline:3px solid var(--orange-action);outline-offset:3px;}
+  header{background:var(--navy);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  header p{margin:0;font-size:12px;letter-spacing:1px;opacity:0.8;text-transform:uppercase;}
+  header h1{margin:4px 0 0;font-size:22px;font-weight:normal;font-family:Georgia,serif;}
+  div.tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--navy);padding:0 16px;}
+  .tab-btn{background:transparent;color:#cfd8e3;border:none;padding:12px 16px;font-size:14px;font-family:Georgia,serif;cursor:pointer;border-bottom:3px solid transparent;}
+  .tab-btn[aria-selected="true"]{background:#242444;color:#fff;border-bottom:3px solid #e07020;}
+  .tab-btn:hover{color:#fff;}
+  main{max-width:860px;margin:0 auto;padding:24px;}
+  .tab-panel h2{color:var(--teal-dark);border-bottom:2px solid var(--teal-light);padding-bottom:6px;}
+  .item{background:#fff;border:1px solid var(--gray-mid);border-radius:8px;padding:18px 20px;margin:22px 0;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+  .item h3{color:var(--teal-dark);margin-top:0;font-size:18px;}
+  figure{margin:14px 0;text-align:center;}
+  figure svg{width:100%;max-width:340px;height:auto;background:#fcfcfc;border:1px solid var(--gray-mid);border-radius:6px;}
+  figcaption{text-align:left;font-size:13.5px;color:#555;background:var(--gray-light);border-radius:6px;padding:8px 12px;margin-top:8px;}
+  table.data-table{border-collapse:collapse;margin:10px auto;font-size:15px;}
+  table.data-table th, table.data-table td{border:1px solid var(--gray-mid);padding:6px 14px;text-align:center;}
+  table.data-table th{background:var(--teal-light);}
+  .prompt{font-weight:bold;margin:14px 0 8px;}
+  .guess-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+  .guess-btn{background:var(--teal-dark);color:#fff;border:none;padding:9px 16px;border-radius:5px;font-size:14px;cursor:pointer;font-family:Georgia,serif;}
+  .guess-btn:hover{text-decoration:underline;}
+  .guess-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 3px #ffffff;}
+  div.tabs .tab-btn:focus-visible{outline-color:#ffffff;outline-offset:-3px;}
+  figure svg.map-svg{max-width:500px;}
+  .embed footer{display:none;}
+  .embed header{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}  /* keep the h1 for screen readers */
+  .table-wrap{overflow-x:auto;max-width:100%;}
+  table.summary-table td, table.summary-table th{text-align:left;}
+  caption.tbl-cap, table.data-table caption{caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px;color:var(--gray-text);}
+  .item h3, .prompt{overflow-wrap:anywhere;}
+  .feedback{padding:12px 14px;border-radius:6px;margin-top:6px;font-size:15px;}
+  .feedback-correct{background:var(--correct-bg);color:var(--correct-text);}
+  .feedback-incorrect{background:var(--incorrect-bg);color:var(--incorrect-text);}
+  .note-box{background:var(--orange-light);border-left:5px solid var(--orange-action);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0;}
+  .ai-statement{background:#fff;border:1px solid var(--gray-mid);border-left:5px solid var(--teal-dark);border-radius:0 8px 8px 0;padding:14px 18px;margin:32px 0 0;font-size:14px;}
+  .ai-statement h2{font-size:16px;color:var(--teal-dark);margin:0 0 6px;border:none;padding:0;}
+  .ai-statement p{margin:6px 0;}
+  .video-wrap{background:#fff;border:1px dashed var(--gray-mid);border-radius:8px;padding:24px;text-align:center;color:#666;}
+  .direct-link-row{margin:14px 0;font-size:15px;}
+  footer{background:var(--navy);color:#aaa;padding:14px 24px;font-size:12px;text-align:center;margin-top:40px;}
+  .katex-display{margin:0.6em 0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div>
+    <p>Math 172 — Santa Ana College</p>
+    <h1>EL1 Support: Introduction to Exponentials</h1>
+  </div>
+  <div style="font-size:12px;opacity:0.75;text-align:right;">CheckIt Practice Companion</div>
+</header>
+
+<nav aria-label="Page sections">
+<div class="tabs" role="tablist" aria-label="Sections of this page" onkeydown="handleTabKey(event)">
+  <button class="tab-btn" id="tab-btn-video" role="tab" aria-selected="true" aria-controls="tab-video" tabindex="0" onclick="switchTab('video')">Watch a Video to Learn</button>
+  <button class="tab-btn" id="tab-btn-method" role="tab" aria-selected="false" aria-controls="tab-method" tabindex="-1" onclick="switchTab('method')">Quick Summary</button>
+  <button class="tab-btn" id="tab-btn-tables" role="tab" aria-selected="false" aria-controls="tab-tables" tabindex="-1" onclick="switchTab('tables')">Try It: Tables</button>
+  <button class="tab-btn" id="tab-btn-equations" role="tab" aria-selected="false" aria-controls="tab-equations" tabindex="-1" onclick="switchTab('equations')">Try It: Find the Equation</button>
+  <button class="tab-btn" id="tab-btn-evaluate" role="tab" aria-selected="false" aria-controls="tab-evaluate" tabindex="-1" onclick="switchTab('evaluate')">Try It: Evaluate</button>
+  <button class="tab-btn" id="tab-btn-basee" role="tab" aria-selected="false" aria-controls="tab-basee" tabindex="-1" onclick="switchTab('basee')">Try It: Base e</button>
+</div>
+</nav>
+
+<main id="main">
+
+  <section id="tab-video" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-video">
+    <h2 tabindex="-1">Watch a Video to Learn</h2>
+    <p>A narrated walkthrough of how to tell whether a table shows an exponential function, how to find an equation from two points, and how to evaluate exponential functions, including base e.</p>
+    <div class="video-wrap">
+      <p style="margin:0;">The video walkthrough is coming soon. In the meantime, the Quick Summary and the Try It tabs cover the same ideas.</p>
+    </div>
+  </section>
+
+  <section id="tab-method" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-method" tabindex="0" hidden>
+    <h2 tabindex="-1">Quick Summary</h2>
+    <p>Every EL1 question comes back to one idea: <strong>an exponential function is multiplied by the same number every time \( x \) goes up by 1.</strong> In \( f(x)=a\cdot b^{x} \), the value \( a \) is where it starts (when \( x=0 \)) and \( b \) is the number it is multiplied by each step.</p>
+    <div class="table-wrap" role="region" aria-label="Summary table" tabindex="0">
+    <table class="data-table summary-table">
+      <caption class="tbl-cap">What to do for each kind of EL1 question, and the slip to avoid</caption>
+      <thead><tr><th scope="col">What you need</th><th scope="col">How to do it</th><th scope="col">Common slip</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Tell if a table is exponential</th><td>With x going up by 1, divide each y-value by the one before it. If you get the same number every time, the table is exponential. If the <em>differences</em> are the same every time, it is linear.</td><td>Checking differences instead of ratios, or deciding that a table that goes down cannot be exponential.</td></tr>
+        <tr><th scope="row">Find an equation from two points</th><td>Use the point with <span>\( x=0 \)</span>: its y-value is <span>\( a \)</span>. Put the other point into <span>\( y=a\cdot b^{x} \)</span> and solve for <span>\( b \)</span>. The base must be positive.</td><td>Stopping at <span>\( b^{2}=9 \)</span> without taking the root, swapping <span>\( a \)</span> and <span>\( b \)</span>, or using a negative base.</td></tr>
+        <tr><th scope="row">Evaluate an exponential function</th><td>Substitute for <span>\( x \)</span>, find the power first, then multiply by <span>\( a \)</span>. A negative exponent flips the base: <span>\( b^{-n}=\tfrac{1}{b^{n}} \)</span>.</td><td>Multiplying <span>\( a \)</span> and <span>\( b \)</span> before applying the exponent, or ignoring the negative sign in the exponent.</td></tr>
+        <tr><th scope="row">Work with base e</th><td><span>\( e\approx 2.718 \)</span> is a number, and it follows the same rules as any other base. <span>\( e^{0}=1 \)</span>, and <span>\( e^{-x}=\left(\tfrac{1}{e}\right)^{x} \)</span> has a base less than 1, so it decays.</td><td>Reading <span>\( e^{2} \)</span> as <span>\( 2e \)</span>, or treating <span>\( e \)</span> as a variable.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note-box">
+      <p style="margin:0;">Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.</p>
+    </div>
+  </section>
+
+  <section id="tab-tables" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-tables" hidden>
+    <h2 tabindex="-1">Try It: Is the Table Exponential?</h2>
+    <p>Make your best guess on each table, then check it. Look at how the y-values change each time x goes up by 1.</p>
+
+    <div class="item" id="tab1">
+      <h3>Table 1</h3>
+      <div class="table-wrap" role="region" aria-label="Table 1 of x and y values" tabindex="0">
+      <table class="data-table">
+        <caption class="tbl-cap">Table of x-values and y-values, listed in two rows</caption>
+        <tr><th scope="row">x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><th scope="row">y</th><td>3</td><td>6</td><td>12</td><td>24</td><td>48</td></tr>
+      </table>
+      </div>
+      <p class="prompt" id="tab1-q">What kind of function does this table show?</p>
+      <div class="guess-row" role="group" aria-labelledby="tab1-q">
+        <button type="button" class="guess-btn" data-guess="exp" data-label="I think: Exponential" aria-pressed="false" onclick="checkGuess(this,'tab1','exp','exp')">I think: Exponential</button>
+        <button type="button" class="guess-btn" data-guess="lin" data-label="I think: Linear" aria-pressed="false" onclick="checkGuess(this,'tab1','lin','exp')">I think: Linear</button>
+        <button type="button" class="guess-btn" data-guess="neither" data-label="I think: Neither exponential nor linear" aria-pressed="false" onclick="checkGuess(this,'tab1','neither','exp')">I think: Neither exponential nor linear</button>
+      </div>
+      <div id="tab1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="tab1-explanation" hidden>Divide each y-value by the one before it: 6 ÷ 3 = 2, 12 ÷ 6 = 2, 24 ÷ 12 = 2, 48 ÷ 24 = 2. The y-value is multiplied by 2 every time. The differences are 3, 6, 12, 24, so they are not constant. <strong>This table shows an exponential function.</strong></div>
+    </div>
+
+    <div class="item" id="tab2">
+      <h3>Table 2</h3>
+      <div class="table-wrap" role="region" aria-label="Table 2 of x and y values" tabindex="0">
+      <table class="data-table">
+        <caption class="tbl-cap">Table of x-values and y-values, listed in two rows</caption>
+        <tr><th scope="row">x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><th scope="row">y</th><td>5</td><td>8</td><td>11</td><td>14</td><td>17</td></tr>
+      </table>
+      </div>
+      <p class="prompt" id="tab2-q">What kind of function does this table show?</p>
+      <div class="guess-row" role="group" aria-labelledby="tab2-q">
+        <button type="button" class="guess-btn" data-guess="exp" data-label="I think: Exponential" aria-pressed="false" onclick="checkGuess(this,'tab2','exp','lin')">I think: Exponential</button>
+        <button type="button" class="guess-btn" data-guess="lin" data-label="I think: Linear" aria-pressed="false" onclick="checkGuess(this,'tab2','lin','lin')">I think: Linear</button>
+        <button type="button" class="guess-btn" data-guess="neither" data-label="I think: Neither exponential nor linear" aria-pressed="false" onclick="checkGuess(this,'tab2','neither','lin')">I think: Neither exponential nor linear</button>
+      </div>
+      <div id="tab2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="tab2-explanation" hidden>The differences are 8 − 5 = 3, 11 − 8 = 3, 14 − 11 = 3, 17 − 14 = 3. Adding 3 every time is a constant rate of change, which is linear. The ratios 8 ÷ 5 = 1.6 and 11 ÷ 8 = 1.375 are not the same. <strong>This table shows a linear function, not an exponential one.</strong></div>
+    </div>
+
+    <div class="item" id="tab3">
+      <h3>Table 3</h3>
+      <div class="table-wrap" role="region" aria-label="Table 3 of x and y values" tabindex="0">
+      <table class="data-table">
+        <caption class="tbl-cap">Table of x-values and y-values, listed in two rows</caption>
+        <tr><th scope="row">x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><th scope="row">y</th><td>81</td><td>27</td><td>9</td><td>3</td><td>1</td></tr>
+      </table>
+      </div>
+      <p class="prompt" id="tab3-q">What kind of function does this table show?</p>
+      <div class="guess-row" role="group" aria-labelledby="tab3-q">
+        <button type="button" class="guess-btn" data-guess="exp" data-label="I think: Exponential" aria-pressed="false" onclick="checkGuess(this,'tab3','exp','exp')">I think: Exponential</button>
+        <button type="button" class="guess-btn" data-guess="lin" data-label="I think: Linear" aria-pressed="false" onclick="checkGuess(this,'tab3','lin','exp')">I think: Linear</button>
+        <button type="button" class="guess-btn" data-guess="neither" data-label="I think: Neither exponential nor linear" aria-pressed="false" onclick="checkGuess(this,'tab3','neither','exp')">I think: Neither exponential nor linear</button>
+      </div>
+      <div id="tab3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="tab3-explanation" hidden>Divide each y-value by the one before it: 27 ÷ 81 = 1/3, 9 ÷ 27 = 1/3, 3 ÷ 9 = 1/3, 1 ÷ 3 = 1/3. The y-value is multiplied by 1/3 every time. The values go down, but a constant ratio is what makes a table exponential. <strong>This table shows an exponential function that decays.</strong></div>
+    </div>
+
+    <div class="item" id="tab4">
+      <h3>Table 4</h3>
+      <div class="table-wrap" role="region" aria-label="Table 4 of x and y values" tabindex="0">
+      <table class="data-table">
+        <caption class="tbl-cap">Table of x-values and y-values, listed in two rows</caption>
+        <tr><th scope="row">x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><th scope="row">y</th><td>2</td><td>5</td><td>10</td><td>17</td><td>26</td></tr>
+      </table>
+      </div>
+      <p class="prompt" id="tab4-q">What kind of function does this table show?</p>
+      <div class="guess-row" role="group" aria-labelledby="tab4-q">
+        <button type="button" class="guess-btn" data-guess="exp" data-label="I think: Exponential" aria-pressed="false" onclick="checkGuess(this,'tab4','exp','neither')">I think: Exponential</button>
+        <button type="button" class="guess-btn" data-guess="lin" data-label="I think: Linear" aria-pressed="false" onclick="checkGuess(this,'tab4','lin','neither')">I think: Linear</button>
+        <button type="button" class="guess-btn" data-guess="neither" data-label="I think: Neither exponential nor linear" aria-pressed="false" onclick="checkGuess(this,'tab4','neither','neither')">I think: Neither exponential nor linear</button>
+      </div>
+      <div id="tab4-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="tab4-explanation" hidden>The differences are 3, 5, 7, 9, so they are not constant. The ratios are 5 ÷ 2 = 2.5, 10 ÷ 5 = 2, 17 ÷ 10 = 1.7, 26 ÷ 17 ≈ 1.53, so they are not constant either. <strong>This table shows neither an exponential nor a linear function.</strong></div>
+    </div>
+  </section>
+
+  <section id="tab-equations" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-equations" hidden>
+    <h2 tabindex="-1">Try It: Find the Equation</h2>
+    <p>Each exponential function below has the form <span>\( y=a\cdot b^{x} \)</span>. In each problem, one of the points has an x-value of 0. Think about what that point tells you.</p>
+
+    <div class="item" id="eq1">
+      <h3>Equation 1</h3>
+      <p style="font-size:16px;">\( (0, 5) \), \( (2, 45) \)</p>
+      <p class="prompt" id="eq1-q">Which equation describes the exponential function that passes through these two points?</p>
+      <div class="guess-row" role="group" aria-labelledby="eq1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( y=3\cdot 5^{x} \)" aria-label="I think: y equals 3 times 5 to the x" aria-pressed="false" onclick="checkGuess(this,'eq1','a','c')">I think: \( y=3\cdot 5^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( y=5\cdot 9^{x} \)" aria-label="I think: y equals 5 times 9 to the x" aria-pressed="false" onclick="checkGuess(this,'eq1','b','c')">I think: \( y=5\cdot 9^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( y=5\cdot 3^{x} \)" aria-label="I think: y equals 5 times 3 to the x" aria-pressed="false" onclick="checkGuess(this,'eq1','c','c')">I think: \( y=5\cdot 3^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( y=20x+5 \)" aria-label="I think: y equals 20 x plus 5" aria-pressed="false" onclick="checkGuess(this,'eq1','d','c')">I think: \( y=20x+5 \)</button>
+      </div>
+      <div id="eq1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="eq1-explanation" hidden>The point \( (0,5) \) has \( x=0 \), and \( b^{0}=1 \), so \( a=5 \). Now use \( (2,45) \): \( 5\cdot b^{2}=45 \), so \( b^{2}=9 \) and \( b=3 \). The base must be positive. Check: \( 5\cdot 3^{2}=45 \). <strong>The function is \( y=5\cdot 3^{x} \).</strong></div>
+    </div>
+
+    <div class="item" id="eq2">
+      <h3>Equation 2</h3>
+      <p style="font-size:16px;">\( (0, 8) \), \( (3, 1) \)</p>
+      <p class="prompt" id="eq2-q">Which equation describes the exponential function that passes through these two points?</p>
+      <div class="guess-row" role="group" aria-labelledby="eq2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( y=8\cdot\left(\tfrac{1}{2}\right)^{x} \)" aria-label="I think: y equals 8 times one half to the x" aria-pressed="false" onclick="checkGuess(this,'eq2','a','a')">I think: \( y=8\cdot\left(\tfrac{1}{2}\right)^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( y=8\cdot 2^{x} \)" aria-label="I think: y equals 8 times 2 to the x" aria-pressed="false" onclick="checkGuess(this,'eq2','b','a')">I think: \( y=8\cdot 2^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( y=8\cdot\left(\tfrac{1}{8}\right)^{x} \)" aria-label="I think: y equals 8 times one eighth to the x" aria-pressed="false" onclick="checkGuess(this,'eq2','c','a')">I think: \( y=8\cdot\left(\tfrac{1}{8}\right)^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( y=\tfrac{1}{2}\cdot 8^{x} \)" aria-label="I think: y equals one half times 8 to the x" aria-pressed="false" onclick="checkGuess(this,'eq2','d','a')">I think: \( y=\tfrac{1}{2}\cdot 8^{x} \)</button>
+      </div>
+      <div id="eq2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="eq2-explanation" hidden>The point \( (0,8) \) gives \( a=8 \). Now use \( (3,1) \): \( 8\cdot b^{3}=1 \), so \( b^{3}=\tfrac{1}{8} \) and \( b=\tfrac{1}{2} \). The output goes down from 8 to 1, so a base less than 1 makes sense. Check: \( 8\cdot\left(\tfrac{1}{2}\right)^{3}=1 \). <strong>The function is \( y=8\cdot\left(\tfrac{1}{2}\right)^{x} \).</strong></div>
+    </div>
+
+    <div class="item" id="eq3">
+      <h3>Equation 3</h3>
+      <p style="font-size:16px;">\( (0, -3) \), \( (2, -12) \)</p>
+      <p class="prompt" id="eq3-q">Which equation describes the exponential function that passes through these two points?</p>
+      <div class="guess-row" role="group" aria-labelledby="eq3-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( y=3\cdot 2^{x} \)" aria-label="I think: y equals 3 times 2 to the x" aria-pressed="false" onclick="checkGuess(this,'eq3','a','d')">I think: \( y=3\cdot 2^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( y=-3\cdot 4^{x} \)" aria-label="I think: y equals negative 3 times 4 to the x" aria-pressed="false" onclick="checkGuess(this,'eq3','b','d')">I think: \( y=-3\cdot 4^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( y=-3\cdot(-2)^{x} \)" aria-label="I think: y equals negative 3 times the quantity negative 2, to the x" aria-pressed="false" onclick="checkGuess(this,'eq3','c','d')">I think: \( y=-3\cdot(-2)^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( y=-3\cdot 2^{x} \)" aria-label="I think: y equals negative 3 times 2 to the x" aria-pressed="false" onclick="checkGuess(this,'eq3','d','d')">I think: \( y=-3\cdot 2^{x} \)</button>
+      </div>
+      <div id="eq3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="eq3-explanation" hidden>The point \( (0,-3) \) gives \( a=-3 \). Now use \( (2,-12) \): \( -3\cdot b^{2}=-12 \), so \( b^{2}=4 \). Both 2 and −2 square to 4, but the base of an exponential function must be positive, so \( b=2 \). Check: \( -3\cdot 2^{2}=-12 \). <strong>The function is \( y=-3\cdot 2^{x} \).</strong></div>
+    </div>
+
+    <div class="item" id="eq4">
+      <h3>Equation 4</h3>
+      <p style="font-size:16px;">\( (-1, 6) \), \( (0, 2) \)</p>
+      <p class="prompt" id="eq4-q">Which equation describes the exponential function that passes through these two points?</p>
+      <div class="guess-row" role="group" aria-labelledby="eq4-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( y=2\cdot 3^{x} \)" aria-label="I think: y equals 2 times 3 to the x" aria-pressed="false" onclick="checkGuess(this,'eq4','a','b')">I think: \( y=2\cdot 3^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( y=2\cdot\left(\tfrac{1}{3}\right)^{x} \)" aria-label="I think: y equals 2 times one third to the x" aria-pressed="false" onclick="checkGuess(this,'eq4','b','b')">I think: \( y=2\cdot\left(\tfrac{1}{3}\right)^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( y=6\cdot\left(\tfrac{1}{3}\right)^{x} \)" aria-label="I think: y equals 6 times one third to the x" aria-pressed="false" onclick="checkGuess(this,'eq4','c','b')">I think: \( y=6\cdot\left(\tfrac{1}{3}\right)^{x} \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( y=-4x+2 \)" aria-label="I think: y equals negative 4 x plus 2" aria-pressed="false" onclick="checkGuess(this,'eq4','d','b')">I think: \( y=-4x+2 \)</button>
+      </div>
+      <div id="eq4-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="eq4-explanation" hidden>This time the point with \( x=0 \) is the second one, \( (0,2) \), so \( a=2 \). Now use \( (-1,6) \): \( 2\cdot b^{-1}=6 \), which means \( \tfrac{2}{b}=6 \), so \( b=\tfrac{1}{3} \). Check: \( 2\cdot\left(\tfrac{1}{3}\right)^{-1}=2\cdot 3=6 \). <strong>The function is \( y=2\cdot\left(\tfrac{1}{3}\right)^{x} \).</strong></div>
+    </div>
+  </section>
+
+  <section id="tab-evaluate" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-evaluate" hidden>
+    <h2 tabindex="-1">Try It: Evaluate</h2>
+    <p>Substitute the x-value, work out the power, and then multiply. Pay attention to what the exponent applies to.</p>
+
+    <div class="item" id="ev1">
+      <h3>Evaluate 1</h3>
+      <div role="img" aria-label="f of x equals 3 times 2 to the x" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=3\cdot 2^{x} \]</div>
+      <p class="prompt" id="ev1-q">What is the value of \( f(4) \)?</p>
+      <div class="guess-row" role="group" aria-labelledby="ev1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: 24" aria-pressed="false" onclick="checkGuess(this,'ev1','a','b')">I think: 24</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: 48" aria-pressed="false" onclick="checkGuess(this,'ev1','b','b')">I think: 48</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: 1296" aria-pressed="false" onclick="checkGuess(this,'ev1','c','b')">I think: 1296</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: 12" aria-pressed="false" onclick="checkGuess(this,'ev1','d','b')">I think: 12</button>
+      </div>
+      <div id="ev1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="ev1-explanation" hidden>Substitute 4 for \( x \): \( f(4)=3\cdot 2^{4} \). The exponent applies only to the 2, so work out the power first: \( 2^{4}=16 \). Then multiply: \( 3\cdot 16=48 \). Multiplying 3 and 2 first would give \( 6^{4}=1296 \), which is a different problem. <strong>\( f(4)=48 \).</strong></div>
+    </div>
+
+    <div class="item" id="ev2">
+      <h3>Evaluate 2</h3>
+      <div role="img" aria-label="g of x equals 4 times one half to the x" style="font-size:18px;text-align:center;margin:1em 0;">\[ g(x)=4\cdot\left(\tfrac{1}{2}\right)^{x} \]</div>
+      <p class="prompt" id="ev2-q">What is the value of \( g(-3) \)?</p>
+      <div class="guess-row" role="group" aria-labelledby="ev2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: \( \tfrac{1}{8} \)" aria-label="I think: one eighth" aria-pressed="false" onclick="checkGuess(this,'ev2','a','c')">I think: \( \tfrac{1}{8} \)</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: \( \tfrac{1}{2} \)" aria-label="I think: one half" aria-pressed="false" onclick="checkGuess(this,'ev2','b','c')">I think: \( \tfrac{1}{2} \)</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: 32" aria-pressed="false" onclick="checkGuess(this,'ev2','c','c')">I think: 32</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: 6" aria-pressed="false" onclick="checkGuess(this,'ev2','d','c')">I think: 6</button>
+      </div>
+      <div id="ev2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="ev2-explanation" hidden>Substitute −3 for \( x \): \( g(-3)=4\cdot\left(\tfrac{1}{2}\right)^{-3} \). A negative exponent flips the base: \( \left(\tfrac{1}{2}\right)^{-3}=2^{3}=8 \). Then multiply: \( 4\cdot 8=32 \). <strong>\( g(-3)=32 \).</strong></div>
+    </div>
+
+    <div class="item" id="ev3">
+      <h3>Evaluate 3</h3>
+      <div role="img" aria-label="h of x equals 2 to the power of the quantity 3 x minus 1, end quantity" style="font-size:18px;text-align:center;margin:1em 0;">\[ h(x)=2^{3x-1} \]</div>
+      <p class="prompt" id="ev3-q">What is the value of \( h(2) \)?</p>
+      <div class="guess-row" role="group" aria-labelledby="ev3-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: 5" aria-pressed="false" onclick="checkGuess(this,'ev3','a','d')">I think: 5</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: 10" aria-pressed="false" onclick="checkGuess(this,'ev3','b','d')">I think: 10</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: 63" aria-pressed="false" onclick="checkGuess(this,'ev3','c','d')">I think: 63</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: 32" aria-pressed="false" onclick="checkGuess(this,'ev3','d','d')">I think: 32</button>
+      </div>
+      <div id="ev3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="ev3-explanation" hidden>The whole expression \( 3x-1 \) is the exponent. Substitute 2 for \( x \): \( 3(2)-1=5 \), so \( h(2)=2^{5} \). Then \( 2^{5}=32 \). The answer 5 is only the exponent, and 63 comes from subtracting 1 after raising the power. <strong>\( h(2)=32 \).</strong></div>
+    </div>
+  </section>
+
+  <section id="tab-basee" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-basee" hidden>
+    <h2 tabindex="-1">Try It: Base e</h2>
+    <p>The number <span>\( e\approx 2.718 \)</span> is an irrational constant, like <span>\( \pi \)</span>. When it is the base of an exponential function, it follows the same rules as every other base.</p>
+
+    <div class="item" id="e1">
+      <h3>Base e 1</h3>
+      <div role="img" aria-label="e squared" style="font-size:18px;text-align:center;margin:1em 0;">\[ e^{2} \]</div>
+      <p class="prompt" id="e1-q">About how large is this number? Use \( e\approx 2.718 \).</p>
+      <div class="guess-row" role="group" aria-labelledby="e1-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: About 2.7" aria-pressed="false" onclick="checkGuess(this,'e1','a','c')">I think: About 2.7</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: About 5.4" aria-pressed="false" onclick="checkGuess(this,'e1','b','c')">I think: About 5.4</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: About 7.4" aria-pressed="false" onclick="checkGuess(this,'e1','c','c')">I think: About 7.4</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: About 9.0" aria-pressed="false" onclick="checkGuess(this,'e1','d','c')">I think: About 9.0</button>
+      </div>
+      <div id="e1-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="e1-explanation" hidden>The exponent 2 means two factors of \( e \): \( e^{2}=e\cdot e\approx 2.718\cdot 2.718\approx 7.39 \). It is not \( 2e\approx 5.4 \), and it is not \( 3^{2}=9 \), because \( e \) is a little less than 3. <strong>\( e^{2}\approx 7.4 \).</strong></div>
+    </div>
+
+    <div class="item" id="e2">
+      <h3>Base e 2</h3>
+      <div role="img" aria-label="f of x equals 5 times e to the x" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=5e^{x} \]</div>
+      <p class="prompt" id="e2-q">What is the value of \( f(0) \)?</p>
+      <div class="guess-row" role="group" aria-labelledby="e2-q">
+        <button type="button" class="guess-btn" data-guess="a" data-label="I think: 0" aria-pressed="false" onclick="checkGuess(this,'e2','a','b')">I think: 0</button>
+        <button type="button" class="guess-btn" data-guess="b" data-label="I think: 5" aria-pressed="false" onclick="checkGuess(this,'e2','b','b')">I think: 5</button>
+        <button type="button" class="guess-btn" data-guess="c" data-label="I think: \( 5e \)" aria-label="I think: 5 e" aria-pressed="false" onclick="checkGuess(this,'e2','c','b')">I think: \( 5e \)</button>
+        <button type="button" class="guess-btn" data-guess="d" data-label="I think: \( e \)" aria-label="I think: e" aria-pressed="false" onclick="checkGuess(this,'e2','d','b')">I think: \( e \)</button>
+      </div>
+      <div id="e2-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="e2-explanation" hidden>Substitute 0 for \( x \): \( f(0)=5e^{0} \). Any nonzero number to the power 0 is 1, and that includes \( e \). So \( f(0)=5\cdot 1=5 \), which is the starting value \( a \). <strong>\( f(0)=5 \).</strong></div>
+    </div>
+
+    <div class="item" id="e3">
+      <h3>Base e 3</h3>
+      <div role="img" aria-label="f of x equals 2 e to the negative x" style="font-size:18px;text-align:center;margin:1em 0;">\[ f(x)=2e^{-x} \]</div>
+      <p class="prompt" id="e3-q">Does this function show exponential growth or exponential decay?</p>
+      <div class="guess-row" role="group" aria-labelledby="e3-q">
+        <button type="button" class="guess-btn" data-guess="growth" data-label="I think: Exponential growth" aria-pressed="false" onclick="checkGuess(this,'e3','growth','decay')">I think: Exponential growth</button>
+        <button type="button" class="guess-btn" data-guess="decay" data-label="I think: Exponential decay" aria-pressed="false" onclick="checkGuess(this,'e3','decay','decay')">I think: Exponential decay</button>
+        <button type="button" class="guess-btn" data-guess="neither" data-label="I think: Neither, because the exponent is negative" aria-pressed="false" onclick="checkGuess(this,'e3','neither','decay')">I think: Neither, because the exponent is negative</button>
+      </div>
+      <div id="e3-feedback" class="feedback" hidden aria-live="polite"></div>
+      <div id="e3-explanation" hidden>Rewrite the power using a negative exponent: \( e^{-x}=\left(\tfrac{1}{e}\right)^{x} \). The base is \( \tfrac{1}{e}\approx 0.37 \), which is between 0 and 1, so the function decays. Seeing the number \( e \) in the formula is not enough to call it growth; the sign of the exponent matters. <strong>\( f(x)=2e^{-x} \) shows exponential decay.</strong></div>
+    </div>
+  </section>
+
+  <section class="ai-statement" aria-labelledby="ai-statement-heading">
+    <h2 id="ai-statement-heading">Sources &amp; Credits</h2>
+    <p>Content on this page adapts the EL1 outcome and exercise types from <a href="https://github.com/TeamBasedInquiryLearning/library" target="_blank" rel="noopener">TBIL Precalculus</a> by Steven Clontz and Drew Lewis, used under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.</p>
+    <p>AI use statement: The explanations, diagrams, and this page&rsquo;s structure were drafted using Claude (Anthropic) based on TBIL source content, with guidance, review, and editing by Dr. Marty Romero.</p>
+    <p>This page is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> and freely available for reuse and adaptation under the same terms.</p>
+  </section>
+
+</main>
+
+<footer>
+  Math 172 &nbsp;|&nbsp; EL1 CheckIt Support &nbsp;|&nbsp; Santa Ana College &nbsp;|&nbsp; Built for SAC
+</footer>
+
+<script>
+var TAB_ORDER = ["video","method","tables","equations","evaluate","basee"];
+
+function switchTab(name) {
+  var panels = document.querySelectorAll('.tab-panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  panels.forEach(function(p){ p.hidden = (p.id !== 'tab-' + name); });
+  btns.forEach(function(b){
+    var active = (b.id === 'tab-btn-' + name);
+    b.setAttribute('aria-selected', active ? 'true' : 'false');
+    b.setAttribute('tabindex', active ? '0' : '-1');
+  });
+  var shown = document.getElementById('tab-' + name);
+  var heading = shown.querySelector('h2');
+  if (heading) { heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:false}); }
+}
+
+function handleTabKey(event) {
+  if (['ArrowRight','ArrowLeft','Home','End'].indexOf(event.key) === -1) return;
+  var current = TAB_ORDER.indexOf(event.target.id.replace('tab-btn-',''));
+  if (current === -1) return;
+  var next = event.key === 'Home' ? 0
+    : event.key === 'End' ? TAB_ORDER.length - 1
+    : event.key === 'ArrowRight' ? (current + 1) % TAB_ORDER.length
+    : (current - 1 + TAB_ORDER.length) % TAB_ORDER.length;
+  var nextBtn = document.getElementById('tab-btn-' + TAB_ORDER[next]);
+  switchTab(TAB_ORDER[next]);
+  nextBtn.focus();
+  event.preventDefault();
+}
+
+function checkGuess(btn, itemId, guess, correct) {
+  var isCorrect = (guess === correct);
+  var fb = document.getElementById(itemId + '-feedback');
+  var explanation = document.getElementById(itemId + '-explanation').innerHTML;
+  fb.innerHTML = (isCorrect ? '<strong><span aria-hidden="true">✅</span> That’s right.</strong> ' : '<strong><span aria-hidden="true">❌</span> Not quite — here’s why:</strong> ') + explanation;
+  fb.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-incorrect');
+  fb.hidden = false;
+  var row = btn.closest('.guess-row');
+  row.querySelectorAll('.guess-btn').forEach(function(b){
+    var picked = (b.dataset.guess === guess);
+    b.setAttribute('aria-pressed', picked ? 'true' : 'false');
+    // data-label holds the raw label (it may contain \( ... \) math), so rebuild the text and re-render the math each time
+    b.textContent = (picked ? '✓ ' : '') + b.dataset.label;
+    if (window.renderMathInElement) { renderMathInElement(b, { delimiters: [{left:"\\(",right:"\\)",display:false}], throwOnError:false }); makeMathSpeakable(b); }
+  });
+  if (window.renderMathInElement) {
+    renderMathInElement(fb, { delimiters: [{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}], throwOnError:false });
+    makeMathSpeakable(fb);
+  }
+  fb.setAttribute('tabindex','-1');
+  fb.focus();   // after the math is rendered, so the screen reader reads the finished text
+}
+
+// When embedded in LibreTexts with ?embed=1 appended to the iframe src, the video is already on the host page,
+// so hide the Video tab here and open on the Quick Summary instead. The standalone link (no ?embed) keeps the Video tab first.
+if (/[?&]embed(=|&|$)/.test(window.location.search)) {
+  (function() {
+    document.documentElement.classList.add('embed');
+    var vb = document.getElementById('tab-btn-video'), vp = document.getElementById('tab-video');
+    var mb = document.getElementById('tab-btn-method'), mp = document.getElementById('tab-method');
+    TAB_ORDER = TAB_ORDER.filter(function(t){ return t !== 'video'; });
+    vb.hidden = true; vp.hidden = true;
+    vb.setAttribute('aria-selected','false'); vb.setAttribute('tabindex','-1');
+    mb.setAttribute('aria-selected','true'); mb.setAttribute('tabindex','0'); mp.hidden = false;
+  })();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (!window.renderMathInElement) return;   // KaTeX CDN blocked/offline: equations stay readable as plain LaTeX
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+  makeMathSpeakable(document.body);
+});
+
+/*SPEECH-START*/
+// Screen-reader support for math. NVDA and several other screen readers do not read the MathML that KaTeX writes,
+// so every rendered equation gets a plain-words reading generated from its TeX source (the visible math is unchanged).
+function texToSpeech(tex) {
+  var FUNCS = {log:'log', ln:'natural log', sin:'sine', cos:'cosine', tan:'tangent', sec:'secant', csc:'cosecant', cot:'cotangent', exp:'e to the'};
+  var WORDS = {infty:'infinity', pi:'pi', theta:'theta', alpha:'alpha', beta:'beta', Delta:'delta', delta:'delta', approx:'is approximately equal to',
+    le:'is less than or equal to', leq:'is less than or equal to', ge:'is greater than or equal to', geq:'is greater than or equal to', ne:'is not equal to', neq:'is not equal to',
+    cdot:'times', times:'times', pm:'plus or minus', to:'approaches', rightarrow:'approaches', in:'is in', cup:'union', ldots:'dot dot dot', dots:'dot dot dot', cdots:'dot dot dot', div:'divided by'};
+  var IGNORE = {left:1, right:1, ',':1, ';':1, ':':1, '!':1, ' ':1, quad:1, qquad:1, displaystyle:1, '\\':1};
+  var s = String(tex).replace(/\u2212/g, '-').replace(/\\(left|right)\s*/g, '');
+  var i = 0;
+  function peekCmd() { var m = /^\\([a-zA-Z]+|.)/.exec(s.slice(i)); return m ? m[1] : null; }
+  function skipWs() { while (i < s.length && /\s/.test(s[i])) i++; }
+  function group() {        // reads {...} (or one character) and returns its raw TeX
+    skipWs();
+    if (s[i] === '{') { var d = 0, st = i + 1; for (; i < s.length; i++) { if (s[i] === '{') d++; else if (s[i] === '}') { d--; if (d === 0) { i++; return s.slice(st, i - 1); } } } return s.slice(st); }
+    var m = /^\\[a-zA-Z]+/.exec(s.slice(i)); if (m) { i += m[0].length; return m[0]; }
+    return s[i++] || '';
+  }
+  function parenGroup() {   // at "(", returns raw TeX up to the matching ")"
+    var d = 0, st = i + 1;
+    for (; i < s.length; i++) { if (s[i] === '(') d++; else if (s[i] === ')') { d--; if (d === 0) { i++; return s.slice(st, i - 1); } } }
+    return s.slice(st);
+  }
+  function ordinal(n) { var t = n % 100, u = n % 10; return n + ((t >= 11 && t <= 13) ? 'th' : u === 1 ? 'st' : u === 2 ? 'nd' : u === 3 ? 'rd' : 'th'); }
+  function power(p) {
+    p = p.trim();
+    if (p === '2') return ' squared';
+    if (p === '3') return ' cubed';
+    if (/^\d+$/.test(p)) return ' to the ' + ordinal(+p) + ' power';
+    var fr = /^(-?)\s*(\d+)\s*\/\s*(\d+)$/.exec(p);
+    if (fr) return ' to the power ' + (fr[1] ? 'negative ' : '') + fr[2] + ' over ' + fr[3];
+    var sp = texToSpeech(p);
+    return /^(negative )?[\w.]+$/.test(sp) ? ' to the power ' + sp : ' to the power of the quantity ' + sp + ', end quantity';
+  }
+  function powerFollows(j) {   // true when the operand starting at s[j] (a number, a letter, or a parenthesized group) is raised to a power
+    var m = /^\s*(\d+(\.\d+)?|[A-Za-z])\s*\^/.exec(s.slice(j));
+    if (m) return true;
+    var k = j; while (k < s.length && /\s/.test(s[k])) k++;
+    if (s[k] !== '(') return false;
+    var d = 0; for (; k < s.length; k++) { if (s[k] === '(') d++; else if (s[k] === ')') { d--; if (d === 0) break; } }
+    return /^\s*\^/.test(s.slice(k + 1));
+  }
+  var out = [];
+  var prevOp = true;        // true at the start and after an operator, "(" or ",": a "-" here means "negative"
+  var pendingComma = false;
+  function push(t, op) { out.push(t); prevOp = !!op; }
+  while (i < s.length) {
+    var c = s[i];
+    if (/\s/.test(c)) { i++; continue; }
+    if (c === '\\') {
+      var cmd = peekCmd(); i += 1 + (cmd ? cmd.length : 0);
+      if (IGNORE[cmd]) continue;
+      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + ' over ' + b + ', end fraction', false); continue; }
+      if (cmd === 'sqrt') { var r = texToSpeech(group()); push(/^[\w.]+$/.test(r) ? 'the square root of ' + r : 'the square root of the quantity ' + r + ', end root', false); continue; }
+      if (cmd === 'text' || cmd === 'mathrm' || cmd === 'textbf' || cmd === 'mathbf') { push(group(), false); continue; }
+      if (cmd === 'mathbb') { var g = group(); push(g === 'R' ? 'the real numbers' : g, false); continue; }
+      if (FUNCS[cmd]) {
+        var name = FUNCS[cmd];
+        if (cmd === 'log' && s[i] === '_') { i++; name += ' base ' + texToSpeech(group()); }
+        skipWs();
+        if (s[i] === '(') {
+          var inner = parenGroup(), single = /^\s*-?\s*([A-Za-z]|\d+(\.\d+)?)(\^\{?\w+\}?)?\s*$/.test(inner);
+          var sp2 = texToSpeech(inner);
+          push(name + ' of ' + (single ? sp2 : 'the quantity ' + sp2), false);
+          skipWs(); if (s[i] === '+' || s[i] === '-' || s[i] === '−') out[out.length - 1] += ',';
+        } else if (i < s.length && /[A-Za-z0-9\\{]/.test(s[i])) {
+          var nm = /^\d+(\.\d+)?/.exec(s.slice(i)), arg = nm ? (i += nm[0].length, nm[0]) : group(), sp3 = texToSpeech(arg);
+          if (s[i] === '^') { i++; sp3 += power(group()); }
+          push(name + ' of ' + sp3, false);
+        } else push(name, false);
+        continue;
+      }
+      if (WORDS[cmd]) { push(WORDS[cmd], cmd !== 'infty' && cmd !== 'pi' && cmd !== 'theta' && cmd !== 'alpha' && cmd !== 'beta'); continue; }
+      push(cmd || '', false); continue;
+    }
+    if (c === '^') {
+      i++; var pw = power(group()); out.push(pw);
+      skipWs();   // a word-form exponent followed by + or - gets a comma, so "2 to the power x, plus 3" is not heard as 2 to the power x plus 3
+      if ((s[i] === '+' || s[i] === '-') && /to the power/.test(pw) && !/,$/.test(pw)) out[out.length - 1] += ',';
+      continue;
+    }
+    if (c === '_') { i++; out.push(' sub ' + texToSpeech(group())); continue; }
+    if (c === '{' || c === '}') { i++; continue; }
+    if (/\d/.test(c)) { var m = /^\d+(\.\d+)?/.exec(s.slice(i)); i += m[0].length; push(m[0], false); continue; }
+    if (/[A-Za-z]/.test(c)) {
+      var nx = s[i + 1];
+      if (/[fgFGhH]/.test(c) && nx === '(' && !/[A-Za-z]/.test(s[i - 1] || '')) { i++; push(c + ' of ' + texToSpeech(parenGroup()), false); skipWs(); if (s[i] === '+' || s[i] === '-') out[out.length - 1] += ','; continue; }
+      i++; push(c, false); continue;
+    }
+    if (c === '=') { i++; push('equals', true); continue; }
+    if (c === '<') { i++; push('is less than', true); continue; }
+    if (c === '>') { i++; push('is greater than', true); continue; }
+    if (c === '+') { i++; push('plus', true); continue; }
+    if (c === '-') { i++; push(prevOp ? (powerFollows(i) ? 'the negative of' : 'negative') : 'minus', true); continue; }
+    if (c === '*') { i++; push('times', true); continue; }
+    if (c === '/') { i++; push('divided by', true); continue; }
+    if (c === ',') { i++; out.push('comma'); prevOp = true; continue; }
+    if (c === '(') { i++; push('open paren', true); continue; }
+    if (c === ')') { i++; push('close paren', false); continue; }
+    if (c === '[') { i++; push('open bracket', true); continue; }
+    if (c === ']') { i++; push('close bracket', false); continue; }
+    if (c === '.') { var d3 = s.slice(i, i + 3) === '...'; i += d3 ? 3 : 1; push(d3 ? 'dot dot dot' : 'point', false); continue; }
+    if (c === '|') { i++; push('absolute value bars', false); continue; }
+    if (c === '%') { i++; push('percent', false); continue; }
+    i++;
+  }
+  return out.join(' ').replace(/\s+,/g, ',').replace(/\s+/g, ' ').trim();
+}
+
+// Replaces the hidden MathML that KaTeX writes with a plain-words reading, for every equation under root.
+function makeMathSpeakable(root) {
+  var nodes = root.querySelectorAll('.katex');
+  Array.prototype.forEach.call(nodes, function(k) {
+    if (k.getAttribute('data-spoken')) return;
+    var ann = k.querySelector('annotation[encoding="application/x-tex"]');
+    var holder = k.querySelector('.katex-mathml');
+    if (!ann || !holder) return;
+    holder.textContent = ' ' + texToSpeech(ann.textContent) + ' ';
+    k.setAttribute('data-spoken', '1');
+  });
+}
+/*SPEECH-END*/
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { texToSpeech: texToSpeech };
+</script>
+</body>
+</html>

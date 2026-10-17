@@ -110,7 +110,15 @@ function texToSpeech(tex) {
     var fr = /^(-?)\s*(\d+)\s*\/\s*(\d+)$/.exec(p);
     if (fr) return ' to the power ' + (fr[1] ? 'negative ' : '') + fr[2] + ' over ' + fr[3];
     var sp = texToSpeech(p);
-    return ' to the power ' + sp + (/^(negative )?[\w.]+$/.test(sp) ? '' : ',');
+    return /^(negative )?[\w.]+$/.test(sp) ? ' to the power ' + sp : ' to the power of the quantity ' + sp + ', end quantity';
+  }
+  function powerFollows(j) {   // true when the operand starting at s[j] (a number, a letter, or a parenthesized group) is raised to a power
+    var m = /^\s*(\d+(\.\d+)?|[A-Za-z])\s*\^/.exec(s.slice(j));
+    if (m) return true;
+    var k = j; while (k < s.length && /\s/.test(s[k])) k++;
+    if (s[k] !== '(') return false;
+    var d = 0; for (; k < s.length; k++) { if (s[k] === '(') d++; else if (s[k] === ')') { d--; if (d === 0) break; } }
+    return /^\s*\^/.test(s.slice(k + 1));
   }
   var out = [];
   var prevOp = true;        // true at the start and after an operator, "(" or ",": a "-" here means "negative"
@@ -145,7 +153,12 @@ function texToSpeech(tex) {
       if (WORDS[cmd]) { push(WORDS[cmd], cmd !== 'infty' && cmd !== 'pi' && cmd !== 'theta' && cmd !== 'alpha' && cmd !== 'beta'); continue; }
       push(cmd || '', false); continue;
     }
-    if (c === '^') { i++; out.push(power(group())); continue; }
+    if (c === '^') {
+      i++; var pw = power(group()); out.push(pw);
+      skipWs();   // a word-form exponent followed by + or - gets a comma, so "2 to the power x, plus 3" is not heard as 2 to the power x plus 3
+      if ((s[i] === '+' || s[i] === '-') && /to the power/.test(pw) && !/,$/.test(pw)) out[out.length - 1] += ',';
+      continue;
+    }
     if (c === '_') { i++; out.push(' sub ' + texToSpeech(group())); continue; }
     if (c === '{' || c === '}') { i++; continue; }
     if (/\d/.test(c)) { var m = /^\d+(\.\d+)?/.exec(s.slice(i)); i += m[0].length; push(m[0], false); continue; }
@@ -158,7 +171,7 @@ function texToSpeech(tex) {
     if (c === '<') { i++; push('is less than', true); continue; }
     if (c === '>') { i++; push('is greater than', true); continue; }
     if (c === '+') { i++; push('plus', true); continue; }
-    if (c === '-') { i++; push(prevOp ? 'negative' : 'minus', true); continue; }
+    if (c === '-') { i++; push(prevOp ? (powerFollows(i) ? 'the negative of' : 'negative') : 'minus', true); continue; }
     if (c === '*') { i++; push('times', true); continue; }
     if (c === '/') { i++; push('divided by', true); continue; }
     if (c === ',') { i++; out.push('comma'); prevOp = true; continue; }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CheckIt Support Pages — Math 172, Santa Ana College</title>
+<style>
+  :root{
+    --teal-dark:#1a6b6b;
+    --teal-mid:#2a8f8f;
+    --teal-light:#e6f4f4;
+    --orange-action:#a84d16;   /* darkened for text/button contrast, not the decorative #e07020 */
+    --orange-light:#fff3e6;
+    --navy:#1a1a2e;
+    --white:#ffffff;
+    --gray-light:#f5f5f5;
+    --gray-mid:#cccccc;
+    --gray-text:#333333;
+    --correct-bg:#e6f4ea;
+    --correct-text:#1e5c33;
+    --incorrect-bg:#fdecea;
+    --incorrect-text:#8a2e20;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:Georgia,serif;margin:0;background:#f9f9f9;color:var(--gray-text);line-height:1.5;}
+  .skip-link{position:absolute;left:-999px;top:auto;}
+  .skip-link:focus{position:fixed;left:8px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:4px;z-index:100;}
+  *:focus-visible{outline:3px solid var(--orange-action);outline-offset:3px;}
+  header{background:var(--navy);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  header p{margin:0;font-size:12px;letter-spacing:1px;opacity:0.8;text-transform:uppercase;}
+  header h1{margin:4px 0 0;font-size:22px;font-weight:normal;font-family:Georgia,serif;}
+  div.tabs{display:flex;flex-wrap:wrap;gap:4px;background:var(--navy);padding:0 16px;}
+  .tab-btn{background:transparent;color:#cfd8e3;border:none;padding:12px 16px;font-size:14px;font-family:Georgia,serif;cursor:pointer;border-bottom:3px solid transparent;}
+  .tab-btn[aria-selected="true"]{background:#242444;color:#fff;border-bottom:3px solid #e07020;}
+  .tab-btn:hover{color:#fff;}
+  main{max-width:860px;margin:0 auto;padding:24px;}
+  .tab-panel h2{color:var(--teal-dark);border-bottom:2px solid var(--teal-light);padding-bottom:6px;}
+  .item{background:#fff;border:1px solid var(--gray-mid);border-radius:8px;padding:18px 20px;margin:22px 0;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+  .item h3{color:var(--teal-dark);margin-top:0;font-size:18px;}
+  figure{margin:14px 0;text-align:center;}
+  figure svg{width:100%;max-width:340px;height:auto;background:#fcfcfc;border:1px solid var(--gray-mid);border-radius:6px;}
+  figcaption{text-align:left;font-size:13.5px;color:#555;background:var(--gray-light);border-radius:6px;padding:8px 12px;margin-top:8px;}
+  table.data-table{border-collapse:collapse;margin:10px auto;font-size:15px;}
+  table.data-table th, table.data-table td{border:1px solid var(--gray-mid);padding:6px 14px;text-align:center;}
+  table.data-table th{background:var(--teal-light);}
+  .prompt{font-weight:bold;margin:14px 0 8px;}
+  .guess-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+  .guess-btn{background:var(--teal-dark);color:#fff;border:none;padding:9px 16px;border-radius:5px;font-size:14px;cursor:pointer;font-family:Georgia,serif;}
+  .guess-btn:hover{text-decoration:underline;}
+  .guess-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 3px #ffffff;}
+  div.tabs .tab-btn:focus-visible{outline-color:#ffffff;outline-offset:-3px;}
+  figure svg.map-svg{max-width:500px;}
+  .embed footer{display:none;}
+  .embed header{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}  /* keep the h1 for screen readers */
+  .table-wrap{overflow-x:auto;max-width:100%;}
+  table.summary-table td, table.summary-table th{text-align:left;}
+  caption.tbl-cap, table.data-table caption{caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px;color:var(--gray-text);}
+  .item h3, .prompt{overflow-wrap:anywhere;}
+  .feedback{padding:12px 14px;border-radius:6px;margin-top:6px;font-size:15px;}
+  .feedback-correct{background:var(--correct-bg);color:var(--correct-text);}
+  .feedback-incorrect{background:var(--incorrect-bg);color:var(--incorrect-text);}
+  .note-box{background:var(--orange-light);border-left:5px solid var(--orange-action);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0;}
+  .ai-statement{background:#fff;border:1px solid var(--gray-mid);border-left:5px solid var(--teal-dark);border-radius:0 8px 8px 0;padding:14px 18px;margin:32px 0 0;font-size:14px;}
+  .ai-statement h2{font-size:16px;color:var(--teal-dark);margin:0 0 6px;border:none;padding:0;}
+  .ai-statement p{margin:6px 0;}
+  .video-wrap{background:#fff;border:1px dashed var(--gray-mid);border-radius:8px;padding:24px;text-align:center;color:#666;}
+  .direct-link-row{margin:14px 0;font-size:15px;}
+  footer{background:var(--navy);color:#aaa;padding:14px 24px;font-size:12px;text-align:center;margin-top:40px;}
+  .katex-display{margin:0.6em 0;}
+  .hub-list{list-style:none;padding:0;margin:16px 0;}
+  .hub-list li{background:#fff;border:1px solid var(--gray-mid);border-radius:8px;margin:10px 0;}
+  .hub-list a{display:block;padding:14px 18px;color:var(--teal-dark);font-size:17px;}
+  .hub-list a:hover{background:var(--teal-light);}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+  <div>
+    <p>Math 172 — Santa Ana College</p>
+    <h1>CheckIt Support Pages</h1>
+  </div>
+</header>
+<main id="main">
+  <section aria-labelledby="pages-heading">
+    <h2 id="pages-heading">Choose a learning outcome</h2>
+    <p>Each page supports the CheckIt practice for one learning outcome in <em>Building Toward Calculus</em>: a short video, a quick summary, and guess-first practice that explains the reasoning.</p>
+    <ul class="hub-list">
+      <li><a href="el1/"><strong>EL1</strong>: Introduction to exponentials: recognizing, writing, and evaluating exponential functions</a></li>
+      <li><a href="el2/"><strong>EL2</strong>: Graphing exponential functions: domain, range, and horizontal asymptotes</a></li>
+      <li><a href="el3/"><strong>EL3</strong>: Introduction to logarithms: converting between forms and evaluating</a></li>
+      <li><a href="el4/"><strong>EL4</strong>: Graphing logarithmic functions: domain, range, and asymptotes</a></li>
+      <li><a href="fn1/"><strong>FN1</strong>: Is a relation a function?</a></li>
+    </ul>
+  </section>
+  <section class="ai-statement" aria-labelledby="ai-statement-heading">
+    <h2 id="ai-statement-heading">Sources &amp; Credits</h2>
+    <p>Content on this page adapts the listed outcome and exercise types from <a href="https://github.com/TeamBasedInquiryLearning/library" target="_blank" rel="noopener">TBIL Precalculus</a> by Steven Clontz and Drew Lewis, used under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.</p>
+    <p>AI use statement: The explanations, diagrams, and this page&rsquo;s structure were drafted using Claude (Anthropic) based on TBIL source content, with guidance, review, and editing by Dr. Marty Romero.</p>
+    <p>This page is licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> and freely available for reuse and adaptation under the same terms.</p>
+  </section>
+</main>
+<footer>
+  Math 172 &nbsp;|&nbsp; CheckIt Support &nbsp;|&nbsp; Santa Ana College &nbsp;|&nbsp; Built for SAC
+</footer>
+</body>
+</html>
