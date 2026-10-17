@@ -1,0 +1,285 @@
+# EL5 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+code: EL5
+h1: "EL5 Support: Properties of Logarithms"
+pageTitle: "EL5 Support: Properties of Logarithms — Math 172, Santa Ana College"
+hubSummary: "Properties of logarithms: expanding and condensing logarithmic expressions"
+videoIntro: "A narrated walkthrough of how to expand and condense logarithmic expressions using the product, quotient, and power properties."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: '(product|quotient|power) (property|rule)|log(arithm)? of a sum|becomes? (a )?(sum|difference|multiplier)|turns? into (adding|subtracting)'
+worked:   # used for the worked-examples recording document
+  title: "EL5 Worked Examples: Properties of Logarithms"
+  coreQuestion: "What is happening inside the logarithm: multiplying, dividing, or a power? And what does each one turn into outside?"
+  coreFollowup: "Multiplying inside becomes adding outside. Dividing inside becomes subtracting outside. A power inside becomes a multiplier outside, and a negative exponent brings its sign with it. Condensing runs the same rules backward: coefficients move up into exponents first."
+summary:   # the Quick Summary tab
+  intro: 'Every EL5 question comes back to one idea: <strong>a logarithm turns the operation inside it into a simpler operation outside it.</strong> To expand, read what is happening inside and rewrite it outside. To condense, run the same rules backward.'
+  caption: "How each operation inside a logarithm is rewritten outside it, and the slip to avoid"
+  columns: ["Inside the logarithm", "Outside the logarithm", "Common slip"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Multiplying: <span>\( \log_b(MN) \)</span>'
+      - 'Add the two logarithms: <span>\( \log_b M+\log_b N \)</span>.'
+      - 'Multiplying the two logarithms instead of adding them. Or trying to split a sum inside the logarithm. No rule does that.'
+    -
+      - 'Dividing: <span>\( \log_b\!\left(\tfrac{M}{N}\right) \)</span>'
+      - 'Subtract the logarithms, top first: <span>\( \log_b M-\log_b N \)</span>.'
+      - 'Dividing the two logarithms, or subtracting in the wrong order.'
+    -
+      - 'A power: <span>\( \log_b\!\left(M^{n}\right) \)</span>'
+      - 'The exponent multiplies the whole logarithm: <span>\( n\log_b M \)</span>. A negative exponent brings its sign with it.'
+      - 'Raising the logarithm to the power, or dropping the negative sign.'
+    -
+      - 'Condensing (going backward)'
+      - 'Move each coefficient up to be an exponent first. Then added logarithms become a product, and subtracted logarithms become a quotient.'
+      - 'Skipping the coefficient step, or putting a subtracted term in the numerator.'
+  note: 'Your CheckIt problem will have different letters, bases, and exponents than the examples here. The reasoning is what transfers. CheckIt may write a condensed answer with negative exponents, such as <span>\( x^{4}y^{-3} \)</span>. That means the same thing as <span>\( \tfrac{x^{4}}{y^{3}} \)</span>.'
+tabs:
+  - id: property
+    label: "Try It: Which Rewrite"
+    heading: "Try It: Which Rewrite Is Correct?"
+    intro: |-
+      Make your best guess on each one, then check it. Ask yourself: what is happening inside the logarithm, and what would that look like outside?
+    items:
+      - id: pr1
+        title: "Rewrite 1"
+        math:
+          display: '\log_2(xy)'
+          speak: "log base 2 of the quantity x y, end quantity"
+        prompt: 'Which expression is equal to this logarithm?'
+        choices:
+          - {value: a, label: '\( \log_2 x\cdot\log_2 y \)', speak: "log base 2 of x, times log base 2 of y"}
+          - {value: b, label: '\( \log_2 x-\log_2 y \)', speak: "log base 2 of x, minus log base 2 of y"}
+          - {value: c, label: '\( \log_2 x+\log_2 y \)', speak: "log base 2 of x, plus log base 2 of y"}
+          - {value: d, label: '\( \log_2(x+y) \)', speak: "log base 2 of the quantity x plus y, end quantity"}
+        correct: c
+        explanation: |-
+          Inside the logarithm, \( x \) and \( y \) are multiplied. Multiplying inside turns into adding two logarithms outside: \( \log_2(xy)=\log_2 x+\log_2 y \). A quick number check: \( \log_2(2\cdot 8)=\log_2 16=4 \), and \( \log_2 2+\log_2 8=1+3=4 \). <strong>The correct rewrite is \( \log_2 x+\log_2 y \).</strong>
+      - id: pr2
+        title: "Rewrite 2"
+        math:
+          display: '\log_3\left(\dfrac{x}{y}\right)'
+          speak: "log base 3 of the fraction x over y, end fraction"
+        prompt: 'Which expression is equal to this logarithm?'
+        choices:
+          - {value: a, label: '\( \dfrac{\log_3 x}{\log_3 y} \)', speak: "the fraction log base 3 of x, over log base 3 of y, end fraction"}
+          - {value: b, label: '\( \log_3 y-\log_3 x \)', speak: "log base 3 of y, minus log base 3 of x"}
+          - {value: c, label: '\( \log_3 x+\log_3 y \)', speak: "log base 3 of x, plus log base 3 of y"}
+          - {value: d, label: '\( \log_3 x-\log_3 y \)', speak: "log base 3 of x, minus log base 3 of y"}
+        correct: d
+        explanation: |-
+          Inside the logarithm, \( x \) is divided by \( y \). Dividing inside turns into subtracting outside, with the top first: \( \log_3\!\left(\tfrac{x}{y}\right)=\log_3 x-\log_3 y \). Check with numbers: \( \log_3\!\left(\tfrac{81}{3}\right)=\log_3 27=3 \), and \( \log_3 81-\log_3 3=4-1=3 \). Choice b has the order reversed, which gives \( -3 \). <strong>The correct rewrite is \( \log_3 x-\log_3 y \).</strong>
+      - id: pr3
+        title: "Rewrite 3"
+        math:
+          display: '\log_5\left(x^{4}\right)'
+          speak: "log base 5 of the quantity x to the 4th power, end quantity"
+        prompt: 'Which expression is equal to this logarithm?'
+        choices:
+          - {value: a, label: '\( 4\log_5 x \)', speak: "4 times log base 5 of x"}
+          - {value: b, label: '\( \left(\log_5 x\right)^{4} \)', speak: "the quantity log base 5 of x, end quantity, to the 4th power"}
+          - {value: c, label: '\( \log_5 x+4 \)', speak: "log base 5 of x, plus 4"}
+          - {value: d, label: '\( \log_5(4x) \)', speak: "log base 5 of the quantity 4 x, end quantity"}
+        correct: a
+        explanation: |-
+          Inside the logarithm, \( x \) is raised to a power. A power inside comes out front as a multiplier: \( \log_5\!\left(x^{4}\right)=4\log_5 x \). Check with \( x=5 \): \( \log_5\!\left(5^{4}\right)=4 \), and \( 4\log_5 5=4\cdot 1=4 \). The other choices give \( 1 \), \( 5 \), and about \( 1.86 \). <strong>The correct rewrite is \( 4\log_5 x \).</strong>
+      - id: pr4
+        title: "Rewrite 4"
+        math:
+          display: '\log_2(x+y)'
+          speak: "log base 2 of the quantity x plus y, end quantity"
+        prompt: 'Which statement is correct about rewriting this logarithm?'
+        choices:
+          - {value: a, label: '\( \log_2(x+y)=\log_2 x+\log_2 y \)', speak: "log base 2 of the quantity x plus y, end quantity, equals log base 2 of x, plus log base 2 of y"}
+          - {value: b, label: '\( \log_2(x+y)=\log_2 x\cdot\log_2 y \)', speak: "log base 2 of the quantity x plus y, end quantity, equals log base 2 of x, times log base 2 of y"}
+          - {value: c, label: '\( \log_2(x+y)=\dfrac{\log_2 x}{\log_2 y} \)', speak: "log base 2 of the quantity x plus y, end quantity, equals the fraction log base 2 of x, over log base 2 of y, end fraction"}
+          - {value: d, label: "None of these. The properties only handle multiplying, dividing, or a power inside the logarithm."}
+        correct: d
+        explanation: |-
+          The properties of logarithms cover three things inside the logarithm: a product, a quotient, and a power. A sum inside has no rule. Test with \( x=1 \) and \( y=3 \): \( \log_2(1+3)=\log_2 4=2 \). Choice a gives about \( 1.58 \). Choices b and c both give \( 0 \), because \( \log_2 1=0 \). None of them equals 2. <strong>A logarithm of a sum cannot be split.</strong>
+  - id: expand
+    label: "Try It: Expand"
+    heading: "Try It: Expand"
+    intro: |-
+      Expanding means breaking one logarithm into several. Make your best guess, then check it. Decide what each part inside the logarithm turns into outside.
+    items:
+      - id: ex1
+        title: "Expand 1"
+        math:
+          display: '\log_3\left(x^{2}y^{5}\right)'
+          speak: "log base 3 of the quantity x squared times y to the 5th power, end quantity"
+        prompt: 'Which expression is the expanded form of this logarithm?'
+        choices:
+          - {value: a, label: '\( 7\log_3(xy) \)', speak: "7 times log base 3 of the quantity x y, end quantity"}
+          - {value: b, label: '\( 2\log_3 x+5\log_3 y \)', speak: "2 times log base 3 of x, plus 5 times log base 3 of y"}
+          - {value: c, label: '\( 5\log_3 x+2\log_3 y \)', speak: "5 times log base 3 of x, plus 2 times log base 3 of y"}
+          - {value: d, label: '\( \log_3(2x)+\log_3(5y) \)', speak: "log base 3 of the quantity 2 x, end quantity, plus log base 3 of the quantity 5 y, end quantity"}
+        correct: b
+        explanation: |-
+          First split the product: \( \log_3\!\left(x^{2}y^{5}\right)=\log_3\!\left(x^{2}\right)+\log_3\!\left(y^{5}\right) \). Then bring each exponent out front as a multiplier. The 2 stays with \( x \) and the 5 stays with \( y \). Adding the exponents to get 7 is a slip, because exponents of different letters never combine. <strong>The expanded form is \( 2\log_3 x+5\log_3 y \).</strong>
+      - id: ex2
+        title: "Expand 2"
+        math:
+          display: '\log_5\left(a^{3}b^{-4}\right)'
+          speak: "log base 5 of the quantity a cubed times b to the power negative 4, end quantity"
+        prompt: 'Which expression is the expanded form of this logarithm?'
+        choices:
+          - {value: a, label: '\( 3\log_5 a-4\log_5 b \)', speak: "3 times log base 5 of a, minus 4 times log base 5 of b"}
+          - {value: b, label: '\( 3\log_5 a+4\log_5 b \)', speak: "3 times log base 5 of a, plus 4 times log base 5 of b"}
+          - {value: c, label: '\( -3\log_5 a+4\log_5 b \)', speak: "negative 3 times log base 5 of a, plus 4 times log base 5 of b"}
+          - {value: d, label: '\( \dfrac{3\log_5 a}{4\log_5 b} \)', speak: "the fraction with numerator 3 times log base 5 of a, and denominator 4 times log base 5 of b, end fraction"}
+        correct: a
+        explanation: |-
+          Split the product: \( \log_5\!\left(a^{3}\right)+\log_5\!\left(b^{-4}\right) \). The power rule works with negative exponents too, and the exponent keeps its sign when it comes out front: \( 3\log_5 a+(-4)\log_5 b \), which is the same as subtracting \( 4\log_5 b \). It also makes sense because \( b^{-4} \) means \( \tfrac{1}{b^{4}} \), and dividing inside is subtracting outside. <strong>The expanded form is \( 3\log_5 a-4\log_5 b \).</strong>
+      - id: ex3
+        title: "Expand 3"
+        math:
+          display: '\log_4\left(x^{5}y^{-2}z^{3}\right)'
+          speak: "log base 4 of the quantity x to the 5th power times y to the power negative 2 times z cubed, end quantity"
+        prompt: 'Which expression is the expanded form of this logarithm?'
+        choices:
+          - {value: a, label: '\( 5\log_4 x+2\log_4 y+3\log_4 z \)', speak: "5 times log base 4 of x, plus 2 times log base 4 of y, plus 3 times log base 4 of z"}
+          - {value: b, label: '\( 5\log_4 x-2\log_4 y-3\log_4 z \)', speak: "5 times log base 4 of x, minus 2 times log base 4 of y, minus 3 times log base 4 of z"}
+          - {value: c, label: '\( 5\log_4 x-2\log_4 y+3\log_4 z \)', speak: "5 times log base 4 of x, minus 2 times log base 4 of y, plus 3 times log base 4 of z"}
+          - {value: d, label: '\( -5\log_4 x+2\log_4 y-3\log_4 z \)', speak: "negative 5 times log base 4 of x, plus 2 times log base 4 of y, minus 3 times log base 4 of z"}
+        correct: c
+        explanation: |-
+          There are three factors, so there are three logarithms. Each exponent comes out front with its own sign: \( 5 \) with \( x \), \( -2 \) with \( y \), and \( 3 \) with \( z \). Only the \( y \) term is negative, because only \( y \) has a negative exponent. Choice d has every sign reversed. <strong>The expanded form is \( 5\log_4 x-2\log_4 y+3\log_4 z \).</strong>
+      - id: ex4
+        title: "Expand 4"
+        math:
+          display: '\log_6\left(\dfrac{a^{3}b^{2}}{c^{4}}\right)'
+          speak: "log base 6 of the fraction a cubed times b squared, over c to the 4th power, end fraction"
+        prompt: 'Which expression is the expanded form of this logarithm?'
+        choices:
+          - {value: a, label: '\( 3\log_6 a+2\log_6 b+4\log_6 c \)', speak: "3 times log base 6 of a, plus 2 times log base 6 of b, plus 4 times log base 6 of c"}
+          - {value: b, label: '\( 3\log_6 a-2\log_6 b-4\log_6 c \)', speak: "3 times log base 6 of a, minus 2 times log base 6 of b, minus 4 times log base 6 of c"}
+          - {value: c, label: '\( \dfrac{3\log_6 a+2\log_6 b}{4\log_6 c} \)', speak: "the fraction with numerator 3 times log base 6 of a, plus 2 times log base 6 of b, and denominator 4 times log base 6 of c, end fraction"}
+          - {value: d, label: '\( 3\log_6 a+2\log_6 b-4\log_6 c \)', speak: "3 times log base 6 of a, plus 2 times log base 6 of b, minus 4 times log base 6 of c"}
+        correct: d
+        explanation: |-
+          Everything on top of the fraction is multiplied, so those terms are added outside. Everything on the bottom is divided, so those terms are subtracted outside. Each exponent comes out front: \( 3\log_6 a+2\log_6 b-4\log_6 c \). Choice c treats the whole logarithm as a fraction of logarithms, but dividing inside means subtracting outside. <strong>The expanded form is \( 3\log_6 a+2\log_6 b-4\log_6 c \).</strong>
+  - id: condense
+    label: "Try It: Condense"
+    heading: "Try It: Condense"
+    intro: |-
+      Condensing is the reverse: combine several logarithms into one. Make your best guess, then check it. Ask yourself: what has to happen to each coefficient before you combine?
+    items:
+      - id: co1
+        title: "Condense 1"
+        math:
+          display: '2\log_3 x+5\log_3 y'
+          speak: "2 times log base 3 of x, plus 5 times log base 3 of y"
+        prompt: 'Which single logarithm is equal to this expression?'
+        choices:
+          - {value: a, label: '\( \log_3\!\left(x^{2}+y^{5}\right) \)', speak: "log base 3 of the quantity x squared plus y to the 5th power, end quantity"}
+          - {value: b, label: '\( \log_3(10xy) \)', speak: "log base 3 of the quantity 10 x y, end quantity"}
+          - {value: c, label: '\( \log_3\!\left(x^{2}y^{5}\right) \)', speak: "log base 3 of the quantity x squared times y to the 5th power, end quantity"}
+          - {value: d, label: '\( \log_3\!\left(x^{5}y^{2}\right) \)', speak: "log base 3 of the quantity x to the 5th power times y squared, end quantity"}
+        correct: c
+        explanation: |-
+          First move each coefficient up to be an exponent on its own letter: \( 2\log_3 x=\log_3\!\left(x^{2}\right) \) and \( 5\log_3 y=\log_3\!\left(y^{5}\right) \). Then adding two logarithms means multiplying what is inside: \( \log_3\!\left(x^{2}\right)+\log_3\!\left(y^{5}\right)=\log_3\!\left(x^{2}y^{5}\right) \). Adding inside, or multiplying the coefficients, does not follow any rule. <strong>The single logarithm is \( \log_3\!\left(x^{2}y^{5}\right) \).</strong>
+      - id: co2
+        title: "Condense 2"
+        math:
+          display: '4\log_2 x-3\log_2 y'
+          speak: "4 times log base 2 of x, minus 3 times log base 2 of y"
+        prompt: 'Which single logarithm is equal to this expression?'
+        choices:
+          - {value: a, label: '\( \log_2\!\left(\dfrac{x^{4}}{y^{3}}\right) \)', speak: "log base 2 of the fraction x to the 4th power over y cubed, end fraction"}
+          - {value: b, label: '\( \log_2\!\left(\dfrac{x^{3}}{y^{4}}\right) \)', speak: "log base 2 of the fraction x cubed over y to the 4th power, end fraction"}
+          - {value: c, label: '\( \log_2\!\left(x^{4}-y^{3}\right) \)', speak: "log base 2 of the quantity x to the 4th power minus y cubed, end quantity"}
+          - {value: d, label: '\( \log_2\!\left(\dfrac{4x}{3y}\right) \)', speak: "log base 2 of the fraction 4 x over 3 y, end fraction"}
+        correct: a
+        explanation: |-
+          Move the coefficients up first: \( \log_2\!\left(x^{4}\right)-\log_2\!\left(y^{3}\right) \). Subtracting two logarithms means dividing what is inside, with the first one on top. CheckIt may write this answer as \( \log_2\!\left(x^{4}y^{-3}\right) \). That is the same thing, because \( y^{-3}=\tfrac{1}{y^{3}} \). <strong>The single logarithm is \( \log_2\!\left(\tfrac{x^{4}}{y^{3}}\right) \).</strong>
+      - id: co3
+        title: "Condense 3"
+        math:
+          display: '3\log_5 a-2\log_5 b+4\log_5 c'
+          speak: "3 times log base 5 of a, minus 2 times log base 5 of b, plus 4 times log base 5 of c"
+        prompt: 'Which single logarithm is equal to this expression?'
+        choices:
+          - {value: a, label: '\( \log_5\!\left(\dfrac{a^{3}b^{2}}{c^{4}}\right) \)', speak: "log base 5 of the fraction a cubed times b squared, over c to the 4th power, end fraction"}
+          - {value: b, label: '\( \log_5\!\left(\dfrac{a^{3}c^{4}}{b^{2}}\right) \)', speak: "log base 5 of the fraction a cubed times c to the 4th power, over b squared, end fraction"}
+          - {value: c, label: '\( \log_5\!\left(\dfrac{a^{2}c^{3}}{b^{4}}\right) \)', speak: "log base 5 of the fraction a squared times c cubed, over b to the 4th power, end fraction"}
+          - {value: d, label: '\( \log_5\!\left(\dfrac{a^{3}}{b^{2}c^{4}}\right) \)', speak: "log base 5 of the fraction a cubed, over b squared times c to the 4th power, end fraction"}
+        correct: b
+        explanation: |-
+          Move each coefficient up: \( \log_5\!\left(a^{3}\right)-\log_5\!\left(b^{2}\right)+\log_5\!\left(c^{4}\right) \). Added terms are multiplied on top, and the subtracted term goes on the bottom. So \( a^{3} \) and \( c^{4} \) are on top, and \( b^{2} \) is on the bottom. Only the term with the minus sign goes into the denominator. <strong>The single logarithm is \( \log_5\!\left(\tfrac{a^{3}c^{4}}{b^{2}}\right) \).</strong>
+      - id: co4
+        title: "Condense 4"
+        math:
+          display: '\log_2 x+3\log_2 y-5\log_2 z'
+          speak: "log base 2 of x, plus 3 times log base 2 of y, minus 5 times log base 2 of z"
+        prompt: 'Which single logarithm is equal to this expression?'
+        choices:
+          - {value: a, label: '\( \log_2\!\left(xy^{3}z^{5}\right) \)', speak: "log base 2 of the quantity x times y cubed times z to the 5th power, end quantity"}
+          - {value: b, label: '\( \log_2\!\left(\dfrac{y^{3}}{xz^{5}}\right) \)', speak: "log base 2 of the fraction y cubed, over x times z to the 5th power, end fraction"}
+          - {value: c, label: '\( \log_2\!\left(\dfrac{x^{3}y}{z^{5}}\right) \)', speak: "log base 2 of the fraction x cubed times y, over z to the 5th power, end fraction"}
+          - {value: d, label: '\( \log_2\!\left(\dfrac{xy^{3}}{z^{5}}\right) \)', speak: "log base 2 of the fraction x times y cubed, over z to the 5th power, end fraction"}
+        correct: d
+        explanation: |-
+          The first term has no visible coefficient, which means the coefficient is 1, so \( x \) stays \( x^{1} \). Move the other coefficients up: \( \log_2 x+\log_2\!\left(y^{3}\right)-\log_2\!\left(z^{5}\right) \). The two added terms multiply on top, and the subtracted term goes on the bottom. <strong>The single logarithm is \( \log_2\!\left(\tfrac{xy^{3}}{z^{5}}\right) \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each line below was written by a student, and each one has a mistake. Decide what went wrong before you check. Finding a mistake in someone else's line is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\log_3\left(x^{5}\right)=\left(\log_3 x\right)^{5}'
+          speak: "log base 3 of the quantity x to the 5th power, end quantity, equals the quantity log base 3 of x, end quantity, to the 5th power"
+        prompt: 'A student wrote this line. What is the mistake?'
+        choices:
+          - {value: a, label: "The base should change from 3 to 5."}
+          - {value: b, label: "The 5 should multiply the whole logarithm. It should not become an exponent on the logarithm."}
+          - {value: c, label: "A power inside a logarithm should turn into addition outside."}
+          - {value: d, label: "There is no mistake."}
+        correct: b
+        explanation: |-
+          A power inside a logarithm comes out front as a multiplier: \( \log_3\!\left(x^{5}\right)=5\log_3 x \). The student raised the logarithm itself to the 5th power, which is a different number. Check with \( x=3 \): \( \log_3\!\left(3^{5}\right)=5 \), but \( \left(\log_3 3\right)^{5}=1^{5}=1 \). <strong>The correct line is \( \log_3\!\left(x^{5}\right)=5\log_3 x \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\log_2\left(\dfrac{x}{y}\right)=\dfrac{\log_2 x}{\log_2 y}'
+          speak: "log base 2 of the fraction x over y, end fraction, equals the fraction log base 2 of x, over log base 2 of y, end fraction"
+        prompt: 'A student wrote this line. What is the mistake?'
+        choices:
+          - {value: a, label: "The base 2 should have been dropped."}
+          - {value: b, label: "The two logarithms should have been added."}
+          - {value: c, label: "Dividing inside the logarithm should turn into subtracting the logarithms, not dividing them."}
+          - {value: d, label: "There is no mistake."}
+        correct: c
+        explanation: |-
+          Division inside becomes subtraction outside: \( \log_2\!\left(\tfrac{x}{y}\right)=\log_2 x-\log_2 y \). Check with \( x=8 \) and \( y=2 \): \( \log_2 4=2 \) and \( 3-1=2 \), but \( \tfrac{3}{1}=3 \). <strong>The correct line is \( \log_2\!\left(\tfrac{x}{y}\right)=\log_2 x-\log_2 y \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\log_5\left(a^{-2}\right)=2\log_5 a'
+          speak: "log base 5 of the quantity a to the power negative 2, end quantity, equals 2 times log base 5 of a"
+        prompt: 'A student wrote this line. What is the mistake?'
+        choices:
+          - {value: a, label: "There is no mistake. An exponent always comes out front as a positive number."}
+          - {value: b, label: "The 2 should have been added to the logarithm."}
+          - {value: c, label: "The logarithm should have been divided by 2."}
+          - {value: d, label: "The negative sign was lost. The exponent −2 should come out front as −2."}
+        correct: d
+        explanation: |-
+          The exponent keeps its sign when it comes out front: \( \log_5\!\left(a^{-2}\right)=-2\log_5 a \). Check with \( a=5 \): \( \log_5\!\left(5^{-2}\right)=-2 \), but \( 2\log_5 5=2 \). <strong>The correct line is \( \log_5\!\left(a^{-2}\right)=-2\log_5 a \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '3\log_2 x-\log_2 y=\log_2\left(\dfrac{3x}{y}\right)'
+          speak: "3 times log base 2 of x, minus log base 2 of y, equals log base 2 of the fraction 3 x over y, end fraction"
+        prompt: 'A student wrote this line. What is the mistake?'
+        choices:
+          - {value: a, label: "The 3 should have moved up as an exponent on x before combining. It should not stay as a multiplier inside."}
+          - {value: b, label: "The minus sign should have turned into a plus sign."}
+          - {value: c, label: "The fraction should have been flipped upside down."}
+          - {value: d, label: "There is no mistake."}
+        correct: a
+        explanation: |-
+          Move the coefficient up first: \( 3\log_2 x=\log_2\!\left(x^{3}\right) \). Then subtracting becomes dividing: \( \log_2\!\left(x^{3}\right)-\log_2 y=\log_2\!\left(\tfrac{x^{3}}{y}\right) \). Check with \( x=2 \) and \( y=1 \): the left side is \( 3 \), the correct right side is \( \log_2 8=3 \), and the student's right side is \( \log_2 6\approx 2.58 \). <strong>The correct line is \( 3\log_2 x-\log_2 y=\log_2\!\left(\tfrac{x^{3}}{y}\right) \).</strong>
