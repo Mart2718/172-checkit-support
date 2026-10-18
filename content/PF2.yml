@@ -43,15 +43,15 @@ summary:   # the Quick Summary tab
       - '<span>\( (-\infty,-1]\cup[1,\infty) \)</span>'
     -
       - 'A number times <span>\( x \)</span>, such as <span>\( \tan(3x) \)</span>'
-      - 'Divide each location by that number: <span>\( x=\tfrac{\pi}{6}+\tfrac{k\pi}{3} \)</span>.'
-      - 'Divide the period by it: <span>\( \tfrac{\pi}{3} \)</span>.'
+      - 'Divide each location by the size of that number, ignoring any negative sign: <span>\( x=\tfrac{\pi}{6}+\tfrac{k\pi}{3} \)</span>.'
+      - 'Divide the period by its size, ignoring any negative sign: <span>\( \tfrac{\pi}{3} \)</span>. For <span>\( \cot(-2x) \)</span> the period is <span>\( \tfrac{\pi}{2} \)</span>.'
       - 'No change.'
     -
       - 'A number added to <span>\( x \)</span>, such as <span>\( \tan\left(x+\tfrac{\pi}{4}\right) \)</span>'
       - 'Subtract it from each location: <span>\( x=\tfrac{\pi}{4}+k\pi \)</span>. Adding shifts left.'
       - 'No change.'
       - 'No change.'
-  note: 'The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end, such as <span>\( \ldots\cup\left(-\tfrac{\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{3\pi}{4}\right)\cup\ldots \)</span>. CheckIt keeps a negative number inside, as in <span>\( \tan(-4x) \)</span>. For tangent, cotangent, and cosecant that flips the graph upside down, the same as <span>\( -\tan(4x) \)</span>; for secant there is no flip, since <span>\( \sec(-4x)=\sec(4x) \)</span>. It never moves the asymptotes or changes the period. CheckIt also writes a shift with the number first, as in <span>\( \sec\left(-\tfrac{3}{2}\pi+x\right) \)</span> (secant of negative three halves of π, plus x), which is <span>\( \sec\left(x-\tfrac{3\pi}{2}\right) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
+  note: 'The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end. For <span>\( \tan\left(x+\tfrac{\pi}{4}\right) \)</span> from the table, that is <span>\( \ldots\cup\left(-\tfrac{3\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{5\pi}{4}\right)\cup\ldots \)</span>. CheckIt keeps a negative number inside, as in <span>\( \tan(-4x) \)</span>. For tangent, cotangent, and cosecant that flips the graph upside down, the same as <span>\( -\tan(4x) \)</span>; for secant there is no flip, since <span>\( \sec(-4x)=\sec(4x) \)</span>. It never moves the asymptotes or changes the period. CheckIt also writes a shift with the number first, as in <span>\( \sec\left(-\tfrac{3}{2}\pi+x\right) \)</span> (secant of negative three halves of π, plus x), which is <span>\( \sec\left(x-\tfrac{3\pi}{2}\right) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
 tabs:
   - id: asym
     label: "Try It: Asymptotes & Period"
