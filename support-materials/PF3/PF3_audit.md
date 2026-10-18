@@ -22,7 +22,7 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 
 ## Source notes (CheckIt, not this page)
 - The figures are drawn by tools/figures/make_pf3.py (x in whole numbers, y in multiples of π/4).
-- CheckIt prints special values the way Sage does: √3/2 as ½√3, √2/2 as ½√2, √3/3 as ⅓√3. The display math, the Quick Summary, and the first tab's intro all teach that form.
+- CheckIt prints special values the way Sage does: √3/2 as ½√3, √2/2 as ½√2, √3/3 as ⅓√3. Since 2026-10-18 the page shows the textbook form, and the Quick Summary note tells students that CheckIt's form is the same number.
 - The generator moves the arctan angle away from π/2 and 3π/2, so arctan inputs are always defined.
 
 ## Needs a live screen reader
