@@ -167,3 +167,79 @@ tabs:
         correct: b
         explanation: |-
           The domain is about the \( x \)-values, so read across the bottom of the graph. Every point on the curve has a negative \( x \)-value. The curve gets closer and closer to the dashed line but never touches it or crosses it. The \( y \)-values run up and down forever, which is the range, not the domain. This is the graph of \( f(x)=\log_3(-x)-1 \), a left-to-right flip. <strong>The domain is \( (-\infty, 0) \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: 'f(x)=\log_{3}(x-4)'
+          speak: "f of x equals log base 3 of the quantity x minus 4, end quantity"
+        prompt: 'A student says the domain is \( (-4,\infty) \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: 'The inside must be positive, so it is \( (4,\infty) \).', speak: "The inside must be positive, so it is the interval from 4 to infinity."}
+          - {value: c, label: "The domain should be all real numbers, as for every log."}
+          - {value: d, label: 'Left of 4, the domain is \( (-\infty,4) \).', speak: "Left of 4, the domain is the interval from negative infinity to 4."}
+        correct: b
+        explanation: |-
+          Set the inside greater than 0: \( x-4>0 \), so \( x>4 \). The student copied the sign from the equation instead of solving. Check: \( x=0 \) would give \( \log_{3}(-4) \), which is undefined. <strong>The domain is \( (4,\infty) \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: 'f(x)=\log_{2}(x)+3'
+          speak: "f of x equals log base 2 of x, plus 3"
+        prompt: 'A student says the vertical asymptote is \( x=3 \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: 'It should be the horizontal line through 3, \( y=3 \).', speak: "It should be the horizontal line through 3, y equals 3."}
+          - {value: b, label: 'Changing the sign, the asymptote is \( x=-3 \).', speak: "Changing the sign, the asymptote is x equals negative 3."}
+          - {value: c, label: 'Adding outside moves it up, so it is still \( x=0 \).', speak: "Adding outside moves it up, so it is still x equals 0."}
+          - {value: d, label: "There is no mistake."}
+        correct: c
+        explanation: |-
+          The asymptote is where the inside of the log equals 0: here the inside is \( x \), so \( x=0 \). The \( +3 \) is outside the log, so it moves the graph up 3, which cannot move a vertical line. <strong>The asymptote is \( x=0 \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: 'f(x)=-\log_{5}(x+1)'
+          speak: "f of x equals negative log base 5 of the quantity x plus 1, end quantity"
+        prompt: 'A student says the minus sign flips the graph, so the range is \( (-\infty,0) \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "Flipped or not, a log's outputs are all real numbers."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The range should be from 0 to infinity, above the axis."}
+          - {value: d, label: "The range should be from negative infinity to negative 1."}
+        correct: a
+        explanation: |-
+          A logarithm's outputs run up and down forever, so its range is all real numbers. Flipping upside down turns that set into itself. The \( +1 \) inside moves the graph sideways, which does not change the outputs. <strong>The range is \( (-\infty,\infty) \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: 'f(x)=\log_{2}(-x)'
+          speak: "f of x equals log base 2 of negative x"
+        prompt: 'A student says the domain is \( (0,\infty) \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The domain should be all real numbers except 0."}
+          - {value: c, label: "The minus sign flips the graph upside down, not the domain."}
+          - {value: d, label: 'Negative x is positive only when x is negative: \( (-\infty,0) \).', speak: "Negative x is positive only when x is negative: the interval from negative infinity to 0."}
+        correct: d
+        explanation: |-
+          Set the inside greater than 0: \( -x>0 \), so \( x<0 \). For example \( x=-2 \) gives \( \log_{2} 2=1 \), but \( x=2 \) gives \( \log_{2}(-2) \), which is undefined. A minus sign on the \( x \) flips the graph left to right. <strong>The domain is \( (-\infty,0) \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: 'f(x)=\log_{4}(x+1)-2'
+          speak: "f of x equals log base 4 of the quantity x plus 1, end quantity, minus 2"
+        prompt: 'A student says the asymptote is \( x=-1 \) and the domain is \( (-1,\infty) \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The asymptote should be at 1, with the sign as written."}
+          - {value: b, label: "The minus 2 moves the asymptote to negative 3."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The domain should be everything left of negative 1."}
+        correct: c
+        explanation: |-
+          The inside is \( x+1 \). It equals 0 at \( x=-1 \), the asymptote, and it is positive for \( x>-1 \), the domain. The \( -2 \) outside moves the graph down, which does not move the asymptote. <strong>There is no mistake.</strong>

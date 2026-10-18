@@ -125,8 +125,8 @@ tabs:
         prompt: 'What is the value of this logarithm?'
         choices:
           - {value: a, label: "2"}
-          - {value: b, label: "−2", speak: "negative 2"}
-          - {value: c, label: "−9", speak: "negative 9"}
+          - {value: b, label: "−2"}
+          - {value: c, label: "−9"}
           - {value: d, label: '\( \tfrac{1}{2} \)', speak: "one half"}
         correct: b
         explanation: |-
@@ -159,8 +159,8 @@ tabs:
         prompt: 'What is the value of this logarithm?'
         choices:
           - {value: a, label: "2"}
-          - {value: b, label: "−2", speak: "negative 2"}
-          - {value: c, label: "−100", speak: "negative 100"}
+          - {value: b, label: "−2"}
+          - {value: c, label: "−100"}
           - {value: d, label: "0.1"}
         correct: b
         explanation: |-
@@ -193,3 +193,79 @@ tabs:
         correct: c
         explanation: |-
           Ask: \( e \) to what power gives \( e^5 \)? The power is 5. The natural log undoes a power of \( e \). <strong>\( \ln\left(e^5\right)=5 \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} 2^{5}&=32\\ \log_{5} 32&=2 \end{aligned}'
+          speak: "2 to the 5th power equals 32. Next line: log base 5 of 32 equals 2"
+        prompt: 'A student converted this equation to logarithmic form. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: 'The 32 belongs outside the log: \( \log_{5} 2=32 \).', speak: "The 32 belongs outside the log: log base 5 of 2 equals 32."}
+          - {value: c, label: 'Logarithms only use base 10, so it is \( \log 32=5 \).', speak: "Logarithms only use base 10, so it is log of 32 equals 5."}
+          - {value: d, label: 'The base stays the base: \( \log_{2} 32=5 \).', speak: "The base stays the base: log base 2 of 32 equals 5."}
+        correct: d
+        explanation: |-
+          In \( 2^{5}=32 \) the base is 2 and the exponent is 5. A logarithm keeps the base and gives back the exponent: \( \log_{2} 32=5 \). The student swapped the base and the exponent. <strong>The logarithmic form is \( \log_{2} 32=5 \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} \log_{4} 64&=3\\ 3^{4}&=64 \end{aligned}'
+          speak: "log base 4 of 64 equals 3. Next line: 3 to the 4th power equals 64"
+        prompt: 'A student converted this equation to exponential form. What is the mistake, if any?'
+        choices:
+          - {value: a, label: 'Raise the base to the value: \( 4^{3}=64 \).', speak: "Raise the base to the value: 4 cubed equals 64."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: 'The 64 belongs in the exponent instead: \( 4^{64}=3 \).', speak: "The 64 belongs in the exponent instead: 4 to the 64th power equals 3."}
+          - {value: d, label: 'Put the 64 in the base instead: \( 64^{3}=4 \).', speak: "Put the 64 in the base instead: 64 cubed equals 4."}
+        correct: a
+        explanation: |-
+          The base of the log becomes the base of the power, and the value of the log becomes the exponent: \( 4^{3}=64 \). Check: \( 4\cdot 4\cdot 4=64 \), but \( 3^{4}=81 \). <strong>The exponential form is \( 4^{3}=64 \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\log_{3} 81=27'
+          speak: "log base 3 of 81 equals 27"
+        prompt: 'A student divided 81 by 3 and wrote this. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The answer should be 81 times 3, which is 243."}
+          - {value: c, label: "3 to the 4th is 81, so the log is 4."}
+          - {value: d, label: "The answer should be 3, the base."}
+        correct: c
+        explanation: |-
+          A logarithm is an exponent. Ask: 3 to what power gives 81? \( 3^{4}=81 \), so the answer is 4. Dividing has nothing to do with it. <strong>The correct value is \( \log_{3} 81=4 \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\log_{2}\left(\tfrac{1}{8}\right)=3'
+          speak: "log base 2 of one eighth equals 3"
+        prompt: 'A student wrote this. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The answer should be one third, the flip of 3."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The log of a fraction is undefined, so there is no answer."}
+          - {value: d, label: "One eighth is 2 to the negative 3, so it is negative 3."}
+        correct: d
+        explanation: |-
+          Write the number inside as a power of 2: \( \tfrac{1}{8}=\tfrac{1}{2^{3}}=2^{-3} \). So the exponent is \( -3 \). Since \( 2^{3}=8 \), not \( \tfrac{1}{8} \), the student's answer is the log of 8. <strong>The correct value is \(-3\).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\log 1000=3'
+          speak: "log of 1000 equals 3"
+        prompt: 'A student says this is true, because no base written means base 10, and 10 cubed is 1000. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "With no base written, the base is e, not 10."}
+          - {value: b, label: "The answer should be 1000 divided by 10, which is 100."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "A log with no base cannot be evaluated at all."}
+        correct: c
+        explanation: |-
+          \( \log x \) with no base written means base 10. Ask: 10 to what power gives 1000? \( 10^{3}=1000 \), so the answer is 3. The natural log, \( \ln \), is the one with base \( e \). <strong>There is no mistake.</strong>

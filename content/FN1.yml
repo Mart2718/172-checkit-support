@@ -151,3 +151,82 @@ tabs:
           - {value: no, label: "Not a function"}
         correct: yes
         explanation: 'Check the x-coordinates: \(-4, -2, 0, 2, 4\) — all five are different, so no vertical line can pass through more than one point. <strong>This graph represents a function.</strong>'
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        table:
+          caption: "Table of x-values and y-values, listed in two rows"
+          label: "Table of x and y values"
+          rows:
+            - ["x", "2", "4", "6", "8"]
+            - ["y", "5", "5", "5", "5"]
+        prompt: 'A student says this table is not a function, because the y-value 5 repeats. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "Only a repeated input breaks a function; outputs may repeat."}
+          - {value: b, label: "The table needs more rows before anyone can decide either way."}
+          - {value: c, label: "A function has to use each output only once, so this is wrong."}
+          - {value: d, label: "There is no mistake."}
+        correct: a
+        explanation: |-
+          The question is whether one input ever has two different outputs. Each x-value here, 2, 4, 6, and 8, appears once, so each input has exactly one output. Many inputs sharing the output 5 is allowed. <strong>The table is a function; repeated y-values do not matter.</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: 'x^2 + y = 4'
+          speak: "x squared plus y equals 4"
+        prompt: 'A student says this is not a function, because \( x \) is squared. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Squaring x is fine; only an even power on y gives two outputs."}
+          - {value: c, label: "It is not a function, because its graph is a curve, not a line."}
+          - {value: d, label: "It is a function only when x is a positive number."}
+        correct: b
+        explanation: |-
+          Solve for \( y \): \( y=4-x^2 \). Each \( x \) gives exactly one \( y \); for example \( x=2 \) and \( x=-2 \) both give \( y=0 \), which is two inputs sharing an output, not one input with two outputs. The power that matters is the power on \( y \). <strong>The equation defines a function.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: 'y^2 = x + 1'
+          speak: "y squared equals x plus 1"
+        prompt: 'A student says this is a function, because \( x \) only has a power of 1. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "It is a function, but only for x values greater than 0."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "With y squared, one x can give two values of y."}
+          - {value: d, label: "The power on x has to be 2 before it can be a function."}
+        correct: c
+        explanation: |-
+          The power on \( y \) is even. Try \( x=3 \): \( y^2=4 \), so \( y=2 \) or \( y=-2 \). One input gives two outputs. <strong>The equation does not define a function.</strong>
+      - id: sl4
+        title: "Slip 4"
+        figure:
+          file: figures/FN1/graph2.svg
+          title: "A smooth curve extending to the right from a leftmost point"
+          caption: '<strong>Plotted data:</strong> a smooth curve whose leftmost point is at \((-4, 0)\). It extends to the right and passes through approximately \((-1.1, 1.7)\), \((-1.1, -1.7)\), \((1.8, 2.4)\), and \((1.8, -2.4)\).'
+        prompt: 'A student says this graph is a function, because a horizontal line crosses it only once. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "A horizontal line crosses it twice, so it is not a function."}
+          - {value: c, label: "A curve can never be a function, only a straight line can."}
+          - {value: d, label: "Use a vertical line: at x = 1.8 the curve is hit twice."}
+        correct: d
+        explanation: |-
+          Functions are checked with a vertical line, because a vertical line is one input. At \( x=1.8 \) the curve has two points, \( (1.8, 2.4) \) and \( (1.8, -2.4) \): one input, two outputs. A horizontal line test answers a different question. <strong>The graph is not a function.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          inline: ['(1, 4)', '(2, 4)', '(3, 4)', '(4, 9)']
+        prompt: 'A student says these ordered pairs define a function, because no x-value repeats, even though 4 repeats as a y-value. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The y-value 4 repeats, so these are not a function."}
+          - {value: b, label: "A function needs an x-value of 0 among its pairs."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The pairs have to be in order of y to be checked."}
+        correct: c
+        explanation: |-
+          The x-values 1, 2, 3, and 4 are all different, so no input has two outputs. Several inputs sharing the output 4 is fine. The student checked the right thing. <strong>There is no mistake: the pairs define a function.</strong>
