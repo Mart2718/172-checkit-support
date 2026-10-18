@@ -130,7 +130,7 @@ function texToSpeech(tex) {
     if (c === '\\') {
       var cmd = peekCmd(); i += 1 + (cmd ? cmd.length : 0);
       if (IGNORE[cmd]) continue;
-      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + ' over ' + b + ', end fraction', false); if (/^\s*\\sqrt/.test(s.slice(i))) out[out.length - 1] += ' times'; continue; }
+      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + (/^(negative )?the square root of [\w.]+$/.test(a) ? ',' : '') + ' over ' + b + ', end fraction', false); if (/^\s*\\sqrt/.test(s.slice(i))) out[out.length - 1] += ' times'; continue; }
       if (cmd === 'sqrt') { var r = texToSpeech(group()); push(/^[\w.]+$/.test(r) ? 'the square root of ' + r : 'the square root of the quantity ' + r + ', end root', false); continue; }
       if (cmd === 'text' || cmd === 'mathrm' || cmd === 'textbf' || cmd === 'mathbf') { push(group(), false); continue; }
       if (cmd === 'mathbb') { var g = group(); push(g === 'R' ? 'the real numbers' : g, false); continue; }

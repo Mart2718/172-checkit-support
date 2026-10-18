@@ -35,19 +35,19 @@ summary:   # the Quick Summary tab
       - 'All real numbers, <span>\( (-\infty,\infty) \)</span>'
       - '<span>\( \left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right) \)</span>, ends not included'
       - 'Right half, like arcsine, but never exactly <span>\( \pm\tfrac{\pi}{2} \)</span>, where tangent is undefined.'
-  note: 'CheckIt writes some values in a different order: <span>\( \tfrac{1}{2}\sqrt{3} \)</span> (one half times the square root of 3) is <span>\( \tfrac{\sqrt{3}}{2} \)</span>, <span>\( \tfrac{1}{2}\sqrt{2} \)</span> is <span>\( \tfrac{\sqrt{2}}{2} \)</span>, and <span>\( \tfrac{1}{3}\sqrt{3} \)</span> is <span>\( \tfrac{\sqrt{3}}{3} \)</span>. The raised −1 in <span>\( \sin^{-1} \)</span> means “inverse,” not “one over.” Answers are exact angles in radians, such as <span>\( -\tfrac{\pi}{6} \)</span>. To sketch a graph, plot three points and connect them. Arcsine: <span>\( \left(-1,-\tfrac{\pi}{2}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{2}\right) \)</span>. Arccosine: <span>\( (-1,\pi) \)</span>, <span>\( \left(0,\tfrac{\pi}{2}\right) \)</span>, <span>\( (1,0) \)</span>. Arctangent: <span>\( \left(-1,-\tfrac{\pi}{4}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{4}\right) \)</span>, leveling off toward dashed lines at <span>\( y=\pm\tfrac{\pi}{2} \)</span>. Your CheckIt values will differ from these examples. The reasoning is what transfers.'
+  note: 'The values to know are the unit-circle values <span>\( \tfrac{1}{2} \)</span>, <span>\( \tfrac{\sqrt{2}}{2} \)</span>, <span>\( \tfrac{\sqrt{3}}{2} \)</span>, and, for tangent, <span>\( \tfrac{\sqrt{3}}{3} \)</span>, <span>\( 1 \)</span>, and <span>\( \sqrt{3} \)</span>. CheckIt sometimes prints a value with the fraction first, such as <span>\( \tfrac{1}{2}\sqrt{3} \)</span>; that is the same number as <span>\( \tfrac{\sqrt{3}}{2} \)</span>. The raised −1 in <span>\( \sin^{-1} \)</span> means “inverse,” not “one over.” Answers are exact angles in radians, such as <span>\( -\tfrac{\pi}{6} \)</span>. To sketch a graph, plot three points and connect them. Arcsine: <span>\( \left(-1,-\tfrac{\pi}{2}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{2}\right) \)</span>. Arccosine: <span>\( (-1,\pi) \)</span>, <span>\( \left(0,\tfrac{\pi}{2}\right) \)</span>, <span>\( (1,0) \)</span>. Arctangent: <span>\( \left(-1,-\tfrac{\pi}{4}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{4}\right) \)</span>, leveling off toward dashed lines at <span>\( y=\pm\tfrac{\pi}{2} \)</span>. Your CheckIt values will differ from these examples. The reasoning is what transfers.'
 tabs:
   - id: evaluate
     label: "Try It: Evaluate"
     heading: "Try It: Evaluate"
     intro: |-
-      Find the exact angle in radians. Make your best guess on each one, then check it. CheckIt writes the square root of 3 over 2 as one half times the square root of 3; they are the same number.
+      Find the exact angle in radians. Make your best guess on each one, then check it.
     items:
       - id: ev1
         title: "Evaluate 1"
         math:
-          display: '\arcsin\left(\tfrac{1}{2}\sqrt{3}\right)'
-          speak: "arcsine of one half times the square root of 3"
+          display: '\arcsin\left(\dfrac{\sqrt{3}}{2}\right)'
+          speak: "arcsine of the fraction: the square root of 3, over 2"
         prompt: 'What is the exact value?'
         choices:
           - {value: a, label: '\( \tfrac{\pi}{6} \)', speak: "pi over 6"}
@@ -60,8 +60,8 @@ tabs:
       - id: ev2
         title: "Evaluate 2"
         math:
-          display: '\arccos\left(-\tfrac{1}{2}\sqrt{2}\right)'
-          speak: "arccosine of negative one half times the square root of 2"
+          display: '\arccos\left(-\dfrac{\sqrt{2}}{2}\right)'
+          speak: "arccosine of negative the fraction: the square root of 2, over 2"
         prompt: 'What is the exact value?'
         choices:
           - {value: a, label: '\( -\tfrac{\pi}{4} \)', speak: "negative pi over 4"}
@@ -122,8 +122,8 @@ tabs:
       - id: mv2
         title: "Value 2"
         math:
-          display: '\arctan\left(\tfrac{1}{3}\sqrt{3}\right)'
-          speak: "arctangent of one third times the square root of 3"
+          display: '\arctan\left(\dfrac{\sqrt{3}}{3}\right)'
+          speak: "arctangent of the fraction: the square root of 3, over 3"
         prompt: 'What is the exact value?'
         choices:
           - {value: a, label: '\( \tfrac{\pi}{3} \)', speak: "pi over 3"}
@@ -150,8 +150,8 @@ tabs:
       - id: mv4
         title: "Value 4"
         math:
-          display: '\arcsin\left(-\tfrac{1}{2}\sqrt{2}\right)'
-          speak: "arcsine of negative one half times the square root of 2"
+          display: '\arcsin\left(-\dfrac{\sqrt{2}}{2}\right)'
+          speak: "arcsine of negative the fraction: the square root of 2, over 2"
         prompt: 'What is the exact value?'
         choices:
           - {value: a, label: '\( \tfrac{5\pi}{4} \)', speak: "5 pi over 4"}

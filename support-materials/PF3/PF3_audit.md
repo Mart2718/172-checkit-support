@@ -28,3 +28,8 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 ## Needs a live screen reader
 - How NVDA reads each equation, interval, and graph caption, and whether feedback is announced once.
 - Forced-colors and 200%/400% zoom rendering of the graphs.
+
+## Update 2026-10-18: textbook form for root values
+- At the instructor's request, the Evaluate and More Values items now show values the usual way (√3/2, −√2/2, √3/3) instead of CheckIt's printed form (½√3). The Quick Summary note keeps one line explaining that CheckIt may print ½√3 and that it is the same number.
+- The shared speech function now puts a comma after a square-root numerator ("the fraction the square root of 3, over 2"), so it is not heard as the square root of 3/2. Every math expression in every outcome was read with the old and new function: only 13 PF3 expressions changed.
+- Rechecked: lint, axe-core 0 violations on every tab at both widths, 320 px reflow with and without text spacing, answer keys unchanged (π/3, 3π/4, π/6, −π/4), quiz checks pass.
