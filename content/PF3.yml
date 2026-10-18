@@ -35,7 +35,7 @@ summary:   # the Quick Summary tab
       - 'All real numbers, <span>\( (-\infty,\infty) \)</span>'
       - '<span>\( \left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right) \)</span>, ends not included'
       - 'Right half, like arcsine, but never exactly <span>\( \pm\tfrac{\pi}{2} \)</span>, where tangent is undefined.'
-  note: 'CheckIt writes some values in a different order: <span>\( \tfrac{1}{2}\sqrt{3} \)</span> (one half times the square root of 3) is <span>\( \tfrac{\sqrt{3}}{2} \)</span>, <span>\( \tfrac{1}{2}\sqrt{2} \)</span> is <span>\( \tfrac{\sqrt{2}}{2} \)</span>, and <span>\( \tfrac{1}{3}\sqrt{3} \)</span> is <span>\( \tfrac{\sqrt{3}}{3} \)</span>. The −1 in <span>\( \sin^{-1} \)</span> means “inverse,” not “one over.” Answers are exact angles in radians, such as <span>\( -\tfrac{\pi}{6} \)</span>. To sketch a graph, plot three points and connect them: arcsine through (−1, −π/2), (0, 0), (1, π/2); arccosine through (−1, π), (0, π/2), (1, 0); arctangent through (−1, −π/4), (0, 0), (1, π/4), leveling off toward dashed lines at y = −π/2 and y = π/2. Your CheckIt values will differ from these examples. The reasoning is what transfers.'
+  note: 'CheckIt writes some values in a different order: <span>\( \tfrac{1}{2}\sqrt{3} \)</span> (one half times the square root of 3) is <span>\( \tfrac{\sqrt{3}}{2} \)</span>, <span>\( \tfrac{1}{2}\sqrt{2} \)</span> is <span>\( \tfrac{\sqrt{2}}{2} \)</span>, and <span>\( \tfrac{1}{3}\sqrt{3} \)</span> is <span>\( \tfrac{\sqrt{3}}{3} \)</span>. The raised −1 in <span>\( \sin^{-1} \)</span> means “inverse,” not “one over.” Answers are exact angles in radians, such as <span>\( -\tfrac{\pi}{6} \)</span>. To sketch a graph, plot three points and connect them. Arcsine: <span>\( \left(-1,-\tfrac{\pi}{2}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{2}\right) \)</span>. Arccosine: <span>\( (-1,\pi) \)</span>, <span>\( \left(0,\tfrac{\pi}{2}\right) \)</span>, <span>\( (1,0) \)</span>. Arctangent: <span>\( \left(-1,-\tfrac{\pi}{4}\right) \)</span>, <span>\( (0,0) \)</span>, <span>\( \left(1,\tfrac{\pi}{4}\right) \)</span>, leveling off toward dashed lines at <span>\( y=\pm\tfrac{\pi}{2} \)</span>. Your CheckIt values will differ from these examples. The reasoning is what transfers.'
 tabs:
   - id: evaluate
     label: "Try It: Evaluate"
@@ -70,7 +70,7 @@ tabs:
           - {value: d, label: '\( \tfrac{\pi}{4} \)', speak: "pi over 4"}
         correct: b
         explanation: |-
-          The input is \( -\tfrac{\sqrt{2}}{2} \). Arccosine gives angles from 0 to \( \pi \), the top half of the circle. Cosine is negative on the left side, so the angle is in quadrant II: \( \tfrac{3\pi}{4} \). The angle \( \tfrac{5\pi}{4} \) also has that cosine but is on the bottom half. Arccosine is never negative, which rules out \( -\tfrac{\pi}{4} \). <strong>The value is \( \tfrac{3\pi}{4} \).</strong>
+          The input is \( -\tfrac{\sqrt{2}}{2} \). Arccosine gives angles from 0 to \( \pi \), the top half of the circle. Cosine is negative on the left side, so the angle is in quadrant II: \( \tfrac{3\pi}{4} \). The angle \( \tfrac{5\pi}{4} \) also has that cosine but is on the bottom half. Arccosine is never negative, which rules out \( -\tfrac{\pi}{4} \), and cosine at \( \tfrac{\pi}{4} \) is positive. <strong>The value is \( \tfrac{3\pi}{4} \).</strong>
       - id: ev3
         title: "Evaluate 3"
         math:
@@ -98,7 +98,7 @@ tabs:
           - {value: d, label: '\( -\tfrac{\pi}{3} \)', speak: "negative pi over 3"}
         correct: a
         explanation: |-
-          Sine is \( \tfrac{1}{2} \) at \( \tfrac{\pi}{6} \). A negative input to arcsine gives a negative angle, in quadrant IV: \( -\tfrac{\pi}{6} \). The angle \( \tfrac{11\pi}{6} \) points the same way, but arcsine's range only goes down to \( -\tfrac{\pi}{2} \), so the answer is written as \( -\tfrac{\pi}{6} \). Sine at \( -\tfrac{\pi}{3} \) is \( -\tfrac{\sqrt{3}}{2} \). <strong>The value is \( -\tfrac{\pi}{6} \).</strong>
+          Sine is \( \tfrac{1}{2} \) at \( \tfrac{\pi}{6} \). A negative input to arcsine gives a negative angle, in quadrant IV: \( -\tfrac{\pi}{6} \). The angle \( \tfrac{11\pi}{6} \) points the same way, but arcsine's range only goes down to \( -\tfrac{\pi}{2} \), so the answer is written as \( -\tfrac{\pi}{6} \). Sine at \( -\tfrac{\pi}{3} \) is \( -\tfrac{\sqrt{3}}{2} \). The angle \( \tfrac{7\pi}{6} \) also has sine \( -\tfrac{1}{2} \), but it is on the left half of the circle. <strong>The value is \( -\tfrac{\pi}{6} \).</strong>
   - id: more
     label: "Try It: More Values"
     heading: "Try It: More Values"
@@ -118,7 +118,7 @@ tabs:
           - {value: d, label: '\( \tfrac{\pi}{3} \)', speak: "pi over 3"}
         correct: c
         explanation: |-
-          Cosine is \( \tfrac{1}{2} \) at \( \tfrac{\pi}{3} \). A negative cosine means the left side of the circle, and arccosine stays on the top half, so the angle is in quadrant II: \( \pi-\tfrac{\pi}{3}=\tfrac{2\pi}{3} \). The answer \( -\tfrac{\pi}{3} \) uses arcsine's rule for negatives, which does not work for arccosine. <strong>The value is \( \tfrac{2\pi}{3} \).</strong>
+          Cosine is \( \tfrac{1}{2} \) at \( \tfrac{\pi}{3} \). A negative cosine means the left side of the circle, and arccosine stays on the top half, so the angle is in quadrant II: \( \pi-\tfrac{\pi}{3}=\tfrac{2\pi}{3} \). The answer \( -\tfrac{\pi}{3} \) uses arcsine's rule for negatives, which does not work for arccosine. The angle \( \tfrac{4\pi}{3} \) is on the bottom half, and cosine at \( \tfrac{\pi}{3} \) is positive. <strong>The value is \( \tfrac{2\pi}{3} \).</strong>
       - id: mv2
         title: "Value 2"
         math:
@@ -146,7 +146,7 @@ tabs:
           - {value: d, label: '\( \tfrac{\pi}{2} \)', speak: "pi over 2"}
         correct: d
         explanation: |-
-          Cosine is the x-coordinate on the unit circle, and it is 0 at the top and bottom of the circle. Arccosine only uses the top half, from 0 to \( \pi \), so the answer is the top: \( \tfrac{\pi}{2} \). The answer 0 is arcsine of 0, not arccosine. <strong>The value is \( \tfrac{\pi}{2} \).</strong>
+          Cosine is the x-coordinate on the unit circle, and it is 0 at the top and bottom of the circle. Arccosine only uses the top half, from 0 to \( \pi \), so the answer is the top: \( \tfrac{\pi}{2} \). The answer 0 is arcsine of 0, not arccosine. The angles \( \tfrac{3\pi}{2} \) and \( -\tfrac{\pi}{2} \) point to the bottom, outside the range. <strong>The value is \( \tfrac{\pi}{2} \).</strong>
       - id: mv4
         title: "Value 4"
         math:
@@ -160,7 +160,7 @@ tabs:
           - {value: d, label: '\( \tfrac{3\pi}{4} \)', speak: "3 pi over 4"}
         correct: c
         explanation: |-
-          The input is \( -\tfrac{\sqrt{2}}{2} \). Sine is \( \tfrac{\sqrt{2}}{2} \) at \( \tfrac{\pi}{4} \), and a negative input to arcsine gives a negative angle: \( -\tfrac{\pi}{4} \). The angles \( \tfrac{5\pi}{4} \) and \( \tfrac{7\pi}{4} \) also have that sine, but they are outside arcsine's range. <strong>The value is \( -\tfrac{\pi}{4} \).</strong>
+          The input is \( -\tfrac{\sqrt{2}}{2} \). Sine is \( \tfrac{\sqrt{2}}{2} \) at \( \tfrac{\pi}{4} \), and a negative input to arcsine gives a negative angle: \( -\tfrac{\pi}{4} \). The angles \( \tfrac{5\pi}{4} \) and \( \tfrac{7\pi}{4} \) also have that sine, but they are outside arcsine's range. Sine at \( \tfrac{3\pi}{4} \) is positive. <strong>The value is \( -\tfrac{\pi}{4} \).</strong>
   - id: domain
     label: "Try It: Domain & Range"
     heading: "Try It: Domain and Range"
@@ -218,7 +218,7 @@ tabs:
         choices:
           - {value: a, label: '\( [-1,1] \)', speak: "the closed interval from negative 1 to 1"}
           - {value: b, label: '\( \left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right) \)', speak: "the open interval from negative pi over 2 to pi over 2"}
-          - {value: c, label: '\( [0,\infty) \)', speak: "from 0, included, to infinity"}
+          - {value: c, label: '\( [0,\infty) \)', speak: "the interval from 0, included, to infinity, not included"}
           - {value: d, label: '\( (-\infty,\infty) \)', speak: "the open interval from negative infinity to infinity"}
         correct: d
         explanation: |-
@@ -233,7 +233,7 @@ tabs:
         title: "Graph 1"
         figure:
           file: figures/PF3/graph1.svg
-          title: "A curve between two solid end dots, with three labeled points"
+          title: "A rising curve between two solid end dots, with three labeled points"
           caption: '<strong>Plotted data:</strong> a curve that exists only from x = −1 to x = 1, with solid dots at both ends: (−1, −π/2) and (1, π/2). It passes through (0, 0) and rises from left to right. It is steepest near its two ends and flattest in the middle. Nothing is drawn to the left of x = −1 or to the right of x = 1.'
         prompt: 'Which function has this graph?'
         choices:
@@ -284,12 +284,12 @@ tabs:
         title: "Slip 1"
         math:
           display: '\arcsin\left(\tfrac{\sqrt{3}}{2}\right)=\tfrac{2\pi}{3}'
-          speak: "arcsine of the square root of 3 over 2 equals 2 pi over 3"
-        prompt: 'A student wrote this because the sine of 2π/3 is the square root of 3 over 2. What is the mistake, if any?'
+          speak: "arcsine of the fraction: the square root of 3, over 2. Equals 2 pi over 3"
+        prompt: 'A student wrote this because \( \sin\left(\tfrac{2\pi}{3}\right)=\tfrac{\sqrt{3}}{2} \). What is the mistake, if any?'
         choices:
-          - {value: a, label: "Arcsine stops at π/2, so the answer is π/3."}
-          - {value: b, label: "The sine of 2π/3 is really one half, so the angle is wrong."}
-          - {value: c, label: "The answer should be 4π/3, the other angle with this sine."}
+          - {value: a, label: 'Arcsine stays on the right half, so the answer is \( \tfrac{\pi}{3} \).', speak: "Arcsine stays on the right half, so the answer is pi over 3."}
+          - {value: b, label: "The sine of that angle is really one half, so the angle is wrong."}
+          - {value: c, label: 'The other angle with this sine works instead: \( \tfrac{4\pi}{3} \).', speak: "The other angle with this sine works instead: 4 pi over 3."}
           - {value: d, label: "There is no mistake."}
         correct: a
         explanation: |-
@@ -298,13 +298,13 @@ tabs:
         title: "Slip 2"
         math:
           display: '\arccos\left(-\tfrac{\sqrt{2}}{2}\right)=-\tfrac{\pi}{4}'
-          speak: "arccosine of negative the square root of 2 over 2 equals negative pi over 4"
+          speak: "arccosine of the fraction: negative the square root of 2, over 2. Equals negative pi over 4"
         prompt: 'A student wrote this. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "The answer should be 5π/4, since cosine is negative there."}
-          - {value: c, label: "Arccosine is never negative; the answer is 3π/4."}
-          - {value: d, label: "The answer should be π/4, because arccosine ignores signs."}
+          - {value: b, label: 'Cosine is negative there, so the answer is \( \tfrac{5\pi}{4} \).', speak: "Cosine is negative there, so the answer is 5 pi over 4."}
+          - {value: c, label: 'Arccosine is never negative; the answer is \( \tfrac{3\pi}{4} \).', speak: "Arccosine is never negative; the answer is 3 pi over 4."}
+          - {value: d, label: 'Arccosine ignores the sign, so the answer is \( \tfrac{\pi}{4} \).', speak: "Arccosine ignores the sign, so the answer is pi over 4."}
         correct: c
         explanation: |-
           Arccosine gives angles from 0 to \( \pi \), the top half of the circle, so it is never negative. A negative cosine puts the angle on the left side of the top half: \( \tfrac{3\pi}{4} \). The student used arcsine's rule. The angle \( \tfrac{5\pi}{4} \) is on the bottom half. <strong>The correct value is \( \tfrac{3\pi}{4} \).</strong>
@@ -315,10 +315,10 @@ tabs:
           speak: "arcsine of 2"
         prompt: 'A student says this has no value. What is the mistake, if any?'
         choices:
-          - {value: a, label: "It equals π/2, because 2 is close to 1."}
+          - {value: a, label: 'Since 2 is close to 1, it equals \( \tfrac{\pi}{2} \).', speak: "Since 2 is close to 1, it equals pi over 2."}
           - {value: b, label: "There is no mistake."}
           - {value: c, label: "It equals one divided by the sine of 2."}
-          - {value: d, label: "It equals 2π, one full turn around the circle."}
+          - {value: d, label: 'It equals one full turn around the circle, \( 2\pi \).', speak: "It equals one full turn around the circle, 2 pi."}
         correct: b
         explanation: |-
           Sine is never more than 1, so no angle has a sine of 2. The domain of arcsine is \( [-1,1] \), and 2 is outside it. The student is right. Arcsine is not one divided by sine. <strong>There is no mistake: arcsine of 2 is undefined.</strong>
@@ -327,10 +327,10 @@ tabs:
         math:
           display: 'h(x)=\arctan(x)'
           speak: "h of x equals arctangent of x"
-        prompt: 'A student says the range of this function is the closed interval from negative π/2 to π/2, with square brackets. What is the mistake, if any?'
+        prompt: 'A student says the range of this function is \( \left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right] \), with square brackets. What is the mistake, if any?'
         choices:
-          - {value: a, label: "The range should be all real numbers."}
-          - {value: b, label: "The range should be from 0 to π, the same as arccosine."}
+          - {value: a, label: "The range should be all real numbers, like the domain."}
+          - {value: b, label: 'The range should match arccosine, \( [0,\pi] \).', speak: "The range should match arccosine, the closed interval from 0 to pi."}
           - {value: c, label: "There is no mistake."}
           - {value: d, label: "The ends are never reached, so use round brackets."}
         correct: d

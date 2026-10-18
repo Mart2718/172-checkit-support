@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Screen-reader support for math. NVDA and several other screen readers do not read the MathML that KaTeX writes,
 // so every rendered equation gets a plain-words reading generated from its TeX source (the visible math is unchanged).
 function texToSpeech(tex) {
-  var FUNCS = {log:'log', ln:'natural log', sin:'sine', cos:'cosine', tan:'tangent', sec:'secant', csc:'cosecant', cot:'cotangent', exp:'e to the'};
+  var FUNCS = {log:'log', ln:'natural log', sin:'sine', cos:'cosine', tan:'tangent', sec:'secant', csc:'cosecant', cot:'cotangent', exp:'e to the', arcsin:'arcsine', arccos:'arccosine', arctan:'arctangent'};
   var WORDS = {infty:'infinity', pi:'pi', theta:'theta', alpha:'alpha', beta:'beta', Delta:'delta', delta:'delta', approx:'is approximately equal to',
     le:'is less than or equal to', leq:'is less than or equal to', ge:'is greater than or equal to', geq:'is greater than or equal to', ne:'is not equal to', neq:'is not equal to',
     cdot:'times', times:'times', pm:'plus or minus', to:'approaches', rightarrow:'approaches', in:'is in', cup:'union', ldots:'dot dot dot', dots:'dot dot dot', cdots:'dot dot dot', div:'divided by'};
@@ -130,13 +130,15 @@ function texToSpeech(tex) {
     if (c === '\\') {
       var cmd = peekCmd(); i += 1 + (cmd ? cmd.length : 0);
       if (IGNORE[cmd]) continue;
-      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + ' over ' + b + ', end fraction', false); continue; }
+      if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') { var a = texToSpeech(group()), b = texToSpeech(group()); push(/^[\w.\- ]{1,6}$/.test(a) && /^[\w.\- ]{1,6}$/.test(b) ? a + ' over ' + b : 'the fraction ' + a + ' over ' + b + ', end fraction', false); if (/^\s*\\sqrt/.test(s.slice(i))) out[out.length - 1] += ' times'; continue; }
       if (cmd === 'sqrt') { var r = texToSpeech(group()); push(/^[\w.]+$/.test(r) ? 'the square root of ' + r : 'the square root of the quantity ' + r + ', end root', false); continue; }
       if (cmd === 'text' || cmd === 'mathrm' || cmd === 'textbf' || cmd === 'mathbf') { push(group(), false); continue; }
       if (cmd === 'mathbb') { var g = group(); push(g === 'R' ? 'the real numbers' : g, false); continue; }
       if (FUNCS[cmd]) {
         var name = FUNCS[cmd];
         if (cmd === 'log' && s[i] === '_') { i++; name += ' base ' + texToSpeech(group()); }
+        var inv = /^\^\{?\s*-1\s*\}?/.exec(s.slice(i));
+        if (inv && /^(sin|cos|tan|sec|csc|cot)$/.test(cmd)) { i += inv[0].length; name = 'inverse ' + name; }   // sin^{-1} names the inverse function, not a power
         skipWs();
         if (s[i] === '(') {
           var inner = parenGroup(), single = /^\s*-?\s*([A-Za-z]|\d+(\.\d+)?)(\^\{?\w+\}?)?\s*$/.test(inner);
