@@ -33,3 +33,10 @@ lang and title; heading order; table captions and scope headers; contrast (every
 
 ---
 This is an AI-assisted audit, not a compliance certification. For DOJ Title II sign-off, route this report through SAC/RSCCD's accessibility or DSPS office, or an outside accessibility specialist who can test with real assistive technology.
+
+## Update 2026-10-17: Spot the Slip tab
+- Added a Spot the Slip tab (5 items): differences vs ratios, a missing square root, power before multiplying, negative exponents, and e to the 0.
+- Checked by: build guardrails, lint, axe-core on every tab (standalone at 1000 px and embedded at 320 px), rendered-math reflow at 320 px with and without the WCAG text-spacing override, a numeric check of every answer, and an independent agent review of the changed parts.
+- Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
+- Fixed after the independent review: none specific to EL1 beyond choice balancing.
+- Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.

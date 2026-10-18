@@ -312,20 +312,6 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: '5\cdot\left(\tfrac{1}{2}\right)^{-2}=-\tfrac{5}{4}'
-          speak: "5 times one half to the power negative 2 equals negative 5 fourths"
-        prompt: 'A student wrote this. What is the mistake, if any?'
-        choices:
-          - {value: a, label: "The answer should be 5 times one fourth, which is positive."}
-          - {value: b, label: "There is no mistake."}
-          - {value: c, label: "The answer should be negative 10, from 5 times negative 2."}
-          - {value: d, label: "Negative exponents flip the base, so the value is 20."}
-        correct: d
-        explanation: |-
-          A negative exponent means flip the base, not make the answer negative: \( \left(\tfrac{1}{2}\right)^{-2}=2^{2}=4 \). Then \( 5\cdot 4=20 \). An exponential function with a positive \( a \) never gives a negative value. <strong>The correct value is 20.</strong>
-      - id: sl5
-        title: "Slip 5"
-        math:
           display: '\begin{aligned} f(x)&=3e^{x}\\ f(0)&=3e^{0}=3 \end{aligned}'
           speak: "f of x equals 3 e to the x. Next line: f of 0 equals 3 e to the 0, which equals 3"
         prompt: 'A student wrote this. What is the mistake, if any?'
@@ -337,3 +323,17 @@ tabs:
         correct: c
         explanation: |-
           Any nonzero number to the 0 power is 1, and \( e \) is a number, so \( e^{0}=1 \). Then \( 3\cdot 1=3 \). The value at \( x=0 \) is always the starting value \( a \). <strong>There is no mistake: \( f(0)=3 \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '5\cdot\left(\tfrac{1}{2}\right)^{-2}=-\tfrac{5}{4}'
+          speak: "5 times one half to the power negative 2 equals negative 5 fourths"
+        prompt: 'A student wrote this. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The answer should be 5 times one fourth, which is positive."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The answer should be negative 10, from 5 times negative 2."}
+          - {value: d, label: "Negative exponents flip the base, so the value is 20."}
+        correct: d
+        explanation: |-
+          A negative exponent means flip the base, not make the answer negative: \( \left(\tfrac{1}{2}\right)^{-2}=2^{2}=4 \). Then \( 5\cdot 4=20 \). An exponential function with a positive \( a \) never gives a negative value. <strong>The correct value is 20.</strong>

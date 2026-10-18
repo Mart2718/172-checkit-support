@@ -167,7 +167,7 @@ tabs:
             - ["y", "5", "5", "5", "5"]
         prompt: 'A student says this table is not a function, because the y-value 5 repeats. What is the mistake, if any?'
         choices:
-          - {value: a, label: "Only a repeated input breaks a function; outputs may repeat."}
+          - {value: a, label: "Only an input with two different outputs breaks a function."}
           - {value: b, label: "The table needs more rows before anyone can decide either way."}
           - {value: c, label: "A function has to use each output only once, so this is wrong."}
           - {value: d, label: "There is no mistake."}
@@ -177,19 +177,32 @@ tabs:
       - id: sl2
         title: "Slip 2"
         math:
+          inline: ['(1, 4)', '(2, 4)', '(3, 4)', '(4, 9)']
+        prompt: 'A student says these ordered pairs define a function, because no x-value repeats, even though 4 repeats as a y-value. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The y-value 4 repeats, so these are not a function."}
+          - {value: b, label: "A function needs an x-value of 0 among its pairs."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The pairs have to be in order of y to be checked."}
+        correct: c
+        explanation: |-
+          The x-values 1, 2, 3, and 4 are all different, so no input has two outputs. Several inputs sharing the output 4 is fine. The student checked the right thing. <strong>There is no mistake: the pairs define a function.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
           display: 'x^2 + y = 4'
           speak: "x squared plus y equals 4"
         prompt: 'A student says this is not a function, because \( x \) is squared. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "Squaring x is fine; only an even power on y gives two outputs."}
+          - {value: b, label: "Squaring x is fine; a squared y is what gives two outputs."}
           - {value: c, label: "It is not a function, because its graph is a curve, not a line."}
           - {value: d, label: "It is a function only when x is a positive number."}
         correct: b
         explanation: |-
           Solve for \( y \): \( y=4-x^2 \). Each \( x \) gives exactly one \( y \); for example \( x=2 \) and \( x=-2 \) both give \( y=0 \), which is two inputs sharing an output, not one input with two outputs. The power that matters is the power on \( y \). <strong>The equation defines a function.</strong>
-      - id: sl3
-        title: "Slip 3"
+      - id: sl4
+        title: "Slip 4"
         math:
           display: 'y^2 = x + 1'
           speak: "y squared equals x plus 1"
@@ -202,8 +215,8 @@ tabs:
         correct: c
         explanation: |-
           The power on \( y \) is even. Try \( x=3 \): \( y^2=4 \), so \( y=2 \) or \( y=-2 \). One input gives two outputs. <strong>The equation does not define a function.</strong>
-      - id: sl4
-        title: "Slip 4"
+      - id: sl5
+        title: "Slip 5"
         figure:
           file: figures/FN1/graph2.svg
           title: "A smooth curve extending to the right from a leftmost point"
@@ -217,16 +230,3 @@ tabs:
         correct: d
         explanation: |-
           Functions are checked with a vertical line, because a vertical line is one input. At \( x=1.8 \) the curve has two points, \( (1.8, 2.4) \) and \( (1.8, -2.4) \): one input, two outputs. A horizontal line test answers a different question. <strong>The graph is not a function.</strong>
-      - id: sl5
-        title: "Slip 5"
-        math:
-          inline: ['(1, 4)', '(2, 4)', '(3, 4)', '(4, 9)']
-        prompt: 'A student says these ordered pairs define a function, because no x-value repeats, even though 4 repeats as a y-value. What is the mistake, if any?'
-        choices:
-          - {value: a, label: "The y-value 4 repeats, so these are not a function."}
-          - {value: b, label: "A function needs an x-value of 0 among its pairs."}
-          - {value: c, label: "There is no mistake."}
-          - {value: d, label: "The pairs have to be in order of y to be checked."}
-        correct: c
-        explanation: |-
-          The x-values 1, 2, 3, and 4 are all different, so no input has two outputs. Several inputs sharing the output 4 is fine. The student checked the right thing. <strong>There is no mistake: the pairs define a function.</strong>

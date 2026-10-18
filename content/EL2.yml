@@ -248,7 +248,7 @@ tabs:
         title: "Slip 2"
         math:
           display: 'f(x)=-2^{x}+5'
-          speak: "f of x equals negative 2 to the x, plus 5"
+          speak: "f of x equals the negative of 2 to the x, plus 5"
         prompt: 'A student says the range is \( (5,\infty) \). What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -261,6 +261,20 @@ tabs:
       - id: sl3
         title: "Slip 3"
         math:
+          display: 'f(x)=-e^{x}+3'
+          speak: "f of x equals the negative of e to the x, plus 3"
+        prompt: 'A student says the asymptote is \( y=3 \) and the range is \( (-\infty,3) \). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The range should be from 3 to infinity, above the line."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The asymptote should be at 0, since e is the base."}
+          - {value: d, label: "The range should be all real numbers, because of e."}
+        correct: b
+        explanation: |-
+          The \( +3 \) sets the asymptote at \( y=3 \). The minus sign flips the curve below it, so every output is less than 3. Check: \( f(0)=-1+3=2 \). <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
           display: 'f(x)=\left(\tfrac{1}{3}\right)^{x}-2'
           speak: "f of x equals one third to the x, minus 2"
         prompt: 'A student says the range is \( (0,\infty) \). What is the mistake, if any?'
@@ -272,8 +286,8 @@ tabs:
         correct: d
         explanation: |-
           The \( -2 \) outside moves the whole graph down 2, so the asymptote is \( y=-2 \). There is no flip, so the curve stays above it. The student wrote the range of the basic exponential without the shift. <strong>The range is \( (-2,\infty) \).</strong>
-      - id: sl4
-        title: "Slip 4"
+      - id: sl5
+        title: "Slip 5"
         math:
           display: 'f(x)=2^{-x}+1'
           speak: "f of x equals 2 to the negative x, plus 1"
@@ -286,17 +300,3 @@ tabs:
         correct: c
         explanation: |-
           \( 2^{-x} \) is the same as \( \left(\tfrac{1}{2}\right)^{x} \): it is mirrored left to right, but its outputs are still positive. Adding 1 puts every output above 1. Check: \( f(0)=1+1=2 \), above 1. Only a minus sign in front of the exponential flips it upside down. <strong>The range is \( (1,\infty) \).</strong>
-      - id: sl5
-        title: "Slip 5"
-        math:
-          display: 'f(x)=-e^{x}+3'
-          speak: "f of x equals negative e to the x, plus 3"
-        prompt: 'A student says the asymptote is \( y=3 \) and the range is \( (-\infty,3) \). What is the mistake, if any?'
-        choices:
-          - {value: a, label: "The range should be from 3 to infinity, above the line."}
-          - {value: b, label: "There is no mistake."}
-          - {value: c, label: "The asymptote should be at 0, since e is the base."}
-          - {value: d, label: "The range should be all real numbers, because of e."}
-        correct: b
-        explanation: |-
-          The \( +3 \) sets the asymptote at \( y=3 \). The minus sign flips the curve below it, so every output is less than 3. Check: \( f(0)=-1+3=2 \). <strong>There is no mistake.</strong>

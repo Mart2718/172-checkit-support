@@ -27,3 +27,10 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 ## Needs a live screen reader
 - How NVDA reads each equation and answer button, and whether feedback is announced once.
 - Forced-colors and 200%/400% zoom rendering.
+
+## Update 2026-10-17: Spot the Slip tab and feedback fixes
+- Feedback no longer refers to choices by letter (Rewrite 2, Rewrite 4, Expand 3, Expand 4); it names the answer instead. The Spot the Slip intro no longer says every line has a mistake, a correct-work item was added, and the choices were rebalanced so the correct one is never the only longest.
+- Checked by: build guardrails, lint, axe-core on every tab (standalone at 1000 px and embedded at 320 px), rendered-math reflow at 320 px with and without the WCAG text-spacing override, a numeric check of every answer, and an independent agent review of the changed parts.
+- Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
+- Fixed after the independent review: four prompts said "What is the mistake?" while the correct-work item said "if any", which gave it away; all now say "if any". One "There is no mistake" choice had an extra sentence; it now matches the others. One equation widened the page at 320 px with text spacing; it is now on two lines.
+- Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.

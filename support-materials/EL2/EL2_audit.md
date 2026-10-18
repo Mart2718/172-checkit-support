@@ -33,3 +33,10 @@ lang and title; heading order; each SVG has role img, a name and a linked captio
 
 ---
 This is an AI-assisted audit, not a compliance certification. For DOJ Title II sign-off, route this report through SAC/RSCCD's accessibility or DSPS office, or an outside accessibility specialist who can test with real assistive technology.
+
+## Update 2026-10-17: Spot the Slip tab
+- Added a Spot the Slip tab (5 items): a shift inside the exponent, a flipped range, a forgotten vertical shift, a negative exponent vs a flip, and a correct case.
+- Checked by: build guardrails, lint, axe-core on every tab (standalone at 1000 px and embedded at 320 px), rendered-math reflow at 320 px with and without the WCAG text-spacing override, a numeric check of every answer, and an independent agent review of the changed parts.
+- Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
+- Fixed after the independent review: spoken readings of -2^x and -e^x now say "the negative of 2 to the x" so they are not heard as (-2)^x.
+- Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.
