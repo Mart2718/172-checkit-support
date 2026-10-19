@@ -1,10 +1,10 @@
 <svg viewBox="0 0 560 310" font-family="Arial, Helvetica, sans-serif" font-size="28">
 <rect x="0" y="0" width="560" height="310" fill="#fcfcfc"/>
-<polygon points="230,250 500,250 70,90" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
-<g fill="#1a1a2e" font-weight="bold"><text x="212" y="278" text-anchor="middle">A</text><text x="518" y="278" text-anchor="middle">B</text><text x="70" y="76" text-anchor="middle">C</text></g>
-<path d="M 198.9 218.9 A 44 44 0 0 1 274.0 250.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="258" y="191" text-anchor="middle" fill="#1f4e9c" font-size="24">110°</text>
-<text x="301" y="166" text-anchor="start" fill="#a84d16" font-style="italic" font-size="26">a = ?</text>
-<text x="116" y="194" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b = 5</text>
-<text x="365" y="284" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 9</text>
+<polygon points="143.9,250.0 480.0,250.0 80.0,74.5" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<g fill="#1a1a2e" font-weight="bold"><text x="125.9" y="278.0" text-anchor="middle">A</text><text x="498.0" y="278.0" text-anchor="middle">B</text><text x="80.0" y="60.5" text-anchor="middle">C</text></g>
+<path d="M 128.8 208.7 A 44 44 0 0 1 187.9 250.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="186" y="198" text-anchor="middle" fill="#1f4e9c" font-size="24">110°</text>
+<text x="286" y="158" text-anchor="start" fill="#a84d16" font-style="italic" font-size="26">a = ?</text>
+<text x="99" y="180" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b = 5</text>
+<text x="312" y="285" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 9</text>
 </svg>

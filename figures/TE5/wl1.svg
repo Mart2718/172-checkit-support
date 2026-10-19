@@ -1,8 +1,8 @@
 <svg viewBox="0 0 560 310" font-family="Arial, Helvetica, sans-serif" font-size="28">
 <rect x="0" y="0" width="560" height="310" fill="#fcfcfc"/>
-<polygon points="60,250 490,250 250,135" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
-<g fill="#1a1a2e" font-weight="bold"><text x="42" y="278" text-anchor="middle">A</text><text x="508" y="278" text-anchor="middle">B</text><text x="250" y="121" text-anchor="middle">C</text></g>
-<text x="386" y="188" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="26">a = 7</text>
-<text x="139" y="188" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b = 9</text>
-<text x="275" y="284" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 12</text>
+<polygon points="80.0,250.0 480.0,250.0 324.4,76.1" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<g fill="#1a1a2e" font-weight="bold"><text x="62.0" y="278.0" text-anchor="middle">A</text><text x="498.0" y="278.0" text-anchor="middle">B</text><text x="324.4" y="62.099999999999994" text-anchor="middle">C</text></g>
+<text x="413" y="163" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="26">a = 7</text>
+<text x="194" y="161" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b = 9</text>
+<text x="280" y="285" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 12</text>
 </svg>

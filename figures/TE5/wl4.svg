@@ -1,12 +1,12 @@
 <svg viewBox="0 0 560 310" font-family="Arial, Helvetica, sans-serif" font-size="28">
 <rect x="0" y="0" width="560" height="310" fill="#fcfcfc"/>
-<polygon points="70,250 470,250 300,60" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
-<g fill="#1a1a2e" font-weight="bold"><text x="52" y="278" text-anchor="middle">A</text><text x="488" y="278" text-anchor="middle">B</text><text x="300" y="46" text-anchor="middle">C</text></g>
-<path d="M 103.9 222.0 A 44 44 0 0 1 114.0 250.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="140" y="234" text-anchor="middle" fill="#1f4e9c" font-size="24">35°</text>
-<path d="M 426.0 250.0 A 44 44 0 0 1 440.7 217.2" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="402" y="229" text-anchor="middle" fill="#1f4e9c" font-size="24">80°</text>
-<text x="401" y="151" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="26">a</text>
-<text x="169" y="151" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b</text>
-<text x="270" y="284" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 14</text>
+<polygon points="131.6,250.0 428.4,250.0 395.8,65.0" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<g fill="#1a1a2e" font-weight="bold"><text x="113.6" y="278.0" text-anchor="middle">A</text><text x="446.4" y="278.0" text-anchor="middle">B</text><text x="395.8" y="51.0" text-anchor="middle">C</text></g>
+<path d="M 167.6 224.8 A 44 44 0 0 1 175.6 250.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="202" y="237" text-anchor="middle" fill="#1f4e9c" font-size="24">35°</text>
+<path d="M 384.4 250.0 A 44 44 0 0 1 420.8 206.7" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="372" y="211" text-anchor="middle" fill="#1f4e9c" font-size="24">80°</text>
+<text x="426" y="164" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="26">a</text>
+<text x="256" y="155" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b</text>
+<text x="280" y="285" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c = 14</text>
 </svg>

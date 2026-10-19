@@ -4,7 +4,7 @@
 # CheckIt TE5 gives three triangles: one for the law of cosines (three sides, or two sides and the angle between them),
 # one for the law of sines (two angles and a side), and one with two sides and an angle not between them (one or two triangles).
 # CheckIt asks students to say which law they used and why, and to show the check for a second triangle.
-# Figures drawn by tools/figures/make_te5.py; every figure is labeled "not drawn to scale".
+# Figures drawn by tools/figures/make_te5.py. Triangles are drawn to scale from their side lengths; the two height diagrams are not, and their captions say so.
 code: TE5
 h1: "TE5 Support: The Law of Sines and the Law of Cosines"
 pageTitle: "TE5 Support: The Law of Sines and the Law of Cosines — Math 172, Santa Ana College"
@@ -36,7 +36,7 @@ summary:   # the Quick Summary tab
     -
       - 'Two sides and an angle that is not between them'
       - 'Law of sines for a second angle, <span>\( B \)</span>. Then test <span>\( 180^\circ-B \)</span>: if it plus the given angle is under 180°, there is a second triangle.'
-      - 'Stopping after the first answer. Compare side <span>\( a \)</span> with the height <span>\( h=b\sin A \)</span> and with <span>\( b \)</span>.'
+      - 'Stopping after the first answer. Compare side <span>\( a \)</span> with the height <span>\( h=b\sin A \)</span> and with <span>\( b \)</span>. If the sine of <span>\( B \)</span> comes out greater than 1, no triangle fits.'
   note: 'Use <strong>degree mode</strong>, and round only at the end, to the nearest tenth. CheckIt asks you to say which law you used and why, and, for two sides and a non-included angle, to show that you checked for a second triangle. A quick check on any answer: the longest side is across from the largest angle, and the three angles add to 180°. Your CheckIt triangles will have different numbers than these examples. The reasoning is what transfers.'
 tabs:
   - id: which
@@ -50,10 +50,10 @@ tabs:
         figure:
           file: figures/TE5/wl1.svg
           title: "A triangle marked with three side lengths"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side from A to B, is marked 12. Side b, from A to C, is marked 9. Side a, from B to C, is marked 7. No angles are marked.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side from A to B, is marked 12. Side b, from A to C, is marked 9. Side a, from B to C, is marked 7. No angles are marked.'
         math:
           display: 'a=7,\quad b=9,\quad c=12'
-          speak: "a equals 7. b equals 9. c equals 12"
+          speak: "side a equals 7. side b equals 9. side c equals 12"
         prompt: 'Which tool should you use first to solve this triangle?'
         choices:
           - {value: a, label: "The law of sines"}
@@ -68,10 +68,10 @@ tabs:
         figure:
           file: figures/TE5/wl2.svg
           title: "A triangle marked with two angles and one side"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 40°. Angle B is marked 65°. Side a, from B to C, is marked 10. Sides b and c are not marked.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 40°. Angle B is marked 65°. Side a, from B to C, is marked 10. Sides b and c are labeled with letters only, with no lengths given.'
         math:
           display: 'A=40^\circ,\quad B=65^\circ,\quad a=10'
-          speak: "A equals 40 degrees. B equals 65 degrees. a equals 10"
+          speak: "angle A equals 40 degrees. angle B equals 65 degrees. side a equals 10"
         prompt: 'Which tool should you use first to solve this triangle?'
         choices:
           - {value: a, label: "The law of cosines"}
@@ -86,10 +86,10 @@ tabs:
         figure:
           file: figures/TE5/wl3.svg
           title: "A triangle marked with two sides and one angle"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle B, at the bottom right corner, is marked 50°. Side c, the bottom side from A to B, is marked 11. Side a, from B to C, is marked 8. Side b and angles A and C are not marked.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle B, at the bottom right corner, is marked 50°. Side c, the bottom side from A to B, is marked 11. Side a, from B to C, is marked 8. Side b is labeled with a letter only, and angles A and C are not marked.'
         math:
           display: 'a=8,\quad c=11,\quad B=50^\circ'
-          speak: "a equals 8. c equals 11. B equals 50 degrees"
+          speak: "side a equals 8. side c equals 11. angle B equals 50 degrees"
         prompt: 'Which tool should you use first to solve this triangle?'
         choices:
           - {value: a, label: "There is not enough information."}
@@ -104,10 +104,10 @@ tabs:
         figure:
           file: figures/TE5/wl4.svg
           title: "A triangle marked with two angles and the side joining them"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 35°. Angle B is marked 80°. Side c, the bottom side from A to B, is marked 14. Sides a and b and angle C are not marked.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 35°. Angle B is marked 80°. Side c, the bottom side from A to B, is marked 14. Sides a and b are labeled with letters only, and angle C is not marked.'
         math:
           display: 'A=35^\circ,\quad B=80^\circ,\quad c=14'
-          speak: "A equals 35 degrees. B equals 80 degrees. c equals 14"
+          speak: "angle A equals 35 degrees. angle B equals 80 degrees. side c equals 14"
         prompt: 'Which tool should you use to solve this triangle?'
         choices:
           - {value: a, label: "The law of sines, after finding angle C"}
@@ -128,10 +128,10 @@ tabs:
         figure:
           file: figures/TE5/lc1.svg
           title: "A triangle marked with two sides, the angle where they meet, and an unknown side"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle C, at the top, is marked 50°. Side b, from A to C, is marked 11. Side a, from B to C, is marked 8. Side c, the bottom side, is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle C, at the top, is marked 50°. Side b, from A to C, is marked 11. Side a, from B to C, is marked 8. Side c, the bottom side, is marked with a question mark.'
         math:
           display: 'a=8,\quad b=11,\quad C=50^\circ'
-          speak: "a equals 8. b equals 11. C equals 50 degrees"
+          speak: "side a equals 8. side b equals 11. angle C equals 50 degrees"
         prompt: 'Find side \( c \).'
         choices:
           - {value: a, label: "about 11.3"}
@@ -146,10 +146,10 @@ tabs:
         figure:
           file: figures/TE5/lc2.svg
           title: "A triangle marked with three sides and an unknown angle at the top"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side, is marked 12. Side b, from A to C, is marked 9. Side a, from B to C, is marked 7. Angle C, at the top, is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side, is marked 12. Side b, from A to C, is marked 9. Side a, from B to C, is marked 7. Angle C, at the top, is marked with a question mark.'
         math:
           display: 'a=7,\quad b=9,\quad c=12'
-          speak: "a equals 7. b equals 9. c equals 12"
+          speak: "side a equals 7. side b equals 9. side c equals 12"
         prompt: 'Find angle \( C \), to the nearest tenth of a degree.'
         choices:
           - {value: a, label: "about 83.6°"}
@@ -158,16 +158,16 @@ tabs:
           - {value: d, label: "about 48.2°"}
         correct: b
         explanation: |-
-          \( \cos C=\tfrac{7^{2}+9^{2}-12^{2}}{2(7)(9)}=\tfrac{-14}{126}\approx-0.111 \), so \( C=\cos^{-1}(-0.111)\approx 96.4^\circ \). A negative cosine just means \( C \) is obtuse, which makes sense: it is across from the longest side. The answer 83.6 drops the negative sign, and 48.2 puts the sides in the wrong places. <strong>\( C\approx 96.4^\circ \).</strong>
+          \( \cos C=\tfrac{7^{2}+9^{2}-12^{2}}{2(7)(9)}=\tfrac{-14}{126}\approx-0.111 \), so \( C=\cos^{-1}(-0.111)\approx 96.4^\circ \). A negative cosine just means \( C \) is obtuse, which makes sense: it is across from the longest side. The answer 83.6 drops the negative sign, and 48.2° is angle B. <strong>\( C\approx 96.4^\circ \).</strong>
       - id: lc3
         title: "Solve 3"
         figure:
           file: figures/TE5/lc3.svg
-          title: "A triangle with a wide angle at A, two marked sides, and an unknown side"
-          caption: 'Triangle ABC, not drawn to scale. A is at the bottom middle, B at the bottom right, and C at the upper left, so the angle at A opens wide. Angle A is marked 110°. Side c, from A to B along the bottom, is marked 9. Side b, from A up to C, is marked 5. Side a, the long side from B to C, is marked with a question mark.'
+          title: "A triangle marked with angle A, two sides, and an unknown side"
+          caption: 'Triangle ABC, drawn to scale. A is near the bottom left, B is at the bottom right, and C is above and to the left of A. Angle A is marked 110°. Side c, from A to B along the bottom, is marked 9. Side b, from A up to C, is marked 5. Side a, the long side from B to C, is marked with a question mark.'
         math:
           display: 'b=5,\quad c=9,\quad A=110^\circ'
-          speak: "b equals 5. c equals 9. A equals 110 degrees"
+          speak: "side b equals 5. side c equals 9. angle A equals 110 degrees"
         prompt: 'Find side \( a \).'
         choices:
           - {value: a, label: "about 8.7"}
@@ -182,10 +182,10 @@ tabs:
         figure:
           file: figures/TE5/lc4.svg
           title: "A triangle marked with three sides and an unknown angle at A"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side, is marked 10. Side b, from A to C, is marked 8. Side a, from B to C, is marked 5. Angle A is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Side c, the bottom side, is marked 10. Side b, from A to C, is marked 8. Side a, from B to C, is marked 5. Angle A is marked with a question mark.'
         math:
           display: 'a=5,\quad b=8,\quad c=10'
-          speak: "a equals 5. b equals 8. c equals 10"
+          speak: "side a equals 5. side b equals 8. side c equals 10"
         prompt: 'Find angle \( A \), to the nearest tenth of a degree.'
         choices:
           - {value: a, label: "about 29.7°"}
@@ -206,10 +206,10 @@ tabs:
         figure:
           file: figures/TE5/ls1.svg
           title: "A triangle marked with two angles, one side, and an unknown side"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 40°. Angle B is marked 65°. Side a, from B to C, is marked 10. Side b, from A to C, is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 40°. Angle B is marked 65°. Side a, from B to C, is marked 10. Side b, from A to C, is marked with a question mark. Side c is labeled with a letter only.'
         math:
           display: 'A=40^\circ,\quad B=65^\circ,\quad a=10'
-          speak: "A equals 40 degrees. B equals 65 degrees. a equals 10"
+          speak: "angle A equals 40 degrees. angle B equals 65 degrees. side a equals 10"
         prompt: 'Find side \( b \).'
         choices:
           - {value: a, label: "about 5.8"}
@@ -224,10 +224,10 @@ tabs:
         figure:
           file: figures/TE5/ls2.svg
           title: "A triangle marked with two angles, the side joining them, and an unknown side"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 35°. Angle B is marked 80°. Side c, the bottom side, is marked 14. Side a, from B to C, is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 35°. Angle B is marked 80°. Side c, the bottom side, is marked 14. Side a, from B to C, is marked with a question mark. Side b is labeled with a letter only.'
         math:
           display: 'A=35^\circ,\quad B=80^\circ,\quad c=14'
-          speak: "A equals 35 degrees. B equals 80 degrees. c equals 14"
+          speak: "angle A equals 35 degrees. angle B equals 80 degrees. side c equals 14"
         prompt: 'Find side \( a \).'
         choices:
           - {value: a, label: "about 15.2"}
@@ -241,11 +241,11 @@ tabs:
         title: "Solve 7"
         figure:
           file: figures/TE5/ls3.svg
-          title: "A triangle with a wide angle at C, one marked side, and an unknown side"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top, where the angle opens wide. Angle A is marked 25°. Angle C is marked 105°. Side b, from A to C, is marked 9. Side a, from B to C, is marked with a question mark.'
+          title: "A triangle marked with two angles, one side, and an unknown side"
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 25°. Angle C is marked 105°. Side b, from A to C, is marked 9. Side a, from B to C, is marked with a question mark. Side c is labeled with a letter only.'
         math:
           display: 'A=25^\circ,\quad C=105^\circ,\quad b=9'
-          speak: "A equals 25 degrees. C equals 105 degrees. b equals 9"
+          speak: "angle A equals 25 degrees. angle C equals 105 degrees. side b equals 9"
         prompt: 'Find side \( a \).'
         choices:
           - {value: a, label: "about 3.9"}
@@ -260,10 +260,10 @@ tabs:
         figure:
           file: figures/TE5/ls4.svg
           title: "A triangle marked with angle A, two sides, and an unknown angle at B"
-          caption: 'Triangle ABC, not drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 50°. Side a, from B to C, is marked 12. Side b, from A to C, is marked 9. Angle B is marked with a question mark.'
+          caption: 'Triangle ABC, drawn to scale, with A at the bottom left, B at the bottom right, and C at the top. Angle A is marked 50°. Side a, from B to C, is marked 12. Side b, from A to C, is marked 9. Angle B is marked with a question mark. Side c is labeled with a letter only.'
         math:
           display: 'A=50^\circ,\quad a=12,\quad b=9'
-          speak: "A equals 50 degrees. a equals 12. b equals 9"
+          speak: "angle A equals 50 degrees. side a equals 12. side b equals 9"
         prompt: 'Find angle \( B \), to the nearest tenth of a degree.'
         choices:
           - {value: a, label: "about 35.1°"}
@@ -284,10 +284,10 @@ tabs:
         figure:
           file: figures/TE5/am1.svg
           title: "Angle A with side b drawn to C and a dashed height from C to the bottom line"
-          caption: 'Angle A, at the bottom left, is marked 30°, with a long bottom line running to the right. Side b runs from A up to point C and is marked 10. A dashed line labeled h drops straight down from C and meets the bottom line at a right angle. A note says side a = 6 must reach the bottom line from C. Side a itself is not drawn.'
+          caption: 'Not drawn to scale. Angle A, at the bottom left, is marked 30°, with a long bottom line running to the right. Side b runs from A up to point C and is marked 10. A dashed line labeled h drops straight down from C and meets the bottom line at a right angle. A note says side a = 6 must reach the bottom line from C. Side a itself is not drawn.'
         math:
           display: 'A=30^\circ,\quad b=10,\quad a=6'
-          speak: "A equals 30 degrees. b equals 10. a equals 6"
+          speak: "angle A equals 30 degrees. side b equals 10. side a equals 6"
         prompt: 'How many triangles fit these measurements?'
         choices:
           - {value: a, label: "None"}
@@ -302,10 +302,10 @@ tabs:
         figure:
           file: figures/TE5/am2.svg
           title: "Angle A with side b drawn to C and a dashed height from C to the bottom line"
-          caption: 'Angle A, at the bottom left, is marked 35°, with a long bottom line running to the right. Side b runs from A up to point C and is marked 8. A dashed line labeled h drops straight down from C and meets the bottom line at a right angle. A note says side a = 12 must reach the bottom line from C. Side a itself is not drawn.'
+          caption: 'Not drawn to scale. Angle A, at the bottom left, is marked 35°, with a long bottom line running to the right. Side b runs from A up to point C and is marked 8. A dashed line labeled h drops straight down from C and meets the bottom line at a right angle. A note says side a = 12 must reach the bottom line from C. Side a itself is not drawn.'
         math:
           display: 'A=35^\circ,\quad b=8,\quad a=12'
-          speak: "A equals 35 degrees. b equals 8. a equals 12"
+          speak: "angle A equals 35 degrees. side b equals 8. side a equals 12"
         prompt: 'How many triangles fit these measurements?'
         choices:
           - {value: a, label: "Exactly one"}
@@ -320,37 +320,37 @@ tabs:
         figure:
           file: figures/TE5/am3.svg
           title: "Side a swinging from C to two points on the bottom line"
-          caption: 'Not drawn to scale. Angle A, at the bottom left, is marked 30°, and side b = 10 runs from A up to C. From C, side a = 6 is drawn to two points on the bottom line: B1, farther from A (solid line), and B2, closer to A (dashed line). A dashed arc centered at C passes through both points.'
+          caption: 'Drawn to scale. Angle A, at the bottom left, is marked 40°, and side b = 12 runs from A up to C. From C, side a = 9 is drawn to two points on the bottom line: B1, farther from A (solid line), and B2, closer to A (dashed line). A dashed arc centered at C passes through both points.'
         math:
-          display: 'A=30^\circ,\quad b=10,\quad a=6'
-          speak: "A equals 30 degrees. b equals 10. a equals 6"
-        prompt: 'Both triangles fit. What are the two possible values of angle \( B \)?'
+          display: 'A=40^\circ,\quad b=12,\quad a=9'
+          speak: "angle A equals 40 degrees. side b equals 12. side a equals 9"
+        prompt: 'Side \( a \) can land in two places, as the figure shows. What are the two possible values of angle \( B \)?'
         choices:
-          - {value: a, label: "about 56.4° only"}
-          - {value: b, label: "about 33.6° and about 146.4°"}
-          - {value: c, label: "about 56.4° and about 123.6°"}
-          - {value: d, label: "about 56.4° and about 93.6°"}
+          - {value: a, label: "about 59.0° only"}
+          - {value: b, label: "about 31.0° and about 149.0°"}
+          - {value: c, label: "about 59.0° and about 121.0°"}
+          - {value: d, label: "about 59.0° and about 81.0°"}
         correct: c
         explanation: |-
-          The law of sines gives \( \sin B=\tfrac{10\sin 30^\circ}{6}\approx 0.833 \), so \( B\approx 56.4^\circ \) at \( B_1 \). The second triangle uses the supplement, \( 180^\circ-56.4^\circ=123.6^\circ \) at \( B_2 \). It works because \( 30^\circ+123.6^\circ \) is under 180°. The value 93.6° is angle \( C \) in the first triangle, not a second \( B \). <strong>\( B\approx 56.4^\circ \) or \( B\approx 123.6^\circ \).</strong>
+          The law of sines gives \( \sin B=\tfrac{12\sin 40^\circ}{9}\approx 0.857 \), so \( B\approx 59.0^\circ \) at \( B_1 \). The second triangle uses the supplement, \( 180^\circ-59.0^\circ=121.0^\circ \) at \( B_2 \). It works because \( 40^\circ+121.0^\circ \) is under 180°. The pair 31.0° and 149.0° starts from \( 90^\circ-59.0^\circ \), which is not what the sine gives. The value 81.0° is angle \( C \) in the first triangle, not a second \( B \). <strong>\( B\approx 59.0^\circ \) or \( B\approx 121.0^\circ \).</strong>
       - id: am4
         title: "Swing 2"
         figure:
           file: figures/TE5/am3.svg
           title: "Side a swinging from C to two points on the bottom line"
-          caption: 'Not drawn to scale. Angle A, at the bottom left, is marked 30°, and side b = 10 runs from A up to C. From C, side a = 6 is drawn to two points on the bottom line: B1, farther from A (solid line), and B2, closer to A (dashed line). A dashed arc centered at C passes through both points.'
+          caption: 'Drawn to scale. Angle A, at the bottom left, is marked 40°, and side b = 12 runs from A up to C. From C, side a = 9 is drawn to two points on the bottom line: B1, farther from A (solid line), and B2, closer to A (dashed line). A dashed arc centered at C passes through both points.'
         math:
-          display: 'A=30^\circ,\quad b=10,\quad a=6'
-          speak: "A equals 30 degrees. b equals 10. a equals 6"
-        prompt: 'Using \( B\approx 56.4^\circ \) or \( B\approx 123.6^\circ \), what are the two possible lengths of side \( c \)?'
+          display: 'A=40^\circ,\quad b=12,\quad a=9'
+          speak: "angle A equals 40 degrees. side b equals 12. side a equals 9"
+        prompt: 'These are the same two triangles as in Swing 1. What are the two possible lengths of side \( c \)?'
         choices:
-          - {value: a, label: "about 12.0 only"}
-          - {value: b, label: "about 5.3 only"}
-          - {value: c, label: "about 8.0 and about 12.0"}
-          - {value: d, label: "about 12.0 and about 5.3"}
+          - {value: a, label: "about 13.8 only"}
+          - {value: b, label: "about 4.6 only"}
+          - {value: c, label: "about 7.9 and about 13.8"}
+          - {value: d, label: "about 13.8 and about 4.6"}
         correct: d
         explanation: |-
-          Find \( C \) in each triangle first: \( C=180^\circ-30^\circ-56.4^\circ=93.6^\circ \), or \( C=180^\circ-30^\circ-123.6^\circ=26.4^\circ \). Then \( c=\tfrac{6\sin C}{\sin 30^\circ} \): about 12.0 in the first triangle and about 5.3 in the second. The answer 8.0 treats the triangle as a right triangle. <strong>\( c\approx 12.0 \) or \( c\approx 5.3 \).</strong>
+          With \( B\approx 59.0^\circ \) or \( B\approx 121.0^\circ \), find \( C \) in each triangle first: \( C=180^\circ-40^\circ-59.0^\circ=81.0^\circ \), or \( C=180^\circ-40^\circ-121.0^\circ=19.0^\circ \). Then \( c=\tfrac{9\sin C}{\sin 40^\circ} \): about 13.8 at \( B_1 \) and about 4.6 at \( B_2 \). The figure agrees: \( B_2 \) is much closer to \( A \). The answer 7.9 treats the triangle as a right triangle. <strong>\( c\approx 13.8 \) or \( c\approx 4.6 \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -364,10 +364,10 @@ tabs:
           speak: "c squared equals 8 squared plus 11 squared minus 8 times 11 times cosine of 50 degrees, so c is about 11.3"
         prompt: 'In triangle \( ABC \), \( a=8 \), \( b=11 \), and \( C=50^\circ \). A student wrote this work. What is the mistake, if any?'
         choices:
-          - {value: a, label: "The minus should be a plus, giving about 17.3."}
+          - {value: a, label: "The minus should be a plus, giving about 15.5."}
           - {value: b, label: "The formula needs 2ab, so c is about 8.5."}
           - {value: c, label: "There is no mistake."}
-          - {value: d, label: "The calculator should be in radians: about 3.9."}
+          - {value: d, label: "The calculator should be in radians: about 10.0."}
         correct: b
         explanation: |-
           The law of cosines is \( c^{2}=a^{2}+b^{2}-2ab\cos C \). The student left out the 2. With it, \( c^{2}=185-113.1=71.9 \), so \( c\approx 8.5 \). <strong>The correct value is \( c\approx 8.5 \).</strong>
@@ -389,7 +389,7 @@ tabs:
         title: "Slip 3"
         math:
           display: '\begin{aligned} \sin B&\approx 0.833\\ B&\approx 56.4^\circ \end{aligned}'
-          speak: "sine of B is about 0.833. Next line: B is about 56.4 degrees"
+          speak: "sine of B is about 0.833. Next line: angle B is about 56.4 degrees"
         prompt: 'In triangle \( ABC \), \( A=30^\circ \), \( a=6 \), and \( b=10 \). A student found this, then said there is only one triangle. What is the mistake, if any?'
         choices:
           - {value: a, label: "B can also be 123.6°, so there are two triangles."}
@@ -402,8 +402,8 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: '\begin{aligned} C&=180^\circ-40^\circ-65^\circ=75^\circ\\ c&=\tfrac{10\sin 75^\circ}{\sin 40^\circ}\approx 15.0 \end{aligned}'
-          speak: "C equals 180 degrees minus 40 degrees minus 65 degrees, which is 75 degrees. Next line: c equals 10 times sine of 75 degrees, divided by sine of 40 degrees, which is about 15.0"
+          display: '\begin{aligned} C&=180^\circ-40^\circ-65^\circ=75^\circ\\ c&=\dfrac{10\sin 75^\circ}{\sin 40^\circ}\approx 15.0 \end{aligned}'
+          speak: "angle C equals 180 degrees minus 40 degrees minus 65 degrees, which is 75 degrees. Next line: side c equals 10 times sine of 75 degrees, divided by sine of 40 degrees, which is about 15.0"
         prompt: 'In triangle \( ABC \), \( A=40^\circ \), \( B=65^\circ \), and \( a=10 \). A student wrote these lines. What is the mistake, if any?'
         choices:
           - {value: a, label: "The sines should be flipped, giving about 6.7."}
