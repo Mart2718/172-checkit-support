@@ -32,3 +32,7 @@ TBIL's TE4 generator has a bug in its "nice angles" branch: it computes side a a
 
 ## Needs a live screen reader
 - How NVDA reads the triangle caption, degrees, and each equation, and whether feedback is announced once.
+
+## Update 2026-10-18: a triangle for every computation item
+- At the instructor's request, each item on the An Angle and a Side and Two Sides tabs now shows its own triangle, labeled with that problem's given values and a question mark on the unknown (drawn by tools/figures/make_te4.py). Each caption says the triangle is not drawn to scale and states the givens and the unknown in words, without "opposite", "adjacent", or "hypotenuse".
+- Rechecked: lint, axe-core 0 violations on every tab at both widths, 320 px reflow with and without text spacing. The unknown is marked in orange (#a84d16, 5.48:1 on the background) and also by the question mark, so color is not the only signal.

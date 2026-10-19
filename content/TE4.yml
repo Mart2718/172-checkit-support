@@ -112,6 +112,10 @@ tabs:
     items:
       - id: as1
         title: "Angle and Side 1"
+        figure:
+          file: figures/TE4/as1.svg
+          title: "A right triangle marked with angle A = 35°, c = 12, and a = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Angle A is marked 35°. Side c is marked 12. Side a is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad A=35^\circ,\quad c=12'
           speak: "C equals 90 degrees. A equals 35 degrees. c equals 12"
@@ -126,6 +130,10 @@ tabs:
           Side \( a \) is opposite \( A \), and \( c \) is the hypotenuse, so use sine: \( a=12\sin 35^\circ\approx 6.88 \). The answer 9.8 uses cosine, which gives \( b \). The answer \(-5.1\) comes from a calculator in radian mode; a side length can never be negative. The answer 20.9 divides by sine instead of multiplying. Then \( B=90^\circ-35^\circ=55^\circ \). <strong>\( a\approx 6.9 \).</strong>
       - id: as2
         title: "Angle and Side 2"
+        figure:
+          file: figures/TE4/as2.svg
+          title: "A right triangle marked with angle B = 62°, a = 7, and b = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Angle B is marked 62°. Side a is marked 7. Side b is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad B=62^\circ,\quad a=7'
           speak: "C equals 90 degrees. B equals 62 degrees. a equals 7"
@@ -140,6 +148,10 @@ tabs:
           This time the angle is \( B \). Side \( b \) is opposite \( B \), and side \( a \) touches \( B \), so it is adjacent. Opposite and adjacent means tangent: \( \tan 62^\circ=\tfrac{b}{7} \), so \( b=7\tan 62^\circ\approx 13.17 \). The answer 3.7 uses angle \( A=28^\circ \) instead, and 14.9 is the hypotenuse \( c \). <strong>\( b\approx 13.2 \).</strong>
       - id: as3
         title: "Angle and Side 3"
+        figure:
+          file: figures/TE4/as3.svg
+          title: "A right triangle marked with angle A = 20°, b = 15, and c = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Angle A is marked 20°. Side b is marked 15. Side c is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad A=20^\circ,\quad b=15'
           speak: "C equals 90 degrees. A equals 20 degrees. b equals 15"
@@ -154,6 +166,10 @@ tabs:
           Side \( b \) is adjacent to \( A \), and \( c \) is the hypotenuse, so use cosine: \( \cos 20^\circ=\tfrac{15}{c} \). The unknown is on the bottom, so \( c=\tfrac{15}{\cos 20^\circ}\approx 15.96 \). The answer 14.1 multiplies instead of dividing, and it is shorter than \( b \), which cannot happen for a hypotenuse. The answer 43.9 uses sine. <strong>\( c\approx 16.0 \).</strong>
       - id: as4
         title: "Angle and Side 4"
+        figure:
+          file: figures/TE4/as4.svg
+          title: "A right triangle marked with angle A = 27°, a = 11, and c = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Angle A is marked 27°. Side a is marked 11. Side c is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad A=27^\circ,\quad a=11'
           speak: "C equals 90 degrees. A equals 27 degrees. a equals 11"
@@ -174,6 +190,10 @@ tabs:
     items:
       - id: ts1
         title: "Two Sides 1"
+        figure:
+          file: figures/TE4/ts1.svg
+          title: "A right triangle marked with a = 8, b = 15, and c = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Side a is marked 8 and side b is marked 15. Side c is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad a=8,\quad b=15'
           speak: "C equals 90 degrees. a equals 8. b equals 15"
@@ -188,6 +208,10 @@ tabs:
           Both legs are known, so add their squares: \( c^{2}=8^{2}+15^{2}=64+225=289 \), and \( c=\sqrt{289}=17 \). Adding the sides themselves gives 23. The answer 12.7 subtracts the squares, which is only right when \( c \) is one of the known sides. <strong>\( c=17 \).</strong>
       - id: ts2
         title: "Two Sides 2"
+        figure:
+          file: figures/TE4/ts2.svg
+          title: "A right triangle marked with a = 20, c = 29, and b = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Side a is marked 20 and side c is marked 29. Side b is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad a=20,\quad c=29'
           speak: "C equals 90 degrees. a equals 20. c equals 29"
@@ -202,6 +226,10 @@ tabs:
           Here \( c=29 \) is the hypotenuse, and \( b \) is a leg, so subtract: \( b^{2}=29^{2}-20^{2}=841-400=441 \), and \( b=21 \). The answer 35.2 adds the squares, which would make a leg longer than the hypotenuse. The answer 9 subtracts the sides without squaring. <strong>\( b=21 \).</strong>
       - id: ts3
         title: "Two Sides 3"
+        figure:
+          file: figures/TE4/ts3.svg
+          title: "A right triangle marked with a = 8, b = 15, and angle A = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Side a is marked 8 and side b is marked 15. Angle A is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad a=8,\quad b=15'
           speak: "C equals 90 degrees. a equals 8. b equals 15"
@@ -216,6 +244,10 @@ tabs:
           For angle \( A \), side \( a=8 \) is opposite and \( b=15 \) is adjacent, so \( \tan A=\tfrac{8}{15} \). Use inverse tangent: \( A=\tan^{-1}\left(\tfrac{8}{15}\right)\approx 28.07^\circ \). The answer 61.9 is angle \( B \), from flipping the ratio. The answer 0.5 is the ratio itself, not an angle. The answer 32.2 uses inverse sine with the wrong sides. <strong>\( A\approx 28.1^\circ \).</strong>
       - id: ts4
         title: "Two Sides 4"
+        figure:
+          file: figures/TE4/ts4.svg
+          title: "A right triangle marked with b = 24, c = 25, and angle A = ?"
+          caption: 'Triangle ABC, not drawn to scale. Vertex A is at the bottom left, C at the bottom right, and B at the top right, with a square marking the 90° angle at C. Side b is the bottom side, side a is the vertical side, and side c is the slanted side. Side b is marked 24 and side c is marked 25. Angle A is marked with a question mark.'
         math:
           display: 'C=90^\circ,\quad b=24,\quad c=25'
           speak: "C equals 90 degrees. b equals 24. c equals 25"
