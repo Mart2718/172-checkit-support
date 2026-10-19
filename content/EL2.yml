@@ -6,6 +6,10 @@ h1: "EL2 Support: Graphing Exponential Functions"
 pageTitle: "EL2 Support: Graphing Exponential Functions — Math 172, Santa Ana College"
 hubSummary: "Graphing exponential functions: domain, range, and horizontal asymptotes"
 videoIntro: "A narrated walkthrough of how to find the horizontal asymptote, domain, and range of an exponential function and how to recognize its graph."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/Es2cMMD6tSU"
+  embed: "https://www.youtube-nocookie.com/embed/Es2cMMD6tSU"
+  title: "EL2 video walkthrough: Graphing Exponential Functions"
 # Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
 banPhrases: '(domain|range) (is|are|of)|asymptote (is|at|of)|(is|are) (the )?(domain|range)|has domain|has range|levels off at|(above|below) the asymptote'
 worked:   # used for the worked-examples recording document
