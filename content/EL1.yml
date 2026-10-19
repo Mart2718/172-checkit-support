@@ -6,6 +6,10 @@ h1: "EL1 Support: Introduction to Exponentials"
 pageTitle: "EL1 Support: Introduction to Exponentials — Math 172, Santa Ana College"
 hubSummary: "Introduction to exponentials: recognizing, writing, and evaluating exponential functions"
 videoIntro: "A narrated walkthrough of how to tell whether a table shows an exponential function, how to find an equation from two points, and how to evaluate exponential functions, including base e."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/Q_ckskXfqJk"
+  embed: "https://www.youtube-nocookie.com/embed/Q_ckskXfqJk"
+  title: "EL1 video walkthrough: Introduction to Exponentials"
 # Phrases that must NOT appear in text shown before the student guesses (table captions, item titles).
 banPhrases: '(common|constant) (ratio|difference)|growth factor|(is|are) (exponential|linear)|exponential (growth|decay)|(ratio|difference)s? (is|are)'
 worked:   # used for the worked-examples recording document
