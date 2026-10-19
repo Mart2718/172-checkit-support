@@ -1,0 +1,24 @@
+<svg viewBox="0 0 560 320" font-family="Arial, Helvetica, sans-serif" font-size="24">
+<rect x="0" y="0" width="560" height="320" fill="#fcfcfc"/>
+<rect x="0.0" y="0.0" width="560.0" height="40.0" fill="#dfeaf3"/>
+<line x1="0.0" y1="40.0" x2="560.0" y2="40.0" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
+<text x="14" y="30" text-anchor="start" fill="#1f4e9c" font-size="18">surface</text>
+<line x1="119.6" y1="40.0" x2="119.6" y2="120.0" stroke="#5a5a6a" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 4"/>
+<line x1="111.6" y1="120.0" x2="127.6" y2="120.0" stroke="#5a5a6a" stroke-width="1.5" stroke-linecap="round"/>
+<text x="112" y="88" text-anchor="end" fill="#5a5a6a" font-size="18">10 m deep</text>
+<line x1="169.6" y1="120.0" x2="390.4" y2="120.0" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 6"/>
+<line x1="169.6" y1="120.0" x2="309.6" y2="260.0" stroke="#a84d16" stroke-width="3" stroke-linecap="round"/>
+<line x1="390.4" y1="120.0" x2="309.6" y2="260.0" stroke="#1a6b6b" stroke-width="3" stroke-linecap="round"/>
+<circle cx="169.6" cy="120.0" r="7" fill="#1a1a2e"/>
+<circle cx="390.4" cy="120.0" r="7" fill="#1a1a2e"/>
+<circle cx="309.6" cy="260.0" r="9" fill="#1f4e9c"/>
+<text x="170" y="106" text-anchor="middle" fill="#1a1a2e" font-size="20">Eva</text>
+<text x="390" y="106" text-anchor="middle" fill="#1a1a2e" font-size="20">Hani</text>
+<text x="310" y="294" text-anchor="middle" fill="#1f4e9c" font-size="20">sea turtle</text>
+<text x="280" y="110" text-anchor="middle" fill="#1a1a2e" font-size="19" font-style="italic">20 m apart</text>
+<path d="M 223.6 120.0 A 54 54 0 0 1 207.8 158.2" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="240" y="157" text-anchor="middle" fill="#1f4e9c" font-size="22">45°</text>
+<path d="M 363.4 166.8 A 54 54 0 0 1 336.4 120.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="325" y="166" text-anchor="middle" fill="#1f4e9c" font-size="22">60°</text>
+<text x="226" y="200" text-anchor="end" fill="#a84d16" font-size="24" font-style="italic">?</text>
+</svg>

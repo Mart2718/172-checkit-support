@@ -1,0 +1,382 @@
+# TE6 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TE6 gives two word problems. The first is a right-triangle situation (ladder, angle of depression or elevation,
+# climbing airplane) or a two-angles-and-a-side situation (fire towers, scuba divers). The second is a hiker, two airplanes,
+# lighthouses, crown moulding, a carpenter's boards, or a bridge brace. Distances in the cliff problems are straight-line
+# distances along the line of sight, rounded to the whole number; the scuba depth is extra information.
+# Figures drawn by tools/figures/make_te6.py. They are schematic sketches; captions say what is given and what is asked.
+code: TE6
+h1: "TE6 Support: Applications of Trigonometry"
+pageTitle: "TE6 Support: Applications of Trigonometry — Math 172, Santa Ana College"
+hubSummary: "Word problems that use trigonometry to find a side or an angle: sketching the triangle and choosing the right tool"
+videoIntro: "A narrated walkthrough of trigonometry word problems: sketching the situation, finding the triangle and its angles, and choosing right-triangle trig, the law of sines, or the law of cosines."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'law of|\bsines?\b|cosines?|tangent|\bSOH|closer|farther|nearer'
+worked:   # used for the worked-examples recording document
+  title: "TE6 Worked Examples: Applications of Trigonometry"
+  coreQuestion: "Where is the triangle, and what do I know about it?"
+  coreFollowup: "Sketch the situation first and mark every given number in the picture. Then ask: is there a right angle? If yes, use sine, cosine, or tangent. If not, look at what the triangle gives you. Two angles and a side: find the third angle, then use the law of sines. Two sides and the angle between them, or three sides: use the law of cosines. Most mistakes in these problems happen in the sketch, not in the calculator."
+summary:   # the Quick Summary tab
+  intro: 'Every TE6 problem is a story with a triangle hiding in it. <strong>Draw the picture first</strong>, put every given number on it, and mark what you are looking for. Then the triangle tells you which tool to use.'
+  caption: "Which tool to use for each kind of TE6 situation, and what to watch for"
+  columns: ["The triangle has", "Use", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'A right angle (ladder and wall, cliff, climbing plane)'
+      - 'Sine, cosine, or tangent, and inverse trig for an angle. "How far away" means the straight line from one person to the other.'
+      - 'An angle of depression is measured down from the horizontal. It equals the angle of elevation at the other end, because the horizontal is parallel to the ground.'
+    -
+      - 'Two angles and the side between them (fire towers, divers, lighthouses)'
+      - 'Subtract from 180° for the third angle, then use the law of sines: <span>\( \dfrac{a}{\sin A}=\dfrac{b}{\sin B} \)</span>.'
+      - 'Each side pairs with the angle across from it. The ranger who measures the larger angle is closer to the fire.'
+    -
+      - 'Two sides and the angle between them (hiker, two airplanes, crown moulding)'
+      - 'Law of cosines: <span>\( c^{2}=a^{2}+b^{2}-2ab\cos C \)</span>.'
+      - 'A turn of <span>\( t^\circ \)</span> leaves an angle of <span>\( 180^\circ-t \)</span> inside the triangle. The angle between two headings is their difference; if it is more than 180°, subtract it from 360°.'
+    -
+      - 'Three sides (carpenter''s boards, bridge brace)'
+      - 'Law of cosines for an angle: <span>\( \cos C=\dfrac{a^{2}+b^{2}-c^{2}}{2ab} \)</span>.'
+      - 'The largest angle is across from the longest side, and the smallest angle is across from the shortest side.'
+  note: 'Use <strong>degree mode</strong>, and round only at the end. CheckIt rounds most answers to the nearest tenth, the cliff distances to the nearest whole number, and the crown moulding to the nearest hundredth. Some problems give extra information, like the divers'' depth, that you do not need. Your CheckIt problems will have different numbers and names than these examples. The sketch is what transfers.'
+tabs:
+  - id: setup
+    label: "Try It: Set It Up"
+    heading: "Try It: Set It Up"
+    intro: |-
+      The hardest step in a word problem is turning the story into a triangle. These questions ask only about the setup, not the final answer. Make your best guess on each one, then check it.
+    items:
+      - id: su1
+        title: "Set Up 1"
+        figure:
+          file: figures/TE6/su1.svg
+          title: "A hiker's path with a turn and a dashed path back to the start"
+          caption: 'A hiker''s path, not drawn to scale. The hiker walks 5 mi along a straight line from start to turn. A dashed extension shows the straight-ahead direction past the turn. The second leg, 3 mi, leaves the turn at 40° from that straight-ahead line, ending at end. A dashed line connects end back to start. The angle inside the triangle at the turn, between the first leg and the second leg, is marked with a question mark.'
+        prompt: 'A hiker walks 5 miles, turns 40° to the left, and walks 3 more miles. What is the angle inside the triangle at the turn?'
+        choices:
+          - {value: a, label: "40°"}
+          - {value: b, label: "50°"}
+          - {value: c, label: "140°"}
+          - {value: d, label: "130°"}
+        correct: c
+        explanation: |-
+          The 40° is measured from the straight-ahead direction, not from the path the hiker came along. Straight ahead and back toward the start make a straight line, 180°, so the angle inside the triangle is \( 180^\circ-40^\circ=140^\circ \). <strong>The angle at the turn is 140°.</strong> Using 40° in the law of cosines is the most common TE6 mistake.
+      - id: su2
+        title: "Set Up 2"
+        figure:
+          file: figures/TE6/su2.svg
+          title: "An observer on a cliff looking down at a boat"
+          caption: 'An observer stands on top of a cliff 300 m above the water, not drawn to scale. A dashed horizontal line runs out from the observer, parallel to the water. The line of sight goes down to a boat on the water, 20° below the horizontal line. The cliff meets the water at a right angle. The angle at the boat, between the water and the line of sight, is marked with a question mark.'
+        prompt: 'From the top of a 300 m cliff, the angle of depression to a boat is 20°. What is the angle at the boat, between the water and the line of sight?'
+        choices:
+          - {value: a, label: "20°"}
+          - {value: b, label: "70°"}
+          - {value: c, label: "160°"}
+          - {value: d, label: "90°"}
+        correct: a
+        explanation: |-
+          An angle of depression is measured down from the horizontal. The horizontal line at the top is parallel to the water, so the line of sight cuts both at the same angle: the angle at the boat is also 20°. The 70° is the angle at the top between the cliff face and the line of sight. <strong>The angle at the boat is 20°</strong>, the same as the angle of elevation from the boat up to the observer.
+      - id: su3
+        title: "Set Up 3"
+        figure:
+          file: figures/TE6/su3.svg
+          title: "Two airplane headings measured from north at an airport"
+          caption: 'An airport with an arrow pointing north, not drawn to scale. Plane 1 flies away on a heading of 35°, measured clockwise from north. Plane 2 flies away on a heading of 140°, also measured clockwise from north. Dashed arcs show each heading. The angle at the airport between the two flight paths is marked with a question mark.'
+        prompt: 'Two planes leave an airport, one on a heading of 35° and the other on a heading of 140°. What is the angle at the airport between their paths?'
+        choices:
+          - {value: a, label: "175°"}
+          - {value: b, label: "105°"}
+          - {value: c, label: "75°"}
+          - {value: d, label: "35°"}
+        correct: b
+        explanation: |-
+          Both headings are measured clockwise from north, so the angle between the paths is the difference: \( 140^\circ-35^\circ=105^\circ \). Adding them, 175°, measures nothing in the picture. If the difference is ever more than 180°, the angle between the paths is 360° minus it. <strong>The angle at the airport is 105°.</strong>
+      - id: su4
+        title: "Set Up 4"
+        figure:
+          file: figures/TE6/su4.svg
+          title: "Two fire towers and a fire, with an angle measured at each tower"
+          caption: 'Two fire towers 20 mi apart on a straight base line, not drawn to scale. Ranger Ana is in the left tower and Ranger Ben is in the right tower. The fire is above the base line, between them. At Ana''s tower, the angle between the other tower and the fire is 50°. At Ben''s tower, the angle between the other tower and the fire is 65°.'
+        prompt: 'Two fire towers are 20 miles apart. Ranger Ana sees the fire at 50° from the other tower, and Ranger Ben sees it at 65° from the other tower. Without calculating, which ranger is the shorter distance from the fire?'
+        choices:
+          - {value: a, label: "Ana"}
+          - {value: b, label: "They are the same distance away."}
+          - {value: c, label: "It can't be told without more distances."}
+          - {value: d, label: "Ben"}
+        correct: d
+        explanation: |-
+          Each side of a triangle is across from one angle. Ben's distance to the fire is across from Ana's 50° angle, and Ana's distance is across from Ben's 65° angle. The smaller angle is across from the shorter side, so Ben's distance is shorter. <strong>Ben is closer</strong>: the ranger who measures the larger angle is closer to the fire.
+  - id: right
+    label: "Try It: Right Triangles"
+    heading: "Try It: Right Triangles"
+    intro: |-
+      Each situation has a right angle: a wall meets the ground, a cliff meets the water, or an altitude drops straight down. Make your best guess, then check it. Use degree mode.
+    items:
+      - id: rt1
+        title: "Ladder"
+        figure:
+          file: figures/TE6/rt1.svg
+          title: "A ladder leaning against a wall"
+          caption: 'A ladder leans against a wall, not drawn to scale. The ladder is 24 ft long and its top reaches the top of the wall, which is 22 ft tall. The wall meets the ground at a right angle. The angle between the ladder and the ground is marked with a question mark.'
+        prompt: 'A 24 ft ladder leans against a wall that is 22 ft tall, reaching the top. What angle does the ladder make with the ground, to the nearest tenth of a degree?'
+        choices:
+          - {value: a, label: "about 23.6°"}
+          - {value: b, label: "about 66.4°"}
+          - {value: c, label: "about 42.5°"}
+          - {value: d, label: "about 1.2°"}
+        correct: b
+        explanation: |-
+          The wall is across from the angle at the ground, and the ladder is the longest side: \( \sin\theta=\tfrac{22}{24} \), so \( \theta=\sin^{-1}\!\left(\tfrac{22}{24}\right)\approx 66.4^\circ \). The answer 23.6 is the angle at the top of the wall, from inverse cosine. The answer 42.5 uses inverse tangent, treating 24 as the ground. The answer 1.2 is radian mode. <strong>About 66.4°.</strong>
+      - id: rt2
+        title: "Cliff and Boat"
+        figure:
+          file: figures/TE6/rt2.svg
+          title: "An observer on a cliff with a line of sight down to a boat"
+          caption: 'An observer stands on top of a cliff 400 ft above a lake, not drawn to scale. A dashed horizontal line runs out from the observer. The line of sight to a boat on the lake is 25° below the horizontal line. The cliff meets the water at a right angle. The line of sight, from observer to boat, is labeled distance = ?.'
+        prompt: 'From the top of a cliff 400 ft above a lake, Mateo measures a 25° angle of depression to a boat. How far is the boat from Mateo, in a straight line, to the nearest foot?'
+        choices:
+          - {value: a, label: "about 858 ft"}
+          - {value: b, label: "about 441 ft"}
+          - {value: c, label: "about 946 ft"}
+          - {value: d, label: "about 169 ft"}
+        correct: c
+        explanation: |-
+          The angle at the boat is also 25°, and the 400 ft cliff is across from it. The distance asked for is the line of sight, the longest side: \( \sin 25^\circ=\tfrac{400}{d} \), so \( d=\tfrac{400}{\sin 25^\circ}\approx 946 \) ft. The answer 858 is the distance along the water, from tangent; CheckIt's "how far away" means the straight line. The answer 441 puts the 25° at the top, against the cliff, and 169 multiplies by sine. <strong>About 946 ft.</strong>
+      - id: rt3
+        title: "Up the Cliff"
+        figure:
+          file: figures/TE6/rt3.svg
+          title: "An observer on the ground looking up at a person on a cliff"
+          caption: 'An observer stands on the ground and looks up at a person on top of a cliff 150 m tall, not drawn to scale. The line of sight rises 35° above the ground. The cliff meets the ground at a right angle. The line of sight, from observer to person, is labeled distance = ?.'
+        prompt: 'Nina sees a person on top of a 150 m cliff. The angle of elevation from the ground to the person is 35°. How far is the person from Nina, in a straight line, to the nearest meter?'
+        choices:
+          - {value: a, label: "about 262 m"}
+          - {value: b, label: "about 214 m"}
+          - {value: c, label: "about 105 m"}
+          - {value: d, label: "about 183 m"}
+        correct: a
+        explanation: |-
+          The 150 m cliff is across from the 35° angle, and the line of sight is the longest side: \( d=\tfrac{150}{\sin 35^\circ}\approx 262 \) m. The answer 214 is the distance along the ground, from tangent. The answer 105 multiplies by tangent, and 183 divides by cosine. <strong>About 262 m.</strong>
+      - id: rt4
+        title: "Takeoff"
+        figure:
+          file: figures/TE6/rt4.svg
+          title: "An airplane climbing from a runway to its altitude"
+          caption: 'An airplane climbs from the runway at 15° above the ground, not drawn to scale. A dashed vertical line drops from the plane to the ground, labeled altitude 10,000 ft, meeting the ground at a right angle. The distance along the ground, from the start of the climb to the point under the plane, is labeled ground distance = ?.'
+        prompt: 'A plane takes off and climbs at a 15° angle. How far along the ground does it travel to reach an altitude of 10,000 ft, to the nearest foot?'
+        choices:
+          - {value: a, label: "about 2,679 ft"}
+          - {value: b, label: "about 38,637 ft"}
+          - {value: c, label: "about 2,588 ft"}
+          - {value: d, label: "about 37,321 ft"}
+        correct: d
+        explanation: |-
+          The altitude is across from the 15° angle, and the ground distance is next to it: \( \tan 15^\circ=\tfrac{10000}{x} \), so \( x=\tfrac{10000}{\tan 15^\circ} \), which is about 37,321 ft, or about 7 miles. The answer 38,637 is the distance along the climb itself, from sine. The answers 2,679 and 2,588 multiply instead of divide. <strong>About 37,321 ft.</strong>
+  - id: lookouts
+    label: "Try It: Lookouts and Landmarks"
+    heading: "Try It: Lookouts and Landmarks"
+    intro: |-
+      In these situations, two people or places see the same object, and there is no right angle. Make your best guess, then check it. Round to the nearest tenth unless the question says otherwise.
+    items:
+      - id: ls1
+        title: "Fire Towers"
+        figure:
+          file: figures/TE6/ls1.svg
+          title: "Two fire towers and a fire, with an angle measured at each tower"
+          caption: 'Two fire towers 30 mi apart on a straight base line, not drawn to scale. Ranger Carla is in the left tower and Ranger Dev is in the right tower. The fire is above the base line, between them. At Carla''s tower, the angle between the other tower and the fire is 55°. At Dev''s tower, the angle between the other tower and the fire is 62°.'
+        prompt: 'Two fire towers are 30 miles apart. Ranger Carla sees the fire at 55° from the other tower, and Ranger Dev sees it at 62° from the other tower. Which ranger is the shorter distance from the fire, and how far away is that ranger?'
+        choices:
+          - {value: a, label: "Dev, about 27.6 mi"}
+          - {value: b, label: "Carla, about 27.6 mi"}
+          - {value: c, label: "Carla, about 29.7 mi"}
+          - {value: d, label: "Dev, about 29.7 mi"}
+        correct: a
+        explanation: |-
+          The angle at the fire is \( 180^\circ-55^\circ-62^\circ=63^\circ \), and it is across from the 30 mi base. Dev's distance is across from Carla's 55° angle: \( \tfrac{30\sin 55^\circ}{\sin 63^\circ}\approx 27.6 \) mi. Carla's distance is across from Dev's 62°: about 29.7 mi. <strong>Dev is closer, about 27.6 mi from the fire.</strong>
+      - id: ls2
+        title: "Divers"
+        figure:
+          file: figures/TE6/ls2.svg
+          title: "Two divers at the same depth looking down at a sea turtle"
+          caption: 'Two scuba divers, Eva on the left and Hani on the right, are both 10 m below the surface and 20 m apart horizontally, not drawn to scale. A dashed horizontal line joins them. A sea turtle is below them, between the two divers. From Eva, the angle of depression to the turtle is 45°. From Hani, it is 60°. The line from Eva to the turtle is marked with a question mark.'
+        prompt: 'Eva and Hani are diving 10 m below the surface, 20 m apart horizontally. They spot a sea turtle below and between them. The angle of depression from Eva is 45°, and from Hani is 60°. How far is Eva from the turtle?'
+        choices:
+          - {value: a, label: "about 16.3 m"}
+          - {value: b, label: "about 14.6 m"}
+          - {value: c, label: "about 14.1 m"}
+          - {value: d, label: "about 17.9 m"}
+        correct: d
+        explanation: |-
+          The angle at the turtle is \( 180^\circ-45^\circ-60^\circ=75^\circ \), across from the 20 m between the divers. Eva's distance is across from Hani's 60° angle: \( \tfrac{20\sin 60^\circ}{\sin 75^\circ}\approx 17.9 \) m. The answer 14.6 is Hani's distance. The answer 14.1 uses the 10 m depth, which is extra information here, and 16.3 divides by 60° instead of 75°. <strong>About 17.9 m.</strong>
+      - id: ls3
+        title: "Lighthouses"
+        figure:
+          file: figures/TE6/ls3.svg
+          title: "A boat at sea and two lighthouses on the shore"
+          caption: 'Two lighthouses on a straight shore, 12 mi apart, not drawn to scale: the red lighthouse at the bottom and the other lighthouse at the top. A boat is out at sea. At the boat, the angle between the two lighthouses is 40°. At the red lighthouse, the angle between the boat and the other lighthouse is 75°. The line from the boat to the red lighthouse is marked with a question mark.'
+        prompt: 'A boat measures a 40° angle between two lighthouses that are 12 miles apart. The keeper of the red lighthouse sees a 75° angle between the boat and the other lighthouse. How far is the boat from the red lighthouse?'
+        choices:
+          - {value: a, label: "about 18.0 mi"}
+          - {value: b, label: "about 8.5 mi"}
+          - {value: c, label: "about 16.9 mi"}
+          - {value: d, label: "about 8.0 mi"}
+        correct: c
+        explanation: |-
+          The angle at the other lighthouse is \( 180^\circ-40^\circ-75^\circ=65^\circ \), and it is across from the boat-to-red side. The 12 mi side is across from the boat's 40°: \( \tfrac{12\sin 65^\circ}{\sin 40^\circ}\approx 16.9 \) mi. The answer 18.0 is the distance to the other lighthouse. The answers 8.5 and 8.0 flip the ratio. <strong>About 16.9 mi.</strong>
+      - id: ls4
+        title: "Crown Moulding"
+        figure:
+          file: figures/TE6/ls4.svg
+          title: "A ceiling and a wall meeting at a corner, with moulding across the corner"
+          caption: 'A ceiling and a wall meet at a 92° angle at the corner, not drawn to scale. A piece of crown moulding stretches across the corner, touching the ceiling 3 in from the corner and the wall 3 in from the corner. The width of the moulding is labeled moulding width = ?.'
+        prompt: 'A ceiling meets a wall at a 92° angle. Crown moulding meets the ceiling and the wall each 3 inches from the corner. How wide is the moulding, to the nearest hundredth of an inch?'
+        choices:
+          - {value: a, label: "about 4.24 in"}
+          - {value: b, label: "about 4.32 in"}
+          - {value: c, label: "6 in"}
+          - {value: d, label: "about 2.09 in"}
+        correct: b
+        explanation: |-
+          The two 3 in sides are equal, so the other two angles are equal: each is \( \tfrac{180^\circ-92^\circ}{2}=44^\circ \). The width is across from the 92° angle: \( w=\tfrac{3\sin 92^\circ}{\sin 44^\circ}\approx 4.32 \) in. The law of cosines gives the same answer: \( w^{2}=3^{2}+3^{2}-2(3)(3)\cos 92^\circ \). The answer 4.24 assumes a 90° corner, 2.09 flips the ratio, and 6 adds the sides. <strong>About 4.32 in.</strong>
+  - id: frames
+    label: "Try It: Paths and Frames"
+    heading: "Try It: Paths and Frames"
+    intro: |-
+      These situations give you two sides and an angle, or three sides. Make your best guess, then check it. Round to the nearest tenth.
+    items:
+      - id: lc1
+        title: "Hiker"
+        figure:
+          file: figures/TE6/lc1.svg
+          title: "A hiker's path with a right turn and a dashed path back to the start"
+          caption: 'A hiker''s path, not drawn to scale. The hiker walks 6 km from start to turn. A dashed extension shows the straight-ahead direction past the turn. The second leg, 4 km, turns 35° to the right of that straight-ahead line and ends at end. A dashed line from end back to start is labeled back = ?.'
+        prompt: 'A hiker walks 6 km, turns 35° to the right, and walks 4 km. How far is it in a straight line back to the start?'
+        choices:
+          - {value: a, label: "about 3.6 km"}
+          - {value: b, label: "about 7.2 km"}
+          - {value: c, label: "10 km"}
+          - {value: d, label: "about 9.6 km"}
+        correct: d
+        explanation: |-
+          The angle inside the triangle at the turn is \( 180^\circ-35^\circ=145^\circ \). Then \( d^{2}=6^{2}+4^{2}-2(6)(4)\cos 145^\circ\approx 52+39.3=91.3 \), so \( d\approx 9.6 \) km. The answer 3.6 uses the 35° turn itself. The answer 7.2 treats the turn as a right angle, and 10 just adds the legs. <strong>About 9.6 km.</strong>
+      - id: lc2
+        title: "Two Planes"
+        figure:
+          file: figures/TE6/lc2.svg
+          title: "Two airplanes on different headings from an airport"
+          caption: 'An airport with an arrow pointing north, not drawn to scale. A Boeing 737 is 45 mi away on a heading of 70°. An Airbus A320 is 30 mi away on a heading of 200°. Both headings are measured clockwise from north. A dashed line between the two planes is labeled gap = ?.'
+        prompt: 'A Boeing 737 is 45 miles from an airport on a heading of 70°. An Airbus A320 is 30 miles from the airport on a heading of 200°. How far apart are the two planes?'
+        choices:
+          - {value: a, label: "about 68.3 mi"}
+          - {value: b, label: "about 54.1 mi"}
+          - {value: c, label: "about 34.5 mi"}
+          - {value: d, label: "75 mi"}
+        correct: a
+        explanation: |-
+          The angle at the airport is the difference of the headings: \( 200^\circ-70^\circ=130^\circ \). Then \( d^{2}=45^{2}+30^{2}-2(45)(30)\cos 130^\circ\approx 2925+1735.5 \), so \( d\approx 68.3 \) mi. The answer 54.1 treats the angle as a right angle, 34.5 uses 50°, and 75 adds the distances. <strong>About 68.3 mi.</strong>
+      - id: lc3
+        title: "Carpenter"
+        figure:
+          file: figures/TE6/lc3.svg
+          title: "Two boards meeting at a corner, with the distance between their far ends"
+          caption: 'Two boards meet at a corner, not drawn to scale. One board is 12 in long and the other is 16 in long. A dashed line joins their far ends and is labeled 20.3 in. The angle between the boards at the corner is marked with a question mark.'
+        prompt: 'A carpenter checks whether two boards meet at a right angle. One is 12 in long, the other is 16 in, and their far ends are 20.3 in apart. What angle do the boards make?'
+        choices:
+          - {value: a, label: "about 88.2°"}
+          - {value: b, label: "about 91.8°"}
+          - {value: c, label: "exactly 90°"}
+          - {value: d, label: "about 52.0°"}
+        correct: b
+        explanation: |-
+          The angle at the corner is across from the 20.3 in side: \( \cos\theta=\tfrac{12^{2}+16^{2}-20.3^{2}}{2(12)(16)}=\tfrac{-12.09}{384}\approx-0.0315 \), so \( \theta\approx 91.8^\circ \). A 12-16-20 triangle would be a right angle, but 20.3 is a little too long, so the corner is a little too wide. The answer 88.2 drops the negative sign, and 52.0 is the angle at the far end of the 12 in board. <strong>About 91.8°.</strong>
+      - id: lc4
+        title: "Bridge Brace"
+        figure:
+          file: figures/TE6/lc4.svg
+          title: "A triangular bridge brace with three side lengths"
+          caption: 'A triangular brace, drawn to scale, with sides of 95 ft along the bottom, 85 ft on the left, and 60 ft on the right. No angles are marked.'
+        prompt: 'A bridge brace is a triangle with sides 60 ft, 85 ft, and 95 ft. What is the largest angle of the brace?'
+        choices:
+          - {value: a, label: "about 38.4°"}
+          - {value: b, label: "about 61.7°"}
+          - {value: c, label: "about 79.8°"}
+          - {value: d, label: "about 1.4°"}
+        correct: c
+        explanation: |-
+          The largest angle is across from the longest side, 95 ft: \( \cos\theta=\tfrac{60^{2}+85^{2}-95^{2}}{2(60)(85)}=\tfrac{1800}{10200}\approx 0.176 \), so \( \theta\approx 79.8^\circ \). The answer 38.4 is the smallest angle, across from 60 ft, and 61.7 is the middle angle. The answer 1.4 is radian mode. <strong>About 79.8°.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} d^{2}&=7^{2}+4^{2}\\ &\quad-2(7)(4)\cos 50^\circ\\ d&\approx 5.4 \end{aligned}'
+          speak: "d squared equals 7 squared plus 4 squared, minus 2 times 7 times 4 times cosine of 50 degrees. Next line: d is about 5.4"
+        prompt: 'A hiker walks 7 miles, turns 50° to the left, and walks 4 miles. A student found the distance back to the start with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The angle should be 130°, giving about 10.0 mi."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "Add the distances instead, giving 11 mi."}
+          - {value: d, label: "Use the Pythagorean Theorem instead: about 8.1 mi."}
+        correct: a
+        explanation: |-
+          The 50° turn is measured from straight ahead. The angle inside the triangle is \( 180^\circ-50^\circ=130^\circ \), so \( d^{2}=65-56\cos 130^\circ\approx 101 \) and \( d\approx 10.0 \) mi. <strong>The correct distance is about 10.0 mi.</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} \sin\theta&=\dfrac{18}{20}\\ \theta&\approx 64.2^\circ \end{aligned}'
+          speak: "sine of theta equals 18 over 20. Next line: theta is about 64.2 degrees"
+        prompt: 'A 20 ft ladder leans against an 18 ft wall, reaching the top. A student found the angle between the ladder and the ground with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "It should use cosine, so the angle is about 25.8°."}
+          - {value: b, label: "It should use tangent, so the angle is about 42.0°."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The answer should be about 1.1, in radians."}
+        correct: c
+        explanation: |-
+          The 18 ft wall is across from the angle at the ground, and the 20 ft ladder is the longest side, so \( \sin\theta=\tfrac{18}{20} \) and \( \theta\approx 64.2^\circ \). <strong>There is no mistake.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} \cos 30^\circ&=\dfrac{500}{d}\\ d&\approx 577 \end{aligned}'
+          speak: "cosine of 30 degrees equals 500 over d. Next line: d is about 577"
+        prompt: 'From a cliff 500 ft above the water, the angle of depression to a boat is 30°. A student found the straight-line distance d to the boat with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "It should use the tangent of 30°, so d is about 866 ft."}
+          - {value: b, label: "The 30° angle is at the boat, so d is 1000 ft."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "It should multiply, 500 times cosine of 30°: about 433 ft."}
+        correct: b
+        explanation: |-
+          The student put the 30° at the top, between the cliff and the line of sight. But an angle of depression is measured from the horizontal, so the 30° is at the boat, across from the 500 ft cliff: \( \sin 30^\circ=\tfrac{500}{d} \), and \( d=1000 \) ft. <strong>The boat is 1000 ft away.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} d&=\dfrac{25\sin 70^\circ}{\sin 62^\circ}\\ &\approx 26.6 \end{aligned}'
+          speak: "d equals 25 times sine of 70 degrees, over sine of 62 degrees. Next line: about 26.6"
+        prompt: 'Fire towers are 25 miles apart. Ranger Fay sees the fire at 48° from the other tower, and Ranger Gus sees it at 70°. A student found the third angle, 62°, said Fay is closer because she measured the smaller angle, and wrote this. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "They are both about 26.6 mi from the fire."}
+          - {value: c, label: "Fay is closer, but she is about 21.0 mi away."}
+          - {value: d, label: "Gus is closer, at about 21.0 mi away."}
+        correct: d
+        explanation: |-
+          The 26.6 mi is Fay's distance: it is across from Gus's 70° angle. Gus's distance is across from Fay's 48°: \( \tfrac{25\sin 48^\circ}{\sin 62^\circ}\approx 21.0 \) mi. The ranger who measures the larger angle is closer. <strong>Gus is closer, about 21.0 mi from the fire.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} d^{2}&=40^{2}+25^{2}\\ &\quad-2(40)(25)\cos 230^\circ\\ d&\approx 59.3 \end{aligned}'
+          speak: "d squared equals 40 squared plus 25 squared, minus 2 times 40 times 25 times cosine of 230 degrees. Next line: d is about 59.3"
+        prompt: 'One plane is 40 miles from an airport on a heading of 80°. Another is 25 miles away on a heading of 150°. A student found the distance between them with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The angle should be 110° instead, giving about 53.9 mi."}
+          - {value: b, label: "The angle between the paths is 70°: about 39.3 mi."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "Use the Pythagorean Theorem: about 47.2 mi."}
+        correct: b
+        explanation: |-
+          The student added the headings. The angle between the two paths is their difference, \( 150^\circ-80^\circ=70^\circ \). Then \( d^{2}=2225-2000\cos 70^\circ\approx 1541 \), and \( d\approx 39.3 \) mi. <strong>The planes are about 39.3 mi apart.</strong>

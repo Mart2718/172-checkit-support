@@ -1,0 +1,15 @@
+<svg viewBox="0 0 560 320" font-family="Arial, Helvetica, sans-serif" font-size="24">
+<rect x="0" y="0" width="560" height="320" fill="#fcfcfc"/>
+<polygon points="430.0,270.0 520.0,270.0 520.0,70.0 430.0,70.0" fill="#d9e3e3" stroke="#1a6b6b" stroke-width="2" stroke-linejoin="round"/>
+<line x1="30.0" y1="270.0" x2="540.0" y2="270.0" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+<line x1="144.4" y1="270.0" x2="430.0" y2="70.0" stroke="#a84d16" stroke-width="3" stroke-linecap="round"/>
+<circle cx="144.4" cy="270.0" r="7" fill="#1a1a2e"/>
+<circle cx="430.0" cy="70.0" r="7" fill="#1a1a2e"/>
+<text x="144" y="302" text-anchor="middle" fill="#1a1a2e" font-size="20">observer</text>
+<text x="438" y="56" text-anchor="middle" fill="#1a1a2e" font-size="20">person</text>
+<polyline points="430.0,254.0 414.0,254.0 414.0,270.0" fill="none" stroke="#a84d16" stroke-width="2"/>
+<text x="475" y="178" text-anchor="middle" fill="#1a1a2e" font-size="24" font-style="italic">150 m</text>
+<path d="M 196.8 233.3 A 64 64 0 0 1 208.4 270.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="230" y="251" text-anchor="middle" fill="#1f4e9c" font-size="22">35°</text>
+<text x="271" y="160" text-anchor="end" fill="#a84d16" font-size="24" font-style="italic">distance = ?</text>
+</svg>

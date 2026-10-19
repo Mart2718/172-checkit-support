@@ -1,0 +1,19 @@
+<svg viewBox="0 0 560 320" font-family="Arial, Helvetica, sans-serif" font-size="24">
+<rect x="0" y="0" width="560" height="320" fill="#fcfcfc"/>
+<line x1="50.0" y1="80.0" x2="300.0" y2="80.0" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
+<line x1="300.0" y1="80.0" x2="436.5" y2="175.6" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
+<line x1="300.0" y1="80.0" x2="430.0" y2="80.0" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 6"/>
+<text x="434" y="86" text-anchor="start" fill="#5a5a6a" font-size="16">straight ahead</text>
+<line x1="436.5" y1="175.6" x2="50.0" y2="80.0" stroke="#a84d16" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 6"/>
+<circle cx="50.0" cy="80.0" r="6" fill="#1a1a2e"/>
+<text x="50" y="62" text-anchor="middle" fill="#1a1a2e" font-size="20">start</text>
+<circle cx="300.0" cy="80.0" r="6" fill="#1a1a2e"/>
+<text x="300" y="62" text-anchor="middle" fill="#1a1a2e" font-size="20">turn</text>
+<circle cx="436.5" cy="175.6" r="6" fill="#1a1a2e"/>
+<text x="449" y="202" text-anchor="start" fill="#1a1a2e" font-size="20">end</text>
+<text x="175" y="70" text-anchor="middle" fill="#1f4e9c" font-size="22" font-style="italic">6 km</text>
+<text x="420" y="150" text-anchor="start" fill="#1f4e9c" font-size="22" font-style="italic">4 km</text>
+<path d="M 344.0 80.0 A 44 44 0 0 1 336.0 105.2" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="369" y="107" text-anchor="middle" fill="#1f4e9c" font-size="22">35°</text>
+<text x="239" y="159" text-anchor="middle" fill="#a84d16" font-size="22" font-style="italic">back = ?</text>
+</svg>

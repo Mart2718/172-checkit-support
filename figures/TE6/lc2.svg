@@ -1,0 +1,22 @@
+<svg viewBox="0 0 560 320" font-family="Arial, Helvetica, sans-serif" font-size="24">
+<rect x="0" y="0" width="560" height="320" fill="#fcfcfc"/>
+<line x1="280.0" y1="172.0" x2="280.0" y2="37.0" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<path d="M 280 27 l -8 16 l 16 0 z" fill="#1a1a2e"/>
+<text x="280" y="22" text-anchor="middle" fill="#1a1a2e" font-size="22" font-weight="bold">N</text>
+<line x1="280.0" y1="172.0" x2="388.1" y2="132.7" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
+<line x1="280.0" y1="172.0" x2="253.8" y2="244.0" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="280.0" cy="172.0" r="7" fill="#1a1a2e"/>
+<text x="266" y="178" text-anchor="end" fill="#1a1a2e" font-size="20">airport</text>
+<path d="M 280.0 148.0 A 24 24 0 0 1 302.6 163.8" fill="none" stroke="#5a5a6a" stroke-width="2" stroke-dasharray="4 4"/>
+<circle cx="388.1" cy="132.7" r="6" fill="#1a1a2e"/>
+<text x="411" y="124" text-anchor="start" fill="#1a1a2e" font-size="19">Boeing 737,</text>
+<text x="411" y="148" text-anchor="start" fill="#1a1a2e" font-size="19">heading 70°</text>
+<path d="M 280.0 134.0 A 38 38 0 1 1 267.0 207.7" fill="none" stroke="#5a5a6a" stroke-width="2" stroke-dasharray="4 4"/>
+<circle cx="253.8" cy="244.0" r="6" fill="#1a1a2e"/>
+<text x="246" y="281" text-anchor="end" fill="#1a1a2e" font-size="19">Airbus A320,</text>
+<text x="246" y="305" text-anchor="end" fill="#1a1a2e" font-size="19">heading 200°</text>
+<text x="351" y="139" text-anchor="middle" fill="#1f4e9c" font-size="22" font-style="italic">45 mi</text>
+<text x="250" y="210" text-anchor="end" fill="#1f4e9c" font-size="22" font-style="italic">30 mi</text>
+<line x1="388.1" y1="132.7" x2="253.8" y2="244.0" stroke="#a84d16" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 6"/>
+<text x="332" y="215" text-anchor="start" fill="#a84d16" font-size="22" font-style="italic">gap = ?</text>
+</svg>
