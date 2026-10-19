@@ -1,0 +1,306 @@
+# TE4 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TE4: triangle ABC with C = 90 degrees. Given one acute angle and one side, or two sides; find the rest.
+# Sides round to the nearest tenth or whole number, angles to the nearest degree or tenth of a degree.
+# Labels follow the standard convention used throughout TBIL: side a is across from angle A, b across from B, c (the hypotenuse) across from C.
+# Figure drawn by tools/figures/make_te4.py.
+code: TE4
+h1: "TE4 Support: Solving Right Triangles"
+pageTitle: "TE4 Support: Solving Right Triangles — Math 172, Santa Ana College"
+hubSummary: "Solving right triangles with sine, cosine, tangent, and the Pythagorean Theorem"
+videoIntro: "A narrated walkthrough of solving right triangles: labeling the sides, choosing sine, cosine, or tangent, using the Pythagorean Theorem, and finding angles with inverse trig."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'opposite|adjacent|hypotenuse|across from|SOH|\bsine\b|cosine|tangent'
+worked:   # used for the worked-examples recording document
+  title: "TE4 Worked Examples: Solving Right Triangles"
+  coreQuestion: "Which sides and angles do I know, and which tool connects them to what I want?"
+  coreFollowup: "Label first: side a is across from angle A, side b across from B, and c, the hypotenuse, across from the right angle. With two sides, use the Pythagorean Theorem for the third side and inverse trig for an angle. With an angle and a side, choose sine, cosine, or tangent by which sides are involved. The two acute angles add to 90 degrees. Keep the calculator in degree mode, and round only at the end."
+summary:   # the Quick Summary tab
+  intro: 'Every TE4 question comes back to one idea: <strong>label the triangle, then pick the tool that connects what you know to what you want.</strong> Angle <span>\( C \)</span> is the right angle. Side <span>\( a \)</span> is across from angle <span>\( A \)</span>, side <span>\( b \)</span> is across from <span>\( B \)</span>, and side <span>\( c \)</span>, the hypotenuse, is across from <span>\( C \)</span>.'
+  caption: "Which tool to use for each kind of right-triangle question"
+  columns: ["You know", "Tool", "Example with angle A"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'An angle and a side, and you want another side'
+      - 'Sine, cosine, or tangent. Sine is opposite over hypotenuse, cosine is adjacent over hypotenuse, and tangent is opposite over adjacent.'
+      - '<span>\( \sin A=\dfrac{a}{c} \)</span>, <span>\( \cos A=\dfrac{b}{c} \)</span>, <span>\( \tan A=\dfrac{a}{b} \)</span>'
+    -
+      - 'Two sides, and you want the third side'
+      - 'The Pythagorean Theorem. The hypotenuse is always the longest side.'
+      - '<span>\( a^{2}+b^{2}=c^{2} \)</span>. To find a leg, subtract: <span>\( b^{2}=c^{2}-a^{2} \)</span>.'
+    -
+      - 'Two sides, and you want an angle'
+      - 'Inverse trig: build the ratio, then use the inverse function on the calculator.'
+      - '<span>\( A=\tan^{-1}\left(\dfrac{a}{b}\right) \)</span>'
+    -
+      - 'One acute angle, and you want the other'
+      - 'The two acute angles add to 90°.'
+      - '<span>\( B=90^\circ-A \)</span>'
+  note: 'Set your calculator to <strong>degree mode</strong>. In radian mode, <span>\( \sin 30^\circ \)</span> comes out about <span>\( -0.99 \)</span> instead of <span>\( 0.5 \)</span>. Keep full calculator precision until the end, then round the way CheckIt asks: sides to the nearest tenth or whole number, angles to the nearest degree or tenth of a degree. A quick check: the hypotenuse must be the longest side, and the larger angle sits across from the longer leg. Your CheckIt triangle will have different numbers than these examples. The reasoning is what transfers.'
+tabs:
+  - id: label
+    label: "Try It: Label the Triangle"
+    heading: "Try It: Label the Triangle"
+    intro: |-
+      Every right-triangle problem starts with labels. Make your best guess on each one, then check it. All four questions use the triangle in the picture.
+    items:
+      - id: lb1
+        title: "Label 1"
+        figure:
+          file: figures/TE4/triangle.svg
+          title: "A right triangle with vertices A, B, and C and sides labeled a, b, and c"
+          caption: '<strong>Plotted data:</strong> a right triangle. Vertex A is at the bottom left, C at the bottom right, and B at the top right. A small square marks the corner at C, so the angle at C is 90°. Side b is the bottom side, joining A and C. Side a is the vertical side, joining C and B. Side c is the slanted side, joining A and B.'
+        prompt: 'Which side is the hypotenuse?'
+        choices:
+          - {value: a, label: '\( a \)', speak: "side a"}
+          - {value: b, label: '\( b \)', speak: "side b"}
+          - {value: c, label: '\( c \)', speak: "side c"}
+          - {value: d, label: "It changes depending on angle A."}
+        correct: c
+        explanation: |-
+          The hypotenuse is the side across from the right angle. The right angle is at \( C \), and the side that does not touch \( C \) is \( c \), joining \( A \) and \( B \). It is always the longest side. <strong>The hypotenuse is \( c \).</strong>
+      - id: lb2
+        title: "Label 2"
+        figure:
+          file: figures/TE4/triangle.svg
+          title: "A right triangle with vertices A, B, and C and sides labeled a, b, and c"
+          caption: '<strong>Plotted data:</strong> a right triangle. Vertex A is at the bottom left, C at the bottom right, and B at the top right. A small square marks the corner at C, so the angle at C is 90°. Side b is the bottom side, joining A and C. Side a is the vertical side, joining C and B. Side c is the slanted side, joining A and B.'
+        prompt: 'Which side is the opposite side for angle \( A \), the side across from it?'
+        choices:
+          - {value: a, label: '\( b \)', speak: "side b"}
+          - {value: b, label: '\( a \)', speak: "side a"}
+          - {value: c, label: '\( c \)', speak: "side c"}
+          - {value: d, label: "Angle A has no opposite side."}
+        correct: b
+        explanation: |-
+          The opposite side for \( A \) is the side that does not touch \( A \): side \( a \), joining \( B \) and \( C \). Side \( b \) touches \( A \), so it is the adjacent side, and \( c \) is the hypotenuse. That is why the lowercase letter matches: side \( a \) is across from angle \( A \). <strong>The opposite side for angle \( A \) is \( a \).</strong>
+      - id: lb3
+        title: "Label 3"
+        figure:
+          file: figures/TE4/triangle.svg
+          title: "A right triangle with vertices A, B, and C and sides labeled a, b, and c"
+          caption: '<strong>Plotted data:</strong> a right triangle. Vertex A is at the bottom left, C at the bottom right, and B at the top right. A small square marks the corner at C, so the angle at C is 90°. Side b is the bottom side, joining A and C. Side a is the vertical side, joining C and B. Side c is the slanted side, joining A and B.'
+        prompt: 'Which ratio equals \( \sin A \)?'
+        choices:
+          - {value: a, label: '\( \dfrac{b}{c} \)', speak: "b over c"}
+          - {value: b, label: '\( \dfrac{a}{b} \)', speak: "a over b"}
+          - {value: c, label: '\( \dfrac{c}{a} \)', speak: "c over a"}
+          - {value: d, label: '\( \dfrac{a}{c} \)', speak: "a over c"}
+        correct: d
+        explanation: |-
+          Sine is opposite over hypotenuse. For angle \( A \), the opposite side is \( a \) and the hypotenuse is \( c \). The ratio \( \tfrac{b}{c} \) is \( \cos A \), and \( \tfrac{a}{b} \) is \( \tan A \). <strong>\( \sin A=\tfrac{a}{c} \).</strong>
+      - id: lb4
+        title: "Label 4"
+        math:
+          display: 'C=90^\circ,\quad A=35^\circ,\quad c=12'
+          speak: "C equals 90 degrees. A equals 35 degrees. c equals 12"
+        prompt: 'Which equation finds side \( a \)?'
+        choices:
+          - {value: a, label: '\( a=12\sin 35^\circ \)', speak: "a equals 12 times sine of 35 degrees"}
+          - {value: b, label: '\( a=12\cos 35^\circ \)', speak: "a equals 12 times cosine of 35 degrees"}
+          - {value: c, label: '\( a=\dfrac{12}{\sin 35^\circ} \)', speak: "a equals 12 divided by sine of 35 degrees"}
+          - {value: d, label: '\( a=12\tan 35^\circ \)', speak: "a equals 12 times tangent of 35 degrees"}
+        correct: a
+        explanation: |-
+          Side \( a \) is opposite angle \( A \), and \( c=12 \) is the hypotenuse. Opposite and hypotenuse means sine: \( \sin 35^\circ=\tfrac{a}{12} \). Multiply both sides by 12. Cosine would find \( b \), the adjacent side. <strong>\( a=12\sin 35^\circ \).</strong>
+  - id: angle
+    label: "Try It: An Angle and a Side"
+    heading: "Try It: An Angle and a Side"
+    intro: |-
+      Each triangle has its right angle at C and is labeled the way the Quick Summary shows. Make your best guess, then check it. Use degree mode and round to the nearest tenth.
+    items:
+      - id: as1
+        title: "Angle and Side 1"
+        math:
+          display: 'C=90^\circ,\quad A=35^\circ,\quad c=12'
+          speak: "C equals 90 degrees. A equals 35 degrees. c equals 12"
+        prompt: 'Find side \( a \).'
+        choices:
+          - {value: a, label: '\( a\approx 9.8 \)', speak: "a is about 9.8"}
+          - {value: b, label: '\( a\approx 6.9 \)', speak: "a is about 6.9"}
+          - {value: c, label: '\( a\approx -5.1 \)', speak: "a is about negative 5.1"}
+          - {value: d, label: '\( a\approx 20.9 \)', speak: "a is about 20.9"}
+        correct: b
+        explanation: |-
+          Side \( a \) is opposite \( A \), and \( c \) is the hypotenuse, so use sine: \( a=12\sin 35^\circ\approx 6.88 \). The answer 9.8 uses cosine, which gives \( b \). The answer \(-5.1\) comes from a calculator in radian mode; a side length can never be negative. The answer 20.9 divides by sine instead of multiplying. Then \( B=90^\circ-35^\circ=55^\circ \). <strong>\( a\approx 6.9 \).</strong>
+      - id: as2
+        title: "Angle and Side 2"
+        math:
+          display: 'C=90^\circ,\quad B=62^\circ,\quad a=7'
+          speak: "C equals 90 degrees. B equals 62 degrees. a equals 7"
+        prompt: 'Find side \( b \).'
+        choices:
+          - {value: a, label: '\( b\approx 3.7 \)', speak: "b is about 3.7"}
+          - {value: b, label: '\( b\approx 6.2 \)', speak: "b is about 6.2"}
+          - {value: c, label: '\( b\approx 14.9 \)', speak: "b is about 14.9"}
+          - {value: d, label: '\( b\approx 13.2 \)', speak: "b is about 13.2"}
+        correct: d
+        explanation: |-
+          This time the angle is \( B \). Side \( b \) is opposite \( B \), and side \( a \) touches \( B \), so it is adjacent. Opposite and adjacent means tangent: \( \tan 62^\circ=\tfrac{b}{7} \), so \( b=7\tan 62^\circ\approx 13.17 \). The answer 3.7 uses angle \( A=28^\circ \) instead, and 14.9 is the hypotenuse \( c \). <strong>\( b\approx 13.2 \).</strong>
+      - id: as3
+        title: "Angle and Side 3"
+        math:
+          display: 'C=90^\circ,\quad A=20^\circ,\quad b=15'
+          speak: "C equals 90 degrees. A equals 20 degrees. b equals 15"
+        prompt: 'Find side \( c \).'
+        choices:
+          - {value: a, label: '\( c\approx 16.0 \)', speak: "c is about 16.0"}
+          - {value: b, label: '\( c\approx 14.1 \)', speak: "c is about 14.1"}
+          - {value: c, label: '\( c\approx 43.9 \)', speak: "c is about 43.9"}
+          - {value: d, label: '\( c\approx 5.1 \)', speak: "c is about 5.1"}
+        correct: a
+        explanation: |-
+          Side \( b \) is adjacent to \( A \), and \( c \) is the hypotenuse, so use cosine: \( \cos 20^\circ=\tfrac{15}{c} \). The unknown is on the bottom, so \( c=\tfrac{15}{\cos 20^\circ}\approx 15.96 \). The answer 14.1 multiplies instead of dividing, and it is shorter than \( b \), which cannot happen for a hypotenuse. The answer 43.9 uses sine. <strong>\( c\approx 16.0 \).</strong>
+      - id: as4
+        title: "Angle and Side 4"
+        math:
+          display: 'C=90^\circ,\quad A=27^\circ,\quad a=11'
+          speak: "C equals 90 degrees. A equals 27 degrees. a equals 11"
+        prompt: 'Find side \( c \).'
+        choices:
+          - {value: a, label: '\( c\approx 5.0 \)', speak: "c is about 5.0"}
+          - {value: b, label: '\( c\approx 21.6 \)', speak: "c is about 21.6"}
+          - {value: c, label: '\( c\approx 24.2 \)', speak: "c is about 24.2"}
+          - {value: d, label: '\( c\approx 12.3 \)', speak: "c is about 12.3"}
+        correct: c
+        explanation: |-
+          Side \( a \) is opposite \( A \), so use sine: \( \sin 27^\circ=\tfrac{11}{c} \), and \( c=\tfrac{11}{\sin 27^\circ}\approx 24.23 \). The answer 21.6 is side \( b \), from tangent. The answer 5.0 multiplies instead of dividing, and 12.3 uses cosine. The other angle is \( B=63^\circ \). <strong>\( c\approx 24.2 \).</strong>
+  - id: sides
+    label: "Try It: Two Sides"
+    heading: "Try It: Two Sides"
+    intro: |-
+      Each triangle has its right angle at C. Make your best guess, then check it. Ask yourself: is the side you want the hypotenuse, or a leg?
+    items:
+      - id: ts1
+        title: "Two Sides 1"
+        math:
+          display: 'C=90^\circ,\quad a=8,\quad b=15'
+          speak: "C equals 90 degrees. a equals 8. b equals 15"
+        prompt: 'Find side \( c \).'
+        choices:
+          - {value: a, label: '\( c=23 \)', speak: "c equals 23"}
+          - {value: b, label: '\( c=17 \)', speak: "c equals 17"}
+          - {value: c, label: '\( c\approx 12.7 \)', speak: "c is about 12.7"}
+          - {value: d, label: '\( c=7 \)', speak: "c equals 7"}
+        correct: b
+        explanation: |-
+          Both legs are known, so add their squares: \( c^{2}=8^{2}+15^{2}=64+225=289 \), and \( c=\sqrt{289}=17 \). Adding the sides themselves gives 23. The answer 12.7 subtracts the squares, which is only right when \( c \) is one of the known sides. <strong>\( c=17 \).</strong>
+      - id: ts2
+        title: "Two Sides 2"
+        math:
+          display: 'C=90^\circ,\quad a=20,\quad c=29'
+          speak: "C equals 90 degrees. a equals 20. c equals 29"
+        prompt: 'Find side \( b \).'
+        choices:
+          - {value: a, label: '\( b\approx 35.2 \)', speak: "b is about 35.2"}
+          - {value: b, label: '\( b=9 \)', speak: "b equals 9"}
+          - {value: c, label: '\( b=21 \)', speak: "b equals 21"}
+          - {value: d, label: '\( b=3 \)', speak: "b equals 3"}
+        correct: c
+        explanation: |-
+          Here \( c=29 \) is the hypotenuse, and \( b \) is a leg, so subtract: \( b^{2}=29^{2}-20^{2}=841-400=441 \), and \( b=21 \). The answer 35.2 adds the squares, which would make a leg longer than the hypotenuse. The answer 9 subtracts the sides without squaring. <strong>\( b=21 \).</strong>
+      - id: ts3
+        title: "Two Sides 3"
+        math:
+          display: 'C=90^\circ,\quad a=8,\quad b=15'
+          speak: "C equals 90 degrees. a equals 8. b equals 15"
+        prompt: 'Find angle \( A \), to the nearest tenth of a degree.'
+        choices:
+          - {value: a, label: '\( A\approx 61.9^\circ \)', speak: "A is about 61.9 degrees"}
+          - {value: b, label: '\( A\approx 0.5^\circ \)', speak: "A is about 0.5 degrees"}
+          - {value: c, label: '\( A\approx 32.2^\circ \)', speak: "A is about 32.2 degrees"}
+          - {value: d, label: '\( A\approx 28.1^\circ \)', speak: "A is about 28.1 degrees"}
+        correct: d
+        explanation: |-
+          For angle \( A \), side \( a=8 \) is opposite and \( b=15 \) is adjacent, so \( \tan A=\tfrac{8}{15} \). Use inverse tangent: \( A=\tan^{-1}\left(\tfrac{8}{15}\right)\approx 28.07^\circ \). The answer 61.9 is angle \( B \), from flipping the ratio. The answer 0.5 is the ratio itself, not an angle. The answer 32.2 uses inverse sine with the wrong sides. <strong>\( A\approx 28.1^\circ \).</strong>
+      - id: ts4
+        title: "Two Sides 4"
+        math:
+          display: 'C=90^\circ,\quad b=24,\quad c=25'
+          speak: "C equals 90 degrees. b equals 24. c equals 25"
+        prompt: 'Find angle \( A \), to the nearest tenth of a degree.'
+        choices:
+          - {value: a, label: '\( A\approx 16.3^\circ \)', speak: "A is about 16.3 degrees"}
+          - {value: b, label: '\( A\approx 73.7^\circ \)', speak: "A is about 73.7 degrees"}
+          - {value: c, label: '\( A\approx 43.8^\circ \)', speak: "A is about 43.8 degrees"}
+          - {value: d, label: '\( A\approx 0.3^\circ \)', speak: "A is about 0.3 degrees"}
+        correct: a
+        explanation: |-
+          Side \( b \) is adjacent to \( A \), and \( c \) is the hypotenuse, so \( \cos A=\tfrac{24}{25} \) and \( A=\cos^{-1}\left(\tfrac{24}{25}\right)\approx 16.26^\circ \). The answer 73.7 uses inverse sine, which gives angle \( B \). The answer 43.8 uses inverse tangent with the hypotenuse. The answer 0.3 comes from radian mode. <strong>\( A\approx 16.3^\circ \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: 'a=10\cos 40^\circ\approx 7.7'
+          speak: "a equals 10 times cosine of 40 degrees, which is about 7.7"
+        prompt: 'In a right triangle, \( C=90^\circ \), \( A=40^\circ \), and \( c=10 \). A student wrote this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Side a is opposite angle A, so it needs sine, about 6.4."}
+          - {value: c, label: "The 10 should be divided by the cosine of 40, not multiplied."}
+          - {value: d, label: "Angle B, which is 50 degrees, should have been used instead."}
+        correct: b
+        explanation: |-
+          Side \( a \) is opposite \( A \), and \( c \) is the hypotenuse, so the ratio is sine: \( a=10\sin 40^\circ\approx 6.4 \). Cosine gives the adjacent side, \( b\approx 7.7 \). <strong>The correct value is \( a\approx 6.4 \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: 'b=\sqrt{6^{2}+10^{2}}\approx 11.7'
+          speak: "b equals the square root of 6 squared plus 10 squared, which is about 11.7"
+        prompt: 'In a right triangle, \( C=90^\circ \), \( a=6 \), and \( c=10 \). A student wrote this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The squares should be multiplied together, not added."}
+          - {value: b, label: "The square root was not needed at the end."}
+          - {value: c, label: "Side c is the hypotenuse, so subtract: b is 8."}
+          - {value: d, label: "There is no mistake."}
+        correct: c
+        explanation: |-
+          The hypotenuse is \( c=10 \), and it must be the longest side, so \( b \) cannot be 11.7. Subtract: \( b^{2}=10^{2}-6^{2}=64 \), and \( b=8 \). <strong>The correct value is \( b=8 \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} c&=13\\ A&=\tan^{-1}\left(\tfrac{5}{12}\right)\\ &\approx 22.6^\circ \end{aligned}'
+          speak: "c equals 13. Next line: A equals inverse tangent of 5 twelfths. Next line: about 22.6 degrees"
+        prompt: 'In a right triangle, \( C=90^\circ \), \( a=5 \), and \( b=12 \). A student wrote these lines. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "Angle A should use inverse sine of 5 over 12."}
+          - {value: b, label: "The hypotenuse should be 17, from 5 plus 12."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The ratio should be flipped to 12 over 5."}
+        correct: c
+        explanation: |-
+          \( 5^{2}+12^{2}=169=13^{2} \), so \( c=13 \). For angle \( A \), side 5 is opposite and 12 is adjacent, so tangent is right: \( A\approx 22.6^\circ \), and \( B\approx 67.4^\circ \). <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: 'a=10\sin 30^\circ\approx -9.9'
+          speak: "a equals 10 times sine of 30 degrees, which is about negative 9.9"
+        prompt: 'In a right triangle, \( C=90^\circ \), \( A=30^\circ \), and \( c=10 \). A student wrote this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "Side a needs cosine here, not sine."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The 10 should be divided by the sine instead."}
+          - {value: d, label: "The calculator is in radian mode; a is 5."}
+        correct: d
+        explanation: |-
+          The setup is right, but \( \sin 30^\circ=0.5 \), so \( a=5 \). A negative side length is a sign that the calculator was in radian mode and took the sine of 30 radians. Switch to degree mode. <strong>The correct value is \( a=5 \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} \tan A&=\tfrac{8}{15}\\ A&=\tan\left(\tfrac{8}{15}\right)\approx 0.01 \end{aligned}'
+          speak: "tangent of A equals 8 fifteenths. Next line: A equals tangent of 8 fifteenths, which is about 0.01"
+        prompt: 'A student wrote these lines. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "To get the angle back, use inverse tangent: about 28.1°."}
+          - {value: b, label: "The ratio should be flipped to 15 over 8, giving about 61.9°."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "The answer should be given in radians instead of degrees."}
+        correct: a
+        explanation: |-
+          Tangent takes an angle and gives a ratio. Here the ratio is known and the angle is wanted, so use inverse tangent: \( A=\tan^{-1}\left(\tfrac{8}{15}\right)\approx 28.1^\circ \). <strong>The correct value is \( A\approx 28.1^\circ \).</strong>

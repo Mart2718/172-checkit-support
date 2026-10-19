@@ -104,6 +104,7 @@ function texToSpeech(tex) {
   function ordinal(n) { var t = n % 100, u = n % 10; return n + ((t >= 11 && t <= 13) ? 'th' : u === 1 ? 'st' : u === 2 ? 'nd' : u === 3 ? 'rd' : 'th'); }
   function power(p) {
     p = p.trim();
+    if (/^\\circ$/.test(p)) return ' degrees';   // 35^\circ is an angle in degrees, not a power
     if (p === '2') return ' squared';
     if (p === '3') return ' cubed';
     if (/^\d+$/.test(p)) return ' to the ' + ordinal(+p) + ' power';

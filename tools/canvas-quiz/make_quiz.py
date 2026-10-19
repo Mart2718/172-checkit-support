@@ -77,6 +77,9 @@ for tab in c['tabs']:
             f = it['figure']
             png = Path(f['file']).stem + '.png'
             src = ROOT / 'derived' / code / png
+            if not src.exists():   # a figure reused by several items is captured under each item's id
+                png = it['id'] + '.png'
+                src = ROOT / 'derived' / code / png
             if not src.exists():
                 sys.exit(f'Missing {src}. Run: bash tools/derive.sh {code}')
             shutil.copy(src, out / png)

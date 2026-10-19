@@ -20,7 +20,7 @@ const items = JSON.parse(fs.readFileSync(__dirname + '/items.json', 'utf8'));
 const BS = String.fromCharCode(92);                       // backslash
 const OPEN = [BS + '(', BS + '['], CLOSE = [BS + ')', BS + ']'];
 // LaTeX command -> plain Unicode text. Anything not listed keeps its name without the backslash (for example sin, cos).
-const CMD = { left: '', right: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', ldots: '…', cdots: '⋯', log: 'log', ln: 'ln' };
+const CMD = { left: '', right: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', ldots: '…', cdots: '⋯', circ: '°', quad: '   ', qquad: '    ', log: 'log', ln: 'ln' };
 const FUNC = ['log', 'ln', 'sin', 'cos', 'tan', 'sec', 'csc', 'cot'];   // written upright, not italic
 function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, index just after the closing brace]
   let d = 0;
