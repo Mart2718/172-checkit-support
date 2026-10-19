@@ -1,15 +1,15 @@
 <svg viewBox="0 0 560 320" font-family="Arial, Helvetica, sans-serif" font-size="24">
 <rect x="0" y="0" width="560" height="320" fill="#fcfcfc"/>
-<polygon points="156.8,265.0 403.2,265.0 296.8,65.0" fill="#f7f1ec" stroke="#1a6b6b" stroke-width="2.5" stroke-linejoin="round"/>
-<rect x="147.8" y="261.0" width="18.0" height="30.0" fill="#5a5a6a"/>
+<polygon points="157.4,265.0 402.6,265.0 280.0,65.0" fill="#f7f1ec" stroke="#1a6b6b" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="148.4" y="261.0" width="18.0" height="30.0" fill="#5a5a6a"/>
 <text x="143" y="287" text-anchor="end" fill="#1a1a2e" font-size="20">Carla</text>
-<rect x="394.2" y="261.0" width="18.0" height="30.0" fill="#5a5a6a"/>
+<rect x="393.6" y="261.0" width="18.0" height="30.0" fill="#5a5a6a"/>
 <text x="417" y="287" text-anchor="start" fill="#1a1a2e" font-size="20">Dev</text>
-<path d="M 296.8 39.0 q 12 14 0 26 q -12 -12 0 -26 z" fill="#a84d16"/>
-<text x="297" y="33" text-anchor="middle" fill="#a84d16" font-size="20">fire</text>
+<path d="M 280.0 39.0 q 12 14 0 26 q -12 -12 0 -26 z" fill="#a84d16"/>
+<text x="280" y="33" text-anchor="middle" fill="#a84d16" font-size="20">fire</text>
 <text x="280" y="299" text-anchor="middle" fill="#1f4e9c" font-size="24" font-style="italic">30 mi</text>
-<path d="M 185.5 224.0 A 50 50 0 0 1 206.8 265.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="222" y="239" text-anchor="middle" fill="#1f4e9c" font-size="22">55°</text>
-<path d="M 353.2 265.0 A 50 50 0 0 1 379.7 220.9" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="340" y="235" text-anchor="middle" fill="#1f4e9c" font-size="22">62°</text>
+<path d="M 183.6 222.4 A 50 50 0 0 1 207.4 265.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="222" y="237" text-anchor="middle" fill="#1f4e9c" font-size="22">55°</text>
+<path d="M 352.6 265.0 A 50 50 0 0 1 376.4 222.4" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="338" y="237" text-anchor="middle" fill="#1f4e9c" font-size="22">62°</text>
 </svg>

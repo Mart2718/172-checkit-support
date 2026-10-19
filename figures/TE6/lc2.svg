@@ -15,7 +15,7 @@
 <circle cx="253.8" cy="244.0" r="6" fill="#1a1a2e"/>
 <text x="246" y="281" text-anchor="end" fill="#1a1a2e" font-size="19">Airbus A320,</text>
 <text x="246" y="305" text-anchor="end" fill="#1a1a2e" font-size="19">heading 200°</text>
-<text x="351" y="139" text-anchor="middle" fill="#1f4e9c" font-size="22" font-style="italic">45 mi</text>
+<text x="326" y="138" text-anchor="middle" fill="#1f4e9c" font-size="22" font-style="italic">45 mi</text>
 <text x="250" y="210" text-anchor="end" fill="#1f4e9c" font-size="22" font-style="italic">30 mi</text>
 <line x1="388.1" y1="132.7" x2="253.8" y2="244.0" stroke="#a84d16" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 6"/>
 <text x="332" y="215" text-anchor="start" fill="#a84d16" font-size="22" font-style="italic">gap = ?</text>

@@ -27,9 +27,9 @@ summary:   # the Quick Summary tab
       - 'Sine, cosine, or tangent, and inverse trig for an angle. "How far away" means the straight line from one person to the other.'
       - 'An angle of depression is measured down from the horizontal. It equals the angle of elevation at the other end, because the horizontal is parallel to the ground.'
     -
-      - 'Two angles and the side between them (fire towers, divers, lighthouses)'
+      - 'Two angles and a side (fire towers, divers, lighthouses)'
       - 'Subtract from 180° for the third angle, then use the law of sines: <span>\( \dfrac{a}{\sin A}=\dfrac{b}{\sin B} \)</span>.'
-      - 'Each side pairs with the angle across from it. The ranger who measures the larger angle is closer to the fire.'
+      - 'Each side pairs with the angle across from it. CheckIt may say a fire is "50° to the left of the other tower": that is the angle at that tower, between the other tower and the fire.'
     -
       - 'Two sides and the angle between them (hiker, two airplanes, crown moulding)'
       - 'Law of cosines: <span>\( c^{2}=a^{2}+b^{2}-2ab\cos C \)</span>.'
@@ -38,7 +38,7 @@ summary:   # the Quick Summary tab
       - 'Three sides (carpenter''s boards, bridge brace)'
       - 'Law of cosines for an angle: <span>\( \cos C=\dfrac{a^{2}+b^{2}-c^{2}}{2ab} \)</span>.'
       - 'The largest angle is across from the longest side, and the smallest angle is across from the shortest side.'
-  note: 'Use <strong>degree mode</strong>, and round only at the end. CheckIt rounds most answers to the nearest tenth, the cliff distances to the nearest whole number, and the crown moulding to the nearest hundredth. Some problems give extra information, like the divers'' depth, that you do not need. Your CheckIt problems will have different numbers and names than these examples. The sketch is what transfers.'
+  note: 'Use <strong>degree mode</strong>, and round only at the end. CheckIt rounds most answers to the nearest tenth, the cliff distances and the airplane''s ground distance to the nearest whole number, and the crown moulding to the nearest hundredth. Some problems give extra information, like the divers'' depth, that you do not need. Your CheckIt problems will have different numbers and names than these examples. The sketch is what transfers.'
 tabs:
   - id: setup
     label: "Try It: Set It Up"
@@ -60,7 +60,7 @@ tabs:
           - {value: d, label: "130°"}
         correct: c
         explanation: |-
-          The 40° is measured from the straight-ahead direction, not from the path the hiker came along. Straight ahead and back toward the start make a straight line, 180°, so the angle inside the triangle is \( 180^\circ-40^\circ=140^\circ \). <strong>The angle at the turn is 140°.</strong> Using 40° in the law of cosines is the most common TE6 mistake.
+          The 40° is measured from the straight-ahead direction, not from the path the hiker came along. Straight ahead and back toward the start make a straight line, 180°, so the angle inside the triangle is \( 180^\circ-40^\circ=140^\circ \). The answers 50° and 130° start from 90°, but nothing in the picture is a right angle. <strong>The angle at the turn is 140°.</strong> Using 40° in the law of cosines is the most common TE6 mistake.
       - id: su2
         title: "Set Up 2"
         figure:
@@ -75,7 +75,7 @@ tabs:
           - {value: d, label: "90°"}
         correct: a
         explanation: |-
-          An angle of depression is measured down from the horizontal. The horizontal line at the top is parallel to the water, so the line of sight cuts both at the same angle: the angle at the boat is also 20°. The 70° is the angle at the top between the cliff face and the line of sight. <strong>The angle at the boat is 20°</strong>, the same as the angle of elevation from the boat up to the observer.
+          An angle of depression is measured down from the horizontal. The horizontal line at the top is parallel to the water, so the line of sight cuts both at the same angle: the angle at the boat is also 20°. The 70° is the angle at the top between the cliff face and the line of sight, and 90° is where the cliff meets the water. <strong>The angle at the boat is 20°</strong>, the same as the angle of elevation from the boat up to the observer.
       - id: su3
         title: "Set Up 3"
         figure:
@@ -90,7 +90,7 @@ tabs:
           - {value: d, label: "35°"}
         correct: b
         explanation: |-
-          Both headings are measured clockwise from north, so the angle between the paths is the difference: \( 140^\circ-35^\circ=105^\circ \). Adding them, 175°, measures nothing in the picture. If the difference is ever more than 180°, the angle between the paths is 360° minus it. <strong>The angle at the airport is 105°.</strong>
+          Both headings are measured clockwise from north, so the angle between the paths is the difference: \( 140^\circ-35^\circ=105^\circ \). Adding them, 175°, measures nothing in the picture. The answer 75° is 180° minus the difference, and 35° is just the first heading. If the difference is ever more than 180°, the angle between the paths is 360° minus it. <strong>The angle at the airport is 105°.</strong>
       - id: su4
         title: "Set Up 4"
         figure:
@@ -176,7 +176,7 @@ tabs:
     label: "Try It: Lookouts and Landmarks"
     heading: "Try It: Lookouts and Landmarks"
     intro: |-
-      In these situations, two people or places see the same object, and there is no right angle. Make your best guess, then check it. Round to the nearest tenth unless the question says otherwise.
+      None of these triangles has a right angle. Sketch first, mark what you know, and let that decide the tool. Make your best guess, then check it. Round to the nearest tenth unless the question says otherwise.
     items:
       - id: ls1
         title: "Fire Towers"
@@ -184,7 +184,7 @@ tabs:
           file: figures/TE6/ls1.svg
           title: "Two fire towers and a fire, with an angle measured at each tower"
           caption: 'Two fire towers 30 mi apart on a straight base line, not drawn to scale. Ranger Carla is in the left tower and Ranger Dev is in the right tower. The fire is above the base line, between them. At Carla''s tower, the angle between the other tower and the fire is 55°. At Dev''s tower, the angle between the other tower and the fire is 62°.'
-        prompt: 'Two fire towers are 30 miles apart. Ranger Carla sees the fire at 55° from the other tower, and Ranger Dev sees it at 62° from the other tower. Which ranger is the shorter distance from the fire, and how far away is that ranger?'
+        prompt: 'Two fire towers are 30 miles apart. Ranger Carla sees the fire 55° to the left of the other tower, and Ranger Dev sees it 62° to the right of the other tower. Which ranger is the shorter distance from the fire, and how far away is that ranger?'
         choices:
           - {value: a, label: "Dev, about 27.6 mi"}
           - {value: b, label: "Carla, about 27.6 mi"}
@@ -207,7 +207,7 @@ tabs:
           - {value: d, label: "about 17.9 m"}
         correct: d
         explanation: |-
-          The angle at the turtle is \( 180^\circ-45^\circ-60^\circ=75^\circ \), across from the 20 m between the divers. Eva's distance is across from Hani's 60° angle: \( \tfrac{20\sin 60^\circ}{\sin 75^\circ}\approx 17.9 \) m. The answer 14.6 is Hani's distance. The answer 14.1 uses the 10 m depth, which is extra information here, and 16.3 divides by 60° instead of 75°. <strong>About 17.9 m.</strong>
+          The angle at the turtle is \( 180^\circ-45^\circ-60^\circ=75^\circ \), across from the 20 m between the divers. Eva's distance is across from Hani's 60° angle: \( \tfrac{20\sin 60^\circ}{\sin 75^\circ}\approx 17.9 \) m. The answer 14.6 is Hani's distance. The answer 14.1 uses the 10 m depth, which is extra information here, and 16.3 comes from \( \tfrac{20\sin 45^\circ}{\sin 60^\circ} \), which pairs the angles with the wrong sides. CheckIt asks for both divers: Hani is about 14.6 m away. <strong>Eva is about 17.9 m from the turtle.</strong>
       - id: ls3
         title: "Lighthouses"
         figure:
@@ -237,7 +237,7 @@ tabs:
           - {value: d, label: "about 2.09 in"}
         correct: b
         explanation: |-
-          The two 3 in sides are equal, so the other two angles are equal: each is \( \tfrac{180^\circ-92^\circ}{2}=44^\circ \). The width is across from the 92° angle: \( w=\tfrac{3\sin 92^\circ}{\sin 44^\circ}\approx 4.32 \) in. The law of cosines gives the same answer: \( w^{2}=3^{2}+3^{2}-2(3)(3)\cos 92^\circ \). The answer 4.24 assumes a 90° corner, 2.09 flips the ratio, and 6 adds the sides. <strong>About 4.32 in.</strong>
+          You know two sides and the angle between them, so use the law of cosines: \( w^{2}=3^{2}+3^{2}-2(3)(3)\cos 92^\circ\approx 18.63 \), and \( w\approx 4.32 \) in. CheckIt's key uses the law of sines instead: the other two angles are equal, each \( \tfrac{180^\circ-92^\circ}{2}=44^\circ \), so \( w=\tfrac{3\sin 92^\circ}{\sin 44^\circ} \), the same answer. The answer 4.24 assumes a 90° corner, 2.09 flips the ratio, and 6 adds the sides. <strong>About 4.32 in.</strong>
   - id: frames
     label: "Try It: Paths and Frames"
     heading: "Try It: Paths and Frames"
@@ -356,7 +356,7 @@ tabs:
         title: "Slip 4"
         math:
           display: '\begin{aligned} d&=\dfrac{25\sin 70^\circ}{\sin 62^\circ}\\ &\approx 26.6 \end{aligned}'
-          speak: "d equals 25 times sine of 70 degrees, over sine of 62 degrees. Next line: about 26.6"
+          speak: "d equals 25 times sine of 70 degrees, over sine of 62 degrees. Next line: d is about 26.6"
         prompt: 'Fire towers are 25 miles apart. Ranger Fay sees the fire at 48° from the other tower, and Ranger Gus sees it at 70°. A student found the third angle, 62°, said Fay is closer because she measured the smaller angle, and wrote this. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}

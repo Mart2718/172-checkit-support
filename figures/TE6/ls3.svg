@@ -5,7 +5,7 @@
 <text x="35" y="170" text-anchor="middle" fill="#1a1a2e" font-size="18">shore</text>
 <polygon points="110.0,270.0 110.0,50.0 409.6,189.7" fill="#eef5f5" stroke="#1a6b6b" stroke-width="2.5" stroke-linejoin="round"/>
 <line x1="110.0" y1="270.0" x2="409.6" y2="189.7" stroke="#a84d16" stroke-width="3" stroke-linecap="round"/>
-<path d="M 102.0 282.0 L 106.0 254.0 L 114.0 254.0 L 118.0 282.0 z" fill="#5a5a6a"/>
+<path d="M 102.0 282.0 L 106.0 254.0 L 114.0 254.0 L 118.0 282.0 z" fill="#b3261e"/>
 <path d="M 102.0 62.0 L 106.0 34.0 L 114.0 34.0 L 118.0 62.0 z" fill="#5a5a6a"/>
 <text x="126" y="300" text-anchor="start" fill="#1a1a2e" font-size="19">red lighthouse</text>
 <text x="114" y="26" text-anchor="start" fill="#1a1a2e" font-size="19">other lighthouse</text>

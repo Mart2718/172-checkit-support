@@ -180,7 +180,7 @@ def airport(name, h1, h2, d1=None, d2=None, labels=('Plane 1', 'Plane 2'), units
         anc = 'start' if q[0] > A[0] + 10 else ('end' if q[0] < A[0] - 10 else 'middle')
         f.text(q[0], q[1] + (0 if q[1] < A[1] else 14), f'{lab},', INK, anc, 19); f.text(q[0], q[1] + (24 if q[1] < A[1] else 38), f'heading {h}°', INK, anc, 19)
     if d1:
-        side_label(f, A, P1, (A[0], A[1] + 100), f'{d1} {units}', off=14, t=0.7)
+        side_label(f, A, P1, (A[0], A[1] + 100), f'{d1} {units}', off=24, t=0.5)
         side_label(f, A, P2, P1, f'{d2} {units}')
         f.line(P1, P2, ORANGE, 2.5, '9 6')
         side_label(f, P1, P2, A, 'gap = ?', ORANGE)
@@ -190,10 +190,10 @@ def airport(name, h1, h2, d1=None, d2=None, labels=('Plane 1', 'Plane 2'), units
 
 
 def towers(name, dist, a1, a2, n1, n2):
-    """Tower 1 at left (angle a1), tower 2 at right (angle a2), fire above."""
+    """Tower 1 at left (angle a1), tower 2 at right (angle a2), fire above. Drawn with both base angles equal to their
+    average, so the picture does not show which ranger is closer (captions say not drawn to scale)."""
     f = Fig(); T1 = (90, 265); T2 = (470, 265)
-    # intersection of the two sight lines
-    t1, t2 = math.radians(a1), math.radians(a2); L = T2[0] - T1[0]
+    m = (a1 + a2) / 2; t1, t2 = math.radians(m), math.radians(m); L = T2[0] - T1[0]
     x = L * math.tan(t2) / (math.tan(t1) + math.tan(t2)); y = x * math.tan(t1)
     sc = min(1, 200 / y); Fz = (T1[0] + x, T1[1] - y * sc)
     # keep true angles: if scaled, redraw with smaller base instead
@@ -247,8 +247,8 @@ def lighthouses(name, dist, a_boat, a_red, units):
     f.text(35, 170, 'shore', INK, 'middle', 18)
     f.poly([R, O, B], '#eef5f5', TEAL, 2.5)
     f.line(R, B, ORANGE, 3)
-    for P, lab in ((R, 'red'), (O, 'other')):
-        f.o.append(f'<path d="M {P[0]-8:.1f} {P[1]+12:.1f} L {P[0]-4:.1f} {P[1]-16:.1f} L {P[0]+4:.1f} {P[1]-16:.1f} L {P[0]+8:.1f} {P[1]+12:.1f} z" fill="{GRAY}"/>')
+    for P, colr in ((R, '#b3261e'), (O, GRAY)):
+        f.o.append(f'<path d="M {P[0]-8:.1f} {P[1]+12:.1f} L {P[0]-4:.1f} {P[1]-16:.1f} L {P[0]+4:.1f} {P[1]-16:.1f} L {P[0]+8:.1f} {P[1]+12:.1f} z" fill="{colr}"/>')
     f.text(R[0] + 16, R[1] + 30, 'red lighthouse', INK, 'start', 19)
     f.text(O[0] + 4, O[1] - 24, 'other lighthouse', INK, 'start', 19)
     f.o.append(f'<path d="M {B[0]-16:.1f} {B[1]:.1f} L {B[0]+16:.1f} {B[1]:.1f} L {B[0]+10:.1f} {B[1]+10:.1f} L {B[0]-10:.1f} {B[1]+10:.1f} z" fill="{INK}"/>')
