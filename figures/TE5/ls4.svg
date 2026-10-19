@@ -1,0 +1,12 @@
+<svg viewBox="0 0 560 310" font-family="Arial, Helvetica, sans-serif" font-size="28">
+<rect x="0" y="0" width="560" height="310" fill="#fcfcfc"/>
+<polygon points="70,250 470,250 300,60" fill="#eef5f5" stroke="#1a6b6b" stroke-width="3" stroke-linejoin="round"/>
+<g fill="#1a1a2e" font-weight="bold"><text x="52" y="278" text-anchor="middle">A</text><text x="488" y="278" text-anchor="middle">B</text><text x="300" y="46" text-anchor="middle">C</text></g>
+<path d="M 103.9 222.0 A 44 44 0 0 1 114.0 250.0" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<text x="140" y="234" text-anchor="middle" fill="#1f4e9c" font-size="24">50°</text>
+<path d="M 426.0 250.0 A 44 44 0 0 1 440.7 217.2" fill="none" stroke="#a84d16" stroke-width="2.5"/>
+<text x="402" y="229" text-anchor="middle" fill="#a84d16" font-size="24">?</text>
+<text x="401" y="151" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="26">a = 12</text>
+<text x="169" y="151" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="26">b = 9</text>
+<text x="270" y="284" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="26">c</text>
+</svg>
