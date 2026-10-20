@@ -6,6 +6,10 @@ h1: "EL3 Support: Introduction to Logarithms"
 pageTitle: "EL3 Support: Introduction to Logarithms — Math 172, Santa Ana College"
 hubSummary: "Introduction to logarithms: converting between forms and evaluating"
 videoIntro: "A narrated walkthrough of how to convert between exponential and logarithmic form and how to evaluate logarithms, including common and natural logarithms."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/qoGdXi_bsAs"
+  embed: "https://www.youtube-nocookie.com/embed/qoGdXi_bsAs"
+  title: "EL3 video walkthrough: Introduction to Logarithms"
 # Phrases that must NOT appear in text shown before the student guesses (table captions, item titles).
 banPhrases: '(logarithmic|exponential) form (is|of)|(is|equals) the exponent|the (log|logarithm) (is|equals)|base (is|stays)'
 worked:   # used for the worked-examples recording document
