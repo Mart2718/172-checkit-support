@@ -5,6 +5,10 @@ h1: "EL4 Support: Graphing Logarithmic Functions"
 pageTitle: "EL4 Support: Graphing Logarithmic Functions — Math 172, Santa Ana College"
 hubSummary: "Graphing logarithmic functions: domain, range, and asymptotes"
 videoIntro: "A narrated walkthrough of how to find the domain, range, and vertical asymptote of a logarithmic function and how to recognize its graph."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/gUksuYDnhUw"
+  embed: "https://www.youtube-nocookie.com/embed/gUksuYDnhUw"
+  title: "EL4 video walkthrough: Graphing Logarithmic Functions"
 # Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
 banPhrases: '(domain|range) (is|are|of)|asymptote (is|at|of)|(is|are) (the )?(domain|range)|defined (for|when|only)|undefined|has domain|has range'
 worked:   # used for the worked-examples recording document
