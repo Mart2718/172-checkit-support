@@ -371,7 +371,7 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: '\cos\left(\dfrac{3\pi}{8}\right)=\dfrac{1}{2}\cdot\cos\left(\dfrac{3\pi}{4}\right)=-\dfrac{\sqrt{2}}{4}'
+          display: '\begin{aligned} &\cos\left(\dfrac{3\pi}{8}\right)\\ &=\dfrac{1}{2}\cdot\cos\left(\dfrac{3\pi}{4}\right)\\ &=-\dfrac{\sqrt{2}}{4} \end{aligned}'
           speak: "cosine of 3 pi over 8 equals one half times cosine of 3 pi over 4, which equals negative the square root of 2, over 4"
         prompt: 'A student found the exact value of \( \cos\left(\tfrac{3\pi}{8}\right) \) with this work. What is the mistake, if any?'
         choices:
