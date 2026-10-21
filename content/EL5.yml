@@ -6,6 +6,10 @@ h1: "EL5 Support: Properties of Logarithms"
 pageTitle: "EL5 Support: Properties of Logarithms — Math 172, Santa Ana College"
 hubSummary: "Properties of logarithms: expanding and condensing logarithmic expressions"
 videoIntro: "A narrated walkthrough of how to expand and condense logarithmic expressions using the product, quotient, and power properties."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/vDpBqe9nrJ4"
+  embed: "https://www.youtube-nocookie.com/embed/vDpBqe9nrJ4"
+  title: "EL5 video walkthrough: Properties of Logarithms"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: '(product|quotient|power) (property|rule)|log(arithm)? of a sum|becomes? (a )?(sum|difference|multiplier)|turns? into (adding|subtracting)'
 worked:   # used for the worked-examples recording document
