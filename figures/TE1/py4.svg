@@ -11,7 +11,7 @@
 <line x1="280.0" y1="165.0" x2="186.2" y2="40.0" stroke="#1f4e9c" stroke-width="3" stroke-linecap="round"/>
 <path d="M 298.0 165.0 A 18 18 0 0 0 269.2 150.6" fill="none" stroke="#1a1a2e" stroke-width="1.8"/>
 <text x="300" y="134" text-anchor="middle" fill="#1a1a2e" font-size="22" font-style="italic">θ</text>
-<text x="251" y="80" text-anchor="start" fill="#1f4e9c" font-size="22" font-style="italic">r = 5</text>
+<text x="257" y="97" text-anchor="middle" fill="#1f4e9c" font-size="22" font-style="italic" stroke="#fcfcfc" stroke-width="7" stroke-linejoin="round" paint-order="stroke">r = 5</text>
 <text x="220" y="195" text-anchor="middle" fill="#1a1a2e" font-size="22" font-style="italic">x = −3</text>
 <text x="172" y="110" text-anchor="end" fill="#a84d16" font-size="22" font-style="italic" font-weight="bold">y = ?</text>
 </svg>

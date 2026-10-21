@@ -17,8 +17,9 @@ class Fig:
         d = f' stroke-dasharray="{dash}"' if dash else ''
         self.o.append(f'<line x1="{P[0]:.1f}" y1="{P[1]:.1f}" x2="{Q[0]:.1f}" y2="{Q[1]:.1f}" stroke="{col}" stroke-width="{w}" stroke-linecap="round"{d}/>')
 
-    def text(self, x, y, s, col=INK, anc='middle', size=22, italic=False, bold=False):
+    def text(self, x, y, s, col=INK, anc='middle', size=22, italic=False, bold=False, halo=False):
         st = (' font-style="italic"' if italic else '') + (' font-weight="bold"' if bold else '')
+        if halo: st += ' stroke="#fcfcfc" stroke-width="7" stroke-linejoin="round" paint-order="stroke"'
         self.o.append(f'<text x="{x:.0f}" y="{y:.0f}" text-anchor="{anc}" fill="{col}" font-size="{size}"{st}>{s}</text>')
 
     def frac(self, x, y, num, den, col=INK, size=20):
@@ -120,10 +121,10 @@ def reftri(name, quad, x, y, hyp, known, ask):
     th = math.degrees(math.atan2(y, x)) % 360                     # theta from the positive x-axis to the terminal side
     f.arc(C, 18, 0, th, INK, 1.8)
     m = th / 2; f.text(C[0] + 44 * math.cos(math.radians(m)), C[1] - 44 * math.sin(math.radians(m)) + 8, 'θ', INK, 'middle', 22, italic=True)
-    mx, my = P[0] + 0.4 * (C[0] - P[0]), P[1] + 0.4 * (C[1] - P[1])  # r label, on the side away from the right angle
+    mx, my = (C[0] + P[0]) / 2, (C[1] + P[1]) / 2                 # r label, pushed off the side away from the right angle
     nx, ny = -(P[1] - C[1]), P[0] - C[0]; L = math.hypot(nx, ny); nx, ny = nx / L, ny / L
     if nx * (F[0] - mx) + ny * (F[1] - my) > 0: nx, ny = -nx, -ny
-    f.text(mx + 34 * nx, my + 30 * ny + 8, f'r = {hyp}', BLUE, 'start' if nx > 0.3 else ('end' if nx < -0.3 else 'middle'), 22, italic=True)
+    f.text(mx + 30 * nx, my + 22 * ny + 8, f'r = {hyp}', BLUE, 'middle', 22, italic=True, halo=True)
     neg = lambda v: str(v).replace('-', '−')
     xl = f'x = {neg(x)}' if known == 'x' else 'x = ?'; yl = f'y = {neg(y)}' if known == 'y' else 'y = ?'
     xm = (C[0] + F[0]) / 2
