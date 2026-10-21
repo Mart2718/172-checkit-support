@@ -40,7 +40,8 @@ function texToText(tex) {   // convert commands, fractions and roots; leave ^ an
       out += wrap(texToText(a)) + '/' + wrap(texToText(b)); i = k - 1;
     } else if (name === 'sqrt') {
       const [a, j] = braceGroup(tex, i + 1); out += '√' + wrap(texToText(a)); i = j - 1;
-    } else out += (name in CMD) ? CMD[name] : name;
+    } else if (FUNC.includes(name) && /[A-Za-z0-9)]$/.test(out)) out += ' ' + name;   // keep "sin x tan x" from gluing into "sin xtan x"
+    else out += (name in CMD) ? CMD[name] : name;
   }
   return out;
 }

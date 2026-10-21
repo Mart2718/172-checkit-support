@@ -16,6 +16,6 @@
 <rect x="20" y="290" width="520" height="54" rx="10" fill="#ffffff" stroke="#1f4e9c" stroke-width="3"/>
 <text x="280" y="325" text-anchor="middle" fill="#1a1a2e" font-weight="bold" font-size="25">5. Rename to reach the other side</text>
 <rect x="20" y="364" width="520" height="72" rx="10" fill="#f7f1ec" stroke="#a84d16" stroke-width="3"/>
-<text x="280" y="394" text-anchor="middle" fill="#1a1a2e" font-size="22">Work on one side only. Never move terms</text>
-<text x="280" y="422" text-anchor="middle" fill="#1a1a2e" font-size="22">across the equals sign.</text>
+<text x="280" y="394" text-anchor="middle" fill="#1a1a2e" font-size="22">Go from one side to the other. Never do</text>
+<text x="280" y="422" text-anchor="middle" fill="#1a1a2e" font-size="22">the same operation to both sides.</text>
 </svg>

@@ -17,7 +17,7 @@ banPhrases: 'not an identity|is an identity|cancel|cancels'
 worked:   # used for the worked-examples recording document
   title: "TE2 Worked Examples: Verifying Trigonometric Identities"
   coreQuestion: "What does this side look like in sines and cosines?"
-  coreFollowup: "Almost every TE2 verification starts the same way: rewrite every function in terms of sine and cosine. Then distribute, cancel what multiplies, combine fractions with a common denominator, and use sin² + cos² = 1 if it appears. Finish by renaming 1/cos as sec, cos/sin as cot, and so on, until you reach the other side. Work on one side only, and make each line equal the one before."
+  coreFollowup: "Almost every TE2 verification starts the same way: rewrite every function in terms of sine and cosine. Then distribute, cancel what multiplies, combine fractions with a common denominator, and use sin² + cos² = 1 if it appears. Finish by renaming 1/cos as sec, cos/sin as cot, and so on, until you reach the other side. Start from either side, usually the more complicated one, and make each line equal the one before. Do not do the same operation to both sides."
 summary:   # the Quick Summary tab
   intro: 'To verify an identity, you show that one side can be rewritten, one true step at a time, until it becomes the other side. <strong>Start by writing everything in sines and cosines.</strong>'
   caption: "The moves that verify most TE2 identities, and what to watch for"
@@ -34,16 +34,16 @@ summary:   # the Quick Summary tab
     -
       - 'Simplify fractions'
       - 'Cancel a factor that multiplies the whole top and the whole bottom. To add fractions, use a common denominator.'
-      - 'You cannot cancel part of a sum: <span>\( \tfrac{\sin x+\cos x}{\sin x} \)</span> is <span>\( 1+\cot x \)</span>, not <span>\( \cos x \)</span>.'
+      - 'You cannot cancel part of a sum: <span>\( \tfrac{\sin x+\tan x}{\sin x} \)</span> is <span>\( 1+\sec x \)</span>, not <span>\( \tan x \)</span>.'
     -
       - 'Use the Pythagorean identity'
-      - '<span>\( \sin^{2}x+\cos^{2}x=1 \)</span>, so <span>\( 1-\cos^{2}x=\sin^{2}x \)</span> and <span>\( 1-\sin^{2}x=\cos^{2}x \)</span>.'
+      - '<span>\( \sin^{2}x+\cos^{2}x=1 \)</span>, so <span>\( 1-\cos^{2}x=\sin^{2}x \)</span>. Dividing by <span>\( \cos^{2}x \)</span> or <span>\( \sin^{2}x \)</span> gives <span>\( 1+\tan^{2}x=\sec^{2}x \)</span> and <span>\( 1+\cot^{2}x=\csc^{2}x \)</span>, which explain answers like <span>\( \sec(x)^{2} \)</span>.'
       - 'It works only with squares: <span>\( \sin x+\cos x \)</span> is not 1.'
     -
       - 'Rename and finish'
       - 'Turn <span>\( \tfrac{1}{\cos x} \)</span> back into <span>\( \sec x \)</span>, <span>\( \tfrac{\cos x}{\sin x} \)</span> into <span>\( \cot x \)</span>, and so on, to match the other side.'
-      - 'Work on one side only. Do not move terms across the equals sign or do the same thing to both sides.'
-  note: 'CheckIt''s TE2 problems have no answer key: you write the verification. A good one starts with one side, lists each step on its own line, and ends with the other side. CheckIt may write a side in mixed form, like <span>\( \sec(x)-\tfrac{\cos(x)}{\sin(x)} \)</span>, or with a power after the parentheses, like <span>\( \sin(x)^{2} \)</span> for <span>\( \sin^{2}x \)</span>. Plugging in a number can show that an equation is <em>not</em> an identity, but it can never prove that one is. Your CheckIt identities will be different from these examples. The moves are what transfer.'
+      - 'Start from one side, usually the more complicated one, or simplify each side separately until they meet. Do not do the same operation to both sides, as if solving an equation.'
+  note: 'CheckIt''s TE2 problems have no answer key: you write the verification. The product with parentheses may be on either side, so start with whichever side is more complicated. A good verification starts with one side, lists each step on its own line, and ends with the other side. CheckIt may write a side in mixed form, like <span>\( \sec(x)-\tfrac{\cos(x)}{\sin(x)} \)</span>, or with a power after the parentheses, like <span>\( \sin(x)^{2} \)</span> for <span>\( \sin^{2}x \)</span>. Plugging in a number can show that an equation is <em>not</em> an identity, but it can never prove that one is. Your CheckIt identities will be different from these examples. The moves are what transfer.'
 tabs:
   - id: rewrite
     label: "Try It: Rewrite It"
@@ -54,11 +54,13 @@ tabs:
       - id: rw1
         title: "Rewrite 1"
         table:
-          caption: "The six trig functions written in terms of sine and cosine"
+          caption: "Tangent, cotangent, secant, and cosecant written in terms of sine and cosine"
           label: "Trig functions in terms of sine and cosine"
           rows:
-            - ["Function", "tan x", "cot x", "sec x", "csc x"]
-            - ["In sine and cosine", "sin x / cos x", "cos x / sin x", "1 / cos x", "1 / sin x"]
+            - ["tan x", "sin x / cos x"]
+            - ["cot x", "cos x / sin x"]
+            - ["sec x", "1 / cos x"]
+            - ["csc x", "1 / sin x"]
         math:
           display: '\tan x\,\csc x'
           speak: "tangent x times cosecant x"
@@ -70,7 +72,7 @@ tabs:
           - {value: d, label: '\( \cot x \)', speak: "cotangent x"}
         correct: b
         explanation: |-
-          \( \tan x\csc x=\tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x}=\tfrac{1}{\cos x}=\sec x \). The sines cancel because they multiply. The answer \( \tfrac{\sin^{2}x}{\cos x} \) uses \( \csc x=\sin x \), and \( \csc x \) comes from canceling the cosine instead of the sine. <strong>\( \tan x\csc x=\sec x \).</strong>
+          \( \tan x\csc x=\tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x}=\tfrac{1}{\cos x}=\sec x \). The sines cancel because they multiply. The answer \( \cot x \) flips the result, and the answer \( \tfrac{\sin^{2}x}{\cos x} \) uses \( \csc x=\sin x \), and \( \csc x \) comes from canceling the cosine instead of the sine. <strong>\( \tan x\csc x=\sec x \).</strong>
       - id: rw2
         title: "Rewrite 2"
         math:
@@ -80,7 +82,7 @@ tabs:
         choices:
           - {value: a, label: '\( \sin x\cos x \)', speak: "sine x times cosine x"}
           - {value: b, label: '\( \dfrac{1}{\sin x+\cos x} \)', speak: "1 over the quantity sine x plus cosine x"}
-          - {value: c, label: '\( \dfrac{1}{\sin x\cos x} \)', speak: "1 over sine x times cosine x"}
+          - {value: c, label: '\( \dfrac{1}{\sin x\cos x} \)', speak: "1 over the quantity sine x times cosine x"}
           - {value: d, label: '\( \dfrac{\cos x}{\sin x} \)', speak: "cosine x over sine x"}
         correct: c
         explanation: |-
@@ -112,7 +114,7 @@ tabs:
           - {value: d, label: '\( \sin x \)', speak: "sine x"}
         correct: d
         explanation: |-
-          Dividing by \( \sec x=\tfrac{1}{\cos x} \) is the same as multiplying by \( \cos x \): \( \tfrac{\sin x}{\cos x}\cdot\cos x=\sin x \). The answer \( \tfrac{\sin x}{\cos^{2}x} \) multiplies by \( \sec x \) instead of dividing. <strong>\( \tfrac{\tan x}{\sec x}=\sin x \).</strong>
+          Dividing by \( \sec x=\tfrac{1}{\cos x} \) is the same as multiplying by \( \cos x \): \( \tfrac{\sin x}{\cos x}\cdot\cos x=\sin x \). The answer \( \tfrac{\sin x}{\cos^{2}x} \) multiplies by \( \sec x \) instead of dividing, and 1 cancels everything. <strong>\( \tfrac{\tan x}{\sec x}=\sin x \).</strong>
   - id: distribute
     label: "Try It: Distribute and Simplify"
     heading: "Try It: Distribute and Simplify"
@@ -132,7 +134,7 @@ tabs:
           - {value: d, label: '\( \dfrac{\sin x}{\cos x}\cdot\sin x+\cos x \)', speak: "sine x over cosine x, times sine x, plus cosine x"}
         correct: a
         explanation: |-
-          Distribute: \( \tan x\sin x+\tan x\cos x=\tfrac{\sin^{2}x}{\cos x}+\tfrac{\sin x}{\cos x}\cdot\cos x=\tfrac{\sin^{2}x}{\cos x}+\sin x \). CheckIt might write the first term as \( \sec(x)\sin(x)^{2} \), which is the same thing. The answer \( \sin^{2}x+\sin x \) drops a denominator, \( +1 \) says \( \tan x\cos x=1 \), and the last one multiplies only the first term. <strong>\( \tfrac{\sin^{2}x}{\cos x}+\sin x \).</strong>
+          Distribute: \( \tan x\sin x+\tan x\cos x=\tfrac{\sin^{2}x}{\cos x}+\tfrac{\sin x}{\cos x}\cdot\cos x=\tfrac{\sin^{2}x}{\cos x}+\sin x \). CheckIt might write the first term as \( \sec(x)\sin(x)^{2} \), which is the same thing. The answer \( \sin^{2}x+\sin x \) drops a denominator, the \( +1 \) version says \( \tan x\cos x=1 \), and \( \tfrac{\sin x}{\cos x}\cdot\sin x+\cos x \) multiplies only the first term. <strong>\( \tfrac{\sin^{2}x}{\cos x}+\sin x \).</strong>
       - id: ds2
         title: "Simplify 2"
         math:
@@ -146,7 +148,7 @@ tabs:
           - {value: d, label: '\( \csc x\tan x-\cos x \)', speak: "cosecant x tangent x, minus cosine x"}
         correct: c
         explanation: |-
-          \( \csc x\tan x-\csc x\cos x=\tfrac{1}{\sin x}\cdot\tfrac{\sin x}{\cos x}-\tfrac{1}{\sin x}\cdot\cos x=\tfrac{1}{\cos x}-\tfrac{\cos x}{\sin x}=\sec x-\cot x \). CheckIt might leave the second term as \( \tfrac{\cos(x)}{\sin(x)} \). The answer \( \sec x-1 \) says \( \csc x\cos x=1 \), the plus version loses the minus sign, and the last one multiplies only the first term. <strong>\( \sec x-\cot x \).</strong>
+          \( \csc x\tan x-\csc x\cos x=\tfrac{1}{\sin x}\cdot\tfrac{\sin x}{\cos x}-\tfrac{1}{\sin x}\cdot\cos x=\tfrac{1}{\cos x}-\tfrac{\cos x}{\sin x}=\sec x-\cot x \). CheckIt might leave the second term as \( \tfrac{\cos(x)}{\sin(x)} \). The answer \( \sec x-1 \) says \( \csc x\cos x=1 \), the plus version loses the minus sign, and \( \csc x\tan x-\cos x \) multiplies only the first term. <strong>\( \sec x-\cot x \).</strong>
       - id: ds3
         title: "Simplify 3"
         math:
@@ -160,7 +162,7 @@ tabs:
           - {value: d, label: '\( \sin x\sec x+\cos x \)', speak: "sine x secant x, plus cosine x"}
         correct: b
         explanation: |-
-          \( \sec x\csc x=\tfrac{1}{\sin x\cos x} \), so the expression is \( \tfrac{\sin x+\cos x}{\sin x\cos x}=\tfrac{\sin x}{\sin x\cos x}+\tfrac{\cos x}{\sin x\cos x}=\tfrac{1}{\cos x}+\tfrac{1}{\sin x} \). Split the fraction into two, then each one simplifies. The answer \( \tan x+\cot x \) keeps the wrong function on top, and 2 assumes everything cancels. <strong>\( \sec x+\csc x \).</strong>
+          \( \sec x\csc x=\tfrac{1}{\sin x\cos x} \), so the expression is \( \tfrac{\sin x+\cos x}{\sin x\cos x}=\tfrac{\sin x}{\sin x\cos x}+\tfrac{\cos x}{\sin x\cos x}=\tfrac{1}{\cos x}+\tfrac{1}{\sin x} \). Split the fraction into two, then each one simplifies. The answer \( \tan x+\cot x \) keeps the wrong function on top, 2 assumes everything cancels, and \( \sin x\sec x+\cos x \) skips the \( \csc x \) on the second term. <strong>\( \sec x+\csc x \).</strong>
       - id: ds4
         title: "Simplify 4"
         math:
@@ -170,11 +172,11 @@ tabs:
         choices:
           - {value: a, label: '\( \sec x-\csc x \)', speak: "secant x minus cosecant x"}
           - {value: b, label: '\( \csc^{2}x-\sec^{2}x \)', speak: "cosecant squared x, minus secant squared x"}
-          - {value: c, label: '\( \tan^{2}x-\cot^{2}x \)', speak: "tangent squared x, minus cotangent squared x"}
+          - {value: c, label: '\( \tan x-\cot x \)', speak: "tangent x minus cotangent x"}
           - {value: d, label: '\( \sec^{2}x-\csc^{2}x \)', speak: "secant squared x, minus cosecant squared x"}
         correct: d
         explanation: |-
-          Multiply each term by \( \tfrac{1}{\sin x\cos x} \): \( \tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x\cos x}=\tfrac{1}{\cos^{2}x} \) and \( \tfrac{\cos x}{\sin x}\cdot\tfrac{1}{\sin x\cos x}=\tfrac{1}{\sin^{2}x} \). So the expression is \( \sec^{2}x-\csc^{2}x \). The first choice loses the squares, the second reverses the order, and \( \tan^{2}x-\cot^{2}x \) is a different expression: try \( x=\tfrac{\pi}{6} \). <strong>\( \sec^{2}x-\csc^{2}x \).</strong>
+          Multiply each term by \( \tfrac{1}{\sin x\cos x} \): \( \tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x\cos x}=\tfrac{1}{\cos^{2}x} \) and \( \tfrac{\cos x}{\sin x}\cdot\tfrac{1}{\sin x\cos x}=\tfrac{1}{\sin^{2}x} \). So the expression is \( \sec^{2}x-\csc^{2}x \). The answer \( \sec x-\csc x \) loses the squares, \( \csc^{2}x-\sec^{2}x \) reverses the order, and \( \tan x-\cot x \) never multiplies by \( \sec x\csc x \). By the way, \( \tan^{2}x-\cot^{2}x \) would also be correct, since \( \tan^{2}x=\sec^{2}x-1 \) and \( \cot^{2}x=\csc^{2}x-1 \). <strong>\( \sec^{2}x-\csc^{2}x \).</strong>
   - id: proof
     label: "Try It: Build the Proof"
     heading: "Try It: Build the Proof"
@@ -186,24 +188,24 @@ tabs:
         figure:
           file: figures/TE2/pf1.svg
           title: "The usual route through a verification"
-          caption: 'A flowchart with five numbered steps from top to bottom: 1, start with one side; 2, rewrite in sin and cos; 3, distribute, combine, simplify; 4, use sin squared plus cos squared equals 1 if needed; 5, rename to reach the other side. A box at the bottom says: work on one side only, never move terms across the equals sign.'
+          caption: 'A flowchart with five numbered steps from top to bottom: 1, start with one side; 2, rewrite in sin and cos; 3, distribute, combine, simplify; 4, use sin squared plus cos squared equals 1 if needed; 5, rename to reach the other side. A box at the bottom says: go from one side to the other, never do the same operation to both sides.'
         math:
           display: '\begin{aligned} &\cot x\,(\sin x-\sec x)\\ &=\dfrac{\cos x}{\sin x}\left(\sin x-\dfrac{1}{\cos x}\right)\\ &=\ ?\\ &=\cos x-\csc x \end{aligned}'
-          speak: "cotangent x times the quantity sine x minus secant x. Next line: equals cosine x over sine x, times the quantity sine x minus 1 over cosine x. Next line: equals a missing step. Next line: equals cosine x minus cosecant x"
+          speak: "cotangent x times the quantity sine x minus secant x. Next line: equals cosine x over sine x, times the quantity sine x, minus 1 over cosine x. Next line: equals a missing step. Next line: equals cosine x minus cosecant x"
         prompt: 'Which line fills the missing step?'
         choices:
-          - {value: a, label: '\( \cos x-\dfrac{1}{\cos x} \)', speak: "cosine x minus 1 over cosine x"}
-          - {value: b, label: '\( 1-\dfrac{1}{\sin x} \)', speak: "1 minus 1 over sine x"}
+          - {value: a, label: '\( \cos x-\dfrac{1}{\cos x} \)', speak: "cosine x, minus 1 over cosine x"}
+          - {value: b, label: '\( 1-\dfrac{1}{\sin x} \)', speak: "1, minus 1 over sine x"}
           - {value: c, label: '\( \cos x-\cot x \)', speak: "cosine x minus cotangent x"}
-          - {value: d, label: '\( \cos x-\dfrac{1}{\sin x} \)', speak: "cosine x minus 1 over sine x"}
+          - {value: d, label: '\( \cos x-\dfrac{1}{\sin x} \)', speak: "cosine x, minus 1 over sine x"}
         correct: d
         explanation: |-
-          Distribute: \( \tfrac{\cos x}{\sin x}\cdot\sin x=\cos x \), and \( \tfrac{\cos x}{\sin x}\cdot\tfrac{1}{\cos x}=\tfrac{1}{\sin x} \). That gives \( \cos x-\tfrac{1}{\sin x} \), and renaming \( \tfrac{1}{\sin x}=\csc x \) finishes. The answer \( \cos x-\tfrac{1}{\cos x} \) cancels the wrong factor, and \( 1-\tfrac{1}{\sin x} \) says \( \cot x\sin x=1 \). <strong>\( \cos x-\tfrac{1}{\sin x} \).</strong>
+          Distribute: \( \tfrac{\cos x}{\sin x}\cdot\sin x=\cos x \), and \( \tfrac{\cos x}{\sin x}\cdot\tfrac{1}{\cos x}=\tfrac{1}{\sin x} \). That gives \( \cos x-\tfrac{1}{\sin x} \), and renaming \( \tfrac{1}{\sin x}=\csc x \) finishes. The answer \( \cos x-\tfrac{1}{\cos x} \) cancels the wrong factor, \( 1-\tfrac{1}{\sin x} \) says \( \cot x\sin x=1 \), and \( \cos x-\cot x \) multiplies the second term by \( \tfrac{\cos x}{\sin x} \) without cancelling. <strong>\( \cos x-\tfrac{1}{\sin x} \).</strong>
       - id: pf2
         title: "Proof 2"
         math:
           display: '\begin{aligned} &\sec x-\cos x\\ &=\dfrac{1}{\cos x}-\dfrac{\cos^{2}x}{\cos x}\\ &=\dfrac{1-\cos^{2}x}{\cos x}\\ &=\ ?\\ &=\sin x\cdot\dfrac{\sin x}{\cos x}\\ &=\sin x\tan x \end{aligned}'
-          speak: "secant x minus cosine x equals 1 over cosine x, minus cosine squared x over cosine x, which equals 1 minus cosine squared x, all over cosine x. Next line: equals a missing step. Next line: equals sine x times sine x over cosine x, which equals sine x tangent x"
+          speak: "secant x minus cosine x. Next line: equals 1 over cosine x, minus cosine squared x over cosine x. Next line: equals 1 minus cosine squared x, all over cosine x. Next line: equals a missing step. Next line: equals sine x times sine x over cosine x. Next line: equals sine x tangent x"
         prompt: 'Which line fills the missing step?'
         choices:
           - {value: a, label: '\( \dfrac{\sin x}{\cos x} \)', speak: "sine x over cosine x"}
@@ -217,7 +219,7 @@ tabs:
         title: "Proof 3"
         math:
           display: '\begin{aligned} &\tan x+\cot x\\ &=\dfrac{\sin x}{\cos x}+\dfrac{\cos x}{\sin x}\\ &=\ ?\\ &=\dfrac{1}{\sin x\cos x}\\ &=\sec x\,\csc x \end{aligned}'
-          speak: "tangent x plus cotangent x equals sine x over cosine x, plus cosine x over sine x. Next line: equals a missing step. Next line: equals 1 over sine x cosine x, which equals secant x cosecant x"
+          speak: "tangent x plus cotangent x. Next line: equals sine x over cosine x, plus cosine x over sine x. Next line: equals a missing step. Next line: equals 1 over sine x cosine x. Next line: equals secant x cosecant x"
         prompt: 'Which line fills the missing step?'
         choices:
           - {value: a, label: '\( \dfrac{\sin x+\cos x}{\sin x\cos x} \)', speak: "sine x plus cosine x, all over sine x cosine x"}
@@ -226,7 +228,7 @@ tabs:
           - {value: d, label: '\( \dfrac{\sin x\cos x}{\sin x\cos x} \)', speak: "sine x cosine x over sine x cosine x"}
         correct: c
         explanation: |-
-          The common denominator is \( \sin x\cos x \). Multiply the first fraction by \( \tfrac{\sin x}{\sin x} \) and the second by \( \tfrac{\cos x}{\cos x} \): \( \tfrac{\sin^{2}x+\cos^{2}x}{\sin x\cos x} \). The top is 1, which gives the next line. The first choice adds the tops without rewriting them, and the second adds the bottoms. <strong>\( \tfrac{\sin^{2}x+\cos^{2}x}{\sin x\cos x} \).</strong>
+          The common denominator is \( \sin x\cos x \). Multiply the first fraction by \( \tfrac{\sin x}{\sin x} \) and the second by \( \tfrac{\cos x}{\cos x} \): \( \tfrac{\sin^{2}x+\cos^{2}x}{\sin x\cos x} \). The top is 1, which gives the next line. The answer \( \tfrac{\sin x+\cos x}{\sin x\cos x} \) adds the tops without rewriting them, and the one with \( \sin x+\cos x \) on the bottom adds the bottoms. <strong>\( \tfrac{\sin^{2}x+\cos^{2}x}{\sin x\cos x} \).</strong>
       - id: pf4
         title: "Proof 4"
         prompt: 'Three of these equations are true for every \( x \) where both sides are defined. Which one is not? Testing the value above can help, or rewrite each one in sines and cosines.'
@@ -260,12 +262,12 @@ tabs:
           - {value: d, label: "The cos x should be crossed out instead, leaving sin x."}
         correct: c
         explanation: |-
-          Only a factor of the whole top can be crossed out. Split the fraction instead: \( \tfrac{\sin x}{\sin x}+\tfrac{\cos x}{\sin x}=1+\cot x \). Check at \( x=\tfrac{\pi}{4} \): the fraction is 2, but \( \cos\tfrac{\pi}{4}\approx 0.707 \). <strong>It equals \( 1+\cot x \).</strong>
+          Only a factor of the whole top can be crossed out. Split the fraction instead: \( \tfrac{\sin x}{\sin x}+\tfrac{\cos x}{\sin x}=1+\cot x \). Check at \( x=\tfrac{\pi}{4} \): the fraction is 2, but \( \cos\left(\tfrac{\pi}{4}\right)\approx 0.707 \). <strong>It equals \( 1+\cot x \).</strong>
       - id: sl2
         title: "Slip 2"
         math:
           display: '\begin{aligned} &(\cos x-\sin x)\sec x\,\csc x\\ &=\dfrac{\cos x-\sin x}{\sin x\cos x}\\ &=\dfrac{1}{\sin x}-\dfrac{1}{\cos x}\\ &=\csc x-\sec x \end{aligned}'
-          speak: "the quantity cosine x minus sine x, times secant x cosecant x, equals cosine x minus sine x, all over sine x cosine x. Next line: equals 1 over sine x, minus 1 over cosine x. Next line: equals cosecant x minus secant x"
+          speak: "the quantity cosine x minus sine x, times secant x cosecant x. Next line: equals cosine x minus sine x, all over sine x cosine x. Next line: equals 1 over sine x, minus 1 over cosine x. Next line: equals cosecant x minus secant x"
         prompt: 'A student verified this identity. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -282,24 +284,24 @@ tabs:
           speak: "secant x minus cosine x equals sine x tangent x. Next line: 1 minus cosine squared x equals sine squared x. Next line: sine squared x equals sine squared x"
         prompt: 'To verify \( \sec x-\cos x=\sin x\tan x \), a student multiplied both sides by \( \cos x \) and simplified. What is the mistake, if any?'
         choices:
-          - {value: a, label: "There is no mistake; both sides match."}
+          - {value: a, label: "There is no mistake."}
           - {value: b, label: "It should multiply both sides by sec x, not by cos x."}
           - {value: c, label: "1 − cos²x is cos²x, not sin²x."}
-          - {value: d, label: "It works on both sides at once, not one side."}
+          - {value: d, label: "It changes both sides at once instead of one."}
         correct: d
         explanation: |-
-          A verification may not treat the identity as an equation to solve: multiplying both sides assumes what you are trying to show. Work on one side only: \( \sec x-\cos x=\tfrac{1-\cos^{2}x}{\cos x}=\tfrac{\sin^{2}x}{\cos x}=\sin x\tan x \). The algebra here happened to be right, but the method would not be accepted. <strong>Work on one side only.</strong>
+          The student started from the identity itself and changed both sides. Ending at \( \sin^{2}x=\sin^{2}x \) proves nothing unless every step can be reversed, which is why verifications are written as one chain from one side to the other: \( \sec x-\cos x=\tfrac{1-\cos^{2}x}{\cos x}=\tfrac{\sin^{2}x}{\cos x}=\sin x\tan x \). The algebra here is right, but the method is not how a verification is written. <strong>Work from one side to the other.</strong>
       - id: sl4
         title: "Slip 4"
         math:
           display: '\begin{aligned} &-\sec x\,(\cos x-\cot x)\\ &=-1-\csc x \end{aligned}'
-          speak: "negative secant x times the quantity cosine x minus cotangent x, equals negative 1 minus cosecant x"
+          speak: "negative secant x times the quantity cosine x minus cotangent x. Next line: equals negative 1 minus cosecant x"
         prompt: 'A student distributed and simplified this expression. What is the mistake, if any?'
         choices:
-          - {value: a, label: "There is no mistake."}
+          - {value: a, label: "sec x times cos x is 0, so the answer is just −csc x."}
           - {value: b, label: "The minus multiplies both terms, so it is −1 + csc x."}
-          - {value: c, label: "sec x times cos x is 0, so the answer is just −csc x."}
-          - {value: d, label: "sec x cot x is sec²x, so it is −1 − sec²x."}
+          - {value: c, label: "sec x times cot x is sec²x, so it is −1 − sec²x instead."}
+          - {value: d, label: "There is no mistake."}
         correct: b
         explanation: |-
           \( -\sec x\cos x=-1 \), and \( -\sec x\cdot(-\cot x)=+\tfrac{1}{\cos x}\cdot\tfrac{\cos x}{\sin x}=+\csc x \). The negative in front changes the sign of every term inside. <strong>It equals \( -1+\csc x \).</strong>
@@ -311,9 +313,9 @@ tabs:
         prompt: 'A student rewrote this quotient in sines and cosines. What is the mistake, if any?'
         choices:
           - {value: a, label: "sec x is 1/cos x, so the quotient is csc x."}
-          - {value: b, label: "tan x is cos x/sin x, so it is 1/cos²x."}
+          - {value: b, label: "The denominator should be sin x cos x, not sin²x."}
           - {value: c, label: "There is no mistake."}
           - {value: d, label: "Dividing should flip the top fraction, giving sin²x/cos x."}
         correct: a
         explanation: |-
-          Secant goes with cosine: \( \sec x=\tfrac{1}{\cos x} \). Then \( \tfrac{1/\cos x}{\sin x/\cos x}=\tfrac{1}{\cos x}\cdot\tfrac{\cos x}{\sin x}=\tfrac{1}{\sin x}=\csc x \). <strong>\( \tfrac{\sec x}{\tan x}=\csc x \).</strong>
+          Secant goes with cosine: \( \sec x=\tfrac{1}{\cos x} \), not \( \tfrac{1}{\sin x} \). The student did divide correctly by flipping the bottom fraction. Then \( \tfrac{1/\cos x}{\sin x/\cos x}=\tfrac{1}{\cos x}\cdot\tfrac{\cos x}{\sin x}=\tfrac{1}{\sin x}=\csc x \). <strong>\( \tfrac{\sec x}{\tan x}=\csc x \).</strong>

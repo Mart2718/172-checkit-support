@@ -22,8 +22,8 @@ def flow(name):
             o.append(f'<line x1="280" y1="{y+bh}" x2="280" y2="{y+bh+gap-1}" stroke="{INK}" stroke-width="2.5" marker-end="url(#ah)"/>')
         y += bh + gap
     o.append(f'<rect x="20" y="{y+4}" width="520" height="72" rx="10" fill="#f7f1ec" stroke="{ORANGE}" stroke-width="3"/>')
-    o.append(f'<text x="280" y="{y+34}" text-anchor="middle" fill="{INK}" font-size="22">Work on one side only. Never move terms</text>')
-    o.append(f'<text x="280" y="{y+62}" text-anchor="middle" fill="{INK}" font-size="22">across the equals sign.</text>')
+    o.append(f'<text x="280" y="{y+34}" text-anchor="middle" fill="{INK}" font-size="22">Go from one side to the other. Never do</text>')
+    o.append(f'<text x="280" y="{y+62}" text-anchor="middle" fill="{INK}" font-size="22">the same operation to both sides.</text>')
     o.append('</svg>')
     open(os.path.join(OUT, name), 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 

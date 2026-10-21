@@ -51,3 +51,6 @@ Sage may print equivalent forms that look different from a textbook's. For examp
 
 ## Needs a live screen reader
 - How NVDA reads the nested radicals in the answer buttons, such as "the square root of the quantity 2 plus the square root of 2", and whether feedback is announced once.
+
+## Update 2026-10-21: reflow fix
+- Slip 4 work now wraps onto three lines. With the WCAG 1.4.12 text-spacing override at 320 px, it had been 332 px wide (1.4.10). The worked-examples document was regenerated, and function names no longer run together.
