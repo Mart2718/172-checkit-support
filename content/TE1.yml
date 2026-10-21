@@ -1,0 +1,398 @@
+# TE1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TE1 gives three tasks: (1) the exact sine or cosine of an angle in twelfths (pi/12 family, sum and difference
+# formulas) or eighths (pi/8 family, half-angle formulas); (2) one of sine or cosine from a Pythagorean triple plus a
+# quadrant, find the other; (3) rewrite k sin^2(nx) or k cos^2(nx) with only first powers (power-reducing).
+# CheckIt's key may print an equivalent form, e.g. -3/2*cos(8x) + 3/2, or a radical written differently.
+# Figures drawn by tools/figures/make_te1.py.
+code: TE1
+h1: "TE1 Support: Trigonometric Identities"
+pageTitle: "TE1 Support: Trigonometric Identities — Math 172, Santa Ana College"
+hubSummary: "Sum and difference, half-angle, and power-reducing formulas, and the Pythagorean identity"
+videoIntro: "A narrated walkthrough of finding exact values with the sum, difference, and half-angle formulas, using the Pythagorean identity with a quadrant, and rewriting squared sines and cosines with the power-reducing formulas."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'sum formula|difference formula|half[- ]angle formula|power[- ]reduc|Pythagorean identity'
+worked:   # used for the worked-examples recording document
+  title: "TE1 Worked Examples: Trigonometric Identities"
+  coreQuestion: "Which angles from the unit circle can I build this from, and what sign does the answer need?"
+  coreFollowup: "An angle in twelfths, like 7π/12, is a sum or difference of angles you know, like π/3 + π/4. An angle in eighths, like π/8, is half of one, like π/4. A squared sine or cosine trades its square for a doubled angle. And every exact value has a sign that comes from the quadrant, so decide the sign before or after the formula, never by guessing."
+summary:   # the Quick Summary tab
+  intro: 'Every TE1 question asks you to <strong>rewrite something you do not know in terms of something you do</strong>: the angles on the unit circle and the fact that <span>\( \sin^{2}\theta+\cos^{2}\theta=1 \)</span>.'
+  caption: "Which identity to use for each kind of TE1 question, and what to watch for"
+  columns: ["You see", "Use", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'An angle in twelfths, like <span>\( \tfrac{\pi}{12} \)</span>, <span>\( \tfrac{7\pi}{12} \)</span>, or <span>\( \tfrac{17\pi}{12} \)</span>'
+      - 'Write it as a sum or difference of unit-circle angles, then use <span>\( \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B \)</span> or <span>\( \cos(A\pm B)=\cos A\cos B\mp\sin A\sin B \)</span>.'
+      - 'The cosine formula flips the sign. And <span>\( \sin(A-B) \)</span> is not <span>\( \sin A-\sin B \)</span>.'
+    -
+      - 'An angle in eighths, like <span>\( \tfrac{\pi}{8} \)</span> or <span>\( \tfrac{3\pi}{8} \)</span>'
+      - 'It is half of a unit-circle angle. Use <span>\( \cos\tfrac{\theta}{2}=\pm\sqrt{\tfrac{1+\cos\theta}{2}} \)</span> or <span>\( \sin\tfrac{\theta}{2}=\pm\sqrt{\tfrac{1-\cos\theta}{2}} \)</span>.'
+      - 'The quadrant of the half angle picks the sign. Half the angle is not half the cosine.'
+    -
+      - 'One of sine or cosine, and a quadrant'
+      - '<span>\( \sin^{2}\theta+\cos^{2}\theta=1 \)</span>, or draw the reference triangle with <span>\( x^{2}+y^{2}=r^{2} \)</span>.'
+      - 'The square root gives two signs. The quadrant decides: <span>\( x \)</span> is the cosine side and <span>\( y \)</span> is the sine side.'
+    -
+      - 'A squared sine or cosine, like <span>\( 3\sin^{2}(4x) \)</span>'
+      - '<span>\( \sin^{2}u=\tfrac{1-\cos(2u)}{2} \)</span> and <span>\( \cos^{2}u=\tfrac{1+\cos(2u)}{2} \)</span>.'
+      - 'The angle doubles, and the coefficient multiplies both terms.'
+  note: 'The TE1 outcome also names the double-angle and tangent formulas, but the CheckIt TE1 problems use the four rows above. CheckIt''s answer key may print an equivalent form, such as <span>\( -\tfrac{3}{2}\cos(8x)+\tfrac{3}{2} \)</span>, or a radical written differently; check yours with a calculator. Your CheckIt problems will have different angles and numbers than these examples. The reasoning is what transfers.'
+tabs:
+  - id: build
+    label: "Try It: Build the Angle"
+    heading: "Try It: Build the Angle"
+    intro: |-
+      Before any formula, rewrite the angle using angles you know, and decide on the sign. Make your best guess on each one, then check it.
+    items:
+      - id: bd1
+        title: "Build 1"
+        figure:
+          file: figures/TE1/bd1.svg
+          title: "The upper half of the unit circle, marked every 15 degrees"
+          caption: 'The upper half of the unit circle with a tick mark every pi/12, or 15 degrees. The ticks for pi/6, pi/4, pi/3, pi/2, 2pi/3, 3pi/4, and 5pi/6 are labeled. The angle 7pi/12 is drawn as a highlighted ray from the center, one tick past pi/2.'
+        math:
+          display: '\dfrac{7\pi}{12}'
+          speak: "7 pi over 12"
+        prompt: 'Which way of writing this angle uses only angles from the unit circle?'
+        choices:
+          - {value: a, label: '\( \tfrac{\pi}{6}+\tfrac{\pi}{4} \)', speak: "pi over 6, plus pi over 4"}
+          - {value: b, label: '\( \tfrac{\pi}{3}+\tfrac{\pi}{4} \)', speak: "pi over 3, plus pi over 4"}
+          - {value: c, label: '\( \tfrac{\pi}{2}+\tfrac{\pi}{12} \)', speak: "pi over 2, plus pi over 12"}
+          - {value: d, label: '\( \tfrac{\pi}{3}-\tfrac{\pi}{4} \)', speak: "pi over 3, minus pi over 4"}
+        correct: b
+        explanation: |-
+          In twelfths, \( \tfrac{\pi}{3}=\tfrac{4\pi}{12} \) and \( \tfrac{\pi}{4}=\tfrac{3\pi}{12} \), so \( \tfrac{\pi}{3}+\tfrac{\pi}{4}=\tfrac{7\pi}{12} \). The sum \( \tfrac{\pi}{6}+\tfrac{\pi}{4} \) is only \( \tfrac{5\pi}{12} \), and \( \tfrac{\pi}{3}-\tfrac{\pi}{4} \) is \( \tfrac{\pi}{12} \). The sum \( \tfrac{\pi}{2}+\tfrac{\pi}{12} \) is correct, but \( \tfrac{\pi}{12} \) is not on the unit circle, so it does not help. <strong>Use \( \tfrac{\pi}{3}+\tfrac{\pi}{4} \).</strong>
+      - id: bd2
+        title: "Build 2"
+        math:
+          display: '\dfrac{\pi}{12}'
+          speak: "pi over 12"
+        prompt: 'Which difference of unit-circle angles equals this angle?'
+        choices:
+          - {value: a, label: '\( \tfrac{\pi}{4}-\tfrac{\pi}{3} \)', speak: "pi over 4, minus pi over 3"}
+          - {value: b, label: '\( \tfrac{\pi}{2}-\tfrac{\pi}{3} \)', speak: "pi over 2, minus pi over 3"}
+          - {value: c, label: '\( \tfrac{\pi}{3}-\tfrac{\pi}{6} \)', speak: "pi over 3, minus pi over 6"}
+          - {value: d, label: '\( \tfrac{\pi}{3}-\tfrac{\pi}{4} \)', speak: "pi over 3, minus pi over 4"}
+        correct: d
+        explanation: |-
+          \( \tfrac{\pi}{3}-\tfrac{\pi}{4}=\tfrac{4\pi}{12}-\tfrac{3\pi}{12}=\tfrac{\pi}{12} \). Order matters: \( \tfrac{\pi}{4}-\tfrac{\pi}{3}=-\tfrac{\pi}{12} \). The other two both equal \( \tfrac{\pi}{6} \). Another route also works: \( \tfrac{\pi}{12} \) is half of \( \tfrac{\pi}{6} \). <strong>\( \tfrac{\pi}{12}=\tfrac{\pi}{3}-\tfrac{\pi}{4} \).</strong>
+      - id: bd3
+        title: "Build 3"
+        math:
+          display: '\dfrac{\pi}{8}'
+          speak: "pi over 8"
+        prompt: 'No sum or difference of unit-circle angles makes this angle. It is half of which unit-circle angle?'
+        choices:
+          - {value: a, label: '\( \tfrac{\pi}{4} \)', speak: "pi over 4"}
+          - {value: b, label: '\( \tfrac{\pi}{16} \)', speak: "pi over 16"}
+          - {value: c, label: '\( \tfrac{\pi}{2} \)', speak: "pi over 2"}
+          - {value: d, label: '\( \tfrac{\pi}{6} \)', speak: "pi over 6"}
+        correct: a
+        explanation: |-
+          Doubling \( \tfrac{\pi}{8} \) gives \( \tfrac{2\pi}{8}=\tfrac{\pi}{4} \). So \( \tfrac{\pi}{8} \) is half of \( \tfrac{\pi}{4} \), and a half-angle formula can use \( \cos\tfrac{\pi}{4}=\tfrac{\sqrt{2}}{2} \). Half of \( \tfrac{\pi}{8} \) is \( \tfrac{\pi}{16} \), which goes the wrong way. <strong>It is half of \( \tfrac{\pi}{4} \).</strong> Every angle in eighths works this way: \( \tfrac{3\pi}{8} \) is half of \( \tfrac{3\pi}{4} \).
+      - id: bd4
+        title: "Build 4"
+        math:
+          display: '\sin\left(\dfrac{5\pi}{8}\right)'
+          speak: "sine of 5 pi over 8"
+        prompt: 'Before calculating: where is this angle, and what sign will the answer have?'
+        choices:
+          - {value: a, label: "Quadrant I, so the sine is above zero"}
+          - {value: b, label: "Quadrant II, so the sine is below zero"}
+          - {value: c, label: "Quadrant II, so the sine is above zero"}
+          - {value: d, label: "Quadrant III, so the sine is below zero"}
+        correct: c
+        explanation: |-
+          \( \tfrac{5\pi}{8} \) is between \( \tfrac{4\pi}{8}=\tfrac{\pi}{2} \) and \( \tfrac{8\pi}{8}=\pi \), so it is in Quadrant II, at 112.5°. Sine is the \( y \)-coordinate, and \( y \) is above zero in Quadrant II. Cosine would be below zero there. <strong>Quadrant II, and the sine is positive.</strong> When a half-angle formula gives \( \pm \), this is how you choose.
+  - id: exact
+    label: "Try It: Exact Values"
+    heading: "Try It: Exact Values"
+    intro: |-
+      Now finish the job. Use the angle you built, a formula, and the sign. Make your best guess, then check it. A calculator is a good way to check, but not to find, an exact value.
+    items:
+      - id: ex1
+        title: "Exact 1"
+        math:
+          display: '\sin\left(\dfrac{\pi}{12}\right)'
+          speak: "sine of pi over 12"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( \dfrac{\sqrt{6}+\sqrt{2}}{4} \)', speak: "the square root of 6, plus the square root of 2, all over 4"}
+          - {value: b, label: '\( \dfrac{\sqrt{6}-\sqrt{2}}{4} \)', speak: "the square root of 6, minus the square root of 2, all over 4"}
+          - {value: c, label: '\( \dfrac{\sqrt{3}-\sqrt{2}}{2} \)', speak: "the square root of 3, minus the square root of 2, all over 2"}
+          - {value: d, label: '\( \dfrac{\sqrt{2}-\sqrt{6}}{4} \)', speak: "the square root of 2, minus the square root of 6, all over 4"}
+        correct: b
+        explanation: |-
+          With \( \tfrac{\pi}{12}=\tfrac{\pi}{3}-\tfrac{\pi}{4} \): \( \sin\tfrac{\pi}{3}\cos\tfrac{\pi}{4}-\cos\tfrac{\pi}{3}\sin\tfrac{\pi}{4}=\tfrac{\sqrt{3}}{2}\cdot\tfrac{\sqrt{2}}{2}-\tfrac{1}{2}\cdot\tfrac{\sqrt{2}}{2}=\tfrac{\sqrt{6}-\sqrt{2}}{4}\approx 0.259 \). The answer \( \tfrac{\sqrt{3}-\sqrt{2}}{2} \) is \( \sin\tfrac{\pi}{3}-\sin\tfrac{\pi}{4} \), which is not how sine works. The plus version is the cosine, and the reversed version is below zero, but \( \tfrac{\pi}{12} \) is in Quadrant I. <strong>\( \tfrac{\sqrt{6}-\sqrt{2}}{4} \).</strong>
+      - id: ex2
+        title: "Exact 2"
+        figure:
+          file: figures/TE1/ex2.svg
+          title: "An angle built from two unit-circle angles placed one after the other"
+          caption: 'The upper half of the unit circle. A first ray makes an angle of pi/3 with the positive x-axis. A second ray is pi/4 farther counterclockwise, so the total angle from the positive x-axis to the second ray is pi/3 plus pi/4. The second ray is labeled angle question mark.'
+        math:
+          display: '\cos\left(\dfrac{7\pi}{12}\right)'
+          speak: "cosine of 7 pi over 12"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( \dfrac{\sqrt{6}-\sqrt{2}}{4} \)', speak: "the square root of 6, minus the square root of 2, all over 4"}
+          - {value: b, label: '\( \dfrac{\sqrt{2}+\sqrt{6}}{4} \)', speak: "the square root of 2, plus the square root of 6, all over 4"}
+          - {value: c, label: '\( \dfrac{1+\sqrt{2}}{2} \)', speak: "1 plus the square root of 2, all over 2"}
+          - {value: d, label: '\( \dfrac{\sqrt{2}-\sqrt{6}}{4} \)', speak: "the square root of 2, minus the square root of 6, all over 4"}
+        correct: d
+        explanation: |-
+          With \( \tfrac{7\pi}{12}=\tfrac{\pi}{3}+\tfrac{\pi}{4} \), the cosine formula flips to a minus: \( \cos\tfrac{\pi}{3}\cos\tfrac{\pi}{4}-\sin\tfrac{\pi}{3}\sin\tfrac{\pi}{4}=\tfrac{\sqrt{2}}{4}-\tfrac{\sqrt{6}}{4}=\tfrac{\sqrt{2}-\sqrt{6}}{4}\approx-0.259 \). That makes sense: \( \tfrac{7\pi}{12} \) is in Quadrant II, where cosine is below zero. The plus version keeps the plus sign, and \( \tfrac{1+\sqrt{2}}{2} \) adds the two cosines, which is more than 1. <strong>\( \tfrac{\sqrt{2}-\sqrt{6}}{4} \).</strong>
+      - id: ex3
+        title: "Exact 3"
+        figure:
+          file: figures/TE1/ex3.svg
+          title: "An angle that is half of a unit-circle angle"
+          caption: 'The first quadrant of the unit circle. A ray at pi/4 meets the circle at a point labeled cos = square root of 2 over 2. A second ray, halfway between the positive x-axis and the first ray, is at pi/8. Its point on the circle is labeled cos = question mark.'
+        math:
+          display: '\cos\left(\dfrac{\pi}{8}\right)'
+          speak: "cosine of pi over 8"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( \dfrac{\sqrt{2}}{4} \)', speak: "the square root of 2, over 4"}
+          - {value: b, label: '\( \dfrac{\sqrt{2-\sqrt{2}}}{2} \)', speak: "the square root of the quantity 2 minus the square root of 2, end quantity, over 2"}
+          - {value: c, label: '\( \dfrac{\sqrt{2+\sqrt{2}}}{2} \)', speak: "the square root of the quantity 2 plus the square root of 2, end quantity, over 2"}
+          - {value: d, label: '\( \sqrt{\dfrac{1+\sqrt{2}}{2}} \)', speak: "the square root of the fraction: 1 plus the square root of 2, over 2"}
+        correct: c
+        explanation: |-
+          \( \tfrac{\pi}{8} \) is half of \( \tfrac{\pi}{4} \), and it is in Quadrant I, so take the positive root: \( \cos\tfrac{\pi}{8}=\sqrt{\tfrac{1+\cos(\pi/4)}{2}}=\sqrt{\tfrac{1+\sqrt{2}/2}{2}}=\sqrt{\tfrac{2+\sqrt{2}}{4}}=\tfrac{\sqrt{2+\sqrt{2}}}{2}\approx 0.924 \). The answer \( \tfrac{\sqrt{2}}{4} \) halves the cosine instead of the angle. The minus version is \( \sin\tfrac{\pi}{8} \). The last one uses 1 + √2 instead of 1 + √2/2, and it is more than 1, which no cosine can be. <strong>\( \tfrac{\sqrt{2+\sqrt{2}}}{2} \).</strong>
+      - id: ex4
+        title: "Exact 4"
+        math:
+          display: '\sin\left(\dfrac{17\pi}{12}\right)'
+          speak: "sine of 17 pi over 12"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( -\dfrac{\sqrt{6}+\sqrt{2}}{4} \)', speak: "negative the fraction: the square root of 6, plus the square root of 2, all over 4"}
+          - {value: b, label: '\( \dfrac{\sqrt{6}+\sqrt{2}}{4} \)', speak: "the square root of 6, plus the square root of 2, all over 4"}
+          - {value: c, label: '\( -\dfrac{\sqrt{6}-\sqrt{2}}{4} \)', speak: "negative the fraction: the square root of 6, minus the square root of 2, all over 4"}
+          - {value: d, label: '\( -\dfrac{\sqrt{3}+1}{2} \)', speak: "negative the fraction: the square root of 3, plus 1, all over 2"}
+        correct: a
+        explanation: |-
+          \( \tfrac{17\pi}{12}=\tfrac{5\pi}{4}+\tfrac{\pi}{6} \), so \( \sin\tfrac{5\pi}{4}\cos\tfrac{\pi}{6}+\cos\tfrac{5\pi}{4}\sin\tfrac{\pi}{6}=-\tfrac{\sqrt{2}}{2}\cdot\tfrac{\sqrt{3}}{2}-\tfrac{\sqrt{2}}{2}\cdot\tfrac{1}{2}=-\tfrac{\sqrt{6}+\sqrt{2}}{4}\approx-0.966 \). Check the sign: \( \tfrac{17\pi}{12} \) is in Quadrant III, where sine is below zero. The \( \sqrt{6}-\sqrt{2} \) version has the wrong size, and \( -\tfrac{\sqrt{3}+1}{2} \) is less than \( -1 \), which no sine can be. <strong>\( -\tfrac{\sqrt{6}+\sqrt{2}}{4} \).</strong>
+  - id: pyth
+    label: "Try It: Pythagorean Identity"
+    heading: "Try It: Pythagorean Identity"
+    intro: |-
+      You know one of sine or cosine and the quadrant. Find the other. The picture shows the reference triangle: x is the cosine side, y is the sine side, and r is the hypotenuse. Make your best guess, then check it.
+    items:
+      - id: py1
+        title: "Identity 1"
+        figure:
+          file: figures/TE1/py1.svg
+          title: "A reference triangle for an angle in Quadrant II"
+          caption: 'Coordinate axes with angle theta in Quadrant II. The terminal side goes from the origin up and to the left, with length r = 13. A vertical leg drops from its end to the x-axis and is labeled y = 5. The horizontal leg, along the x-axis from the origin to the left, is labeled x = question mark.'
+        math:
+          display: '\sin\theta=\dfrac{5}{13}'
+          speak: "sine of theta equals 5 over 13"
+        prompt: 'Angle \( \theta \) is in Quadrant II. What is \( \cos\theta \)?'
+        choices:
+          - {value: a, label: '\( \dfrac{12}{13} \)', speak: "12 over 13"}
+          - {value: b, label: '\( -\dfrac{8}{13} \)', speak: "negative 8 over 13"}
+          - {value: c, label: '\( -\dfrac{12}{5} \)', speak: "negative 12 over 5"}
+          - {value: d, label: '\( -\dfrac{12}{13} \)', speak: "negative 12 over 13"}
+        correct: d
+        explanation: |-
+          \( \cos^{2}\theta=1-\left(\tfrac{5}{13}\right)^{2}=\tfrac{144}{169} \), so \( \cos\theta=\pm\tfrac{12}{13} \). In Quadrant II, \( x \) is to the left of the origin, so cosine is below zero. The answer \( -\tfrac{8}{13} \) subtracts \( 13-5 \) instead of squaring, and \( -\tfrac{12}{5} \) is the tangent. <strong>\( \cos\theta=-\tfrac{12}{13} \).</strong>
+      - id: py2
+        title: "Identity 2"
+        figure:
+          file: figures/TE1/py2.svg
+          title: "A reference triangle for an angle in Quadrant IV"
+          caption: 'Coordinate axes with angle theta in Quadrant IV. The terminal side goes from the origin down and to the right, with length r = 17. The horizontal leg along the x-axis is labeled x = 8. The vertical leg, from the x-axis down to the end of the terminal side, is labeled y = question mark.'
+        math:
+          display: '\cos\theta=\dfrac{8}{17}'
+          speak: "cosine of theta equals 8 over 17"
+        prompt: 'Angle \( \theta \) is in Quadrant IV. What is \( \sin\theta \)?'
+        choices:
+          - {value: a, label: '\( \dfrac{15}{17} \)', speak: "15 over 17"}
+          - {value: b, label: '\( -\dfrac{15}{17} \)', speak: "negative 15 over 17"}
+          - {value: c, label: '\( -\dfrac{9}{17} \)', speak: "negative 9 over 17"}
+          - {value: d, label: '\( -\dfrac{17}{15} \)', speak: "negative 17 over 15"}
+        correct: b
+        explanation: |-
+          \( \sin^{2}\theta=1-\tfrac{64}{289}=\tfrac{225}{289} \), so \( \sin\theta=\pm\tfrac{15}{17} \). In Quadrant IV, \( y \) is below the origin, so sine is below zero. The answer \( -\tfrac{9}{17} \) subtracts \( 17-8 \), and \( -\tfrac{17}{15} \) is the cosecant, which is less than \( -1 \), so it cannot be a sine. <strong>\( \sin\theta=-\tfrac{15}{17} \).</strong>
+      - id: py3
+        title: "Identity 3"
+        figure:
+          file: figures/TE1/py3.svg
+          title: "A reference triangle for an angle in Quadrant III"
+          caption: 'Coordinate axes with angle theta in Quadrant III. The terminal side goes from the origin down and to the left, with length r = 29. The vertical leg is labeled y = negative 20. The horizontal leg, along the x-axis to the left of the origin, is labeled x = question mark.'
+        math:
+          display: '\sin\theta=-\dfrac{20}{29}'
+          speak: "sine of theta equals negative 20 over 29"
+        prompt: 'Angle \( \theta \) is in Quadrant III. What is \( \cos\theta \)?'
+        choices:
+          - {value: a, label: '\( \dfrac{21}{29} \)', speak: "21 over 29"}
+          - {value: b, label: '\( -\dfrac{9}{29} \)', speak: "negative 9 over 29"}
+          - {value: c, label: '\( -\dfrac{21}{29} \)', speak: "negative 21 over 29"}
+          - {value: d, label: '\( -\dfrac{20}{21} \)', speak: "negative 20 over 21"}
+        correct: c
+        explanation: |-
+          \( \cos^{2}\theta=1-\tfrac{400}{841}=\tfrac{441}{841} \), so \( \cos\theta=\pm\tfrac{21}{29} \). In Quadrant III, both \( x \) and \( y \) are below zero. The answer \( -\tfrac{9}{29} \) subtracts \( 29-20 \), and \( -\tfrac{20}{21} \) has the wrong denominator. <strong>\( \cos\theta=-\tfrac{21}{29} \).</strong>
+      - id: py4
+        title: "Identity 4"
+        figure:
+          file: figures/TE1/py4.svg
+          title: "A reference triangle for an angle in Quadrant II"
+          caption: 'Coordinate axes with angle theta in Quadrant II. The terminal side goes from the origin up and to the left, with length r = 5. The horizontal leg along the x-axis is labeled x = negative 3. The vertical leg, from the x-axis up to the end of the terminal side, is labeled y = question mark.'
+        math:
+          display: '\cos\theta=-\dfrac{3}{5}'
+          speak: "cosine of theta equals negative 3 over 5"
+        prompt: 'Angle \( \theta \) is in Quadrant II. What is \( \sin\theta \)?'
+        choices:
+          - {value: a, label: '\( -\dfrac{4}{5} \)', speak: "negative 4 over 5"}
+          - {value: b, label: '\( \dfrac{16}{25} \)', speak: "16 over 25"}
+          - {value: c, label: '\( \dfrac{2}{5} \)', speak: "2 over 5"}
+          - {value: d, label: '\( \dfrac{4}{5} \)', speak: "4 over 5"}
+        correct: d
+        explanation: |-
+          \( \sin^{2}\theta=1-\tfrac{9}{25}=\tfrac{16}{25} \). Stopping there gives \( \tfrac{16}{25} \), but that is \( \sin^{2}\theta \): take the square root, \( \pm\tfrac{4}{5} \). In Quadrant II, \( y \) is above zero, so the sign is not the same as the given cosine's. The answer \( \tfrac{2}{5} \) subtracts \( 5-3 \). <strong>\( \sin\theta=\tfrac{4}{5} \).</strong>
+  - id: power
+    label: "Try It: Power Reducing"
+    heading: "Try It: Power Reducing"
+    intro: |-
+      Rewrite each expression using only first powers of sine and cosine: no squares. Make your best guess, then check it.
+    items:
+      - id: pr1
+        title: "Reduce 1"
+        figure:
+          file: figures/TE1/pr1.svg
+          title: "The graph of y = 3 sin squared of 4x"
+          caption: 'The graph of y = 3 sin squared of 4x for x from 0 to pi/2. The graph starts at 0 when x = 0, rises to 3 at x = pi/8, returns to 0 at x = pi/4, rises to 3 at x = 3pi/8, and returns to 0 at x = pi/2. Dashed lines mark y = 3/2 and y = 3. The graph is a wave that never goes below 0.'
+        math:
+          display: '3\sin^{2}(4x)'
+          speak: "3 sine squared of 4 x"
+        prompt: 'Which expression is equal to this one? The graph is a way to check.'
+        choices:
+          - {value: a, label: '\( \tfrac{3}{2}-\tfrac{3}{2}\cos(8x) \)', speak: "3 halves, minus 3 halves cosine of 8 x"}
+          - {value: b, label: '\( \tfrac{3}{2}+\tfrac{3}{2}\cos(8x) \)', speak: "3 halves, plus 3 halves cosine of 8 x"}
+          - {value: c, label: '\( \tfrac{3}{2}-\tfrac{3}{2}\cos(4x) \)', speak: "3 halves, minus 3 halves cosine of 4 x"}
+          - {value: d, label: '\( \tfrac{1}{2}-\tfrac{3}{2}\cos(8x) \)', speak: "1 half, minus 3 halves cosine of 8 x"}
+        correct: a
+        explanation: |-
+          \( \sin^{2}u=\tfrac{1-\cos(2u)}{2} \) with \( u=4x \): \( 3\cdot\tfrac{1-\cos(8x)}{2}=\tfrac{3}{2}-\tfrac{3}{2}\cos(8x) \). Check with the graph: at \( x=0 \) this gives \( \tfrac{3}{2}-\tfrac{3}{2}=0 \), and the midline is \( y=\tfrac{3}{2} \). The plus version is the cosine formula and would start at 3. The \( \cos(4x) \) version forgets to double the angle, and \( \tfrac{1}{2}-\ldots \) multiplies only one term by 3. <strong>\( \tfrac{3}{2}-\tfrac{3}{2}\cos(8x) \).</strong>
+      - id: pr2
+        title: "Reduce 2"
+        math:
+          display: '5\cos^{2}(2x)'
+          speak: "5 cosine squared of 2 x"
+        prompt: 'Which expression is equal to this one?'
+        choices:
+          - {value: a, label: '\( \tfrac{5}{2}-\tfrac{5}{2}\cos(4x) \)', speak: "5 halves, minus 5 halves cosine of 4 x"}
+          - {value: b, label: '\( \tfrac{5}{2}+\tfrac{5}{2}\cos(2x) \)', speak: "5 halves, plus 5 halves cosine of 2 x"}
+          - {value: c, label: '\( \tfrac{5}{2}+\tfrac{5}{2}\cos(4x) \)', speak: "5 halves, plus 5 halves cosine of 4 x"}
+          - {value: d, label: '\( 5+5\cos(4x) \)', speak: "5 plus 5 cosine of 4 x"}
+        correct: c
+        explanation: |-
+          \( \cos^{2}u=\tfrac{1+\cos(2u)}{2} \) with \( u=2x \): \( 5\cdot\tfrac{1+\cos(4x)}{2}=\tfrac{5}{2}+\tfrac{5}{2}\cos(4x) \). Check at \( x=0 \): \( 5\cos^{2}0=5 \), and \( \tfrac{5}{2}+\tfrac{5}{2}=5 \). The minus version is the sine formula, the \( \cos(2x) \) version does not double the angle, and \( 5+5\cos(4x) \) drops the division by 2. <strong>\( \tfrac{5}{2}+\tfrac{5}{2}\cos(4x) \).</strong>
+      - id: pr3
+        title: "Reduce 3"
+        math:
+          display: '2\sin^{2}(7x)'
+          speak: "2 sine squared of 7 x"
+        prompt: 'Which expression is equal to this one?'
+        choices:
+          - {value: a, label: '\( 1+\cos(14x) \)', speak: "1 plus cosine of 14 x"}
+          - {value: b, label: '\( 1-\cos(14x) \)', speak: "1 minus cosine of 14 x"}
+          - {value: c, label: '\( 1-\cos(7x) \)', speak: "1 minus cosine of 7 x"}
+          - {value: d, label: '\( 2-2\cos(14x) \)', speak: "2 minus 2 cosine of 14 x"}
+        correct: b
+        explanation: |-
+          \( 2\cdot\tfrac{1-\cos(14x)}{2}=1-\cos(14x) \): the 2 cancels the 2 in the denominator. The plus version is the cosine formula, \( 1-\cos(7x) \) does not double the angle, and \( 2-2\cos(14x) \) forgets to divide by 2. <strong>\( 1-\cos(14x) \).</strong>
+      - id: pr4
+        title: "Reduce 4"
+        math:
+          display: '4\cos^{2}(3x)'
+          speak: "4 cosine squared of 3 x"
+        prompt: 'Which expression is equal to this one?'
+        choices:
+          - {value: a, label: '\( 2-2\cos(6x) \)', speak: "2 minus 2 cosine of 6 x"}
+          - {value: b, label: '\( 2+2\cos(3x) \)', speak: "2 plus 2 cosine of 3 x"}
+          - {value: c, label: '\( 2+2\cos(9x) \)', speak: "2 plus 2 cosine of 9 x"}
+          - {value: d, label: '\( 2+2\cos(6x) \)', speak: "2 plus 2 cosine of 6 x"}
+        correct: d
+        explanation: |-
+          \( 4\cdot\tfrac{1+\cos(6x)}{2}=2+2\cos(6x) \). The angle doubles, \( 2\cdot 3x=6x \); it does not square, so \( \cos(9x) \) is out. The minus version is the sine formula, and \( \cos(3x) \) does not double. <strong>\( 2+2\cos(6x) \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} \sin\dfrac{\pi}{12}&=\sin\dfrac{\pi}{3}-\sin\dfrac{\pi}{4}\\ &=\dfrac{\sqrt{3}-\sqrt{2}}{2} \end{aligned}'
+          speak: "sine of pi over 12 equals sine of pi over 3 minus sine of pi over 4. Next line: equals the square root of 3 minus the square root of 2, all over 2"
+        prompt: 'A student found the exact value of \( \sin\tfrac{\pi}{12} \) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The angles should be π/4 − π/6 instead of π/3 − π/4."}
+          - {value: c, label: "Sine does not split over a difference like that."}
+          - {value: d, label: "It should be sin(π/3) + sin(π/4) instead."}
+        correct: c
+        explanation: |-
+          \( \sin(A-B)=\sin A\cos B-\cos A\sin B \), not \( \sin A-\sin B \). The formula gives \( \tfrac{\sqrt{6}-\sqrt{2}}{4}\approx 0.259 \), while the student's answer is about 0.159. Changing to \( \tfrac{\pi}{4}-\tfrac{\pi}{6} \) is a fine difference, but splitting the sine is still wrong. <strong>The correct value is \( \tfrac{\sqrt{6}-\sqrt{2}}{4} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} \sin^{2}\theta&=1-\left(\dfrac{8}{17}\right)^{2}=\dfrac{225}{289}\\ \sin\theta&=-\dfrac{15}{17} \end{aligned}'
+          speak: "sine squared theta equals 1 minus the square of 8 over 17, which is 225 over 289. Next line: sine theta equals negative 15 over 17"
+        prompt: 'Given \( \cos\theta=\tfrac{8}{17} \) with \( \theta \) in Quadrant IV, a student found \( \sin\theta \) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The sine should be 15/17, without the minus sign."}
+          - {value: c, label: "The answer should stay as 225/289."}
+          - {value: d, label: "It should be 1 − 8/17, so the sine is 9/17."}
+        correct: a
+        explanation: |-
+          \( 1-\tfrac{64}{289}=\tfrac{225}{289} \), and its square root is \( \tfrac{15}{17} \). In Quadrant IV, \( y \) is below zero, so the minus sign is right. <strong>There is no mistake.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} \cos^{2}\theta&=1-\dfrac{25}{169}=\dfrac{144}{169}\\ \cos\theta&=\dfrac{12}{13} \end{aligned}'
+          speak: "cosine squared theta equals 1 minus 25 over 169, which is 144 over 169. Next line: cosine theta equals 12 over 13"
+        prompt: 'Given \( \sin\theta=\tfrac{5}{13} \) with \( \theta \) in Quadrant II, a student found \( \cos\theta \) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The cosine should be 8/13, from 13 − 5."}
+          - {value: b, label: "In Quadrant II the cosine is −12/13."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "It should be 1 + 25/169, so the cosine is 13/12."}
+        correct: b
+        explanation: |-
+          The square root gives \( \pm\tfrac{12}{13} \), and the student kept the wrong one. In Quadrant II, \( x \) is to the left of the origin, so the cosine is below zero. <strong>\( \cos\theta=-\tfrac{12}{13} \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\cos\dfrac{\pi}{8}=\dfrac{1}{2}\cos\dfrac{\pi}{4}=\dfrac{\sqrt{2}}{4}'
+          speak: "cosine of pi over 8 equals one half times cosine of pi over 4, which equals the square root of 2, over 4"
+        prompt: 'A student found the exact value of \( \cos\tfrac{\pi}{8} \) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be 2 cos(π/4), which is √2."}
+          - {value: c, label: "The answer should be below zero, so it is −√2/4."}
+          - {value: d, label: "Halving the angle does not halve the cosine."}
+        correct: d
+        explanation: |-
+          The half-angle formula is \( \cos\tfrac{\theta}{2}=\pm\sqrt{\tfrac{1+\cos\theta}{2}} \). With \( \theta=\tfrac{\pi}{4} \) in Quadrant I, \( \cos\tfrac{\pi}{8}=\tfrac{\sqrt{2+\sqrt{2}}}{2}\approx 0.924 \). A quick check: \( \tfrac{\pi}{8} \) is close to 0, so its cosine should be close to 1, not 0.354. <strong>The correct value is \( \tfrac{\sqrt{2+\sqrt{2}}}{2} \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '4\sin^{2}(3x)=2-2\cos(3x)'
+          speak: "4 sine squared of 3 x equals 2 minus 2 cosine of 3 x"
+        prompt: 'A student rewrote this expression with only first powers. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "The minus should be a plus: 2 + 2cos(3x)."}
+          - {value: b, label: "The angle should double, so it is 2 − 2cos(6x)."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "It should be 4 − 4cos(3x), keeping the 4 on both terms."}
+        correct: b
+        explanation: |-
+          \( \sin^{2}u=\tfrac{1-\cos(2u)}{2} \): the angle inside the cosine is \( 2u \). With \( u=3x \), that is \( 6x \), so \( 4\sin^{2}(3x)=2-2\cos(6x) \). Check at \( x=\tfrac{\pi}{6} \): \( 4\sin^{2}\tfrac{\pi}{2}=4 \), and \( 2-2\cos\pi=4 \), but the student's version gives 2. <strong>\( 2-2\cos(6x) \).</strong>
