@@ -5,6 +5,7 @@
 # or a tent 4 - |x|, each possibly flipped upside down. It defines g(x) = (+/-) f(x +/- b) +/- c with b, c from 1 to 5, and asks
 # (1) the sequence of transformations: horizontal shift, then reflection across the x-axis if there is one, then vertical shift;
 # (2) a sketch of g. The outcome also names stretches, but CheckIt FN4 does not use them.
+# The Horizontal Reflection tab covers f(-x), which is taught in class and on written homework but is not on CheckIt FN4.
 # Figures drawn by tools/figures/make_fn4.py.
 code: FN4
 h1: "FN4 Support: Transformations of Functions"
@@ -31,6 +32,10 @@ summary:   # the Quick Summary tab
       - 'Reflects across the <span>\( x \)</span>-axis: every <span>\( y \)</span>-coordinate changes sign, and the graph turns upside down.'
       - 'Across the <span>\( x \)</span>-axis, not the <span>\( y \)</span>-axis. A minus inside, <span>\( f(-x) \)</span>, would reflect across the <span>\( y \)</span>-axis.'
     -
+      - 'A minus inside: <span>\( f(-x) \)</span> (class and written homework)'
+      - 'A horizontal reflection: every input is multiplied by <span>\( -1 \)</span>, so the graph reflects across the <span>\( y \)</span>-axis. Each point <span>\( (x,y) \)</span> goes to <span>\( (-x,y) \)</span>.'
+      - 'A graph that is symmetric about the <span>\( y \)</span>-axis, like all three CheckIt shapes, looks the same after this reflection. To find <span>\( f(-x) \)</span> from a formula, replace every <span>\( x \)</span> with <span>\( (-x) \)</span>.'
+    -
       - 'Outside: <span>\( f(x)+c \)</span> or <span>\( f(x)-c \)</span>'
       - 'Shifts up <span>\( c \)</span> or down <span>\( c \)</span>. Every <span>\( y \)</span>-coordinate changes.'
       - 'This one goes the same way as the sign.'
@@ -38,7 +43,7 @@ summary:   # the Quick Summary tab
       - 'All together: <span>\( -f(x+b)+c \)</span>'
       - 'Shift sideways, then reflect, then shift up or down. Each point <span>\( (x,y) \)</span> goes to <span>\( (x-b,\ -y+c) \)</span>.'
       - 'Reflect before the vertical shift; that is the order that matters. Shifting up first and then reflecting would send the graph down instead. The sideways shift and the reflection can go in either order.'
-  note: 'CheckIt asks for two things: the sequence of transformations, in order, and a sketch of <span>\( g \)</span>. A complete answer to the first sounds like this: the graph of <span>\( f \)</span> is shifted left by 3, reflected across the <span>\( x \)</span>-axis, and then shifted up by 2. For the sketch, move the two endpoints and the top or bottom point, plot them, and connect them with the same shape as <span>\( f \)</span>. The FN4 outcome also names stretches, but CheckIt''s FN4 problems use only shifts and reflections. Your CheckIt graph will be a semicircle, a parabola piece, or a tent, and your numbers will be different. Tracking points is what transfers.'
+  note: 'CheckIt asks for two things: the sequence of transformations, in order, and a sketch of <span>\( g \)</span>. A complete answer to the first sounds like this: the graph of <span>\( f \)</span> is shifted left by 3, reflected across the <span>\( x \)</span>-axis, and then shifted up by 2. For the sketch, move the two endpoints and the top or bottom point, plot them, and connect them with the same shape as <span>\( f \)</span>. The FN4 outcome also names stretches, but CheckIt''s FN4 problems use only shifts and reflections across the <span>\( x \)</span>-axis. Reflections across the <span>\( y \)</span>-axis are not on CheckIt, but they are in class and on the written homework, so they have their own Try It tab. Your CheckIt graph will be a semicircle, a parabola piece, or a tent, and your numbers will be different. Tracking points is what transfers.'
 tabs:
   - id: read
     label: "Try It: Read the Formula"
@@ -246,6 +251,73 @@ tabs:
         correct: b
         explanation: |-
           The bowl still opens up, so no reflection. Its low point moved from \( (0,-4) \) to \( (5,-1) \): right 5 and up 3. Right 5 is \( x-5 \). The \( x+5 \) version goes left, \( f(x-3)+5 \) swaps the 5 and the 3, and the minus in front would turn the bowl into an arch. <strong>\( g(x)=f(x-5)+3 \).</strong>
+  - id: hreflect
+    label: "Try It: Horizontal Reflection"
+    heading: "Try It: Horizontal Reflection"
+    intro: |-
+      This one is not on CheckIt FN4, but it is in class and on the written homework. What happens when the minus sign goes inside, as in \( g(x)=f(-x) \), so that every input is multiplied by \( -1 \)? Make your best guess, then check it.
+    items:
+      - id: hr1
+        title: "Reflect 1"
+        figure:
+          file: figures/FN4/hr1.svg
+          title: "The graph of f(x) = square root of x"
+          caption: 'The graph of f(x) = square root of x on a grid from −8 to 8 across and −4 to 4 up. It starts at the origin (0, 0) and rises to the right, more and more slowly, through (1, 1) and (4, 2). All three points are labeled. There is no graph to the left of the y-axis.'
+        math:
+          display: 'g(x)=f(-x)'
+          speak: "g of x equals f of negative x"
+        prompt: 'The point (4, 2) is on the graph of f. Which point is on the graph of g?'
+        choices:
+          - {value: a, label: "(4, −2)"}
+          - {value: b, label: "(−4, −2)"}
+          - {value: c, label: "(−4, 2)"}
+          - {value: d, label: "(2, 4)"}
+        correct: c
+        explanation: |-
+          \( g(-4)=f(4)=2 \), because \( -(-4)=4 \), so \( (-4,2) \) is on \( g \). The input changes sign and the output stays the same: \( (x,y) \) goes to \( (-x,y) \). The whole graph of \( \sqrt{x} \) flips to the left side of the \( y \)-axis. The point \( (4,-2) \) is the reflection across the \( x \)-axis, \( -f(x) \), and \( (-4,-2) \) reflects across both axes. <strong>\( (-4,2) \).</strong>
+      - id: hr2
+        title: "Reflect 2"
+        math:
+          display: 'y=f(x)'
+          speak: "y equals f of x"
+        prompt: 'Which formula reflects the graph of f across the y-axis?'
+        choices:
+          - {value: a, label: '\( -f(x) \)', speak: "negative f of x"}
+          - {value: b, label: '\( f(-x) \)', speak: "f of negative x"}
+          - {value: c, label: '\( -f(-x) \)', speak: "negative f of negative x"}
+          - {value: d, label: '\( f(x)-1 \)', speak: "f of x, minus 1"}
+        correct: b
+        explanation: |-
+          A reflection across the \( y \)-axis swaps left and right, so it changes the inputs: \( f(-x) \). A minus outside, \( -f(x) \), changes the outputs, which reflects across the \( x \)-axis. Both minus signs, \( -f(-x) \), reflect across both axes. Memory hook: a minus inside changes \( x \), a minus outside changes \( y \). <strong>\( f(-x) \).</strong>
+      - id: hr3
+        title: "Reflect 3"
+        math:
+          display: 'f(x)=x^{2}+3x'
+          speak: "f of x equals x squared plus 3 x"
+        prompt: 'What is f(−x), simplified?'
+        choices:
+          - {value: a, label: '\( -x^{2}-3x \)', speak: "negative x squared minus 3 x"}
+          - {value: b, label: '\( -x^{2}+3x \)', speak: "negative x squared plus 3 x"}
+          - {value: c, label: '\( x^{2}+3x \)', speak: "x squared plus 3 x"}
+          - {value: d, label: '\( x^{2}-3x \)', speak: "x squared minus 3 x"}
+        correct: d
+        explanation: |-
+          Replace every \( x \) with \( (-x) \), parentheses included: \( f(-x)=(-x)^{2}+3(-x)=x^{2}-3x \). The square makes \( (-x)^{2}=x^{2} \), so only the odd-power term changes sign. The answer \( -x^{2}-3x \) is \( -f(x) \), which multiplies the outputs instead, and \( -x^{2}+3x \) forgets the parentheses: \( -x^{2} \) is not \( (-x)^{2} \). <strong>\( f(-x)=x^{2}-3x \).</strong>
+      - id: hr4
+        title: "Reflect 4"
+        figure:
+          file: figures/FN4/hr4.svg
+          title: "The graph of f(x) = 4 − x squared on [−2, 2]"
+          caption: 'The graph of f(x) = 4 − x squared from x = −2 to x = 2: an arch from (−2, 0) up to its top point (0, 4) and back down to (2, 0). The points (−1, 3), (0, 4), and (1, 3) are labeled.'
+        prompt: 'This is one of CheckIt''s graphs. What does the graph of g(x) = f(−x) look like?'
+        choices:
+          - {value: a, label: "The same arch, upside down"}
+          - {value: b, label: "Exactly the same arch"}
+          - {value: c, label: "The same arch, moved left"}
+          - {value: d, label: "The same arch, moved right"}
+        correct: b
+        explanation: |-
+          Reflecting across the \( y \)-axis sends \( (1,3) \) to \( (-1,3) \) and \( (-1,3) \) to \( (1,3) \): those points were already mirror images, so the graph lands on itself. Algebraically, \( f(-x)=4-(-x)^{2}=4-x^{2}=f(x) \). This is true for all three CheckIt shapes, so with them, \( f(-x) \) would not change anything. Upside down would be \( -f(x) \). <strong>Exactly the same arch.</strong> On the homework, watch for graphs that are not symmetric, like \( \sqrt{x} \).
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"

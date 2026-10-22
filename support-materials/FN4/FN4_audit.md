@@ -44,3 +44,8 @@ CheckIt display quirks students may notice:
 
 ## Needs a live screen reader
 - How NVDA reads the graph captions and the new "the quantity" readings, and whether feedback is announced once.
+
+## Update 2026-10-22: horizontal reflection
+- Added at the instructor's request because it is taught in class and on the written homework, though not on CheckIt FN4: a Quick Summary row for f(−x) and a Try It: Horizontal Reflection tab with 4 items.
+- The tab uses f(x) = √x, which is lopsided, so the reflection is visible. One item shows that CheckIt's symmetric shapes do not change under f(−x).
+- Rechecked: lint, axe-core (0 violations on every tab at both widths), and 320 px reflow with and without text spacing. The tab intro asks the question rather than stating the rule, so it does not answer Reflect 2.

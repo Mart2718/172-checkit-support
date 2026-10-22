@@ -106,3 +106,13 @@ overlay('mg2.svg', 'semi', 1, -2, 1, True, nudge={0: ('end', -10, -6)})
 overlay('mg3.svg', 'tent', 1, 1, 2, True)
 overlay('mg4.svg', 'para', -1, -5, 3, False)
 print('wrote', sorted(os.listdir(OUT)))
+
+# Horizontal reflection (class and written homework; not on CheckIt): f(x) = sqrt(x) is lopsided, so f(-x) looks different.
+sq = lambda x: math.sqrt(max(x, 0))
+draw('hr1.svg', [{'f': sq, 'dom': (0, 7.5), 'style': 'main',
+                  'pts': [(0, 0, '(0, 0)', 'end', -8, 22), (1, 1, '(1, 1)', 'end', -8, -10), (4, 2, '(4, 2)', 'middle', 0, -14)]}],
+     xr=(-8, 8), yr=(-4, 4))
+draw('hr4.svg', [{'f': lambda x: 4 - x * x, 'dom': (-2, 2), 'style': 'main',
+                  'pts': [(-1, 3, '(−1, 3)', 'end', -10, 6), (1, 3, '(1, 3)', 'start', 10, 6), (0, 4, '(0, 4)', 'start', 10, -10)]}],
+     xr=(-8, 8), yr=(-2, 6))
+print('wrote hr figures')
