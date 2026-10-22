@@ -1,0 +1,386 @@
+# TE3 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TE3 gives three equations: (1) f(theta) = a special value for any of the six functions, written like
+# 2 sin(theta) - sqrt(3) = 0, all solutions, keyed as "theta = a + 2 pi k, b + 2 pi k for all integers k";
+# (2) a squared sine or cosine, like 4 sin^2(theta) - 3 = 0, solutions in [0, 2pi);
+# (3) sin(c theta) or cos(c theta) = a special value with c = 2, 3, or 4, solutions in [0, 2pi).
+# Figures drawn by tools/figures/make_te3.py.
+code: TE3
+h1: "TE3 Support: Solving Trigonometric Equations"
+pageTitle: "TE3 Support: Solving Trigonometric Equations — Math 172, Santa Ana College"
+hubSummary: "Solving trigonometric equations: unit-circle angles, all solutions, squared equations, and multiple angles"
+videoIntro: "A narrated walkthrough of solving trigonometric equations: isolating the function, finding every unit-circle angle that works, writing all solutions with 2πk, handling squares with plus or minus, and solving equations like cos(3θ) = 1/2 on [0, 2π)."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'two solutions|four solutions|no solution|Quadrant (I|II|III|IV)\b'
+worked:   # used for the worked-examples recording document
+  title: "TE3 Worked Examples: Solving Trigonometric Equations"
+  coreQuestion: "Where on the unit circle does this function take this value?"
+  coreFollowup: "Isolate the trig function, then find every point on the unit circle where it has that value. Sine is the y-coordinate, cosine is the x-coordinate, and tangent is y over x. Most values happen at two angles in [0, 2π). For all solutions, add 2πk to each one. A square gives plus or minus, so up to four angles. And for cos(3θ), let the angle 3θ go around three times before dividing by 3."
+summary:   # the Quick Summary tab
+  intro: 'Every TE3 equation comes down to one question: <strong>where on the unit circle does this function take this value?</strong> Sine is the <span>\( y \)</span>-coordinate, cosine is the <span>\( x \)</span>-coordinate, and tangent is <span>\( \tfrac{y}{x} \)</span>.'
+  caption: "How to solve each kind of TE3 equation, and what to watch for"
+  columns: ["The equation", "How", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'One function equals a number, like <span>\( 2\sin\theta-\sqrt{3}=0 \)</span>'
+      - 'Isolate it: <span>\( \sin\theta=\tfrac{\sqrt{3}}{2} \)</span>. For sec, csc, or cot, flip first: <span>\( \sec\theta=2 \)</span> means <span>\( \cos\theta=\tfrac{1}{2} \)</span>. Find the reference angle, then every quadrant where the sign matches.'
+      - 'Most values give two angles in <span>\( [0,2\pi) \)</span>. Sine and cosine must be between −1 and 1, so <span>\( \sec\theta=\tfrac{1}{2} \)</span> has no solution.'
+    -
+      - '"Find all solutions"'
+      - 'Add <span>\( 2\pi k \)</span> to each angle in <span>\( [0,2\pi) \)</span>: <span>\( \theta=\tfrac{\pi}{6}+2\pi k,\ \tfrac{5\pi}{6}+2\pi k \)</span>, for all integers <span>\( k \)</span>.'
+      - 'Keep every angle. For tangent, the two angles are <span>\( \pi \)</span> apart, so <span>\( \tfrac{\pi}{6}+\pi k \)</span> says the same thing as two <span>\( 2\pi k \)</span> lists.'
+    -
+      - 'A square, like <span>\( 4\sin^{2}\theta-3=0 \)</span>'
+      - 'Isolate the square and take the square root: <span>\( \sin\theta=\pm\tfrac{\sqrt{3}}{2} \)</span>.'
+      - 'The <span>\( \pm \)</span> usually doubles the count, to four angles.'
+    -
+      - 'A multiple angle, like <span>\( 2\cos(3\theta)-1=0 \)</span>'
+      - 'Solve for <span>\( 3\theta \)</span> first. As <span>\( \theta \)</span> goes from 0 to <span>\( 2\pi \)</span>, <span>\( 3\theta \)</span> goes from 0 to <span>\( 6\pi \)</span>, so list its angles for three laps. Then divide each by 3.'
+      - 'One lap is not enough. Check that every final answer is in <span>\( [0,2\pi) \)</span>.'
+  note: 'Answers are in radians. The interval <span>\( [0,2\pi) \)</span> includes 0 but not <span>\( 2\pi \)</span>. CheckIt writes its equations with everything on one side, like <span>\( 3\tan(\theta)-\sqrt{3}=0 \)</span>, and its all-solutions answers as a list of angles, each with <span>\( +2\pi k \)</span>. Your CheckIt equations will be different from these examples. The unit circle is what transfers.'
+tabs:
+  - id: unit
+    label: "Try It: Unit Circle Angles"
+    heading: "Try It: Unit Circle Angles"
+    intro: |-
+      Each equation has one trig function. Isolate it, then find where on the unit circle it takes that value. Make your best guess on each one, then check it.
+    items:
+      - id: uc1
+        title: "Unit Circle 1"
+        figure:
+          file: figures/TE3/uc1.svg
+          title: "The unit circle crossed by a horizontal line"
+          caption: 'The unit circle, centered at the origin with radius 1. A dashed horizontal line y = square root of 3 over 2 crosses the circle at two points, one on each side of the y-axis, both above the x-axis. The two points are marked with dots but not labeled.'
+        math:
+          display: '2\sin\theta-\sqrt{3}=0'
+          speak: "two sine theta minus the square root of 3 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \)', speak: "pi over 6, 5 pi over 6"}
+          - {value: b, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \)', speak: "pi over 3, 2 pi over 3"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{5\pi}{3} \)', speak: "pi over 3, 5 pi over 3"}
+          - {value: d, label: '\( \dfrac{\pi}{3} \)', speak: "pi over 3"}
+        correct: b
+        explanation: |-
+          Isolate: \( \sin\theta=\tfrac{\sqrt{3}}{2} \). Sine is the \( y \)-coordinate, and the line \( y=\tfrac{\sqrt{3}}{2} \) crosses the circle twice: at \( \tfrac{\pi}{3} \) in Quadrant I and at \( \pi-\tfrac{\pi}{3}=\tfrac{2\pi}{3} \) in Quadrant II. The pair \( \tfrac{\pi}{6},\tfrac{5\pi}{6} \) has sine \( \tfrac{1}{2} \), and \( \tfrac{5\pi}{3} \) has a negative sine. Stopping at \( \tfrac{\pi}{3} \) misses the second crossing. <strong>\( \theta=\tfrac{\pi}{3},\ \tfrac{2\pi}{3} \).</strong>
+      - id: uc2
+        title: "Unit Circle 2"
+        figure:
+          file: figures/TE3/uc2.svg
+          title: "The unit circle crossed by a vertical line"
+          caption: 'The unit circle, centered at the origin with radius 1. A dashed vertical line x = negative square root of 2 over 2 crosses the circle at two points, both to the left of the y-axis, one above and one below the x-axis. The two points are marked with dots but not labeled.'
+        math:
+          display: '2\cos\theta+\sqrt{2}=0'
+          speak: "two cosine theta plus the square root of 2 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "pi over 4, 7 pi over 4"}
+          - {value: b, label: '\( \dfrac{3\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "3 pi over 4, 7 pi over 4"}
+          - {value: c, label: '\( \dfrac{5\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "5 pi over 4, 7 pi over 4"}
+          - {value: d, label: '\( \dfrac{3\pi}{4} \), \( \dfrac{5\pi}{4} \)', speak: "3 pi over 4, 5 pi over 4"}
+        correct: d
+        explanation: |-
+          Isolate: \( \cos\theta=-\tfrac{\sqrt{2}}{2} \). Cosine is the \( x \)-coordinate, so the vertical line \( x=-\tfrac{\sqrt{2}}{2} \) crosses the circle on the left side, once above and once below the \( x \)-axis: \( \tfrac{3\pi}{4} \) and \( \tfrac{5\pi}{4} \). The pair \( \tfrac{\pi}{4},\tfrac{7\pi}{4} \) has cosine \( +\tfrac{\sqrt{2}}{2} \). The other pairs each include an angle on the right side, where cosine is positive. <strong>\( \theta=\tfrac{3\pi}{4},\ \tfrac{5\pi}{4} \).</strong>
+      - id: uc3
+        title: "Unit Circle 3"
+        math:
+          display: '\sec\theta-2=0'
+          speak: "secant theta minus 2 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: "No solution: cosine cannot equal 2"}
+          - {value: b, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \)', speak: "pi over 6, 5 pi over 6"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{5\pi}{3} \)', speak: "pi over 3, 5 pi over 3"}
+          - {value: d, label: '\( \dfrac{2\pi}{3} \), \( \dfrac{4\pi}{3} \)', speak: "2 pi over 3, 4 pi over 3"}
+        correct: c
+        explanation: |-
+          \( \sec\theta=2 \) means \( \tfrac{1}{\cos\theta}=2 \), so \( \cos\theta=\tfrac{1}{2} \). That happens at \( \tfrac{\pi}{3} \) and at \( 2\pi-\tfrac{\pi}{3}=\tfrac{5\pi}{3} \). Secant can equal 2; it is cosine that must stay between −1 and 1, and \( \tfrac{1}{2} \) does. The pair \( \tfrac{\pi}{6},\tfrac{5\pi}{6} \) has sine \( \tfrac{1}{2} \), and \( \tfrac{2\pi}{3},\tfrac{4\pi}{3} \) has cosine \( -\tfrac{1}{2} \). <strong>\( \theta=\tfrac{\pi}{3},\ \tfrac{5\pi}{3} \).</strong>
+      - id: uc4
+        title: "Unit Circle 4"
+        figure:
+          file: figures/TE3/uc4.svg
+          title: "The unit circle crossed by a line through the origin"
+          caption: 'The unit circle, centered at the origin with radius 1. A dashed line through the origin, y = square root of 3 over 3 times x, rises gently to the right. It crosses the circle at two opposite points, one up and to the right and one down and to the left. The two points are marked with dots but not labeled.'
+        math:
+          display: '3\tan\theta-\sqrt{3}=0'
+          speak: "three tangent theta minus the square root of 3 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6} \), \( \dfrac{7\pi}{6} \)', speak: "pi over 6, 7 pi over 6"}
+          - {value: b, label: '\( \dfrac{\pi}{3} \), \( \dfrac{4\pi}{3} \)', speak: "pi over 3, 4 pi over 3"}
+          - {value: c, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \)', speak: "pi over 6, 5 pi over 6"}
+          - {value: d, label: '\( \dfrac{\pi}{6} \), \( \dfrac{11\pi}{6} \)', speak: "pi over 6, 11 pi over 6"}
+        correct: a
+        explanation: |-
+          Isolate: \( \tan\theta=\tfrac{\sqrt{3}}{3} \). Tangent is \( \tfrac{y}{x} \), the slope of the line from the origin, so the line \( y=\tfrac{\sqrt{3}}{3}x \) crosses the circle at two opposite points: \( \tfrac{\pi}{6} \) and \( \tfrac{\pi}{6}+\pi=\tfrac{7\pi}{6} \). Tangent angles always come in pairs \( \pi \) apart. The pair \( \tfrac{\pi}{3},\tfrac{4\pi}{3} \) has tangent \( \sqrt{3} \), and the other two pairs use sine or cosine symmetry. <strong>\( \theta=\tfrac{\pi}{6},\ \tfrac{7\pi}{6} \).</strong>
+  - id: all
+    label: "Try It: All Solutions"
+    heading: "Try It: All Solutions"
+    intro: |-
+      Now find every solution, not just the ones in one trip around the circle. Make your best guess, then check it.
+    items:
+      - id: as1
+        title: "All Solutions 1"
+        math:
+          display: '2\sin\theta-1=0'
+          speak: "two sine theta minus 1 equals 0"
+        prompt: 'Which describes all solutions? Here k is any integer.'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6}+2\pi k \)', speak: "pi over 6 plus 2 pi k"}
+          - {value: b, label: '\( \dfrac{\pi}{6}+2\pi k \), \( \dfrac{5\pi}{6}+2\pi k \)', speak: "pi over 6 plus 2 pi k, 5 pi over 6 plus 2 pi k"}
+          - {value: c, label: '\( \dfrac{\pi}{6}+\pi k \)', speak: "pi over 6 plus pi k"}
+          - {value: d, label: '\( \dfrac{\pi}{6}+2\pi k \), \( \dfrac{11\pi}{6}+2\pi k \)', speak: "pi over 6 plus 2 pi k, 11 pi over 6 plus 2 pi k"}
+        correct: b
+        explanation: |-
+          \( \sin\theta=\tfrac{1}{2} \) at \( \tfrac{\pi}{6} \) and \( \tfrac{5\pi}{6} \). Going around the circle any whole number of times lands on the same points, so add \( 2\pi k \) to each. Keeping only \( \tfrac{\pi}{6} \) loses half the solutions. The list \( \tfrac{\pi}{6}+\pi k \) includes \( \tfrac{7\pi}{6} \), where sine is \( -\tfrac{1}{2} \). The angle \( \tfrac{11\pi}{6} \) has a negative sine. <strong>\( \theta=\tfrac{\pi}{6}+2\pi k,\ \tfrac{5\pi}{6}+2\pi k \).</strong>
+      - id: as2
+        title: "All Solutions 2"
+        math:
+          display: '\tan\theta+1=0'
+          speak: "tangent theta plus 1 equals 0"
+        prompt: 'Which describes all solutions? Here k is any integer.'
+        choices:
+          - {value: a, label: '\( \dfrac{3\pi}{4}+2\pi k \)', speak: "3 pi over 4 plus 2 pi k"}
+          - {value: b, label: '\( \dfrac{\pi}{4}+2\pi k \), \( \dfrac{5\pi}{4}+2\pi k \)', speak: "pi over 4 plus 2 pi k, 5 pi over 4 plus 2 pi k"}
+          - {value: c, label: '\( \dfrac{3\pi}{4}+2\pi k \), \( \dfrac{5\pi}{4}+2\pi k \)', speak: "3 pi over 4 plus 2 pi k, 5 pi over 4 plus 2 pi k"}
+          - {value: d, label: '\( \dfrac{3\pi}{4}+2\pi k \), \( \dfrac{7\pi}{4}+2\pi k \)', speak: "3 pi over 4 plus 2 pi k, 7 pi over 4 plus 2 pi k"}
+        correct: d
+        explanation: |-
+          \( \tan\theta=-1 \) where \( x \) and \( y \) are opposites: \( \tfrac{3\pi}{4} \) and \( \tfrac{7\pi}{4} \), which are \( \pi \) apart. So all solutions are \( \tfrac{3\pi}{4}+2\pi k,\ \tfrac{7\pi}{4}+2\pi k \), or more briefly \( \tfrac{3\pi}{4}+\pi k \). CheckIt writes the longer form. The pair \( \tfrac{\pi}{4},\tfrac{5\pi}{4} \) has tangent \( +1 \), and at \( \tfrac{5\pi}{4} \) the tangent is \( +1 \). <strong>\( \theta=\tfrac{3\pi}{4}+2\pi k,\ \tfrac{7\pi}{4}+2\pi k \).</strong>
+      - id: as3
+        title: "All Solutions 3"
+        math:
+          display: '\cos\theta=0'
+          speak: "cosine theta equals 0"
+        prompt: 'Which describes all solutions? Here k is any integer.'
+        choices:
+          - {value: a, label: '\( 2\pi k \), \( \pi+2\pi k \)', speak: "2 pi k, pi plus 2 pi k"}
+          - {value: b, label: '\( \dfrac{\pi}{2}+2\pi k \)', speak: "pi over 2 plus 2 pi k"}
+          - {value: c, label: '\( \dfrac{\pi}{2}+2\pi k \), \( \dfrac{3\pi}{2}+2\pi k \)', speak: "pi over 2 plus 2 pi k, 3 pi over 2 plus 2 pi k"}
+          - {value: d, label: '\( \dfrac{\pi}{2}+2\pi k \), \( \dfrac{5\pi}{2}+2\pi k \)', speak: "pi over 2 plus 2 pi k, 5 pi over 2 plus 2 pi k"}
+        correct: c
+        explanation: |-
+          Cosine is the \( x \)-coordinate, which is 0 at the top and bottom of the circle: \( \tfrac{\pi}{2} \) and \( \tfrac{3\pi}{2} \). Adding \( 2\pi k \) to each gives all solutions; \( \tfrac{\pi}{2}+\pi k \) says the same thing. The list \( 2\pi k,\ \pi+2\pi k \) is where sine is 0, and \( \tfrac{5\pi}{2} \) is the same point as \( \tfrac{\pi}{2} \), so that list misses the bottom of the circle. <strong>\( \theta=\tfrac{\pi}{2}+2\pi k,\ \tfrac{3\pi}{2}+2\pi k \).</strong>
+      - id: as4
+        title: "All Solutions 4"
+        math:
+          display: '\csc\theta+2=0'
+          speak: "cosecant theta plus 2 equals 0"
+        prompt: 'Which describes all solutions? Here k is any integer.'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6}+2\pi k \), \( \dfrac{5\pi}{6}+2\pi k \)', speak: "pi over 6 plus 2 pi k, 5 pi over 6 plus 2 pi k"}
+          - {value: b, label: '\( \dfrac{7\pi}{6}+2\pi k \), \( \dfrac{11\pi}{6}+2\pi k \)', speak: "7 pi over 6 plus 2 pi k, 11 pi over 6 plus 2 pi k"}
+          - {value: c, label: '\( \dfrac{4\pi}{3}+2\pi k \), \( \dfrac{11\pi}{6}+2\pi k \)', speak: "4 pi over 3 plus 2 pi k, 11 pi over 6 plus 2 pi k"}
+          - {value: d, label: "No solution: cosecant cannot be negative"}
+        correct: b
+        explanation: |-
+          \( \csc\theta=-2 \) means \( \sin\theta=-\tfrac{1}{2} \). Cosecant can be negative; it just can never be between −1 and 1. Sine is \( -\tfrac{1}{2} \) below the \( x \)-axis, at \( \pi+\tfrac{\pi}{6}=\tfrac{7\pi}{6} \) and \( 2\pi-\tfrac{\pi}{6}=\tfrac{11\pi}{6} \). The first pair has sine \( +\tfrac{1}{2} \), and at \( \tfrac{4\pi}{3} \) the sine is \( -\tfrac{\sqrt{3}}{2} \). <strong>\( \theta=\tfrac{7\pi}{6}+2\pi k,\ \tfrac{11\pi}{6}+2\pi k \).</strong>
+  - id: squared
+    label: "Try It: Squared"
+    heading: "Try It: Squared"
+    intro: |-
+      A square means plus or minus. Isolate the square, take the square root, and find every angle in [0, 2π). Make your best guess, then check it.
+    items:
+      - id: sq1
+        title: "Squared 1"
+        figure:
+          file: figures/TE3/sq1.svg
+          title: "The unit circle crossed by two horizontal lines"
+          caption: 'The unit circle, centered at the origin with radius 1. Two dashed horizontal lines cross it: y = square root of 3 over 2, above the x-axis, and y = negative square root of 3 over 2, below it. Each line crosses the circle at two points, one on each side of the y-axis, for four points in all. The points are marked with dots but not labeled.'
+        math:
+          display: '4\sin^{2}\theta-3=0'
+          speak: "four sine squared theta minus 3 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \)', speak: "pi over 3, 2 pi over 3"}
+          - {value: b, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \), \( \dfrac{7\pi}{6} \), \( \dfrac{11\pi}{6} \)', speak: "pi over 6, 5 pi over 6, 7 pi over 6, 11 pi over 6"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \), \( \dfrac{4\pi}{3} \), \( \dfrac{5\pi}{3} \)', speak: "pi over 3, 2 pi over 3, 4 pi over 3, 5 pi over 3"}
+          - {value: d, label: '\( \dfrac{\pi}{3} \), \( \dfrac{4\pi}{3} \)', speak: "pi over 3, 4 pi over 3"}
+        correct: c
+        explanation: |-
+          \( \sin^{2}\theta=\tfrac{3}{4} \), so \( \sin\theta=\pm\tfrac{\sqrt{3}}{2} \). The plus gives \( \tfrac{\pi}{3},\tfrac{2\pi}{3} \), and the minus gives \( \tfrac{4\pi}{3},\tfrac{5\pi}{3} \). Keeping only the plus loses half. The list in sixths has cosine \( \pm\tfrac{\sqrt{3}}{2} \), and \( \tfrac{\pi}{3},\tfrac{4\pi}{3} \) is a tangent pair. <strong>\( \theta=\tfrac{\pi}{3},\ \tfrac{2\pi}{3},\ \tfrac{4\pi}{3},\ \tfrac{5\pi}{3} \).</strong>
+      - id: sq2
+        title: "Squared 2"
+        math:
+          display: '2\cos^{2}\theta-1=0'
+          speak: "two cosine squared theta minus 1 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "pi over 4, 7 pi over 4"}
+          - {value: b, label: '\( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{5\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "pi over 4, 3 pi over 4, 5 pi over 4, 7 pi over 4"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \), \( \dfrac{4\pi}{3} \), \( \dfrac{5\pi}{3} \)', speak: "pi over 3, 2 pi over 3, 4 pi over 3, 5 pi over 3"}
+          - {value: d, label: '\( \dfrac{\pi}{4} \), \( \dfrac{5\pi}{4} \)', speak: "pi over 4, 5 pi over 4"}
+        correct: b
+        explanation: |-
+          \( \cos^{2}\theta=\tfrac{1}{2} \), so \( \cos\theta=\pm\sqrt{\tfrac{1}{2}}=\pm\tfrac{\sqrt{2}}{2} \). Cosine is \( \pm\tfrac{\sqrt{2}}{2} \) at all four angles in fourths that are not on an axis. The pair \( \tfrac{\pi}{4},\tfrac{7\pi}{4} \) keeps only the plus. The list in thirds forgets the square root, solving \( \cos\theta=\pm\tfrac{1}{2} \). <strong>\( \theta=\tfrac{\pi}{4},\ \tfrac{3\pi}{4},\ \tfrac{5\pi}{4},\ \tfrac{7\pi}{4} \).</strong>
+      - id: sq3
+        title: "Squared 3"
+        math:
+          display: '\cos^{2}\theta-1=0'
+          speak: "cosine squared theta minus 1 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( 0 \)', speak: "0"}
+          - {value: b, label: '\( \dfrac{\pi}{2} \), \( \dfrac{3\pi}{2} \)', speak: "pi over 2, 3 pi over 2"}
+          - {value: c, label: '\( 0 \), \( \pi \), \( 2\pi \)', speak: "0, pi, 2 pi"}
+          - {value: d, label: '\( 0 \), \( \pi \)', speak: "0, pi"}
+        correct: d
+        explanation: |-
+          \( \cos^{2}\theta=1 \), so \( \cos\theta=\pm 1 \): \( \theta=0 \) gives 1 and \( \theta=\pi \) gives −1. Here the plus or minus gives two angles, not four, because each value happens only once on the circle. \( 2\pi \) is not in \( [0,2\pi) \), since it is the same point as 0. The pair \( \tfrac{\pi}{2},\tfrac{3\pi}{2} \) is where cosine is 0. <strong>\( \theta=0,\ \pi \).</strong>
+      - id: sq4
+        title: "Squared 4"
+        math:
+          display: '4\sin^{2}\theta-1=0'
+          speak: "four sine squared theta minus 1 equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \)', speak: "pi over 6, 5 pi over 6"}
+          - {value: b, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \), \( \dfrac{7\pi}{6} \), \( \dfrac{11\pi}{6} \)', speak: "pi over 6, 5 pi over 6, 7 pi over 6, 11 pi over 6"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \), \( \dfrac{4\pi}{3} \), \( \dfrac{5\pi}{3} \)', speak: "pi over 3, 2 pi over 3, 4 pi over 3, 5 pi over 3"}
+          - {value: d, label: '\( \dfrac{\pi}{6} \), \( \dfrac{5\pi}{6} \), \( \dfrac{11\pi}{6} \), \( \dfrac{13\pi}{6} \)', speak: "pi over 6, 5 pi over 6, 11 pi over 6, 13 pi over 6"}
+        correct: b
+        explanation: |-
+          \( \sin^{2}\theta=\tfrac{1}{4} \), so \( \sin\theta=\pm\tfrac{1}{2} \): \( \tfrac{\pi}{6},\tfrac{5\pi}{6} \) for the plus and \( \tfrac{7\pi}{6},\tfrac{11\pi}{6} \) for the minus. The list in thirds has cosine \( \pm\tfrac{1}{2} \), and \( \tfrac{13\pi}{6} \) is past \( 2\pi \) (it is the same point as \( \tfrac{\pi}{6} \)), while \( \tfrac{7\pi}{6} \) is missing. <strong>\( \theta=\tfrac{\pi}{6},\ \tfrac{5\pi}{6},\ \tfrac{7\pi}{6},\ \tfrac{11\pi}{6} \).</strong>
+  - id: multiple
+    label: "Try It: Multiple Angles"
+    heading: "Try It: Multiple Angles"
+    intro: |-
+      When the angle is 2θ, 3θ, or 4θ, let it go around the circle 2, 3, or 4 times before dividing. Make your best guess, then check it.
+    items:
+      - id: ma1
+        title: "Multiple Angle 1"
+        figure:
+          file: figures/TE3/ma1.svg
+          title: "One lap for theta and two laps for two theta"
+          caption: 'Two circles side by side. On the left, an arrow goes once around a circle, labeled theta from 0 to 2 pi, once around. On the right, an arrow spirals twice around a circle, labeled 2 theta from 0 to 4 pi, twice around.'
+        math:
+          display: '2\cos(2\theta)-\sqrt{3}=0'
+          speak: "two cosine of 2 theta, minus the square root of 3, equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{12} \), \( \dfrac{11\pi}{12} \)', speak: "pi over 12, 11 pi over 12"}
+          - {value: b, label: '\( \dfrac{\pi}{6} \), \( \dfrac{11\pi}{6} \)', speak: "pi over 6, 11 pi over 6"}
+          - {value: c, label: '\( \dfrac{\pi}{12} \), \( \dfrac{11\pi}{12} \), \( \dfrac{13\pi}{12} \), \( \dfrac{23\pi}{12} \)', speak: "pi over 12, 11 pi over 12, 13 pi over 12, 23 pi over 12"}
+          - {value: d, label: '\( \dfrac{\pi}{12} \), \( \dfrac{11\pi}{12} \), \( \dfrac{13\pi}{12} \), \( \dfrac{23\pi}{12} \), \( \dfrac{25\pi}{12} \)', speak: "pi over 12, 11 pi over 12, 13 pi over 12, 23 pi over 12, 25 pi over 12"}
+        correct: c
+        explanation: |-
+          \( \cos(2\theta)=\tfrac{\sqrt{3}}{2} \). As \( \theta \) goes around once, \( 2\theta \) goes from 0 to \( 4\pi \), twice around. So list the angles for \( 2\theta \) on two laps: \( \tfrac{\pi}{6},\tfrac{11\pi}{6},\tfrac{13\pi}{6},\tfrac{23\pi}{6} \). Then divide each by 2. Stopping after one lap gives only two; not dividing gives \( \tfrac{\pi}{6},\tfrac{11\pi}{6} \); and \( \tfrac{25\pi}{12} \) is more than \( 2\pi \). <strong>\( \theta=\tfrac{\pi}{12},\ \tfrac{11\pi}{12},\ \tfrac{13\pi}{12},\ \tfrac{23\pi}{12} \).</strong>
+      - id: ma2
+        title: "Multiple Angle 2"
+        math:
+          display: '2\sin(3\theta)-\sqrt{2}=0'
+          speak: "two sine of 3 theta, minus the square root of 2, equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{12} \), \( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{11\pi}{12} \), \( \dfrac{17\pi}{12} \), \( \dfrac{19\pi}{12} \), \( \dfrac{25\pi}{12} \)', speak: "pi over 12, pi over 4, 3 pi over 4, 11 pi over 12, 17 pi over 12, 19 pi over 12, 25 pi over 12"}
+          - {value: b, label: '\( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \)', speak: "pi over 4, 3 pi over 4"}
+          - {value: c, label: '\( \dfrac{\pi}{12} \), \( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{11\pi}{12} \)', speak: "pi over 12, pi over 4, 3 pi over 4, 11 pi over 12"}
+          - {value: d, label: '\( \dfrac{\pi}{12} \), \( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{11\pi}{12} \), \( \dfrac{17\pi}{12} \), \( \dfrac{19\pi}{12} \)', speak: "pi over 12, pi over 4, 3 pi over 4, 11 pi over 12, 17 pi over 12, 19 pi over 12"}
+        correct: d
+        explanation: |-
+          \( \sin(3\theta)=\tfrac{\sqrt{2}}{2} \). Now \( 3\theta \) goes from 0 to \( 6\pi \), three laps. Each lap has two angles: \( \tfrac{\pi}{4},\tfrac{3\pi}{4} \), then \( \tfrac{9\pi}{4},\tfrac{11\pi}{4} \), then \( \tfrac{17\pi}{4},\tfrac{19\pi}{4} \). Divide each by 3. Two laps give only four answers, and \( \tfrac{25\pi}{12} \) is past \( 2\pi \), from a fourth lap. Not dividing gives \( \tfrac{\pi}{4},\tfrac{3\pi}{4} \). <strong>\( \theta=\tfrac{\pi}{12},\ \tfrac{\pi}{4},\ \tfrac{3\pi}{4},\ \tfrac{11\pi}{12},\ \tfrac{17\pi}{12},\ \tfrac{19\pi}{12} \).</strong>
+      - id: ma3
+        title: "Multiple Angle 3"
+        math:
+          display: '\cos(4\theta)+1=0'
+          speak: "cosine of 4 theta, plus 1, equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{4} \)', speak: "pi over 4"}
+          - {value: b, label: '\( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{5\pi}{4} \), \( \dfrac{7\pi}{4} \)', speak: "pi over 4, 3 pi over 4, 5 pi over 4, 7 pi over 4"}
+          - {value: c, label: '\( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \), \( \dfrac{5\pi}{4} \), \( \dfrac{7\pi}{4} \), \( \dfrac{9\pi}{4} \)', speak: "pi over 4, 3 pi over 4, 5 pi over 4, 7 pi over 4, 9 pi over 4"}
+          - {value: d, label: '\( \dfrac{\pi}{4} \), \( \dfrac{3\pi}{4} \)', speak: "pi over 4, 3 pi over 4"}
+        correct: b
+        explanation: |-
+          \( \cos(4\theta)=-1 \) only at the leftmost point of the circle, once per lap. With four laps, \( 4\theta=\pi,\ 3\pi,\ 5\pi,\ 7\pi \), and dividing by 4 gives four answers. The shorter lists stop early, and \( \tfrac{9\pi}{4} \) comes from a fifth lap, past \( 2\pi \). <strong>\( \theta=\tfrac{\pi}{4},\ \tfrac{3\pi}{4},\ \tfrac{5\pi}{4},\ \tfrac{7\pi}{4} \).</strong>
+      - id: ma4
+        title: "Multiple Angle 4"
+        math:
+          display: '2\sin(2\theta)-\sqrt{3}=0'
+          speak: "two sine of 2 theta, minus the square root of 3, equals 0"
+        prompt: 'Which angles in [0, 2π) solve this equation?'
+        choices:
+          - {value: a, label: '\( \dfrac{\pi}{6} \), \( \dfrac{\pi}{3} \), \( \dfrac{7\pi}{6} \), \( \dfrac{4\pi}{3} \)', speak: "pi over 6, pi over 3, 7 pi over 6, 4 pi over 3"}
+          - {value: b, label: '\( \dfrac{\pi}{6} \), \( \dfrac{\pi}{3} \)', speak: "pi over 6, pi over 3"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \)', speak: "pi over 3, 2 pi over 3"}
+          - {value: d, label: '\( \dfrac{\pi}{3} \), \( \dfrac{2\pi}{3} \), \( \dfrac{7\pi}{3} \), \( \dfrac{8\pi}{3} \)', speak: "pi over 3, 2 pi over 3, 7 pi over 3, 8 pi over 3"}
+        correct: a
+        explanation: |-
+          \( \sin(2\theta)=\tfrac{\sqrt{3}}{2} \), and \( 2\theta \) makes two laps: \( \tfrac{\pi}{3},\tfrac{2\pi}{3},\tfrac{7\pi}{3},\tfrac{8\pi}{3} \). Divide by 2: \( \tfrac{\pi}{6},\tfrac{\pi}{3},\tfrac{7\pi}{6},\tfrac{4\pi}{3} \). The list \( \tfrac{\pi}{3},\tfrac{2\pi}{3},\tfrac{7\pi}{3},\tfrac{8\pi}{3} \) is the right list for \( 2\theta \), before dividing, and two of those are past \( 2\pi \). <strong>\( \theta=\tfrac{\pi}{6},\ \tfrac{\pi}{3},\ \tfrac{7\pi}{6},\ \tfrac{4\pi}{3} \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} \cos^{2}\theta&=\dfrac{3}{4}\\ \cos\theta&=\dfrac{\sqrt{3}}{2}\\ \theta&=\dfrac{\pi}{6},\ \dfrac{11\pi}{6} \end{aligned}'
+          speak: "cosine squared theta equals 3 fourths. Next line: cosine theta equals the square root of 3, over 2. Next line: theta equals pi over 6 and 11 pi over 6"
+        prompt: 'A student solved 4cos²θ − 3 = 0 on [0, 2π) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be sin θ = √3/2 instead, giving π/3 and 2π/3."}
+          - {value: c, label: "The square root gives ±√3/2, so 5π/6 and 7π/6 are missing."}
+          - {value: d, label: "It should be cos θ = 3/4, with no square root taken at all."}
+        correct: c
+        explanation: |-
+          Taking the square root gives \( \cos\theta=\pm\tfrac{\sqrt{3}}{2} \). The minus adds \( \tfrac{5\pi}{6} \) and \( \tfrac{7\pi}{6} \), on the left side of the circle. <strong>\( \theta=\tfrac{\pi}{6},\ \tfrac{5\pi}{6},\ \tfrac{7\pi}{6},\ \tfrac{11\pi}{6} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} \tan\theta&=\sqrt{3}\\ \theta&=\dfrac{\pi}{3}+\pi k \end{aligned}'
+          speak: "tangent theta equals the square root of 3. Next line: theta equals pi over 3, plus pi k"
+        prompt: 'A student found all solutions of tan θ − √3 = 0 this way, for all integers k. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be π/3 + 2πk, since the period is 2π."}
+          - {value: c, label: "It should also include 2π/3 + πk."}
+          - {value: d, label: "The angle should be π/6, not π/3."}
+        correct: a
+        explanation: |-
+          \( \tan\tfrac{\pi}{3}=\tfrac{\sqrt{3}/2}{1/2}=\sqrt{3} \), and tangent repeats every \( \pi \), so \( \tfrac{\pi}{3}+\pi k \) covers both \( \tfrac{\pi}{3} \) and \( \tfrac{4\pi}{3} \). CheckIt would write \( \tfrac{\pi}{3}+2\pi k,\ \tfrac{4\pi}{3}+2\pi k \), which is the same set. <strong>There is no mistake.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} \sin(2\theta)&=\dfrac{1}{2}\\ 2\theta&=\dfrac{\pi}{6},\ \dfrac{5\pi}{6}\\ \theta&=\dfrac{\pi}{12},\ \dfrac{5\pi}{12} \end{aligned}'
+          speak: "sine of 2 theta equals 1 half. Next line: 2 theta equals pi over 6 and 5 pi over 6. Next line: theta equals pi over 12 and 5 pi over 12"
+        prompt: 'A student solved 2sin(2θ) − 1 = 0 on [0, 2π) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "It should multiply by 2 instead, giving π/3 and 5π/3 for θ."}
+          - {value: b, label: "There is no mistake."}
+          - {value: c, label: "The second answer should be 7π/12, not 5π/12, for θ."}
+          - {value: d, label: "2θ goes around twice, so 13π/12 and 17π/12 are missing."}
+        correct: d
+        explanation: |-
+          For \( \theta \) in \( [0,2\pi) \), \( 2\theta \) is in \( [0,4\pi) \), so the second lap adds \( 2\theta=\tfrac{13\pi}{6},\ \tfrac{17\pi}{6} \). Dividing by 2 gives two more answers. <strong>\( \theta=\tfrac{\pi}{12},\ \tfrac{5\pi}{12},\ \tfrac{13\pi}{12},\ \tfrac{17\pi}{12} \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} \sec\theta&=\dfrac{1}{2}\\ \theta&=\dfrac{\pi}{3},\ \dfrac{5\pi}{3} \end{aligned}'
+          speak: "secant theta equals 1 half. Next line: theta equals pi over 3 and 5 pi over 3"
+        prompt: 'A student solved 2sec θ − 1 = 0 on [0, 2π) with this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "It should be 2π/3 and 4π/3, where cosine is −1/2, instead."}
+          - {value: b, label: "sec θ = 1/2 means cos θ = 2, so there is no solution."}
+          - {value: c, label: "There is no mistake."}
+          - {value: d, label: "It should be π/6 and 11π/6, from cos θ = √3/2, instead."}
+        correct: b
+        explanation: |-
+          Secant is the reciprocal of cosine: \( \sec\theta=\tfrac{1}{2} \) means \( \cos\theta=2 \). Cosine is always between −1 and 1, so no angle works. The student used \( \cos\theta=\tfrac{1}{2} \), which is a different equation. <strong>There is no solution.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} \cos\theta&=\dfrac{\sqrt{3}}{2}\\ \theta&=\dfrac{\pi}{6}+2\pi k \end{aligned}'
+          speak: "cosine theta equals the square root of 3, over 2. Next line: theta equals pi over 6, plus 2 pi k"
+        prompt: 'A student found all solutions of 2cos θ − √3 = 0 this way, for all integers k. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It is missing the second angle, 11π/6 + 2πk."}
+          - {value: c, label: "It should be π/6 + πk, since cosine repeats every π."}
+          - {value: d, label: "The angle should be π/3, not π/6."}
+        correct: b
+        explanation: |-
+          Cosine is \( \tfrac{\sqrt{3}}{2} \) at two points: \( \tfrac{\pi}{6} \) and \( 2\pi-\tfrac{\pi}{6}=\tfrac{11\pi}{6} \). Each needs its own \( 2\pi k \). Cosine repeats every \( 2\pi \), not \( \pi \), so \( \tfrac{\pi}{6}+\pi k \) would include \( \tfrac{7\pi}{6} \), where cosine is negative. <strong>\( \theta=\tfrac{\pi}{6}+2\pi k,\ \tfrac{11\pi}{6}+2\pi k \).</strong>
