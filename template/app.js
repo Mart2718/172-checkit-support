@@ -170,7 +170,7 @@ function texToSpeech(tex) {
     if (/\d/.test(c)) { var m = /^\d+(\.\d+)?/.exec(s.slice(i)); i += m[0].length; push(m[0], false); continue; }
     if (/[A-Za-z]/.test(c)) {
       var nx = s[i + 1];
-      if (/[fgFGhH]/.test(c) && nx === '(' && !/[A-Za-z]/.test(s[i - 1] || '')) { i++; push(c + ' of ' + texToSpeech(parenGroup()), false); skipWs(); if (s[i] === '+' || s[i] === '-') out[out.length - 1] += ','; continue; }
+      if (/[fgFGhH]/.test(c) && nx === '(' && !/[A-Za-z]/.test(s[i - 1] || '')) { i++; var fin = parenGroup(), fsp = texToSpeech(fin); push(c + ' of ' + (/^\s*-?\s*[\w.]+\s*$/.test(fin) ? fsp : 'the quantity ' + fsp + ', end quantity'), false); skipWs(); if (s[i] === '+' || s[i] === '-') out[out.length - 1] += ','; continue; }
       i++; push(c, false); continue;
     }
     if (c === '=') { i++; push('equals', true); continue; }

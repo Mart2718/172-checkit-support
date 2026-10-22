@@ -31,11 +31,11 @@ def make(shape, sign=1, b=0, c=0, flip=False):
 def draw(name, curves, xr=(-8, 8), yr=(-8, 8), cell=19):
     """curves: list of dicts {f, dom, style ('parent'|'main'|'ghost'), pts: [(x, y, label or None, anchor, dx, dy)]}"""
     x0, x1 = xr; y0, y1 = yr
-    L, T, R, B = 34, 12, 14, 30
+    L, T, R, B = 38, 12, 14, 32
     W = (x1 - x0) * cell; H = (y1 - y0) * cell
     sx = lambda x: L + (x - x0) * cell
     sy = lambda y: T + (y1 - y) * cell
-    o = [f'<svg viewBox="0 0 {W+L+R} {H+T+B}" font-family="Arial, Helvetica, sans-serif" font-size="18">',
+    o = [f'<svg viewBox="0 0 {W+L+R} {H+T+B}" font-family="Arial, Helvetica, sans-serif" font-size="21">',
          f'<rect x="{L}" y="{T}" width="{W}" height="{H}" fill="#fcfcfc"/>', '<g stroke="#e0e0e0" stroke-width="1">']
     for i in range(x0, x1 + 1): o.append(f'<line x1="{fmt(sx(i))}" y1="{T}" x2="{fmt(sx(i))}" y2="{T+H}"/>')
     for j in range(y0, y1 + 1): o.append(f'<line x1="{L}" y1="{fmt(sy(j))}" x2="{L+W}" y2="{fmt(sy(j))}"/>')
@@ -43,10 +43,10 @@ def draw(name, curves, xr=(-8, 8), yr=(-8, 8), cell=19):
              f'<line x1="{L}" y1="{fmt(sy(0))}" x2="{L+W}" y2="{fmt(sy(0))}"/><line x1="{fmt(sx(0))}" y1="{T}" x2="{fmt(sx(0))}" y2="{T+H}"/></g>')
     o.append('<g fill="#333" text-anchor="middle">')
     for i in range(x0, x1 + 1, 2):
-        if i: o.append(f'<text x="{fmt(sx(i))}" y="{T+H+20}">{str(i).replace("-", "−")}</text>')
+        if i: o.append(f'<text x="{fmt(sx(i))}" y="{T+H+23}">{str(i).replace("-", "−")}</text>')
     o.append('</g><g fill="#333" text-anchor="end">')
     for j in range(y0, y1 + 1, 2):
-        if j: o.append(f'<text x="{L-4}" y="{fmt(sy(j)+6)}">{str(j).replace("-", "−")}</text>')
+        if j: o.append(f'<text x="{L-4}" y="{fmt(sy(j)+7)}">{str(j).replace("-", "−")}</text>')
     o.append('</g>')
     o.append(f'<text x="{L+W-4}" y="{fmt(sy(0)-6)}" text-anchor="end" fill="#333" font-style="italic">x</text>')
     o.append(f'<text x="{fmt(sx(0)+6)}" y="{T+14}" fill="#333" font-style="italic">y</text>')
@@ -62,7 +62,7 @@ def draw(name, curves, xr=(-8, 8), yr=(-8, 8), cell=19):
             col = GRAY if cv['style'] == 'parent' else BLUE
             o.append(f'<circle cx="{fmt(sx(x))}" cy="{fmt(sy(y))}" r="5" fill="{col}" stroke="#fff" stroke-width="1.5"/>')
             if lab:
-                o.append(f'<text x="{fmt(sx(x)+dx)}" y="{fmt(sy(y)+dy)}" text-anchor="{anc}" fill="{INK}" font-size="19" paint-order="stroke" stroke="#fff" stroke-width="4">{lab}</text>')
+                o.append(f'<text x="{fmt(sx(x)+dx)}" y="{fmt(sy(y)+dy)}" text-anchor="{anc}" fill="{INK}" font-size="22" paint-order="stroke" stroke="#fff" stroke-width="4">{lab}</text>')
     o.append('</svg>')
     open(os.path.join(OUT, name), 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 
@@ -101,8 +101,8 @@ parent_only('tp2.svg', 'semi')
 parent_only('tp3.svg', 'tent')
 parent_only('tp4.svg', 'para', -1)
 # Match the graph: parent dashed, g solid with labeled key points
-overlay('mg1.svg', 'para', 1, 3, -2, False)
-overlay('mg2.svg', 'semi', 1, -2, 1, True, nudge={0: ('end', -10, 6)})
+overlay('mg1.svg', 'para', 1, 3, -2, False, nudge={0: ('middle', 0, 30)})
+overlay('mg2.svg', 'semi', 1, -2, 1, True, nudge={0: ('end', -10, -6)})
 overlay('mg3.svg', 'tent', 1, 1, 2, True)
 overlay('mg4.svg', 'para', -1, -5, 3, False)
 print('wrote', sorted(os.listdir(OUT)))
