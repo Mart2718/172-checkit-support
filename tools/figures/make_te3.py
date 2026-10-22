@@ -97,6 +97,6 @@ def laps(name):
 horiz('uc1.svg', [math.sqrt(3) / 2], ['y = √3/2'])
 vert('uc2.svg', -math.sqrt(2) / 2, 'x = −√2/2')
 slope('uc4.svg', math.sqrt(3) / 3, 'y = (√3/3)x')
-horiz('sq1.svg', [math.sqrt(3) / 2, -math.sqrt(3) / 2], ['y = √3/2', 'y = −√3/2'])
+horiz('sq1.svg', [math.sqrt(3) / 2], ['y = √3/2'])
 laps('ma1.svg')
 print('wrote', sorted(os.listdir(OUT)))
