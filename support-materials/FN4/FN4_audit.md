@@ -49,3 +49,13 @@ CheckIt display quirks students may notice:
 - Added at the instructor's request because it is taught in class and on the written homework, though not on CheckIt FN4: a Quick Summary row for f(−x) and a Try It: Horizontal Reflection tab with 4 items.
 - The tab uses f(x) = √x, which is lopsided, so the reflection is visible. One item shows that CheckIt's symmetric shapes do not change under f(−x).
 - Rechecked: lint, axe-core (0 violations on every tab at both widths), and 320 px reflow with and without text spacing. The tab intro asks the question rather than stating the rule, so it does not answer Reflect 2.
+
+## Update 2026-10-22: stretches and compressions
+- At the instructor's request, the Horizontal Reflection tab is now "Beyond CheckIt: Stretches and Reflections", still 4 items so the page stays at 21:
+  - 2f(x), a vertical stretch
+  - ½f(x), a vertical compression, showing that points on the x-axis do not move
+  - f(2x), a horizontal compression, with the classic (8, 2) trap
+  - f(−x), a horizontal reflection
+- Three earlier f(−x) items were cut, and their ideas moved to the Quick Summary: the formula pick (as the memory hook "a minus inside changes x; outside changes y"), the algebra example f(x) = x² + 3x, and the symmetric-shape note.
+- The summary adds the instructor's definitions of af(x) and f(ax).
+- Rechecked: lint, axe-core (0 violations on every tab at both widths), and 320 px reflow with and without text spacing.
