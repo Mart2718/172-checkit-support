@@ -32,7 +32,7 @@ summary:   # the Quick Summary tab
     -
       - '<span>\( f(0) \)</span>'
       - 'The <span>\( y \)</span>-intercept: replace every <span>\( x \)</span> with 0 and multiply.'
-      - 'Square before multiplying: <span>\( (0-3)^{2}=9 \)</span>, not <span>\( -3 \)</span> or <span>\( -9 \)</span>. Write it as a point, <span>\( (0,\ f(0)) \)</span>.'
+      - 'Square before multiplying: <span>\( (0-6)^{2}=36 \)</span>, not <span>\( -6 \)</span> or <span>\( -36 \)</span>. Write it as a point, <span>\( (0,\ f(0)) \)</span>.'
     -
       - 'Degree and leading coefficient'
       - 'Degree: add the exponents. Leading coefficient: the number in front. Even degree: both ends go the same way, up if it is positive and down if it is negative. Odd degree: the ends go opposite ways; positive goes down on the left and up on the right.'
@@ -48,8 +48,8 @@ tabs:
       - id: zm1
         title: "Zeros 1"
         math:
-          display: 'f(x)=2(x-3)^{2}(x+4)'
-          speak: "f of x equals 2 times the quantity x minus 3, squared, times the quantity x plus 4"
+          display: 'f(x)=2(x+4)(x-3)^{2}'
+          speak: "f of x equals 2 times the quantity x plus 4, times the quantity x minus 3, end quantity, squared"
         prompt: 'What are the zeros and their multiplicities?'
         choices:
           - {value: a, label: "−3 with multiplicity 2, and 4 with multiplicity 1"}
@@ -58,12 +58,12 @@ tabs:
           - {value: d, label: "2, 3, and −4, each with multiplicity 1"}
         correct: b
         explanation: |-
-          Set each factor equal to 0: \( x-3=0 \) gives \( x=3 \), and \( x+4=0 \) gives \( x=-4 \). The exponent on each factor is its multiplicity: 2 for \( x=3 \) and 1 for \( x=-4 \), since no exponent means 1. Reading the signs as written gives −3 and 4, and the 2 in front is a coefficient, not a zero. <strong>3 with multiplicity 2, and −4 with multiplicity 1.</strong>
+          Set each factor equal to 0: \( x-3=0 \) gives \( x=3 \), and \( x+4=0 \) gives \( x=-4 \). The exponent on each factor is its multiplicity: 2 for \( x=3 \) and 1 for \( x=-4 \), since no exponent means 1. The order of the factors does not matter. Reading the signs as written gives −3 and 4, and the 2 in front is a coefficient, not a zero. <strong>3 with multiplicity 2, and −4 with multiplicity 1.</strong>
       - id: zm2
         title: "Zeros 2"
         math:
           display: 'f(x)=-5(x+2)^{2}(x-5)^{2}'
-          speak: "f of x equals negative 5 times the quantity x plus 2, squared, times the quantity x minus 5, squared"
+          speak: "f of x equals negative 5 times the quantity x plus 2, end quantity, squared, times the quantity x minus 5, end quantity, squared"
         prompt: 'What are the zeros and their multiplicities?'
         choices:
           - {value: a, label: "2 and −5, each with multiplicity 2"}
@@ -77,7 +77,7 @@ tabs:
         title: "Zeros 3"
         math:
           display: 'f(x)=3(x-4)^{2}(x+1)'
-          speak: "f of x equals 3 times the quantity x minus 4, squared, times the quantity x plus 1"
+          speak: "f of x equals 3 times the quantity x minus 4, end quantity, squared, times the quantity x plus 1"
         prompt: 'What does the graph do at x = 4?'
         choices:
           - {value: a, label: "It goes straight through the x-axis to the other side."}
@@ -91,7 +91,7 @@ tabs:
         title: "Zeros 4"
         math:
           display: 'f(x)=-2(x+5)^{2}(x-2)'
-          speak: "f of x equals negative 2 times the quantity x plus 5, squared, times the quantity x minus 2"
+          speak: "f of x equals negative 2 times the quantity x plus 5, end quantity, squared, times the quantity x minus 2"
         prompt: 'Which describes the graph at its zeros?'
         choices:
           - {value: a, label: "At −5 it turns around at the axis; at 2 it goes through."}
@@ -100,7 +100,7 @@ tabs:
           - {value: d, label: "It goes through the x-axis at both −5 and 2."}
         correct: a
         explanation: |-
-          The zeros are \( -5 \), with multiplicity 2 because \( (x+5) \) is squared, and \( 2 \), with multiplicity 1. Even multiplicity: touch and turn around. Odd: cross. The second choice swaps them, the third reads the signs as written, and the last ignores the square. The \( -2 \) in front flips the graph upside down, but it does not change touching into crossing. <strong>Touches at −5, crosses at 2.</strong>
+          The zeros are \( -5 \), with multiplicity 2 because \( (x+5) \) is squared, and \( 2 \), with multiplicity 1. Even multiplicity: touch and turn around. Odd: cross. Saying it turns at 2 and goes through at −5 swaps them; using 5 and −2 reads the signs as written; going through at both ignores the square. The \( -2 \) in front flips the graph upside down, but it does not change touching into crossing. <strong>Touches at −5, crosses at 2.</strong>
   - id: ends
     label: "Try It: Intercept and Ends"
     heading: "Try It: Intercept and Ends"
@@ -110,8 +110,8 @@ tabs:
       - id: ie1
         title: "Intercept 1"
         math:
-          display: 'f(x)=2(x-3)^{2}(x+4)'
-          speak: "f of x equals 2 times the quantity x minus 3, squared, times the quantity x plus 4"
+          display: 'f(x)=2(x+4)(x-3)^{2}'
+          speak: "f of x equals 2 times the quantity x plus 4, times the quantity x minus 3, end quantity, squared"
         prompt: 'What is the y-intercept?'
         choices:
           - {value: a, label: "(0, 24)"}
@@ -120,12 +120,12 @@ tabs:
           - {value: d, label: "(0, 72)"}
         correct: d
         explanation: |-
-          \( f(0)=2(0-3)^{2}(0+4)=2\cdot 9\cdot 4=72 \). Square first: \( (-3)^{2}=9 \), which is positive. The answer 24 forgets the square, \( 2\cdot 3\cdot 4 \); −72 squares \( -3 \) to get \( -9 \); and 2 is just the coefficient. <strong>\( (0,72) \).</strong>
+          \( f(0)=2(0+4)(0-3)^{2}=2\cdot 4\cdot 9=72 \). Square first: \( (-3)^{2}=9 \), which is positive. The answer 24 forgets the square, \( 2\cdot 4\cdot 3 \); −72 squares \( -3 \) to get \( -9 \); and 2 is just the coefficient. <strong>\( (0,72) \).</strong>
       - id: ie2
         title: "Intercept 2"
         math:
           display: 'f(x)=-3(x+2)^{2}(x-5)^{2}'
-          speak: "f of x equals negative 3 times the quantity x plus 2, squared, times the quantity x minus 5, squared"
+          speak: "f of x equals negative 3 times the quantity x plus 2, end quantity, squared, times the quantity x minus 5, end quantity, squared"
         prompt: 'What is the y-intercept?'
         choices:
           - {value: a, label: "(0, −300)"}
@@ -139,7 +139,7 @@ tabs:
         title: "Ends 1"
         math:
           display: 'f(x)=4(x-2)^{2}(x+3)'
-          speak: "f of x equals 4 times the quantity x minus 2, squared, times the quantity x plus 3"
+          speak: "f of x equals 4 times the quantity x minus 2, end quantity, squared, times the quantity x plus 3"
         prompt: 'Which describes the end behavior?'
         choices:
           - {value: a, label: "Both ends go up"}
@@ -153,7 +153,7 @@ tabs:
         title: "Ends 2"
         math:
           display: 'f(x)=-2(x+4)^{2}(x-1)^{2}'
-          speak: "f of x equals negative 2 times the quantity x plus 4, squared, times the quantity x minus 1, squared"
+          speak: "f of x equals negative 2 times the quantity x plus 4, end quantity, squared, times the quantity x minus 1, end quantity, squared"
         prompt: 'Which describes the end behavior?'
         choices:
           - {value: a, label: "Both ends go up"}
@@ -167,7 +167,7 @@ tabs:
     label: "Try It: Match the Graph"
     heading: "Try It: Match the Graph"
     intro: |-
-      Each graph shows its zeros and its y-intercept. Use them, and what the graph does at each zero and at its ends, to find its formula. Make your best guess, then check it.
+      Each graph shows its zeros and its y-intercept. Use them, and what the graph does at each zero and at its ends, to find its formula. The last item runs the other way: from a formula to the shape you would sketch. Make your best guess, then check it.
     items:
       - id: mg1
         title: "Match 1"
@@ -177,10 +177,10 @@ tabs:
           caption: 'A graph on axes with x from about −4.5 to 3.5 and y from −60 to 60. Coming from the lower left, it rises to meet the x-axis at (−3, 0), turns back down without going above the axis, reaches a low point just right of the y-axis, passing through the y-intercept (0, −36), then rises through the x-axis at (2, 0) and keeps rising to the upper right. The two zeros and the y-intercept are labeled.'
         prompt: 'Which formula matches this graph?'
         choices:
-          - {value: a, label: '\( f(x)=2(x+3)^{2}(x-2) \)', speak: "f of x equals 2 times the quantity x plus 3, squared, times the quantity x minus 2"}
-          - {value: b, label: '\( f(x)=2(x+3)(x-2)^{2} \)', speak: "f of x equals 2 times the quantity x plus 3, times the quantity x minus 2, squared"}
-          - {value: c, label: '\( f(x)=-2(x+3)^{2}(x-2) \)', speak: "f of x equals negative 2 times the quantity x plus 3, squared, times the quantity x minus 2"}
-          - {value: d, label: '\( f(x)=2(x-3)^{2}(x+2) \)', speak: "f of x equals 2 times the quantity x minus 3, squared, times the quantity x plus 2"}
+          - {value: a, label: '\( f(x)=2(x+3)^{2}(x-2) \)', speak: "f of x equals 2 times the quantity x plus 3, end quantity, squared, times the quantity x minus 2"}
+          - {value: b, label: '\( f(x)=2(x+3)(x-2)^{2} \)', speak: "f of x equals 2 times the quantity x plus 3, times the quantity x minus 2, end quantity, squared"}
+          - {value: c, label: '\( f(x)=-2(x+3)^{2}(x-2) \)', speak: "f of x equals negative 2 times the quantity x plus 3, end quantity, squared, times the quantity x minus 2"}
+          - {value: d, label: '\( f(x)=2(x-3)^{2}(x+2) \)', speak: "f of x equals 2 times the quantity x minus 3, end quantity, squared, times the quantity x plus 2"}
         correct: a
         explanation: |-
           The graph turns around at \( -3 \), so \( (x+3) \) has an even exponent, and it crosses at 2, so \( (x-2) \) has an odd one. The ends go down on the left and up on the right: odd degree, positive leading coefficient. Check the \( y \)-intercept: \( 2(3)^{2}(-2)=-36 \). Swapping the exponents would make it cross at −3; the −2 version would flip the ends; and \( (x-3)^{2}(x+2) \) has zeros at 3 and −2. <strong>\( f(x)=2(x+3)^{2}(x-2) \).</strong>
@@ -192,10 +192,10 @@ tabs:
           caption: 'A graph on axes with x from about −5.5 to 2.5 and y from −200 to 200. Coming up from the lower left, it rises to meet the x-axis at (−4, 0) and turns back down, falls to a low point near x = −1.5, rises through the y-intercept (0, −48) to meet the x-axis again at (1, 0), turns back down, and falls to the lower right. The graph never goes above the x-axis. The two zeros and the y-intercept are labeled.'
         prompt: 'Which formula matches this graph?'
         choices:
-          - {value: a, label: '\( f(x)=3(x-1)^{2}(x+4)^{2} \)', speak: "f of x equals 3 times the quantity x minus 1, squared, times the quantity x plus 4, squared"}
-          - {value: b, label: '\( f(x)=-3(x-1)(x+4)^{2} \)', speak: "f of x equals negative 3 times the quantity x minus 1, times the quantity x plus 4, squared"}
-          - {value: c, label: '\( f(x)=-3(x+1)^{2}(x-4)^{2} \)', speak: "f of x equals negative 3 times the quantity x plus 1, squared, times the quantity x minus 4, squared"}
-          - {value: d, label: '\( f(x)=-3(x-1)^{2}(x+4)^{2} \)', speak: "f of x equals negative 3 times the quantity x minus 1, squared, times the quantity x plus 4, squared"}
+          - {value: a, label: '\( f(x)=3(x-1)^{2}(x+4)^{2} \)', speak: "f of x equals 3 times the quantity x minus 1, end quantity, squared, times the quantity x plus 4, end quantity, squared"}
+          - {value: b, label: '\( f(x)=-3(x-1)(x+4)^{2} \)', speak: "f of x equals negative 3 times the quantity x minus 1, times the quantity x plus 4, end quantity, squared"}
+          - {value: c, label: '\( f(x)=-3(x+1)^{2}(x-4)^{2} \)', speak: "f of x equals negative 3 times the quantity x plus 1, end quantity, squared, times the quantity x minus 4, end quantity, squared"}
+          - {value: d, label: '\( f(x)=-3(x-1)^{2}(x+4)^{2} \)', speak: "f of x equals negative 3 times the quantity x minus 1, end quantity, squared, times the quantity x plus 4, end quantity, squared"}
         correct: d
         explanation: |-
           It turns around at both zeros, so both exponents are even. Both ends go down: even degree, negative leading coefficient. Zeros at 1 and −4 mean factors \( (x-1) \) and \( (x+4) \). Check: \( -3(-1)^{2}(4)^{2}=-48 \). The positive version would point both ends up, the version with \( (x-1) \) to the first power would cross at 1, and \( (x+1)^{2}(x-4)^{2} \) has zeros at −1 and 4. <strong>\( f(x)=-3(x-1)^{2}(x+4)^{2} \).</strong>
@@ -207,28 +207,27 @@ tabs:
           caption: 'A graph on axes with x from about −3.5 to 5.5 and y from −200 to 200. Coming from the lower left, it rises to meet the x-axis at (−2, 0), turns back down without going above the axis, passes through the y-intercept (0, −64), reaches a low point near x = 2, then rises through the x-axis at (4, 0) and keeps rising to the upper right. The two zeros and the y-intercept are labeled.'
         prompt: 'Which formula matches this graph? Use the y-intercept.'
         choices:
-          - {value: a, label: '\( f(x)=2(x+2)^{2}(x-4) \)', speak: "f of x equals 2 times the quantity x plus 2, squared, times the quantity x minus 4"}
-          - {value: b, label: '\( f(x)=4(x+2)^{2}(x-4) \)', speak: "f of x equals 4 times the quantity x plus 2, squared, times the quantity x minus 4"}
-          - {value: c, label: '\( f(x)=4(x+2)(x-4)^{2} \)', speak: "f of x equals 4 times the quantity x plus 2, times the quantity x minus 4, squared"}
-          - {value: d, label: '\( f(x)=-4(x+2)^{2}(x-4) \)', speak: "f of x equals negative 4 times the quantity x plus 2, squared, times the quantity x minus 4"}
+          - {value: a, label: '\( f(x)=2(x+2)^{2}(x-4) \)', speak: "f of x equals 2 times the quantity x plus 2, end quantity, squared, times the quantity x minus 4"}
+          - {value: b, label: '\( f(x)=4(x+2)^{2}(x-4) \)', speak: "f of x equals 4 times the quantity x plus 2, end quantity, squared, times the quantity x minus 4"}
+          - {value: c, label: '\( f(x)=4(x+2)(x-4)^{2} \)', speak: "f of x equals 4 times the quantity x plus 2, times the quantity x minus 4, end quantity, squared"}
+          - {value: d, label: '\( f(x)=-4(x+2)^{2}(x-4) \)', speak: "f of x equals negative 4 times the quantity x plus 2, end quantity, squared, times the quantity x minus 4"}
         correct: b
         explanation: |-
           Turns at −2 and crosses at 4, with ends down-left and up-right, so the form is \( k(x+2)^{2}(x-4) \) with \( k \) positive. The shape alone cannot tell 2 from 4; the \( y \)-intercept can: \( k(2)^{2}(-4)=-16k=-64 \), so \( k=4 \). With \( k=2 \) the intercept would be \( (0,-32) \). The other two choices cross at the wrong zero or flip the ends. <strong>\( f(x)=4(x+2)^{2}(x-4) \).</strong>
       - id: mg4
-        title: "Match 4"
-        figure:
-          file: figures/PR3/mg4.svg
-          title: "A polynomial graph with two zeros and a y-intercept"
-          caption: 'A graph on axes with x from about −2.5 to 4.5 and y from −30 to 30. Coming down from the upper left, it falls through the x-axis at (−1, 0), passes through the y-intercept (0, −18) near its low point, rises to meet the x-axis at (3, 0), turns back down without going above the axis, and falls to the lower right. The two zeros and the y-intercept are labeled.'
-        prompt: 'Which formula matches this graph?'
+        title: "Sketch It"
+        math:
+          display: 'f(x)=-2(x-3)^{2}(x+1)'
+          speak: "f of x equals negative 2 times the quantity x minus 3, end quantity, squared, times the quantity x plus 1"
+        prompt: 'CheckIt will ask you to sketch this. Reading from left to right, which description of the graph is right?'
         choices:
-          - {value: a, label: '\( f(x)=2(x-3)^{2}(x+1) \)', speak: "f of x equals 2 times the quantity x minus 3, squared, times the quantity x plus 1"}
-          - {value: b, label: '\( f(x)=-2(x-3)(x+1)^{2} \)', speak: "f of x equals negative 2 times the quantity x minus 3, times the quantity x plus 1, squared"}
-          - {value: c, label: '\( f(x)=-2(x-3)^{2}(x+1) \)', speak: "f of x equals negative 2 times the quantity x minus 3, squared, times the quantity x plus 1"}
-          - {value: d, label: '\( f(x)=-2(x+3)^{2}(x-1) \)', speak: "f of x equals negative 2 times the quantity x plus 3, squared, times the quantity x minus 1"}
+          - {value: a, label: "Starts low, goes through the axis at −1, turns at 3, ends high"}
+          - {value: b, label: "Starts high, turns at −1, goes through the axis at 3, ends low"}
+          - {value: c, label: "Starts high, goes through the axis at −1, turns at 3, ends low"}
+          - {value: d, label: "Starts high, goes through the axis at 1, turns at −3, ends low"}
         correct: c
         explanation: |-
-          It crosses at −1 and turns at 3, so \( (x+1) \) is to an odd power and \( (x-3) \) to an even one. The ends go up on the left and down on the right: odd degree, negative leading coefficient. Check: \( -2(-3)^{2}(1)=-18 \). The positive version has the ends reversed, \( (x+1)^{2} \) would turn at −1 instead, and \( (x+3)^{2}(x-1) \) has zeros at −3 and 1. <strong>\( f(x)=-2(x-3)^{2}(x+1) \).</strong>
+          Degree \( 2+1=3 \) with a negative leading coefficient: up on the left, down on the right. Coming down from the upper left, the graph crosses at \( x=-1 \) (multiplicity 1), dips to a low point, passes through the \( y \)-intercept \( -2(-3)^{2}(1)=-18 \), rises to touch the axis at \( x=3 \) (multiplicity 2), and turns back down. Starting low is the positive version, turning at −1 swaps the multiplicities, and 1 and −3 read the signs as written. <strong>Starts high, crosses at −1, touches at 3, ends low.</strong> To sketch it, plot \( (-1,0) \), \( (3,0) \), and \( (0,-18) \), then connect them this way.
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -239,7 +238,7 @@ tabs:
         title: "Slip 1"
         math:
           display: 'f(x)=3(x+4)^{2}(x-1)'
-          speak: "f of x equals 3 times the quantity x plus 4, squared, times the quantity x minus 1"
+          speak: "f of x equals 3 times the quantity x plus 4, end quantity, squared, times the quantity x minus 1"
         prompt: 'A student says the zeros are 4, with multiplicity 2, and −1, with multiplicity 1. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -253,7 +252,7 @@ tabs:
         title: "Slip 2"
         math:
           display: '\begin{aligned} f(0)&=2(0-1)^{2}(0+3)\\ &=2\cdot 1\cdot 3\\ &=6 \end{aligned}'
-          speak: "f of 0 equals 2 times the quantity 0 minus 1, squared, times the quantity 0 plus 3. Next line: equals 2 times 1 times 3. Next line: equals 6"
+          speak: "f of 0 equals 2 times the quantity 0 minus 1, end quantity, squared, times the quantity 0 plus 3. Next line: equals 2 times 1 times 3. Next line: equals 6"
         prompt: 'For f(x) = 2(x − 1)²(x + 3), a student found the y-intercept (0, 6) with this work. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -267,7 +266,7 @@ tabs:
         title: "Slip 3"
         math:
           display: 'f(x)=(x+2)^{2}(x-3)'
-          speak: "f of x equals the quantity x plus 2, squared, times the quantity x minus 3"
+          speak: "f of x equals the quantity x plus 2, end quantity, squared, times the quantity x minus 3"
         prompt: 'A student sketched the graph crossing the x-axis at x = −2 and at x = 3. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -281,7 +280,7 @@ tabs:
         title: "Slip 4"
         math:
           display: 'f(x)=-2(x-3)^{2}(x+1)'
-          speak: "f of x equals negative 2 times the quantity x minus 3, squared, times the quantity x plus 1"
+          speak: "f of x equals negative 2 times the quantity x minus 3, end quantity, squared, times the quantity x plus 1"
         prompt: 'A student says both ends go down, because the leading coefficient is negative. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -295,7 +294,7 @@ tabs:
         title: "Slip 5"
         math:
           display: '\begin{aligned} f(0)&=-4(0-2)^{2}(0+5)\\ &=-4\cdot(-2)\cdot 5\\ &=40 \end{aligned}'
-          speak: "f of 0 equals negative 4 times the quantity 0 minus 2, squared, times the quantity 0 plus 5. Next line: equals negative 4 times negative 2 times 5. Next line: equals 40"
+          speak: "f of 0 equals negative 4 times the quantity 0 minus 2, end quantity, squared, times the quantity 0 plus 5. Next line: equals negative 4 times negative 2 times 5. Next line: equals 40"
         prompt: 'For f(x) = −4(x − 2)²(x + 5), a student found the y-intercept with this work. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
