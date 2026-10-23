@@ -8,6 +8,10 @@ h1: "EL7 Support: Applications of Exponential and Logarithmic Functions"
 pageTitle: "EL7 Support: Applications of Exponential and Logarithmic Functions — Math 172, Santa Ana College"
 hubSummary: "Applications: compound interest, population growth, depreciation, and half-life"
 videoIntro: "A narrated walkthrough of exponential word problems: setting up the model, finding an amount after a given time, and using logarithms to find how long it takes."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/rOlmQiS1-v8"
+  embed: "https://www.youtube-nocookie.com/embed/rOlmQiS1-v8"
+  title: "EL7 video walkthrough: Applications of Exponential and Logarithmic Functions"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'decimal|1 ?[-+] ?r|half-?lives|divide (both sides )?first|n ?= ?\d'
 worked:   # used for the worked-examples recording document
