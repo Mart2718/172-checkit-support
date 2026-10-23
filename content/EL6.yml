@@ -11,6 +11,10 @@ h1: "EL6 Support: Solving Exponential and Logarithmic Equations"
 pageTitle: "EL6 Support: Solving Exponential and Logarithmic Equations — Math 172, Santa Ana College"
 hubSummary: "Solving exponential and logarithmic equations"
 videoIntro: "A narrated walkthrough of how to solve exponential and logarithmic equations: undo what is outside first, switch forms, then finish solving and leave the answer exact."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/LobEpGuB31M"
+  embed: "https://www.youtube-nocookie.com/embed/LobEpGuB31M"
+  title: "EL6 video walkthrough: Solving Exponential and Logarithmic Equations"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'isolate|(add|subtract|divide)( \w+)? (to|from|by) both sides|log(arithmic)? form first|undo the'
 worked:   # used for the worked-examples recording document
