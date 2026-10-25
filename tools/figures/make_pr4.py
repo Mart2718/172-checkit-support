@@ -86,8 +86,8 @@ layout('st4.svg', f'x^2 {M} 3x {M} 4', [(0, '3x^3'), (1, f'{M} 15x^2'), (2, '+ 7
              ('line', [(1, f'{M}6x^2'), (2, '+ 19x'), (3, '+ 19')]),
              ('sub', [(1, f'{M}6x^2'), (2, '+ 18x'), (3, '+ 24')]),
              ('line', [(2, 'x'), (3, f'{M} 5')])])
-# Divide 3: (2x^3 - 25x + 26) / (x^2 + 3x - 4), set up as written (no x^2 term)
-layout('dv3.svg', f'x^2 + 3x {M} 4', [(0, '2x^3'), (1, f'{M} 25x'), (2, '+ 26')], quotient=[(2, '2x')])
+# Divide 3: (2x^3 - 25x + 26) / (x^2 + 3x - 4), set up with a blank where the x^2 term would go
+layout('dv3.svg', f'x^2 + 3x {M} 4', [(0, '2x^3'), (2, f'{M} 25x'), (3, '+ 26')], quotient=[(2, '2x')])
 # Slip 1: (4x^3 + 16x^2 - 59x - 74) / (x^2 - 2x - 3), a student's first subtraction
 layout('sl1.svg', f'x^2 {M} 2x {M} 3', [(0, '4x^3'), (1, '+ 16x^2'), (2, f'{M} 59x'), (3, f'{M} 74')],
        quotient=[(2, '4x')], rows=[('sub', [(0, '4x^3'), (1, f'{M} 8x^2'), (2, f'{M} 12x')]),

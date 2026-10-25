@@ -36,12 +36,12 @@ summary:   # the Quick Summary tab
     -
       - 'Bring down and repeat'
       - 'Bring down the next term and go again. Stop when the bottom line has a lower degree than the divisor.'
-      - 'Dividing by a quadratic, stop when the bottom line is degree 1 or a number. That line is the remainder.'
+      - 'Bring each term down into its own column, under its own power.'
     -
       - 'Write and check'
-      - 'Write <span>\( f(x)=\text{quotient}+\dfrac{\text{remainder}}{\text{divisor}} \)</span>. That is the form CheckIt wants.'
+      - 'Write <span>\( f(x)=\text{quotient}+\dfrac{\text{remainder}}{\text{divisor}} \)</span>.'
       - 'Check: quotient times divisor, plus remainder, should give back the dividend.'
-  note: 'CheckIt''s outcome calls the answer "a polynomial plus a proper rational function": the quotient is the polynomial, and the remainder over the divisor is proper because its top has a lower degree than its bottom. Your CheckIt problem divides a degree 3 polynomial by a degree 2 polynomial, so expect a quotient like <span>\( ax+b \)</span> and a remainder like <span>\( x+c \)</span>. Your numbers will be different. The loop is what transfers, and in calculus the same division shows which line a graph follows far out.'
+  note: 'CheckIt''s outcome calls the answer "a polynomial plus a proper rational function": the quotient is the polynomial, and the remainder over the divisor is proper because its top has a lower degree than its bottom. Your CheckIt problem divides a degree 3 polynomial by a degree 2 polynomial. Your numbers will be different. The loop is what transfers, and in calculus the same division shows which line a graph follows far out.'
 tabs:
   - id: steps
     label: "Try It: One Step at a Time"
@@ -78,7 +78,7 @@ tabs:
           - {value: d, label: '\( -12x^{2}+85x+45 \)', speak: "negative 12 x squared plus 85 x plus 45"}
         correct: c
         explanation: |-
-          Subtract every term: \( 6x^{2}-18x^{2}=-12x^{2} \) and \( 61x-24x=37x \). The \( -6x^{3} \) terms cancel, as the leading terms always should. Then bring down 45. Adding \( 18x^{2} \) gives \( 24x^{2} \), and adding \( 24x \) gives \( 85x \); both happen when only the first term's sign gets changed. Tip: change every sign in the bottom row, then add. <strong>\( -12x^{2}+37x+45 \).</strong>
+          Subtract every term: \( 6x^{2}-18x^{2}=-12x^{2} \) and \( 61x-24x=37x \). The \( -6x^{3} \) terms cancel, as the leading terms always should. Then bring down 45. \( 24x^{2} \) comes from adding \( 18x^{2} \) instead of subtracting it, and \( 85x \) from adding \( 24x \). Those happen when only the leading term's sign gets changed; one choice has both slips. Tip: change every sign in the bottom row, then add. <strong>\( -12x^{2}+37x+45 \).</strong>
       - id: st3
         title: "Divide Again"
         figure:
@@ -99,7 +99,7 @@ tabs:
         figure:
           file: figures/PR4/st4.svg
           title: "A long division worked down to a bottom line"
-          caption: 'A long division. The divisor x squared minus 3x minus 4 is to the left of the bracket, and the dividend is 3x cubed minus 15x squared plus 7x plus 19. Above the bracket is the quotient, 3x minus 6. Below the dividend: subtract 3x cubed minus 9x squared minus 12x, leaving negative 6x squared plus 19x plus 19; then subtract negative 6x squared plus 18x plus 24, leaving x minus 5 on the bottom line.'
+          caption: 'A long division. The divisor x squared minus 3x minus 4 is to the left of the bracket, and the dividend is 3x cubed minus 15x squared plus 7x plus 19. Above the bracket is the quotient, 3x minus 6. Below the dividend: subtract 3x cubed minus 9x squared minus 12x, leaving negative 6x squared plus 19x plus 19; then subtract the quantity negative 6x squared plus 18x plus 24, leaving x minus 5 on the bottom line.'
         prompt: 'The bottom line is x − 5. Should the division stop here?'
         choices:
           - {value: a, label: "No: keep dividing until the bottom line is just a single number."}
@@ -128,28 +128,28 @@ tabs:
           - {value: d, label: '\( f(x)=3x+12+\dfrac{x-2}{x^{2}-6x+5} \)', speak: "f of x equals 3 x plus 12, plus the fraction x minus 2, over x squared minus 6 x plus 5, end fraction"}
         correct: c
         explanation: |-
-          \( \dfrac{3x^{3}}{x^{2}}=3x \). Subtract \( 3x(x^{2}-6x+5)=3x^{3}-18x^{2}+15x \): \( -6x^{2}+18x^{2}=12x^{2} \) and \( -56x-15x=-71x \); bring down 62. Next, \( \dfrac{12x^{2}}{x^{2}}=12 \). Subtract \( 12(x^{2}-6x+5)=12x^{2}-72x+60 \): \( -71x+72x=x \) and \( 62-60=2 \). The remainder \( x+2 \) has degree 1, so stop. The quotient \( 3x-12 \) loses the sign in \( -6-(-18) \); the remainder \( x-2 \) slips the sign in \( 62-60 \); and the remainder goes over the divisor, not the other way around. <strong>\( f(x)=3x+12+\dfrac{x+2}{x^{2}-6x+5} \).</strong>
+          \( \dfrac{3x^{3}}{x^{2}}=3x \). Subtract \( 3x(x^{2}-6x+5)=3x^{3}-18x^{2}+15x \): \( -6x^{2}+18x^{2}=12x^{2} \) and \( -56x-15x=-71x \); bring down 62. Next, \( \dfrac{12x^{2}}{x^{2}}=12 \). Subtract \( 12(x^{2}-6x+5)=12x^{2}-72x+60 \): \( -71x+72x=x \) and \( 62-60=2 \). The remainder \( x+2 \) has degree 1, so stop. The quotient \( 3x-12 \) has the wrong sign on 12: \( -6x^{2}-(-18x^{2})=+12x^{2} \). The remainder \( x-2 \) subtracts in the wrong order, \( 60-62 \); and the remainder goes over the divisor, not the other way around. <strong>\( f(x)=3x+12+\dfrac{x+2}{x^{2}-6x+5} \).</strong>
       - id: dv2
         title: "Divide 2"
         math:
-          display: '\dfrac{-3x^{3}-12x^{2}+34x+89}{x^{2}+7x+10}'
-          speak: "the fraction negative 3 x cubed minus 12 x squared plus 34 x plus 89, over x squared plus 7 x plus 10, end fraction"
+          display: '\dfrac{-x^{3}+3x^{2}+11x-19}{x^{2}+x-6}'
+          speak: "the fraction negative x cubed plus 3 x squared plus 11 x minus 19, over x squared plus x minus 6, end fraction"
         prompt: 'Use long division. Which is the result?'
         choices:
-          - {value: a, label: '\( f(x)=-3x+9+\dfrac{x-1}{x^{2}+7x+10} \)', speak: "f of x equals negative 3 x plus 9, plus the fraction x minus 1, over x squared plus 7 x plus 10, end fraction"}
-          - {value: b, label: '\( f(x)=3x+9+\dfrac{x-1}{x^{2}+7x+10} \)', speak: "f of x equals 3 x plus 9, plus the fraction x minus 1, over x squared plus 7 x plus 10, end fraction"}
-          - {value: c, label: '\( f(x)=-3x-9+\dfrac{x-1}{x^{2}+7x+10} \)', speak: "f of x equals negative 3 x minus 9, plus the fraction x minus 1, over x squared plus 7 x plus 10, end fraction"}
-          - {value: d, label: '\( f(x)=-3x+9+x-1 \)', speak: "f of x equals negative 3 x plus 9 plus x minus 1"}
+          - {value: a, label: '\( f(x)=-x+4+\dfrac{x+5}{x^{2}+x-6} \)', speak: "f of x equals negative x plus 4, plus the fraction x plus 5, over x squared plus x minus 6, end fraction"}
+          - {value: b, label: '\( f(x)=x+4+\dfrac{x+5}{x^{2}+x-6} \)', speak: "f of x equals x plus 4, plus the fraction x plus 5, over x squared plus x minus 6, end fraction"}
+          - {value: c, label: '\( f(x)=-x+2+\dfrac{x+5}{x^{2}+x-6} \)', speak: "f of x equals negative x plus 2, plus the fraction x plus 5, over x squared plus x minus 6, end fraction"}
+          - {value: d, label: '\( f(x)=-x+4+x+5 \)', speak: "f of x equals negative x plus 4 plus x plus 5"}
         correct: a
         explanation: |-
-          \( \dfrac{-3x^{3}}{x^{2}}=-3x \). Subtract \( -3x(x^{2}+7x+10)=-3x^{3}-21x^{2}-30x \): \( -12x^{2}+21x^{2}=9x^{2} \) and \( 34x+30x=64x \); bring down 89. Next, \( \dfrac{9x^{2}}{x^{2}}=9 \). Subtract \( 9x^{2}+63x+90 \): \( 64x-63x=x \) and \( 89-90=-1 \). The remainder is \( x-1 \). The quotient's first term keeps the negative sign; −9 comes from \( -12-21 \) instead of \( -12-(-21) \); and the remainder has to be divided by the divisor, not just added on. <strong>\( f(x)=-3x+9+\dfrac{x-1}{x^{2}+7x+10} \).</strong>
+          The leading coefficient is a hidden \( -1 \): \( \dfrac{-x^{3}}{x^{2}}=-x \). Subtract \( -x(x^{2}+x-6)=-x^{3}-x^{2}+6x \): \( 3x^{2}-(-x^{2})=4x^{2} \) and \( 11x-6x=5x \); bring down \( -19 \). Next, \( \dfrac{4x^{2}}{x^{2}}=4 \). Subtract \( 4x^{2}+4x-24 \): \( 5x-4x=x \) and \( -19-(-24)=5 \). The remainder is \( x+5 \). \( x+4 \) drops the negative on \( -x \); the 2 comes from \( 3x^{2}+(-x^{2}) \), adding instead of subtracting; and the remainder has to be divided by the divisor, not just added on. <strong>\( f(x)=-x+4+\dfrac{x+5}{x^{2}+x-6} \).</strong>
       - id: dv3
         title: "Divide 3"
         figure:
           file: figures/PR4/dv3.svg
           title: "A long division setup with the first quotient term"
-          caption: 'A long division setup. The divisor x squared plus 3x minus 4 is to the left of the division bracket. Under the bracket is the dividend, written 2x cubed minus 25x plus 26. Above the bracket, the first term of the quotient, 2x, has been written.'
-        prompt: 'The dividend has no x² term. Multiply 2x by the divisor and subtract. What is the new line, after bringing down?'
+          caption: 'A long division setup. The divisor x squared plus 3x minus 4 is to the left of the division bracket. Under the bracket is the dividend, 2x cubed minus 25x plus 26, with a blank space where an x squared term would go. Above the bracket, the first term of the quotient, 2x, is written above negative 25x.'
+        prompt: 'The dividend has no \( x^{2} \) term. Multiply \( 2x \) by the divisor and subtract. What is the new line, after bringing down?'
         choices:
           - {value: a, label: '\( -31x^{2}+34x \)', speak: "negative 31 x squared plus 34 x"}
           - {value: b, label: '\( -6x^{2}-33x+26 \)', speak: "negative 6 x squared minus 33 x plus 26"}
@@ -171,7 +171,7 @@ tabs:
           - {value: d, label: '\( 3x+12 \)', speak: "3 x plus 12"}
         correct: b
         explanation: |-
-          \( \dfrac{-3x^{3}}{x^{2}}=-3x \). Subtract \( -3x(x^{2}+3x-10)=-3x^{3}-9x^{2}+30x \): \( 3x^{2}+9x^{2}=12x^{2} \) and \( 67x-30x=37x \); bring down \( -119 \). Next, \( \dfrac{12x^{2}}{x^{2}}=12 \), and subtracting \( 12x^{2}+36x-120 \) leaves \( x+1 \), degree 1, the remainder. −12 comes from \( 3-9 \) instead of \( 3-(-9) \); \( 3x+12 \) drops the negative; and \( -3x^{2}+12x \) divides by \( x \) instead of \( x^{2} \). A degree 3 polynomial divided by a degree 2 one has a degree 1 quotient. <strong>\( -3x+12 \), with remainder \( x+1 \).</strong>
+          \( \dfrac{-3x^{3}}{x^{2}}=-3x \). Subtract \( -3x(x^{2}+3x-10)=-3x^{3}-9x^{2}+30x \): \( 3x^{2}+9x^{2}=12x^{2} \) and \( 67x-30x=37x \); bring down \( -119 \). Next, \( \dfrac{12x^{2}}{x^{2}}=12 \), and subtracting \( 12x^{2}+36x-120 \) leaves \( x+1 \), degree 1, the remainder. −12 has the right size but the wrong sign: \( 3x^{2}-(-9x^{2})=3x^{2}+9x^{2}=+12x^{2} \); \( 3x+12 \) drops the negative; and \( -3x^{2}+12x \) divides by \( x \) instead of \( x^{2} \). A degree 3 polynomial divided by a degree 2 one has a degree 1 quotient. <strong>\( -3x+12 \), with remainder \( x+1 \).</strong>
   - id: use
     label: "Try It: Write, Check, Look Ahead"
     heading: "Try It: Write, Check, Look Ahead"
@@ -183,27 +183,27 @@ tabs:
         math:
           display: '\dfrac{-2x^{3}+6x^{2}+21x-47}{x^{2}-6x+8}'
           speak: "the fraction negative 2 x cubed plus 6 x squared plus 21 x minus 47, over x squared minus 6 x plus 8, end fraction"
-        prompt: 'Long division gives quotient −2x − 6 and remainder x + 1. How does CheckIt want the answer written?'
+        prompt: 'Long division gives quotient \( -2x-6 \) and remainder \( x+1 \). Which of these equals f(x)?'
         choices:
           - {value: a, label: '\( f(x)=-2x-6+x+1 \)', speak: "f of x equals negative 2 x minus 6 plus x plus 1"}
-          - {value: b, label: '\( f(x)=-2x-6+\dfrac{x+1}{x^{2}-6x+8} \)', speak: "f of x equals negative 2 x minus 6, plus the fraction x plus 1, over x squared minus 6 x plus 8, end fraction"}
-          - {value: c, label: '\( f(x)=-2x-6+\dfrac{x^{2}-6x+8}{x+1} \)', speak: "f of x equals negative 2 x minus 6, plus the fraction x squared minus 6 x plus 8, over x plus 1, end fraction"}
+          - {value: b, label: '\( f(x)=-2x-6+\dfrac{x^{2}-6x+8}{x+1} \)', speak: "f of x equals negative 2 x minus 6, plus the fraction x squared minus 6 x plus 8, over x plus 1, end fraction"}
+          - {value: c, label: '\( f(x)=-2x-6+\dfrac{x+1}{x^{2}-6x+8} \)', speak: "f of x equals negative 2 x minus 6, plus the fraction x plus 1, over x squared minus 6 x plus 8, end fraction"}
           - {value: d, label: '\( f(x)=\dfrac{-2x-6}{x^{2}-6x+8}+x+1 \)', speak: "f of x equals the fraction negative 2 x minus 6, over x squared minus 6 x plus 8, end fraction, plus x plus 1"}
-        correct: b
+        correct: c
         explanation: |-
           It works like \( 17\div 5=3+\dfrac{2}{5} \): the quotient, plus the remainder over the divisor. Adding \( x+1 \) on its own leaves out the division; flipping the fraction puts the divisor on top; and the quotient is never divided by anything. <strong>\( f(x)=-2x-6+\dfrac{x+1}{x^{2}-6x+8} \).</strong>
       - id: wc2
         title: "Check It"
         math:
           display: '\begin{aligned} f(x)&=(-4x+8)(x^{2}-4x-5)\\ &\quad+(x+3) \end{aligned}'
-          speak: "f of x equals the quantity negative 4 x plus 8, times the quantity x squared minus 4 x minus 5, plus the quantity x plus 3"
-        prompt: 'Dividing f(x) by x² − 4x − 5 gave quotient −4x + 8 and remainder x + 3. Multiply back as shown. What is f(x)?'
+          speak: "f of x equals the quantity negative 4 x plus 8, end quantity, times the quantity x squared minus 4 x minus 5, end quantity, plus the quantity x plus 3, end quantity"
+        prompt: 'Dividing f(x) by \( x^{2}-4x-5 \) gave quotient \( -4x+8 \) and remainder \( x+3 \). Multiply back as shown. What is f(x)?'
         choices:
-          - {value: a, label: '\( -4x^{3}+24x^{2}-12x-40 \)', speak: "negative 4 x cubed plus 24 x squared minus 12 x minus 40"}
+          - {value: a, label: '\( -4x^{3}+24x^{2}-11x-37 \)', speak: "negative 4 x cubed plus 24 x squared minus 11 x minus 37"}
           - {value: b, label: '\( -4x^{3}+24x^{2}-13x-43 \)', speak: "negative 4 x cubed plus 24 x squared minus 13 x minus 43"}
-          - {value: c, label: '\( -4x^{3}+24x^{2}-11x-37 \)', speak: "negative 4 x cubed plus 24 x squared minus 11 x minus 37"}
+          - {value: c, label: '\( -4x^{3}+24x^{2}-12x-40 \)', speak: "negative 4 x cubed plus 24 x squared minus 12 x minus 40"}
           - {value: d, label: '\( -4x^{3}+16x^{2}-11x-37 \)', speak: "negative 4 x cubed plus 16 x squared minus 11 x minus 37"}
-        correct: c
+        correct: a
         explanation: |-
           \( (-4x+8)(x^{2}-4x-5)=-4x^{3}+16x^{2}+20x+8x^{2}-32x-40=-4x^{3}+24x^{2}-12x-40 \). Adding \( x+3 \) gives \( -4x^{3}+24x^{2}-11x-37 \). Stopping before the remainder is added, subtracting it, or missing the \( 8x^{2} \) from \( 8\cdot x^{2} \) gives the other three. Use this check on your own CheckIt answer: if it does not give back the dividend, look for a sign slip. <strong>\( -4x^{3}+24x^{2}-11x-37 \).</strong>
       - id: wc3
@@ -213,13 +213,13 @@ tabs:
           speak: "the fraction a x cubed plus b x squared plus c x plus d, over x squared plus p x plus q, end fraction"
         prompt: 'Before you start: dividing a degree 3 polynomial by a degree 2 polynomial, what degrees can the quotient and the remainder have?'
         choices:
-          - {value: a, label: "Quotient of degree 1; remainder of degree 1 or less"}
-          - {value: b, label: "Quotient of degree 1; remainder of degree 2 or less"}
+          - {value: a, label: "Quotient of degree 1; remainder of degree 2 or less"}
+          - {value: b, label: "Quotient of degree 1; remainder of degree 1 or less"}
           - {value: c, label: "Quotient of degree 2; remainder of degree 1 or less"}
           - {value: d, label: "Quotient of degree 0; remainder of degree 1 or less"}
-        correct: a
+        correct: b
         explanation: |-
-          The first quotient term is \( x^{3}\div x^{2}=x \), so the quotient has degree \( 3-2=1 \). The division stops as soon as the bottom line's degree drops below 2, so the remainder has degree 1 or less. A degree 2 remainder would mean you could still divide again. That is the shape of every CheckIt answer: a degree 1 quotient, plus a degree 1 remainder over the divisor. <strong>Quotient of degree 1; remainder of degree 1 or less.</strong>
+          The first quotient term is \( x^{3}\div x^{2}=x \), so the quotient has degree \( 3-2=1 \). The division stops as soon as the bottom line's degree drops below 2, so the remainder has degree 1 or less. A degree 2 remainder would mean you could still divide again. That is why the quotient cannot have degree 2 or degree 0. That is the shape of every CheckIt answer: a degree 1 quotient, plus a degree 1 remainder over the divisor. <strong>Quotient of degree 1; remainder of degree 1 or less.</strong>
       - id: wc4
         title: "Look Ahead"
         math:
@@ -233,7 +233,7 @@ tabs:
           - {value: d, label: '\( y=2x-2 \)', speak: "y equals 2 x minus 2"}
         correct: d
         explanation: |-
-          The fraction's top has degree 1 and its bottom has degree 2, so for large \( x \) the bottom grows much faster and the fraction shrinks toward 0. At \( x=100 \) it is \( \dfrac{98}{10712}\approx 0.009 \). What is left is \( 2x-2 \), so the graph hugs the line \( y=2x-2 \). In calculus this line is called a slant asymptote, and you will find it with limits. \( y=2 \) compares leading coefficients, which works only when the top and bottom degrees match; \( y=0 \) is where the fraction goes, not the whole function; and \( 3x-4 \) adds the remainder on whole instead of keeping it over the divisor. <strong>\( y=2x-2 \).</strong>
+          The fraction's top has degree 1 and its bottom has degree 2, so for large \( x \) the bottom grows much faster and the fraction shrinks toward 0. At \( x=100 \) it is \( \dfrac{98}{10712}\approx 0.009 \). What is left is \( 2x-2 \), so the graph hugs the line \( y=2x-2 \). This line is called a slant asymptote. In calculus you will confirm it with limits as \( x \) grows. \( y=2 \) compares leading coefficients, which works only when the top and bottom degrees match; \( y=0 \) is where the fraction goes, not the whole function; and \( 3x-4 \) adds the remainder on whole instead of keeping it over the divisor. <strong>\( y=2x-2 \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -246,7 +246,7 @@ tabs:
           file: figures/PR4/sl1.svg
           title: "A student's first subtraction in a long division"
           caption: 'A student''s long division. The divisor x squared minus 2x minus 3 is to the left of the bracket, and the dividend is 4x cubed plus 16x squared minus 59x minus 74. Above the bracket, the first quotient term is 4x. Below the dividend, marked to be subtracted, is 4x cubed minus 8x squared minus 12x, with a line under it. The student''s new line below is 24x squared minus 71x minus 74.'
-        prompt: 'A student is dividing (4x³ + 16x² − 59x − 74) by (x² − 2x − 3). Here is the first subtraction. What is the mistake, if any?'
+        prompt: 'A student is dividing \( 4x^{3}+16x^{2}-59x-74 \) by \( x^{2}-2x-3 \). Here is the first subtraction. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "16x² − (−8x²) is 8x², so the line should start with 8x²."}
@@ -260,7 +260,7 @@ tabs:
         math:
           display: 'f(x)=4x+\dfrac{8x^{2}-39x-51}{x^{2}-5x-6}'
           speak: "f of x equals 4 x, plus the fraction 8 x squared minus 39 x minus 51, over x squared minus 5 x minus 6, end fraction"
-        prompt: 'For (4x³ − 12x² − 63x − 51) ÷ (x² − 5x − 6), a student gave quotient 4x and remainder 8x² − 39x − 51, and wrote this answer. What is the mistake, if any?'
+        prompt: 'For \( 4x^{3}-12x^{2}-63x-51 \) divided by \( x^{2}-5x-6 \), a student gave quotient \( 4x \) and remainder \( 8x^{2}-39x-51 \), and wrote this answer. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "8x² − 39x − 51 has degree 2, not less than 2: divide again."}
@@ -268,13 +268,13 @@ tabs:
           - {value: d, label: "The remainder should be written over 4x³ − 12x² − 63x − 51."}
         correct: b
         explanation: |-
-          A remainder must have a lower degree than the divisor. \( 8x^{2}-39x-51 \) has degree 2, the same as \( x^{2}-5x-6 \), so there is another step: \( 8x^{2}\div x^{2}=8 \), and subtracting \( 8x^{2}-40x-48 \) leaves \( x-3 \). The first step, \( 4x^{3}\div x^{2}=4x \), was right. <strong>Quotient \( 4x+8 \), remainder \( x-3 \).</strong>
+          A remainder must have a lower degree than the divisor. \( 8x^{2}-39x-51 \) has degree 2, the same as \( x^{2}-5x-6 \), so there is another step: \( 8x^{2}\div x^{2}=8 \), and subtracting \( 8x^{2}-40x-48 \) leaves \( x-3 \). The first step, \( 4x^{3}\div x^{2}=4x \), was right, and the remainder goes over the divisor, not over the dividend. <strong>Quotient \( 4x+8 \), remainder \( x-3 \).</strong>
       - id: sl3
         title: "Slip 3"
         math:
           display: '\begin{aligned} &(5x+10)(x^{2}-4x+3)\\ &\quad+(x+4)\\ &=5x^{3}-10x^{2}-25x+30\\ &\quad+x+4\\ &=5x^{3}-10x^{2}-24x+34 \end{aligned}'
-          speak: "the quantity 5 x plus 10, times the quantity x squared minus 4 x plus 3, plus the quantity x plus 4. Next line: equals 5 x cubed minus 10 x squared minus 25 x plus 30, plus x plus 4. Next line: equals 5 x cubed minus 10 x squared minus 24 x plus 34"
-        prompt: 'For (5x³ − 10x² − 24x + 34) ÷ (x² − 4x + 3), a student got quotient 5x + 10 and remainder x + 4, then checked it this way. What is the mistake, if any?'
+          speak: "the quantity 5 x plus 10, end quantity, times the quantity x squared minus 4 x plus 3, end quantity, plus the quantity x plus 4, end quantity. Next line: equals 5 x cubed minus 10 x squared minus 25 x plus 30, plus x plus 4. Next line: equals 5 x cubed minus 10 x squared minus 24 x plus 34"
+        prompt: 'For \( 5x^{3}-10x^{2}-24x+34 \) divided by \( x^{2}-4x+3 \), a student got quotient \( 5x+10 \) and remainder \( x+4 \), then checked it this way. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The check should add the divisor, not the remainder."}
@@ -282,13 +282,13 @@ tabs:
           - {value: d, label: "The quotient should be 5x − 10, from −10x² − (−20x²)."}
         correct: a
         explanation: |-
-          \( (5x+10)(x^{2}-4x+3)=5x^{3}-10x^{2}-25x+30 \), and adding \( x+4 \) gives \( 5x^{3}-10x^{2}-24x+34 \), the dividend. Also \( -10x^{2}-(-20x^{2})=10x^{2} \), so the quotient's second term is \( +10 \). Multiplying back like this is how to be sure before you submit. <strong>There is no mistake.</strong>
+          \( (5x+10)(x^{2}-4x+3)=5x^{3}-10x^{2}-25x+30 \), and adding \( x+4 \) gives \( 5x^{3}-10x^{2}-24x+34 \), the dividend. Adding the remainder is the right check, and because the check gives back the dividend, the remainder \( x+4 \) is right too. Also \( -10x^{2}-(-20x^{2})=10x^{2} \), so the quotient's second term is \( +10 \). Multiplying back like this is how to be sure before you submit. <strong>There is no mistake.</strong>
       - id: sl4
         title: "Slip 4"
         math:
           display: 'f(x)=-4x+4+x-3'
           speak: "f of x equals negative 4 x plus 4 plus x minus 3"
-        prompt: 'For (−4x³ + 20x² + 33x − 51) ÷ (x² − 4x − 12), a student found quotient −4x + 4 and remainder x − 3, and wrote this answer. What is the mistake, if any?'
+        prompt: 'For \( -4x^{3}+20x^{2}+33x-51 \) divided by \( x^{2}-4x-12 \), a student found quotient \( -4x+4 \) and remainder \( x-3 \), and wrote this answer. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The quotient should be 4x + 4, since −4x³ ÷ x² is a positive 4x."}
@@ -302,8 +302,8 @@ tabs:
         figure:
           file: figures/PR4/sl5.svg
           title: "A student's first subtraction in a long division"
-          caption: 'A student''s long division. The divisor x squared plus x minus 6 is to the left of the bracket, and the dividend is written 6x cubed minus 41x plus 32. Above the bracket, the student wrote 6x over the second column. Below the dividend, marked to be subtracted, is 6x cubed plus 6x squared minus 36x, written so that 6x squared is under negative 41x and negative 36x is under 32. The student''s new line is negative 47x squared plus 68x.'
-        prompt: 'A student is dividing (6x³ − 41x + 32) by (x² + x − 6). Here is the first subtraction. What is the mistake, if any?'
+          caption: 'A student''s long division. The divisor x squared plus x minus 6 is to the left of the bracket, and the dividend is written 6x cubed minus 41x plus 32. Above the bracket, the student wrote 6x above negative 41x. Below the dividend, marked to be subtracted, is 6x cubed plus 6x squared minus 36x, written so that 6x squared is under negative 41x and negative 36x is under 32. The student''s new line is negative 47x squared plus 68x.'
+        prompt: 'A student is dividing \( 6x^{3}-41x+32 \) by \( x^{2}+x-6 \). Here is the first subtraction. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The first term of the quotient should be 6x², since 6x³ ÷ x is 6x²."}
@@ -311,4 +311,4 @@ tabs:
           - {value: d, label: "The product should be 6x³ − 6x² + 36x, since it is being subtracted."}
         correct: c
         explanation: |-
-          The dividend has no \( x^{2} \) term, so write it as \( 6x^{3}+0x^{2}-41x+32 \). Then \( 6x^{2} \) sits under \( 0x^{2} \) and \( -36x \) under \( -41x \): \( 0-6x^{2}=-6x^{2} \) and \( -41x-(-36x)=-5x \), then bring down 32. Combining \( -41x \) with \( 6x^{2} \) mixes unlike terms. The product \( 6x(x^{2}+x-6)=6x^{3}+6x^{2}-36x \) was right; the signs change when you subtract, not before. <strong>The new line is \( -6x^{2}-5x+32 \).</strong>
+          The dividend has no \( x^{2} \) term, so write it as \( 6x^{3}+0x^{2}-41x+32 \). Then \( 6x^{2} \) sits under \( 0x^{2} \) and \( -36x \) under \( -41x \): \( 0-6x^{2}=-6x^{2} \) and \( -41x-(-36x)=-5x \), then bring down 32. Combining \( -41x \) with \( 6x^{2} \) mixes unlike terms. The quotient term was right, \( 6x^{3}\div x^{2}=6x \), and so was the product \( 6x(x^{2}+x-6)=6x^{3}+6x^{2}-36x \); the signs change when you subtract, not before. <strong>The new line is \( -6x^{2}-5x+32 \).</strong>
