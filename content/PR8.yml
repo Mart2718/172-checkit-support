@@ -1,9 +1,11 @@
 # PR8 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
 # Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
 # Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
-# CheckIt PR8 builds d1 d2 (x - r1)(x - r2) with r1, r2 two different numbers from -6..6 or fractions like -3/2 and 2/3
-# (denominators 2 or 3), shuffles its terms across the two sides of <, >, <=, or >=, and asks for the solution in
-# interval notation and on a number line. Boundary points can be 0 or fractions; terms can land on either side.
+# CheckIt PR8 builds d1 d2 (x - r1)(x - r2) (r1, r2 from -6..6 or +/-1/2, +/-3/2, +/-1/3, +/-2/3) and calls shuffled_inequality
+# with its default strict=True, so every instance is equivalent to p(x) > 0: the symbol is < or >, and the answer is always
+# two outside pieces with open ends. Terms land on either side, so the x^2 term is negative in about half of the instances,
+# and 0 can be alone on one side. It asks for interval notation and a number line. The page also practices <= and >= and
+# middle intervals, which the textbook and homework use.
 # Figures drawn by tools/figures/make_pr8.py.
 code: PR8
 h1: "PR8 Support: Quadratic Inequalities"
@@ -23,8 +25,8 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'Get 0 on one side'
-      - 'Move every term to one side by adding or subtracting.'
-      - 'Adding or subtracting never flips the inequality; only multiplying or dividing by a negative does. Never divide by <span>\( x \)</span>: it could be negative or 0.'
+      - 'Move every term to one side by adding or subtracting. Choose the side that keeps the <span>\( x^{2} \)</span> term positive.'
+      - 'Adding or subtracting never flips the inequality. If the <span>\( x^{2} \)</span> term ends up negative, multiply everything by −1 and flip the symbol.'
     -
       - 'Find the boundary points'
       - 'Factor and set each factor equal to 0.'
@@ -41,7 +43,7 @@ summary:   # the Quick Summary tab
       - 'Write the answer'
       - 'Interval notation, joining pieces with <span>\( \cup \)</span>, like <span>\( (-\infty,-3)\cup(5,\infty) \)</span>, plus a number line with the same pieces shaded.'
       - 'Write intervals from left to right, smaller number first.'
-  note: 'CheckIt shuffles the terms, so the <span>\( x^{2} \)</span> term may be on the right, or a number may be on the left. Move everything to one side first. Your CheckIt inequality will have different numbers. The steps are what transfer.'
+  note: 'CheckIt shuffles the terms, so the <span>\( x^{2} \)</span> term may be on the right, or negative, or a number may be on the left. Move everything to one side first. CheckIt''s inequalities are always strict, < or >, so its answers use parentheses; your homework may also use ≤ and ≥. Your CheckIt inequality will have different numbers. The steps are what transfer.'
 tabs:
   - id: setup
     label: "Try It: Set It Up"
@@ -80,17 +82,17 @@ tabs:
       - id: su3
         title: "Shuffled"
         math:
-          display: '2-x\ge x^{2}'
-          speak: "2 minus x is greater than or equal to x squared"
-        prompt: 'CheckIt mixes the terms up like this. Which inequality says the same thing, with 0 on one side?'
+          display: '2-x^{2}\lt x'
+          speak: "2 minus x squared is less than x"
+        prompt: 'CheckIt mixes the terms up like this. Which inequality says the same thing, with 0 on one side and a positive x² term?'
         choices:
-          - {value: a, label: '\( x^{2}+x-2\ge 0 \)', speak: "x squared plus x minus 2 is greater than or equal to 0"}
-          - {value: b, label: '\( x^{2}-x+2\le 0 \)', speak: "x squared minus x plus 2 is less than or equal to 0"}
-          - {value: c, label: '\( x^{2}+x-2\le 0 \)', speak: "x squared plus x minus 2 is less than or equal to 0"}
-          - {value: d, label: '\( -x^{2}-x+2\le 0 \)', speak: "negative x squared minus x plus 2 is less than or equal to 0"}
+          - {value: a, label: '\( x^{2}+x-2<0 \)', speak: "x squared plus x minus 2 is less than 0"}
+          - {value: b, label: '\( x^{2}+x+2>0 \)', speak: "x squared plus x plus 2 is greater than 0"}
+          - {value: c, label: '\( x^{2}+x-2>0 \)', speak: "x squared plus x minus 2 is greater than 0"}
+          - {value: d, label: '\( -x^{2}-x+2>0 \)', speak: "negative x squared minus x plus 2 is greater than 0"}
         correct: c
         explanation: |-
-          Move the \( 2-x \) to the right by subtracting it: \( 0\ge x^{2}+x-2 \), which is the same as \( x^{2}+x-2\le 0 \). Moving terms never flips the inequality. The \( \ge 0 \) version reads it backwards; \( -x+2 \) keeps the old signs instead of changing them; and \( -x^{2}-x+2\le 0 \) multiplies by −1 without flipping. <strong>\( x^{2}+x-2\le 0 \).</strong>
+          Move everything to the right by adding \( x^{2} \) and subtracting 2: \( 0\lt x^{2}+x-2 \), which is the same as \( x^{2}+x-2>0 \). Moving terms never flips the inequality. Moving everything left instead gives \( -x^{2}-x+2<0 \), and multiplying by −1 flips it to the same thing. \( x^{2}+x-2<0 \) multiplies by −1 without flipping; \( x^{2}+x+2>0 \) keeps the 2's sign when it moves; and \( -x^{2}-x+2>0 \) flips the symbol just for moving terms. <strong>\( x^{2}+x-2>0 \).</strong>
       - id: su4
         title: "Endpoints"
         math:
@@ -98,11 +100,11 @@ tabs:
           speak: "x squared minus 9 is greater than or equal to 0"
         prompt: 'The boundary points are −3 and 3. Do they belong in the answer?'
         choices:
-          - {value: a, label: "No, boundary points are never part of the answer."}
+          - {value: a, label: "Yes, since ≥ allows the value 0, and they give 0."}
           - {value: b, label: "Only 3, since it is the positive one."}
           - {value: c, label: "Only if the parabola opens downward."}
-          - {value: d, label: "Yes, since ≥ allows the value 0, and they give 0."}
-        correct: d
+          - {value: d, label: "No, boundary points are never part of the answer."}
+        correct: a
         explanation: |-
           At \( x=\pm 3 \), \( x^{2}-9=0 \), and \( 0\ge 0 \) is true, so both belong: square brackets and closed dots. With \( > \) instead, they would be left out. Whether a boundary point counts depends only on whether the symbol allows "equal," not on its sign or the parabola's direction. The answer is \( (-\infty,-3]\cup[3,\infty) \). <strong>Yes, since ≥ allows 0.</strong>
   - id: test
@@ -128,7 +130,7 @@ tabs:
           - {value: d, label: "Only the interval to the right of 1/2"}
         correct: a
         explanation: |-
-          At \( -1 \): \( 6-1-2=3 \), positive. At 0: \( -2 \), negative. At 1: \( 6+1-2=5 \), positive. The inequality asks for \( \le 0 \), so only the middle interval works, with its endpoints, since they give 0: \( \left[-\tfrac{2}{3},\tfrac{1}{2}\right] \). The outside intervals are where it is positive, the answer to \( \ge 0 \); and one test point decides its whole interval. <strong>Only the middle interval.</strong>
+          At \( -1 \): \( 6-1-2=3 \), positive. At 0: \( -2 \), negative. At 1: \( 6+1-2=5 \), positive. The inequality asks for \( \le 0 \), so only the middle interval works, with its endpoints, since they give 0: \( \left[-\tfrac{2}{3},\tfrac{1}{2}\right] \). The outside intervals are where it is positive, the answer to \( \ge 0 \). "All three" would need every test to come out \( \le 0 \), but −1 and 1 gave positive values. "Only right of 1/2" ignores the other tests, and the test at 1 actually failed there. <strong>Only the middle interval.</strong>
       - id: ti2
         title: "Picture the Parabola"
         math:
@@ -150,31 +152,31 @@ tabs:
       - id: ti3
         title: "Solve It"
         math:
-          display: '8+2x\ge x^{2}'
-          speak: "8 plus 2 x is greater than or equal to x squared"
-        prompt: 'Solve. Which is the answer?'
+          display: '-2x^{2}<9x+4'
+          speak: "negative 2 x squared is less than 9 x plus 4"
+        prompt: 'This one is shuffled the way CheckIt does it. Solve. Which is the answer?'
         choices:
-          - {value: a, label: '\( (-\infty,-2]\cup[4,\infty) \)', speak: "from negative infinity to negative 2, included, union from 4, included, to infinity"}
-          - {value: b, label: '\( [-2,4] \)', speak: "from negative 2 to 4, both included"}
-          - {value: c, label: '\( (-2,4) \)', speak: "from negative 2 to 4, neither included"}
-          - {value: d, label: '\( [-4,2] \)', speak: "from negative 4 to 2, both included"}
+          - {value: a, label: '\( (-4,-\tfrac{1}{2}) \)', speak: "from negative 4 to negative 1 half, neither included"}
+          - {value: b, label: '\( (-\infty,-4)\cup(-\tfrac{1}{2},\infty) \)', speak: "from negative infinity to negative 4, not included, union from negative 1 half, not included, to infinity"}
+          - {value: c, label: '\( (-\infty,-4]\cup[-\tfrac{1}{2},\infty) \)', speak: "from negative infinity to negative 4, included, union from negative 1 half, included, to infinity"}
+          - {value: d, label: '\( (-\infty,\tfrac{1}{2})\cup(4,\infty) \)', speak: "from negative infinity to 1 half, not included, union from 4, not included, to infinity"}
         correct: b
         explanation: |-
-          Move everything to the right: \( 0\ge x^{2}-2x-8 \), so \( (x-4)(x+2)\le 0 \). Boundary points −2 and 4. Test 0: \( -8\le 0 \), true, so the middle interval works, endpoints included because of the "or equal." The outside pieces are where \( x^{2}-2x-8 \) is positive; parentheses leave out the endpoints that \( \ge \) allows; and \( [-4,2] \) flips the factors' signs. <strong>\( [-2,4] \).</strong>
+          Add \( 2x^{2} \) to both sides so the \( x^{2} \) term is positive: \( 0<2x^{2}+9x+4 \), so \( (2x+1)(x+4)>0 \). Boundary points −4 and \( -\tfrac{1}{2} \). Test −1: \( 2-9+4=-3 \), not \( >0 \), so the middle fails and the outside pieces work, with open ends because \( > \) leaves out 0. \( (-4,-\tfrac{1}{2}) \) is the middle, where the expression is negative; brackets include endpoints that \( > \) leaves out; and \( (-\infty,\tfrac{1}{2})\cup(4,\infty) \) flips both boundary points' signs. <strong>\( (-\infty,-4)\cup(-\tfrac{1}{2},\infty) \).</strong>
       - id: ti4
         title: "One Test"
         math:
           display: 'x^{2}+4x\ge 0'
           speak: "x squared plus 4 x is greater than or equal to 0"
-        prompt: 'The boundary points are −4 and 0. Testing x = −1 gives (−1)² + 4(−1) = −3. What does that tell you?'
+        prompt: 'The boundary points are −4 and 0. Test x = −1. What does the result tell you?'
         choices:
-          - {value: a, label: "The interval from −4 to 0 is part of the answer, then."}
+          - {value: a, label: "The interval from −4 to 0 is left out of the answer."}
           - {value: b, label: "Only the single point x = −1 is left out of the answer."}
           - {value: c, label: "Nothing yet; test a few more points in there."}
-          - {value: d, label: "The interval from −4 to 0 is left out of the answer."}
-        correct: d
+          - {value: d, label: "The interval from −4 to 0 is part of the answer, then."}
+        correct: a
         explanation: |-
-          −3 is not \( \ge 0 \), so \( x=-1 \) fails. Between two boundary points the expression cannot change sign, so one test speaks for the whole interval: everything strictly between −4 and 0 fails. The answer is the rest: \( (-\infty,-4]\cup[0,\infty) \). A failing test does not make its interval part of the answer, and more tests in the same interval would only repeat what the first one said. <strong>The interval from −4 to 0 is left out.</strong>
+          \( (-1)^{2}+4(-1)=-3 \), which is not \( \ge 0 \), so \( x=-1 \) fails. Between two boundary points the expression cannot change sign, so one test speaks for the whole interval: everything strictly between −4 and 0 fails. The answer is the rest: \( (-\infty,-4]\cup[0,\infty) \). A failing test does not make its interval part of the answer, and more tests in the same interval would only repeat what the first one said. And it is not just \( x=-1 \): every number between −4 and 0 gives the same sign. <strong>The interval from −4 to 0 is left out.</strong>
   - id: write
     label: "Try It: Write the Answer"
     heading: "Try It: Write the Answer"
@@ -186,16 +188,16 @@ tabs:
         figure:
           file: figures/PR8/wa1.svg
           title: "A number line with two shaded pieces"
-          caption: 'A number line from −5 to 5. There is an open dot at −3 with shading from it to the left, ending in an arrow, and an open dot at 5/2 with shading from it to the right, ending in an arrow. The part between −3 and 5/2 is not shaded.'
+          caption: 'A number line from −5 to 5. There is an open dot at −4 with shading from it to the left, ending in an arrow, and an open dot at 5/2 with shading from it to the right, ending in an arrow. The part between −4 and 5/2 is not shaded.'
         prompt: 'Which interval notation matches this number line?'
         choices:
-          - {value: a, label: '\( (-3,\tfrac{5}{2}) \)', speak: "from negative 3 to 5 halves, neither included"}
-          - {value: b, label: '\( (-\infty,-3]\cup[\tfrac{5}{2},\infty) \)', speak: "from negative infinity to negative 3, included, union from 5 halves, included, to infinity"}
-          - {value: c, label: '\( (-\infty,-3)\cup(\tfrac{5}{2},\infty) \)', speak: "from negative infinity to negative 3, not included, union from 5 halves, not included, to infinity"}
-          - {value: d, label: "[−∞, −3) ∪ (5/2, ∞]"}
+          - {value: a, label: '\( (-4,\tfrac{5}{2}) \)', speak: "from negative 4 to 5 halves, neither included"}
+          - {value: b, label: '\( (-\infty,-4]\cup[\tfrac{5}{2},\infty) \)', speak: "from negative infinity to negative 4, included, union from 5 halves, included, to infinity"}
+          - {value: c, label: '\( (-\infty,-4)\cup(\tfrac{5}{2},\infty) \)', speak: "from negative infinity to negative 4, not included, union from 5 halves, not included, to infinity"}
+          - {value: d, label: "[−∞, −4) ∪ (5/2, ∞]"}
         correct: c
         explanation: |-
-          Two shaded pieces, each running off to an arrow: \( (-\infty,-3) \) and \( \left(\tfrac{5}{2},\infty\right) \), joined with \( \cup \). Open dots mean parentheses. \( (-3,\tfrac{5}{2}) \) is the unshaded middle; brackets go with closed dots; and infinity never gets a bracket, since it is not a number you can include. <strong>\( (-\infty,-3)\cup(\tfrac{5}{2},\infty) \).</strong>
+          Two shaded pieces, each running off to an arrow: \( (-\infty,-4) \) and \( \left(\tfrac{5}{2},\infty\right) \), joined with \( \cup \). Open dots mean parentheses. \( (-4,\tfrac{5}{2}) \) is the unshaded middle; brackets go with closed dots; and infinity never gets a bracket, since it is not a number you can include. <strong>\( (-\infty,-4)\cup(\tfrac{5}{2},\infty) \).</strong>
       - id: wa2
         title: "Notation to Line"
         math:
@@ -218,26 +220,26 @@ tabs:
         prompt: 'Which interval notation says the same thing?'
         choices:
           - {value: a, label: '\( [-\infty,-1]\cup[4,\infty] \)', speak: "from negative infinity, included, to negative 1, included, union from 4, included, to infinity, included"}
-          - {value: b, label: '\( (-\infty,-1)\cup(4,\infty) \)', speak: "from negative infinity to negative 1, not included, union from 4, not included, to infinity"}
+          - {value: b, label: '\( (-\infty,-1]\cup[4,\infty) \)', speak: "from negative infinity to negative 1, included, union from 4, included, to infinity"}
           - {value: c, label: '\( [-1,4] \)', speak: "from negative 1 to 4, both included"}
-          - {value: d, label: '\( (-\infty,-1]\cup[4,\infty) \)', speak: "from negative infinity to negative 1, included, union from 4, included, to infinity"}
-        correct: d
+          - {value: d, label: '\( (-\infty,-1)\cup(4,\infty) \)', speak: "from negative infinity to negative 1, not included, union from 4, not included, to infinity"}
+        correct: b
         explanation: |-
           "Or" with two directions means two outside pieces joined by \( \cup \). The "or equal" includes −1 and 4: brackets there. Infinity always gets a parenthesis. Brackets on infinity treat it as a number; parentheses at −1 and 4 drop the "or equal"; and \( [-1,4] \) is the middle, the opposite of what is asked. <strong>\( (-\infty,-1]\cup[4,\infty) \).</strong>
       - id: wa4
         title: "All the Way"
         math:
-          display: '3x^{2}+5x\le 2'
-          speak: "3 x squared plus 5 x is less than or equal to 2"
+          display: '3x^{2}+5x>2'
+          speak: "3 x squared plus 5 x is greater than 2"
         prompt: 'Solve. Which is the answer?'
         choices:
           - {value: a, label: '\( (-2,\tfrac{1}{3}) \)', speak: "from negative 2 to 1 third, neither included"}
-          - {value: b, label: '\( [-2,\tfrac{1}{3}] \)', speak: "from negative 2 to 1 third, both included"}
-          - {value: c, label: '\( (-\infty,-2]\cup[\tfrac{1}{3},\infty) \)', speak: "from negative infinity to negative 2, included, union from 1 third, included, to infinity"}
-          - {value: d, label: '\( [-\tfrac{1}{3},2] \)', speak: "from negative 1 third to 2, both included"}
-        correct: b
+          - {value: b, label: '\( (-\infty,-2]\cup[\tfrac{1}{3},\infty) \)', speak: "from negative infinity to negative 2, included, union from 1 third, included, to infinity"}
+          - {value: c, label: '\( (-\infty,-2)\cup(\tfrac{1}{3},\infty) \)', speak: "from negative infinity to negative 2, not included, union from 1 third, not included, to infinity"}
+          - {value: d, label: '\( (-\infty,-\tfrac{1}{3})\cup(2,\infty) \)', speak: "from negative infinity to negative 1 third, not included, union from 2, not included, to infinity"}
+        correct: c
         explanation: |-
-          Subtract 2: \( 3x^{2}+5x-2\le 0 \), which factors as \( (3x-1)(x+2)\le 0 \). Boundary points \( \tfrac{1}{3} \) and −2. Test 0: \( -2\le 0 \), true, so the middle works, endpoints included. Parentheses drop the "or equal"; the outside pieces are where the expression is positive; and \( [-\tfrac{1}{3},2] \) flips both boundary points' signs. <strong>\( [-2,\tfrac{1}{3}] \).</strong>
+          Subtract 2: \( 3x^{2}+5x-2>0 \), which factors as \( (3x-1)(x+2)>0 \). Boundary points \( \tfrac{1}{3} \) and −2. Test 0: \( -2>0 \) is false, so the middle fails and the outside pieces work, with open ends. \( (-2,\tfrac{1}{3}) \) is the middle, where the expression is negative; brackets include the endpoints that \( > \) leaves out; and \( -\tfrac{1}{3} \) and 2 flip both boundary points' signs. <strong>\( (-\infty,-2)\cup(\tfrac{1}{3},\infty) \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"

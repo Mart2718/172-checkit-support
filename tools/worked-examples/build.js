@@ -20,7 +20,7 @@ const items = JSON.parse(fs.readFileSync(__dirname + '/items.json', 'utf8'));
 const BS = String.fromCharCode(92);                       // backslash
 const OPEN = [BS + '(', BS + '['], CLOSE = [BS + ')', BS + ']'];
 // LaTeX command -> plain Unicode text. Anything not listed keeps its name without the backslash (for example sin, cos).
-const CMD = { left: '', right: '', big: '', Big: '', bigl: '', bigr: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', div: '÷', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', ldots: '…', cdots: '⋯', circ: '°', quad: '   ', qquad: '    ', log: 'log', ln: 'ln' };
+const CMD = { left: '', right: '', big: '', Big: '', bigl: '', bigr: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', div: '÷', lt: '<', gt: '>', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', ldots: '…', cdots: '⋯', circ: '°', quad: '   ', qquad: '    ', log: 'log', ln: 'ln' };
 const FUNC = ['log', 'ln', 'sin', 'cos', 'tan', 'sec', 'csc', 'cot'];   // written upright, not italic
 function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, index just after the closing brace]
   let d = 0;
@@ -141,10 +141,11 @@ function dataTable(it, n) {
 }
 
 function mathBlock(it) {
+  it = { ...it, math: it.math.split('&amp;').join('&').split('&lt;').join('<').split('&gt;').join('>') };   // the page escapes < and > inside math
   const isDisplay = it.math.startsWith(BS + '[');
   const BEGIN = BS + 'begin{aligned}', END = BS + 'end{aligned}';
   if (isDisplay && it.math.includes(BEGIN)) {   // stacked lines (student work): one centered line per row
-    const body = it.math.slice(it.math.indexOf(BEGIN) + BEGIN.length, it.math.indexOf(END)).split('&amp;').join('').split('&').join('');
+    const body = it.math.slice(it.math.indexOf(BEGIN) + BEGIN.length, it.math.indexOf(END)).split('&').join('');
     const rows = body.split(BS + BS).map((r) => r.trim()).filter(Boolean);
     return rows.map((r, n) => para(mathRuns(r, { size: 40 }), { alignment: AlignmentType.CENTER, spacing: { before: n ? 40 : 200, after: n === rows.length - 1 ? 200 : 40 } }));
   }
@@ -171,7 +172,7 @@ items.forEach((it, idx) => {
   if (it.table_rows) { tableNo += 1; children.push(...dataTable(it, tableNo)); }
   if (it.math) children.push(...mathBlock(it));
   children.push(new Paragraph({ heading: HeadingLevel.HEADING_3, keepNext: true, children: [new TextRun('Question')] }));
-  children.push(para(runsFromHtml(it.prompt)));
+  children.push(para(runsFromHtml(it.prompt.split('&').join('&amp;').split('<').join('&lt;').split('>').join('&gt;'))));   // the prompt arrives as plain text
   if (it.choices && it.choices.length >= 3) {   // list the answer choices (A, B, C ...) when there are more than a yes/no pair
     it.choices.forEach((c, k) => children.push(new Paragraph({ spacing: { before: 20, after: 40 }, indent: { left: 360 }, children: [new TextRun({ text: String.fromCharCode(65 + k) + '.  ', bold: true }), ...plainWithMath(c, {})] })));
   }

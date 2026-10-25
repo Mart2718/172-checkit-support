@@ -83,8 +83,8 @@ numberline('ti1.svg', -2, 2, points=[(-2/3, M + '2/3', True), (1/2, '1/2', True)
 # Test the Intervals 2: the parabola y = (x - 3)(x + 5)
 parabola('ti2.svg', lambda x: (x - 3) * (x + 5), -8, 6, -20, 20, 5,
          dots=[(-5, 0, '(' + M + '5, 0)', 'end', -8, 26), (3, 0, '(3, 0)', 'start', 8, 26)])
-# Write the Answer 1: open dots at -3 and 5/2, shaded outward
-numberline('wa1.svg', -5, 5, points=[(-3, '', False), (2.5, '5/2', False)], shade=[(None, -3), (2.5, None)])
+# Write the Answer 1: open dots at -4 and 5/2, shaded outward
+numberline('wa1.svg', -5, 5, points=[(-4, '', False), (2.5, '5/2', False)], shade=[(None, -4), (2.5, None)])
 # Spot the Slip 2: a student's number line for x^2 - x - 12 >= 0: closed dots at -3 and 4, shaded between
 numberline('sl2.svg', -5, 6, points=[(-3, '', True), (4, '', True)], shade=[(-3, 4)])
 print('wrote', sorted(os.listdir(OUT)))

@@ -23,11 +23,11 @@
 <text x="340.8" y="92" text-anchor="middle" fill="#333">4</text>
 <line x1="376.0" y1="55" x2="376.0" y2="69" stroke="#6b6b6b" stroke-width="1.5"/>
 <text x="376.0" y="92" text-anchor="middle" fill="#333">5</text>
-<line x1="12.0" y1="62" x2="94.4" y2="62" stroke="#1a6b6b" stroke-width="7" stroke-linecap="butt"/>
+<line x1="12.0" y1="62" x2="59.2" y2="62" stroke="#1a6b6b" stroke-width="7" stroke-linecap="butt"/>
 <path d="M6.0,62 l14,-10 v20 z" fill="#1a6b6b"/>
 <line x1="288.0" y1="62" x2="388.0" y2="62" stroke="#1a6b6b" stroke-width="7" stroke-linecap="butt"/>
 <path d="M394.0,62 l-14,-10 v20 z" fill="#1a6b6b"/>
-<circle cx="94.4" cy="62" r="8" fill="#fff" stroke="#1a1a2e" stroke-width="3"/>
+<circle cx="59.2" cy="62" r="8" fill="#fff" stroke="#1a1a2e" stroke-width="3"/>
 <circle cx="288.0" cy="62" r="8" fill="#fff" stroke="#1a1a2e" stroke-width="3"/>
 <text x="288.0" y="44" text-anchor="middle" fill="#1a1a2e" font-weight="bold">5/2</text>
 </svg>
