@@ -38,6 +38,8 @@ function texToText(tex) {   // convert commands, fractions and roots; leave ^ an
     if (name === 'frac' || name === 'tfrac' || name === 'dfrac') {
       const [a, j] = braceGroup(tex, i + 1); const [b, k] = braceGroup(tex, j);
       out += wrap(texToText(a)) + '/' + wrap(texToText(b)); i = k - 1;
+    } else if (name === 'text' || name === 'mathrm') {   // words inside math print as they are
+      const [a, j] = braceGroup(tex, i + 1); out += a; i = j - 1;
     } else if (name === 'sqrt') {
       const [a, j] = braceGroup(tex, i + 1); out += '√' + wrap(texToText(a)); i = j - 1;
     } else if (FUNC.includes(name) && /[A-Za-z0-9)]$/.test(out)) out += ' ' + name;   // keep "sin x tan x" from gluing into "sin xtan x"
