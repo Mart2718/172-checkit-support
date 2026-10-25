@@ -41,8 +41,8 @@ summary:   # the Quick Summary tab
     -
       - 'Degrees of top and bottom'
       - 'Bottom bigger: <span>\( y=0 \)</span>. Equal: <span>\( y= \)</span> the ratio of the leading coefficients. Top bigger: none.'
-      - 'Leading coefficients include the numbers in front. With degree 2 over degree 2 and a <span>\( \tfrac{4}{3} \)</span> in front, the asymptote is <span>\( y=\tfrac{4}{3} \)</span>, not <span>\( y=1 \)</span>.'
-  note: 'The domain is every real number except the <span>\( x \)</span>-values that make the original bottom 0: the hole and the vertical asymptote. To sketch, draw the asymptotes as dashed lines, plot the intercepts, mark the hole with an open circle, and connect, staying close to the asymptotes. Your CheckIt function will have different numbers. Sorting the factors is what transfers.'
+      - 'Leading coefficients include the numbers in front. With degree 2 over degree 2 and a <span>\( \tfrac{4}{3} \)</span> in front, the asymptote is <span>\( y=\tfrac{4}{3} \)</span>.'
+  note: 'The domain is every real number except the <span>\( x \)</span>-values that make the original bottom 0: the hole and the vertical asymptote. To sketch, draw the asymptotes as dashed lines, plot the intercepts, mark the hole with an open circle, and connect, staying close to the asymptotes. The range is easiest to read from your finished sketch: watch for y-values the graph skips, like the horizontal asymptote''s value or the hole''s height. Your CheckIt function will have different numbers. Sorting the factors is what transfers.'
 tabs:
   - id: factors
     label: "Try It: Read the Factors"
@@ -54,35 +54,35 @@ tabs:
         title: "Cancel or Stay?"
         math:
           display: 'f(x)=\dfrac{3(x+2)(x-4)}{2(x-4)(x+1)}'
-          speak: "f of x equals the fraction 3 times the quantity x plus 2, times the quantity x minus 4, over 2 times the quantity x minus 4, times the quantity x plus 1, end fraction"
+          speak: "f of x equals the fraction 3 times the quantity x plus 2, end quantity, times the quantity x minus 4, end quantity, over 2 times the quantity x minus 4, end quantity, times the quantity x plus 1, end quantity, end fraction"
         prompt: 'What happens at x = 4 and at x = −1?'
         choices:
           - {value: a, label: "A hole at x = 4, and a vertical asymptote at x = −1"}
           - {value: b, label: "Vertical asymptotes at both x = 4 and x = −1"}
           - {value: c, label: "A vertical asymptote at x = 4, and a hole at x = −1"}
-          - {value: d, label: "A hole at x = −4, and a vertical asymptote at x = 1"}
+          - {value: d, label: "A zero at x = 4, and a vertical asymptote at x = −1"}
         correct: a
         explanation: |-
-          \( (x-4) \) is on the top and the bottom, so it cancels: \( f(x)=\dfrac{3(x+2)}{2(x+1)} \) everywhere except \( x=4 \), where the original is \( \tfrac{0}{0} \). That is a hole. \( (x+1) \) stays on the bottom, so \( x=-1 \) is a vertical asymptote. Calling both asymptotes misses the cancelling; the swapped version mixes up which factor cancels; and \( -4 \) and \( 1 \) read the signs as written. <strong>A hole at x = 4, and a vertical asymptote at x = −1.</strong>
+          \( (x-4) \) is on the top and the bottom, so it cancels: \( f(x)=\dfrac{3(x+2)}{2(x+1)} \) everywhere except \( x=4 \), where the original is \( \tfrac{0}{0} \). That is a hole. \( (x+1) \) stays on the bottom, so \( x=-1 \) is a vertical asymptote. Calling both asymptotes misses the cancelling; the swapped version mixes up which factor cancels; and calling 4 a zero misses that \( (x-4) \) cancels. <strong>A hole at x = 4, and a vertical asymptote at x = −1.</strong>
       - id: rf2
         title: "Hole Height"
         math:
           display: 'f(x)=\dfrac{-(x+5)(x-2)}{3(x-2)(x+4)}'
-          speak: "f of x equals the fraction negative the quantity x plus 5, times the quantity x minus 2, over 3 times the quantity x minus 2, times the quantity x plus 4, end fraction"
+          speak: "f of x equals the fraction negative the quantity x plus 5, end quantity, times the quantity x minus 2, end quantity, over 3 times the quantity x minus 2, end quantity, times the quantity x plus 4, end quantity, end fraction"
         prompt: 'The graph has a hole at x = 2. What is its y-coordinate?'
         choices:
           - {value: a, label: '\( \tfrac{7}{18} \)', speak: "7 eighteenths"}
           - {value: b, label: "0"}
           - {value: c, label: '\( -\tfrac{7}{18} \)', speak: "negative 7 eighteenths"}
-          - {value: d, label: '\( -\tfrac{1}{3} \)', speak: "negative 1 third"}
+          - {value: d, label: '\( -\tfrac{5}{12} \)', speak: "negative 5 twelfths"}
         correct: c
         explanation: |-
-          Cancel first: \( f(x)=\dfrac{-(x+5)}{3(x+4)} \). Then plug in 2: \( \dfrac{-(7)}{3(6)}=-\dfrac{7}{18} \). The hole is \( \left(2,-\tfrac{7}{18}\right) \). \( \tfrac{7}{18} \) drops the negative in front; 0 comes from reading the original's \( \tfrac{0}{0} \) as 0; and \( -\tfrac{1}{3} \) is the horizontal asymptote, the ratio of the leading coefficients. <strong>\( -\tfrac{7}{18} \).</strong>
+          Cancel first; away from the hole, the formula is \( \dfrac{-(x+5)}{3(x+4)} \). Then plug in 2: \( \dfrac{-(7)}{3(6)}=-\dfrac{7}{18} \). The hole is \( \left(2,-\tfrac{7}{18}\right) \). \( \tfrac{7}{18} \) drops the negative in front; 0 comes from reading the original's \( \tfrac{0}{0} \) as 0; and \( -\tfrac{5}{12} \) comes from plugging in 0 instead of 2, which gives the \( y \)-intercept. <strong>\( -\tfrac{7}{18} \).</strong>
       - id: rf3
         title: "Zeros"
         math:
           display: 'f(x)=\dfrac{-4(x-3)}{5(x-3)(x+2)^{2}}'
-          speak: "f of x equals the fraction negative 4 times the quantity x minus 3, over 5 times the quantity x minus 3, times the quantity x plus 2, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction negative 4 times the quantity x minus 3, end quantity, over 5 times the quantity x minus 3, end quantity, times the quantity x plus 2, end quantity, squared, end fraction"
         prompt: 'What are the zeros of f?'
         choices:
           - {value: a, label: "x = 3, from the top factor"}
@@ -91,12 +91,12 @@ tabs:
           - {value: d, label: "x = −4/5, from the numbers in front"}
         correct: b
         explanation: |-
-          Zeros come from top factors that do not cancel. The only top factor, \( (x-3) \), cancels with the bottom, which leaves \( f(x)=\dfrac{-4}{5(x+2)^{2}} \). The top is now just \( -4 \), which is never 0. At \( x=3 \) there is a hole, not a zero; \( x=-2 \) makes the bottom 0, so it is a vertical asymptote; and \( -\tfrac{4}{5} \) is a ratio of coefficients, not an \( x \)-value where \( f \) is 0. <strong>There are none.</strong>
+          Zeros come from top factors that do not cancel. The only top factor, \( (x-3) \), cancels with the bottom, which leaves the formula \( \dfrac{-4}{5(x+2)^{2}} \) everywhere except the hole. The top is now just \( -4 \), which is never 0. At \( x=3 \) there is a hole, not a zero; \( x=-2 \) makes the bottom 0, so it is a vertical asymptote; and \( -\tfrac{4}{5} \) is a ratio of coefficients, not an \( x \)-value where \( f \) is 0. <strong>There are none.</strong>
       - id: rf4
         title: "Domain"
         math:
           display: 'f(x)=\dfrac{5(x+2)(x-3)}{4(x-3)(x-1)^{2}}'
-          speak: "f of x equals the fraction 5 times the quantity x plus 2, times the quantity x minus 3, over 4 times the quantity x minus 3, times the quantity x minus 1, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction 5 times the quantity x plus 2, end quantity, times the quantity x minus 3, end quantity, over 4 times the quantity x minus 3, end quantity, times the quantity x minus 1, end quantity, squared, end fraction"
         prompt: 'What is the domain of f?'
         choices:
           - {value: a, label: "All real numbers except 1"}
@@ -105,7 +105,7 @@ tabs:
           - {value: d, label: "All real numbers except 1 and 3"}
         correct: d
         explanation: |-
-          The domain leaves out every \( x \) that makes the original bottom 0: \( x=3 \) and \( x=1 \). Cancelling \( (x-3) \) changes the formula, not the domain, so 3 stays out, as the hole. "Except 1" alone forgets the hole, and −2 makes the top 0, which is allowed, so it does not belong on the list. <strong>All real numbers except 1 and 3.</strong>
+          The domain leaves out every \( x \) that makes the original bottom 0: \( x=3 \) and \( x=1 \). Cancelling \( (x-3) \) changes the formula, not the domain, so 3 stays out, as the hole. "Except 1" alone forgets the hole, and −2 makes the top 0, which is allowed, so it does not belong on the list. "Except −2 and 3" uses the factors on the top instead of the bottom. <strong>All real numbers except 1 and 3.</strong>
   - id: asym
     label: "Try It: Asymptotes and Intercepts"
     heading: "Try It: Asymptotes and Intercepts"
@@ -116,7 +116,7 @@ tabs:
         title: "Level Off 1"
         math:
           display: 'f(x)=\dfrac{-2(x-1)^{2}(x+3)}{3(x+3)(x+4)^{2}}'
-          speak: "f of x equals the fraction negative 2 times the quantity x minus 1, end quantity, squared, times the quantity x plus 3, over 3 times the quantity x plus 3, times the quantity x plus 4, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction negative 2 times the quantity x minus 1, end quantity, squared, times the quantity x plus 3, end quantity, over 3 times the quantity x plus 3, end quantity, times the quantity x plus 4, end quantity, squared, end fraction"
         prompt: 'What is the horizontal asymptote?'
         choices:
           - {value: a, label: '\( y=1 \)', speak: "y equals 1"}
@@ -129,8 +129,8 @@ tabs:
       - id: ai2
         title: "Level Off 2"
         math:
-          display: 'f(x)=\dfrac{-3(x-2)}{2(x-2)(x+1)^{2}}'
-          speak: "f of x equals the fraction negative 3 times the quantity x minus 2, over 2 times the quantity x minus 2, times the quantity x plus 1, end quantity, squared, end fraction"
+          display: 'f(x)=\dfrac{-3(x-2)}{2(x-2)(x+1)}'
+          speak: "f of x equals the fraction negative 3 times the quantity x minus 2, end quantity, over 2 times the quantity x minus 2, end quantity, times the quantity x plus 1, end quantity, end fraction"
         prompt: 'What is the horizontal asymptote?'
         choices:
           - {value: a, label: '\( y=0 \)', speak: "y equals 0"}
@@ -139,12 +139,12 @@ tabs:
           - {value: d, label: '\( y=-1 \)', speak: "y equals negative 1"}
         correct: a
         explanation: |-
-          The top has degree 1 and the bottom has degree 3. When the bottom wins, the fraction shrinks toward 0 far out, so the asymptote is \( y=0 \). \( -\tfrac{3}{2} \) is the ratio of the numbers in front, which matters only when the degrees match; "none" goes with a top of higher degree; and \( y=-1 \) copies the vertical asymptote's value, \( x=-1 \), onto the wrong axis. <strong>\( y=0 \).</strong>
+          The top has degree 1 and the bottom has degree 2. When the bottom wins, the fraction shrinks toward 0 far out, so the asymptote is \( y=0 \). \( -\tfrac{3}{2} \) is the ratio of the numbers in front, which matters only when the degrees match; "none" goes with a top of higher degree; and \( y=-1 \) copies the vertical asymptote's value, \( x=-1 \), onto the wrong axis. <strong>\( y=0 \).</strong>
       - id: ai3
         title: "Level Off 3"
         math:
           display: 'f(x)=\dfrac{(x-5)^{2}(x+1)}{3(x+1)(x-2)}'
-          speak: "f of x equals the fraction the quantity x minus 5, end quantity, squared, times the quantity x plus 1, over 3 times the quantity x plus 1, times the quantity x minus 2, end fraction"
+          speak: "f of x equals the fraction the quantity x minus 5, end quantity, squared, times the quantity x plus 1, end quantity, over 3 times the quantity x plus 1, end quantity, times the quantity x minus 2, end quantity, end fraction"
         prompt: 'What is the horizontal asymptote?'
         choices:
           - {value: a, label: '\( y=\tfrac{1}{3} \)', speak: "y equals 1 third"}
@@ -158,7 +158,7 @@ tabs:
         title: "Cross the y-Axis"
         math:
           display: 'f(x)=\dfrac{3(x-1)(x+5)}{4(x+5)(x+3)}'
-          speak: "f of x equals the fraction 3 times the quantity x minus 1, times the quantity x plus 5, over 4 times the quantity x plus 5, times the quantity x plus 3, end fraction"
+          speak: "f of x equals the fraction 3 times the quantity x minus 1, end quantity, times the quantity x plus 5, end quantity, over 4 times the quantity x plus 5, end quantity, times the quantity x plus 3, end quantity, end fraction"
         prompt: 'What is the y-intercept?'
         choices:
           - {value: a, label: '\( (0,\ \tfrac{1}{4}) \)', speak: "the point 0, 1 fourth"}
@@ -182,18 +182,18 @@ tabs:
           caption: 'A graph on axes with x from −6 to 8 and y from −8 to 10. A dashed vertical line is at x = 1 and a dashed horizontal line is at y = 2. Left of x = 1, the curve comes in from the left just above y = 2, rises through an open circle at (−1, 4) and through the point (0, 6), and shoots up beside x = 1. Right of x = 1, the curve comes up from the bottom beside x = 1, crosses the x-axis at (3, 0), and levels off just below y = 2. The open circle and both intercepts are labeled.'
         prompt: 'Which formula matches this graph?'
         choices:
-          - {value: a, label: '\( f(x)=\dfrac{2(x-3)(x-1)}{(x-1)(x+1)} \)', speak: "f of x equals the fraction 2 times the quantity x minus 3, times the quantity x minus 1, over the quantity x minus 1, times the quantity x plus 1, end fraction"}
-          - {value: b, label: '\( f(x)=\dfrac{(x-3)(x+1)}{2(x+1)(x-1)} \)', speak: "f of x equals the fraction the quantity x minus 3, times the quantity x plus 1, over 2 times the quantity x plus 1, times the quantity x minus 1, end fraction"}
-          - {value: c, label: '\( f(x)=\dfrac{2(x-3)(x+1)}{(x+1)(x-1)} \)', speak: "f of x equals the fraction 2 times the quantity x minus 3, times the quantity x plus 1, over the quantity x plus 1, times the quantity x minus 1, end fraction"}
-          - {value: d, label: '\( f(x)=\dfrac{2(x+3)(x+1)}{(x+1)(x-1)} \)', speak: "f of x equals the fraction 2 times the quantity x plus 3, times the quantity x plus 1, over the quantity x plus 1, times the quantity x minus 1, end fraction"}
+          - {value: a, label: '\( f(x)=\dfrac{2(x-3)(x-1)}{(x-1)(x+1)} \)', speak: "f of x equals the fraction 2 times the quantity x minus 3, end quantity, times the quantity x minus 1, end quantity, over the quantity x minus 1, end quantity, times the quantity x plus 1, end quantity, end fraction"}
+          - {value: b, label: '\( f(x)=\dfrac{(x-3)(x+1)}{2(x+1)(x-1)} \)', speak: "f of x equals the fraction the quantity x minus 3, end quantity, times the quantity x plus 1, end quantity, over 2 times the quantity x plus 1, end quantity, times the quantity x minus 1, end quantity, end fraction"}
+          - {value: c, label: '\( f(x)=\dfrac{2(x-3)(x+1)}{(x+1)(x-1)} \)', speak: "f of x equals the fraction 2 times the quantity x minus 3, end quantity, times the quantity x plus 1, end quantity, over the quantity x plus 1, end quantity, times the quantity x minus 1, end quantity, end fraction"}
+          - {value: d, label: '\( f(x)=\dfrac{2(x+3)(x+1)}{(x+1)(x-1)} \)', speak: "f of x equals the fraction 2 times the quantity x plus 3, end quantity, times the quantity x plus 1, end quantity, over the quantity x plus 1, end quantity, times the quantity x minus 1, end quantity, end fraction"}
         correct: c
         explanation: |-
-          The open circle at \( x=-1 \) means \( (x+1) \) cancels; the asymptote at \( x=1 \) means \( (x-1) \) stays on the bottom; the zero at 3 means \( (x-3) \) stays on top; and leveling off at \( y=2 \) means the numbers in front give \( \tfrac{2}{1} \). Check: the cancelled form \( \dfrac{2(x-3)}{x-1} \) gives \( f(0)=6 \) and \( f(-1)=4 \). Swapping the hole and the asymptote gives the first formula; the 2 on the bottom levels off at \( \tfrac{1}{2} \); and \( (x+3) \) puts the zero at −3. <strong>\( f(x)=\dfrac{2(x-3)(x+1)}{(x+1)(x-1)} \).</strong>
+          The open circle at \( x=-1 \) means \( (x+1) \) cancels; the asymptote at \( x=1 \) means \( (x-1) \) stays on the bottom; the zero at 3 means \( (x-3) \) stays on top; and leveling off at \( y=2 \) means the numbers in front give \( \tfrac{2}{1} \). Check: the cancelled form \( \dfrac{2(x-3)}{x-1} \) gives 6 at \( x=0 \) and 4 at \( x=-1 \), the height of the hole. Cancelling \( (x-1) \) instead of \( (x+1) \) swaps the hole and the asymptote; the 2 on the bottom levels off at \( \tfrac{1}{2} \); and \( (x+3) \) puts the zero at −3. <strong>\( f(x)=\dfrac{2(x-3)(x+1)}{(x+1)(x-1)} \).</strong>
       - id: sk2
         title: "Beside the Asymptote"
         math:
           display: 'f(x)=\dfrac{-2(x+4)}{3(x+4)(x-2)^{2}}'
-          speak: "f of x equals the fraction negative 2 times the quantity x plus 4, over 3 times the quantity x plus 4, times the quantity x minus 2, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction negative 2 times the quantity x plus 4, end quantity, over 3 times the quantity x plus 4, end quantity, times the quantity x minus 2, end quantity, squared, end fraction"
         prompt: 'Which describes the graph just to the left and just to the right of x = 2?'
         choices:
           - {value: a, label: "Down on both sides"}
@@ -202,39 +202,39 @@ tabs:
           - {value: d, label: "Up on the left, down on the right"}
         correct: a
         explanation: |-
-          Cancelled, \( f(x)=\dfrac{-2}{3(x-2)^{2}} \). Near \( x=2 \), the bottom \( 3(x-2)^{2} \) is a tiny positive number on both sides, because a square is never negative. So \( f \) is \( -2 \) over a tiny positive number: a huge negative number on both sides. Up on both sides forgets the \( -2 \); the two mixed choices would need a factor that changes sign, like \( (x-2) \) to the first power. <strong>Down on both sides.</strong>
+          Cancelled, the formula is \( \dfrac{-2}{3(x-2)^{2}} \), away from the hole. Near \( x=2 \), the bottom \( 3(x-2)^{2} \) is a tiny positive number on both sides, because a square is never negative. So \( f \) is \( -2 \) over a tiny positive number: a huge negative number on both sides. Up on both sides forgets the \( -2 \); the two mixed choices would need a factor that changes sign, like \( (x-2) \) to the first power. <strong>Down on both sides.</strong>
       - id: sk3
         title: "Read the Graph"
         math:
           display: 'f(x)=\dfrac{(x+2)^{2}(x-1)}{2(x-1)(x-3)}'
-          speak: "f of x equals the fraction the quantity x plus 2, end quantity, squared, times the quantity x minus 1, over 2 times the quantity x minus 1, times the quantity x minus 3, end fraction"
+          speak: "f of x equals the fraction the quantity x plus 2, end quantity, squared, times the quantity x minus 1, end quantity, over 2 times the quantity x minus 1, end quantity, times the quantity x minus 3, end quantity, end fraction"
         figure:
           file: figures/PR7/sk3.svg
           title: "The graph of a rational function with one dashed vertical line"
-          caption: 'A graph on axes with x from −6 to 9 and y from −10 to 20. A dashed vertical line is at x = 3; there is no horizontal dashed line. Left of x = 3, the curve rises from the lower left to just touch the x-axis at (−2, 0), turns down through (0, −2/3) and an open circle at (1, −9/4), and drops beside x = 3. Right of x = 3, the curve comes down from the top, bottoms out near (8, 10), and then rises again to the right. The two intercepts and the open circle are labeled.'
+          caption: 'A graph on axes with x from −6 to 9 and y from −10 to 20. A dashed vertical line is at x = 3; no other dashed lines are drawn. Left of x = 3, the curve rises from the lower left to just touch the x-axis at (−2, 0), turns down through (0, −2/3) and an open circle at x = 1, a little below the x-axis, and drops beside x = 3. Right of x = 3, the curve comes down from the top, bottoms out near (8, 10), and then rises again to the right. The two intercepts are labeled.'
         prompt: 'Which list matches the graph and the formula?'
         choices:
-          - {value: a, label: "Asymptotes x = 1 and x = 3; no horizontal asymptote; zero −2"}
+          - {value: a, label: "Hole (1, 0); asymptote x = 3; no horizontal asymptote; zero −2"}
           - {value: b, label: "Hole (1, −9/4); asymptote x = 3; horizontal asymptote y = 1/2"}
-          - {value: c, label: "Hole (3, −9/4); asymptote x = 1; no horizontal asymptote; zero −2"}
+          - {value: c, label: "Hole (1, −9/2); asymptote x = 3; no horizontal asymptote; zero −2"}
           - {value: d, label: "Hole (1, −9/4); asymptote x = 3; no horizontal asymptote; zero −2"}
         correct: d
         explanation: |-
-          \( (x-1) \) cancels, so there is a hole at \( x=1 \), with height \( \dfrac{(1+2)^{2}}{2(1-3)}=-\tfrac{9}{4} \). \( (x-3) \) stays on the bottom: the asymptote \( x=3 \). The top has degree 3 and the bottom degree 2, so the graph never levels off; far out it heads up on the right and down on the left. The zero is −2, where the squared factor makes the graph touch the axis and turn. Calling \( x=1 \) an asymptote misses the cancelling; \( y=\tfrac{1}{2} \) would need equal degrees; and swapping 1 and 3 mixes up which factor cancels. <strong>Hole \( \left(1,-\tfrac{9}{4}\right) \); asymptote \( x=3 \); no horizontal asymptote; zero −2.</strong>
+          \( (x-1) \) cancels, so there is a hole at \( x=1 \), with height \( \dfrac{(1+2)^{2}}{2(1-3)}=-\tfrac{9}{4} \). \( (x-3) \) stays on the bottom: the asymptote \( x=3 \). The top has degree 3 and the bottom degree 2, so the graph never levels off; far out it heads up on the right and down on the left. The zero is −2, where the squared factor makes the graph touch the axis and turn. A height of 0 reads the original's \( \tfrac{0}{0} \) as 0; \( -\tfrac{9}{2} \) forgets the 2 on the bottom; and \( y=\tfrac{1}{2} \) would need equal degrees. <strong>Hole \( \left(1,-\tfrac{9}{4}\right) \); asymptote \( x=3 \); no horizontal asymptote; zero −2.</strong>
       - id: sk4
         title: "Sketch It"
         math:
           display: 'f(x)=\dfrac{4(x+3)(x-2)}{2(x-2)(x-1)}'
-          speak: "f of x equals the fraction 4 times the quantity x plus 3, times the quantity x minus 2, over 2 times the quantity x minus 2, times the quantity x minus 1, end fraction"
-        prompt: 'CheckIt will ask you to sketch this. Reading from left to right, which description is right?'
+          speak: "f of x equals the fraction 4 times the quantity x plus 3, end quantity, times the quantity x minus 2, end quantity, over 2 times the quantity x minus 2, end quantity, times the quantity x minus 1, end quantity, end fraction"
+        prompt: 'CheckIt will ask you to sketch this. The graph crosses the x-axis at −3 and passes through (0, −6). Reading from left to right, which description is right?'
         choices:
-          - {value: a, label: "Near y = 2, crosses at −3, through (0, −6), down beside x = 1; then from the top, a hole at (2, 10), back toward y = 2"}
-          - {value: b, label: "Near y = 2, crosses at −3, through (0, −6), up beside x = 1; then from the bottom, a hole at (2, 10), back toward y = 2"}
-          - {value: c, label: "Near y = 0, crosses at −3, through (0, −6), down beside x = 1; then from the top, a hole at (2, 10), back toward y = 0"}
-          - {value: d, label: "Near y = 2, crosses at −3, through (0, −6), down beside x = 1; then from the top, down beside x = 2, back toward y = 2"}
+          - {value: a, label: "Near y = 2, down beside x = 1; then from the top, a hole at (2, 10), back toward y = 2"}
+          - {value: b, label: "Near y = 2, up beside x = 1; then from the bottom, a hole at (2, 10), back toward y = 2"}
+          - {value: c, label: "Near y = 0, down beside x = 1; then from the top, a hole at (2, 10), back toward y = 0"}
+          - {value: d, label: "Near y = 2, down beside x = 1; then from the top, down beside x = 2, back toward y = 2"}
         correct: a
         explanation: |-
-          Cancelled, \( f(x)=\dfrac{2(x+3)}{x-1} \). Equal degrees with \( \tfrac{4}{2}=2 \) in front: the graph levels off at \( y=2 \). The zero is −3, and \( f(0)=\dfrac{2(3)}{-1}=-6 \). Just left of 1, the bottom is a tiny negative number, so \( f \) dives down; just right of 1, it is a tiny positive number, so \( f \) comes down from the top. The hole is at \( \left(2,\tfrac{2(5)}{1}\right)=(2,10) \). Going up beside 1 on the left gets the sign of \( x-1 \) wrong; \( y=0 \) forgets the equal degrees; and a second asymptote at 2 misses the cancelling. <strong>Near y = 2, down beside x = 1, then from the top, a hole at (2, 10), back toward y = 2.</strong>
+          Cancelled, the formula is \( \dfrac{2(x+3)}{x-1} \), away from the hole. Equal degrees with \( \tfrac{4}{2}=2 \) in front: the graph levels off at \( y=2 \). The zero is −3, and \( f(0)=\dfrac{2(3)}{-1}=-6 \). Just left of 1, the bottom is a tiny negative number, so \( f \) dives down; just right of 1, it is a tiny positive number, so \( f \) comes down from the top. The hole is at \( \left(2,\tfrac{2(5)}{1}\right)=(2,10) \). Going up beside 1 on the left gets the sign of \( x-1 \) wrong; \( y=0 \) forgets the equal degrees; and a second asymptote at 2 misses the cancelling. <strong>Near y = 2, down beside x = 1, then from the top, a hole at (2, 10), back toward y = 2.</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -245,7 +245,7 @@ tabs:
         title: "Slip 1"
         math:
           display: 'f(x)=\dfrac{-(x-5)(x+2)}{4(x+2)(x-3)}'
-          speak: "f of x equals the fraction negative the quantity x minus 5, times the quantity x plus 2, over 4 times the quantity x plus 2, times the quantity x minus 3, end fraction"
+          speak: "f of x equals the fraction negative the quantity x minus 5, end quantity, times the quantity x plus 2, end quantity, over 4 times the quantity x plus 2, end quantity, times the quantity x minus 3, end quantity, end fraction"
         prompt: 'A student says f has vertical asymptotes at x = −2 and x = 3. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -259,7 +259,7 @@ tabs:
         title: "Slip 2"
         math:
           display: 'f(x)=\dfrac{4(x+1)(x-3)}{5(x-3)(x+2)}'
-          speak: "f of x equals the fraction 4 times the quantity x plus 1, times the quantity x minus 3, over 5 times the quantity x minus 3, times the quantity x plus 2, end fraction"
+          speak: "f of x equals the fraction 4 times the quantity x plus 1, end quantity, times the quantity x minus 3, end quantity, over 5 times the quantity x minus 3, end quantity, times the quantity x plus 2, end quantity, end fraction"
         prompt: 'A student says the horizontal asymptote is y = 1, since the top and bottom both have degree 2. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -272,9 +272,9 @@ tabs:
       - id: sl3
         title: "Slip 3"
         math:
-          display: '\begin{aligned} f(x)&=\dfrac{2(x-4)}{3(x-1)}\\ f(-3)&=\dfrac{2(-7)}{3(-4)}=\dfrac{7}{6} \end{aligned}'
-          speak: "f of x equals the fraction 2 times the quantity x minus 4, over 3 times the quantity x minus 1, end fraction. Next line: f of negative 3 equals the fraction 2 times negative 7, over 3 times negative 4, end fraction, which equals 7 sixths"
-        prompt: 'For \( f(x)=\dfrac{2(x-4)(x+3)}{3(x+3)(x-1)} \), a student cancelled, plugged in, and said the hole is (−3, 7/6). What is the mistake, if any?'
+          display: '\begin{aligned} &\dfrac{2(x-4)}{3(x-1)}\\ &\dfrac{2(-7)}{3(-4)}=\dfrac{7}{6} \end{aligned}'
+          speak: "First line, the cancelled form: the fraction 2 times the quantity x minus 4, end quantity, over 3 times the quantity x minus 1, end quantity, end fraction. Second line, with negative 3 plugged in: the fraction 2 times negative 7, over 3 times negative 4, end fraction, which equals 7 sixths"
+        prompt: 'For \( f(x)=\dfrac{2(x-4)(x+3)}{3(x+3)(x-1)} \), a student wrote the cancelled form (first line), plugged in −3 (second line), and said the hole is (−3, 7/6). What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The hole's height is 0, since (x + 3) is 0 at x = −3."}
@@ -287,7 +287,7 @@ tabs:
         title: "Slip 4"
         math:
           display: 'f(x)=\dfrac{5(x+1)}{2(x+1)(x-4)^{2}}'
-          speak: "f of x equals the fraction 5 times the quantity x plus 1, over 2 times the quantity x plus 1, times the quantity x minus 4, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction 5 times the quantity x plus 1, end quantity, over 2 times the quantity x plus 1, end quantity, times the quantity x minus 4, end quantity, squared, end fraction"
         prompt: 'A student says the zero of f is x = −1, from the factor (x + 1) on top. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -296,12 +296,12 @@ tabs:
           - {value: d, label: "(x + 1) cancels, so x = −1 is a hole and f has no zeros."}
         correct: d
         explanation: |-
-          \( (x+1) \) is on the top and the bottom, so it cancels: \( f(x)=\dfrac{5}{2(x-4)^{2}} \). The top is now 5, never 0, so there are no zeros, and \( x=-1 \) is a hole at \( \left(-1,\tfrac{1}{10}\right) \). \( x=4 \) makes the bottom 0, so it is a vertical asymptote, and \( (x+1) \) goes with −1, not 1. <strong>There are no zeros; x = −1 is a hole.</strong>
+          \( (x+1) \) is on the top and the bottom, so it cancels, leaving the formula \( \dfrac{5}{2(x-4)^{2}} \) away from the hole. The top is now 5, never 0, so there are no zeros, and \( x=-1 \) is a hole at \( \left(-1,\tfrac{1}{10}\right) \). \( x=4 \) makes the bottom 0, so it is a vertical asymptote, and \( (x+1) \) goes with −1, not 1. <strong>There are no zeros; x = −1 is a hole.</strong>
       - id: sl5
         title: "Slip 5"
         math:
           display: 'f(x)=\dfrac{-3(x+4)^{2}(x-2)}{5(x-2)(x+1)^{2}}'
-          speak: "f of x equals the fraction negative 3 times the quantity x plus 4, end quantity, squared, times the quantity x minus 2, over 5 times the quantity x minus 2, times the quantity x plus 1, end quantity, squared, end fraction"
+          speak: "f of x equals the fraction negative 3 times the quantity x plus 4, end quantity, squared, times the quantity x minus 2, end quantity, over 5 times the quantity x minus 2, end quantity, times the quantity x plus 1, end quantity, squared, end fraction"
         prompt: 'A student says the horizontal asymptote is y = 0, because the bottom has a squared factor. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}

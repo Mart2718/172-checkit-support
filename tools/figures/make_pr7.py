@@ -36,7 +36,7 @@ def plot(name, curves, x0, x1, y0, y1, xstep=1, ystep=2, asym=(), hline=None, ho
         j += ystep
     o.append('</g>')
     o.append(f'<text x="{L+pw-4}" y="{sy(0)-8:.1f}" text-anchor="end" fill="#333" font-style="italic">x</text>')
-    o.append(f'<text x="{sx(0)+8:.1f}" y="{T+20}" fill="#333" font-style="italic">y</text>')
+    o.append(f'<text x="{sx(0)-10:.1f}" y="{T+20}" text-anchor="end" fill="#333" font-style="italic">y</text>')
     for a in asym:
         o.append(f'<line x1="{sx(a):.1f}" y1="{T}" x2="{sx(a):.1f}" y2="{T+ph}" stroke="{ORANGE}" stroke-width="2" stroke-dasharray="8 6"/>')
     if hasym is not None:
@@ -65,8 +65,8 @@ def plot(name, curves, x0, x1, y0, y1, xstep=1, ystep=2, asym=(), hline=None, ho
 plot('sk1.svg', [lambda x: 2 * (x - 3) / (x - 1)], -6, 8, -8, 10, xstep=2, ystep=2, gy=2, asym=[1], hasym=2,
      holes=[(-1, 4, '(' + M + '1, 4)', 'end', -12, -8)],
      dots=[(3, 0, '(3, 0)', 'start', 8, 24), (0, 6, '(0, 6)', 'start', 10, -6)])
-# Sketch 3: f(x) = (x + 2)^2 (x - 1)/(2(x - 1)(x - 3)) = (x + 2)^2/(2(x - 3)) with a hole at (1, -9/4); no horizontal asymptote
+# Sketch 3: f(x) = (x + 2)^2 (x - 1)/(2(x - 1)(x - 3)) = (x + 2)^2/(2(x - 3)) with a hole at (1, -9/4), left unlabeled; no horizontal asymptote
 plot('sk3.svg', [lambda x: (x + 2) ** 2 / (2 * (x - 3))], -6, 9, -10, 20, xstep=2, ystep=5, gy=5, asym=[3],
-     holes=[(1, -2.25, '(1, ' + M + '9/4)', 'start', 12, 28)],
+     holes=[(1, -2.25, '', 'start', 12, 28)],
      dots=[(-2, 0, '(' + M + '2, 0)', 'end', -8, -10), (0, -2 / 3, '(0, ' + M + '2/3)', 'end', -10, 28)])
 print('wrote', sorted(os.listdir(OUT)))
