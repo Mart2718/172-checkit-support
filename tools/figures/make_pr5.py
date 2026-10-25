@@ -82,7 +82,7 @@ def graph(name, f, x0, x1, y0, y1, ystep):
 graph('cz3.svg', lambda x: 2*x**4 + x**3 - 46*x**2 + 28*x + 48, -6, 5, -400, 400, 200)
 # Divide 1: x^5 - 3x^4 - 23x^3 + 91x^2 - 6x - 180 divided by x - 3, partway
 synth('sd1.svg', 3, [1, -3, -23, 91, -6, -180], [3, 0, -69, '?', None], [1, 0, -23, 22, None, None], box=(1, 4))
-# Divide 2: the same division, finished
+# Divide 2: x^5 - 3x^3 - 16x^2 - 108x - 144 divided by x - 4, finished
 synth('sd2.svg', 4, [1, 0, -3, -16, -108, -144], [4, 16, 52, 144, 144], [1, 4, 13, 36, 36, 0])
 # Divide 3: the quotient x^4 + 4x^3 + 13x^2 + 36x + 36 divided by x + 2
 synth('sd3.svg', -2, [1, 4, 13, 36, 36], [-2, -4, -18, -36], [1, 2, 9, 18, 0])

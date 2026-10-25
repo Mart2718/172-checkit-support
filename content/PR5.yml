@@ -28,7 +28,7 @@ summary:   # the Quick Summary tab
       - 'Constant on top, leading coefficient on the bottom. For <span>\( 5x^{3}+\cdots+6 \)</span>: ±1, ±2, ±3, ±6, ±1/5, ±2/5, ±3/5, ±6/5.'
     -
       - 'Test with synthetic division'
-      - 'Put the candidate in the corner and the coefficients across. Bring the first one down. Multiply by the candidate, write it under the next column, add down. Repeat.'
+      - 'To divide by <span>\( x-r \)</span>, put <span>\( r \)</span> in the corner (for <span>\( x+3 \)</span>, use −3) and the coefficients across. Bring the first one down. Multiply by the candidate, write it under the next column, add down. Repeat.'
       - 'Write 0 for any missing power. A graph can show which candidates are worth testing first; only a last number of 0 proves a zero.'
     -
       - 'Divide down'
@@ -37,12 +37,12 @@ summary:   # the Quick Summary tab
     -
       - 'Finish the quadratic'
       - 'When a quadratic is left, use the quadratic formula, or factor it.'
-      - 'A negative under the square root gives complex zeros: <span>\( \sqrt{-16}=4i \)</span>. They come in ± pairs.'
+      - 'A negative under the square root gives complex zeros: <span>\( \sqrt{-25}=5i \)</span>. They come in pairs, <span>\( a+bi \)</span> with <span>\( a-bi \)</span>, so <span>\( 5i \)</span> comes with <span>\( -5i \)</span>.'
     -
       - 'Write linear factors'
       - 'One factor <span>\( (x-r) \)</span> for each zero, written again for each repeat.'
-      - 'A fractional zero like <span>\( \tfrac{4}{5} \)</span> gives the factor <span>\( (5x-4) \)</span>. Irrational and complex zeros give factors too, like <span>\( \big(x-(1+\sqrt{2})\big) \)</span> and <span>\( (x-7i) \)</span>.'
-  note: 'Count as you go: a degree <span>\( n \)</span> polynomial has exactly <span>\( n \)</span> zeros when you count repeats and complex zeros. That count tells you when you are done. Your CheckIt polynomials will have different numbers. The plan is what transfers.'
+      - 'A fractional zero like <span>\( -\tfrac{4}{5} \)</span> gives the factor <span>\( (5x+4) \)</span>. Irrational and complex zeros give factors too, like <span>\( \big(x-(1+\sqrt{2})\big) \)</span> and <span>\( (x-7i) \)</span>.'
+  note: 'Count as you go: a degree <span>\( n \)</span> polynomial has exactly <span>\( n \)</span> zeros when you count repeats and complex zeros. That count tells you when you are done. CheckIt gives no graph, but if you can, graph the polynomial (Desmos works) to see which candidates to test first. Your CheckIt polynomials will have different numbers. The plan is what transfers.'
 tabs:
   - id: cand
     label: "Try It: Find the Candidates"
@@ -86,8 +86,8 @@ tabs:
         figure:
           file: figures/PR5/cz3.svg
           title: "The graph of a quartic polynomial crossing the x-axis four times"
-          caption: 'A graph of y = f(x) on axes with x from −6 to 5 and y from −400 to 400, with tick marks every half unit on the x-axis. Coming down from the upper left, the graph crosses the x-axis a little left of −5, at about −5.2, falls to a low point near x = −4, and rises to cross again between −1 and −0.5, at about −0.8. It peaks just above the x-axis, at about 50, a little right of the y-axis, then falls to cross at x = 1.5, halfway between 1 and 2. It reaches a low point near x = 3 and rises to cross at x = 4, going up to the upper right.'
-        prompt: 'The candidates for f include ±1, ±2, ±3, ±4, ±6, ±8, ±1/2, and ±3/2. Which crossings sit exactly on candidates, so they are worth testing first?'
+          caption: 'A graph of y = f(x) on axes with x from −6 to 5 and y from −400 to 400, with tick marks every half unit on the x-axis. Coming down from the upper left, the graph crosses the x-axis a little left of −5, at about −5.2, falls to a low point at about (−3.7, −360), and rises to cross again between −1 and −0.5, at about −0.8. It peaks just above the x-axis, at about 50, a little right of the y-axis, then falls to cross at x = 1.5, halfway between 1 and 2. It reaches a low point at about (3, −90) and rises to cross at x = 4, going up to the upper right.'
+        prompt: 'The candidates for f include ±1, ±2, ±3, ±4, ±6, ±8, ±1/2, and ±3/2. Which crossings appear to land on candidates, so they are worth testing first?'
         choices:
           - {value: a, label: "All four crossings"}
           - {value: b, label: "x = −5 and x = −1"}
@@ -95,7 +95,7 @@ tabs:
           - {value: d, label: "x = 4 and x = 3/2"}
         correct: d
         explanation: |-
-          The graph crosses at 4 and at 1.5, which is \( \tfrac{3}{2} \): both are candidates, so test them first. The other two crossings, near −5.2 and −0.8, sit between candidates, so they are not rational zeros. They turn out to be \( -3\pm\sqrt{5} \), which you find later with the quadratic formula. −5 is not even a candidate, since 5 does not divide 48, and −1 and −1/2 are close to a crossing but not on it. A graph tells you where to look; a remainder of 0 proves it. <strong>x = 4 and x = 3/2.</strong>
+          The graph crosses at 4 and at 1.5, which is \( \tfrac{3}{2} \): both are candidates, so test them first. The other two crossings, near −5.2 and −0.8, sit between candidates, so they are not rational zeros. They are irrational, and you find them later with the quadratic formula. −5 is not even a candidate, since 5 does not divide 48, and −1 and −1/2 are close to a crossing but not on it. A graph tells you where to look; a remainder of 0 proves it. <strong>x = 4 and x = 3/2.</strong>
       - id: cz4
         title: "Candidates 4"
         math:
@@ -121,37 +121,37 @@ tabs:
         figure:
           file: figures/PR5/sd1.svg
           title: "A synthetic division in progress, with a box for the next number"
-          caption: 'A synthetic division in progress. The number being tested, 3, is in the corner box. The top row lists the coefficients: 1, negative 3, negative 23, 91, negative 6, negative 180. The middle row so far reads 3, 0, negative 69, then a box with a question mark under negative 6. The bottom row so far reads 1, 0, negative 23, 22.'
+          caption: 'A synthetic division in progress. The number being tested, 3, is in the corner box. The top row lists the coefficients: 1, negative 3, negative 23, 91, negative 6, negative 180. The middle row starts under the second coefficient, negative 3, and so far reads 3, 0, negative 69, then a box with a question mark under negative 6. The bottom row so far reads 1, 0, negative 23, 22.'
         prompt: 'This tests 3 as a zero of \( c(x)=x^{5}-3x^{4}-23x^{3}+91x^{2}-6x-180 \). What goes in the box?'
         choices:
           - {value: a, label: "25"}
           - {value: b, label: "−66"}
           - {value: c, label: "66"}
-          - {value: d, label: "113"}
+          - {value: d, label: "16"}
         correct: c
         explanation: |-
-          Multiply the last bottom-row number by the number being tested: \( 22\cdot 3=66 \). Write 66 in the box, then add down: \( -6+66=60 \). 25 adds 3 instead of multiplying; −66 flips the sign; and 113 is \( 91+22 \), a sum written where the product goes. <strong>66.</strong>
+          Multiply the last bottom-row number by the number being tested: \( 22\cdot 3=66 \). Write 66 in the box, then add down: \( -6+66=60 \). Keep going: \( 60\cdot 3=180 \) and \( -180+180=0 \). The last number is 0, so 3 is a zero of c. 25 adds 3 instead of multiplying; −66 flips the sign; and 16 adds 22 and −6, skipping the multiply step. <strong>66.</strong>
       - id: sd2
         title: "Divide 2"
         figure:
           file: figures/PR5/sd2.svg
           title: "A finished synthetic division"
-          caption: 'A finished synthetic division. The number being tested, 4, is in the corner box. The top row lists the coefficients of f: 1, 0, negative 3, negative 16, negative 108, negative 144. The middle row reads 4, 16, 52, 144, 144. The bottom row reads 1, 4, 13, 36, 36, 0.'
-        prompt: 'This divides \( f(x)=x^{5}-3x^{3}-16x^{2}-108x-144 \) by \( x-4 \). What does the bottom row tell you?'
+          caption: 'A finished synthetic division. The number being tested, 4, is in the corner box. The top row lists the coefficients of r: 1, 0, negative 3, negative 16, negative 108, negative 144. The middle row starts under the second coefficient and reads 4, 16, 52, 144, 144. The bottom row reads 1, 4, 13, 36, 36, 0.'
+        prompt: 'This divides \( r(x)=x^{5}-3x^{3}-16x^{2}-108x-144 \) by \( x-4 \). What does the bottom row tell you?'
         choices:
           - {value: a, label: "4 is not a zero, because the last number is 0."}
-          - {value: b, label: "4 is a zero, and f(x) = (x + 4)(x⁴ + 4x³ + 13x² + 36x + 36)."}
-          - {value: c, label: "4 is a zero, and f(x) = (x − 4)(x⁵ + 4x⁴ + 13x³ + 36x² + 36x)."}
-          - {value: d, label: "4 is a zero, and f(x) = (x − 4)(x⁴ + 4x³ + 13x² + 36x + 36)."}
+          - {value: b, label: "4 is a zero, and r(x) = (x + 4)(x⁴ + 4x³ + 13x² + 36x + 36)."}
+          - {value: c, label: "4 is a zero, and r(x) = (x − 4)(x⁵ + 4x⁴ + 13x³ + 36x² + 36x)."}
+          - {value: d, label: "4 is a zero, and r(x) = (x − 4)(x⁴ + 4x³ + 13x² + 36x + 36)."}
         correct: d
         explanation: |-
-          The last number is the remainder, and it is 0, so \( f(4)=0 \): 4 is a zero and \( (x-4) \) is a factor. The other numbers are the quotient's coefficients, starting one degree lower: \( x^{4}+4x^{3}+13x^{2}+36x+36 \). A last number of 0 means it is a zero, not that it is not; \( (x+4) \) goes with testing −4; and the quotient cannot keep degree 5. Also notice the 0 in the top row, holding the place of the missing \( x^{4} \) term. <strong>4 is a zero, and \( f(x)=(x-4)(x^{4}+4x^{3}+13x^{2}+36x+36) \).</strong>
+          The last number is the remainder, and it is 0, so \( r(4)=0 \): 4 is a zero and \( (x-4) \) is a factor. The other numbers are the quotient's coefficients, starting one degree lower: \( x^{4}+4x^{3}+13x^{2}+36x+36 \). A last number of 0 means it is a zero, not that it is not; \( (x+4) \) goes with testing −4; and the quotient cannot keep degree 5. Also notice the 0 in the top row, holding the place of the missing \( x^{4} \) term. <strong>4 is a zero, and \( r(x)=(x-4)(x^{4}+4x^{3}+13x^{2}+36x+36) \).</strong>
       - id: sd3
         title: "Divide 3"
         figure:
           file: figures/PR5/sd3.svg
           title: "A synthetic division of a quartic"
-          caption: 'A finished synthetic division. The number being tested, negative 2, is in the corner box. The top row lists the coefficients 1, 4, 13, 36, 36. The middle row reads negative 2, negative 4, negative 18, negative 36. The bottom row reads 1, 2, 9, 18, 0.'
+          caption: 'A finished synthetic division. The number being tested, negative 2, is in the corner box. The top row lists the coefficients 1, 4, 13, 36, 36. The middle row starts under the second coefficient and reads negative 2, negative 4, negative 18, negative 36. The bottom row reads 1, 2, 9, 18, 0.'
         prompt: 'Next, the quotient \( x^{4}+4x^{3}+13x^{2}+36x+36 \) was divided by \( x+2 \), as shown. Now test −2 again on the new quotient \( x^{3}+2x^{2}+9x+18 \). What is the remainder?'
         choices:
           - {value: a, label: "52"}
@@ -160,13 +160,13 @@ tabs:
           - {value: d, label: "18"}
         correct: b
         explanation: |-
-          \( (-2)^{3}+2(-2)^{2}+9(-2)+18=-8+8-18+18=0 \). So −2 works again: it is a zero with multiplicity 2, and \( (x+2)^{2} \) is part of the factored form. What is left is \( x^{2}+9 \). 52 plugs in \( +2 \); 36 treats \( 9(-2) \) as \( +18 \); and 18 is the constant term, not the remainder. Always try a zero again before moving on. <strong>0.</strong>
+          Divide again with −2: bring down 1; \( 1\cdot(-2)=-2 \), \( 2-2=0 \); \( 0\cdot(-2)=0 \), \( 9+0=9 \); \( 9\cdot(-2)=-18 \), \( 18-18=0 \). The bottom row is 1, 0, 9, 0: remainder 0, and the quotient is \( x^{2}+0x+9=x^{2}+9 \). So −2 is a zero with multiplicity 2, and \( (x+2)^{2} \) is part of the factored form. 52 plugs in \( +2 \); 36 treats \( 9(-2) \) as \( +18 \); and 18 is the constant term, not the remainder. Always try a zero again before moving on. <strong>0.</strong>
       - id: sd4
         title: "Divide 4"
         figure:
           file: figures/PR5/sd4.svg
           title: "A synthetic division by a fraction"
-          caption: 'A finished synthetic division. The number being tested, 2/3, is in the corner box. The top row lists the coefficients 3, 4, negative 16, 8. The middle row reads 2, 4, negative 8. The bottom row reads 3, 6, negative 12, 0.'
+          caption: 'A finished synthetic division. The number being tested, 2/3, is in the corner box. The top row lists the coefficients 3, 4, negative 16, 8. The middle row starts under the second coefficient and reads 2, 4, negative 8. The bottom row reads 3, 6, negative 12, 0.'
         prompt: 'Dividing \( 3x^{3}+4x^{2}-16x+8 \) by \( x-\tfrac{2}{3} \) gives the bottom row shown. How do you write the result as factors with no fractions?'
         choices:
           - {value: a, label: "(x − 2/3)(3x² + 6x − 12) = (3x − 2)(x² + 2x − 4)"}
@@ -189,13 +189,13 @@ tabs:
           speak: "x squared plus 6 x plus 4 equals 0"
         prompt: 'After its rational zeros are divided out, a polynomial is down to this quadratic. What are its zeros?'
         choices:
-          - {value: a, label: '\( 3\pm\sqrt{5} \)', speak: "3 plus or minus the square root of 5"}
-          - {value: b, label: '\( -3\pm\sqrt{5} \)', speak: "negative 3 plus or minus the square root of 5"}
+          - {value: a, label: '\( -3\pm\sqrt{5} \)', speak: "negative 3 plus or minus the square root of 5"}
+          - {value: b, label: '\( 3\pm\sqrt{5} \)', speak: "3 plus or minus the square root of 5"}
           - {value: c, label: '\( -3\pm\sqrt{13} \)', speak: "negative 3 plus or minus the square root of 13"}
           - {value: d, label: '\( -6\pm\sqrt{20} \)', speak: "negative 6 plus or minus the square root of 20"}
-        correct: b
+        correct: a
         explanation: |-
-          It does not factor with whole numbers, so use the quadratic formula: \( x=\dfrac{-6\pm\sqrt{36-16}}{2}=\dfrac{-6\pm\sqrt{20}}{2}=\dfrac{-6\pm 2\sqrt{5}}{2}=-3\pm\sqrt{5} \). \( 3\pm\sqrt{5} \) loses the sign of \( -b \); \( \sqrt{13} \) comes from \( 36+16 \), getting the sign of \( -4ac \) wrong; and \( -6\pm\sqrt{20} \) never divides by 2. <strong>\( -3\pm\sqrt{5} \).</strong>
+          It does not factor with whole numbers, so use the quadratic formula: \( x=\dfrac{-6\pm\sqrt{36-16}}{2}=\dfrac{-6\pm\sqrt{20}}{2}=\dfrac{-6\pm 2\sqrt{5}}{2}=-3\pm\sqrt{5} \). \( 3\pm\sqrt{5} \) loses the sign of \( -b \); \( -3\pm\sqrt{13} \) comes from \( \sqrt{36+16}=\sqrt{52}=2\sqrt{13} \), getting the sign of \( -4ac \) wrong; and \( -6\pm\sqrt{20} \) never divides by 2. <strong>\( -3\pm\sqrt{5} \).</strong>
       - id: fq2
         title: "Finish 2"
         math:
@@ -209,7 +209,7 @@ tabs:
           - {value: d, label: '\( \pm 9i \)', speak: "plus or minus 9 i"}
         correct: c
         explanation: |-
-          \( x^{2}=-9 \), so \( x=\pm\sqrt{-9}=\pm 3i \), because \( (3i)^{2}=9i^{2}=-9 \). \( \pm 3 \) squares to \( +9 \), not \( -9 \); \( \pm 9i \) squares to \( -81 \); and "no zeros" is true only for real zeros. The graph never crosses the \( x \)-axis there, but the complex zeros exist, and CheckIt wants them. <strong>\( \pm 3i \).</strong>
+          \( x^{2}=-9 \), so \( x=\pm\sqrt{-9}=\pm 3i \), because \( (3i)^{2}=9i^{2}=-9 \). \( \pm 3 \) squares to \( +9 \), not \( -9 \); \( \pm 9i \) squares to \( -81 \); and "no zeros" is true only for real zeros. The graph of \( y=x^{2}+9 \) never crosses the \( x \)-axis, but the complex zeros exist, and CheckIt wants them. <strong>\( \pm 3i \).</strong>
       - id: fq3
         title: "Factor It"
         math:
@@ -218,10 +218,10 @@ tabs:
         prompt: 'The zeros of k are −3, 5 with multiplicity 2, 2i, and −2i. Which is k written as a product of linear factors?'
         choices:
           - {value: a, label: '\( (x-3)(x+5)^{2}(x-2i)(x+2i) \)', speak: "the quantity x minus 3, times the quantity x plus 5, end quantity, squared, times the quantity x minus 2 i, times the quantity x plus 2 i"}
-          - {value: b, label: '\( (x+3)(x-5)(x-2i)(x+2i) \)', speak: "the quantity x plus 3, times the quantity x minus 5, times the quantity x minus 2 i, times the quantity x plus 2 i"}
+          - {value: b, label: '\( (x+3)(x-5)^{2}(x-2i)(x+2i) \)', speak: "the quantity x plus 3, times the quantity x minus 5, end quantity, squared, times the quantity x minus 2 i, times the quantity x plus 2 i"}
           - {value: c, label: '\( (x+3)(x-5)^{2}(x^{2}+4) \)', speak: "the quantity x plus 3, times the quantity x minus 5, end quantity, squared, times the quantity x squared plus 4"}
-          - {value: d, label: '\( (x+3)(x-5)^{2}(x-2i)(x+2i) \)', speak: "the quantity x plus 3, times the quantity x minus 5, end quantity, squared, times the quantity x minus 2 i, times the quantity x plus 2 i"}
-        correct: d
+          - {value: d, label: '\( (x+3)(x-5)(x-2i)(x+2i) \)', speak: "the quantity x plus 3, times the quantity x minus 5, times the quantity x minus 2 i, times the quantity x plus 2 i"}
+        correct: b
         explanation: |-
           Each zero \( r \) gives a factor \( (x-r) \): −3 gives \( (x+3) \), 5 gives \( (x-5) \) written twice, so \( (x-5)^{2} \), and \( \pm 2i \) give \( (x-2i)(x+2i) \). That is five factors for degree 5. Flipping the signs gives zeros 3 and −5; dropping the square loses the repeat and leaves degree 4; and \( (x^{2}+4) \) is correct but not split into linear factors, which CheckIt asks for. <strong>\( (x+3)(x-5)^{2}(x-2i)(x+2i) \).</strong>
       - id: fq4
@@ -231,13 +231,13 @@ tabs:
           speak: "p of x equals 2 x to the fourth minus 7 x cubed plus 17 x squared minus 112 x minus 240"
         prompt: 'So far you have found the zeros 5, −3/2, and 4i. What is the last zero?'
         choices:
-          - {value: a, label: '\( -4i \)', speak: "negative 4 i"}
+          - {value: a, label: "−5"}
           - {value: b, label: '\( \sqrt{-16} \)', speak: "the square root of negative 16"}
-          - {value: c, label: "−5"}
+          - {value: c, label: '\( -4i \)', speak: "negative 4 i"}
           - {value: d, label: "3/2"}
-        correct: a
+        correct: c
         explanation: |-
-          Degree 4 means 4 zeros in all, so one is missing. When the coefficients are real numbers, complex zeros come in pairs \( \pm \): \( 4i \) brings \( -4i \) with it, both from the factor \( x^{2}+16 \). In fact \( p(x)=(x-5)(2x+3)(x^{2}+16) \). \( \sqrt{-16} \) is just \( 4i \) again, already found; and real zeros like 5 and \( -\tfrac{3}{2} \) do not come with partners, so −5 and 3/2 are not zeros. <strong>\( -4i \).</strong>
+          Degree 4 means 4 zeros in all, so one is missing. When the coefficients are real numbers, complex zeros come in pairs \( a\pm bi \): \( 4i \) brings \( -4i \) with it, both from the factor \( x^{2}+16 \). In fact \( p(x)=(x-5)(2x+3)(x^{2}+16) \). \( \sqrt{-16} \) is just \( 4i \) again, already found; and real zeros like 5 and \( -\tfrac{3}{2} \) do not come with partners, so −5 and 3/2 are not zeros. <strong>\( -4i \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -261,35 +261,35 @@ tabs:
       - id: sl2
         title: "Slip 2"
         math:
-          display: '\begin{aligned} g(x)&=x^{5}-5x^{4}-6x^{3}\\ &\quad+46x^{2}-32x-24 \end{aligned}'
-          speak: "g of x equals x to the fifth minus 5 x to the fourth minus 6 x cubed plus 46 x squared minus 32 x minus 24"
+          display: '\begin{aligned} m(x)&=x^{5}-5x^{4}-6x^{3}\\ &\quad+46x^{2}-32x-24 \end{aligned}'
+          speak: "m of x equals x to the fifth minus 5 x to the fourth minus 6 x cubed plus 46 x squared minus 32 x minus 24"
         figure:
           file: figures/PR5/sl2.svg
           title: "A student's synthetic division"
-          caption: 'A student''s synthetic division. The number in the corner box is 3. The top row lists the coefficients 1, negative 5, negative 6, 46, negative 32, negative 24. The middle row reads 3, negative 6, negative 36, 30, negative 6. The bottom row reads 1, negative 2, negative 12, 10, negative 2, negative 30.'
-        prompt: 'A student wanted to know whether \( x+3 \) is a factor of g. They did this synthetic division and concluded it is not, since the last number is −30. What is the mistake, if any?'
+          caption: 'A student''s synthetic division. The number in the corner box is 3. The top row lists the coefficients 1, negative 5, negative 6, 46, negative 32, negative 24. The middle row starts under the second coefficient and reads 3, negative 6, negative 36, 30, negative 6. The bottom row reads 1, negative 2, negative 12, 10, negative 2, negative 30.'
+        prompt: 'A student wanted to know whether \( x+3 \) is a factor of m. They did this synthetic division and concluded it is not, since the last number is −30. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "To test x + 3, use −3 in the corner; that remainder is 0."}
-          - {value: c, label: "The last number is −30, so −30 is a zero of g instead."}
+          - {value: c, label: "The last number is −30, so −30 is a zero of m instead."}
           - {value: d, label: "3 can't be tested, since 3 is not a possible rational zero."}
         correct: b
         explanation: |-
-          The factor \( x+3 \) goes with the zero \( -3 \), since \( x+3=0 \) when \( x=-3 \). Dividing with −3 in the corner gives the bottom row 1, −8, 18, −8, −8, 0, so \( x+3 \) is a factor. The last number is the value \( g(3)=-30 \), not a zero, and 3 is a possible rational zero, since 3 divides 24. <strong>Use −3, not 3.</strong>
+          The factor \( x+3 \) goes with the zero \( -3 \), since \( x+3=0 \) when \( x=-3 \). Dividing with −3 in the corner gives the bottom row 1, −8, 18, −8, −8, 0, so \( x+3 \) is a factor. The last number is the value \( m(3)=-30 \), not a zero, and 3 is a possible rational zero, since 3 divides 24. <strong>Use −3, not 3.</strong>
       - id: sl3
         title: "Slip 3"
         math:
-          display: '\begin{aligned} h(x)&=(x+2)(3x-5)\\ &\quad\cdot(x-2i)(x+2i) \end{aligned}'
-          speak: "h of x equals the quantity x plus 2, times the quantity 3 x minus 5, times the quantity x minus 2 i, times the quantity x plus 2 i"
-        prompt: 'For \( h(x)=3x^{4}+x^{3}+2x^{2}+4x-40 \), a student found the zeros −2, 5/3, 2i, and −2i, and wrote h as shown. What is the mistake, if any?'
+          display: '\begin{aligned} w(x)&=(x-3)(3x+5)\\ &\quad\cdot(x-2i)(x+2i) \end{aligned}'
+          speak: "w of x equals the quantity x minus 3, times the quantity 3 x plus 5, times the quantity x minus 2 i, times the quantity x plus 2 i"
+        prompt: 'For \( w(x)=3x^{4}-4x^{3}-3x^{2}-16x-60 \), a student found the zeros 3, −5/3, 2i, and −2i, and wrote w as shown. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "The zero 5/3 needs the factor (x − 5/3), not (3x − 5)."}
+          - {value: b, label: "The zero −5/3 needs the factor (x + 5/3), not (3x + 5)."}
           - {value: c, label: "x² + 4 has no zeros, so 2i and −2i should be left out."}
-          - {value: d, label: "The factor that goes with −2 should be (x − 2)."}
+          - {value: d, label: "The factor that goes with 3 should be (x + 3)."}
         correct: a
         explanation: |-
-          Multiply back: \( (x-2i)(x+2i)=x^{2}+4 \), and \( (x+2)(3x-5)(x^{2}+4)=3x^{4}+x^{3}+2x^{2}+4x-40 \). The factor \( (3x-5) \) carries the leading coefficient 3; \( (x-\tfrac{5}{3}) \) alone would give leading coefficient 1. The complex zeros count, and −2 goes with \( (x+2) \). <strong>There is no mistake.</strong>
+          Multiply back: \( (x-2i)(x+2i)=x^{2}+4 \), and \( (x-3)(3x+5)(x^{2}+4)=3x^{4}-4x^{3}-3x^{2}-16x-60 \). The factor \( (3x+5) \) goes with the zero \( -\tfrac{5}{3} \) and carries the leading coefficient 3; \( (x+\tfrac{5}{3}) \) alone would give leading coefficient 1. The complex zeros count, and 3 goes with \( (x-3) \). <strong>There is no mistake.</strong>
       - id: sl4
         title: "Slip 4"
         math:
@@ -303,7 +303,7 @@ tabs:
           - {value: d, label: "√24 = 2√6, so x = 2 ± √6; you can't halve inside a root."}
         correct: d
         explanation: |-
-          The first line is right: \( b^{2}-4ac=16-4(1)(-2)=24 \). But dividing by 2 has to act on \( \sqrt{24} \) as a whole: \( \sqrt{24}=2\sqrt{6} \), so \( \dfrac{4\pm 2\sqrt{6}}{2}=2\pm\sqrt{6} \). Halving the 24 inside the root is not the same thing. The discriminant uses \( -4(1)(-2)=+8 \), and \( -b \) is \( +4 \) because \( b=-4 \). <strong>\( x=2\pm\sqrt{6} \).</strong>
+          The first line is right: \( b^{2}-4ac=16-4(1)(-2)=24 \). But dividing by 2 has to act on \( \sqrt{24} \) as a whole: \( \sqrt{24}=2\sqrt{6} \), so \( \dfrac{4\pm 2\sqrt{6}}{2}=2\pm\sqrt{6} \). Halving the 24 inside the root is not the same thing. Sometimes a number stays in front of the root: \( \tfrac{-4\pm 4\sqrt{2}}{2}=-2\pm 2\sqrt{2} \). The discriminant uses \( -4(1)(-2)=+8 \), and \( -b \) is \( +4 \) because \( b=-4 \). <strong>\( x=2\pm\sqrt{6} \).</strong>
       - id: sl5
         title: "Slip 5"
         math:
@@ -317,4 +317,4 @@ tabs:
           - {value: d, label: "The factor for 1 + √5 should be (x + 1 + √5)."}
         correct: c
         explanation: |-
-          A zero with multiplicity 2 gives its factor twice: \( (x-3)^{2} \). Count: degree 5 needs five linear factors, and the student wrote four. Irrational zeros do give linear factors, \( \big(x-(1+\sqrt{5})\big) \) and \( \big(x-(1-\sqrt{5})\big) \), which the student wrote correctly; \( (x+1+\sqrt{5}) \) would go with the zero \( -1-\sqrt{5} \). <strong>\( c(x)=(x+5)(x-3)^{2}\big(x-(1+\sqrt{5})\big)\big(x-(1-\sqrt{5})\big) \).</strong>
+          A zero with multiplicity 2 gives its factor twice: \( (x-3)^{2} \). Count: degree 5 needs five linear factors, and the student wrote four. Irrational zeros do give linear factors, \( \big(x-(1+\sqrt{5})\big) \) and \( \big(x-(1-\sqrt{5})\big) \), which the student wrote correctly; \( (x+1+\sqrt{5}) \) would go with the zero \( -1-\sqrt{5} \). CheckIt's answer key writes these with the inner parentheses removed, \( (x-1-\sqrt{5})(x-1+\sqrt{5}) \): the same factors. <strong>\( c(x)=(x+5)(x-3)^{2}\big(x-(1+\sqrt{5})\big)\big(x-(1-\sqrt{5})\big) \).</strong>
