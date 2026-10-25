@@ -93,19 +93,19 @@ tabs:
         explanation: |-
           Zeros come from top factors that do not cancel. The only top factor, \( (x-3) \), cancels with the bottom, which leaves the formula \( \dfrac{-4}{5(x+2)^{2}} \) everywhere except the hole. The top is now just \( -4 \), which is never 0. At \( x=3 \) there is a hole, not a zero; \( x=-2 \) makes the bottom 0, so it is a vertical asymptote; and \( -\tfrac{4}{5} \) is a ratio of coefficients, not an \( x \)-value where \( f \) is 0. <strong>There are none.</strong>
       - id: rf4
-        title: "Domain"
+        title: "Vertical Asymptotes"
         math:
           display: 'f(x)=\dfrac{5(x+2)(x-3)}{4(x-3)(x-1)^{2}}'
           speak: "f of x equals the fraction 5 times the quantity x plus 2, end quantity, times the quantity x minus 3, end quantity, over 4 times the quantity x minus 3, end quantity, times the quantity x minus 1, end quantity, squared, end fraction"
-        prompt: 'What is the domain of f?'
+        prompt: 'What are the vertical asymptotes of f?'
         choices:
-          - {value: a, label: "All real numbers except 1"}
-          - {value: b, label: "All real numbers except −2 and 3"}
-          - {value: c, label: "All real numbers except −2, 1, and 3"}
-          - {value: d, label: "All real numbers except 1 and 3"}
+          - {value: a, label: "x = 1 and x = 3"}
+          - {value: b, label: "x = −1 only"}
+          - {value: c, label: "x = 1 and x = −2"}
+          - {value: d, label: "x = 1 only"}
         correct: d
         explanation: |-
-          The domain leaves out every \( x \) that makes the original bottom 0: \( x=3 \) and \( x=1 \). Cancelling \( (x-3) \) changes the formula, not the domain, so 3 stays out, as the hole. "Except 1" alone forgets the hole, and −2 makes the top 0, which is allowed, so it does not belong on the list. "Except −2 and 3" uses the factors on the top instead of the bottom. <strong>All real numbers except 1 and 3.</strong>
+          Vertical asymptotes come from the bottom factors that are left after cancelling. \( (x-3) \) is on the top and the bottom, so it cancels: \( x=3 \) is a hole, at \( \left(3,\tfrac{25}{16}\right) \), not an asymptote. \( (x-1)^{2} \) stays, so \( x=1 \) is the vertical asymptote. The square does not make a second asymptote; it makes the graph go the same way on both sides of \( x=1 \), here up, since the cancelled formula \( \dfrac{5(x+2)}{4(x-1)^{2}} \) is a positive number over a tiny positive number near 1. Together, the asymptote and the hole give the domain: all real numbers except 1 and 3. Adding \( x=3 \) counts the cancelled factor; \( x=-1 \) reads the sign as written; and \( x=-2 \) is a zero, from the top. <strong>x = 1 only.</strong>
   - id: asym
     label: "Try It: Asymptotes and Intercepts"
     heading: "Try It: Asymptotes and Intercepts"
