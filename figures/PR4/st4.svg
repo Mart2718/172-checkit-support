@@ -1,0 +1,25 @@
+<svg viewBox="0 0 490 264" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#1a1a2e">
+<text x="396" y="40" text-anchor="end" fill="#1a6b6b" font-weight="bold">3<tspan font-style="italic">x</tspan></text>
+<text x="478" y="40" text-anchor="end" fill="#1a6b6b" font-weight="bold">− 6</text>
+<text x="122" y="80" text-anchor="end"><tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">2</tspan> − 3<tspan font-style="italic">x</tspan> − 4</text>
+<path d="M132,52 L480,52 M132,52 Q144,72.0 132,92" fill="none" stroke="#1a1a2e" stroke-width="2"/>
+<text x="232" y="80" text-anchor="end">3<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">3</tspan></text>
+<text x="314" y="80" text-anchor="end">− 15<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">2</tspan></text>
+<text x="396" y="80" text-anchor="end">+ 7<tspan font-style="italic">x</tspan></text>
+<text x="478" y="80" text-anchor="end">+ 19</text>
+<text x="138" y="120">−</text>
+<text x="232" y="120" text-anchor="end">(3<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">3</tspan></text>
+<text x="314" y="120" text-anchor="end">− 9<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">2</tspan></text>
+<text x="396" y="120" text-anchor="end">− 12<tspan font-style="italic">x</tspan>)</text>
+<line x1="156" y1="130" x2="400" y2="130" stroke="#1a1a2e" stroke-width="1.5"/>
+<text x="314" y="160" text-anchor="end">−6<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">2</tspan></text>
+<text x="396" y="160" text-anchor="end">+ 19<tspan font-style="italic">x</tspan></text>
+<text x="478" y="160" text-anchor="end">+ 19</text>
+<text x="138" y="200">−</text>
+<text x="314" y="200" text-anchor="end">(−6<tspan font-style="italic">x</tspan><tspan baseline-shift="super" font-size="16">2</tspan></text>
+<text x="396" y="200" text-anchor="end">+ 18<tspan font-style="italic">x</tspan></text>
+<text x="478" y="200" text-anchor="end">+ 24)</text>
+<line x1="238" y1="210" x2="482" y2="210" stroke="#1a1a2e" stroke-width="1.5"/>
+<text x="396" y="240" text-anchor="end"><tspan font-style="italic">x</tspan></text>
+<text x="478" y="240" text-anchor="end">− 5</text>
+</svg>
