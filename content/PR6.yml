@@ -1,0 +1,311 @@
+# PR6 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt PR6 asks students to solve two rational equations, giving answers as integers or fractions:
+#   one with a single solution, either p/(x + h) = k or a/(ex) with constant fractions like 3 = 1/4 - 5/(2x), and
+#   one of the form (x + c)/(x + d) + 1 = (x + f)/(x + g), with its terms shuffled between the sides, which clears to a
+#   quadratic with two integer solutions.
+# Then it shows 1 + d/(x - a) + e/((x - a)(x - b)) = 0, says clearing and factoring gives (x - a)(x + f) = 0, and asks students
+# to explain why x = -f is the only solution.
+# Figures drawn by tools/figures/make_pr6.py.
+code: PR6
+h1: "PR6 Support: Rational Equations"
+pageTitle: "PR6 Support: Rational Equations — Math 172, Santa Ana College"
+hubSummary: "Rational equations: excluded values, clearing denominators, solving, and extraneous solutions"
+videoIntro: "A narrated walkthrough of solving rational equations: find the excluded values, multiply every term by the least common denominator, solve what is left, and throw out any answer that makes a denominator zero."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'extraneous|not a solution|is a solution|only solution|excluded value|hole at|no mistake'
+worked:   # used for the worked-examples recording document
+  title: "PR6 Worked Examples: Rational Equations"
+  coreQuestion: "What can x never be, and what clears every fraction at once?"
+  coreFollowup: "Before solving, set each denominator equal to 0: those values can never be solutions. Multiply every term on both sides by the least common denominator so all the fractions clear. Solve the equation that is left. Then check each answer against the values x can never be; any match is extraneous and gets thrown out."
+summary:   # the Quick Summary tab
+  intro: 'A rational equation has the variable in a denominator, like <span>\( \dfrac{3}{x-4}=\dfrac{x}{x-4}+2 \)</span>. <strong>Clear the fractions, solve, and check: one step is easy to forget.</strong>'
+  caption: "The steps for solving a rational equation, and what to watch for at each one"
+  columns: ["Step", "Do this", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Find what x can never be'
+      - 'Set each denominator equal to 0. Those values can never be solutions.'
+      - 'Write them down first, before you clear anything. A numerator can be 0; a denominator cannot.'
+    -
+      - 'Multiply by the LCD'
+      - 'Multiply every term on both sides by the least common denominator. Each fraction cancels to a polynomial.'
+      - 'Every term means every term, whole numbers like 1 or −2 included. Cross-multiplying works only with exactly one fraction on each side.'
+    -
+      - 'Solve what is left'
+      - 'Linear: get <span>\( x \)</span> alone. Quadratic: move everything to one side and factor.'
+      - 'Subtracting a whole expression changes every sign in it.'
+    -
+      - 'Check'
+      - 'Compare each answer with the values from the first step.'
+      - 'An answer that makes a denominator 0 is extraneous: it solves the cleared equation, not the original. Throw it out.'
+  note: 'CheckIt wants exact answers, as integers or fractions, not decimals. When it asks you to explain why an answer does not count, name the value and say why: it makes a denominator 0, so it is not in the domain of the original equation. Your CheckIt equations will have different numbers. The steps are what transfer.'
+tabs:
+  - id: before
+    label: "Try It: Before You Solve"
+    heading: "Try It: Before You Solve"
+    intro: |-
+      See what a solution means on a graph, find the values x can never be, and set up the clearing step. Make your best guess on each one, then check it.
+    items:
+      - id: ex1
+        title: "What a Solution Means"
+        figure:
+          file: figures/PR6/ex1.svg
+          title: "The graph of a rational function and a horizontal line"
+          caption: 'Graphs of y = 6/(x − 1) and the horizontal line y = 2, on axes with x from −4 to 8 and y from −6 to 6. The curve has a dashed vertical asymptote at x = 1. To the left of it the curve stays below the x-axis; to the right it comes down from the top, passes through the point (4, 2) where it meets the line, and levels off toward the x-axis. The point (4, 2) is marked and labeled.'
+        prompt: 'What does the solution of \( \dfrac{6}{x-1}=2 \) look like on this graph?'
+        choices:
+          - {value: a, label: "Where the curve crosses the x-axis, if it ever does"}
+          - {value: b, label: "The x-value where the graphs meet: x = 4"}
+          - {value: c, label: "The dashed line, where x = 1"}
+          - {value: d, label: "The y-value where the two graphs meet: the 2"}
+        correct: b
+        explanation: |-
+          A solution is an \( x \)-value that makes both sides equal, so it is where the graph of the left side, \( y=\dfrac{6}{x-1} \), meets the graph of the right side, \( y=2 \). They meet at \( (4,2) \), so \( x=4 \). Check: \( \dfrac{6}{4-1}=2 \). This curve never crosses the \( x \)-axis; \( x=1 \) is the one value where the left side is undefined; and 2 is the height where they meet, not the solution. <strong>The x-value where the graphs meet: x = 4.</strong>
+      - id: ex2
+        title: "Never Allowed"
+        math:
+          display: '\dfrac{x+11}{x-1}+1=\dfrac{x+5}{x-2}'
+          speak: "the fraction x plus 11, over x minus 1, end fraction, plus 1, equals the fraction x plus 5, over x minus 2, end fraction"
+        prompt: 'Which values of x can never be solutions of this equation?'
+        choices:
+          - {value: a, label: "−1 and −2"}
+          - {value: b, label: "1, 2, −11, and −5"}
+          - {value: c, label: "None; any x can be tested."}
+          - {value: d, label: "1 and 2"}
+        correct: d
+        explanation: |-
+          Set each denominator equal to 0: \( x-1=0 \) gives 1, and \( x-2=0 \) gives 2. At those values a fraction would divide by 0, so they can never be solutions. −1 and −2 flip the signs; −11 and −5 make numerators 0, which is allowed; and some values are always off limits when \( x \) is in a denominator. <strong>1 and 2.</strong>
+      - id: ex3
+        title: "Find the LCD"
+        math:
+          display: '\dfrac{1}{4}-\dfrac{5}{2x}=3'
+          speak: "1 fourth minus the fraction 5 over 2 x, end fraction, equals 3"
+        prompt: 'What is the least common denominator of the fractions in this equation?'
+        choices:
+          - {value: a, label: '\( 4x \)', speak: "4 x"}
+          - {value: b, label: '\( 8x \)', speak: "8 x"}
+          - {value: c, label: '\( 2x \)', speak: "2 x"}
+          - {value: d, label: "4"}
+        correct: a
+        explanation: |-
+          The denominators are 4 and \( 2x \). The LCD has to contain both: 4 covers the 2, and it still needs the \( x \), so \( 4x \). \( 8x \) is the product \( 4\cdot 2x \); it works, but it is not the least, and it makes bigger numbers. \( 2x \) does not contain 4, and 4 does not contain \( x \). Multiplying through by \( 4x \) gives \( x-10=12x \), so \( x=-\tfrac{10}{11} \). <strong>\( 4x \).</strong>
+      - id: ex4
+        title: "Clear the Fractions"
+        math:
+          display: '\dfrac{2}{3}-\dfrac{4}{x}=\dfrac{5}{6}'
+          speak: "2 thirds minus the fraction 4 over x, end fraction, equals 5 sixths"
+        prompt: 'Multiply every term by the LCD, 6x. What equation do you get?'
+        choices:
+          - {value: a, label: '\( 4x-4=5x \)', speak: "4 x minus 4 equals 5 x"}
+          - {value: b, label: '\( 2x-24=5x \)', speak: "2 x minus 24 equals 5 x"}
+          - {value: c, label: '\( 4x-24=5x \)', speak: "4 x minus 24 equals 5 x"}
+          - {value: d, label: '\( 4x-24=5 \)', speak: "4 x minus 24 equals 5"}
+        correct: c
+        explanation: |-
+          Term by term: \( 6x\cdot\tfrac{2}{3}=4x \), \( 6x\cdot\tfrac{4}{x}=24 \), and \( 6x\cdot\tfrac{5}{6}=5x \). So \( 4x-24=5x \), which gives \( x=-24 \). Writing \( -4 \) cancels the \( x \) but forgets the 6; \( 2x \) multiplies only by \( x \); and \( 5 \) cancels the 6 but forgets the \( x \). Every fraction should clear completely. <strong>\( 4x-24=5x \).</strong>
+  - id: solve
+    label: "Try It: Solve It"
+    heading: "Try It: Solve It"
+    intro: |-
+      Run the whole process on CheckIt-style equations: one with a single solution, and ones that clear to a quadratic. Work each one on paper first. Make your best guess, then check it.
+    items:
+      - id: sv1
+        title: "Solve 1"
+        math:
+          display: '\dfrac{2}{x+2}=3'
+          speak: "the fraction 2 over x plus 2, end fraction, equals 3"
+        prompt: 'Solve. Give an exact answer.'
+        choices:
+          - {value: a, label: "x = 4/3"}
+          - {value: b, label: "x = 0"}
+          - {value: c, label: "x = −4/3"}
+          - {value: d, label: "x = −1/2"}
+        correct: c
+        explanation: |-
+          \( x \) cannot be −2. Multiply both sides by \( x+2 \): \( 2=3(x+2)=3x+6 \), so \( 3x=-4 \) and \( x=-\tfrac{4}{3} \), which is allowed. 4/3 loses the sign when moving the 6; 0 comes from \( 2=3x+2 \), multiplying only the \( x \) by 3; and −1/2 comes from flipping to \( x+2=\tfrac{3}{2} \), when the flip should give \( x+2=\tfrac{2}{3} \). <strong>\( x=-\tfrac{4}{3} \).</strong>
+      - id: sv2
+        title: "Solve 2"
+        math:
+          display: '\dfrac{5}{2x}-2=\dfrac{4}{3}'
+          speak: "the fraction 5 over 2 x, end fraction, minus 2, equals 4 thirds"
+        prompt: 'Solve. Give an exact answer.'
+        choices:
+          - {value: a, label: "x = 3/4"}
+          - {value: b, label: "x = 13/8"}
+          - {value: c, label: "x = −15/4"}
+          - {value: d, label: "x = 4/3"}
+        correct: a
+        explanation: |-
+          \( x \) cannot be 0. The LCD is \( 6x \): \( 6x\cdot\tfrac{5}{2x}=15 \), \( 6x\cdot 2=12x \), and \( 6x\cdot\tfrac{4}{3}=8x \). So \( 15-12x=8x \), \( 15=20x \), and \( x=\tfrac{15}{20}=\tfrac{3}{4} \). 13/8 forgets to multiply the 2 by \( 6x \); −15/4 comes from \( 15+12x=8x \), a sign slip; and 4/3 divides the wrong way, 20 over 15. <strong>\( x=\tfrac{3}{4} \).</strong>
+      - id: sv3
+        title: "Solve 3"
+        math:
+          display: '\dfrac{x+7}{x+3}+1=\dfrac{x+5}{x+2}'
+          speak: "the fraction x plus 7, over x plus 3, end fraction, plus 1, equals the fraction x plus 5, over x plus 2, end fraction"
+        prompt: 'Solve. Give every solution.'
+        choices:
+          - {value: a, label: "x = 1 and x = 5"}
+          - {value: b, label: "x = 1"}
+          - {value: c, label: "x = −3 and x = −2"}
+          - {value: d, label: "x = −1 and x = −5"}
+        correct: d
+        explanation: |-
+          \( x \) cannot be −3 or −2. Multiply every term by \( (x+3)(x+2) \): \( (x+7)(x+2)+(x+3)(x+2)=(x+5)(x+3) \). Expand: \( x^{2}+9x+14+x^{2}+5x+6=x^{2}+8x+15 \), so \( x^{2}+6x+5=0 \), \( (x+1)(x+5)=0 \). Neither −1 nor −5 is off limits. 1 and 5 read the factors' signs as written; \( x=1 \) comes from forgetting to multiply the 1 by the LCD; and −3 and −2 are the values \( x \) can never be. <strong>\( x=-1 \) and \( x=-5 \).</strong>
+      - id: sv4
+        title: "Solve 4"
+        math:
+          display: '\dfrac{x-7}{x+5}+1=\dfrac{x-1}{x+4}'
+          speak: "the fraction x minus 7, over x plus 5, end fraction, plus 1, equals the fraction x minus 1, over x plus 4, end fraction"
+        prompt: 'Multiply every term by \( (x+5)(x+4) \) and cancel. Which equation do you get?'
+        choices:
+          - {value: a, label: '\( (x-7)(x+4)+1=(x-1)(x+5) \)', speak: "the quantity x minus 7, end quantity, times the quantity x plus 4, end quantity, plus 1, equals the quantity x minus 1, end quantity, times the quantity x plus 5, end quantity"}
+          - {value: b, label: '\( (x-7)(x+4)+(x+5)(x+4)=(x-1)(x+5) \)', speak: "the quantity x minus 7, end quantity, times the quantity x plus 4, end quantity, plus the quantity x plus 5, end quantity, times the quantity x plus 4, end quantity, equals the quantity x minus 1, end quantity, times the quantity x plus 5, end quantity"}
+          - {value: c, label: '\( (x-7)(x+5)+(x+5)(x+4)=(x-1)(x+4) \)', speak: "the quantity x minus 7, end quantity, times the quantity x plus 5, end quantity, plus the quantity x plus 5, end quantity, times the quantity x plus 4, end quantity, equals the quantity x minus 1, end quantity, times the quantity x plus 4, end quantity"}
+          - {value: d, label: '\( (x-7)+(x+5)(x+4)=(x-1) \)', speak: "the quantity x minus 7, end quantity, plus the quantity x plus 5, end quantity, times the quantity x plus 4, end quantity, equals the quantity x minus 1, end quantity"}
+        correct: b
+        explanation: |-
+          Each fraction keeps the factor its own denominator does not cancel: \( \tfrac{x-7}{x+5} \) keeps \( (x+4) \), the 1 gets both factors, and \( \tfrac{x-1}{x+4} \) keeps \( (x+5) \). Expanding gives \( x^{2}+2x-3=0 \), so \( (x+3)(x-1)=0 \), and \( x=-3 \) or \( x=1 \), neither one off limits. Writing \( +1 \) forgets to multiply the 1; the version with \( (x-7)(x+5) \) multiplies by the factor that should cancel; and dropping the factors on the fractions cancels too much. <strong>\( (x-7)(x+4)+(x+5)(x+4)=(x-1)(x+5) \).</strong>
+  - id: check
+    label: "Try It: Check for Extraneous Answers"
+    heading: "Try It: Check for Extraneous Answers"
+    intro: |-
+      Clearing the denominators can create an answer that does not work in the original equation. Here is why it happens, how to spot it, and how to explain it the way CheckIt asks. Make your best guess, then check it.
+    items:
+      - id: xs1
+        title: "See It"
+        math:
+          display: '1+\dfrac{8}{x-4}+\dfrac{8}{(x-4)(x-5)}=0'
+          speak: "1 plus the fraction 8 over x minus 4, end fraction, plus the fraction 8 over the quantity x minus 4, end quantity, times the quantity x minus 5, end quantity, end fraction, equals 0"
+        figure:
+          file: figures/PR6/xs1.svg
+          title: "The graph of the left side of a rational equation"
+          caption: 'The graph of y = 1 + 8/(x − 4) + 8/((x − 4)(x − 5)), on axes with x from −6 to 10 and y from −12 to 12. There is a dashed vertical asymptote at x = 5. Left of it, the curve comes in just below y = 1 from the left, crosses the x-axis at (−3, 0), which is marked, then drops faster and faster toward the asymptote. On the way down there is an open circle at (4, −7): the curve has a gap there. Right of the asymptote the curve comes down from the top and levels off toward y = 1.'
+        prompt: 'Clearing the denominators gives \( (x-4)(x+3)=0 \), with candidates 4 and −3. The graph shows the left side. What happens at x = 4?'
+        choices:
+          - {value: a, label: "The graph has a gap there: the left side is undefined at 4."}
+          - {value: b, label: "The graph crosses the x-axis there, so 4 works too."}
+          - {value: c, label: "The graph has its vertical asymptote at x = 4."}
+          - {value: d, label: "Nothing happens there: 4 just doesn't show up on the graph."}
+        correct: a
+        explanation: |-
+          At \( x=4 \) the left side divides by 0, so it has no value: the graph has an open circle there, at \( (4,-7) \), not a point on the \( x \)-axis. The only place the left side equals 0 is the crossing at \( x=-3 \). So 4 solves the cleared equation \( (x-4)(x+3)=0 \) but not the original: it is extraneous. The asymptote is at \( x=5 \), the other excluded value, and the open circle is exactly where 4 shows up. <strong>The left side is undefined at 4, so only \( x=-3 \) counts.</strong>
+      - id: xs2
+        title: "Spot It"
+        math:
+          display: '1-\dfrac{2}{x+5}-\dfrac{14}{(x+5)(x-2)}=0'
+          speak: "1 minus the fraction 2 over x plus 5, end fraction, minus the fraction 14 over the quantity x plus 5, end quantity, times the quantity x minus 2, end quantity, end fraction, equals 0"
+        prompt: 'Clearing the denominators and factoring gives \( (x+5)(x-4)=0 \). Which candidate has to be thrown out?'
+        choices:
+          - {value: a, label: "4, since 4 is positive and the others are negative"}
+          - {value: b, label: "Neither; x = −5 and x = 4 both solve it"}
+          - {value: c, label: "−5, since it makes x + 5 = 0 in a denominator"}
+          - {value: d, label: "4, since 4 makes x − 2 positive, not 0"}
+        correct: c
+        explanation: |-
+          The original equation has \( x+5 \) and \( x-2 \) in denominators, so \( x \) can never be −5 or 2. The candidate −5 makes \( x+5=0 \), so it is extraneous; 4 is allowed, and it checks: \( 1-\tfrac{2}{9}-\tfrac{14}{18}=0 \). Being positive or negative has nothing to do with it, and solving the cleared equation is not enough to count. Whether \( x-2 \) is positive at 4 does not matter; only a 0 denominator rules a value out. <strong>Throw out −5; the only solution is \( x=4 \).</strong>
+      - id: xs3
+        title: "Explain It"
+        math:
+          display: '1-\dfrac{6}{x-5}+\dfrac{54}{(x-5)(x+4)}=0'
+          speak: "1 minus the fraction 6 over x minus 5, end fraction, plus the fraction 54 over the quantity x minus 5, end quantity, times the quantity x plus 4, end quantity, end fraction, equals 0"
+        prompt: 'Clearing and factoring gives \( (x-5)(x-2)=0 \), but the only solution is x = 2. CheckIt asks you to explain why. Which explanation is right?'
+        choices:
+          - {value: a, label: "5 makes the factor x − 5 equal zero in (x − 5)(x − 2) = 0, so 5 is never allowed."}
+          - {value: b, label: "5 solves (x − 5)(x − 2) = 0, but x − 5 is in a denominator, so 5 is not in the domain."}
+          - {value: c, label: "5 is the larger root, and a rational equation always keeps only the smaller of its two roots."}
+          - {value: d, label: "Putting 5 into the original makes 1 − 6/(x − 5) negative, so it can't equal 0."}
+        correct: b
+        explanation: |-
+          The reason is the domain: \( x-5 \) appears in a denominator of the original equation, so 5 would divide by 0. It solves the cleared equation but not the original, so it is extraneous. Saying 5 makes the factor \( (x-5) \) zero in \( (x-5)(x-2)=0 \) is backwards: that is exactly why 5 showed up as a candidate. No rule keeps only the smaller root, and at \( x=5 \) the original has no value at all, positive or negative. <strong>5 solves the cleared equation, but it is not in the domain of the original.</strong>
+      - id: xs4
+        title: "Check Them All"
+        math:
+          display: '\dfrac{x+1}{x-3}+1=\dfrac{x-1}{x-4}'
+          speak: "the fraction x plus 1, over x minus 3, end fraction, plus 1, equals the fraction x minus 1, over x minus 4, end fraction"
+        prompt: 'Clearing the denominators and factoring gives \( (x-5)(x-1)=0 \). Which candidates are solutions?'
+        choices:
+          - {value: a, label: "Only x = 5, since x = 1 makes a numerator 0"}
+          - {value: b, label: "Only x = 1, since 5 is larger than 4"}
+          - {value: c, label: "Neither, since both came from clearing"}
+          - {value: d, label: "Both x = 5 and x = 1"}
+        correct: d
+        explanation: |-
+          Check each candidate against the values \( x \) can never be, 3 and 4. Neither 5 nor 1 is on that list, so both count. Check: at \( x=5 \), \( \tfrac{6}{2}+1=4=\tfrac{4}{1} \); at \( x=1 \), \( \tfrac{2}{-2}+1=0=\tfrac{0}{-3} \). A numerator of 0 is fine; only a denominator of 0 rules a value out. Being larger than 4 does not matter, and coming from the cleared equation is how every candidate starts. Checking does not mean throwing one out every time; it means comparing with the values \( x \) can never be. <strong>Both \( x=5 \) and \( x=1 \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} \dfrac{6}{5x}+2&=\dfrac{1}{5}\\ 6+2&=x\\ x&=8 \end{aligned}'
+          speak: "the fraction 6 over 5 x, end fraction, plus 2, equals 1 fifth. Next line: 6 plus 2 equals x. Next line: x equals 8"
+        prompt: 'A student multiplied by the LCD, 5x, and solved this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The 2 also gets multiplied by 5x: 6 + 10x = x, so x = −2/3."}
+          - {value: c, label: "The LCD should be 25x, the product of the two denominators."}
+          - {value: d, label: "8 can't be right, since it makes a denominator 0."}
+        correct: b
+        explanation: |-
+          Every term gets multiplied by \( 5x \), the 2 included: \( 6+10x=x \), so \( 9x=-6 \) and \( x=-\tfrac{2}{3} \), which is allowed, since only 0 is off limits. \( 5x \) is already the least common denominator, and \( x=8 \) is wrong for a different reason: it does not make any denominator 0. <strong>The 2 also gets multiplied by \( 5x \): \( x=-\tfrac{2}{3} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} \dfrac{x+1}{x-7}+1&=\dfrac{x-3}{x-6}\\ (x+1)(x-6)&=(x-3)(x-7)\\ x^{2}-5x-6&=x^{2}-10x+21\\ x&=\tfrac{27}{5} \end{aligned}'
+          speak: "the fraction x plus 1, over x minus 7, end fraction, plus 1, equals the fraction x minus 3, over x minus 6, end fraction. Next line: the quantity x plus 1, end quantity, times the quantity x minus 6, end quantity, equals the quantity x minus 3, end quantity, times the quantity x minus 7, end quantity. Next line: x squared minus 5 x minus 6 equals x squared minus 10 x plus 21. Next line: x equals 27 fifths"
+        prompt: 'A student solved this equation by cross-multiplying. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The expansion is off: (x − 3)(x − 7) is x² − 10x − 21, which gives x = −3."}
+          - {value: c, label: "27/5 has to be thrown out, since it lies between the off-limits values 6 and 7."}
+          - {value: d, label: "Cross-multiplying fails with the + 1 there; multiply every term by the LCD."}
+        correct: d
+        explanation: |-
+          Cross-multiplying works only when each side is a single fraction, and the left side here is a fraction plus 1. Multiplying every term by \( (x-7)(x-6) \) gives \( (x+1)(x-6)+(x-7)(x-6)=(x-3)(x-7) \), so \( x^{2}-8x+15=0 \) and \( x=3 \) or \( x=5 \). The expansion \( (x-3)(x-7)=x^{2}-10x+21 \) is right, and being between 6 and 7 does not rule a value out; only 6 and 7 themselves are off limits. <strong>Multiply every term by \( (x-7)(x-6) \): \( x=3 \) and \( x=5 \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} \dfrac{13}{x-5}&=-2\\ 13&=-2(x-5)\\ 13&=-2x+10\\ x&=-\tfrac{3}{2} \end{aligned}'
+          speak: "the fraction 13 over x minus 5, end fraction, equals negative 2. Next line: 13 equals negative 2 times the quantity x minus 5, end quantity. Next line: 13 equals negative 2 x plus 10. Next line: x equals negative 3 halves"
+        prompt: 'A student solved this equation this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "−2(x − 5) is −2x − 10, so x = −23/2."}
+          - {value: c, label: "−3/2 is negative, so it has to be thrown out."}
+          - {value: d, label: "The answer should be a decimal: x = −1.5."}
+        correct: a
+        explanation: |-
+          \( -2(x-5)=-2x+10 \), so \( 3=-2x \) and \( x=-\tfrac{3}{2} \). Only 5 is off limits, and a negative answer is fine. Check: \( \dfrac{13}{-1.5-5}=\dfrac{13}{-6.5}=-2 \). CheckIt wants fractions, not decimals. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '1+\dfrac{2}{x+4}+\dfrac{18}{(x+4)(x-5)}=0'
+          speak: "1 plus the fraction 2 over x plus 4, end fraction, plus the fraction 18 over the quantity x plus 4, end quantity, times the quantity x minus 5, end quantity, end fraction, equals 0"
+        prompt: 'A student cleared the denominators, got (x + 4)(x − 3) = 0, and answered x = −4 and x = 3. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The factors were misread: the answers are really x = 4 and x = −3."}
+          - {value: c, label: "x = −4 makes x + 4 = 0 in a denominator, so it is thrown out."}
+          - {value: d, label: "x = 3 makes the 18 term too large, so only x = −4 works."}
+        correct: c
+        explanation: |-
+          \( x \) can never be −4 or 5, since those make a denominator 0. The candidate −4 is one of them, so it is extraneous. That leaves \( x=3 \), which checks: \( 1+\tfrac{2}{7}+\tfrac{18}{-14}=0 \). The factors were read correctly, and the size of a term never rules out an answer. <strong>Throw out −4; the only solution is \( x=3 \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} &2x^{2}+22x+56\\ &\quad=x^{2}+12x+35\\ &x^{2}+34x+91=0 \end{aligned}'
+          speak: "2 x squared plus 22 x plus 56 equals x squared plus 12 x plus 35. Next line: x squared plus 34 x plus 91 equals 0"
+        prompt: 'Solving \( \dfrac{x+9}{x+5}+1=\dfrac{x+7}{x+4} \), a student cleared and expanded correctly to the first line, then moved everything to the left. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Subtract every term on the right: x² + 10x + 21 = 0, so x = −3 or x = −7."}
+          - {value: c, label: "The left side should be set to 0 first, 2x² + 22x + 56 = 0, before the right side is moved."}
+          - {value: d, label: "x² + 34x + 91 does not factor, so the equation has no solution."}
+        correct: b
+        explanation: |-
+          Subtracting \( x^{2}+12x+35 \) changes every sign: \( 22x-12x=10x \) and \( 56-35=21 \), not \( +12x \) and \( +35 \). So \( x^{2}+10x+21=0 \), \( (x+3)(x+7)=0 \), and neither −3 nor −7 is off limits, since those are −5 and −4. The right side cannot just be dropped. And a quadratic that does not factor can still have solutions, from the quadratic formula; here the trouble is the setup, not the factoring. <strong>\( x^{2}+10x+21=0 \): \( x=-3 \) or \( x=-7 \).</strong>
