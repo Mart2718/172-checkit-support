@@ -1,0 +1,313 @@
+# PR9 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt PR9 gives (ax + b)/(x + c)  ?  (dx + e)/(x + f) with ? one of <, <=, >=, >. In the "linear" type, a = d, so
+# subtracting leaves a degree 1 numerator (one zero, at 1 - f); in the "quadratic" type, d = a - 1, so the numerator is
+# quadratic with two integer zeros. The values -c and -f are never allowed. It asks for interval notation and a number line.
+# The answer can have two or three pieces, mixing open and closed ends.
+# Figures drawn by tools/figures/make_pr9.py (number lines borrowed from make_pr8.py).
+code: PR9
+h1: "PR9 Support: Rational Inequalities"
+pageTitle: "PR9 Support: Rational Inequalities — Math 172, Santa Ana College"
+hubSummary: "Rational inequalities: one fraction against 0, critical points, sign charts, and interval notation"
+videoIntro: "A narrated walkthrough of solving a rational inequality: move everything to one side, combine into one fraction, find where the top and the bottom are zero, test each interval, and write the answer with the right brackets."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|is the solution|never included|always open'
+worked:   # used for the worked-examples recording document
+  title: "PR9 Worked Examples: Rational Inequalities"
+  coreQuestion: "Where is the fraction zero, where is it undefined, and what sign is it in between?"
+  coreFollowup: "Do not multiply by an expression with x in it, since its sign is unknown. Instead, subtract to get 0 on one side and combine into one fraction. The zeros of the top and the bottom are the critical points; they split the number line into intervals. Test one number in each interval. Zeros of the top are included for ≤ or ≥; zeros of the bottom are never included."
+summary:   # the Quick Summary tab
+  intro: 'A rational inequality, like <span>\( \dfrac{x+5}{x-2}\le\dfrac{3}{x-2}+1 \)</span>, works like a quadratic inequality with one twist: <strong>the fraction can change sign where its bottom is 0, not just where its top is 0.</strong>'
+  caption: "The steps for solving a rational inequality, and what to watch for at each one"
+  columns: ["Step", "Do this", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Get 0 on one side'
+      - 'Subtract so one side is 0.'
+      - 'Do not multiply both sides by something like <span>\( x-2 \)</span>: it is negative for some <span>\( x \)</span>, and then the inequality would have to flip.'
+    -
+      - 'Make one fraction'
+      - 'Use the common denominator, subtract the numerators, and simplify the top.'
+      - 'Subtracting a whole numerator changes every sign in it.'
+    -
+      - 'Find the critical points'
+      - 'Set the top equal to 0 and the bottom equal to 0. Both kinds go on the number line.'
+      - 'Leaving out the bottom''s zeros skips places where the sign can change.'
+    -
+      - 'Test each interval'
+      - 'Pick a number in each interval and find the sign of the fraction.'
+      - 'Only the sign matters, so you can count negative factors instead of computing the value.'
+    -
+      - 'Endpoints'
+      - 'Zeros of the top: included for ≤ or ≥, left out for < or >. Zeros of the bottom: left out every time.'
+      - 'At a zero of the bottom the fraction is undefined, so it gets a parenthesis and an open dot, even with ≤ or ≥.'
+  note: 'CheckIt''s answers often have two or three pieces, mixing parentheses and brackets. Write them from left to right, joined with <span>\( \cup \)</span>, and draw the same pieces on a number line. Your CheckIt inequality will have different numbers. The steps are what transfer.'
+tabs:
+  - id: setup
+    label: "Try It: Set It Up"
+    heading: "Try It: Set It Up"
+    intro: |-
+      Get to one fraction compared with 0, find the critical points, and decide which ones are allowed. Make your best guess on each one, then check it.
+    items:
+      - id: su1
+        title: "Why Not Multiply?"
+        math:
+          display: '\dfrac{x+3}{x-3}\le\dfrac{x-1}{x-4}'
+          speak: "the fraction x plus 3, over x minus 3, end fraction, is less than or equal to the fraction x minus 1, over x minus 4, end fraction"
+        prompt: 'Why not just multiply both sides by (x − 3)(x − 4) to clear the fractions?'
+        choices:
+          - {value: a, label: "Multiplying makes the fractions bigger, which changes the answer."}
+          - {value: b, label: "You can; that is the quickest way to solve any inequality."}
+          - {value: c, label: "Its sign changes with x, and a negative would flip the inequality."}
+          - {value: d, label: "It is never 0, so multiplying by it does nothing useful."}
+        correct: c
+        explanation: |-
+          With an equation you could multiply, but an inequality flips when you multiply by a negative. \( (x-3)(x-4) \) is positive for some \( x \) and negative for others, between 3 and 4, so there is no single right direction. Subtracting to get one fraction against 0 avoids the problem. Multiplying by a positive number does not change the answer; "any inequality" is the trap; and \( (x-3)(x-4) \) is 0 at 3 and 4, which matter a lot. <strong>Its sign changes with x, and a negative would flip the inequality.</strong>
+      - id: su2
+        title: "One Fraction"
+        math:
+          display: '\dfrac{x+3}{x-3}-\dfrac{x-1}{x-4}\le 0'
+          speak: "the fraction x plus 3, over x minus 3, end fraction, minus the fraction x minus 1, over x minus 4, end fraction, is less than or equal to 0"
+        prompt: 'Combine the left side into one fraction. Which is it?'
+        choices:
+          - {value: a, label: '\( \dfrac{3x-15}{(x-3)(x-4)} \)', speak: "the fraction 3 x minus 15, over the quantity x minus 3, end quantity, times the quantity x minus 4, end quantity, end fraction"}
+          - {value: b, label: '\( \dfrac{-5x-9}{(x-3)(x-4)} \)', speak: "the fraction negative 5 x minus 9, over the quantity x minus 3, end quantity, times the quantity x minus 4, end quantity, end fraction"}
+          - {value: c, label: '\( \dfrac{4}{(x-3)(x-4)} \)', speak: "the fraction 4, over the quantity x minus 3, end quantity, times the quantity x minus 4, end quantity, end fraction"}
+          - {value: d, label: '\( \dfrac{5x-13}{(x-3)(x-4)} \)', speak: "the fraction 5 x minus 13, over the quantity x minus 3, end quantity, times the quantity x minus 4, end quantity, end fraction"}
+        correct: a
+        explanation: |-
+          Over \( (x-3)(x-4) \), each top gets the other bottom: \( (x+3)(x-4)-(x-1)(x-3)=(x^{2}-x-12)-(x^{2}-4x+3)=3x-15=3(x-5) \). \( -5x-9 \) subtracts only the \( x^{2} \), not every term of \( x^{2}-4x+3 \); 4 subtracts the tops without the other denominators; and \( 5x-13 \) multiplies each top by its own denominator. <strong>\( \dfrac{3x-15}{(x-3)(x-4)} \).</strong>
+      - id: su3
+        title: "Critical Points"
+        math:
+          display: '\dfrac{x+1}{x-1}>\dfrac{-6}{x-6}'
+          speak: "the fraction x plus 1, over x minus 1, end fraction, is greater than the fraction negative 6, over x minus 6, end fraction"
+        prompt: 'Combining into one fraction gives \( \dfrac{(x-3)(x+4)}{(x-1)(x-6)}>0 \). What are the critical points?'
+        choices:
+          - {value: a, label: "−4 and 3 only"}
+          - {value: b, label: "1 and 6 only"}
+          - {value: c, label: "4, −1, −3, and −6"}
+          - {value: d, label: "−4, 1, 3, and 6"}
+        correct: d
+        explanation: |-
+          The fraction can change sign where the top is 0, at 3 and −4, and where the bottom is 0, at 1 and 6. All four go on the number line. Using only the top's zeros treats it like a quadratic inequality and misses where the fraction is undefined; using only the bottom's misses where it equals 0; and 4, −1, −3, −6 flip every sign. <strong>−4, 1, 3, and 6.</strong>
+      - id: su4
+        title: "Which Ends Count?"
+        math:
+          display: '\dfrac{3(x-1)}{(x+2)(x-4)}\ge 0'
+          speak: "the fraction 3 times the quantity x minus 1, end quantity, over the quantity x plus 2, end quantity, times the quantity x minus 4, end quantity, end fraction, is greater than or equal to 0"
+        prompt: 'The critical points are −2, 1, and 4. Which of them can be in the answer?'
+        choices:
+          - {value: a, label: "All three, since the symbol is ≥"}
+          - {value: b, label: "Only 1"}
+          - {value: c, label: "None of them"}
+          - {value: d, label: "Only −2 and 4"}
+        correct: b
+        explanation: |-
+          At \( x=1 \) the top is 0, so the fraction is 0, and \( 0\ge 0 \) is true: 1 can be included. At −2 and 4 the bottom is 0, so the fraction is undefined there, and those points stay out no matter what the symbol is. "All three" forgets that division by 0 is not allowed; "none" forgets the "or equal"; and −2 and 4 are exactly the points that can never count. <strong>Only 1.</strong>
+  - id: chart
+    label: "Try It: Sign Charts"
+    heading: "Try It: Sign Charts"
+    intro: |-
+      The critical points split the number line into intervals. Find the sign of the fraction in each one, then keep the intervals that make the inequality true. Make your best guess, then check it.
+    items:
+      - id: sc1
+        title: "Test Points"
+        math:
+          display: '\dfrac{x+2}{(x+4)(x+3)}<0'
+          speak: "the fraction x plus 2, over the quantity x plus 4, end quantity, times the quantity x plus 3, end quantity, end fraction, is less than 0"
+        figure:
+          file: figures/PR9/sc1.svg
+          title: "A number line with three critical points and four test points"
+          caption: 'A number line from −6 to 1. Open dots mark the critical points −4, −3, and −2, which split the line into four intervals. Test points are marked at −5, −3.5, −2.5, and 0, one in each interval.'
+        prompt: 'Find the sign of the fraction at each test point. Which intervals belong to the answer?'
+        choices:
+          - {value: a, label: "Between −4 and −3, and right of −2"}
+          - {value: b, label: "Left of −4, and between −3 and −2"}
+          - {value: c, label: "Only between −3 and −2"}
+          - {value: d, label: "All four intervals except the last"}
+        correct: b
+        explanation: |-
+          Count negative factors. At −5: top \( -3 \), bottom \( (-1)(-2)=2 \), so negative. At −3.5: top \( -1.5 \), bottom \( (0.5)(-0.5) \), negative over negative, so positive. At −2.5: top \( -0.5 \), bottom positive, so negative. At 0: \( \tfrac{2}{12} \), positive. The inequality wants negative: left of −4 and between −3 and −2, all open since \( < \) is strict. The other pairing is where it is positive; "only between −3 and −2" forgets the leftmost interval; and the first three intervals do not share one sign. <strong>Left of −4, and between −3 and −2: \( (-\infty,-4)\cup(-3,-2) \).</strong>
+      - id: sc2
+        title: "One Factor Each"
+        math:
+          display: '\dfrac{x-2}{x+3}\ge 0'
+          speak: "the fraction x minus 2, over x plus 3, end fraction, is greater than or equal to 0"
+        prompt: 'Solve. Which is the answer?'
+        choices:
+          - {value: a, label: '\( (-\infty,-3]\cup[2,\infty) \)', speak: "from negative infinity to negative 3, included, union from 2, included, to infinity"}
+          - {value: b, label: '\( [-3,2] \)', speak: "from negative 3 to 2, both included"}
+          - {value: c, label: '\( (-3,2] \)', speak: "from negative 3, not included, to 2, included"}
+          - {value: d, label: '\( (-\infty,-3)\cup[2,\infty) \)', speak: "from negative infinity to negative 3, not included, union from 2, included, to infinity"}
+        correct: d
+        explanation: |-
+          Critical points −3 (bottom) and 2 (top). Left of −3, both factors are negative, so the fraction is positive; between them, it is negative; right of 2, positive. Keep the positive pieces. Include 2, where the fraction is 0, but not −3, where it is undefined. A bracket at −3 includes a point where the fraction does not exist; \( [-3,2] \) and \( (-3,2] \) are the negative middle. <strong>\( (-\infty,-3)\cup[2,\infty) \).</strong>
+      - id: sc3
+        title: "Two on Top"
+        math:
+          display: '\dfrac{(x+1)(x-4)}{x-2}\le 0'
+          speak: "the fraction the quantity x plus 1, end quantity, times the quantity x minus 4, end quantity, over x minus 2, end fraction, is less than or equal to 0"
+        prompt: 'Solve. Which is the answer?'
+        choices:
+          - {value: a, label: "(−∞, −1] ∪ (2, 4]"}
+          - {value: b, label: "[−1, 2) ∪ [4, ∞)"}
+          - {value: c, label: "(−∞, −1] ∪ [2, 4]"}
+          - {value: d, label: "(−∞, −1) ∪ (2, 4)"}
+        correct: a
+        explanation: |-
+          Critical points −1, 2, 4. Left of −1: three negative factors, so negative. Between −1 and 2: two negatives (\( x-4 \) and \( x-2 \)), so positive. Between 2 and 4: one negative, so negative. Right of 4: positive. Keep the negative pieces, include −1 and 4, where the fraction is 0, and leave out 2, where it is undefined. \( [-1,2)\cup[4,\infty) \) keeps the positive pieces; a bracket at 2 includes an undefined point; and parentheses at −1 and 4 drop the "or equal." <strong>\( (-\infty,-1]\cup(2,4] \).</strong>
+      - id: sc4
+        title: "One Test"
+        math:
+          display: '\dfrac{2(x-2)(x+1)}{(x+4)(x+10)}>0'
+          speak: "the fraction 2 times the quantity x minus 2, end quantity, times the quantity x plus 1, end quantity, over the quantity x plus 4, end quantity, times the quantity x plus 10, end quantity, end fraction, is greater than 0"
+        prompt: 'The critical points are −10, −4, −1, and 2. Test x = 0. What does the result tell you?'
+        choices:
+          - {value: a, label: "Only the single point x = 0 is left out of the answer."}
+          - {value: b, label: "Nothing yet; try a few more numbers between −1 and 2."}
+          - {value: c, label: "The interval from −1 to 2 is left out of the answer."}
+          - {value: d, label: "The interval from −1 to 2 is part of the answer, then."}
+        correct: c
+        explanation: |-
+          At 0: \( \dfrac{2(-2)(1)}{(4)(10)}=-\tfrac{4}{40} \), negative, and the inequality wants positive, so 0 fails. The fraction cannot change sign between two critical points, so one test speaks for the whole interval from −1 to 2. The full answer is \( (-\infty,-10)\cup(-4,-1)\cup(2,\infty) \). It is not just 0 that fails, more tests in the same interval would agree with the first, and a failing test never puts its interval in the answer. <strong>The interval from −1 to 2 is left out.</strong>
+  - id: write
+    label: "Try It: Write the Answer"
+    heading: "Try It: Write the Answer"
+    intro: |-
+      Go back and forth between number lines and interval notation, and solve two CheckIt-style inequalities all the way through. Make your best guess, then check it.
+    items:
+      - id: wa1
+        title: "Line to Notation"
+        figure:
+          file: figures/PR9/wa1.svg
+          title: "A number line with two shaded pieces and a mix of open and closed dots"
+          caption: 'A number line from −4 to 5. A closed dot at −2 and an open dot at 1 have the segment between them shaded. A closed dot at 3 has shading from it to the right, ending in an arrow. Nothing else is shaded.'
+        prompt: 'Which interval notation matches this number line?'
+        choices:
+          - {value: a, label: "[−2, 1) ∪ [3, ∞)"}
+          - {value: b, label: "[−2, 1] ∪ [3, ∞)"}
+          - {value: c, label: "(−2, 1) ∪ (3, ∞)"}
+          - {value: d, label: "[−2, 1) ∪ [3, ∞]"}
+        correct: a
+        explanation: |-
+          Closed dots get brackets and open dots get parentheses: \( [-2,1) \) for the segment and \( [3,\infty) \) for the ray, joined with \( \cup \). A bracket at 1 ignores its open dot; parentheses at −2 and 3 ignore their closed dots; and infinity always gets a parenthesis. In a rational inequality, an open dot inside an otherwise closed piece usually marks a zero of the bottom. <strong>\( [-2,1)\cup[3,\infty) \).</strong>
+      - id: wa2
+        title: "Solve 1"
+        math:
+          display: '\dfrac{1}{x-5}\ge\dfrac{-1}{x-3}'
+          speak: "the fraction 1 over x minus 5, end fraction, is greater than or equal to the fraction negative 1 over x minus 3, end fraction"
+        prompt: 'Solve. Which is the answer?'
+        choices:
+          - {value: a, label: '\( [3,4]\cup[5,\infty) \)', speak: "from 3 to 4, both included, union from 5, included, to infinity"}
+          - {value: b, label: '\( (-\infty,3)\cup[4,5) \)', speak: "from negative infinity to 3, not included, union from 4, included, to 5, not included"}
+          - {value: c, label: '\( (3,4]\cup(5,\infty) \)', speak: "from 3, not included, to 4, included, union from 5, not included, to infinity"}
+          - {value: d, label: '\( [4,\infty) \)', speak: "from 4, included, to infinity"}
+        correct: c
+        explanation: |-
+          Add \( \tfrac{1}{x-3} \) to both sides: \( \dfrac{1}{x-5}+\dfrac{1}{x-3}\ge 0 \), so \( \dfrac{(x-3)+(x-5)}{(x-5)(x-3)}=\dfrac{2(x-4)}{(x-5)(x-3)}\ge 0 \). Critical points 3, 4, 5. Test 0: negative. Test 3.5: \( \dfrac{2(-0.5)}{(-1.5)(0.5)} \), positive. Test 4.5: negative. Test 6: positive. Keep the positive pieces, include 4, leave out 3 and 5. Brackets at 3 and 5 include undefined points; \( (-\infty,3)\cup[4,5) \) keeps the negative pieces; and \( [4,\infty) \) comes from cross-multiplying, which ignores the sign of the denominators. <strong>\( (3,4]\cup(5,\infty) \).</strong>
+      - id: wa3
+        title: "Solve 2"
+        math:
+          display: '\dfrac{x+1}{x+3}>\dfrac{3}{x-1}'
+          speak: "the fraction x plus 1, over x plus 3, end fraction, is greater than the fraction 3 over x minus 1, end fraction"
+        prompt: 'Solve. Which is the answer?'
+        choices:
+          - {value: a, label: '\( (-3,-2)\cup(1,5) \)', speak: "from negative 3 to negative 2, neither included, union from 1 to 5, neither included"}
+          - {value: b, label: '\( (-\infty,-3)\cup(-2,1)\cup(5,\infty) \)', speak: "from negative infinity to negative 3, union from negative 2 to 1, union from 5 to infinity, no endpoints included"}
+          - {value: c, label: '\( (-\infty,-2)\cup(5,\infty) \)', speak: "from negative infinity to negative 2, not included, union from 5, not included, to infinity"}
+          - {value: d, label: '\( (-\infty,-3]\cup[-2,1]\cup[5,\infty) \)', speak: "from negative infinity to negative 3, included, union from negative 2 to 1, both included, union from 5, included, to infinity"}
+        correct: b
+        explanation: |-
+          Subtract: \( \dfrac{(x+1)(x-1)-3(x+3)}{(x+3)(x-1)}=\dfrac{x^{2}-3x-10}{(x+3)(x-1)}=\dfrac{(x-5)(x+2)}{(x+3)(x-1)}>0 \). Critical points −3, −2, 1, 5. The signs from left to right are \( +,-,+,-,+ \), so keep the three positive pieces, all open, since \( > \) is strict. \( (-3,-2)\cup(1,5) \) keeps the negative pieces; \( (-\infty,-2)\cup(5,\infty) \) uses only the top, as if it were a quadratic inequality; and brackets include points that \( > \) leaves out, two of them undefined. <strong>\( (-\infty,-3)\cup(-2,1)\cup(5,\infty) \).</strong>
+      - id: wa4
+        title: "Notation to Line"
+        math:
+          display: '(-4,1]\cup(3,\infty)'
+          speak: "from negative 4, not included, to 1, included, union from 3, not included, to infinity"
+        prompt: 'Which number line shows this answer?'
+        choices:
+          - {value: a, label: "Open dot at −4, closed at 1, shaded between; closed dot at 3, shaded right"}
+          - {value: b, label: "Closed dot at −4, open at 1, shaded between; open dot at 3, shaded right"}
+          - {value: c, label: "Open dot at −4, closed at 1, shaded outside them; open dot at 3, shaded left"}
+          - {value: d, label: "Open dot at −4, closed at 1, shaded between; open dot at 3, shaded right"}
+        correct: d
+        explanation: |-
+          A parenthesis means an open dot and a bracket means a closed dot. So: open at −4 and closed at 1, with the segment between them shaded; then open at 3, with the ray to the right shaded and an arrow. A closed dot at 3 ignores its parenthesis; swapping open and closed reads the symbols backwards; and shading outside or to the left draws different pieces. <strong>Open at −4, closed at 1, shaded between; open at 3, shaded right.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} \dfrac{x+5}{x-1}&>\dfrac{x+1}{x+3}\\ (x+5)(x+3)&>(x+1)(x-1)\\ 8x+15&>-1\\ x&>-2 \end{aligned}'
+          speak: "the fraction x plus 5, over x minus 1, end fraction, is greater than the fraction x plus 1, over x plus 3, end fraction. Next line: the quantity x plus 5, end quantity, times the quantity x plus 3, end quantity, is greater than the quantity x plus 1, end quantity, times the quantity x minus 1, end quantity. Next line: 8 x plus 15 is greater than negative 1. Next line: x is greater than negative 2"
+        prompt: 'A student cross-multiplied and answered (−2, ∞). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Cross-multiplying ignores negative bottoms; it is (−3, −2) ∪ (1, ∞)."}
+          - {value: c, label: "The expansion is off: (x + 5)(x + 3) is x² + 15, so then x > 4."}
+          - {value: d, label: "The answer needs a bracket, [−2, ∞), since x = −2 makes it true as well."}
+        correct: b
+        explanation: |-
+          Multiplying by \( (x-1)(x+3) \) assumes it is positive, but it is negative between −3 and 1. Instead: \( \dfrac{(x+5)(x+3)-(x+1)(x-1)}{(x-1)(x+3)}=\dfrac{8(x+2)}{(x-1)(x+3)}>0 \). Critical points −3, −2, 1, and the signs from left to right are \( -,+,-,+ \). Check the student's answer at 0: \( \tfrac{5}{-1}=-5 \), which is not greater than \( \tfrac{1}{3} \). The expansion was right, and \( x=-2 \) makes the two sides equal, which \( > \) does not allow. <strong>\( (-3,-2)\cup(1,\infty) \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\dfrac{x+4}{x-1}\le 0'
+          speak: "the fraction x plus 4, over x minus 1, end fraction, is less than or equal to 0"
+        prompt: 'A student found the critical points −4 and 1, tested correctly, and answered [−4, 1]. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The answer should be the outside: (−∞, −4] ∪ [1, ∞)."}
+          - {value: c, label: "Both ends should be open: (−4, 1), since the symbol is ≤."}
+          - {value: d, label: "1 makes the bottom 0, so it is left out: [−4, 1)."}
+        correct: d
+        explanation: |-
+          Testing 0 gives \( \tfrac{4}{-1}<0 \), so the middle is right. At −4 the fraction is 0, so it belongs. At 1 the fraction is undefined, so it cannot belong, even with \( \le \). The outside pieces are where the fraction is positive, and \( \le \) is exactly what lets −4 in. <strong>\( [-4,1) \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\dfrac{x-3}{x+2}>0'
+          speak: "the fraction x minus 3, over x plus 2, end fraction, is greater than 0"
+        prompt: 'A student found the critical points −2 and 3, tested −3 (positive), 0 (negative), and 4 (positive), and answered (−∞, −2) ∪ (3, ∞). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "3 belongs, since the top is 0 there: (−∞, −2) ∪ [3, ∞)."}
+          - {value: c, label: "The answer is the middle piece, (−2, 3), where the test was negative."}
+          - {value: d, label: "−2 should not be a critical point, since it is only from the bottom."}
+        correct: a
+        explanation: |-
+          At −3: \( \tfrac{-6}{-1}=6>0 \). At 0: \( -\tfrac{3}{2}<0 \). At 4: \( \tfrac{1}{6}>0 \). Keep the positive pieces, all open: 3 gives 0, which \( > \) leaves out, and −2 makes the bottom 0. The bottom's zero has to be a critical point, because the sign changes there. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\dfrac{x+1}{x-3}<0'
+          speak: "the fraction x plus 1, over x minus 3, end fraction, is less than 0"
+        prompt: 'A student used only the critical point −1, from the top. Testing −2 gave a positive and testing 0 gave a negative, so they answered (−1, ∞). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "−1 belongs, since the top is 0 at −1, so the answer is really [−1, ∞)."}
+          - {value: c, label: "3, from the bottom, is a critical point too; the answer is (−1, 3)."}
+          - {value: d, label: "The two tests are backwards, so the answer is really (−∞, −1) instead."}
+        correct: c
+        explanation: |-
+          The fraction can also change sign where the bottom is 0, at 3. Test 4: \( \tfrac{5}{1}>0 \), so everything right of 3 fails, and the student's answer includes it. With 3 on the number line, only the middle interval is negative: \( (-1,3) \). −1 gives 0, which \( < \) leaves out, and the two tests were right as far as they went. <strong>\( (-1,3) \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} \dfrac{6}{x-4}-\dfrac{-1}{x+3}&>0\\ \dfrac{6(x+3)-(x-4)}{(x-4)(x+3)}&>0\\ \dfrac{5x+22}{(x-4)(x+3)}&>0 \end{aligned}'
+          speak: "the fraction 6 over x minus 4, end fraction, minus the fraction negative 1 over x plus 3, end fraction, is greater than 0. Next line: the fraction 6 times the quantity x plus 3, end quantity, minus the quantity x minus 4, end quantity, over the quantity x minus 4, end quantity, times the quantity x plus 3, end quantity, end fraction, is greater than 0. Next line: the fraction 5 x plus 22, over the quantity x minus 4, end quantity, times the quantity x plus 3, end quantity, end fraction, is greater than 0"
+        prompt: 'Solving \( \dfrac{6}{x-4}>\dfrac{-1}{x+3} \), a student combined the fractions this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Subtracting −1/(x + 3) adds, so the top is 7x + 14."}
+          - {value: c, label: "The bottom should be (x − 4) + (x + 3), not their product."}
+          - {value: d, label: "6(x + 3) is 6x + 3, so the top is 5x + 7."}
+        correct: b
+        explanation: |-
+          Subtracting a negative fraction is adding: \( \dfrac{6(x+3)}{(x-4)(x+3)}+\dfrac{x-4}{(x-4)(x+3)} \), so the top is \( 6x+18+x-4=7x+14=7(x+2) \). With critical points −3, −2, and 4, the answer is \( (-3,-2)\cup(4,\infty) \). The common denominator is the product, and \( 6(x+3)=6x+18 \). <strong>The top is \( 7x+14 \), not \( 5x+22 \).</strong>
