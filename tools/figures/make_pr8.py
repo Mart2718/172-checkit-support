@@ -31,7 +31,6 @@ def numberline(name, x0, x1, points=(), shade=(), tests=(), step=1):
         if a is None: o.append(f'<path d="M{xa-6:.1f},{y} l14,-10 v20 z" fill="{TEAL}"/>')
         if b is None: o.append(f'<path d="M{xb+6:.1f},{y} l-14,-10 v20 z" fill="{TEAL}"/>')
     for x, lab in tests:
-        o.append(f'<circle cx="{sx(x):.1f}" cy="{y}" r="4.5" fill="{BLUE}"/>')
         o.append(f'<path d="M{sx(x):.1f},{y+40} l-6,10 h12 z" fill="{BLUE}"/>')
         o.append(f'<text x="{sx(x):.1f}" y="{y+72}" text-anchor="middle" fill="{BLUE}" font-weight="bold">{lab}</text>')
     for x, lab, closed in points:

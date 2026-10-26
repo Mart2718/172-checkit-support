@@ -25,6 +25,8 @@ Date: 2026-10-25. Checked by:
 4. Test Points and One Test name every distractor's origin. One Test no longer does the arithmetic for the student.
 5. The summary no longer gives away the "do not divide by x" trap. Line to Notation no longer copies the summary's example. Correct-answer positions no longer cycle through a, b, c, d within each tab.
 
+6. Later, during the PR9 review: test points on the number line are now triangles only, so they no longer look like closed dots. The summary's "< or >" is written as HTML entities.
+
 ## Advisory (not changed)
 - Some text choices write math in plain text, the same as earlier outcomes, because axe flags label-in-name mismatches on buttons that pair rendered math with a separate spoken label.
 - Worked-examples document: figure descriptions start with "Plotted data:", which reads oddly for a number line. This comes from the shared document tool.

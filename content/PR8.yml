@@ -37,13 +37,13 @@ summary:   # the Quick Summary tab
       - 'Or picture the parabola: opening up, it is negative between its zeros and positive outside them.'
     -
       - 'Endpoints'
-      - 'For ≤ or ≥, include the boundary points: square brackets and closed dots. For < or >, leave them out: parentheses and open dots.'
+      - 'For ≤ or ≥, include the boundary points: square brackets and closed dots. For &lt; or &gt;, leave them out: parentheses and open dots.'
       - 'Infinity always gets a parenthesis, never a bracket.'
     -
       - 'Write the answer'
       - 'Interval notation, joining pieces with <span>\( \cup \)</span>, like <span>\( (-\infty,-3)\cup(5,\infty) \)</span>, plus a number line with the same pieces shaded.'
       - 'Write intervals from left to right, smaller number first.'
-  note: 'CheckIt shuffles the terms, so the <span>\( x^{2} \)</span> term may be on the right, or negative, or a number may be on the left. Move everything to one side first. CheckIt''s inequalities are always strict, < or >, so its answers use parentheses; your homework may also use ≤ and ≥. Your CheckIt inequality will have different numbers. The steps are what transfer.'
+  note: 'CheckIt shuffles the terms, so the <span>\( x^{2} \)</span> term may be on the right, or negative, or a number may be on the left. Move everything to one side first. CheckIt''s inequalities are always strict, &lt; or &gt;, so its answers use parentheses; your homework may also use ≤ and ≥. Your CheckIt inequality will have different numbers. The steps are what transfer.'
 tabs:
   - id: setup
     label: "Try It: Set It Up"

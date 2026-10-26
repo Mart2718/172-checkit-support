@@ -11,13 +11,10 @@
 <text x="288.0" y="92" text-anchor="middle" fill="#333">1</text>
 <line x1="376.0" y1="55" x2="376.0" y2="69" stroke="#6b6b6b" stroke-width="1.5"/>
 <text x="376.0" y="92" text-anchor="middle" fill="#333">2</text>
-<circle cx="112.0" cy="62" r="4.5" fill="#1f4e9c"/>
 <path d="M112.0,102 l-6,10 h12 z" fill="#1f4e9c"/>
 <text x="112.0" y="134" text-anchor="middle" fill="#1f4e9c" font-weight="bold">test</text>
-<circle cx="200.0" cy="62" r="4.5" fill="#1f4e9c"/>
 <path d="M200.0,102 l-6,10 h12 z" fill="#1f4e9c"/>
 <text x="200.0" y="134" text-anchor="middle" fill="#1f4e9c" font-weight="bold">test</text>
-<circle cx="288.0" cy="62" r="4.5" fill="#1f4e9c"/>
 <path d="M288.0,102 l-6,10 h12 z" fill="#1f4e9c"/>
 <text x="288.0" y="134" text-anchor="middle" fill="#1f4e9c" font-weight="bold">test</text>
 <circle cx="141.3" cy="62" r="8" fill="#1a1a2e" stroke="#1a1a2e" stroke-width="3"/>
