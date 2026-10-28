@@ -85,7 +85,10 @@ for tab in c['tabs']:
             shutil.copy(src, out / png)
             alt = html.unescape(f['title']).replace('[', '(').replace(']', ')')
             parts.append(f'![{alt}]({png})')
-            parts.append(to_md(f['caption']))
+            if f.get('collapse'):   # keep the description from answering the question before the guess
+                parts.append('<details><summary>Text description of the graph</summary><p>' + html.escape(html.unescape(to_md(f['caption'])), quote=False) + '</p></details>')
+            else:
+                parts.append(to_md(f['caption']))
         if 'table' in it:
             parts.append(table_html(it['table']))
         if 'math' in it:

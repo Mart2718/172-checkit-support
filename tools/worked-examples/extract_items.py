@@ -12,7 +12,7 @@ for it in soup.select('div.item'):
         id=it['id'], title=it.h3.get_text(),
         choices=[b.get_text().strip().removeprefix('I think: ') for b in it.select('.guess-btn')], prompt=' '.join(it.select_one('.prompt').get_text().split()),
         explanation=it.select_one('[id$=-explanation]').decode_contents().strip(), correct=correct,
-        figcaption=fig.decode_contents().strip() if fig else None,
+        figcaption=((fig.details.summary.extract() and fig.details.decode_contents().strip()) if fig.details else fig.decode_contents().strip()) if fig else None,
         svg_title=svg.title.get_text() if svg else None, has_svg=bool(svg),
         table_caption=tbl.caption.get_text() if tbl and tbl.caption else None,
         table_rows=[[c.get_text().strip() for c in r.find_all(['th', 'td'])] for r in tbl.find_all('tr')] if tbl else None,

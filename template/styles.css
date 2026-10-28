@@ -32,6 +32,7 @@
   .item h3{color:var(--teal-dark);margin-top:0;font-size:18px;}
   figure{margin:14px 0;text-align:center;}
   figure svg{width:100%;max-width:340px;height:auto;background:#fcfcfc;border:1px solid var(--gray-mid);border-radius:6px;}
+  figcaption summary{cursor:pointer;font-weight:600;color:#333;}
   figcaption{text-align:left;font-size:13.5px;color:#555;background:var(--gray-light);border-radius:6px;padding:8px 12px;margin-top:8px;}
   table.data-table{border-collapse:collapse;margin:10px auto;font-size:15px;}
   table.data-table th, table.data-table td{border:1px solid var(--gray-mid);padding:6px 14px;text-align:center;}

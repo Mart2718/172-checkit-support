@@ -68,7 +68,10 @@ function renderFigure(it) {
   const close = svg.indexOf('>', open);
   const attrs = ` role="img" aria-labelledby="${it.id}-svg-title" aria-describedby="${it.id}-caption"`;
   svg = svg.slice(0, open) + attrs + svg.slice(open, close + 1) + `\n<title id="${it.id}-svg-title">${esc(f.title)}</title>` + svg.slice(close + 1);
-  return `      <figure>\n${svg}\n        <figcaption id="${it.id}-caption">${f.caption}</figcaption>\n      </figure>`;
+  // collapse: true tucks the text description into a closed <details>, for graphs whose description would answer the
+  // question before the guess. aria-describedby still gives screen readers the full description.
+  const cap = f.collapse ? `<details><summary>Text description of the graph</summary>${f.caption}</details>` : f.caption;
+  return `      <figure>\n${svg}\n        <figcaption id="${it.id}-caption">${cap}</figcaption>\n      </figure>`;
 }
 function renderTable(it) {
   const t = it.table;
