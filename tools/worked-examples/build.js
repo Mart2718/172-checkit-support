@@ -144,18 +144,18 @@ function mathBlock(it) {
   it = { ...it, math: it.math.split('&amp;').join('&').split('&lt;').join('<').split('&gt;').join('>') };   // the page escapes < and > inside math
   const isDisplay = it.math.startsWith(BS + '[');
   const BEGIN = BS + 'begin{aligned}', END = BS + 'end{aligned}';
-  if (isDisplay && it.math.includes(BEGIN)) {   // stacked lines (student work): one centered line per row
-    const body = it.math.slice(it.math.indexOf(BEGIN) + BEGIN.length, it.math.indexOf(END)).split('&').join('');
-    const rows = body.split(BS + BS).map((r) => r.trim()).filter(Boolean);
-    return rows.map((r, n) => para(mathRuns(r, { size: 40 }), { alignment: AlignmentType.CENTER, spacing: { before: n ? 40 : 200, after: n === rows.length - 1 ? 200 : 40 } }));
-  }
   const CB = BS + 'begin{cases}', CE = BS + 'end{cases}';
   if (isDisplay && it.math.includes(CB)) {   // piecewise function: a name line, then one centered line per piece, "formula, if condition"
-    const head = it.math.slice(2, it.math.indexOf(CB)).trim();
+    const head = it.math.slice(2, it.math.indexOf(CB)).split(BEGIN).join('').split('&').join('').split(BS + BS).join('').trim();
     const rows = it.math.slice(it.math.indexOf(CB) + CB.length, it.math.indexOf(CE)).split(BS + BS).map((r) => r.trim()).filter(Boolean);
     const out = [para(mathRuns(head, { size: 40 }), { alignment: AlignmentType.CENTER, spacing: { before: 200, after: 40 } })];
     rows.forEach((r, n) => { const [e, c] = r.split('&'); out.push(para([...mathRuns(e.trim(), { size: 36 }), new TextRun({ text: ',   if   ', size: 36 }), ...mathRuns((c || '').trim(), { size: 36 })], { alignment: AlignmentType.CENTER, spacing: { before: 40, after: n === rows.length - 1 ? 200 : 40 } })); });
     return out;
+  }
+  if (isDisplay && it.math.includes(BEGIN)) {   // stacked lines (student work): one centered line per row
+    const body = it.math.slice(it.math.indexOf(BEGIN) + BEGIN.length, it.math.indexOf(END)).split('&').join('');
+    const rows = body.split(BS + BS).map((r) => r.trim()).filter(Boolean);
+    return rows.map((r, n) => para(mathRuns(r, { size: 40 }), { alignment: AlignmentType.CENTER, spacing: { before: n ? 40 : 200, after: n === rows.length - 1 ? 200 : 40 } }));
   }
   return [para(plainWithMath(it.math, { size: isDisplay ? 40 : SZ }), { alignment: isDisplay ? AlignmentType.CENTER : AlignmentType.LEFT, spacing: { before: 200, after: 200 } })];
 }

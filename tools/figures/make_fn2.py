@@ -42,4 +42,6 @@ def segs(name, pts, x0, x1, y0, y1, cell=26):
 segs('ga.svg', [(-5, -1), (-3, 3), (1, -1), (4, 5)], -6, 5, -3, 6)
 # Graph B: corners (-4, 4), (-1, -2), (3, 2), (5, 0) on [-4, 5]
 segs('gb.svg', [(-4, 4), (-1, -2), (3, 2), (5, 0)], -5, 6, -3, 5)
+# Graph C: corners (-3, -4), (-1, -2), (1, 2), (3, 0) on [-3, 3]; the first two segments both rise
+segs('gc.svg', [(-3, -4), (-1, -2), (1, 2), (3, 0)], -4, 4, -5, 3)
 print('wrote', sorted(os.listdir(OUT)))

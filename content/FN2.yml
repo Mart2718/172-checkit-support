@@ -34,7 +34,7 @@ summary:   # the Quick Summary tab
     -
       - 'A radical or fraction result'
       - 'Leave it exact and simplify: <span>\( \sqrt{50}=5\sqrt{2} \)</span>, and reduce fractions.'
-      - 'CheckIt wants exact values, not decimals.'
+      - 'For formula answers, CheckIt wants exact values, not rounded decimals. A root can come out whole: <span>\( \sqrt{49}=7 \)</span>.'
     -
       - '<span>\( g(a) \)</span> on a graph'
       - 'Go to <span>\( x=a \)</span>, move straight up or down to the graph, and read the height.'
@@ -43,7 +43,7 @@ summary:   # the Quick Summary tab
       - '<span>\( g(x)=b \)</span> on a graph'
       - 'Draw the horizontal line <span>\( y=b \)</span>. Every place it meets the graph gives an <span>\( x \)</span>-value.'
       - 'There can be several, including the ends of the graph and halves like <span>\( x=1.5 \)</span>.'
-  note: 'A point <span>\( (a,b) \)</span> on the graph of <span>\( g \)</span> means <span>\( g(a)=b \)</span>. Your CheckIt function and graph will have different numbers. Telling inputs from outputs is what transfers.'
+  note: 'A point <span>\( (a,b) \)</span> on the graph of <span>\( g \)</span> means <span>\( g(a)=b \)</span>. Your CheckIt graph will not mark its ends or corners with dots: the ends are where the line stops, and they count when they are inside the interval in the question. There may be one, two, three, or more answers to <span>\( g(x)=b \)</span>. Your CheckIt function and graph will have different numbers. Telling inputs from outputs is what transfers.'
 tabs:
   - id: pieces
     label: "Try It: Evaluate a Piecewise Function"
@@ -54,7 +54,7 @@ tabs:
       - id: pw1
         title: "At the Cut"
         math:
-          display: 'f(x)=\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases}'
+          display: '\begin{aligned} &f(x)=\\ &\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases} \end{aligned}'
           speak: "f of x equals 2 x cubed minus 3 x when negative 5 is less than x and x is less than or equal to 1; and the square root of 3 x squared plus 5, end root, when 1 is less than x and x is less than 5"
         prompt: 'Find f(1).'
         choices:
@@ -68,7 +68,7 @@ tabs:
       - id: pw2
         title: "Left of the Cut"
         math:
-          display: 'f(x)=\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases}'
+          display: '\begin{aligned} &f(x)=\\ &\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases} \end{aligned}'
           speak: "f of x equals 2 x cubed minus 3 x when negative 5 is less than x and x is less than or equal to 1; and the square root of 3 x squared plus 5, end root, when 1 is less than x and x is less than 5"
         prompt: 'Find f(−2).'
         choices:
@@ -82,7 +82,7 @@ tabs:
       - id: pw3
         title: "Right of the Cut"
         math:
-          display: 'f(x)=\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases}'
+          display: '\begin{aligned} &f(x)=\\ &\begin{cases} 2x^{3}-3x & -5\lt x\le 1\\ \sqrt{3x^{2}+5} & 1\lt x\lt 5 \end{cases} \end{aligned}'
           speak: "f of x equals 2 x cubed minus 3 x when negative 5 is less than x and x is less than or equal to 1; and the square root of 3 x squared plus 5, end root, when 1 is less than x and x is less than 5"
         prompt: 'Find f(3). Give an exact, simplified answer.'
         choices:
@@ -96,11 +96,11 @@ tabs:
       - id: pw4
         title: "A Different Cut"
         math:
-          display: 'k(x)=\begin{cases} \dfrac{4x-3}{2x^{2}+1} & -5\lt x\lt -1\\ x^{2}+2x & -1\le x\lt 5 \end{cases}'
+          display: '\begin{aligned} &k(x)=\\ &\begin{cases} \dfrac{4x-3}{2x^{2}+1} & -5\lt x\lt -1\\ x^{2}+2x & -1\le x\lt 5 \end{cases} \end{aligned}'
           speak: "k of x equals the fraction 4 x minus 3, over 2 x squared plus 1, end fraction, when negative 5 is less than x and x is less than negative 1; and x squared plus 2 x when negative 1 is less than or equal to x and x is less than 5"
         prompt: 'Find k(−1).'
         choices:
-          - {value: a, label: '\( -\tfrac{7}{3} \)', speak: "negative 7 thirds"}
+          - {value: a, label: '\( -\tfrac{7}{3} \)', speak: "the fraction negative 7, over 3, end fraction"}
           - {value: b, label: "−1"}
           - {value: c, label: "3"}
           - {value: d, label: "Undefined, since −1 is where the pieces meet"}
@@ -152,12 +152,12 @@ tabs:
         prompt: 'For which x-values in [−5, 4] does g(x) = 2?'
         choices:
           - {value: a, label: "x = −3.5, x = −2, and x = 2.5"}
-          - {value: b, label: "x = −2 only, the one on a grid line"}
+          - {value: b, label: "x = −2 only, the crossing at a whole number"}
           - {value: c, label: "x = −3.5 and x = 2.5"}
           - {value: d, label: "x = −4, x = −2, and x = 2"}
         correct: a
         explanation: |-
-          Draw the horizontal line \( y=2 \). It crosses all three segments. First segment, rising 2 per step from \( (-5,-1) \): it reaches 2 after 1.5 steps, at \( x=-3.5 \). Second, falling 1 per step from \( (-3,3) \): 1 step, at \( x=-2 \). Third, rising 2 per step from \( (1,-1) \): 1.5 steps, at \( x=2.5 \). "−2 only" keeps just the crossing on a grid line; leaving out −2 misses the middle segment; and −4 and 2 round the halves to whole numbers. <strong>\( x=-3.5 \), \( x=-2 \), and \( x=2.5 \).</strong>
+          Draw the horizontal line \( y=2 \). It crosses all three segments. First segment, rising 2 per step from \( (-5,-1) \): it reaches 2 after 1.5 steps, at \( x=-3.5 \). Second, falling 1 per step from \( (-3,3) \): 1 step, at \( x=-2 \). Third, rising 2 per step from \( (1,-1) \): 1.5 steps, at \( x=2.5 \). "−2 only" keeps just the crossing at a whole number; leaving out −2 misses the middle segment; and −4 and 2 round the halves down. <strong>\( x=-3.5 \), \( x=-2 \), and \( x=2.5 \).</strong>
       - id: rg4
         title: "Output to Inputs 2"
         figure:
@@ -177,22 +177,23 @@ tabs:
     label: "Try It: Inputs and Outputs"
     heading: "Try It: Inputs and Outputs"
     intro: |-
-      What is the notation asking for: an input or an output? Make your best guess, then check it.
+      What is the notation asking for: an input or an output, and how many? Make your best guess, then check it.
     items:
       - id: io1
-        title: "Which Way?"
-        math:
-          display: 'g(x)'
-          speak: "g of x"
-        prompt: 'For a function g, which question asks you to find x-values?'
+        title: "Just One"
+        figure:
+          file: figures/FN2/gb.svg
+          title: "The graph of g, made of three straight segments"
+          caption: 'A graph of g on the interval from x = −4 to x = 5, drawn on a grid with lines every 1 unit. It is made of three straight segments: from (−4, 4) down to (−1, −2), then up to (3, 2), then down to (5, 0). The ends and corners are marked with dots.'
+        prompt: 'For which x-values in [−4, 5] does g(x) = −2?'
         choices:
-          - {value: a, label: "Find g(4)."}
-          - {value: b, label: "What is the output when the input is 4?"}
-          - {value: c, label: "For which x does g(x) = 4?"}
-          - {value: d, label: "Evaluate g at x = 4."}
-        correct: c
+          - {value: a, label: "x = −2"}
+          - {value: b, label: "x = −1 and x = 3, the two corners"}
+          - {value: c, label: "There is none, since corners do not count."}
+          - {value: d, label: "x = −1 only"}
+        correct: d
         explanation: |-
-          In \( g(x)=4 \), the 4 is an output, and the question asks which inputs produce it, so the answer is \( x \)-values. The other three all say the same thing in different words: put in 4 and find the output, \( g(4) \). <strong>For which x does g(x) = 4?</strong>
+          Draw the horizontal line \( y=-2 \). It touches the graph only at the lowest corner, \( (-1,-2) \), so there is exactly one input: \( x=-1 \). Many CheckIt problems have just one answer like this. \( x=-2 \) copies the output as an input; the corner at 3 is at height 2, not −2; and a corner is a point on the graph like any other. <strong>\( x=-1 \) only.</strong>
       - id: io2
         title: "What It Means"
         math:
@@ -244,22 +245,22 @@ tabs:
       - id: sl1
         title: "Slip 1"
         math:
-          display: 'm(x)=\begin{cases} 3x^{2}+1 & -5\lt x\lt 0\\ \sqrt{x^{2}+5} & 0\le x\lt 5 \end{cases}'
+          display: '\begin{aligned} &m(x)=\\ &\begin{cases} 3x^{2}+1 & -5\lt x\lt 0\\ \sqrt{x^{2}+5} & 0\le x\lt 5 \end{cases} \end{aligned}'
           speak: "m of x equals 3 x squared plus 1 when negative 5 is less than x and x is less than 0; and the square root of x squared plus 5, end root, when 0 is less than or equal to x and x is less than 5"
         prompt: 'A student found m(0) = 3(0)² + 1 = 1. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "0 belongs to the piece with 0 ≤ x, so m(0) = √5."}
           - {value: c, label: "m(0) is undefined, since 0 is where the pieces meet."}
-          - {value: d, label: "The square was skipped: 3(0)² + 1 is 4."}
+          - {value: d, label: "0² is 1, so 3(0)² + 1 is 4."}
         correct: b
         explanation: |-
-          \( -5\lt x<0 \) leaves 0 out, and \( 0\le x<5 \) includes it, so \( m(0)=\sqrt{0^{2}+5}=\sqrt{5} \). The function is defined at 0, since one piece includes it, and \( 3(0)^{2}+1 \) really is 1, just from the wrong piece. <strong>0 belongs to the radical piece: \( m(0)=\sqrt{5} \).</strong>
+          \( -5\lt x<0 \) leaves 0 out, and \( 0\le x<5 \) includes it, so \( m(0)=\sqrt{0^{2}+5}=\sqrt{5} \). The function is defined at 0, since one piece includes it, and \( 0^{2}=0 \), not 1, so \( 3(0)^{2}+1 \) really is 1, just from the wrong piece. <strong>0 belongs to the radical piece: \( m(0)=\sqrt{5} \).</strong>
       - id: sl2
         title: "Slip 2"
         math:
           display: '\begin{aligned} m(-2)&=3(-2)^{2}+1\\ &=-12+1\\ &=-11 \end{aligned}'
-          speak: "m of negative 2 equals 3 times negative 2 squared, plus 1. Next line: equals negative 12 plus 1. Next line: equals negative 11"
+          speak: "m of negative 2 equals 3 times the quantity negative 2, end quantity, squared, plus 1. Next line: equals negative 12 plus 1. Next line: equals negative 11"
         prompt: 'Using the same m, a student found m(−2) this way. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
@@ -272,44 +273,44 @@ tabs:
       - id: sl3
         title: "Slip 3"
         math:
-          display: '\begin{aligned} k(-2)&=\dfrac{4(-2)-3}{2(-2)^{2}+1}\\ &=\dfrac{-11}{9} \end{aligned}'
-          speak: "k of negative 2 equals the fraction 4 times negative 2, minus 3, over 2 times negative 2 squared, plus 1, end fraction. Next line: equals negative 11 over 9"
-        prompt: 'For the function k from earlier, with the fraction piece on \( -5\lt x\lt -1 \), a student found k(−2) this way. What is the mistake, if any?'
+          display: '\begin{aligned} &p(x)=\\ &\begin{cases} \dfrac{4x+2}{2x^{2}+2} & -5\lt x\lt -1\\ x^{2}+2x & -1\le x\lt 5 \end{cases} \end{aligned}'
+          speak: "p of x equals the fraction 4 x plus 2, over 2 x squared plus 2, end fraction, when negative 5 is less than x and x is less than negative 1; and x squared plus 2 x when negative 1 is less than or equal to x and x is less than 5"
+        prompt: 'A student found \( p(-2)=\dfrac{4(-2)+2}{2(-2)^{2}+2}=\dfrac{-6}{10}=-\dfrac{3}{5} \). What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "−2 belongs to the other piece, so k(−2) = 0."}
-          - {value: c, label: "The bottom should be 2(−4) + 1 = −7, so it is 11/7."}
-          - {value: d, label: "The answer should be a decimal, −1.2."}
+          - {value: b, label: "−2 belongs to the other piece, so p(−2) = 0."}
+          - {value: c, label: "The bottom should be 2(−4) + 2 = −6, so it is 1."}
+          - {value: d, label: "It should stay −6/10, because reducing changes the value."}
         correct: a
         explanation: |-
-          −2 is between −5 and −1, so the fraction piece is the right one. Top: \( 4(-2)-3=-11 \). Bottom: \( 2(-2)^{2}+1=2(4)+1=9 \). So \( k(-2)=-\tfrac{11}{9} \), exact, as CheckIt wants. The other piece starts at −1, and \( (-2)^{2} \) is 4, not −4. <strong>There is no mistake.</strong>
+          −2 is between −5 and −1, so the fraction piece is the right one. Top: \( 4(-2)+2=-6 \). Bottom: \( 2(-2)^{2}+2=2(4)+2=10 \). So \( p(-2)=-\tfrac{6}{10}=-\tfrac{3}{5} \), reduced, as CheckIt wants. The other piece starts at −1; \( (-2)^{2} \) is 4, not −4; and reducing a fraction never changes its value. <strong>There is no mistake.</strong>
       - id: sl4
         title: "Slip 4"
         figure:
-          file: figures/FN2/ga.svg
+          file: figures/FN2/gc.svg
           title: "The graph of g, made of three straight segments"
-          caption: 'A graph of g on the interval from x = −5 to x = 4, drawn on a grid with lines every 1 unit. It is made of three straight segments: from (−5, −1) up to (−3, 3), then down to (1, −1), then up to (4, 5). The ends and corners are marked with dots.'
-        prompt: 'For which x in [−5, 4] does g(x) = −1? A student answered x = 1 only. What is the mistake, if any?'
+          caption: 'A graph of g on the interval from x = −3 to x = 3, drawn on a grid with lines every 1 unit. It is made of three straight segments: from (−3, −4) up to (−1, −2), then up more steeply to (1, 2), then down to (3, 0). The ends and corners are marked with dots.'
+        prompt: 'For which x in [−3, 3] does g(x) = 0? A student answered x = 0 only. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "x = −5 counts too: the left end is at height −1."}
-          - {value: c, label: "The answer should be the output g(1) = −1, not an x-value."}
-          - {value: d, label: "Corners do not count, so there is no x with g(x) = −1."}
+          - {value: b, label: "x = 3 counts too: the right end is on the x-axis."}
+          - {value: c, label: "The answer should be the output g(0) = 0, not an x-value."}
+          - {value: d, label: "x = −1 counts too, since the graph turns there."}
         correct: b
         explanation: |-
-          The line \( y=-1 \) touches the graph at the corner \( (1,-1) \) and at the left end \( (-5,-1) \). Both are on the graph, and −5 is in the interval, so \( x=-5 \) and \( x=1 \). The question asks for inputs, so the answer is \( x \)-values, and corners and ends are points of the graph like any other. <strong>\( x=-5 \) and \( x=1 \).</strong>
+          The line \( y=0 \) is the \( x \)-axis. The steep segment from \( (-1,-2) \) to \( (1,2) \) crosses it at \( x=0 \), and the graph ends on it at \( (3,0) \). The end is a point of the graph, and 3 is in the interval, so \( x=0 \) and \( x=3 \). The question asks for inputs, so the answer is \( x \)-values; and at \( x=-1 \) the graph is at height −2, where it gets steeper but does not turn around. <strong>\( x=0 \) and \( x=3 \).</strong>
       - id: sl5
         title: "Slip 5"
         figure:
           file: figures/FN2/gb.svg
           title: "The graph of g, made of three straight segments"
           caption: 'A graph of g on the interval from x = −4 to x = 5, drawn on a grid with lines every 1 unit. It is made of three straight segments: from (−4, 4) down to (−1, −2), then up to (3, 2), then down to (5, 0). The ends and corners are marked with dots.'
-        prompt: 'A student was asked for g(2) and answered 3, because the graph reaches height 2 at x = 3. What is the mistake, if any?'
+        prompt: 'A student was asked for g(4) and answered −4, because the graph is at height 4 when x = −4. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "g(2) is −2, the lowest point on the graph."}
-          - {value: c, label: "The graph also reaches 2 at x = −3, so the answer is −3 and 3."}
-          - {value: d, label: "That solves g(x) = 2; g(2) is the height at x = 2, which is 1."}
+          - {value: b, label: "g(4) is 0, since the graph ends on the x-axis at the right end."}
+          - {value: c, label: "Only the sign is off: the height is 4, so g(4) = 4."}
+          - {value: d, label: "That solves g(x) = 4. At x = 4, the height is 1."}
         correct: d
         explanation: |-
-          \( g(2) \) gives the input 2 and asks for the output: go to \( x=2 \) and read the height. The rising segment from \( (-1,-2) \) to \( (3,2) \) climbs 1 per step, so at \( x=2 \) it is at 1. The student answered the reverse question, \( g(x)=2 \). −2 is the lowest output, at \( x=-1 \), and "−3 and 3" is the full answer to \( g(x)=2 \), still the reverse question. <strong>\( g(2)=1 \).</strong>
+          \( g(4) \) gives the input 4 and asks for the output: go to \( x=4 \) and read the height. The segment from \( (3,2) \) to \( (5,0) \) drops 1 per step, so at \( x=4 \) it is at 1. The student answered the reverse question, \( g(x)=4 \). 0 is the height at the right end, \( x=5 \), not at \( x=4 \); and 4 is the output the student matched, not the output at input 4. <strong>\( g(4)=1 \).</strong>
