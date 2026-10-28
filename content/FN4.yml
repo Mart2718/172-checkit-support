@@ -34,11 +34,11 @@ summary:   # the Quick Summary tab
       - 'Across the <span>\( x \)</span>-axis, not the <span>\( y \)</span>-axis. A minus inside, <span>\( f(-x) \)</span>, would reflect across the <span>\( y \)</span>-axis.'
     -
       - 'A number in front: <span>\( af(x) \)</span> (class, textbook, homework)'
-      - 'A vertical stretch or compression: all the outputs are multiplied by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph stretches away from the <span>\( x \)</span>-axis; if <span>\( 0<a<1 \)</span>, it compresses toward it. Each point <span>\( (x,y) \)</span> goes to <span>\( (x,ay) \)</span>.'
+      - 'A vertical stretch or compression: all the outputs are multiplied by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph stretches away from the <span>\( x \)</span>-axis; if <span>\( 0\lt a<1 \)</span>, it compresses toward it. Each point <span>\( (x,y) \)</span> goes to <span>\( (x,ay) \)</span>.'
       - 'Points on the <span>\( x \)</span>-axis do not move, because <span>\( a\cdot 0=0 \)</span>.'
     -
       - 'A number inside: <span>\( f(ax) \)</span> (class, textbook, homework)'
-      - 'A horizontal stretch or compression: all the inputs are divided by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph compresses toward the <span>\( y \)</span>-axis; if <span>\( 0<a<1 \)</span>, it stretches away from it. Each point <span>\( (x,y) \)</span> goes to <span>\( \left(\tfrac{x}{a},y\right) \)</span>.'
+      - 'A horizontal stretch or compression: all the inputs are divided by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph compresses toward the <span>\( y \)</span>-axis; if <span>\( 0\lt a<1 \)</span>, it stretches away from it. Each point <span>\( (x,y) \)</span> goes to <span>\( \left(\tfrac{x}{a},y\right) \)</span>.'
       - 'Inside works opposite again: <span>\( f(2x) \)</span> squeezes the graph to half its width. Points on the <span>\( y \)</span>-axis do not move.'
     -
       - 'A minus inside: <span>\( f(-x) \)</span> (class, textbook, homework)'
