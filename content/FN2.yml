@@ -30,7 +30,7 @@ summary:   # the Quick Summary tab
     -
       - 'A piecewise function'
       - 'Find the piece whose condition <span>\( a \)</span> makes true, and use only that formula.'
-      - 'At the cut, read ≤ and < carefully: exactly one piece includes it.'
+      - 'At the cut, read ≤ and &lt; carefully: exactly one piece includes it.'
     -
       - 'A radical or fraction result'
       - 'Leave it exact and simplify: <span>\( \sqrt{50}=5\sqrt{2} \)</span>, and reduce fractions.'
