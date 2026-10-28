@@ -1,0 +1,332 @@
+# FN3 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt FN3 has two parts. (1) Sketch a graph from a list of features: a domain with brackets or parentheses, a y-intercept,
+# two x-intercepts, three local extrema, and the intervals where it increases and decreases. (2) Read a graph built from five
+# smooth pieces, with a filled or open dot at each end, for its domain, range, x- and y-intercepts, local and global maxima and
+# minima (a global one can be "none" when the end that would give it has an open dot), and increasing and decreasing intervals.
+# Choices are plain text (intervals and points) so screen readers read the label as shown.
+# Figures drawn by tools/figures/make_fn3.py.
+code: FN3
+h1: "FN3 Support: Reading the Graph of a Function"
+pageTitle: "FN3 Support: Reading the Graph of a Function — Math 172, Santa Ana College"
+hubSummary: "Graph features: domain and range, intercepts, maxima and minima, and where a function increases and decreases"
+videoIntro: "A narrated walkthrough of reading a graph: its domain and range in interval notation, its intercepts, its local and global maxima and minima, and where it increases and decreases, plus sketching a graph from a list of features."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|there is none|no global|the answer|cannot'
+worked:   # used for the worked-examples recording document
+  title: "FN3 Worked Examples: Reading the Graph of a Function"
+  coreQuestion: "Is this question about x-values, read left to right, or y-values, read bottom to top?"
+  coreFollowup: "Domain and intervals of increase or decrease are x-values. Range, maxima and minima are y-values, and a maximum or minimum is located at a point. At each end of the graph, a filled dot means the end is included (a bracket) and an open dot means it is not (a parenthesis)."
+summary:   # the Quick Summary tab
+  intro: 'A graph answers two kinds of questions: <strong>where</strong>, read along the <span>\( x \)</span>-axis, and <strong>how high</strong>, read along the <span>\( y \)</span>-axis. <strong>Most FN3 mistakes come from reading the wrong axis or ignoring an open dot.</strong>'
+  caption: "How to read each feature of a graph, and what to watch for"
+  columns: ["Feature", "How to read it", "Watch out for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Domain'
+      - 'The <span>\( x \)</span>-values the graph covers, left end to right end.'
+      - 'Filled dot: bracket. Open dot: parenthesis. An arrow means it keeps going: <span>\( \infty \)</span>.'
+    -
+      - 'Range'
+      - 'The <span>\( y \)</span>-values the graph reaches, lowest to highest.'
+      - 'An end can be higher or lower than every turning point. Check both ends.'
+    -
+      - 'Intercepts'
+      - '<span>\( x \)</span>-intercepts: where it crosses the <span>\( x \)</span>-axis, <span>\( (a,0) \)</span>. <span>\( y \)</span>-intercept: where it crosses the <span>\( y \)</span>-axis, <span>\( (0,b) \)</span>.'
+      - 'Write them as points, with the 0 in the right place.'
+    -
+      - 'Local max and min'
+      - 'Peaks and valleys: the graph turns around there, with graph on both sides.'
+      - 'The ends of the graph are never local maxima or minima.'
+    -
+      - 'Global max and min'
+      - 'The highest and lowest <span>\( y \)</span>-values anywhere, ends included.'
+      - 'If the highest or lowest place is an open dot, that value is never reached: there is no global max or min.'
+    -
+      - 'Increasing and decreasing'
+      - 'Read left to right. Write the <span>\( x \)</span>-intervals where it goes up, and where it goes down.'
+      - 'Use <span>\( x \)</span>-values, not heights, and parentheses.'
+  note: 'Local maxima and minima are points, like <span>\( (-1,9) \)</span>; a global maximum or minimum is a <span>\( y \)</span>-value, like 12, reached at a point. When you sketch a graph from a list of features, plot the listed points first, then connect them so it rises and falls where the list says. Your CheckIt graph will have different numbers. Telling <span>\( x \)</span>-values from <span>\( y \)</span>-values is what transfers.'
+tabs:
+  - id: domain
+    label: "Try It: Domain, Range, and Intercepts"
+    heading: "Try It: Domain, Range, and Intercepts"
+    intro: |-
+      Domain and intercepts are about where the graph is; range is about how high it goes. Make your best guess on each one, then check it.
+    items:
+      - id: dr1
+        title: "Domain"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What is the domain of g?'
+        choices:
+          - {value: a, label: "[−11, 11]"}
+          - {value: b, label: "[−11, 11)"}
+          - {value: c, label: "(−9, 11)"}
+          - {value: d, label: "[−4, 12]"}
+        correct: b
+        explanation: |-
+          The domain is every \( x \)-value the graph covers, read left to right. It starts at \( x=-11 \) with a filled dot, so −11 is included: a bracket. It ends at \( x=11 \) with an open dot, so 11 is left out: a parenthesis. \( [-11,11] \) ignores the open dot; \( (-9,11) \) starts at the first \( x \)-intercept instead of the left end; and \( [-4,12] \) is the range, the \( y \)-values. <strong>\( [-11,11) \).</strong>
+      - id: dr2
+        title: "Range"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What is the range of g?'
+        choices:
+          - {value: a, label: "[−4, 9]"}
+          - {value: b, label: "[−11, 11)"}
+          - {value: c, label: "[−4, 12)"}
+          - {value: d, label: "[−4, 12]"}
+        correct: d
+        explanation: |-
+          The range is every \( y \)-value the graph reaches, bottom to top. The lowest is −4, at \( (-7,-4) \). The highest is not the peak at 9: the left end, \( (-11,12) \), is higher, and its dot is filled, so 12 is reached. \( [-4,9] \) stops at the highest turning point; \( [-11,11) \) is the domain; and \( [-4,12) \) borrows the open dot from the other end, which is at height 8, not 12. <strong>\( [-4,12] \).</strong>
+      - id: dr3
+        title: "x-Intercepts"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What are the x-intercepts of g?'
+        choices:
+          - {value: a, label: "(−9, 0) and (−5, 0)"}
+          - {value: b, label: "(0, 5)"}
+          - {value: c, label: "(−9, 0), (−5, 0), and (0, 5)"}
+          - {value: d, label: "(−11, 0) and (−5, 0)"}
+        correct: a
+        explanation: |-
+          \( x \)-intercepts are where the graph crosses the \( x \)-axis, where \( y=0 \). It crosses twice, at \( (-9,0) \) and \( (-5,0) \), and stays above the axis everywhere to the right of −5. \( (0,5) \) is the \( y \)-intercept, where the graph crosses the \( y \)-axis; and the graph starts at \( x=-11 \) at height 12, not on the axis. <strong>\( (-9,0) \) and \( (-5,0) \).</strong>
+      - id: dr4
+        title: "y-Intercept"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What is the y-intercept of g?'
+        choices:
+          - {value: a, label: "(0, 5)"}
+          - {value: b, label: "(5, 0)"}
+          - {value: c, label: "(0, 9)"}
+          - {value: d, label: "(−1, 9)"}
+        correct: a
+        explanation: |-
+          The \( y \)-intercept is where the graph crosses the \( y \)-axis, where \( x=0 \). There the graph is at height 5, so \( (0,5) \). \( (5,0) \) swaps the coordinates; \( (0,9) \) and \( (-1,9) \) use the nearby peak, which is just left of the axis, not on it. <strong>\( (0,5) \).</strong>
+  - id: rise
+    label: "Try It: Rise and Fall"
+    heading: "Try It: Rise and Fall"
+    intro: |-
+      Read the graph left to right, like a hike. Where does it climb, where does it turn, and how high and low does it go? Make your best guess, then check it.
+    items:
+      - id: rf1
+        title: "Increasing"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'On which intervals is g increasing?'
+        choices:
+          - {value: a, label: "(−4, 9) ∪ (2, 8)"}
+          - {value: b, label: "(−11, −7) ∪ (−1, 4)"}
+          - {value: c, label: "(−7, −1) ∪ (4, 11)"}
+          - {value: d, label: "(−7, 4)"}
+        correct: c
+        explanation: |-
+          Read left to right and keep the \( x \)-values where the graph goes up: from the low point at \( x=-7 \) to the peak at \( x=-1 \), and from the low point at \( x=4 \) to the right end, \( x=11 \). Intervals of increase use \( x \)-values, with parentheses. \( (-4,9)\cup(2,8) \) uses \( y \)-values; \( (-11,-7)\cup(-1,4) \) is where it decreases; and \( (-7,4) \) runs from one low point to the other, across a stretch where the graph goes down. <strong>\( (-7,-1)\cup(4,11) \).</strong>
+      - id: rf2
+        title: "Local Minima"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What are the local minima of g?'
+        choices:
+          - {value: a, label: "(−7, −4) only, the lowest point"}
+          - {value: b, label: "(−4, −7) and (2, 4)"}
+          - {value: c, label: "(−7, −4) and (4, 2)"}
+          - {value: d, label: "(−11, 12) and (11, 8), the ends"}
+        correct: c
+        explanation: |-
+          A local minimum is a low point compared with its neighbors on both sides: the graph comes down to it and goes back up. That happens at \( (-7,-4) \) and at \( (4,2) \). \( (4,2) \) counts even though it is not the lowest point overall: that would be the global minimum. The ends are not local extrema, since the graph does not continue past them. \( (-4,-7) \) and \( (2,4) \) swap the coordinates. <strong>\( (-7,-4) \) and \( (4,2) \).</strong>
+      - id: rf3
+        title: "Global Maximum"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'What is the global maximum of g?'
+        choices:
+          - {value: a, label: "9, at the peak (−1, 9)"}
+          - {value: b, label: "8, at the right end"}
+          - {value: c, label: "There is none, since 12 is at an end"}
+          - {value: d, label: "12, at the left end (−11, 12)"}
+        correct: d
+        explanation: |-
+          The global maximum is the greatest \( y \)-value the graph reaches anywhere. The left end, \( (-11,12) \), has a filled dot, so the graph reaches 12, higher than the peak at 9. An end can be a global maximum when its dot is filled; it just cannot be a local one. 9 is the local maximum; 8 is at the right end, which is lower and also has an open dot. <strong>12, at the left end.</strong>
+      - id: rf4
+        title: "Global Minimum"
+        figure:
+          file: figures/FN3/g2.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −17 to 10 and y from −16 to 7. It starts at an open dot at (−16, −15) and rises steeply, crossing the x-axis at (−13, 0), to a high point at (−10, 5). It falls, crossing the x-axis at (−7, 0), to a low point at (−2, −8), then rises through (0, −4) to a high point at (3, −2). Then it falls to a filled dot at (9, −7).'
+        prompt: 'What is the global minimum of g?'
+        choices:
+          - {value: a, label: "−15, at the left end"}
+          - {value: b, label: "There is none."}
+          - {value: c, label: "−8, at the low point (−2, −8)"}
+          - {value: d, label: "−7, at the right end"}
+        correct: b
+        explanation: |-
+          The graph falls toward \( (-16,-15) \) on the left, but that dot is open, so it never reaches −15. It gets as close as you like: −14.9, −14.99, and so on, with no lowest value. So there is no global minimum, and the range is \( (-15,5] \). −15 itself is not reached; −8 is a local minimum, but the graph goes lower near the left end; and −7 is not the lowest value. <strong>There is none.</strong>
+  - id: build
+    label: "Try It: Build a Graph"
+    heading: "Try It: Build a Graph"
+    intro: |-
+      On CheckIt you will also sketch a graph from a list of features. These questions are about what each feature forces the graph to do. Make your best guess, then check it.
+    items:
+      - id: bg1
+        title: "From a List"
+        math:
+          display: '(-9,-4)\cup(1,6)'
+          speak: "the interval from negative 9 to negative 4, union the interval from 1 to 6"
+        prompt: 'Your graph must be decreasing on (−9, −4) ∪ (1, 6) and increasing between those intervals. What must it have at x = −4?'
+        choices:
+          - {value: a, label: "A local minimum"}
+          - {value: b, label: "A local maximum"}
+          - {value: c, label: "An x-intercept"}
+          - {value: d, label: "A vertical asymptote"}
+        correct: a
+        explanation: |-
+          Going left to right, the graph is decreasing until \( x=-4 \) and then increasing, so \( x=-4 \) is the bottom of a valley: a local minimum. By the same reasoning it has a local maximum at \( x=1 \), where increasing turns to decreasing. A local maximum would need increasing then decreasing; the list says nothing about where the graph crosses the \( x \)-axis; and these graphs are unbroken curves. <strong>A local minimum.</strong>
+      - id: bg2
+        title: "The Ends"
+        math:
+          display: '(-8,10]'
+          speak: "the interval from negative 8, not included, to 10, included"
+        prompt: 'Your graph must have domain (−8, 10]. How should its ends look?'
+        choices:
+          - {value: a, label: "Filled dots at both ends, x = −8 and x = 10"}
+          - {value: b, label: "Open dots at both ends, x = −8 and x = 10"}
+          - {value: c, label: "Open dot at x = −8, filled dot at x = 10"}
+          - {value: d, label: "Arrows at both ends, since it is an interval"}
+        correct: c
+        explanation: |-
+          A parenthesis means the end is left out: an open dot at \( x=-8 \). A bracket means it is included: a filled dot at \( x=10 \). The graph goes all the way across between them. Arrows would mean the graph keeps going forever, but this domain stops at both ends. <strong>An open dot at x = −8 and a filled dot at x = 10.</strong>
+      - id: bg3
+        title: "Between Turns"
+        math:
+          display: '(-2,7)\ \text{and}\ (3,1)'
+          speak: "the points negative 2, 7 and 3, 1"
+        prompt: 'Your graph has a local maximum at (−2, 7) and a local minimum at (3, 1), with no turning points between them. What does it do from x = −2 to x = 3?'
+        choices:
+          - {value: a, label: "It increases"}
+          - {value: b, label: "It decreases"}
+          - {value: c, label: "It stays at height 7"}
+          - {value: d, label: "It cannot be known"}
+        correct: b
+        explanation: |-
+          From a high point at height 7 to a low point at height 1, with no turns in between, the graph has to go down the whole way: it decreases on \( (-2,3) \). Increasing would put the higher point second; staying level would not reach 1; and with no other turning points, there is only one way to connect them. <strong>It decreases.</strong>
+      - id: bg4
+        title: "Impossible?"
+        table:
+          caption: "Four lists of features for a sketch"
+          label: "Four lists of graph features"
+          rows:
+            - ["List", "Features the graph must have"]
+            - ["A", "Local max at (−3, 6), local min at (2, 1), decreasing on (−3, 2)"]
+            - ["B", "y-intercept (0, 4), local min at (2, 1), decreasing on (0, 2)"]
+            - ["C", "Local min at (1, 5), local max at (4, 2), increasing on (1, 4)"]
+            - ["D", "x-intercepts (−5, 0) and (−1, 0), local min at (−3, −2)"]
+        prompt: 'Which list cannot all be true for the same graph?'
+        choices:
+          - {value: a, label: "List A"}
+          - {value: b, label: "List B"}
+          - {value: c, label: "List C"}
+          - {value: d, label: "List D"}
+        correct: c
+        explanation: |-
+          In List C, increasing on \( (1,4) \) means the graph is higher at \( x=4 \) than at \( x=1 \). But the list puts it at height 5 at \( x=1 \) and height 2 at \( x=4 \), lower. A graph cannot rise and end up lower. The others can all happen: List A goes down from 6 to 1; List B crosses the \( y \)-axis at 4 and goes down to 1; and List D has a valley at −2 between two crossings of the \( x \)-axis. <strong>List C.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each answer below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        figure:
+          file: figures/FN3/g2.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −17 to 10 and y from −16 to 7. It starts at an open dot at (−16, −15) and rises steeply, crossing the x-axis at (−13, 0), to a high point at (−10, 5). It falls, crossing the x-axis at (−7, 0), to a low point at (−2, −8), then rises through (0, −4) to a high point at (3, −2). Then it falls to a filled dot at (9, −7).'
+        prompt: 'A student says g is increasing on (−15, 5) ∪ (−8, −2). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Those are the intervals where g decreases, not where it increases."}
+          - {value: c, label: "Those are y-values; use x-values: (−16, −10) ∪ (−2, 3)."}
+          - {value: d, label: "Intervals of increase are written with brackets, not parentheses."}
+        correct: c
+        explanation: |-
+          The student read heights: −15 up to 5, and −8 up to −2. Intervals of increase are written with \( x \)-values: the graph rises from the left end at \( x=-16 \) to the peak at \( x=-10 \), and from the low point at \( x=-2 \) to the high point at \( x=3 \). These are the rising stretches, not the falling ones, and CheckIt writes them with parentheses. <strong>Increasing on \( (-16,-10)\cup(-2,3) \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        figure:
+          file: figures/FN3/g1.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −12 to 12 and y from −5 to 13. It starts at a filled dot at (−11, 12) and falls steeply, crossing the x-axis at (−9, 0), to a low point at (−7, −4). It rises, crossing the x-axis at (−5, 0), to a high point at (−1, 9), then falls through (0, 5) to a low point at (4, 2). Then it rises to an open dot at (11, 8).'
+        prompt: 'A student says g has local maxima at (−1, 9) and (−11, 12). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The end (−11, 12) is not a local max; only (−1, 9) is."}
+          - {value: c, label: "Only (−11, 12) counts, since it is the highest point on the graph."}
+          - {value: d, label: "Local maxima are y-values, so the answer should be 9 and 12."}
+        correct: b
+        explanation: |-
+          A local maximum is a peak: the graph rises to it and then falls, so there is graph on both sides. At the left end there is nothing to its left, so CheckIt does not count it as a local maximum, even though it is the global maximum. The peak at \( (-1,9) \) counts even though it is not the highest point overall, and CheckIt writes extrema as points. <strong>The only local maximum is \( (-1,9) \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        figure:
+          file: figures/FN3/g2.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −17 to 10 and y from −16 to 7. It starts at an open dot at (−16, −15) and rises steeply, crossing the x-axis at (−13, 0), to a high point at (−10, 5). It falls, crossing the x-axis at (−7, 0), to a low point at (−2, −8), then rises through (0, −4) to a high point at (3, −2). Then it falls to a filled dot at (9, −7).'
+        prompt: 'A student says the domain of g is (−16, 9]. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be [−16, 9], since the graph starts at −16."}
+          - {value: c, label: "It should be (−15, 5], the lowest and highest values."}
+          - {value: d, label: "It should be (−13, −7), between the x-intercepts."}
+        correct: a
+        explanation: |-
+          The graph runs from \( x=-16 \), with an open dot, so a parenthesis, to \( x=9 \), with a filled dot, so a bracket. \( (-16,9] \) is right. A bracket at −16 would ignore the open dot; \( (-15,5] \) is the range; and the domain covers the whole graph, not just the stretch between the \( x \)-intercepts. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        figure:
+          file: figures/FN3/g2.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −17 to 10 and y from −16 to 7. It starts at an open dot at (−16, −15) and rises steeply, crossing the x-axis at (−13, 0), to a high point at (−10, 5). It falls, crossing the x-axis at (−7, 0), to a low point at (−2, −8), then rises through (0, −4) to a high point at (3, −2). Then it falls to a filled dot at (9, −7).'
+        prompt: 'A student says the range of g is [−8, 5]. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be [−16, 9], running from the left end to the right end."}
+          - {value: c, label: "It should be [−15, 5], since the graph starts at a height of −15."}
+          - {value: d, label: "It dips below −8 at the left: the range is (−15, 5]."}
+        correct: d
+        explanation: |-
+          The lowest turning point is −8, but the graph keeps going down toward the open dot at \( (-16,-15) \), so it takes every height above −15 without reaching −15. The top is 5, at the peak \( (-10,5) \), which is reached. So \( (-15,5] \). \( [-16,9] \) is the domain, and a bracket at −15 ignores the open dot. <strong>\( (-15,5] \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        figure:
+          file: figures/FN3/g2.svg
+          title: "The graph of a function g with a dot at each end"
+          caption: 'A graph of g on a grid with lines every 1 unit, with x from −17 to 10 and y from −16 to 7. It starts at an open dot at (−16, −15) and rises steeply, crossing the x-axis at (−13, 0), to a high point at (−10, 5). It falls, crossing the x-axis at (−7, 0), to a low point at (−2, −8), then rises through (0, −4) to a high point at (3, −2). Then it falls to a filled dot at (9, −7).'
+        prompt: 'A student says g has no global maximum, because the graph keeps falling toward the open dot on the left. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The open dot is at the bottom; the global max is 5."}
+          - {value: c, label: "The global maximum is −7, at the filled dot on the right end."}
+          - {value: d, label: "The global maximum is −15, at the open dot on the left end."}
+        correct: b
+        explanation: |-
+          The open dot at \( (-16,-15) \) is at the bottom of the graph, so it is the global minimum that is missing. Nothing on the graph is higher than the peak at \( (-10,5) \), and that point is reached, so the global maximum is 5. The right end, at −7, is not the highest point; and the open dot is the lowest place on the graph, not the highest, and it is not even reached. <strong>The global maximum is 5.</strong>
