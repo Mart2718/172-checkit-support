@@ -10,6 +10,10 @@ h1: "PF2 Support: Graphing Tangent, Cotangent, Secant, and Cosecant"
 pageTitle: "PF2 Support: Graphing Tangent, Cotangent, Secant, and Cosecant — Math 172, Santa Ana College"
 hubSummary: "Graphing tangent, cotangent, secant, and cosecant: asymptotes, period, domain, and range"
 videoIntro: "A narrated walkthrough of graphing tangent, cotangent, secant, and cosecant with stretches and shifts: finding the asymptotes and period, sketching two full periods, and writing the domain and range."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/w_q68l1kv-M"
+  embed: "https://www.youtube-nocookie.com/embed/w_q68l1kv-M"
+  title: "PF2 video walkthrough: Graphing Tangent, Cotangent, Secant, and Cosecant"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: '\b(tan|cot|sec|csc)\b|tangent|cotangent|secant|cosecant'
 worked:   # used for the worked-examples recording document
