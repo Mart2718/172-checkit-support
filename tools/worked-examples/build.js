@@ -31,7 +31,9 @@ function texToText(tex) {   // convert commands, fractions and roots; leave ^ an
   let out = '';
   const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t) || /^[0-9]*√[0-9]+$/.test(t)
     || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, root, or function value
-  const wrap = (t) => (t.length > 1 && !single(t) ? '(' + t + ')' : t);   // parentheses only around sums, products and the like   // no parentheses around a single letter or a letter with an exponent
+  const wrap = (t) => (t.length > 1 && !single(t) ? '(' + t + ')' : t);   // parentheses only around sums, products and the like
+  const plain = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-zπθ]$/.test(t) || /^√[0-9]+$/.test(t) || /^[A-Za-z]+\([^()]*\)$/.test(t);
+  const wrapDen = (t) => (t.length > 1 && !plain(t) ? '(' + t + ')' : t);   // 3/(2x), not 3/2x, which reads as (3/2)x   // no parentheses around a single letter or a letter with an exponent
   for (let i = 0; i < tex.length; i++) {
     if (tex[i] !== BS) { out += tex[i]; continue; }
     const m = /^[a-zA-Z]+/.exec(tex.slice(i + 1));
@@ -39,7 +41,7 @@ function texToText(tex) {   // convert commands, fractions and roots; leave ^ an
     const name = m[0]; i += name.length;
     if (name === 'frac' || name === 'tfrac' || name === 'dfrac') {
       const [a, j] = braceGroup(tex, i + 1); const [b, k] = braceGroup(tex, j);
-      out += wrap(texToText(a)) + '/' + wrap(texToText(b)); i = k - 1;
+      const ta = texToText(a); out += (/^[A-Za-z]+\([^()]*\)$/.test(ta) ? ta : wrap(ta)) + '/' + wrapDen(texToText(b)); i = k - 1;
     } else if (name === 'text' || name === 'mathrm') {   // words inside math print as they are
       const [a, j] = braceGroup(tex, i + 1); out += a; i = j - 1;
     } else if (name === 'sqrt') {
@@ -105,16 +107,17 @@ function figure(it) {
   const w = Math.round(pw * scale), h = Math.round(ph * scale);
   const cap = stripTags(it.figcaption || '');
   const dataTex = (cap.startsWith('Plotted data') ? cap.slice(cap.indexOf(':') + 1) : cap).trim();
+  const label = /^(A |The )?diagram/i.test(dataTex) ? 'Diagram' : 'Plotted data';   // a diagram is not plotted data
   const data = strip(dataTex);
   return [
     new Paragraph({
       spacing: { before: 60, after: 60 },
       children: [new ImageRun({
         type: 'png', data: png, transformation: { width: w, height: h },
-        altText: { title: it.svg_title, name: it.id, description: `${it.svg_title}. Plotted data: ${data}` }
+        altText: { title: it.svg_title, name: it.id, description: `${it.svg_title}. ${label}: ${data}` }
       })]
     }),
-    para([new TextRun({ text: 'Plotted data: ', bold: true, size: 22 }), ...runsFromHtml(dataTex, { size: 22 })])
+    para([new TextRun({ text: label + ': ', bold: true, size: 22 }), ...runsFromHtml(dataTex, { size: 22 })])
   ];
 }
 

@@ -4,8 +4,8 @@
 # CheckIt FN5 picks four different functions from five types: linear ax + b, quadratic ax^2 + cx or ax^2 + c, cubic ax^3 + cx^k,
 # a root sqrt(ax + b), and a rational ax/(x + b), named with four different letters from f, g, h, p, q, r.
 # Part 1 asks for the sum, difference, product and quotient of two of them; the product and quotient answers are left unexpanded.
-# Part 2 asks for the formula of one composition, A(B(x)), and then the value of the OTHER order, B(A(n)), for a whole number n
-# from -6 to 6. Values can be fractions or roots.
+# Part 2 asks for the formula of one composition, A(B(x)), and then the value of the OTHER order, B(A(n)), for a nonzero integer n
+# from -6 to 6. The swap flag lists the two functions in either order. Values can be fractions or roots.
 # Figures drawn by tools/figures/make_fn5.py.
 code: FN5
 h1: "FN5 Support: Combining and Composing Functions"
@@ -33,27 +33,27 @@ summary:   # the Quick Summary tab
       - 'The minus reaches every term of <span>\( g \)</span>: <span>\( -(2x-3) \)</span> is <span>\( -2x+3 \)</span>. Order matters: <span>\( g-f \)</span> is the opposite.'
     -
       - 'Product'
-      - 'For <span>\( f(x)\cdot g(x) \)</span>, multiply every term of one by every term of the other, then combine like terms.'
-      - 'Keep the middle terms. CheckIt may leave the product unexpanded, as two sets of parentheses side by side; that is the same function.'
+      - 'For <span>\( f(x)\cdot g(x) \)</span>, multiply every term of one by every term of the other, then combine like terms. With a root, keep it as one factor: <span>\( (4x-1)\sqrt{3x+2} \)</span>.'
+      - 'Keep the middle terms. CheckIt leaves the product unexpanded, as two factors side by side; that is the same function.'
     -
       - 'Quotient'
       - 'For <span>\( \dfrac{f(x)}{g(x)} \)</span>, write <span>\( f(x) \)</span> over <span>\( g(x) \)</span>, with each whole formula in the numerator or the denominator.'
-      - 'Only factors cancel, never single terms. The quotient is undefined where <span>\( g(x)=0 \)</span>.'
+      - 'If <span>\( g \)</span> is itself a fraction, flip it and multiply. Only factors cancel, never single terms. The quotient is undefined where <span>\( g(x)=0 \)</span>.'
     -
       - 'Composition'
-      - 'For <span>\( f(g(x)) \)</span>, replace every <span>\( x \)</span> in <span>\( f \)</span> with <span>\( (g(x)) \)</span>, in parentheses, then simplify.'
-      - '<span>\( f(g(x)) \)</span> and <span>\( g(f(x)) \)</span> are usually different. A composition is not a product.'
+      - 'For <span>\( f(g(x)) \)</span>, replace every <span>\( x \)</span> in <span>\( f \)</span> with <span>\( (g(x)) \)</span>, in parentheses. Simplifying is optional; CheckIt often leaves it as is.'
+      - '<span>\( f(g(x)) \)</span> and <span>\( g(f(x)) \)</span> are usually different. A composition is not a product. Read the letters, not which function is listed first.'
     -
       - 'Composition at a number'
       - 'For <span>\( f(g(2)) \)</span>, work from the inside out: find <span>\( g(2) \)</span>, then put that number into <span>\( f \)</span>.'
       - 'Check which letter is inside. On CheckIt, the value question uses the opposite order from the formula question.'
-  note: 'CheckIt gives you four different functions with letters like <span>\( f \)</span>, <span>\( g \)</span>, <span>\( h \)</span>, <span>\( p \)</span>, <span>\( q \)</span>, and <span>\( r \)</span>. They can be lines, quadratics, cubics, square roots, or fractions like <span>\( \dfrac{2x}{x+3} \)</span>. Answers are exact: leave roots and fractions as they are, such as <span>\( \sqrt{11} \)</span> or <span>\( \tfrac{9}{5} \)</span>. Your CheckIt functions will be different. Reading which function goes where is what transfers.'
+  note: 'CheckIt gives you four different functions with letters like <span>\( f \)</span>, <span>\( g \)</span>, <span>\( h \)</span>, <span>\( p \)</span>, <span>\( q \)</span>, and <span>\( r \)</span>. They can be lines, quadratics, cubics, square roots, or fractions like <span>\( \dfrac{2x}{x+3} \)</span>. The number you plug in can be negative, and answers are exact: leave roots and fractions as they are, such as <span>\( \sqrt{11} \)</span> or <span>\( \tfrac{21}{5} \)</span>. A cubic can make the answer large. Your CheckIt functions will be different. Reading which function goes where is what transfers.'
 tabs:
   - id: combine
     label: "Try It: Combine Two Functions"
     heading: "Try It: Combine Two Functions"
     intro: |-
-      Both functions get the same input, and you combine what comes out. Make your best guess on each one, then check it.
+      Both functions get the same input, and you combine what comes out. The pairs change from item to item, as they do on CheckIt. Make your best guess on each one, then check it.
     items:
       - id: cb1
         title: "Sum"
@@ -90,31 +90,31 @@ tabs:
       - id: cb3
         title: "Product"
         math:
-          display: '\begin{aligned} f(x)&=3x-4\\ g(x)&=2x^{2}+5 \end{aligned}'
-          speak: "f of x equals 3 x minus 4. g of x equals 2 x squared plus 5."
-        prompt: 'Find f(x) · g(x), multiplied out.'
+          display: '\begin{aligned} p(x)&=4x-1\\ r(x)&=\sqrt{3x+2} \end{aligned}'
+          speak: "p of x equals 4 x minus 1. r of x equals the square root of 3 x plus 2, end root."
+        prompt: 'Find p(x) · r(x).'
         choices:
-          - {value: a, label: '\( 6x^{3}-20 \)', speak: "6 x cubed minus 20"}
-          - {value: b, label: '\( 6x^{3}-8x^{2}+15x-20 \)', speak: "6 x cubed minus 8 x squared plus 15 x minus 20"}
-          - {value: c, label: '\( 6x^{3}+8x^{2}+15x-20 \)', speak: "6 x cubed plus 8 x squared plus 15 x minus 20"}
-          - {value: d, label: '\( 5x^{3}-8x^{2}+15x-20 \)', speak: "5 x cubed minus 8 x squared plus 15 x minus 20"}
+          - {value: a, label: '\( 4x\sqrt{3x+2}-1 \)', speak: "4 x times the square root of 3 x plus 2, end root, minus 1"}
+          - {value: b, label: '\( (4x-1)\sqrt{3x+2} \)', speak: "the quantity 4 x minus 1, end quantity, times the square root of 3 x plus 2, end root"}
+          - {value: c, label: '\( \sqrt{12x-1} \)', speak: "the square root of 12 x minus 1, end root"}
+          - {value: d, label: '\( \sqrt{(4x-1)(3x+2)} \)', speak: "the square root of the quantity 4 x minus 1, end quantity, times the quantity 3 x plus 2, end quantity, end root"}
         correct: b
         explanation: |-
-          Multiply each term of \( 3x-4 \) by each term of \( 2x^{2}+5 \): \( 3x\cdot 2x^{2}=6x^{3} \), \( 3x\cdot 5=15x \), \( -4\cdot 2x^{2}=-8x^{2} \), and \( -4\cdot 5=-20 \). Together: \( 6x^{3}-8x^{2}+15x-20 \). \( 6x^{3}-20 \) keeps only the first and last products; \( +8x^{2} \) loses the minus on the 4; and \( 5x^{3} \) adds 3 and 2 instead of multiplying them. CheckIt may show the product unexpanded, as \( (3x-4)(2x^{2}+5) \); that is the same function. <strong>\( 6x^{3}-8x^{2}+15x-20 \).</strong>
+          Multiply the two outputs, keeping \( 4x-1 \) in parentheses so the whole thing multiplies the root: \( (4x-1)\sqrt{3x+2} \). That is as far as it goes, and it is how CheckIt writes a product. \( 4x\sqrt{3x+2}-1 \) leaves the parentheses off, so only \( 4x \) multiplies; \( \sqrt{12x-1} \) is \( r(p(x))=\sqrt{3(4x-1)+2} \), a composition; and \( \sqrt{(4x-1)(3x+2)} \) moves \( 4x-1 \) under the root, where it would be square-rooted too. <strong>\( (4x-1)\sqrt{3x+2} \).</strong>
       - id: cb4
         title: "Quotient"
         math:
-          display: '\begin{aligned} f(x)&=3x-4\\ g(x)&=2x^{2}+5 \end{aligned}'
-          speak: "f of x equals 3 x minus 4. g of x equals 2 x squared plus 5."
-        prompt: 'Find f(x) divided by g(x).'
+          display: '\begin{aligned} g(x)&=3x+1\\ h(x)&=\dfrac{2x}{x-4} \end{aligned}'
+          speak: "g of x equals 3 x plus 1. h of x equals the fraction 2 x, over x minus 4, end fraction."
+        prompt: 'Find g(x) divided by h(x).'
         choices:
-          - {value: a, label: '\( \dfrac{3x-4}{2x^{2}+5} \)', speak: "the fraction 3 x minus 4, over 2 x squared plus 5, end fraction"}
-          - {value: b, label: '\( \dfrac{2x^{2}+5}{3x-4} \)', speak: "the fraction 2 x squared plus 5, over 3 x minus 4, end fraction"}
-          - {value: c, label: '\( 3x-\dfrac{4}{2x^{2}+5} \)', speak: "3 x minus the fraction 4, over 2 x squared plus 5, end fraction"}
-          - {value: d, label: '\( \dfrac{3}{2x}-\dfrac{4}{5} \)', speak: "the fraction 3, over 2 x, end fraction, minus the fraction 4, over 5, end fraction"}
+          - {value: a, label: '\( \dfrac{(3x+1)(x-4)}{2x} \)', speak: "the fraction the quantity 3 x plus 1, end quantity, times the quantity x minus 4, end quantity, over 2 x, end fraction"}
+          - {value: b, label: '\( \dfrac{2x}{(3x+1)(x-4)} \)', speak: "the fraction 2 x, over the quantity 3 x plus 1, end quantity, times the quantity x minus 4, end quantity, end fraction"}
+          - {value: c, label: '\( \dfrac{2x(3x+1)}{x-4} \)', speak: "the fraction 2 x times the quantity 3 x plus 1, end quantity, over x minus 4, end fraction"}
+          - {value: d, label: '\( \dfrac{3x+1}{2x} \)', speak: "the fraction 3 x plus 1, over 2 x, end fraction"}
         correct: a
         explanation: |-
-          The whole formula for \( f \) goes on top and the whole formula for \( g \) goes on the bottom: \( \dfrac{3x-4}{2x^{2}+5} \). Nothing cancels, because no factor is shared. Flipping it gives \( g(x) \) divided by \( f(x) \); \( 3x-\dfrac{4}{2x^{2}+5} \) divides only the \( -4 \), which is what happens when the parentheses around \( 3x-4 \) are left off; and dividing term by term, \( \dfrac{3}{2x}-\dfrac{4}{5} \), is not allowed when the bottom has more than one term. <strong>\( \dfrac{3x-4}{2x^{2}+5} \).</strong>
+          Dividing by a fraction means multiplying by its flip: \( (3x+1)\div\left(\dfrac{2x}{x-4}\right)=(3x+1)\cdot\dfrac{x-4}{2x}=\dfrac{(3x+1)(x-4)}{2x} \). \( \dfrac{2x}{(3x+1)(x-4)} \) is the flip of the answer, \( h(x) \) divided by \( g(x) \); \( \dfrac{2x(3x+1)}{x-4} \) multiplies by \( h \) instead of dividing; and \( \dfrac{3x+1}{2x} \) loses the \( x-4 \) when flipping. <strong>\( \dfrac{(3x+1)(x-4)}{2x} \).</strong>
   - id: compose
     label: "Try It: Build a Composition"
     heading: "Try It: Build a Composition"
@@ -124,8 +124,8 @@ tabs:
       - id: cp1
         title: "Compose 1"
         math:
-          display: '\begin{aligned} f(x)&=2x+1\\ g(x)&=x^{2}-3 \end{aligned}'
-          speak: "f of x equals 2 x plus 1. g of x equals x squared minus 3."
+          display: '\begin{aligned} g(x)&=x^{2}-3\\ f(x)&=2x+1 \end{aligned}'
+          speak: "g of x equals x squared minus 3. f of x equals 2 x plus 1."
         prompt: 'Find f(g(x)).'
         choices:
           - {value: a, label: '\( 4x^{2}+4x-2 \)', speak: "4 x squared plus 4 x minus 2"}
@@ -138,9 +138,9 @@ tabs:
       - id: cp2
         title: "Compose 2"
         math:
-          display: '\begin{aligned} h(x)&=\sqrt{2x+3}\\ k(x)&=x^{2}+1 \end{aligned}'
-          speak: "h of x equals the square root of 2 x plus 3, end root. k of x equals x squared plus 1."
-        prompt: 'Find h(k(x)).'
+          display: '\begin{aligned} h(x)&=\sqrt{2x+3}\\ p(x)&=x^{2}+1 \end{aligned}'
+          speak: "h of x equals the square root of 2 x plus 3, end root. p of x equals x squared plus 1."
+        prompt: 'Find h(p(x)).'
         choices:
           - {value: a, label: '\( 2x+4 \)', speak: "2 x plus 4"}
           - {value: b, label: '\( \sqrt{2x^{2}+5} \)', speak: "the square root of 2 x squared plus 5, end root"}
@@ -148,12 +148,12 @@ tabs:
           - {value: d, label: '\( \sqrt{2x^{2}+3}+1 \)', speak: "the square root of 2 x squared plus 3, end root, plus 1"}
         correct: b
         explanation: |-
-          \( k \) is inside, so \( x^{2}+1 \) replaces the \( x \) under the root: \( h(k(x))=\sqrt{2(x^{2}+1)+3}=\sqrt{2x^{2}+2+3}=\sqrt{2x^{2}+5} \). \( 2x+4 \) is \( k(h(x))=\left(\sqrt{2x+3}\right)^{2}+1 \), the other order; \( \sqrt{2x^{2}+4} \) multiplies only the \( x^{2} \) by 2, not the 1; and \( \sqrt{2x^{2}+3}+1 \) puts the \( +1 \) from \( k \) outside the root instead of inside, where \( x \) was. <strong>\( \sqrt{2x^{2}+5} \).</strong>
+          \( p \) is inside, so \( x^{2}+1 \) replaces the \( x \) under the root: \( h(p(x))=\sqrt{2(x^{2}+1)+3}=\sqrt{2x^{2}+2+3}=\sqrt{2x^{2}+5} \). \( 2x+4 \) is \( p(h(x))=\left(\sqrt{2x+3}\right)^{2}+1 \), the other order; \( \sqrt{2x^{2}+4} \) multiplies only the \( x^{2} \) by 2, not the 1; and \( \sqrt{2x^{2}+3}+1 \) puts the \( +1 \) from \( p \) outside the root instead of inside, where \( x \) was. <strong>\( \sqrt{2x^{2}+5} \).</strong>
       - id: cp3
         title: "Compose 3"
         math:
-          display: '\begin{aligned} r(x)&=\dfrac{2x}{x+3}\\ q(x)&=4x-1 \end{aligned}'
-          speak: "r of x equals the fraction 2 x, over x plus 3, end fraction. q of x equals 4 x minus 1."
+          display: '\begin{aligned} q(x)&=4x-1\\ r(x)&=\dfrac{2x}{x+3} \end{aligned}'
+          speak: "q of x equals 4 x minus 1. r of x equals the fraction 2 x, over x plus 3, end fraction."
         prompt: 'Find r(q(x)).'
         choices:
           - {value: a, label: '\( \dfrac{8x}{x+3}-1 \)', speak: "the fraction 8 x, over x plus 3, end fraction, minus 1"}
@@ -164,19 +164,19 @@ tabs:
         explanation: |-
           Replace <em>both</em> \( x \)'s in \( r \), top and bottom, with \( (4x-1) \): \( r(q(x))=\dfrac{2(4x-1)}{(4x-1)+3}=\dfrac{8x-2}{4x+2} \). It also simplifies to \( \dfrac{4x-1}{2x+1} \), dividing top and bottom by 2. \( \dfrac{8x}{x+3}-1 \) is \( q(r(x)) \), the other order; \( \dfrac{8x-2}{x+3} \) replaces only the \( x \) on top; and \( 8x-1 \) multiplies only the \( 4x \) by 2. <strong>\( \dfrac{8x-2}{4x+2} \).</strong>
       - id: cp4
-        title: "Which One?"
+        title: "Compose 4"
         math:
-          display: '\begin{aligned} h(x)&=x^{3}\\ p(x)&=x+2 \end{aligned}'
-          speak: "h of x equals x cubed. p of x equals x plus 2."
-        prompt: 'Which formula is h(p(x))?'
+          display: '\begin{aligned} r(x)&=\dfrac{x}{x+2}\\ q(x)&=2x^{2}-1 \end{aligned}'
+          speak: "r of x equals the fraction x, over x plus 2, end fraction. q of x equals 2 x squared minus 1."
+        prompt: 'Find q(r(x)).'
         choices:
-          - {value: a, label: '\( x^{3}+2 \)', speak: "x cubed plus 2"}
-          - {value: b, label: '\( x^{4}+2x^{3} \)', speak: "x to the fourth plus 2 x cubed"}
-          - {value: c, label: '\( x^{3}+x+2 \)', speak: "x cubed plus x plus 2"}
-          - {value: d, label: '\( (x+2)^{3} \)', speak: "the quantity x plus 2, end quantity, cubed"}
+          - {value: a, label: '\( \dfrac{2x^{2}-1}{2x^{2}+1} \)', speak: "the fraction 2 x squared minus 1, over 2 x squared plus 1, end fraction"}
+          - {value: b, label: '\( 2\left(\dfrac{x^{2}}{x+2}\right)-1 \)', speak: "2 times the quantity the fraction x squared, over x plus 2, end fraction, end quantity, minus 1"}
+          - {value: c, label: '\( (2x^{2}-1)\left(\dfrac{x}{x+2}\right) \)', speak: "the quantity 2 x squared minus 1, end quantity, times the quantity the fraction x, over x plus 2, end fraction, end quantity"}
+          - {value: d, label: '\( 2\left(\dfrac{x}{x+2}\right)^{2}-1 \)', speak: "2 times the quantity the fraction x, over x plus 2, end fraction, end quantity, squared, minus 1"}
         correct: d
         explanation: |-
-          \( p \) is inside, so its output, \( x+2 \), is what gets cubed: \( h(p(x))=(x+2)^{3} \). \( x^{3}+2 \) cubes first and then adds 2, which is \( p(h(x)) \); \( x^{4}+2x^{3} \) is the product \( h(x)\cdot p(x) \); and \( x^{3}+x+2 \) is the sum \( h(x)+p(x) \). <strong>\( (x+2)^{3} \).</strong>
+          \( r \) is listed first, but the letters decide: in \( q(r(x)) \), \( r \) is inside. Replace the \( x \) in \( q \) with the whole fraction: \( q(r(x))=2\left(\dfrac{x}{x+2}\right)^{2}-1 \), which is how CheckIt leaves it. It also equals \( \dfrac{2x^{2}}{(x+2)^{2}}-1 \). \( \dfrac{2x^{2}-1}{2x^{2}+1} \) is \( r(q(x)) \), the other order; \( 2\left(\dfrac{x^{2}}{x+2}\right)-1 \) squares the top of the fraction but not the bottom; and \( (2x^{2}-1)\left(\dfrac{x}{x+2}\right) \) is the product \( q(x)\cdot r(x) \). <strong>\( 2\left(\dfrac{x}{x+2}\right)^{2}-1 \).</strong>
   - id: evaluate
     label: "Try It: Evaluate a Composition"
     heading: "Try It: Evaluate a Composition"
@@ -208,9 +208,9 @@ tabs:
           speak: "p of x equals x squared minus 4. q of x equals the square root of 2 x plus 1, end root."
         prompt: 'Find q(p(3)).'
         choices:
-          - {value: a, label: '\( \sqrt{11} \)', speak: "the square root of 11"}
+          - {value: a, label: '\( \sqrt{11} \)', speak: "the square root of 11, end root"}
           - {value: b, label: '\( 3 \)', speak: "3"}
-          - {value: c, label: '\( \sqrt{7} \)', speak: "the square root of 7"}
+          - {value: c, label: '\( \sqrt{7} \)', speak: "the square root of 7, end root"}
           - {value: d, label: '\( \sqrt{10}+1 \)', speak: "the square root of 10, end root, plus 1"}
         correct: a
         explanation: |-
@@ -218,23 +218,23 @@ tabs:
       - id: ev3
         title: "Evaluate 3"
         math:
-          display: '\begin{aligned} r(x)&=\dfrac{3x}{x+2}\\ s(x)&=2x-5 \end{aligned}'
-          speak: "r of x equals the fraction 3 x, over x plus 2, end fraction. s of x equals 2 x minus 5."
-        prompt: 'Find r(s(4)).'
+          display: '\begin{aligned} p(x)&=x^{3}+1\\ r(x)&=\dfrac{3x}{x+2} \end{aligned}'
+          speak: "p of x equals x cubed plus 1. r of x equals the fraction 3 x, over x plus 2, end fraction."
+        prompt: 'Find r(p(−2)).'
         choices:
-          - {value: a, label: '\( -1 \)', speak: "negative 1"}
-          - {value: b, label: '\( 2 \)', speak: "2"}
-          - {value: c, label: '\( \tfrac{3}{2} \)', speak: "3 halves"}
-          - {value: d, label: '\( \tfrac{9}{5} \)', speak: "9 fifths"}
+          - {value: a, label: '\( -7 \)', speak: "negative 7"}
+          - {value: b, label: '\( -\tfrac{21}{5} \)', speak: "negative the fraction 21, over 5, end fraction"}
+          - {value: c, label: '\( \tfrac{27}{11} \)', speak: "the fraction 27, over 11, end fraction"}
+          - {value: d, label: '\( \tfrac{21}{5} \)', speak: "the fraction 21, over 5, end fraction"}
         correct: d
         explanation: |-
-          Inside first: \( s(4)=2(4)-5=3 \). Then 3 replaces both \( x \)'s in \( r \): \( r(3)=\dfrac{3(3)}{3+2}=\dfrac{9}{5} \). \( -1 \) is \( s(r(4))=s(2) \), the other order; 2 is \( r(4)=\dfrac{12}{6} \), which skips \( s \); and \( \tfrac{3}{2}=\dfrac{9}{6} \) puts the 3 on top but leaves the original 4 on the bottom. <strong>\( r(s(4))=\tfrac{9}{5} \).</strong>
+          Inside first, and the input is negative: \( p(-2)=(-2)^{3}+1=-8+1=-7 \). Then \( -7 \) replaces both \( x \)'s in \( r \): \( r(-7)=\dfrac{3(-7)}{-7+2}=\dfrac{-21}{-5}=\dfrac{21}{5} \). \( -7 \) stops at \( p(-2) \); \( -\tfrac{21}{5} \) works out \( -7+2 \) as 5; and \( \tfrac{27}{11} \) uses \( (-2)^{3}=8 \), so \( p(-2) \) comes out 9. <strong>\( r(p(-2))=\tfrac{21}{5} \).</strong>
       - id: ev4
         title: "The Other Order"
         math:
-          display: '\begin{aligned} h(x)&=x^{2}+2\\ k(x)&=3x-1\\ h(k(x))&=9x^{2}-6x+3 \end{aligned}'
-          speak: "h of x equals x squared plus 2. k of x equals 3 x minus 1. h of k of x equals 9 x squared minus 6 x plus 3."
-        prompt: 'Like CheckIt, the formula for h(k(x)) is given first. Now find k(h(−1)).'
+          display: '\begin{aligned} h(x)&=x^{2}+2\\ q(x)&=3x-1\\ h(q(x))&=9x^{2}-6x+3 \end{aligned}'
+          speak: "h of x equals x squared plus 2. q of x equals 3 x minus 1. h of q of x equals 9 x squared minus 6 x plus 3."
+        prompt: 'Like CheckIt, the formula for h(q(x)) is given first. Now find q(h(−1)).'
         choices:
           - {value: a, label: '\( 18 \)', speak: "18"}
           - {value: b, label: '\( 8 \)', speak: "8"}
@@ -242,7 +242,7 @@ tabs:
           - {value: d, label: '\( 2 \)', speak: "2"}
         correct: b
         explanation: |-
-          The question asks for \( k(h(-1)) \), the opposite order from the formula, so that formula does not help. Inside first: \( h(-1)=(-1)^{2}+2=3 \). Then \( k(3)=3(3)-1=8 \). 18 puts \( -1 \) into the \( h(k(x)) \) formula, the wrong order; 3 stops at \( h(-1) \); and 2 squares \( -1 \) as \( -1 \), so \( h(-1) \) comes out 1 and \( k(1)=2 \). <strong>\( k(h(-1))=8 \).</strong>
+          The question asks for \( q(h(-1)) \), the opposite order from the formula, so that formula does not help. Inside first: \( h(-1)=(-1)^{2}+2=3 \). Then \( q(3)=3(3)-1=8 \). 18 puts \( -1 \) into the \( h(q(x)) \) formula, the wrong order; 3 stops at \( h(-1) \); and 2 squares \( -1 \) as \( -1 \), so \( h(-1) \) comes out 1 and \( q(1)=2 \). <strong>\( q(h(-1))=8 \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -309,13 +309,13 @@ tabs:
         title: "Slip 5"
         math:
           display: '\dfrac{f(x)}{g(x)}=\dfrac{2x^{2}+3}{2x}=x+3'
-          speak: "f of x over g of x equals the fraction 2 x squared plus 3, over 2 x, end fraction, which equals x plus 3"
+          speak: "the fraction f of x, over g of x, end fraction, equals the fraction 2 x squared plus 3, over 2 x, end fraction, which equals x plus 3"
         prompt: 'A student simplified this quotient by canceling 2x. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "Flip it: the quotient should be 2x over (2x² + 3)."}
           - {value: c, label: "2x is not a factor of 2x² + 3, so it cannot cancel."}
-          - {value: d, label: "It should be x + 3/2, dividing just the 3 by the 2."}
+          - {value: d, label: "It should be x + 1.5, dividing just the 3 by the 2."}
         correct: c
         explanation: |-
-          Only a factor of the <em>whole</em> top can cancel, and \( 2x \) divides the \( 2x^{2} \) but not the 3. Splitting the fraction gives \( \dfrac{2x^{2}}{2x}+\dfrac{3}{2x}=x+\dfrac{3}{2x} \), or leave it as \( \dfrac{2x^{2}+3}{2x} \), the way CheckIt does. The order \( f \) over \( g \) is right as written; and \( x+\tfrac{3}{2} \) forgets that the 3 is divided by \( 2x \), not by 2. <strong>\( \dfrac{2x^{2}+3}{2x}=x+\dfrac{3}{2x} \), not \( x+3 \).</strong>
+          Only a factor of the <em>whole</em> top can cancel, and \( 2x \) divides the \( 2x^{2} \) but not the 3. Splitting the fraction gives \( \dfrac{2x^{2}}{2x}+\dfrac{3}{2x}=x+\dfrac{3}{2x} \), or leave it as \( \dfrac{2x^{2}+3}{2x} \), the way CheckIt does. The order \( f \) over \( g \) is right as written; and \( x+1.5 \), which is \( x+\tfrac{3}{2} \), forgets that the 3 is divided by \( 2x \), not by 2. <strong>\( \dfrac{2x^{2}+3}{2x}=x+\dfrac{3}{2x} \), not \( x+3 \).</strong>
