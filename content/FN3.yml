@@ -102,7 +102,7 @@ tabs:
           - {value: d, label: "(−11, 0) and (−5, 0)"}
         correct: a
         explanation: |-
-          \( x \)-intercepts are where the graph crosses the \( x \)-axis, where \( y=0 \). It crosses twice, at \( (-9,0) \) and \( (-5,0) \), and stays above the axis everywhere to the right of −5. \( (0,-9) \) and \( (0,-5) \) swap the coordinates; \( (-7,0) \) and \( (4,0) \) use the \( x \)-values of the low turning points, which are not on the axis; and the graph starts at \( x=-11 \) at height 12, not on the axis. <strong>\( (-9,0) \) and \( (-5,0) \).</strong>
+          \( x \)-intercepts are the points where the graph meets the \( x \)-axis, where \( y=0 \). This graph meets it twice, crossing it each time, at \( (-9,0) \) and \( (-5,0) \), and stays above the axis everywhere to the right of −5. \( (0,-9) \) and \( (0,-5) \) swap the coordinates; \( (-7,0) \) and \( (4,0) \) use the \( x \)-values of the low turning points, which are not on the axis; and the graph starts at \( x=-11 \) at height 12, not on the axis. <strong>\( (-9,0) \) and \( (-5,0) \).</strong>
       - id: dr4
         title: "y-Intercept"
         figure:
@@ -118,7 +118,7 @@ tabs:
           - {value: d, label: "(−1, 9)"}
         correct: a
         explanation: |-
-          The \( y \)-intercept is where the graph crosses the \( y \)-axis, where \( x=0 \). There the graph is at height 5, so \( (0,5) \). \( (5,0) \) swaps the coordinates; \( (0,9) \) and \( (-1,9) \) use the nearby peak, which is just left of the axis, not on it. <strong>\( (0,5) \).</strong>
+          The \( y \)-intercept is the point where the graph meets the \( y \)-axis, where \( x=0 \). A function has at most one. There the graph is at height 5, so \( (0,5) \). \( (5,0) \) swaps the coordinates; \( (0,9) \) and \( (-1,9) \) use the nearby peak, which is just left of the axis, not on it. <strong>\( (0,5) \).</strong>
   - id: rise
     label: "Try It: Rise and Fall"
     heading: "Try It: Rise and Fall"
@@ -156,7 +156,7 @@ tabs:
           - {value: d, label: "(−11, 12) and (11, 8), the ends"}
         correct: c
         explanation: |-
-          A local minimum is a low point compared with its neighbors on both sides: the graph comes down to it and goes back up. That happens at \( (-7,-4) \) and at \( (4,2) \). \( (4,2) \) counts even though it is not the lowest point overall: that would be the global minimum. The ends are not local extrema, since the graph does not continue past them. \( (-4,-7) \) and \( (2,4) \) swap the coordinates. <strong>\( (-7,-4) \) and \( (4,2) \).</strong>
+          A local minimum is a low point compared with its neighbors on both sides: the graph comes down to it and goes back up. That happens at \( (-7,-4) \) and at \( (4,2) \). \( (4,2) \) counts even though it is not the lowest point overall: that would be the global minimum. The ends are not local extrema, since the graph does not continue past them. \( (-4,-7) \) and \( (2,4) \) swap the coordinates. Each point gives both the minimum value and where it occurs: at \( (-7,-4) \), the local minimum value is −4, occurring at \( x=-7 \). <strong>\( (-7,-4) \) and \( (4,2) \).</strong>
       - id: rf3
         title: "Global Maximum"
         figure:
@@ -298,7 +298,7 @@ tabs:
           - {value: d, label: "Local maxima are y-values, so the answer should be 9 and 12."}
         correct: b
         explanation: |-
-          A local maximum is a peak: the graph rises to it and then falls, so there is graph on both sides. At the left end there is nothing to its left, so CheckIt does not count it as a local maximum, even though it is the global maximum. The peak at \( (-1,9) \) counts even though it is not the highest point overall, and CheckIt writes extrema as points. <strong>The only local maximum is \( (-1,9) \).</strong>
+          A local maximum is a peak: the graph rises to it and then falls, so there is graph on both sides. At the left end there is nothing to its left, so CheckIt does not count it as a local maximum, even though it is the global maximum. The peak at \( (-1,9) \) counts even though it is not the highest point overall: its local maximum value is 9, occurring at \( x=-1 \). Answering “9 and 12” keeps the endpoint and drops where each value occurs; CheckIt names a local maximum by its point, as in “local max at \( (-1,9) \).” <strong>The only local maximum is at \( (-1,9) \).</strong>
       - id: sl3
         title: "Slip 3"
         figure:
