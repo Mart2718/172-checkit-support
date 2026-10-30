@@ -33,3 +33,20 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 - At the instructor's request, the Evaluate and More Values items now show values the usual way (√3/2, −√2/2, √3/3) instead of CheckIt's printed form (½√3). The Quick Summary note keeps one line explaining that CheckIt may print ½√3 and that it is the same number.
 - The shared speech function now puts a comma after a square-root numerator ("the fraction the square root of 3, over 2"), so it is not heard as the square root of 3/2. Every math expression in every outcome was read with the old and new function: only 13 PF3 expressions changed.
 - Rechecked: lint, axe-core 0 violations on every tab at both widths, 320 px reflow with and without text spacing, answer keys unchanged (π/3, 3π/4, π/6, −π/4), quiz checks pass.
+
+## Re-audit 2026-10-30 (current rule set, before recording)
+An independent agent re-checked all 20 items, the figures (byte for byte against the script), the Quick Summary, the speak lines and the worked-examples PDF against the CheckIt generator. No value, key or range convention was wrong. Fixed:
+1. Answer positions: no tab's keys are a permutation of a, b, c, d; no correct choice is the uniquely widest.
+2. Spot the Slip: "There is no mistake." is choice a in every slip. Slip 3 no longer says what the sin⁻¹ notation means, which was Slip 5's answer; its "one over sine" distractor became "sin(2)".
+3. Spoilers inside tabs: Domain and Range no longer names one item's answer in another's choices or feedback (Range 1, Domain 1, Range 2 and the new Range 3 use distractors that do not belong to a sibling item). The graph explanations no longer name a point or the direction of another graph.
+4. The three graph descriptions now sit in a closed "Text description of the graph" disclosure, since each item's skill is reading the graph; the arctangent description now says the curve approaches the dashed lines (at x = ±4 it is still visibly short of them).
+5. Every distractor's origin is named in the feedback.
+6. Coverage of the generator (inputs include 0 and ±1; it asks the domain and range together, and for a sketch):
+   - Evaluate 1 is now arccos(−1) = π, an endpoint value.
+   - Value 4 is now arctan(−1) = −π/4.
+   - Range 3 is the range of arccosine, [0, π], which was never a key.
+   - Graph 2 has a new distractor, arcsin(x) + π/2, which has the same outputs but rises.
+7. Quick Summary: 0 and ±1 added to the values to know; the claim that CheckIt prints ½√3 was softened (the generator's typeset_angle writes standard fractions); a line that CheckIt asks for the domain and range together and a sketch.
+8. Speak lines use "the fraction …, end fraction", and Slip 2 puts the negative sign outside the fraction, as displayed.
+9. Worked-examples document tool: fractions of a single term print without extra parentheses (√3/2, 2π/3, 1/sin(x)), and arcsin, arccos and arctan print upright like sin. This applies to any outcome's document when it is next regenerated.
+Worked examples and the Canvas quiz were regenerated.

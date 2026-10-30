@@ -21,7 +21,7 @@ const BS = String.fromCharCode(92);                       // backslash
 const OPEN = [BS + '(', BS + '['], CLOSE = [BS + ')', BS + ']'];
 // LaTeX command -> plain Unicode text. Anything not listed keeps its name without the backslash (for example sin, cos).
 const CMD = { left: '', right: '', big: '', Big: '', bigl: '', bigr: '', infty: '∞', leq: '≤', le: '≤', geq: '≥', ge: '≥', neq: '≠', approx: '≈', cdot: '·', times: '×', div: '÷', lt: '<', gt: '>', pm: '±', pi: 'π', theta: 'θ', to: '→', cup: '∪', ldots: '…', cdots: '⋯', circ: '°', quad: '   ', qquad: '    ', log: 'log', ln: 'ln' };
-const FUNC = ['log', 'ln', 'sin', 'cos', 'tan', 'sec', 'csc', 'cot'];   // written upright, not italic
+const FUNC = ['arcsin', 'arccos', 'arctan', 'log', 'ln', 'sin', 'cos', 'tan', 'sec', 'csc', 'cot'];   // written upright, not italic
 function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, index just after the closing brace]
   let d = 0;
   for (let k = i; k < s.length; k++) { if (s[k] === '{') d++; else if (s[k] === '}') { d--; if (d === 0) return [s.slice(i + 1, k), k + 1]; } }
@@ -29,7 +29,9 @@ function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, i
 }
 function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
   let out = '';
-  const wrap = (t) => (t.length > 1 && !/^[0-9.]+$/.test(t) && !/^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) ? '(' + t + ')' : t);   // no parentheses around a single letter or a letter with an exponent
+  const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθ]$/.test(t) || /^[0-9]*√[0-9]+$/.test(t)
+    || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, root, or function value
+  const wrap = (t) => (t.length > 1 && !single(t) ? '(' + t + ')' : t);   // parentheses only around sums, products and the like   // no parentheses around a single letter or a letter with an exponent
   for (let i = 0; i < tex.length; i++) {
     if (tex[i] !== BS) { out += tex[i]; continue; }
     const m = /^[a-zA-Z]+/.exec(tex.slice(i + 1));
