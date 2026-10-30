@@ -20,34 +20,34 @@ worked:   # used for the worked-examples recording document
   coreFollowup: "Domain and intervals of increase or decrease are x-values. Range, maxima and minima are y-values, and a maximum or minimum is located at a point. At each end of the graph, a filled dot means the end is included (a bracket) and an open dot means it is not (a parenthesis)."
 summary:   # the Quick Summary tab
   intro: 'A graph answers two kinds of questions: <strong>where</strong>, read along the <span>\( x \)</span>-axis, and <strong>how high</strong>, read along the <span>\( y \)</span>-axis. <strong>Most FN3 mistakes come from reading the wrong axis or ignoring an open dot.</strong>'
-  caption: "How to read each feature of a graph, and what to watch for"
-  columns: ["Feature", "How to read it", "Watch out for"]
+  caption: "Summary: Reading the Characteristics of a Function’s Graph"
+  columns: ["Feature", "How to identify it", "What to watch for"]
   rows:     # first cell of each row is the row header
     -
       - 'Domain'
-      - 'The <span>\( x \)</span>-values the graph covers, left end to right end.'
-      - 'Filled dot: bracket. Open dot: parenthesis. On CheckIt the graph always stops at both ends.'
+      - 'Identify all <span>\( x \)</span>-values that have a point on the graph. Read from left to right and write the set using interval notation.'
+      - 'Use brackets for included boundary values and parentheses for excluded boundary values. Arrows indicate that the graph continues. Always use parentheses with <span>\( \pm\infty \)</span>.'
     -
       - 'Range'
-      - 'The <span>\( y \)</span>-values the graph reaches, lowest to highest.'
-      - 'An end can be higher or lower than every turning point. Check both ends.'
+      - 'Identify all <span>\( y \)</span>-values that occur on the graph. Read from bottom to top and write the set using interval notation.'
+      - 'Examine the entire graph, including turning points and endpoints. An open dot excludes that point, but the same <span>\( y \)</span>-value may be included elsewhere.'
     -
       - 'Intercepts'
-      - '<span>\( x \)</span>-intercepts: where it crosses the <span>\( x \)</span>-axis, <span>\( (a,0) \)</span>. <span>\( y \)</span>-intercept: where it crosses the <span>\( y \)</span>-axis, <span>\( (0,b) \)</span>.'
-      - 'Write them as points, with the 0 in the right place.'
+      - '<strong><span>\( x \)</span>-intercepts:</strong> points where <span>\( y=0 \)</span>. <strong><span>\( y \)</span>-intercept:</strong> a point where <span>\( x=0 \)</span>.'
+      - 'Write intercepts as ordered pairs: <span>\( (a,0) \)</span> or <span>\( (0,b) \)</span>. A graph can touch an axis without crossing it. A function can have several <span>\( x \)</span>-intercepts, but at most one <span>\( y \)</span>-intercept.'
     -
-      - 'Local max and min'
-      - 'Peaks and valleys: the graph turns around there, with graph on both sides. A corner where the graph keeps going the same way is not a turn.'
-      - 'The ends of the graph are never local maxima or minima.'
+      - 'Increasing, decreasing, and constant'
+      - 'Read from left to right. The function is increasing where its <span>\( y \)</span>-values rise, decreasing where they fall, and constant where they stay the same.'
+      - 'Report intervals of <strong><span>\( x \)</span>-values</strong>, using open intervals for this section. A change in steepness alone does not mean the function changes from increasing to decreasing.'
     -
-      - 'Global max and min'
-      - 'The highest and lowest <span>\( y \)</span>-values anywhere, ends included.'
-      - 'If the graph only gets close to its top or bottom height at an open dot, and never reaches it, there is no global max or min.'
+      - 'Local maxima and minima'
+      - 'Compare a function value with nearby values on both sides. A local maximum is greater than nearby values; a local minimum is less than nearby values.'
+      - 'Use the actual point on the graph. An open dot cannot be a local extremum. In this section, endpoints are not counted as local extrema.'
     -
-      - 'Increasing and decreasing'
-      - 'Read left to right. Write the <span>\( x \)</span>-intervals where it goes up, and where it goes down.'
-      - 'Use <span>\( x \)</span>-values, not heights, and parentheses, even at a filled dot.'
-  note: 'Local maxima and minima are points, like <span>\( (2,-3) \)</span>; a global maximum or minimum is a <span>\( y \)</span>-value, like 6, reached at a point. CheckIt may list intercepts in square brackets, like [(−9, 0), (−5, 0)]: that is a list of points, not an interval. When you sketch a graph from a list of features, plot the listed points first, then connect them so it rises and falls where the list says. Your CheckIt graph will have different numbers. Telling <span>\( x \)</span>-values from <span>\( y \)</span>-values is what transfers.'
+      - 'Global maximum and minimum'
+      - 'Find the greatest and least <span>\( y \)</span>-values attained anywhere on the graph. Included endpoints can be global extrema.'
+      - 'The function must actually attain the value. A function may have a global maximum, a global minimum, both, or neither.'
+  note: '<strong>Distinguish the value from its location:</strong> A maximum or minimum <strong>value</strong> is a <span>\( y \)</span>-value. The <span>\( x \)</span>-value tells you <strong>where it occurs</strong>. For example, if the lowest point is <span>\( (2,-5) \)</span>, the minimum value is <span>\( -5 \)</span>, occurring at <span>\( x=2 \)</span>.'
 tabs:
   - id: domain
     label: "Try It: Domain, Range, and Intercepts"
