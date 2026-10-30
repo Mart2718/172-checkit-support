@@ -48,3 +48,7 @@ TBIL's FN2 generator checks out. Notes:
 
 ## Needs a live screen reader
 - How NVDA reads the piecewise speak lines and the three graph captions, and whether feedback is announced once.
+
+## Update 2026-10-30: graph descriptions that gave answers away
+- All seven graph descriptions now sit in a closed "Text description of the graph" disclosure. Several stated answers outright (the corner (3, 2) for g(3), the end (5, 0), the corner (−1, −2), the end (3, 0)); the rest are collapsed for consistency. Screen readers still get the full descriptions through aria-describedby. Canvas quiz regenerated.
+- Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.

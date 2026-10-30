@@ -42,3 +42,7 @@ TBIL's PR5 generator checks out. Each problem has two polynomials. Each is (x âˆ
 
 ## Needs a live screen reader
 - How NVDA reads the synthetic division captions, the plain-text superscripts and roots in the choice buttons, and whether feedback is announced once.
+
+## Update 2026-10-30: graph descriptions that gave answers away
+- Candidates 3: its description gave approximate crossings with "about" but the candidate crossings exactly, which pointed to the answer. It now sits in a closed "Text description of the graph" disclosure. Canvas quiz regenerated.
+- Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.

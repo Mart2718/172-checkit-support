@@ -42,3 +42,7 @@ One possible generator bug: when p = ±6 with {q, offset} = {2, 3} and p = −q�
 
 ## Needs a live screen reader
 - How NVDA reads the fraction displays, the two graph captions, and the plain-text math in the Spot the Slip buttons, and whether feedback is announced once.
+
+## Update 2026-10-30: graph descriptions that gave answers away
+- The first graph description said the curve passes through (4, 2) "where it meets the line", the same wording as the key; it now says "(4, 2), which is also on the line". Worked examples and Canvas quiz regenerated.
+- Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.

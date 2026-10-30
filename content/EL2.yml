@@ -204,6 +204,7 @@ tabs:
           file: figures/EL2/graph2.svg
           title: "A falling curve below a dashed horizontal line"
           caption: '<strong>Plotted data:</strong> a dashed horizontal line at y = 2. A smooth curve lies below the dashed line. Moving left, it gets closer and closer to the dashed line without touching it. Moving right, it falls faster and faster. It passes through (0, 1) and (1, −1).'
+          collapse: true
         prompt: 'What is the range of the function graphed here? Use interval notation.'
         choices:
           - {value: a, label: "(−∞, 2)"}

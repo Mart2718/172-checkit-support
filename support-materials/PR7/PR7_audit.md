@@ -51,3 +51,7 @@ Each function has one hole and one vertical asymptote.
 
 ## Needs a live screen reader
 - How NVDA reads the long fraction speak lines and the two graph captions, and whether feedback is announced once.
+
+## Update 2026-10-30: graph descriptions that gave answers away
+- Read the Graph (the hole-and-asymptote list): its description lined up with the keyed list ("no other dashed lines", the open circle at x = 1). It now sits in a closed "Text description of the graph" disclosure. Canvas quiz regenerated.
+- Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.

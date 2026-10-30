@@ -132,7 +132,7 @@ tabs:
         figure:
           file: figures/FN1/graph2.svg
           title: "A smooth curve extending to the right from a leftmost point"
-          caption: '<strong>Plotted data:</strong> a smooth curve whose leftmost point is at \((-4, 0)\). It extends to the right and passes through approximately \((-1.1, 1.7)\), \((-1.1, -1.7)\), \((1.8, 2.4)\), and \((1.8, -2.4)\).'
+          caption: '<strong>Plotted data:</strong> a smooth curve shaped like a parabola opening to the right. Its leftmost point is \((-4, 0)\). One branch rises toward the upper right, reaching about \((1.8, 2.4)\) at the edge of the grid, and the other falls toward the lower right, reaching about \((1.8, -2.4)\).'
         prompt: 'Does this graph represent a function?'
         choices:
           - {value: yes, label: "Function"}
@@ -220,7 +220,7 @@ tabs:
         figure:
           file: figures/FN1/graph2.svg
           title: "A smooth curve extending to the right from a leftmost point"
-          caption: '<strong>Plotted data:</strong> a smooth curve whose leftmost point is at \((-4, 0)\). It extends to the right and passes through approximately \((-1.1, 1.7)\), \((-1.1, -1.7)\), \((1.8, 2.4)\), and \((1.8, -2.4)\).'
+          caption: '<strong>Plotted data:</strong> a smooth curve shaped like a parabola opening to the right. Its leftmost point is \((-4, 0)\). One branch rises toward the upper right, reaching about \((1.8, 2.4)\) at the edge of the grid, and the other falls toward the lower right, reaching about \((1.8, -2.4)\).'
         prompt: 'A student says this graph is a function, because a horizontal line crosses it only once. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}

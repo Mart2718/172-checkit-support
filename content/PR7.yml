@@ -212,6 +212,7 @@ tabs:
           file: figures/PR7/sk3.svg
           title: "The graph of a rational function with one dashed vertical line"
           caption: 'A graph on axes with x from −6 to 9 and y from −10 to 20. A dashed vertical line is at x = 3; no other dashed lines are drawn. Left of x = 3, the curve rises from the lower left to just touch the x-axis at (−2, 0), turns down through (0, −2/3) and an open circle at x = 1, a little below the x-axis, and drops beside x = 3. Right of x = 3, the curve comes down from the top, bottoms out near (8, 10), and then rises again to the right. The two intercepts are labeled.'
+          collapse: true
         prompt: 'Which list matches the graph and the formula?'
         choices:
           - {value: a, label: "Hole (1, 0); asymptote x = 3; no horizontal asymptote; zero −2"}

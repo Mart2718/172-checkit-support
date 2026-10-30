@@ -87,6 +87,7 @@ tabs:
           file: figures/PR5/cz3.svg
           title: "The graph of a quartic polynomial crossing the x-axis four times"
           caption: 'A graph of y = f(x) on axes with x from −6 to 5 and y from −400 to 400, with tick marks every half unit on the x-axis. Coming down from the upper left, the graph crosses the x-axis a little left of −5, at about −5.2, falls to a low point at about (−3.7, −360), and rises to cross again between −1 and −0.5, at about −0.8. It peaks just above the x-axis, at about 50, a little right of the y-axis, then falls to cross at x = 1.5, halfway between 1 and 2. It reaches a low point at about (3, −90) and rises to cross at x = 4, going up to the upper right.'
+          collapse: true
         prompt: 'The candidates for f include ±1, ±2, ±3, ±4, ±6, ±8, ±1/2, and ±3/2. Which crossings appear to land on candidates, so they are worth testing first?'
         choices:
           - {value: a, label: "All four crossings"}

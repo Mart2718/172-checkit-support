@@ -40,3 +40,7 @@ This is an AI-assisted audit, not a compliance certification. For DOJ Title II s
 - Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
 - Fixed after the independent review: spoken readings of -2^x and -e^x now say "the negative of 2 to the x" so they are not heard as (-2)^x.
 - Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.
+
+## Update 2026-10-30: graph descriptions that gave answers away
+- Graph 2 (range): its text description now sits in a closed "Text description of the graph" disclosure, because it read the range off the graph for the student. Screen readers still get it through aria-describedby. Canvas quiz regenerated.
+- Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.

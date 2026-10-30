@@ -53,7 +53,7 @@ tabs:
         figure:
           file: figures/PR6/ex1.svg
           title: "The graph of a rational function and a horizontal line"
-          caption: 'Graphs of y = 6/(x − 1) and the horizontal line y = 2, on axes with x from −4 to 8 and y from −6 to 6. The curve has a dashed vertical asymptote at x = 1. To the left of it the curve stays below the x-axis; to the right it comes down from the top, passes through the point (4, 2) where it meets the line, and levels off toward the x-axis. The point (4, 2) is marked and labeled.'
+          caption: 'Graphs of y = 6/(x − 1) and the horizontal line y = 2, on axes with x from −4 to 8 and y from −6 to 6. The curve has a dashed vertical asymptote at x = 1. To the left of it the curve stays below the x-axis; to the right it comes down from the top, passes through the point (4, 2), which is also on the line, and levels off toward the x-axis. The point (4, 2) is marked and labeled.'
         prompt: 'What does the solution of \( \dfrac{6}{x-1}=2 \) look like on this graph?'
         choices:
           - {value: a, label: "Where the curve crosses the x-axis, if it ever does"}
