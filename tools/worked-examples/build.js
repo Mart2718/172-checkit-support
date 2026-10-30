@@ -29,8 +29,8 @@ function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, i
 }
 function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
   let out = '';
-  const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t) || /^[0-9]*√[0-9]+$/.test(t)
-    || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, root, or function value
+  const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t)
+    || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, or function value; a root on top keeps its parentheses, (√3)/2, so it cannot be read as √(3/2)
   const wrap = (t) => (t.length > 1 && !single(t) ? '(' + t + ')' : t);   // parentheses only around sums, products and the like
   const plain = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-zπθ]$/.test(t) || /^√[0-9]+$/.test(t) || /^[A-Za-z]+\([^()]*\)$/.test(t);
   const wrapDen = (t) => (t.length > 1 && !plain(t) ? '(' + t + ')' : t);   // 3/(2x), not 3/2x, which reads as (3/2)x   // no parentheses around a single letter or a letter with an exponent

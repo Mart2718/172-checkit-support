@@ -50,8 +50,6 @@ def line(name, m, b):
 
 def secant(name):
     f = lambda x: 2 * x * x - 3 * x + 1
-    o, sx, sy, _ = frame(-1, 5, -4, 24, 14, xstep=1, ystep=4)
-    # rescale: wider cells for x
     o, sx, sy, (L, T, W, H) = frame(-1, 5, -4, 24, 14, xstep=1, ystep=4)
     sx2 = lambda x: L + (x + 1) * 60
     o[0] = f'<svg viewBox="0 0 {6*60+L+14} {H+T+34}" font-family="Arial, Helvetica, sans-serif" font-size="17">'
@@ -82,7 +80,7 @@ def secant(name):
     open(os.path.join(OUT, name), 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 
 
-line('g1.svg', Fr(2), Fr(-3))
+line('g1.svg', Fr(-5, 2), Fr(1))
 line('g2.svg', Fr(-1, 2), Fr(4))
 line('g3.svg', Fr(0), Fr(3))
 line('g4.svg', Fr(3, 2), Fr(1))

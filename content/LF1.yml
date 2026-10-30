@@ -4,8 +4,9 @@
 # CheckIt LF1 has two parts. (1) The average rate of change of one function on an interval [a, b]: a polynomial (degree 2, 3 or 4,
 # with up to three terms), a square root sqrt(cx + d), or a fraction (ex + f)/(cx + d); answers are exact, so they can be
 # fractions or contain roots. (2) The slope of three lines, in random order: one graphed on a -10 to 10 grid with no points marked
-# (slope a multiple of 1/2 from -3 to 3, which can be 0), one given by a table of 4 to 6 rows whose x-values are not evenly spaced,
-# and one through two points. The table and points slopes are a whole number and a fraction, in either order.
+# (slope a multiple of 1/2 from -3 to 3, which can be 0), one given by a vertical x | y table of 4 to 6 rows whose x-values are chosen at random (usually not evenly spaced),
+# and one through two points. The table and points slopes are a whole number (possibly 0) and a fraction k + j/d with d from 2 to 5, in either order.
+# CheckIt prints answers the way Sage does, such as -1/2 + 1/6*sqrt(21) for (sqrt(21) - 3)/6.
 # Figures drawn by tools/figures/make_lf1.py.
 code: LF1
 h1: "LF1 Support: Average Rate of Change and Slope"
@@ -26,7 +27,7 @@ summary:   # the Quick Summary tab
     -
       - 'Average rate of change'
       - 'On <span>\( [a,b] \)</span>, compute <span>\( \dfrac{f(b)-f(a)}{b-a} \)</span>.'
-      - 'Evaluate carefully, especially at negative inputs. Keep the answer exact: <span>\( \tfrac{\sqrt{21}-3}{6} \)</span> stays as it is.'
+      - 'Evaluate carefully, especially at negative inputs. Keep the answer exact, with roots and fractions as they are. CheckIt may show an equivalent split form: <span>\( \tfrac{\sqrt{7}-2}{3} \)</span> can appear as <span>\( -\tfrac{2}{3}+\tfrac{\sqrt{7}}{3} \)</span>, and both are correct.'
     -
       - 'Slope from two points'
       - 'Compute <span>\( \dfrac{y_{2}-y_{1}}{x_{2}-x_{1}} \)</span>, change in <span>\( y \)</span> over change in <span>\( x \)</span>.'
@@ -38,12 +39,12 @@ summary:   # the Quick Summary tab
     -
       - 'Slope from a graph'
       - 'Find two points where the line crosses grid corners. Count the rise and the run between them.'
-      - 'A line going down from left to right has negative slope. Slopes can be halves, like <span>\( \tfrac{3}{2} \)</span>: 3 up for every 2 over.'
+      - 'A line going down from left to right has negative slope. Slopes can be halves, like <span>\( -\tfrac{3}{2} \)</span>: 3 down for every 2 over.'
     -
       - 'Flat and upright lines'
       - 'A horizontal line has slope 0. A vertical line has undefined slope.'
-      - 'The height of a horizontal line, like the 3 in <span>\( y=3 \)</span>, is not its slope.'
-  note: 'For a line, the average rate of change on any interval is its slope. For a curve, the average rate of change on <span>\( [a,b] \)</span> is the slope of the straight line through the two points <span>\( (a,f(a)) \)</span> and <span>\( (b,f(b)) \)</span>. CheckIt''s function can be a polynomial, a square root like <span>\( \sqrt{2x+1} \)</span>, or a fraction like <span>\( \dfrac{x+3}{x-1} \)</span>, and its graph of a line has no points marked: find grid corners yourself. Your CheckIt numbers will be different. Change in output over change in input is what transfers.'
+      - 'The height of a horizontal line, like the <span>\( -2 \)</span> in <span>\( y=-2 \)</span>, is not its slope.'
+  note: 'For a line, the average rate of change on any interval is its slope. For a curve, the average rate of change on <span>\( [a,b] \)</span> is the slope of the straight line through the two points <span>\( (a,f(a)) \)</span> and <span>\( (b,f(b)) \)</span>. CheckIt''s function can be a polynomial, a square root like <span>\( \sqrt{x+5} \)</span>, or a fraction like <span>\( \dfrac{3}{2x+1} \)</span>, its tables run down the page in two columns, x and y, and its graph of a line has no points marked: find grid corners yourself. Your CheckIt numbers will be different. Change in output over change in input is what transfers.'
 tabs:
   - id: arc
     label: "Try It: Average Rate of Change"
@@ -68,49 +69,49 @@ tabs:
           - {value: d, label: '\( -7 \)', speak: "negative 7"}
         correct: b
         explanation: |-
-          Find the outputs at the ends: \( f(4)=2(16)-12+1=21 \) and \( f(1)=2-3+1=0 \). Then divide the change in output by the change in input: \( \dfrac{f(4)-f(1)}{4-1}=\dfrac{21-0}{3}=7 \). That is the slope of the straight segment in the picture. 21 is the change in output before dividing by 3; \( \tfrac{1}{7} \) divides the other way, change in input over change in output; and \( -7 \) subtracts \( f(4)-f(1) \) backwards on top only. <strong>The average rate of change is 7.</strong>
+          Find the outputs at the ends: \( f(4)=2(16)-12+1=21 \) and \( f(1)=2-3+1=0 \). Then divide the change in output by the change in input: \( \dfrac{f(4)-f(1)}{4-1}=\dfrac{21-0}{3}=7 \). That is the slope of the straight segment in the picture. 21 is the change in output before dividing by 3; \( \tfrac{1}{7} \) divides the other way, change in input over change in output; and \( -7 \) uses \( f(1)-f(4) \) on top but \( 4-1 \) on the bottom. <strong>The average rate of change is 7.</strong>
       - id: ar2
         title: "Average Rate 2"
         math:
-          display: 'f(x)=-x^{3}+4x\ \text{ on }\ [-2,1]'
-          speak: "f of x equals negative x cubed plus 4 x, on the interval from negative 2 to 1"
+          display: 'f(x)=x^{4}-2x\ \text{ on }\ [-2,1]'
+          speak: "f of x equals x to the fourth minus 2 x, on the interval from negative 2 to 1"
         prompt: 'What is the average rate of change of f on [−2, 1]?'
         choices:
-          - {value: a, label: '\( 1 \)', speak: "1"}
-          - {value: b, label: '\( -3 \)', speak: "negative 3"}
-          - {value: c, label: '\( \tfrac{19}{3} \)', speak: "the fraction 19, over 3, end fraction"}
-          - {value: d, label: '\( 3 \)', speak: "3"}
+          - {value: a, label: '\( -7 \)', speak: "negative 7"}
+          - {value: b, label: '\( -21 \)', speak: "negative 21"}
+          - {value: c, label: '\( \tfrac{11}{3} \)', speak: "the fraction 11, over 3, end fraction"}
+          - {value: d, label: '\( 7 \)', speak: "7"}
         correct: a
         explanation: |-
-          \( f(1)=-1+4=3 \). At the negative end, \( (-2)^{3}=-8 \), so \( f(-2)=-(-8)+4(-2)=8-8=0 \). The change in input is \( 1-(-2)=3 \), so \( \dfrac{3-0}{3}=1 \). \( -3 \) works out \( 1-(-2) \) as \( -1 \); \( \tfrac{19}{3} \) uses \( (-2)^{3}=8 \), so \( f(-2) \) comes out \( -16 \); and 3 stops before dividing by the change in input. <strong>The average rate of change is 1.</strong>
+          \( f(1)=1-2=-1 \). At the negative end, \( (-2)^{4}=16 \), so \( f(-2)=16-2(-2)=16+4=20 \). The change in input is \( 1-(-2)=3 \), so \( \dfrac{-1-20}{3}=\dfrac{-21}{3}=-7 \). \( -21 \) stops before dividing by the change in input; 7 subtracts the outputs in the other order on top only; and \( \tfrac{11}{3} \) takes \( (-2)^{4} \) as \( -16 \), so \( f(-2) \) comes out \( -12 \). <strong>The average rate of change is \( -7 \).</strong>
       - id: ar3
         title: "Average Rate 3"
         math:
-          display: 'f(x)=\sqrt{2x+1}\ \text{ on }\ [4,10]'
-          speak: "f of x equals the square root of 2 x plus 1, end root, on the interval from 4 to 10"
-        prompt: 'What is the average rate of change of f on [4, 10]?'
+          display: 'f(x)=\sqrt{3x+2}\ \text{ on }\ [1,3]'
+          speak: "f of x equals the square root of 3 x plus 2, end root, on the interval from 1 to 3"
+        prompt: 'What is the average rate of change of f on [1, 3]?'
         choices:
-          - {value: a, label: '\( \dfrac{\sqrt{21}-3}{6} \)', speak: "the fraction the square root of 21, end root, minus 3, over 6, end fraction"}
-          - {value: b, label: '\( \dfrac{\sqrt{12}}{6} \)', speak: "the fraction the square root of 12, end root, over 6, end fraction"}
-          - {value: c, label: '\( 2 \)', speak: "2"}
-          - {value: d, label: '\( \dfrac{\sqrt{21}+3}{6} \)', speak: "the fraction the square root of 21, end root, plus 3, over 6, end fraction"}
+          - {value: a, label: '\( \dfrac{\sqrt{11}-\sqrt{5}}{2} \)', speak: "the fraction the square root of 11, end root, minus the square root of 5, end root, over 2, end fraction"}
+          - {value: b, label: '\( \dfrac{\sqrt{6}}{2} \)', speak: "the fraction the square root of 6, end root, over 2, end fraction"}
+          - {value: c, label: '\( 3 \)', speak: "3"}
+          - {value: d, label: '\( \dfrac{\sqrt{11}+\sqrt{5}}{2} \)', speak: "the fraction the square root of 11, end root, plus the square root of 5, end root, over 2, end fraction"}
         correct: a
         explanation: |-
-          \( f(10)=\sqrt{21} \), which does not simplify, and \( f(4)=\sqrt{9}=3 \). So the average rate of change is \( \dfrac{\sqrt{21}-3}{10-4}=\dfrac{\sqrt{21}-3}{6} \), an exact answer to leave as it is. \( \dfrac{\sqrt{12}}{6} \) combines \( \sqrt{21}-\sqrt{9} \) into \( \sqrt{21-9} \), which is not allowed; 2 subtracts the numbers under the roots, \( \tfrac{21-9}{6} \), and drops the roots; and \( +3 \) adds the outputs instead of subtracting them. <strong>\( \dfrac{\sqrt{21}-3}{6} \).</strong>
+          \( f(3)=\sqrt{11} \) and \( f(1)=\sqrt{5} \); neither simplifies. So the average rate of change is \( \dfrac{\sqrt{11}-\sqrt{5}}{3-1}=\dfrac{\sqrt{11}-\sqrt{5}}{2} \), an exact answer to leave as it is. CheckIt may print it split up, as \( \tfrac{1}{2}\sqrt{11}-\tfrac{1}{2}\sqrt{5} \), which is the same number. \( \dfrac{\sqrt{6}}{2} \) combines \( \sqrt{11}-\sqrt{5} \) into \( \sqrt{11-5} \), which is not allowed; 3 subtracts the numbers under the roots, \( \tfrac{11-5}{2} \), and drops the roots; and \( + \) adds the outputs instead of subtracting them. <strong>\( \dfrac{\sqrt{11}-\sqrt{5}}{2} \).</strong>
       - id: ar4
         title: "Average Rate 4"
         math:
-          display: 'f(x)=\dfrac{x+3}{x-1}\ \text{ on }\ [3,5]'
-          speak: "f of x equals the fraction x plus 3, over x minus 1, end fraction, on the interval from 3 to 5"
-        prompt: 'What is the average rate of change of f on [3, 5]?'
+          display: 'f(x)=\dfrac{2x-1}{x+2}\ \text{ on }\ [1,4]'
+          speak: "f of x equals the fraction 2 x minus 1, over x plus 2, end fraction, on the interval from 1 to 4"
+        prompt: 'What is the average rate of change of f on [1, 4]?'
         choices:
-          - {value: a, label: '\( \tfrac{1}{2} \)', speak: "the fraction 1, over 2, end fraction"}
-          - {value: b, label: '\( -2 \)', speak: "negative 2"}
-          - {value: c, label: '\( -\tfrac{1}{2} \)', speak: "negative the fraction 1, over 2, end fraction"}
-          - {value: d, label: '\( -1 \)', speak: "negative 1"}
+          - {value: a, label: '\( \tfrac{5}{6} \)', speak: "the fraction 5, over 6, end fraction"}
+          - {value: b, label: '\( \tfrac{18}{5} \)', speak: "the fraction 18, over 5, end fraction"}
+          - {value: c, label: '\( \tfrac{5}{18} \)', speak: "the fraction 5, over 18, end fraction"}
+          - {value: d, label: '\( -\tfrac{5}{18} \)', speak: "negative the fraction 5, over 18, end fraction"}
         correct: c
         explanation: |-
-          \( f(5)=\dfrac{8}{4}=2 \) and \( f(3)=\dfrac{6}{2}=3 \). The output went down by 1 while the input went up by 2: \( \dfrac{2-3}{5-3}=-\dfrac{1}{2} \). A falling function has a negative average rate of change. \( \tfrac{1}{2} \) subtracts the outputs in the other order on top only; \( -2 \) divides the change in input by the change in output; and \( -1 \) stops before dividing by 2. <strong>\( -\tfrac{1}{2} \).</strong>
+          \( f(4)=\dfrac{7}{6} \) and \( f(1)=\dfrac{1}{3}=\dfrac{2}{6} \). The change in output is \( \tfrac{7}{6}-\tfrac{2}{6}=\tfrac{5}{6} \), over a change in input of 3: \( \tfrac{5}{6}\div 3=\tfrac{5}{18} \). Fractions inside fractions are normal here; keep them exact. \( \tfrac{5}{6} \) stops before dividing by 3; \( \tfrac{18}{5} \) divides the other way; and \( -\tfrac{5}{18} \) subtracts the outputs in the other order on top only. <strong>\( \tfrac{5}{18} \).</strong>
   - id: points
     label: "Try It: Slope from Points and Tables"
     heading: "Try It: Slope from Points and Tables"
@@ -121,7 +122,7 @@ tabs:
         title: "Two Points 1"
         math:
           display: '(-3,5)\ \text{ and }\ (1,-7)'
-          speak: "the points negative 3, 5 and 1, negative 7"
+          speak: "the point negative 3 comma 5, and the point 1 comma negative 7"
         prompt: 'What is the slope of the line through these points?'
         choices:
           - {value: a, label: '\( 3 \)', speak: "3"}
@@ -134,17 +135,17 @@ tabs:
       - id: pt2
         title: "Two Points 2"
         math:
-          display: '(2,-4)\ \text{ and }\ (8,0)'
-          speak: "the points 2, negative 4 and 8, 0"
+          display: '(-4,6)\ \text{ and }\ (2,-8)'
+          speak: "the point negative 4 comma 6, and the point 2 comma negative 8"
         prompt: 'What is the slope of the line through these points?'
         choices:
-          - {value: a, label: '\( \tfrac{2}{3} \)', speak: "the fraction 2, over 3, end fraction"}
-          - {value: b, label: '\( \tfrac{3}{2} \)', speak: "the fraction 3, over 2, end fraction"}
-          - {value: c, label: '\( -\tfrac{2}{3} \)', speak: "negative the fraction 2, over 3, end fraction"}
-          - {value: d, label: '\( \tfrac{1}{2} \)', speak: "the fraction 1, over 2, end fraction"}
+          - {value: a, label: '\( -\tfrac{7}{3} \)', speak: "negative the fraction 7, over 3, end fraction"}
+          - {value: b, label: '\( -\tfrac{3}{7} \)', speak: "negative the fraction 3, over 7, end fraction"}
+          - {value: c, label: '\( \tfrac{7}{3} \)', speak: "the fraction 7, over 3, end fraction"}
+          - {value: d, label: '\( -7 \)', speak: "negative 7"}
         correct: a
         explanation: |-
-          \( \dfrac{0-(-4)}{8-2}=\dfrac{4}{6}=\dfrac{2}{3} \). Reduce the fraction; CheckIt's slopes are in lowest terms. \( \tfrac{3}{2} \) puts the change in \( x \) on top; \( -\tfrac{2}{3} \) treats \( 0-(-4) \) as \( -4 \); and \( \tfrac{1}{2} \) divides by 8, the second \( x \)-value, instead of the change in \( x \). <strong>The slope is \( \tfrac{2}{3} \).</strong>
+          \( \dfrac{-8-6}{2-(-4)}=\dfrac{-14}{6}=-\dfrac{7}{3} \). Reduce the fraction, and leave it improper: CheckIt writes slopes like \( -\tfrac{7}{3} \), not mixed numbers. \( -\tfrac{3}{7} \) puts the change in \( x \) on top; \( \tfrac{7}{3} \) loses the sign, though \( y \) goes down as \( x \) goes up; and \( -7 \) divides by 2, the second \( x \)-value, instead of the change in \( x \). <strong>The slope is \( -\tfrac{7}{3} \).</strong>
       - id: pt3
         title: "Table 1"
         table:
@@ -165,20 +166,24 @@ tabs:
       - id: pt4
         title: "Table 2"
         table:
-          caption: "Points on a line, listed in two rows"
+          caption: "Points on a line, in columns"
           label: "Table 2 of x and y values"
+          headers: row
           rows:
-            - ["x", "−8", "−4", "4", "12"]
-            - ["y", "−8", "−5", "1", "7"]
+            - ["x", "y"]
+            - ["−15", "24"]
+            - ["−5", "10"]
+            - ["5", "−4"]
+            - ["10", "−11"]
         prompt: 'What is the slope of the line defined by this table?'
         choices:
-          - {value: a, label: '\( 3 \)', speak: "3"}
-          - {value: b, label: '\( \tfrac{4}{3} \)', speak: "the fraction 4, over 3, end fraction"}
-          - {value: c, label: '\( \tfrac{3}{2} \)', speak: "the fraction 3, over 2, end fraction"}
-          - {value: d, label: '\( \tfrac{3}{4} \)', speak: "the fraction 3, over 4, end fraction"}
+          - {value: a, label: '\( -14 \)', speak: "negative 14"}
+          - {value: b, label: '\( -\tfrac{5}{7} \)', speak: "negative the fraction 5, over 7, end fraction"}
+          - {value: c, label: '\( \tfrac{7}{5} \)', speak: "the fraction 7, over 5, end fraction"}
+          - {value: d, label: '\( -\tfrac{7}{5} \)', speak: "negative the fraction 7, over 5, end fraction"}
         correct: d
         explanation: |-
-          From \( (-8,-8) \) to \( (-4,-5) \): \( \dfrac{-5-(-8)}{-4-(-8)}=\dfrac{3}{4} \). From \( (4,1) \) to \( (12,7) \): \( \dfrac{6}{8}=\dfrac{3}{4} \) again. 3 is the change in \( y \) between the first two rows, without dividing by the change in \( x \), which is 4; \( \tfrac{4}{3} \) divides the other way; and \( \tfrac{3}{2} \) mixes rows, using the change in \( y \) from the second row to the third, 6, over the change in \( x \) from the first row to the second, 4. <strong>The slope is \( \tfrac{3}{4} \).</strong>
+          From \( (-15,24) \) to \( (-5,10) \): \( \dfrac{10-24}{-5-(-15)}=\dfrac{-14}{10}=-\dfrac{7}{5} \). From \( (5,-4) \) to \( (10,-11) \): \( \dfrac{-7}{5} \) again, even though that step in \( x \) is 5, not 10. \( -14 \) is the change in \( y \) between the first two rows, without dividing by the change in \( x \); \( -\tfrac{5}{7} \) divides the other way; and \( \tfrac{7}{5} \) loses the sign, though \( y \) goes down as \( x \) goes up. <strong>The slope is \( -\tfrac{7}{5} \).</strong>
   - id: graph
     label: "Try It: Slope from a Graph"
     heading: "Try It: Slope from a Graph"
@@ -190,17 +195,17 @@ tabs:
         figure:
           file: figures/LF1/g1.svg
           title: "A straight line on a grid from −10 to 10"
-          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It rises from left to right, passing through (0, −3), (2, 1) and (5, 7).'
+          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It falls steeply from left to right, passing through (−2, 6), (0, 1) and (4, −9).'
           collapse: true
         prompt: 'What is the slope of this line?'
         choices:
-          - {value: a, label: '\( -2 \)', speak: "negative 2"}
-          - {value: b, label: '\( 2 \)', speak: "2"}
-          - {value: c, label: '\( \tfrac{1}{2} \)', speak: "the fraction 1, over 2, end fraction"}
-          - {value: d, label: '\( -3 \)', speak: "negative 3"}
+          - {value: a, label: '\( \tfrac{5}{2} \)', speak: "the fraction 5, over 2, end fraction"}
+          - {value: b, label: '\( -\tfrac{5}{2} \)', speak: "negative the fraction 5, over 2, end fraction"}
+          - {value: c, label: '\( -\tfrac{2}{5} \)', speak: "negative the fraction 2, over 5, end fraction"}
+          - {value: d, label: '\( 1 \)', speak: "1"}
         correct: b
         explanation: |-
-          The line crosses grid corners at \( (0,-3) \) and \( (2,1) \). From the first to the second, it goes up 4 and over 2: \( \tfrac{4}{2}=2 \). It rises from left to right, so the slope is positive, which rules out \( -2 \). \( \tfrac{1}{2} \) is run over rise; and \( -3 \) is where the line crosses the \( y \)-axis, not its slope. <strong>The slope is 2.</strong>
+          The line passes through \( (0,1) \), but one step over it is not on a grid corner. The next corner is \( (2,-4) \): over 2, down 5. So the slope is \( \dfrac{-5}{2}=-\tfrac{5}{2} \). It falls from left to right, which rules out \( \tfrac{5}{2} \). \( -\tfrac{2}{5} \) is run over rise; and 1 is where the line crosses the \( y \)-axis, not its slope. <strong>The slope is \( -\tfrac{5}{2} \).</strong>
       - id: gr2
         title: "Graph 2"
         figure:
@@ -259,16 +264,16 @@ tabs:
         title: "Slip 1"
         math:
           display: '(2,5),\ (6,-3):\quad \dfrac{-3-5}{2-6}=\dfrac{-8}{-4}=2'
-          speak: "For the points 2, 5 and 6, negative 3: the fraction negative 3 minus 5, over 2 minus 6, end fraction, equals the fraction negative 8, over negative 4, end fraction, which equals 2."
+          speak: "For the point 2 comma 5, and the point 6 comma negative 3: the fraction negative 3 minus 5, over 2 minus 6, end fraction, equals the fraction negative 8, over negative 4, end fraction, which equals 2."
         prompt: 'A student found this slope. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The order switched: it should be −8/4 = −2."}
-          - {value: c, label: "Slope is run over rise, so it should be −4/−8 = 1/2."}
-          - {value: d, label: "Add the coordinates instead, so (5 − 3)/(2 + 6) = 1/4."}
+          - {value: c, label: "Slope is run over rise, so it should be 1/2."}
+          - {value: d, label: "Add the coordinates instead, giving 2 over 8, or 1/4."}
         correct: b
         explanation: |-
-          On top the student used the second point minus the first, \( -3-5 \), but on the bottom the first minus the second, \( 2-6 \). Use one order for both: \( \dfrac{-3-5}{6-2}=\dfrac{-8}{4}=-2 \). The line falls from \( (2,5) \) to \( (6,-3) \), so its slope must be negative. Slope is rise over run, not run over rise; and slope subtracts coordinates, it never adds them. <strong>The slope is \( -2 \).</strong>
+          On top the student used the second point minus the first, \( -3-5 \), but on the bottom the first minus the second, \( 2-6 \). Use one order for both: \( \dfrac{-3-5}{6-2}=\dfrac{-8}{4}=-2 \). The line falls from \( (2,5) \) to \( (6,-3) \), so its slope must be negative. Slope is rise over run, not run over rise, which would give \( \tfrac{-4}{-8}=\tfrac{1}{2} \); and adding the coordinates, \( \tfrac{5+(-3)}{2+6}=\tfrac{2}{8} \), does not measure change at all. <strong>The slope is \( -2 \).</strong>
       - id: sl2
         title: "Slip 2"
         math:
@@ -293,10 +298,10 @@ tabs:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "It should be −4, the number in its equation."}
           - {value: c, label: "It is horizontal, so its slope is 0."}
-          - {value: d, label: "It should be 1, since a line rises 1 for every 1 over."}
+          - {value: d, label: "It should be 4, the distance from the line to the x-axis."}
         correct: c
         explanation: |-
-          Every point on \( y=-4 \) has height \( -4 \), so the line is horizontal: the rise between any two points is 0, and \( \tfrac{0}{\text{run}}=0 \). Undefined slope belongs to vertical lines, like \( x=2 \), whose run is 0. \( -4 \) is the line's height, not its slope; and not every line rises 1 for every 1. <strong>The slope is 0.</strong>
+          Every point on \( y=-4 \) has height \( -4 \), so the line is horizontal: the rise between any two points is 0, and \( \tfrac{0}{\text{run}}=0 \). Undefined slope belongs to vertical lines, like \( x=2 \), whose run is 0. \( -4 \) is the line's height, and 4 is its distance from the \( x \)-axis; neither is a slope. <strong>The slope is 0.</strong>
       - id: sl4
         title: "Slip 4"
         table:
@@ -318,13 +323,13 @@ tabs:
         title: "Slip 5"
         math:
           display: 'f(x)=\sqrt{x}\ \text{ on }\ [4,9]:\quad \dfrac{\sqrt{9}-\sqrt{4}}{9-4}=\dfrac{\sqrt{5}}{5}'
-          speak: "f of x equals the square root of x, on the interval from 4 to 9: the fraction the square root of 9, end root, minus the square root of 4, end root, over 9 minus 4, end fraction, equals the fraction the square root of 5, end root, over 5, end fraction."
+          speak: "f of x equals the square root of x, end root, on the interval from 4 to 9: the fraction the square root of 9, end root, minus the square root of 4, end root, over 9 minus 4, end fraction, equals the fraction the square root of 5, end root, over 5, end fraction."
         prompt: 'A student found this average rate of change. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "√9 − √4 is 3 − 2 = 1, so it is 1/5."}
-          - {value: c, label: "Divide by √5 instead, giving √5/√5 = 1."}
-          - {value: d, label: "The interval length is 9, so it should be √5/9."}
+          - {value: c, label: "Divide by √5 instead, which gives 1."}
+          - {value: d, label: "The interval length is 9, so divide √5 by 9."}
         correct: b
         explanation: |-
           The student turned \( \sqrt{9}-\sqrt{4} \) into \( \sqrt{9-4}=\sqrt{5} \), but roots do not subtract that way. Evaluate each one first: \( \sqrt{9}-\sqrt{4}=3-2=1 \), so the answer is \( \tfrac{1}{5} \). The change in input is \( 9-4=5 \), not \( \sqrt{5} \) or 9. <strong>The average rate of change is \( \tfrac{1}{5} \).</strong>

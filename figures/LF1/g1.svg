@@ -70,5 +70,5 @@
 </g>
 <text x="380" y="176.0" text-anchor="end" fill="#333" font-style="italic">x</text>
 <text x="206.0" y="28" text-anchor="end" fill="#333" font-style="italic">y</text>
-<line x1="154.5" y1="352.0" x2="324.5" y2="12.0" stroke="#1a6b6b" stroke-width="3.5"/>
+<line x1="152.8" y1="12.0" x2="288.8" y2="352.0" stroke="#1a6b6b" stroke-width="3.5"/>
 </svg>
