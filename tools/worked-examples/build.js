@@ -29,7 +29,7 @@ function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, i
 }
 function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
   let out = '';
-  const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθ]$/.test(t) || /^[0-9]*√[0-9]+$/.test(t)
+  const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t) || /^[0-9]*√[0-9]+$/.test(t)
     || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, root, or function value
   const wrap = (t) => (t.length > 1 && !single(t) ? '(' + t + ')' : t);   // parentheses only around sums, products and the like   // no parentheses around a single letter or a letter with an exponent
   for (let i = 0; i < tex.length; i++) {
