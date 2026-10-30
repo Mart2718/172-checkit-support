@@ -15,6 +15,7 @@ KEY = {'semi': [-2, 0, 2], 'para': [-2, 0, 2], 'tent': [-2, 0, 2]}
 
 
 def fmt(v):
+    v = round(v, 6) + 0.0   # no negative zero in labels
     return ('%.1f' % v).rstrip('0').rstrip('.')
 
 
@@ -96,12 +97,12 @@ def overlay(name, shape, sign, b, c, flip, label_g=True, nudge=None):
 
 
 # Track the points: parent graphs with labeled key points
-parent_only('tp1.svg', 'para')
+parent_only('tp1.svg', 'semi', -1)
 parent_only('tp2.svg', 'semi')
 parent_only('tp3.svg', 'tent')
 parent_only('tp4.svg', 'para', -1)
 # Match the graph: parent dashed, g solid with labeled key points
-overlay('mg1.svg', 'para', 1, 3, -2, False, nudge={0: ('middle', 0, 30)})
+overlay('mg1.svg', 'tent', -1, -1, -3, True)
 overlay('mg2.svg', 'semi', 1, -2, 1, True, nudge={0: ('end', -10, -6)})
 overlay('mg3.svg', 'tent', 1, 1, 2, True)
 overlay('mg4.svg', 'para', -1, -5, 3, False)

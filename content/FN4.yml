@@ -2,7 +2,7 @@
 # Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
 # Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
 # CheckIt FN4 shows the graph of f on [-2, 2], one of three shapes: a semicircle sqrt(4 - x^2), a parabola piece 4 - x^2,
-# or a tent 4 - |x|, each possibly flipped upside down. It defines g(x) = (+/-) f(x +/- b) +/- c with b, c from 1 to 5, and asks
+# or a tent 4 - |x|, each possibly flipped upside down. The original may be named f, g or h. It defines g(x) = (+/-) f(x +/- b) +/- c with b, c from 1 to 5, and asks
 # (1) the sequence of transformations: horizontal shift, then reflection across the x-axis if there is one, then vertical shift;
 # (2) a sketch of g. The outcome also names stretches, but CheckIt FN4 does not use them.
 # The Beyond CheckIt tab covers vertical and horizontal stretches and compressions and f(-x), which are in class, the textbook,
@@ -21,7 +21,7 @@ worked:   # used for the worked-examples recording document
   coreFollowup: "Read g(x) = −f(x + b) + c from the inside out. The number inside the parentheses moves the graph sideways, and it moves the opposite way from its sign: x + 3 moves left 3. The minus in front flips the graph across the x-axis. The number added at the end moves it up or down. To sketch g, move the endpoints and the turning point one step at a time, then connect them with the same shape."
 summary:   # the Quick Summary tab
   intro: 'A transformation takes the graph of <span>\( f \)</span> and moves or flips it. <strong>Track a few key points</strong>, the endpoints and the turning point, and the shape comes along with them.'
-  caption: "What each part of g(x) = −f(x + b) + c does to the graph, and what to watch for"
+  caption: "What each part of a transformation formula does to the graph, and what to watch for"
   columns: ["In the formula", "What it does", "Watch out for"]
   rows:     # first cell of each row is the row header
     -
@@ -38,11 +38,11 @@ summary:   # the Quick Summary tab
       - 'Points on the <span>\( x \)</span>-axis do not move, because <span>\( a\cdot 0=0 \)</span>.'
     -
       - 'A number inside: <span>\( f(ax) \)</span> (class, textbook, homework)'
-      - 'A horizontal stretch or compression: all the inputs are divided by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph compresses toward the <span>\( y \)</span>-axis; if <span>\( 0\lt a<1 \)</span>, it stretches away from it. Each point <span>\( (x,y) \)</span> goes to <span>\( \left(\tfrac{x}{a},y\right) \)</span>.'
+      - 'A horizontal stretch or compression: every <span>\( x \)</span>-coordinate is divided by <span>\( a \)</span>. If <span>\( a>1 \)</span>, the graph compresses toward the <span>\( y \)</span>-axis; if <span>\( 0\lt a<1 \)</span>, it stretches away from it. Each point <span>\( (x,y) \)</span> goes to <span>\( \left(\tfrac{x}{a},y\right) \)</span>.'
       - 'Inside works opposite again: <span>\( f(2x) \)</span> squeezes the graph to half its width. Points on the <span>\( y \)</span>-axis do not move.'
     -
       - 'A minus inside: <span>\( f(-x) \)</span> (class, textbook, homework)'
-      - 'A horizontal reflection: every input is multiplied by <span>\( -1 \)</span>, so the graph reflects across the <span>\( y \)</span>-axis. Each point <span>\( (x,y) \)</span> goes to <span>\( (-x,y) \)</span>. From a formula, replace every <span>\( x \)</span> with <span>\( (-x) \)</span>: if <span>\( f(x)=x^{2}+3x \)</span>, then <span>\( f(-x)=x^{2}-3x \)</span>.'
+      - 'A horizontal reflection: every <span>\( x \)</span>-coordinate changes sign, so the graph reflects across the <span>\( y \)</span>-axis. Each point <span>\( (x,y) \)</span> goes to <span>\( (-x,y) \)</span>. From a formula, replace every <span>\( x \)</span> with <span>\( (-x) \)</span>: if <span>\( f(x)=x^{2}+3x \)</span>, then <span>\( f(-x)=x^{2}-3x \)</span>.'
       - 'A minus inside changes <span>\( x \)</span>; a minus outside changes <span>\( y \)</span>. A graph that is symmetric about the <span>\( y \)</span>-axis, like all three CheckIt shapes, looks the same after this reflection.'
     -
       - 'Outside: <span>\( f(x)+c \)</span> or <span>\( f(x)-c \)</span>'
@@ -51,8 +51,8 @@ summary:   # the Quick Summary tab
     -
       - 'All together: <span>\( -f(x+b)+c \)</span>'
       - 'Shift sideways, then reflect, then shift up or down. Each point <span>\( (x,y) \)</span> goes to <span>\( (x-b,\ -y+c) \)</span>.'
-      - 'Reflect before the vertical shift; that is the order that matters. Shifting up first and then reflecting would send the graph down instead. The sideways shift and the reflection can go in either order.'
-  note: 'CheckIt asks for two things: the sequence of transformations, in order, and a sketch of <span>\( g \)</span>. A complete answer to the first sounds like this: the graph of <span>\( f \)</span> is shifted left by 3, reflected across the <span>\( x \)</span>-axis, and then shifted up by 2. For the sketch, move the two endpoints and the top or bottom point, plot them, and connect them with the same shape as <span>\( f \)</span>. CheckIt''s FN4 problems use only shifts and reflections across the <span>\( x \)</span>-axis. Stretches, compressions, and reflections across the <span>\( y \)</span>-axis are not on CheckIt, but they are in class, the textbook, and the written homework, so they have their own Beyond CheckIt tab. Your CheckIt graph will be a semicircle, a parabola piece, or a tent, and your numbers will be different. Tracking points is what transfers.'
+      - 'Reflect before the vertical shift; that is the order that matters. Shifting up first and then reflecting would send the graph down instead. The sideways shift and the reflection can go in either order, but CheckIt lists the sideways shift first, so write it in that order.'
+  note: 'CheckIt asks for two things: the sequence of transformations, in order, and a sketch of <span>\( g \)</span>. A complete answer to the first sounds like this: the graph of <span>\( f \)</span> is shifted left by 3, reflected across the <span>\( x \)</span>-axis, and then shifted up by 2. For the sketch, move the two endpoints and the top or bottom point, plot them, and connect them with the same shape as <span>\( f \)</span>. CheckIt''s FN4 problems use only shifts and reflections across the <span>\( x \)</span>-axis. Stretches, compressions, and reflections across the <span>\( y \)</span>-axis are not on CheckIt, but they are in class, the textbook, and the written homework, so they have their own Beyond CheckIt tab. Your CheckIt graph will be a semicircle, a parabola piece, or a tent, possibly upside down to start with, and the original may be called <span>\( g \)</span> or <span>\( h \)</span> instead of <span>\( f \)</span>. Your numbers will be different. Tracking points is what transfers.'
 tabs:
   - id: read
     label: "Try It: Read the Formula"
@@ -73,7 +73,7 @@ tabs:
           - {value: d, label: "Shift left 2, then down 3"}
         correct: c
         explanation: |-
-          Inside the parentheses, \( x-2 \) shifts the graph <em>right</em> 2: the input has to be 2 bigger to get the same output, so every point slides 2 to the right. Outside, \( +3 \) shifts it up 3, the same way as the sign. Reading the inside sign at face value gives "left 2", and the 2 and 3 are not interchangeable. <strong>Shift right 2, then up 3.</strong>
+          Inside the parentheses, \( x-2 \) shifts the graph <em>right</em> 2: the input has to be 2 bigger to get the same output, so every point slides 2 to the right. Outside, \( +3 \) shifts it up 3, the same way as the sign. Reading the inside sign at face value gives "left 2"; reading both signs backwards gives "left 2, then down 3"; and the 2 and 3 are not interchangeable. <strong>Shift right 2, then up 3.</strong>
       - id: rf2
         title: "Read 2"
         math:
@@ -87,7 +87,7 @@ tabs:
           - {value: d, label: "Shift left 4, shift down 1, then reflect across the x-axis"}
         correct: a
         explanation: |-
-          \( x+4 \) shifts left 4. The minus in front of \( f \) flips every \( y \)-value, a reflection across the \( x \)-axis. Then \( -1 \) shifts down 1. Order matters: shifting down first and then reflecting would end up 1 <em>above</em> the reflected graph, which is \( -(f(x+4)-1)=-f(x+4)+1 \). A reflection across the \( y \)-axis would need the minus inside, \( f(-x) \). <strong>Left 4, reflect across the x-axis, then down 1.</strong>
+          \( x+4 \) shifts left 4. The minus in front of \( f \) flips every \( y \)-value, a reflection across the \( x \)-axis. Then \( -1 \) shifts down 1. Order matters: shifting down first and then reflecting would end up 1 <em>above</em> the reflected graph, which is \( -(f(x+4)-1)=-f(x+4)+1 \). Reading \( x+4 \) at face value gives "right 4", and a reflection across the \( y \)-axis would need the minus inside, \( f(-x) \). <strong>Left 4, reflect across the x-axis, then down 1.</strong>
       - id: rf3
         title: "Read 3"
         math:
@@ -105,17 +105,17 @@ tabs:
       - id: rf4
         title: "Read 4"
         math:
-          display: 'g(x)=f(x+5)-4'
-          speak: "g of x equals f of the quantity x plus 5, end quantity, minus 4"
-        prompt: 'The point (0, 4) is on the graph of f. Which point is on the graph of g?'
+          display: 'f(x)=-h(x-3)+2'
+          speak: "f of x equals negative h of the quantity x minus 3, end quantity, plus 2"
+        prompt: 'This time the original graph is h, and the new one is f. How is the graph of f related to the graph of h, in order?'
         choices:
-          - {value: a, label: "(5, 0)"}
-          - {value: b, label: "(−5, 0)"}
-          - {value: c, label: "(−5, 8)"}
-          - {value: d, label: "(5, 8)"}
-        correct: b
+          - {value: a, label: "Shift left 3, reflect across the x-axis, then shift down 2"}
+          - {value: b, label: "Shift left 3, reflect across the x-axis, then shift up 2"}
+          - {value: c, label: "Shift right 3, reflect across the x-axis, then shift up 2"}
+          - {value: d, label: "Shift right 3, shift up 2, then reflect across the x-axis"}
+        correct: c
         explanation: |-
-          \( x+5 \) moves every point left 5, so \( x=0 \) becomes \( x=-5 \). Then \( -4 \) moves it down 4, so \( y=4 \) becomes \( y=0 \). Check: \( g(-5)=f(-5+5)-4=f(0)-4=4-4=0 \). The other points move right or up instead. <strong>\( (-5,0) \).</strong>
+          The letters change, but the reading does not: the function inside is the original. \( x-3 \) shifts right 3, the minus in front reflects across the \( x \)-axis, and \( +2 \) shifts up 2, last. "Left 3 ... down 2" reverses the direction of both shifts; "left 3 ... up 2" reads the inside sign at face value; and shifting up before reflecting would give \( -(h(x-3)+2)=-h(x-3)-2 \), 4 lower. <strong>Right 3, reflect across the x-axis, then up 2.</strong>
   - id: track
     label: "Try It: Track the Points"
     heading: "Try It: Track the Points"
@@ -126,20 +126,20 @@ tabs:
         title: "Track 1"
         figure:
           file: figures/FN4/tp1.svg
-          title: "The graph of f, a parabola piece from x = −2 to x = 2"
-          caption: 'The graph of f on a grid from −8 to 8 in both directions. It is an arch of the parabola y = 4 − x squared, drawn only from x = −2 to x = 2. It starts at the point (−2, 0), rises to its top point (0, 4), and comes back down to (2, 0). All three points are labeled.'
+          title: "The graph of f, a lower semicircle from x = −2 to x = 2"
+          caption: 'The graph of f on a grid from −8 to 8 in both directions. It is the bottom half of a circle of radius 2 centered at the origin. It starts at (−2, 0), goes down to its lowest point (0, −2), and comes back up to (2, 0). All three points are labeled.'
         math:
-          display: 'g(x)=f(x-3)+1'
-          speak: "g of x equals f of the quantity x minus 3, end quantity, plus 1"
-        prompt: 'Where does the top point (0, 4) of f end up on the graph of g?'
+          display: 'g(x)=-f(x+2)-1'
+          speak: "g of x equals negative f of the quantity x plus 2, end quantity, minus 1"
+        prompt: 'Where do the three labeled points go on the graph of g?'
         choices:
-          - {value: a, label: "(3, 5)"}
-          - {value: b, label: "(−3, 5)"}
-          - {value: c, label: "(3, 3)"}
-          - {value: d, label: "(−3, 3)"}
-        correct: a
+          - {value: a, label: "(−4, −1), (−2, −3), (0, −1)"}
+          - {value: b, label: "(−4, −1), (−2, 1), (0, −1)"}
+          - {value: c, label: "(0, −1), (2, 1), (4, −1)"}
+          - {value: d, label: "(−4, 1), (−2, 3), (0, 1)"}
+        correct: b
         explanation: |-
-          \( x-3 \) moves the point right 3, to \( (3,4) \). Then \( +1 \) moves it up 1, to \( (3,5) \). The endpoints go along: \( (-2,0) \) goes to \( (1,1) \) and \( (2,0) \) goes to \( (5,1) \). Sketch those three points and draw the same arch through them. <strong>\( (3,5) \).</strong>
+          Step by step: left 2 gives \( (-4,0),(-2,-2),(0,0) \). Reflecting across the \( x \)-axis changes the sign of each \( y \): \( (-4,0),(-2,2),(0,0) \). Down 1 gives \( (-4,-1),(-2,1),(0,-1) \). This \( f \) started upside down, so the reflection turns it right side up: an arch with its top at \( (-2,1) \). The list with \( (-2,-3) \) skips the reflection; the one starting at \( (0,-1) \) goes right; and \( (-4,1),(-2,3),(0,1) \) shifts down before reflecting. <strong>\( (-4,-1),\ (-2,1),\ (0,-1) \).</strong>
       - id: tp2
         title: "Track 2"
         figure:
@@ -193,7 +193,7 @@ tabs:
           - {value: d, label: "[−1, 3]"}
         correct: c
         explanation: |-
-          The domain is the set of \( x \)-values, so only the sideways shift changes it. Right 4 moves \( [-2,2] \) to \( [2,6] \). The \( +1 \) moves the graph up, which changes the range, not the domain. The interval \( [-6,-2] \) goes left, and \( [-1,3] \) uses the 1 instead of the 4. <strong>\( [2,6] \).</strong>
+          The domain is the set of \( x \)-values, so only the sideways shift changes it. Right 4 moves \( [-2,2] \) to \( [2,6] \). The \( +1 \) moves the graph up, which changes the range, not the domain. The interval \( [-6,-2] \) goes left, \( [-2,2] \) forgets that the sideways shift moves the domain, and \( [-1,3] \) uses the 1 instead of the 4. <strong>\( [2,6] \).</strong>
   - id: match
     label: "Try It: Match the Graph"
     heading: "Try It: Match the Graph"
@@ -205,22 +205,24 @@ tabs:
         figure:
           file: figures/FN4/mg1.svg
           title: "The graph of f, dashed, and the graph of g, solid"
-          caption: 'Grid from −8 to 8. Dashed: the graph of f, the arch y = 4 − x squared from (−2, 0) up to (0, 4) and down to (2, 0). Solid: the graph of g, the same arch shape from (−5, −2) up to its top point (−3, 2) and down to (−1, −2). The three points of g are labeled.'
+          caption: 'Grid from −8 to 8. Dashed: the graph of f, the V shape y = absolute value of x, minus 4, from (−2, −2) down to (0, −4) and up to (2, −2). Solid: the graph of g, a tent shape from (−1, −1) up to its peak (1, 1) and down to (3, −1). The three points of g are labeled.'
+          collapse: true
         prompt: 'Which formula gives g?'
         choices:
-          - {value: a, label: '\( g(x)=f(x-3)-2 \)', speak: "g of x equals f of the quantity x minus 3, end quantity, minus 2"}
-          - {value: b, label: '\( g(x)=f(x+3)+2 \)', speak: "g of x equals f of the quantity x plus 3, end quantity, plus 2"}
-          - {value: c, label: '\( g(x)=f(x+2)-3 \)', speak: "g of x equals f of the quantity x plus 2, end quantity, minus 3"}
-          - {value: d, label: '\( g(x)=f(x+3)-2 \)', speak: "g of x equals f of the quantity x plus 3, end quantity, minus 2"}
-        correct: d
+          - {value: a, label: '\( g(x)=-f(x-1)-3 \)', speak: "g of x equals negative f of the quantity x minus 1, end quantity, minus 3"}
+          - {value: b, label: '\( g(x)=f(x-1)+5 \)', speak: "g of x equals f of the quantity x minus 1, end quantity, plus 5"}
+          - {value: c, label: '\( g(x)=-f(x+1)-3 \)', speak: "g of x equals negative f of the quantity x plus 1, end quantity, minus 3"}
+          - {value: d, label: '\( g(x)=-f(x-1)+3 \)', speak: "g of x equals negative f of the quantity x minus 1, end quantity, plus 3"}
+        correct: a
         explanation: |-
-          Compare the top points: \( (0,4) \) moved to \( (-3,2) \), so the graph went left 3 and down 2. The arch is still right side up, so there is no reflection. Left 3 is \( x+3 \) inside, and down 2 is \( -2 \) outside. The \( x-3 \) version goes right, the \( +2 \) version goes up, and \( f(x+2)-3 \) swaps the 3 and the 2. <strong>\( g(x)=f(x+3)-2 \).</strong>
+          The V has become a tent, so there is a reflection: a minus in front. The middle point moved from \( x=0 \) to \( x=1 \), right 1, so \( x-1 \) inside. After the shift and the reflection, \( (0,-4) \) would be at \( (1,4) \); it is at \( (1,1) \), so down 3. Check an end: \( g(-1)=-f(-2)-3=-(-2)-3=-1 \). \( f(x-1)+5 \) puts the middle point at \( (1,1) \) too, but keeps the V shape; \( x+1 \) goes left; and \( +3 \) would put the peak at \( (1,7) \). <strong>\( g(x)=-f(x-1)-3 \).</strong>
       - id: mg2
         title: "Match 2"
         figure:
           file: figures/FN4/mg2.svg
           title: "The graph of f, dashed, and the graph of g, solid"
           caption: 'Grid from −8 to 8. Dashed: the graph of f, the upper semicircle from (−2, 0) up to (0, 2) and down to (2, 0). Solid: the graph of g, a bowl-shaped half circle that starts at (0, 1), goes down to its lowest point (2, −1), and comes back up to (4, 1). The three points of g are labeled.'
+          collapse: true
         prompt: 'Which formula gives g?'
         choices:
           - {value: a, label: '\( g(x)=-f(x-2)+1 \)', speak: "g of x equals negative f of the quantity x minus 2, end quantity, plus 1"}
@@ -236,6 +238,7 @@ tabs:
           file: figures/FN4/mg3.svg
           title: "The graph of f, dashed, and the graph of g, solid"
           caption: 'Grid from −8 to 8. Dashed: the graph of f, the tent from (−2, 2) up to (0, 4) and down to (2, 2). Solid: the graph of g, a V shape from (−3, 0) down to its lowest point (−1, −2) and back up to (1, 0). The three points of g are labeled.'
+          collapse: true
         prompt: 'Which formula gives g?'
         choices:
           - {value: a, label: '\( g(x)=-f(x-1)+2 \)', speak: "g of x equals negative f of the quantity x minus 1, end quantity, plus 2"}
@@ -251,6 +254,7 @@ tabs:
           file: figures/FN4/mg4.svg
           title: "The graph of f, dashed, and the graph of g, solid"
           caption: 'Grid from −8 to 8. Dashed: the graph of f, the bowl y = x squared − 4 from (−2, 0) down to (0, −4) and up to (2, 0). Solid: the graph of g, the same bowl shape from (3, 3) down to its lowest point (5, −1) and up to (7, 3). The three points of g are labeled.'
+          collapse: true
         prompt: 'Which formula gives g?'
         choices:
           - {value: a, label: '\( g(x)=f(x+5)+3 \)', speak: "g of x equals f of the quantity x plus 5, end quantity, plus 3"}
@@ -283,7 +287,7 @@ tabs:
           - {value: d, label: "(4, 1)"}
         correct: b
         explanation: |-
-          The 2 is outside, so it multiplies the output: \( g(4)=2f(4)=2\cdot 2=4 \). The point keeps its \( x \) and doubles its \( y \): \( (4,2) \) goes to \( (4,4) \). This is a vertical stretch away from the \( x \)-axis, and \( (0,0) \) stays put. The answers \( (8,2) \) and \( (2,2) \) change the input, and \( (4,1) \) halves the output instead. <strong>\( (4,4) \).</strong>
+          The 2 is outside, so it multiplies the output: \( g(4)=2f(4)=2\cdot 2=4 \). The point keeps its \( x \) and doubles its \( y \): \( (4,2) \) goes to \( (4,4) \). This is a vertical stretch away from the \( x \)-axis, and \( (0,0) \) stays put. The answers \( (8,2) \) and \( (2,2) \) keep the height at 2, but a number outside changes the height; and \( (4,1) \) halves the output instead. <strong>\( (4,4) \).</strong>
       - id: bc2
         title: "Beyond 2"
         figure:
@@ -301,7 +305,7 @@ tabs:
           - {value: d, label: "(−2, 0), (0, 2), (2, 0)"}
         correct: d
         explanation: |-
-          Multiply every output by \( \tfrac{1}{2} \): \( (0,4) \) goes to \( (0,2) \), and the endpoints stay at \( (\pm 2,0) \) because half of 0 is 0. Since \( 0<\tfrac{1}{2}<1 \), the arch is compressed toward the \( x \)-axis: same width, half as tall. The list with \( (0,8) \) multiplies by 2, and the two lists that move the endpoints change the inputs instead, which is \( f(2x) \) or \( f\left(\tfrac{1}{2}x\right) \). <strong>\( (-2,0),\ (0,2),\ (2,0) \).</strong>
+          Multiply every output by \( \tfrac{1}{2} \): \( (0,4) \) goes to \( (0,2) \), and the endpoints stay at \( (\pm 2,0) \) because half of 0 is 0. Since \( 0<\tfrac{1}{2}<1 \), the arch is compressed toward the \( x \)-axis: same width, half as tall. The list with \( (0,8) \) multiplies by 2, and the two lists that move the endpoints change the \( x \)-coordinates, which a number outside never does. <strong>\( (-2,0),\ (0,2),\ (2,0) \).</strong>
       - id: bc3
         title: "Beyond 3"
         figure:
@@ -331,13 +335,13 @@ tabs:
           speak: "g of x equals f of negative x"
         prompt: 'The point (4, 2) is on the graph of f. Which point is on the graph of g?'
         choices:
-          - {value: a, label: "(−4, 2)"}
+          - {value: a, label: "(4, −2)"}
           - {value: b, label: "(−4, −2)"}
-          - {value: c, label: "(4, −2)"}
+          - {value: c, label: "(−4, 2)"}
           - {value: d, label: "(2, −4)"}
-        correct: a
+        correct: c
         explanation: |-
-          \( g(-4)=f(4)=2 \), because \( -(-4)=4 \), so \( (-4,2) \) is on \( g \). The input changes sign and the output stays the same: \( (x,y) \) goes to \( (-x,y) \), a reflection across the \( y \)-axis. The whole graph of \( \sqrt{x} \) flips to the left side. The point \( (4,-2) \) is the reflection across the \( x \)-axis, \( -f(x) \), and \( (-4,-2) \) reflects across both axes. <strong>\( (-4,2) \).</strong>
+          \( g(-4)=f(4)=2 \), because \( -(-4)=4 \), so \( (-4,2) \) is on \( g \). The input changes sign and the output stays the same: \( (x,y) \) goes to \( (-x,y) \), a reflection across the \( y \)-axis. The whole graph of \( \sqrt{x} \) flips to the left side. The point \( (4,-2) \) is the reflection across the \( x \)-axis, \( -f(x) \), \( (-4,-2) \) reflects across both axes; and \( (2,-4) \) swaps the coordinates and changes a sign. <strong>\( (-4,2) \).</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -357,7 +361,7 @@ tabs:
           - {value: d, label: "It is a reflection across the y-axis, then a shift right."}
         correct: c
         explanation: |-
-          Inside the parentheses, the shift goes the opposite way from the sign. The point that was at \( x=0 \) now appears at \( x=-3 \), since \( g(-3)=f(0) \). <strong>The graph shifts left 3.</strong>
+          Inside the parentheses, the shift goes the opposite way from the sign. The point that was at \( x=0 \) now appears at \( x=-3 \), since \( g(-3)=f(0) \). A shift up 3 would be \( f(x)+3 \), with the 3 outside; and with no minus sign anywhere, there is no reflection. <strong>The graph shifts left 3.</strong>
       - id: sl2
         title: "Slip 2"
         math:
@@ -371,7 +375,7 @@ tabs:
           - {value: d, label: "It should be (−4, 5), moving left and up."}
         correct: a
         explanation: |-
-          \( x-4 \) moves right 4, and \( -1 \) moves down 1: \( (0,4) \) goes to \( (4,3) \). Check: \( g(4)=f(4-4)-1=f(0)-1=4-1=3 \). <strong>There is no mistake.</strong>
+          \( x-4 \) moves right 4, and \( -1 \) moves down 1: \( (0,4) \) goes to \( (4,3) \). Check: \( g(4)=f(4-4)-1=f(0)-1=4-1=3 \). \( (-4,3) \) reads the inside sign at face value, \( (4,5) \) reads the outside sign backwards, and \( (-4,5) \) does both. <strong>There is no mistake.</strong>
       - id: sl3
         title: "Slip 3"
         math:
@@ -379,13 +383,13 @@ tabs:
           speak: "g of x equals negative f of the quantity x minus 1, end quantity, plus 2"
         prompt: 'A student described g as: shift right 1, shift up 2, then reflect across the x-axis. What is the mistake, if any?'
         choices:
-          - {value: a, label: "There is no mistake; the order does not matter."}
+          - {value: a, label: "There is no mistake."}
           - {value: b, label: "It should shift left 1, not right 1."}
           - {value: c, label: "The reflection should be across the y-axis, not the x-axis."}
           - {value: d, label: "The reflection has to come before the shift up 2."}
         correct: d
         explanation: |-
-          The minus multiplies \( f(x-1) \), not the \( +2 \). So reflect first, then shift up 2. The student's order gives \( -(f(x-1)+2)=-f(x-1)-2 \), which ends up 4 lower. <strong>Right 1, reflect across the x-axis, then up 2.</strong>
+          The minus multiplies \( f(x-1) \), not the \( +2 \). So reflect first, then shift up 2. The student's order gives \( -(f(x-1)+2)=-f(x-1)-2 \), which ends up 4 lower, so the order does matter. \( x-1 \) does shift right, and a reflection across the \( y \)-axis would need \( f(-x) \). <strong>Right 1, reflect across the x-axis, then up 2.</strong>
       - id: sl4
         title: "Slip 4"
         math:
@@ -399,7 +403,7 @@ tabs:
           - {value: d, label: "It is a reflection across the line y = x instead."}
         correct: b
         explanation: |-
-          \( -f(x) \) keeps every \( x \) and changes the sign of every \( y \): \( (x,y) \) goes to \( (x,-y) \). That flips the graph across the \( x \)-axis. A reflection across the \( y \)-axis would be \( f(-x) \), which changes the sign of \( x \). For CheckIt's three shapes, which are symmetric, that would not change the graph at all. <strong>It reflects across the x-axis.</strong>
+          \( -f(x) \) keeps every \( x \) and changes the sign of every \( y \): \( (x,y) \) goes to \( (x,-y) \). That flips the graph across the \( x \)-axis. A reflection across the \( y \)-axis would be \( f(-x) \), which changes the sign of \( x \). For CheckIt's three shapes, which are symmetric, that would not change the graph at all. The minus multiplies, so it does not shift the graph down; and a reflection across the line \( y=x \) swaps the coordinates, which is a different idea. <strong>It reflects across the x-axis.</strong>
       - id: sl5
         title: "Slip 5"
         math:
@@ -407,10 +411,10 @@ tabs:
           speak: "g of x equals negative f of the quantity x plus 2, end quantity, minus 3"
         prompt: 'A student says the point (0, 4) on f moves to (−2, 1) on g. What is the mistake, if any?'
         choices:
-          - {value: a, label: "It should be (2, 1), since x + 2 moves right."}
-          - {value: b, label: "There is no mistake."}
-          - {value: c, label: "The reflection was skipped; it should be (−2, −7)."}
-          - {value: d, label: "It should be (−2, −1), reflecting after the shift down."}
-        correct: c
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The reflection was skipped; it should be (−2, −7)."}
+          - {value: c, label: "It should be (−2, −1), since −4 − 3 = −1 after reflecting."}
+          - {value: d, label: "It should be (−5, −4), since the 3 moves it 3 more to the left."}
+        correct: b
         explanation: |-
-          Left 2 gives \( (-2,4) \). Reflecting across the \( x \)-axis gives \( (-2,-4) \). Down 3 gives \( (-2,-7) \). The student did the shifts but not the reflection. Check: \( g(-2)=-f(0)-3=-4-3=-7 \). <strong>It moves to \( (-2,-7) \).</strong>
+          Left 2 gives \( (-2,4) \). Reflecting across the \( x \)-axis gives \( (-2,-4) \). Down 3 gives \( (-2,-7) \). The student did the shifts but not the reflection. Check: \( g(-2)=-f(0)-3=-4-3=-7 \). \( -4-3 \) is \( -7 \), not \( -1 \); and the 3 is outside the parentheses, so it moves the graph down, not sideways. <strong>It moves to \( (-2,-7) \).</strong>

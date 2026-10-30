@@ -59,3 +59,20 @@ CheckIt display quirks students may notice:
 - Three earlier f(−x) items were cut, and their ideas moved to the Quick Summary: the formula pick (as the memory hook "a minus inside changes x; outside changes y"), the algebra example f(x) = x² + 3x, and the symmetric-shape note.
 - The summary adds the instructor's definitions of af(x) and f(ax).
 - Rechecked: lint, axe-core (0 violations on every tab at both widths), and 320 px reflow with and without text spacing.
+
+## Re-audit 2026-10-30 (current rule set)
+An independent agent re-checked all 21 items, the figures (regenerated and compared point by point), the Quick Summary and the speak lines against the CheckIt generator. Every key was correct. Fixed:
+1. Answer positions: no tab's keys are a permutation of a, b, c, d any more.
+2. Every distractor's origin is now named in the feedback (Read 1, 2; Track 4; Beyond 4; all five slips).
+3. Spot the Slip: "There is no mistake." is choice a in every slip, worded the same everywhere. Slip 5's distractors were partly answered by Slips 1 and 3; it now tests an arithmetic slip and an inside/outside mix-up instead.
+4. Match captions named g's shape and turning point, which is the whole skill of the Match tab. All four descriptions now sit in a closed "Text description of the graph" disclosure; screen readers still get them.
+5. Beyond 1 and 2 feedback no longer explains what an inside number does, which narrowed Beyond 3.
+6. Coverage of the generator (it can name the original g or h, start with an upside-down shape, and reflect it back right side up):
+   - Read 4 now uses h as the original and f as the new graph.
+   - Track 1 now starts from the lower semicircle, so the reflection turns it right side up, with a downward shift.
+   - Match 1 now starts from the V shape |x| − 4, reflected into a tent, with a downward shift.
+7. Quick Summary: x-coordinate wording for f(ax) and f(−x), a caption that covers every row, "CheckIt lists the sideways shift first, so write it in that order", and a note that the original may be upside down or called g or h.
+8. The figure script no longer prints "−0" in point labels.
+Worked examples and the Canvas quiz were regenerated.
+
+Source note: the generator's answer plot for a right shift has no fixed y-window (line 51), so CheckIt's sketch window can differ between problems.
