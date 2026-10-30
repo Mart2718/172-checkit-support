@@ -19,31 +19,35 @@ worked:   # used for the worked-examples recording document
   coreQuestion: "Am I given the input and finding the output, or given the output and finding the inputs?"
   coreFollowup: "f(a) means the output when the input is a: replace x with a, using the piece whose condition a satisfies. g(x) = b gives the output and asks for every input that produces it: on a graph, draw the horizontal line y = b and read the x-value at each crossing."
 summary:   # the Quick Summary tab
-  intro: 'Function notation is a sentence: <span>\( f(2)=7 \)</span> says "when the input is 2, the output is 7." <strong>Every FN2 question asks you to go one way or the other: input to output, or output back to inputs.</strong>'
+  intro: 'Function notation is a sentence: <span>\( f(2)=7 \)</span> says "when the input is 2, the output is 7." <strong>Two key tasks are finding an output from an input and finding inputs that produce a given output.</strong> Every CheckIt FN2 question is one of these.'
   caption: "How to work with function notation, and what to watch for"
   columns: ["When you see", "Do this", "Watch out for"]
   rows:     # first cell of each row is the row header
     -
       - '<span>\( f(a) \)</span> with a formula'
       - 'Replace every <span>\( x \)</span> with <span>\( a \)</span>, in parentheses, and simplify.'
-      - 'Square or cube the whole negative: <span>\( (-3)^{2}=9 \)</span>, not <span>\( -9 \)</span>.'
+      - 'Keep negative inputs in parentheses when substituting: <span>\( (-3)^{2}=9 \)</span>, while <span>\( (-3)^{3}=-27 \)</span>.'
     -
       - 'A piecewise function'
       - 'Find the piece whose condition <span>\( a \)</span> makes true, and use only that formula.'
-      - 'At the cut, read ≤ and &lt; carefully: exactly one piece includes it.'
+      - 'Check which condition includes the boundary value: read ≤ and &lt; carefully.'
     -
       - 'A radical or fraction result'
       - 'Leave it exact and simplify: <span>\( \sqrt{50}=5\sqrt{2} \)</span>, and reduce fractions.'
-      - 'For formula answers, CheckIt wants exact values, not rounded decimals. A root can come out whole: <span>\( \sqrt{49}=7 \)</span>.'
+      - 'Keep answers exact unless an approximation is requested; CheckIt''s formula answers are exact. A root can come out whole: <span>\( \sqrt{49}=7 \)</span>.'
+    -
+      - '<span>\( f(x)=b \)</span> with a formula (class, textbook, homework)'
+      - 'Set the formula equal to <span>\( b \)</span> and solve for <span>\( x \)</span>.'
+      - 'Find all solutions in the function''s domain. The answers are inputs.'
     -
       - '<span>\( g(a) \)</span> on a graph'
       - 'Go to <span>\( x=a \)</span>, move straight up or down to the graph, and read the height.'
       - 'The answer is a <span>\( y \)</span>-value.'
     -
       - '<span>\( g(x)=b \)</span> on a graph'
-      - 'Draw the horizontal line <span>\( y=b \)</span>. Every place it meets the graph gives an <span>\( x \)</span>-value.'
-      - 'There can be several, including the ends of the graph and halves like <span>\( x=1.5 \)</span>.'
-  note: 'A point <span>\( (a,b) \)</span> on the graph of <span>\( g \)</span> means <span>\( g(a)=b \)</span>. Your CheckIt graph will not mark its ends or corners with dots: the ends are where the line stops, and they count when they are inside the interval in the question. There may be one, two, three, or more answers to <span>\( g(x)=b \)</span>. Your CheckIt function and graph will have different numbers. Telling inputs from outputs is what transfers.'
+      - 'Draw the horizontal line <span>\( y=b \)</span>. Find every intersection and read its <span>\( x \)</span>-coordinate.'
+      - 'There may be no solutions, one, or several. Include only points on the graph; open circles are excluded. Answers can be the ends of the graph or halves like <span>\( x=1.5 \)</span>.'
+  note: 'A point <span>\( (a,b) \)</span> on the graph of <span>\( g \)</span> means <span>\( g(a)=b \)</span>. Your CheckIt graph will not mark its ends or corners with dots: the ends are where the line stops, and they count when they are inside the interval in the question. On CheckIt, <span>\( g(x)=b \)</span> always has at least one answer, and it may have several. In class, the textbook, and homework, watch for undefined values: over the real numbers, a square root requires a nonnegative radicand, and a denominator cannot be zero. Your CheckIt function and graph will have different numbers. Telling inputs from outputs is what transfers.'
 tabs:
   - id: pieces
     label: "Try It: Evaluate a Piecewise Function"

@@ -52,3 +52,12 @@ TBIL's FN2 generator checks out. Notes:
 ## Update 2026-10-30: graph descriptions that gave answers away
 - All seven graph descriptions now sit in a closed "Text description of the graph" disclosure. Several stated answers outright (the corner (3, 2) for g(3), the end (5, 0), the corner (−1, −2), the end (3, 0)); the rest are collapsed for consistency. Screen readers still get the full descriptions through aria-describedby. Canvas quiz regenerated.
 - Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.
+
+## Update 2026-10-30: Quick Summary wording from a colleague's review
+- Opening: "Two key tasks are finding an output from an input and finding inputs that produce a given output. Every CheckIt FN2 question is one of these."
+- Negative inputs: keep them in parentheses when substituting, (−3)² = 9 while (−3)³ = −27.
+- Piecewise: "Check which condition includes the boundary value."
+- Exact answers: "Keep answers exact unless an approximation is requested; CheckIt's formula answers are exact."
+- New row, labeled (class, textbook, homework): f(x) = b with a formula, set the formula equal to b and solve; find all solutions in the domain.
+- Graph: "Find every intersection and read its x-coordinate"; there may be no solutions, one, or several; open circles are excluded. The note keeps the CheckIt fact that g(x) = b always has at least one answer there.
+- Note, labeled class/textbook/homework: a square root needs a nonnegative radicand and a denominator cannot be zero (CheckIt FN2's root and fraction are always defined).
