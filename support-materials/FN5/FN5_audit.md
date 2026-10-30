@@ -39,3 +39,9 @@ TBIL's FN5 generator checks out. Notes:
 
 ## Needs a live screen reader
 - How NVDA reads the long product and quotient speak lines, and whether feedback is announced once.
+
+## Update 2026-10-30: Quick Summary wording from a colleague's review
+- Note: a domain line for sums, differences, products, quotients (g(x) ≠ 0), and compositions (x in the domain of g, g(x) in the domain of f).
+- Product: "A product can be left factored, including when a factor contains a radical" (the old wording sounded like a rule against distributing).
+- Composition: names the (f∘g)(x) notation, and says "Follow the composition notation: in f(g(x)), apply g first, then f, whichever function is listed first."
+- Composition at a number: "Follow the order shown in each question; it may differ from the previous question."

@@ -33,7 +33,7 @@ summary:   # the Quick Summary tab
       - 'The minus reaches every term of <span>\( g \)</span>: <span>\( -(2x-3) \)</span> is <span>\( -2x+3 \)</span>. Order matters: <span>\( g-f \)</span> is the opposite.'
     -
       - 'Product'
-      - 'For <span>\( f(x)\cdot g(x) \)</span>, multiply every term of one by every term of the other, then combine like terms. With a root, keep it as one factor: <span>\( (4x-1)\sqrt{3x+2} \)</span>.'
+      - 'For <span>\( f(x)\cdot g(x) \)</span>, multiply every term of one by every term of the other, then combine like terms. A product can be left factored, including when a factor contains a radical, like <span>\( (4x-1)\sqrt{3x+2} \)</span>.'
       - 'Keep the middle terms. CheckIt leaves the product unexpanded, as two factors side by side; that is the same function.'
     -
       - 'Quotient'
@@ -41,13 +41,13 @@ summary:   # the Quick Summary tab
       - 'If <span>\( g \)</span> is itself a fraction, flip it and multiply. Only factors cancel, never single terms. The quotient is undefined where <span>\( g(x)=0 \)</span>.'
     -
       - 'Composition'
-      - 'For <span>\( f(g(x)) \)</span>, replace every <span>\( x \)</span> in <span>\( f \)</span> with <span>\( (g(x)) \)</span>, in parentheses. Simplifying is optional; CheckIt often leaves it as is.'
-      - '<span>\( f(g(x)) \)</span> and <span>\( g(f(x)) \)</span> are usually different. A composition is not a product. Read the letters, not which function is listed first.'
+      - 'For <span>\( f(g(x)) \)</span>, also written <span>\( (f\circ g)(x) \)</span>, replace every <span>\( x \)</span> in <span>\( f \)</span> with <span>\( (g(x)) \)</span>, in parentheses. Simplifying is optional; CheckIt often leaves it as is.'
+      - '<span>\( f(g(x)) \)</span> and <span>\( g(f(x)) \)</span> are usually different. A composition is not a product. Follow the composition notation: in <span>\( f(g(x)) \)</span>, apply <span>\( g \)</span> first, then <span>\( f \)</span>, whichever function is listed first.'
     -
       - 'Composition at a number'
       - 'For <span>\( f(g(2)) \)</span>, work from the inside out: find <span>\( g(2) \)</span>, then put that number into <span>\( f \)</span>.'
-      - 'Check which letter is inside. On CheckIt, the value question uses the opposite order from the formula question.'
-  note: 'CheckIt gives you four different functions with letters like <span>\( f \)</span>, <span>\( g \)</span>, <span>\( h \)</span>, <span>\( p \)</span>, <span>\( q \)</span>, and <span>\( r \)</span>. They can be lines, quadratics, cubics, square roots, or fractions like <span>\( \dfrac{2x}{x+3} \)</span>. The number you plug in can be negative, and answers are exact: leave roots and fractions as they are, such as <span>\( \sqrt{11} \)</span> or <span>\( \tfrac{21}{5} \)</span>. A cubic can make the answer large. Your CheckIt functions will be different. Reading which function goes where is what transfers.'
+      - 'Check which letter is inside. Follow the order shown in each question; it may differ from the previous question.'
+  note: '<strong>Domain:</strong> for sums, differences, and products, both functions must be defined at the input. For quotients, also require <span>\( g(x)\neq 0 \)</span>. For <span>\( f(g(x)) \)</span>, <span>\( x \)</span> must be in the domain of <span>\( g \)</span>, and <span>\( g(x) \)</span> must be in the domain of <span>\( f \)</span>. CheckIt gives you four different functions with letters like <span>\( f \)</span>, <span>\( g \)</span>, <span>\( h \)</span>, <span>\( p \)</span>, <span>\( q \)</span>, and <span>\( r \)</span>. They can be lines, quadratics, cubics, square roots, or fractions like <span>\( \dfrac{2x}{x+3} \)</span>. The number you plug in can be negative, and answers are exact: leave roots and fractions as they are, such as <span>\( \sqrt{11} \)</span> or <span>\( \tfrac{21}{5} \)</span>. A cubic can make the answer large. Your CheckIt functions will be different. Reading which function goes where is what transfers.'
 tabs:
   - id: combine
     label: "Try It: Combine Two Functions"
