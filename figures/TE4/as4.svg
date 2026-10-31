@@ -6,9 +6,9 @@
 <text x="46" y="276" text-anchor="middle">A</text>
 <text x="396" y="276" text-anchor="middle">C</text>
 <text x="396" y="42" text-anchor="middle">B</text></g>
-<text x="394" y="160" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="28">a = 11</text>
-<text x="220" y="282" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="28">b</text>
-<text x="198" y="138" text-anchor="end" fill="#a84d16" font-style="italic" font-size="28">c = ?</text>
+<text x="394" y="160" text-anchor="start" fill="#a84d16" font-style="italic" font-size="28">a = ?</text>
+<text x="220" y="282" text-anchor="middle" fill="#1f4e9c" font-style="italic" font-size="28">b = 15</text>
+<text x="198" y="138" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="28">c</text>
 <path d="M 106 250 A 46 46 0 0 0 99 225" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
-<text x="116" y="242" fill="#1f4e9c" font-size="26">27°</text>
+<text x="116" y="242" fill="#1f4e9c" font-size="26">28.1°</text>
 </svg>

@@ -28,6 +28,7 @@ function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, i
   return [s.slice(i + 1), s.length];
 }
 function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
+  tex = tex.replace(/\^\s*\{?\s*\\circ\s*\}?/g, '°');   // a degree sign prints on the line, not as a raised circle
   let out = '';
   const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t)
     || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, or function value; a root on top keeps its parentheses, (√3)/2, so it cannot be read as √(3/2)
@@ -107,7 +108,8 @@ function figure(it) {
   const w = Math.round(pw * scale), h = Math.round(ph * scale);
   const cap = stripTags(it.figcaption || '');
   const dataTex = (cap.startsWith('Plotted data') ? cap.slice(cap.indexOf(':') + 1) : cap).trim();
-  const label = /^(A |The )?diagram/i.test(dataTex) ? 'Diagram' : 'Plotted data';   // a diagram is not plotted data
+  const label = /^(A |The )?diagram/i.test(dataTex) ? 'Diagram'   // a diagram is not plotted data
+    : (cap.startsWith('Plotted data') || /graph|plot|number line|curve|parabola/i.test(dataTex.slice(0, 60))) ? 'Plotted data' : 'Figure';
   const data = strip(dataTex);
   return [
     new Paragraph({

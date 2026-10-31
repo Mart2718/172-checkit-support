@@ -9,6 +9,6 @@
 <text x="394" y="160" text-anchor="start" fill="#1f4e9c" font-style="italic" font-size="28">a = 7</text>
 <text x="220" y="282" text-anchor="middle" fill="#a84d16" font-style="italic" font-size="28">b = ?</text>
 <text x="198" y="138" text-anchor="end" fill="#1f4e9c" font-style="italic" font-size="28">c</text>
-<path d="M 380 96 A 46 46 0 0 0 341 75" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
+<path d="M 380 96 A 46 46 0 0 1 341 75" fill="none" stroke="#1f4e9c" stroke-width="2.5"/>
 <text x="370" y="130" text-anchor="end" fill="#1f4e9c" font-size="26">62°</text>
 </svg>

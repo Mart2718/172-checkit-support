@@ -36,3 +36,21 @@ TBIL's TE4 generator has a bug in its "nice angles" branch: it computes side a a
 ## Update 2026-10-18: a triangle for every computation item
 - At the instructor's request, each item on the An Angle and a Side and Two Sides tabs now shows its own triangle, labeled with that problem's given values and a question mark on the unknown (drawn by tools/figures/make_te4.py). Each caption says the triangle is not drawn to scale and states the givens and the unknown in words, without "opposite", "adjacent", or "hypotenuse".
 - Rechecked: lint, axe-core 0 violations on every tab at both widths, 320 px reflow with and without text spacing. The unknown is marked in orange (#a84d16, 5.48:1 on the background) and also by the question mark, so color is not the only signal.
+
+## Re-audit 2026-10-31 (current rule set, before recording)
+An independent agent re-checked every item, the figures, the Quick Summary, the speak lines and the worked-examples PDF against the CheckIt generator. Every key and rounding was correct. Fixed:
+1. Answer positions: no tab's keys are a permutation of a, b, c, d; no correct choice is the uniquely widest.
+2. Spot the Slip: "There is no mistake." is choice a in every slip. Slip 1 now confuses a leg with the hypotenuse (tangent needed), so its feedback no longer settles Slip 4; Slip 5 now tests B = 180° − A (the acute angles add to 90°), so Slip 3's correct use of inverse tangent no longer gives it away.
+3. Every distractor's origin is named in the feedback.
+4. Figure: the angle-B arc in Angle and Side 2 bowed the wrong way (SVG sweep flag); it now curves around B.
+5. Coverage of the generator, which always says "Solve the triangle":
+   - Angle and Side 1 is now a full solve (B, a and b), with a distractor for B = 180° − A.
+   - Angle and Side 4 gives an angle to the tenth of a degree and asks for a side to the nearest whole number.
+   - Two Sides 1 gives decimal sides and asks for an angle to the nearest degree, with inverse sine.
+6. Quick Summary note: CheckIt asks for every missing part; and a heads-up that when CheckIt gives a whole-degree angle, its answer key lists a and b the other way around.
+7. Speak lines say "angle C" and "side c" so the capital and small letters are not confused, and fractions use "the fraction …, end fraction".
+8. Worked-examples tool: degree signs print on the line (35°), and a triangle's description is labeled "Figure:" instead of "Plotted data:".
+Worked examples and the Canvas quiz were regenerated.
+
+## Source note: a labeling issue in CheckIt TE4
+In the whole-degree-angle case (generator lines 19-20) CheckIt computes b = c cos B and a = c cos A, which puts side a next to angle A instead of across from it. So for A = 35°, c = 12 its key says a ≈ 9.8, b ≈ 6.9; the standard labels give a ≈ 6.9, b ≈ 9.8. Its whole-number-sides case (line 8) follows the standard convention. Swapping lines 19 and 20 (a = c sin A, b = c cos A) would fix it; worth reporting to the TBIL maintainers.

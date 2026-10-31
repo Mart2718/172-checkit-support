@@ -40,31 +40,34 @@ def labeled(name, angle=None, sides=None, ask=None):
     o.append(f'<text x="{A[0]-14}" y="{A[1]+26}" text-anchor="middle">A</text>')
     o.append(f'<text x="{C[0]+16}" y="{C[1]+26}" text-anchor="middle">C</text>')
     o.append(f'<text x="{B[0]+16}" y="{B[1]-8}" text-anchor="middle">B</text></g>')
-    def col(k): return ORANGE if k == ask else BLUE
+    asks = ask if isinstance(ask, (list, tuple)) else [ask]
+    def col(k): return ORANGE if k in asks else BLUE
     pos = {'a': (C[0] + 14, (B[1] + C[1]) // 2 + 10, 'start'),
            'b': ((A[0] + C[0]) // 2, C[1] + 32, 'middle'),
            'c': ((A[0] + B[0]) // 2 - 22, (A[1] + B[1]) // 2 - 12, 'end')}
     for k in 'abc':
         x, y, anc = pos[k]
-        txt = f'{k} = {sides[k]}' if k in sides else (f'{k} = ?' if ask == k else k)
+        txt = f'{k} = {sides[k]}' if k in sides else (f'{k} = ?' if k in asks else k)
         o.append(f'<text x="{x}" y="{y}" text-anchor="{anc}" fill="{col(k)}" font-style="italic" font-size="28">{txt}</text>')
-    if angle or ask in ('A', 'B'):
-        which, txt = angle if angle else (ask, '?')
-        if ask in ('A', 'B') and not angle: txt = '?'
+    marks = []
+    if angle: marks.append(angle)
+    for k in asks:
+        if k in ('A', 'B'): marks.append((k, '?'))
+    for which, txt in marks:
         if which == 'A':
             o.append(f'<path d="M {A[0]+46} {A[1]} A 46 46 0 0 0 {A[0]+39} {A[1]-25}" fill="none" stroke="{col("A")}" stroke-width="2.5"/>')
             o.append(f'<text x="{A[0]+56}" y="{A[1]-8}" fill="{col("A")}" font-size="26">{txt}</text>')
-        else:
-            o.append(f'<path d="M {B[0]} {B[1]+46} A 46 46 0 0 0 {B[0]-39} {B[1]+25}" fill="none" stroke="{col("B")}" stroke-width="2.5"/>')
+        else:   # sweep flag 1: the arc bows around B, inside the triangle
+            o.append(f'<path d="M {B[0]} {B[1]+46} A 46 46 0 0 1 {B[0]-39} {B[1]+25}" fill="none" stroke="{col("B")}" stroke-width="2.5"/>')
             o.append(f'<text x="{B[0]-10}" y="{B[1]+80}" text-anchor="end" fill="{col("B")}" font-size="26">{txt}</text>')
     o.append('</svg>')
     open(os.path.join(OUT, name), 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 
-labeled('as1.svg', angle=('A', '35°'), sides={'c': '12'}, ask='a')
+labeled('as1.svg', angle=('A', '35°'), sides={'c': '12'}, ask=['a', 'b', 'B'])
 labeled('as2.svg', angle=('B', '62°'), sides={'a': '7'}, ask='b')
 labeled('as3.svg', angle=('A', '20°'), sides={'b': '15'}, ask='c')
-labeled('as4.svg', angle=('A', '27°'), sides={'a': '11'}, ask='c')
-labeled('ts1.svg', sides={'a': '8', 'b': '15'}, ask='c')
+labeled('as4.svg', angle=('A', '28.1°'), sides={'b': '15'}, ask='a')
+labeled('ts1.svg', sides={'a': '6.9', 'c': '12'}, ask='A')
 labeled('ts2.svg', sides={'a': '20', 'c': '29'}, ask='b')
 labeled('ts3.svg', sides={'a': '8', 'b': '15'}, ask='A')
 labeled('ts4.svg', sides={'b': '24', 'c': '25'}, ask='A')
