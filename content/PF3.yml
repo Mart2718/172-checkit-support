@@ -9,6 +9,10 @@ h1: "PF3 Support: Inverse Trigonometric Functions"
 pageTitle: "PF3 Support: Inverse Trigonometric Functions — Math 172, Santa Ana College"
 hubSummary: "Inverse sine, cosine, and tangent: exact values, domain and range, and graphs"
 videoIntro: "A narrated walkthrough of inverse sine, cosine, and tangent: finding exact values from the unit circle, staying inside each function's range, and sketching the three graphs."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/6WYba1iZTQc"
+  embed: "https://www.youtube-nocookie.com/embed/6WYba1iZTQc"
+  title: "PF3 video walkthrough: Inverse Trigonometric Functions"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'arc ?(sin|cos|tan)|inverse|\bsine\b|cosine|tangent'
 worked:   # used for the worked-examples recording document
