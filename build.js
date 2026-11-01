@@ -8,10 +8,12 @@ const ROOT = __dirname;
 const BS = String.fromCharCode(92); // backslash (keeps LaTeX delimiters out of regex/escape trouble)
 const CSS = fs.readFileSync(path.join(ROOT, 'template/styles.css'), 'utf8');
 const APP_JS = fs.readFileSync(path.join(ROOT, 'template/app.js'), 'utf8');
+const KATEX_VERSION = '0.18.11';   // pinned; jsDelivr serves the npm package's files unchanged, so these integrity hashes match them
+const KATEX_CDN = `https://cdn.jsdelivr.net/npm/katex@${KATEX_VERSION}/dist`;
 const KATEX = [
-  '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">',
-  '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>',
-  '<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>'
+  `<link rel="stylesheet" href="${KATEX_CDN}/katex.min.css" integrity="sha384-NJ/T2p1ROqNH3Yico+wdWm5Rv2rlinAOvV25Sw1zLOaxg8yLDPVv8GGAUccx50rh" crossorigin="anonymous">`,
+  `<script src="${KATEX_CDN}/katex.min.js" integrity="sha384-vaygNa7Kw+54Zb42f7K+4bfhZp4vWSHPJMKwd7nVmlgSvRADUrCRRdCpc1/CJwO+" crossorigin="anonymous"></script>`,
+  `<script src="${KATEX_CDN}/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"></script>`
 ].join('\n');
 
 const esc = (s) => String(s).split('&').join('&amp;').split('<').join('&lt;').split('>').join('&gt;').split('"').join('&quot;');
