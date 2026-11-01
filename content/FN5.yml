@@ -295,7 +295,7 @@ tabs:
         title: "Slip 4"
         math:
           display: '\begin{aligned} f(x)&=\sqrt{2x+1},\quad g(x)=x^{2}-1\\ f(g(2))&=f(3)=\sqrt{7} \end{aligned}'
-          speak: "f of x equals the square root of 2 x plus 1, end root, and g of x equals x squared minus 1. f of g of 2 equals f of 3, which equals the square root of 7."
+          speak: "f of x equals the square root of 2 x plus 1, end root, and g of x equals x squared minus 1. f of g of 2 equals f of 3, which equals the square root of 7, end root."
         prompt: 'A student wrote this work. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}

@@ -288,7 +288,7 @@ tabs:
         title: "Slip 2"
         math:
           display: 'b=\sqrt{6^{2}+10^{2}}\approx 11.7'
-          speak: "b equals the square root of the quantity 6 squared plus 10 squared, end quantity, which is about 11.7"
+          speak: "b equals the square root of the quantity 6 squared plus 10 squared, end quantity, end root, which is about 11.7"
         prompt: 'In a right triangle, \( C=90^\circ \), \( a=6 \), and \( c=10 \). A student wrote this line. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
