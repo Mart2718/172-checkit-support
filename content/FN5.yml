@@ -252,7 +252,7 @@ tabs:
       - id: sl1
         title: "Slip 1"
         math:
-          display: '\begin{aligned} f(x)-g(x)&=(2x^{2}+4x)-(2x-3)\\ &=2x^{2}+4x-2x-3\\ &=2x^{2}+2x-3 \end{aligned}'
+          display: '\begin{aligned} &f(x)-g(x)\\ &\quad=(2x^{2}+4x)-(2x-3)\\ &\quad=2x^{2}+4x-2x-3\\ &\quad=2x^{2}+2x-3 \end{aligned}'
           speak: "f of x minus g of x equals the quantity 2 x squared plus 4 x, end quantity, minus the quantity 2 x minus 3, end quantity. That equals 2 x squared plus 4 x minus 2 x minus 3, which equals 2 x squared plus 2 x minus 3."
         prompt: 'A student wrote this work. What is the mistake, if any?'
         choices:
@@ -266,7 +266,7 @@ tabs:
       - id: sl2
         title: "Slip 2"
         math:
-          display: 'f(x)\cdot g(x)=(2x+3)(3x-1)=6x^{2}-3'
+          display: '\begin{aligned} &f(x)\cdot g(x)\\ &\quad=(2x+3)(3x-1)\\ &\quad=6x^{2}-3 \end{aligned}'
           speak: "f of x times g of x equals the quantity 2 x plus 3, end quantity, times the quantity 3 x minus 1, end quantity, which equals 6 x squared minus 3"
         prompt: 'A student wrote this work. What is the mistake, if any?'
         choices:
@@ -294,7 +294,7 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: '\begin{aligned} f(x)&=\sqrt{2x+1},\quad g(x)=x^{2}-1\\ f(g(2))&=f(3)=\sqrt{7} \end{aligned}'
+          display: '\begin{aligned} f(x)&=\sqrt{2x+1}\\ g(x)&=x^{2}-1\\ f(g(2))&=f(3)=\sqrt{7} \end{aligned}'
           speak: "f of x equals the square root of 2 x plus 1, end root, and g of x equals x squared minus 1. f of g of 2 equals f of 3, which equals the square root of 7, end root."
         prompt: 'A student wrote this work. What is the mistake, if any?'
         choices:

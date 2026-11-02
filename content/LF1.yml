@@ -59,7 +59,7 @@ tabs:
           title: "A curve with a straight segment joining two of its points"
           caption: 'A graph of the curve y = f(x) for x from about −0.6 to 4.2, with dashed vertical lines at x = 1 and x = 4. The curve dips just below the x-axis near x = 0.75 and then rises steeply. A straight segment joins the two points of the curve on the dashed lines, one on the x-axis at x = 1 and one high up at x = 4.'
         math:
-          display: 'f(x)=2x^{2}-3x+1\ \text{ on }\ [1,4]'
+          display: '\begin{aligned} f(x)&=2x^{2}-3x+1\\ &\text{on } [1,4] \end{aligned}'
           speak: "f of x equals 2 x squared minus 3 x plus 1, on the interval from 1 to 4"
         prompt: 'What is the average rate of change of f on [1, 4]?'
         choices:
@@ -73,7 +73,7 @@ tabs:
       - id: ar2
         title: "Average Rate 2"
         math:
-          display: 'f(x)=x^{4}-2x\ \text{ on }\ [-2,1]'
+          display: '\begin{aligned} f(x)&=x^{4}-2x\\ &\text{on } [-2,1] \end{aligned}'
           speak: "f of x equals x to the fourth minus 2 x, on the interval from negative 2 to 1"
         prompt: 'What is the average rate of change of f on [−2, 1]?'
         choices:
@@ -87,7 +87,7 @@ tabs:
       - id: ar3
         title: "Average Rate 3"
         math:
-          display: 'f(x)=\sqrt{3x+2}\ \text{ on }\ [1,3]'
+          display: '\begin{aligned} f(x)&=\sqrt{3x+2}\\ &\text{on } [1,3] \end{aligned}'
           speak: "f of x equals the square root of 3 x plus 2, end root, on the interval from 1 to 3"
         prompt: 'What is the average rate of change of f on [1, 3]?'
         choices:
@@ -101,7 +101,7 @@ tabs:
       - id: ar4
         title: "Average Rate 4"
         math:
-          display: 'f(x)=\dfrac{2x-1}{x+2}\ \text{ on }\ [1,4]'
+          display: '\begin{aligned} f(x)&=\dfrac{2x-1}{x+2}\\ &\text{on } [1,4] \end{aligned}'
           speak: "f of x equals the fraction 2 x minus 1, over x plus 2, end fraction, on the interval from 1 to 4"
         prompt: 'What is the average rate of change of f on [1, 4]?'
         choices:
@@ -263,7 +263,7 @@ tabs:
       - id: sl1
         title: "Slip 1"
         math:
-          display: '(2,5),\ (6,-3):\quad \dfrac{-3-5}{2-6}=\dfrac{-8}{-4}=2'
+          display: '\begin{aligned} &(2,5),\ (6,-3)\\ &\dfrac{-3-5}{2-6}=\dfrac{-8}{-4}=2 \end{aligned}'
           speak: "For the point 2 comma 5, and the point 6 comma negative 3: the fraction negative 3 minus 5, over 2 minus 6, end fraction, equals the fraction negative 8, over negative 4, end fraction, which equals 2."
         prompt: 'A student found this slope. What is the mistake, if any?'
         choices:
@@ -277,7 +277,7 @@ tabs:
       - id: sl2
         title: "Slip 2"
         math:
-          display: 'f(x)=x^{2}\ \text{ on }\ [1,3]:\quad \dfrac{f(3)-f(1)}{3-1}=\dfrac{9-1}{2}=4'
+          display: '\begin{aligned} &f(x)=x^{2}\ \text{on } [1,3]\\ &\dfrac{f(3)-f(1)}{3-1}=\dfrac{9-1}{2}=4 \end{aligned}'
           speak: "f of x equals x squared, on the interval from 1 to 3: the fraction f of 3 minus f of 1, over 3 minus 1, end fraction, equals the fraction 9 minus 1, over 2, end fraction, which equals 4."
         prompt: 'A student found this average rate of change. What is the mistake, if any?'
         choices:
@@ -322,7 +322,7 @@ tabs:
       - id: sl5
         title: "Slip 5"
         math:
-          display: 'f(x)=\sqrt{x}\ \text{ on }\ [4,9]:\quad \dfrac{\sqrt{9}-\sqrt{4}}{9-4}=\dfrac{\sqrt{5}}{5}'
+          display: '\begin{aligned} &f(x)=\sqrt{x}\ \text{on } [4,9]\\ &\dfrac{\sqrt{9}-\sqrt{4}}{9-4}=\dfrac{\sqrt{5}}{5} \end{aligned}'
           speak: "f of x equals the square root of x, end root, on the interval from 4 to 9: the fraction the square root of 9, end root, minus the square root of 4, end root, over 9 minus 4, end fraction, equals the fraction the square root of 5, end root, over 5, end fraction."
         prompt: 'A student found this average rate of change. What is the mistake, if any?'
         choices:

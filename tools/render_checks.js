@@ -6,7 +6,8 @@
 //      which are fixed categories like Function / Not a function, are exempt
 //   3. reflow at 320 px, embedded, with and without the WCAG 1.4.12 text-spacing override: the page never scrolls
 //      sideways and no equation sticks out past the screen (the Quick Summary table may scroll inside its own frame;
-//      data tables are exempt from 1.4.10, so equations inside a table are reported as notes, not failures)
+//      data tables are exempt from 1.4.10, so equations inside a table are reported as notes, not failures; a long
+//      display equation may scroll inside its own box, which must then be reachable by keyboard)
 // Exit code 1 if anything fails.
 const path = require('path');
 const fs = require('fs');
@@ -76,13 +77,20 @@ async function routeKatex(page) {
         await q.evaluate((n) => switchTab(n), t);
         const r = await q.evaluate(() => ({
           doc: document.documentElement.scrollWidth,
-          wide: [...document.querySelectorAll('.katex-display, .katex')].filter((e) => e.offsetParent && e.getBoundingClientRect().right > 321)
-            .map((e) => ({ inTable: !!e.closest('table'), text: e.textContent.slice(0, 30) })),
+          wide: [...document.querySelectorAll('.katex-display, .katex')].filter((e) => {
+            if (!e.offsetParent || e.getBoundingClientRect().right <= 321) return false;
+            const box = e.closest('.katex-display');   // inside a display box that scrolls on its own: not a page overflow
+            return !(box && box !== e && box.getBoundingClientRect().right <= 321);
+          }).map((e) => ({ inTable: !!e.closest('table'), text: e.textContent.slice(0, 30) })),
+          scrollers: [...document.querySelectorAll('.katex-display')].filter((d) => d.offsetParent && d.scrollWidth > d.clientWidth + 1)
+            .map((d) => ({ focusable: d.getAttribute('tabindex') === '0', text: d.textContent.slice(0, 30) })),
         }));
         const label = spacing ? '320px + text spacing' : '320px';
         if (r.doc > 321) out.push(`FAIL ${t} @${label}: the page scrolls sideways (${r.doc}px)`);
         r.wide.filter((w) => !w.inTable).forEach((w) => out.push(`FAIL ${t} @${label}: equation sticks out: "${w.text}"`));
         if (r.wide.some((w) => w.inTable) && !spacing) out.push(`note ${t}: the table scrolls inside its frame at 320px (allowed)`);
+        r.scrollers.filter((d) => !d.focusable).forEach((d) => out.push(`FAIL ${t} @${label}: an equation scrolls in its box but cannot be reached by keyboard: "${d.text}"`));
+        if (r.scrollers.length && !spacing) out.push(`note ${t}: ${r.scrollers.length} equation(s) scroll inside their own box at 320px (allowed)`);
       }
       await q.close();
     }

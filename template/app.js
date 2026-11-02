@@ -12,6 +12,7 @@ function switchTab(name) {
   var shown = document.getElementById('tab-' + name);
   var heading = shown.querySelector('h2');
   if (heading) { heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:false}); }
+  markScrollableMath(shown);
 }
 
 function handleTabKey(event) {
@@ -46,6 +47,7 @@ function checkGuess(btn, itemId, guess, correct) {
   if (window.renderMathInElement) {
     renderMathInElement(fb, { delimiters: [{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}], throwOnError:false });
     makeMathSpeakable(fb);
+    markScrollableMath(fb);
   }
   fb.setAttribute('tabindex','-1');
   fb.focus();   // after the math is rendered, so the screen reader reads the finished text
@@ -75,7 +77,20 @@ document.addEventListener("DOMContentLoaded", function() {
     throwOnError: false
   });
   makeMathSpeakable(document.body);
+  markScrollableMath(document.body);
+  var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ markScrollableMath(document.body); }, 200); });
 });
+
+// A display equation wider than the screen scrolls inside its own box (CSS: .katex-display overflow-x:auto) instead of
+// making the whole page scroll sideways. A box that actually scrolls gets tabindex="0", so keyboard users can reach it
+// and scroll it with the arrow keys (WCAG 2.1.1); boxes that fit get no extra tab stop.
+function markScrollableMath(root) {
+  Array.prototype.forEach.call(root.querySelectorAll('.katex-display'), function(d) {
+    if (!d.offsetParent) return;   // inside a hidden tab: checked when the tab is shown
+    if (d.scrollWidth > d.clientWidth + 1) d.setAttribute('tabindex', '0');
+    else d.removeAttribute('tabindex');
+  });
+}
 
 /*SPEECH-START*/
 // Screen-reader support for math. NVDA and several other screen readers do not read the MathML that KaTeX writes,

@@ -61,7 +61,9 @@ No giveaways (needs judgment)
 - In content math, write `\lt` for a less-than sign; in HTML text fields, write `&lt;`.
 - axe-core reports 0 violations on every tab at 1000 px and embedded at 320 px. **(checked)**
 - At 320 px, with and without the WCAG text-spacing override, the page never scrolls sideways and no equation
-  sticks out. Split long displays into aligned rows. A data table may scroll inside its own frame. **(checked, rendered)**
+  sticks out. A display equation that is still too wide scrolls inside its own box, which then becomes a
+  keyboard tab stop; prefer splitting long displays into aligned rows. A data table may scroll inside its own
+  frame. **(checked, rendered)**
 - Video embeds use youtube-nocookie.com. Captions are reviewed in YouTube Studio before a video is shared.
 
 ## 4. The checks, in order
