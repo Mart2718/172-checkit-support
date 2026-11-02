@@ -50,7 +50,7 @@ summary:   # the Quick Summary tab
     -
       - 'Explaining slope and intercept'
       - 'Give the number, its units, and what it means: "−6 ounces per hour: the water left goes down 6 ounces each hour."'
-      - 'For a shrinking amount, CheckIt''s answer key may print the rate, 6, as the slope. The slope of the model is still −6.'
+      - 'For rice or water that is used up, CheckIt''s answer key prints the rate, 6, as the slope; the slope of the model is still −6. For a shrinking town, CheckIt prints the slope as negative.'
   note: 'Name the units on every number in the story, and you will know where it goes: dollars per item is a rate, dollars for fixed costs is a starting amount. CheckIt''s answers are whole numbers, so if you get a decimal, check your steps. Your CheckIt story and numbers will be different. Finding the starting amount and the rate is what transfers.'
 tabs:
   - id: meaning
@@ -64,16 +64,16 @@ tabs:
         figure:
           file: figures/LF5/rice.svg
           title: "A graph of the rice left in the bag over time"
-          caption: 'A graph with days, d, from 0 to 18 across and ounces left, R(d), from 0 to 275 up. A straight line starts at (0, 250), marked with a dot, falls through the marked point (10, 100), and reaches 0 between day 16 and day 17.'
+          caption: 'A graph with days, d, from 0 to 18 across and ounces left, R(d), from 0 to 250 up. A straight line starts at (0, 250), marked with a dot, falls through the marked point (10, 100), and reaches 0 between day 16 and day 17.'
         prompt: 'A family buys a 250-ounce bag of rice and uses 15 ounces per day. R(d) is the rice left after d days. What is the slope of R, and what does it mean?'
         choices:
           - {value: a, label: "250 ounces: the amount in the bag at the start"}
           - {value: b, label: "−15 ounces per day: the rice left drops 15 ounces a day"}
-          - {value: c, label: "−15 ounces: the amount of rice that is left after one day"}
+          - {value: c, label: "250 ounces per day: the family uses 250 ounces each day"}
           - {value: d, label: "15 days: how long the bag of rice lasts before it is empty"}
         correct: b
         explanation: |-
-          The model is \( R(d)=250-15d \). Each day the rice left goes down by 15 ounces, so the slope is \( -15 \), in ounces per day. On the graph, the line drops 150 ounces over 10 days: \( \tfrac{-150}{10}=-15 \). CheckIt's answer key prints this slope as 15, the rate of use; say both: the family uses 15 ounces a day, so the slope of \( R \) is \( -15 \). The 250 ounces is the \( y \)-intercept, not the slope; the rice left after one day is \( R(1)=235 \) ounces, an amount, while the slope is a rate; and the bag lasts \( \tfrac{250}{15}\approx 16.7 \) days, not 15, because 15 is the ounces used per day. <strong>−15 ounces per day.</strong>
+          The model is \( R(d)=250-15d \). Each day the rice left goes down by 15 ounces, so the slope is \( -15 \), in ounces per day. On the graph, the line drops 150 ounces over 10 days: \( \tfrac{-150}{10}=-15 \). CheckIt's answer key prints this slope as 15, the rate of use; say both: the family uses 15 ounces a day, so the slope of \( R \) is \( -15 \). The 250 ounces is the \( y \)-intercept, not the slope; 250 ounces per day treats the starting amount as the rate; and the bag lasts \( \tfrac{250}{15}\approx 16.7 \) days, not 15, because 15 is the ounces used per day. <strong>−15 ounces per day.</strong>
       - id: m2
         title: "A Phone Plan"
         math:
@@ -82,40 +82,43 @@ tabs:
         prompt: 'A phone plan costs $35 a month for the first line and $10 for each additional line. C(x) is the monthly cost with x additional lines. What is the y-intercept, and what does it mean?'
         choices:
           - {value: a, label: "35: the cost with only the first line"}
-          - {value: b, label: "35: the cost of each additional line on the plan"}
+          - {value: b, label: "10: the starting cost, before any lines are added"}
           - {value: c, label: "45: the cost of the first line, since x = 1"}
           - {value: d, label: "0: a plan with no lines costs nothing"}
         correct: a
         explanation: |-
-          The model is \( C(x)=10x+35 \), and the \( y \)-intercept is \( C(0)=35 \). Here \( x \) counts <em>additional</em> lines, so \( x=0 \) is a plan with just the first line, which costs $35. Each additional line is $10, the slope, not 35; \( C(1)=45 \) is the plan with one additional line, two lines in all, because \( x=1 \) does not mean the first line; and \( x=0 \) still includes the first line, so the cost is not 0. <strong>35: the cost with only the first line.</strong>
+          The model is \( C(x)=10x+35 \), and the \( y \)-intercept is \( C(0)=35 \). Here \( x \) counts <em>additional</em> lines, so \( x=0 \) is a plan with just the first line, which costs $35. The $10 for each additional line is the slope, the rate, not the starting cost; \( C(1)=45 \) is the plan with one additional line, two lines in all, because \( x=1 \) does not mean the first line; and \( x=0 \) still includes the first line, so the cost is not 0. <strong>35: the cost with only the first line.</strong>
       - id: m3
         title: "A Shrinking Town"
         math:
-          display: 'P(x)=48000-1500x'
-          speak: "P of x equals 48000 minus 1500 x"
-        prompt: 'In 2010, the population of Pawnee was 48,000, and it has decreased by 1,500 per year since. P(x) is the population x years after 2010. What is the y-intercept, and what does it mean?'
+          display: 'P(x)=-1500x+48000'
+          speak: "P of x equals negative 1500 x plus 48000"
+        prompt: 'In 2010, the population of Pawnee was 48,000, and it has decreased by 1,500 per year since. P(x) is the population x years after 2010. What does the y-intercept of P mean?'
         choices:
-          - {value: a, label: "48,000: the population in the year 0"}
-          - {value: b, label: "2010: the year the model starts"}
-          - {value: c, label: "−1,500: the change in population each year"}
-          - {value: d, label: "48,000: the population in 2010"}
+          - {value: a, label: "The population in the calendar year 0"}
+          - {value: b, label: "The number of people the town loses each year"}
+          - {value: c, label: "The population in 2011, a year after the start"}
+          - {value: d, label: "The population in 2010, when the model starts"}
         correct: d
         explanation: |-
-          The model is \( P(x)=48{,}000-1{,}500x \), and the \( y \)-intercept is \( P(0)=48{,}000 \). Since \( x \) counts years after 2010, \( x=0 \) is the year 2010 itself. So 48,000 is the population in 2010, not in the calendar year 0; 2010 is the start year, which tells you what \( x=0 \) means but is not an output of the model; and \( -1{,}500 \) people per year is the slope. <strong>48,000: the population in 2010.</strong>
+          The \( y \)-intercept is \( P(0)=48{,}000 \). Since \( x \) counts years after 2010, \( x=0 \) is the year 2010 itself, so 48,000 is the population in 2010. The calendar year 0 reads \( x \) as the year instead of the years since 2010; the people lost each year, 1,500, is the slope, \( -1{,}500 \) people per year; and the population in 2011 is \( P(1)=46{,}500 \), which treats the start year as \( x=1 \). <strong>The population in 2010, 48,000 people.</strong>
       - id: m4
-        title: "Printing Posters"
-        math:
-          display: 'C(x)=3x+150'
-          speak: "C of x equals 3 x plus 150"
-        prompt: 'Producing posters costs $3 per poster plus an additional $150 for fixed costs. C(x) is the cost of producing x posters. What is the slope, and what does it mean?'
+        title: "Reading a Table"
+        table:
+          caption: "Population of Hill Valley x years after 2005"
+          label: "Table of years after 2005 and population"
+          rows:
+            - ["Years after 2005, x", "0", "1", "2", "3"]
+            - ["Population, P(x)", "64,000", "61,500", "59,000", "56,500"]
+        prompt: 'The population of Hill Valley changes by the same amount each year. What is the slope of the linear model P, and what does it mean?'
         choices:
-          - {value: a, label: "3: each extra poster adds $3"}
-          - {value: b, label: "150: the cost goes up $150 for each poster"}
-          - {value: c, label: "153: the cost of producing the first poster"}
-          - {value: d, label: "1/3: each extra dollar makes 1/3 of a poster"}
+          - {value: a, label: "−2,500 people per year: the town loses 2,500 a year"}
+          - {value: b, label: "64,000 people: the population of the town in 2005"}
+          - {value: c, label: "61,500 people: the population after one year"}
+          - {value: d, label: "−7,500 people per year: the change over the years shown"}
         correct: a
         explanation: |-
-          The model is \( C(x)=3x+150 \). The slope is the rate, 3 dollars per poster: each additional poster adds $3. The $150 is paid once, whatever the number of posters, so it is the \( y \)-intercept, not a rate; 153 is \( C(1) \), the total cost of one poster, which includes the fixed costs; and \( \tfrac{1}{3} \) poster per dollar flips the rate, input over output. <strong>3 dollars per poster.</strong>
+          Each step of 1 year changes the population by \( 61{,}500-64{,}000=-2{,}500 \), so the slope is \( -2{,}500 \) people per year, and \( P(x)=-2{,}500x+64{,}000 \). For a shrinking town, CheckIt's answer key prints the slope as negative too. 64,000 is \( P(0) \), the \( y \)-intercept; 61,500 is \( P(1) \), an amount, while the slope is a change per year; and \( -7{,}500 \) is \( 56{,}500-64{,}000 \), the change over 3 years, not yet divided by the 3. <strong>−2,500 people per year.</strong>
   - id: write
     label: "Try It: Write the Model"
     heading: "Try It: Write the Model"
@@ -143,13 +146,13 @@ tabs:
           speak: "P of x equals m x plus b"
         prompt: 'In 2015, the population of Springfield was 85,000, and it has decreased by 3,000 per year since. Which function gives P(x), the population x years after 2015?'
         choices:
-          - {value: a, label: '\( P(x)=3000x+85000 \)', speak: "P of x equals 3000 x plus 85000"}
+          - {value: a, label: '\( P(x)=85000x+3000 \)', speak: "P of x equals 85000 x plus 3000"}
           - {value: b, label: '\( P(x)=85000-3000x \)', speak: "P of x equals 85000 minus 3000 x"}
           - {value: c, label: '\( P(x)=85000x-3000 \)', speak: "P of x equals 85000 x minus 3000"}
           - {value: d, label: '\( P(x)=85000-3000(x-2015) \)', speak: "P of x equals 85000 minus 3000 times the quantity x minus 2015, end quantity"}
         correct: b
         explanation: |-
-          The town starts at 85,000 when \( x=0 \), the year 2015, and loses 3,000 people each year, so the slope is \( -3{,}000 \): \( P(x)=85{,}000-3{,}000x \). \( 3000x+85000 \) makes the population grow; \( 85000x-3000 \) swaps the rate and the starting amount; and \( 85000-3000(x-2015) \) treats \( x \) as the calendar year, but here \( x \) is years after 2015, so it would give \( P(0)=6{,}130{,}000 \). <strong>\( P(x)=85{,}000-3{,}000x \).</strong>
+          The town starts at 85,000 when \( x=0 \), the year 2015, and loses 3,000 people each year, so the slope is \( -3{,}000 \): \( P(x)=85{,}000-3{,}000x \). \( 85000x+3000 \) makes two slips, swapping the numbers and making the town grow; \( 85000x-3000 \) swaps the rate and the starting amount; and \( 85000-3000(x-2015) \) treats \( x \) as the calendar year, but here \( x \) is years after 2015, so it would give \( P(0)=6{,}130{,}000 \). <strong>\( P(x)=85{,}000-3{,}000x \).</strong>
       - id: w3
         title: "Phone Lines"
         math:
@@ -185,10 +188,10 @@ tabs:
       Each model is given. Decide whether you know the input or the output, then use the model. Make your best guess, then check it.
     items:
       - id: u1
-        title: "A Calendar Year"
+        title: "Population Later"
         math:
-          display: 'P(x)=34000+2000x'
-          speak: "P of x equals 34000 plus 2000 x"
+          display: 'P(x)=2000x+34000'
+          speak: "P of x equals 2000 x plus 34000"
         prompt: 'In 2012, the population of Capeside was 34,000, and it has grown by 2,000 per year since. P(x) is the population x years after 2012. What will the population be in 2027?'
         choices:
           - {value: a, label: "4,088,000"}
@@ -197,49 +200,49 @@ tabs:
           - {value: d, label: "62,000"}
         correct: b
         explanation: |-
-          The model is \( P(x)=34{,}000+2{,}000x \). The year 2027 is \( x=2027-2012=15 \) years after the start, so \( P(15)=34{,}000+30{,}000=64{,}000 \). Putting in \( x=2027 \) gives 4,088,000, because \( x \) is years after 2012, not the year; 30,000 is only the growth, \( 2{,}000(15) \), without the starting population; and 62,000 uses 14 years, counting from 2013 instead of 2012. <strong>64,000.</strong>
+          The year 2027 is \( x=2027-2012=15 \) years after the start, so \( P(15)=2{,}000(15)+34{,}000=64{,}000 \). Putting in \( x=2027 \) gives 4,088,000, because \( x \) is years after 2012, not the year; 30,000 is only the growth, \( 2{,}000(15) \), without the starting population; and 62,000 uses 14 years, counting from 2013 instead of 2012. <strong>64,000.</strong>
       - id: u2
         title: "How Many Hats"
         math:
-          display: 'C(x)=9x+480'
-          speak: "C of x equals 9 x plus 480"
-        prompt: 'Producing hats costs $9 per hat plus an additional $480 for fixed costs. How many hats can be produced for $1,830?'
+          display: 'C(x)=9x+540'
+          speak: "C of x equals 9 x plus 540"
+        prompt: 'Producing hats costs $9 per hat plus an additional $540 for fixed costs. How many hats can be produced for $1,890?'
         choices:
           - {value: a, label: "150 hats"}
-          - {value: b, label: "about 203 hats"}
-          - {value: c, label: "about 257 hats"}
-          - {value: d, label: "16,950 hats"}
+          - {value: b, label: "210 hats"}
+          - {value: c, label: "270 hats"}
+          - {value: d, label: "1,350 hats"}
         correct: a
         explanation: |-
-          The model is \( C(x)=9x+480 \), and this time the output is known: solve \( 9x+480=1830 \). Subtract 480: \( 9x=1350 \). Divide by 9: \( x=150 \). Check: \( 9(150)+480=1830 \). About 203 is \( \tfrac{1830}{9} \), which forgets the fixed costs; about 257 is \( \tfrac{1830+480}{9} \), which adds 480 instead of subtracting it; and 16,950 is \( C(1830) \), which puts the dollars in as the number of hats. <strong>150 hats.</strong>
+          This time the output is known: solve \( 9x+540=1890 \). Subtract 540: \( 9x=1350 \). Divide by 9: \( x=150 \). Check: \( 9(150)+540=1890 \). 210 is \( \tfrac{1890}{9} \), which forgets the fixed costs; 270 is \( \tfrac{1890+540}{9} \), which adds 540 instead of subtracting it; and 1,350 stops before dividing by 9, so it is the dollars left for hats, not the number of hats. <strong>150 hats.</strong>
       - id: u3
-        title: "Rice Left"
+        title: "Water Left"
         math:
-          display: 'R(d)=300-12d'
-          speak: "R of d equals 300 minus 12 d"
-        prompt: 'A family buys a 300-ounce bag of rice and uses 12 ounces per day. After how many days will the family have 84 ounces of rice left in the bag?'
+          display: 'W(x)=-5x+55'
+          speak: "W of x equals negative 5 x plus 55"
+        prompt: 'A leaky bucket started with 55 ounces of water and loses 5 ounces per minute. After how many minutes will the bucket contain 15 ounces of water?'
         choices:
-          - {value: a, label: "7 days"}
-          - {value: b, label: "32 days"}
-          - {value: c, label: "−708 days"}
-          - {value: d, label: "18 days"}
-        correct: d
+          - {value: a, label: "3 minutes"}
+          - {value: b, label: "14 minutes"}
+          - {value: c, label: "8 minutes"}
+          - {value: d, label: "11 minutes"}
+        correct: c
         explanation: |-
-          The model is \( R(d)=300-12d \). Solve \( 300-12d=84 \): subtract 300, \( -12d=-216 \), and divide by \( -12 \), \( d=18 \). Check: \( 300-12(18)=84 \). 7 days is \( \tfrac{84}{12} \), which divides the amount left instead of the amount used; 32 days is \( \tfrac{300+84}{12} \), which adds the 84; and \( -708 \) is \( R(84) \), which puts the ounces in as the number of days. <strong>18 days.</strong>
+          Solve \( -5x+55=15 \): subtract 55, \( -5x=-40 \), and divide by \( -5 \), \( x=8 \). Check: \( 55-5(8)=15 \). 3 minutes is \( \tfrac{15}{5} \), which divides the water left instead of the water lost; 14 minutes is \( \tfrac{55+15}{5} \), which adds the 15; and 11 minutes is \( \tfrac{55}{5} \), when the bucket is empty, which answers a different question. <strong>8 minutes.</strong>
       - id: u4
-        title: "Plan Cost"
+        title: "Lines for a Budget"
         math:
-          display: 'C(x)=5x+30'
-          speak: "C of x equals 5 x plus 30"
-        prompt: 'A phone plan costs $30 a month for the first line and $5 for each additional line. How much does a plan with 4 additional lines cost?'
+          display: 'C(x)=10x+20'
+          speak: "C of x equals 10 x plus 20"
+        prompt: 'A phone plan costs $20 a month for the first line and $10 for each additional line. How many additional lines can be purchased for $50?'
         choices:
-          - {value: a, label: "$45"}
-          - {value: b, label: "$50"}
-          - {value: c, label: "$140"}
-          - {value: d, label: "$120"}
+          - {value: a, label: "5"}
+          - {value: b, label: "3"}
+          - {value: c, label: "4"}
+          - {value: d, label: "2"}
         correct: b
         explanation: |-
-          The model is \( C(x)=5x+30 \), with \( x \) the number of additional lines. \( C(4)=5(4)+30=50 \). $45 uses \( x=3 \), counting the first line as one of the 4; $140 is \( 4(30+5) \), which charges both prices for every line; and $120 is \( 4(30) \), which charges the first-line price for each additional line. <strong>$50.</strong>
+          Solve \( 10x+20=50 \): \( 10x=30 \), so \( x=3 \) additional lines, 4 lines in all. Check: \( 10(3)+20=50 \). 5 is \( \tfrac{50}{10} \), which forgets the first line's $20; 4 is the number of lines in all, but the question asks for additional lines, which is what \( x \) counts; and 2 subtracts the first line again, as if \( x=3 \) counted it. <strong>3 additional lines.</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -263,17 +266,17 @@ tabs:
       - id: sl2
         title: "Slip 2"
         math:
-          display: '\begin{aligned} P(x)&=72000+4000x\\ P(2023)&=72000+4000(2023)\\ &=8164000 \end{aligned}'
-          speak: "P of x equals 72000 plus 4000 x. Next line: P of 2023 equals 72000 plus 4000 times 2023. Next line: equals 8164000."
-        prompt: 'In 2018, the population of Bayside was 72,000, and it has grown by 4,000 per year since. P(x) is the population x years after 2018. A student found the population in 2023. What is the mistake, if any?'
+          display: '\begin{aligned} 4000x+72000&=92000\\ 4000x&=20000\\ x&=5 \end{aligned}'
+          speak: "4000 x plus 72000 equals 92000. Next line: 4000 x equals 20000. Next line: x equals 5."
+        prompt: 'In 2018, the population of Bayside was 72,000, and it has grown by 4,000 per year since. P(x) is the population x years after 2018. A student found the year when the population will be 92,000 and answered "5". What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "x counts years after 2018: use x = 5, so P(5) = 92,000."}
-          - {value: c, label: "The town grows 4,000 once, so it should be 76,000."}
-          - {value: d, label: "Count 2018 through 2023: use x = 6, so P(6) = 96,000."}
+          - {value: b, label: "x is years after 2018, so the year is 2023."}
+          - {value: c, label: "Divide 92,000 by 4,000: x = 23, so the year is 2041."}
+          - {value: d, label: "2018 is the first year, so the year is 2022."}
         correct: b
         explanation: |-
-          The model is right, but 2023 is not the input. The input is years after 2018: \( x=2023-2018=5 \), and \( P(5)=72{,}000+20{,}000=92{,}000 \). The student's 8,164,000 is far too big for a town that grows 4,000 a year. 76,000 is one year of growth, \( P(1) \); and counting both 2018 and 2023 gives 6, but from 2018 to 2023 is 5 years, so 96,000 is the population in 2024. <strong>92,000.</strong>
+          The solving is right: \( x=5 \). But \( x \) is years after 2018, and the question asks for a year: \( 2018+5=2023 \). Check: \( P(5)=20{,}000+72{,}000=92{,}000 \). CheckIt's answer key gives the calendar year. 23 is \( \tfrac{92{,}000}{4{,}000} \), which forgets the starting population; and 2018 is \( x=0 \), not year 1, so 5 years later is 2023, not 2022. <strong>The year 2023.</strong>
       - id: sl3
         title: "Slip 3"
         math:

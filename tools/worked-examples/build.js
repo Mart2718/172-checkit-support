@@ -29,6 +29,7 @@ function braceGroup(s, i) {   // s[i] is '{'. Returns [text inside the braces, i
 }
 function texToText(tex) {   // convert commands, fractions and roots; leave ^ and _ for mathRuns
   tex = tex.replace(/\^\s*\{?\s*\\circ\s*\}?/g, '°');   // a degree sign prints on the line, not as a raised circle
+  tex = tex.replace(/\{,\}/g, ',');   // 48{,}000 prints as 48,000
   let out = '';
   const single = (t) => /^[0-9.]+$/.test(t) || /^[A-Za-z](\^(\{[^}]*\}|.))?$/.test(t) || /^[0-9]*[πθA-Za-z]$/.test(t)
     || /^(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|log|ln)\([^()]*\)$/.test(t);   // one number, letter, multiple of pi, or function value; a root on top keeps its parentheses, (√3)/2, so it cannot be read as √(3/2)
