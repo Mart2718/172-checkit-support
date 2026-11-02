@@ -37,3 +37,6 @@ Date: 2026-11-01. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the student-graph descriptions and the collapsed graph description, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-01)
+An outside AI math check found no wrong keys. Applied: the Quick Summary no longer promises a whole-number point (some CheckIt lines have none); Standard Form 1 names the coefficient-as-intercept mistake correctly.

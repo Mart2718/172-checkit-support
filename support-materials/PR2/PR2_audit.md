@@ -33,3 +33,6 @@ Date: 2026-11-01. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads decimal coefficients and the collapsed graph description, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-01)
+An outside AI math check found no wrong keys. Applied: the Quick Summary separates whole-number inputs (use the nearest whole number to the vertex) from continuous ones such as time (keep the vertex unrounded); Least Average Age now computes at the unrounded vertex; Slip 4 no longer has a defensible second answer and no longer argues from what an average age "should" be.

@@ -34,3 +34,6 @@ Date: 2026-11-01. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the collapsed graph descriptions and the long fraction speak lines, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-01)
+An outside AI math check found no wrong keys. Applied: the Quick Summary says a non-vertical line, B ≠ 0, and that a vertical line has no slope-intercept or point-slope form.

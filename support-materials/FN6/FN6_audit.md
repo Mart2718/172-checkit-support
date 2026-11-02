@@ -32,3 +32,6 @@ Date: 2026-11-01. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the fractional-power speak lines and the ∛ symbol, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-01)
+An outside AI math check found no wrong keys. Applied: One-to-One explains that odd powers and roots are strictly increasing; the Quick Summary adds domain and range trading places, and that a point check can rule a candidate out but only f(f⁻¹(x)) = x proves it.

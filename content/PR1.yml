@@ -144,7 +144,7 @@ tabs:
           - {value: c, label: "Two"}
         correct: a
         explanation: |-
-          Find the vertex: \( h=-\dfrac{-4}{2(1)}=2 \), and \( k=4-8+7=3 \). The vertex \( (2,3) \) is above the \( x \)-axis, and \( a=1 \) is positive, so the parabola opens up from there and never comes down to the axis. A third of CheckIt's parabolas are like this, so the sketch has no \( x \)-intercepts; plot the vertex and the \( y \)-intercept \( (0,7) \) with its mirror point \( (4,7) \). One crossing would need the vertex on the axis, and two crossings would need it to open toward the axis from the other side. <strong>None.</strong>
+          Find the vertex: \( h=-\dfrac{-4}{2(1)}=2 \), and \( k=4-8+7=3 \). The vertex \( (2,3) \) is above the \( x \)-axis, and \( a=1 \) is positive, so the parabola opens up from there and never comes down to the axis. A third of CheckIt's parabolas are like this, so the sketch has no \( x \)-intercepts; plot the vertex and the \( y \)-intercept \( (0,7) \) with its mirror point \( (4,7) \). One \( x \)-intercept would need the vertex on the axis, where the graph touches the axis without crossing it; two would need the parabola to open toward the axis from the other side. <strong>None.</strong>
       - id: b3
         title: "Axis from the Intercepts"
         figure:
@@ -156,10 +156,10 @@ tabs:
           - {value: a, label: '\( x=-\tfrac{5}{2} \)', speak: "x equals negative the fraction 5, over 2, end fraction"}
           - {value: b, label: '\( x=\tfrac{3}{2} \)', speak: "x equals the fraction 3, over 2, end fraction"}
           - {value: c, label: '\( x=-\tfrac{3}{2} \)', speak: "x equals negative the fraction 3, over 2, end fraction"}
-          - {value: d, label: '\( y=-\tfrac{25}{4} \)', speak: "y equals negative the fraction 25, over 4, end fraction"}
+          - {value: d, label: '\( y=-\tfrac{3}{2} \)', speak: "y equals negative the fraction 3, over 2, end fraction"}
         correct: c
         explanation: |-
-          The axis is halfway between the \( x \)-intercepts: \( \dfrac{-4+1}{2}=-\tfrac{3}{2} \). So the axis is \( x=-\tfrac{3}{2} \), and the vertex is \( \left(-\tfrac{3}{2},-\tfrac{25}{4}\right) \) for this parabola, \( q(x)=(x+4)(x-1) \). \( -\tfrac{5}{2} \) averages \( -4 \) and \( -1 \), dropping the sign of 1; \( \tfrac{3}{2} \) drops the sign of the average; and \( y=-\tfrac{25}{4} \) is the horizontal line at the vertex's height, not the axis. <strong>\( x=-\tfrac{3}{2} \).</strong>
+          The axis is halfway between the \( x \)-intercepts: \( \dfrac{-4+1}{2}=-\tfrac{3}{2} \). So the axis is \( x=-\tfrac{3}{2} \), and the vertex lies on that line. The intercepts alone do not tell you how low the vertex is; that takes one more point or the formula. \( -\tfrac{5}{2} \) averages \( -4 \) and \( -1 \), dropping the sign of 1; \( \tfrac{3}{2} \) drops the sign of the average; and \( y=-\tfrac{3}{2} \) has the right number but is a horizontal line; the axis of a parabola like this is vertical. <strong>\( x=-\tfrac{3}{2} \).</strong>
       - id: b4
         title: "Which Way"
         math:

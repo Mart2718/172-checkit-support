@@ -37,3 +37,6 @@ Date: 2026-11-01. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the collapsed graph descriptions and the long fraction speak lines, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-01)
+An outside AI math check found no wrong keys. Applied: Axis from the Intercepts no longer states a vertex height the graph cannot show (its last distractor is now y = −3/2); How Many Crossings says a vertex on the axis touches it rather than crosses it.

@@ -43,9 +43,9 @@ summary:   # the Quick Summary tab
       - 'The output of the vertex: put its input into the model.'
       - 'Square before you multiply: <span>\( -16(4.5)^{2}=-16(20.25)=-324 \)</span>.'
     -
-      - 'A rounded input'
-      - 'When the input has to be a whole number of units or years, CheckIt rounds it first and evaluates the model at the rounded number.'
-      - 'So CheckIt''s least cost can differ by up to about 20 cents from the value at the exact vertex. Use the rounded input. A vertex at exactly .5, such as 252.5, rounds up to 253.'
+      - 'Whole numbers or not'
+      - 'If the input must be a whole number, such as units made, use the whole number nearest the vertex: for a parabola it is always the best one. If the input can be any number, such as time, keep the vertex unrounded while you compute and round only the final answer.'
+      - 'On CheckIt, the least cost is found at the rounded number of units, so it can differ by up to about 20 cents from the value at the exact vertex. A vertex at exactly .5, such as 252.5, rounds up to 253.'
     -
       - 'Reading a projectile model'
       - '<span>\( h(0)=c \)</span> is the launch height, and the projectile lands when <span>\( h(t)=0 \)</span>.'
@@ -141,13 +141,13 @@ tabs:
           speak: "a of x equals 0.0042 x squared minus 0.34 x plus 41.25"
         prompt: 'In a town, the average age of adult residents x years after 1900 was a(x) years. What was the minimum average age? (Round to the nearest tenth of a year.)'
         choices:
-          - {value: a, label: "61.6 years"}
-          - {value: b, label: "27.8 years"}
+          - {value: a, label: "61.9 years"}
+          - {value: b, label: "27.7 years"}
           - {value: c, label: "41.3 years"}
           - {value: d, label: "34.4 years"}
         correct: d
         explanation: |-
-          \( x=\dfrac{0.34}{2(0.0042)}=\dfrac{0.34}{0.0084}\approx 40.48 \), which rounds to the year 1940, \( x=40 \). Then \( a(40)=0.0042(1600)-0.34(40)+41.25=6.72-13.6+41.25=34.37 \), about 34.4 years. 61.6 adds the 13.6 instead of subtracting it; 27.8 forgets to square the 40, using \( 0.0042(40)=0.168 \); and 41.3 is \( a(0)=41.25 \), the average age in 1900, not the least one. <strong>34.4 years.</strong>
+          \( x=\dfrac{0.34}{2(0.0042)}=\dfrac{0.34}{0.0084}\approx 40.476 \). Time can be any number, so keep \( x \) unrounded: \( a(40.476)\approx 0.0042(1638.3)-0.34(40.476)+41.25\approx 6.881-13.762+41.25=34.369 \), about 34.4 years. (CheckIt evaluates at the rounded year, \( a(40)=34.37 \), which also rounds to 34.4.) 61.9 adds the 13.762 instead of subtracting it; 27.7 forgets to square, using \( 0.0042(40.476)\approx 0.170 \); and 41.3 is \( a(0)=41.25 \), the average age in 1900, not the least one. <strong>34.4 years.</strong>
       - id: v3
         title: "Least Unit Cost"
         math:
@@ -294,17 +294,17 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: '\begin{aligned} a(x)&=0.0045x^{2}-0.47x+48.2\\ x&\approx 52.2,\ \text{so }x=52\\ a(52)&=0.0045(104)-24.44+48.2\approx 24.2 \end{aligned}'
-          speak: "a of x equals 0.0045 x squared minus 0.47 x plus 48.2. Next line: x is about 52.2, so x equals 52. Next line: a of 52 equals 0.0045 times 104, minus 24.44, plus 48.2, which is about 24.2."
+          display: '\begin{aligned} a(x)&=0.0045x^{2}-0.47x+48.2\\ x&\approx 52.22\\ a(52.22)&\approx 0.0045(104.44)-24.54+48.2\approx 24.1 \end{aligned}'
+          speak: "a of x equals 0.0045 x squared minus 0.47 x plus 48.2. Next line: x is about 52.22. Next line: a of 52.22 is about 0.0045 times 104.44, minus 24.54, plus 48.2, which is about 24.1."
         prompt: 'In a town, the average age of adult residents x years after 1900 was a(x) years. A student found the minimum average age. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "x should not be rounded: use a(52.2) instead."}
+          - {value: b, label: "52.22 is past 52, so use a(53) for the least age."}
           - {value: c, label: "The minimum is at x = 1952, so use a(1952)."}
-          - {value: d, label: "52² is 2,704, not 104: the age is 35.9."}
+          - {value: d, label: "Square 52.22 instead of doubling it: 35.9."}
         correct: d
         explanation: |-
-          \( 52^{2}=52\cdot52=2{,}704 \); the student doubled 52 instead of squaring it. So \( a(52)=0.0045(2{,}704)-24.44+48.2=12.168-24.44+48.2\approx 35.9 \) years. An average adult age of 24 should look too low. Rounding to the year first is what CheckIt does, and here \( a(52.2) \) also rounds to 35.9; and \( x \) is years after 1900, so the year 1952 is \( x=52 \), not \( x=1952 \). <strong>35.9 years.</strong>
+          \( 52.22^{2}\approx 2{,}727 \); the student doubled 52.22 instead of squaring it. So \( a(52.22)\approx 0.0045(2{,}727)-24.54+48.2\approx 12.27-24.54+48.2\approx 35.9 \) years. The vertex is the least point, so the input stays at 52.22, not the next whole year, 53; and \( x \) is years after 1900, so the year 1952 is \( x=52 \), not \( x=1952 \). <strong>35.9 years.</strong>
       - id: sl5
         title: "Slip 5"
         math:

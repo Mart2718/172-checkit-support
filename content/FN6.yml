@@ -40,8 +40,12 @@ summary:   # the Quick Summary tab
       - 'Clear the denominator, gather the <span>\( y \)</span> terms on one side, factor out <span>\( y \)</span>, and divide.'
       - 'Move each term with its sign. Never cancel terms across the fraction bar.'
     -
+      - 'Domain and range'
+      - 'They trade places. <span>\( f(x)=\dfrac{2x+5}{x-3} \)</span> has domain <span>\( x\neq 3 \)</span> and range <span>\( y\neq 2 \)</span>; its inverse <span>\( f^{-1}(x)=\dfrac{3x+5}{x-2} \)</span> has domain <span>\( x\neq 2 \)</span> and range <span>\( y\neq 3 \)</span>.'
+      - 'The value <span>\( f \)</span> can never reach becomes the input <span>\( f^{-1} \)</span> cannot take.'
+    -
       - 'Checking'
-      - 'Pick an input, find its output, and put that output into your inverse: you should get the input back.'
+      - 'Pick an input, find its output, and put that output into your inverse: you should get the input back. A point check can rule a candidate out but cannot prove it; to be sure, check that <span>\( f\left(f^{-1}(x)\right)=x \)</span>.'
       - 'An answer can look different and still be equal. CheckIt pulls a leading minus out front, <span>\( -\dfrac{3x-2}{x+5} \)</span> for <span>\( \dfrac{-3x+2}{x+5} \)</span>, and puts the power before the constant, <span>\( (x-1)^{1/3}+7 \)</span> rather than <span>\( 7+(x-1)^{1/3} \)</span>.'
   note: 'Every CheckIt function here is one-to-one: an odd power or odd root never gives the same output twice, and neither does a fraction like these. That is why each one has an inverse. Your CheckIt function will be different. Undoing the steps, or swapping and solving, is what transfers.'
 tabs:
@@ -235,7 +239,7 @@ tabs:
           - {value: d, label: "Odd powers and roots never repeat outputs"}
         correct: d
         explanation: |-
-          A function has an inverse when it is one-to-one: no two inputs give the same output, so each output leads back to exactly one input. Odd powers and odd roots keep the sign: \( 2^{3}=8 \) but \( (-2)^{3}=-8 \), so they never repeat an output. Not every function has an inverse, though: \( x^{2} \) gives 4 for both 2 and \( -2 \), so 4 cannot be sent back to one input; whole-number constants do not decide it, since \( x^{2}+1 \) has them too and still repeats outputs; and \( x^{2} \) also has a positive exponent, so the exponent being a positive number is not the reason. <strong>Odd powers and odd roots never repeat an output.</strong>
+          A function has an inverse when it is one-to-one: no two inputs give the same output, so each output leads back to exactly one input. Odd powers and odd roots are strictly increasing on all real numbers: a larger input always gives a larger output, so two different inputs never give the same output. For example, \( 2^{3}=8 \) but \( (-2)^{3}=-8 \). Not every function has an inverse, though: \( x^{2} \) gives 4 for both 2 and \( -2 \), so 4 cannot be sent back to one input; whole-number constants do not decide it, since \( x^{2}+1 \) has them too and still repeats outputs; and \( x^{2} \) also has a positive exponent, so the exponent being a positive number is not the reason. <strong>Odd powers and odd roots never repeat an output.</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"

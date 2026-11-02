@@ -43,7 +43,7 @@ summary:   # the Quick Summary tab
     -
       - 'Standard form'
       - 'For <span>\( Ax+By=C \)</span>, set <span>\( x=0 \)</span> for the <span>\( y \)</span>-intercept and <span>\( y=0 \)</span> for the <span>\( x \)</span>-intercept, or solve for <span>\( y \)</span>.'
-      - 'If an intercept is a fraction, solve for <span>\( y \)</span> and use the slope. If the <span>\( y \)</span>-intercept is a fraction too, try <span>\( x=1,2,-1,\ldots \)</span> until <span>\( y \)</span> comes out whole. If <span>\( C=0 \)</span>, both intercepts are <span>\( (0,0) \)</span>, so you need a second point.'
+      - 'If an intercept is a fraction, solve for <span>\( y \)</span> and use the slope. If the <span>\( y \)</span>-intercept is a fraction too, look for a convenient point by trying <span>\( x=1,2,-1,\ldots \)</span>; if none comes out whole, plot exact fractions, such as <span>\( \left(0,\tfrac{3}{4}\right) \)</span>. If <span>\( C=0 \)</span>, both intercepts are <span>\( (0,0) \)</span>, so you need a second point.'
     -
       - 'x = c or y = c'
       - '<span>\( x=c \)</span> is the vertical line through <span>\( (c,0) \)</span>; <span>\( y=c \)</span> is the horizontal line through <span>\( (0,c) \)</span>.'
@@ -163,7 +163,7 @@ tabs:
           - {value: d, label: "(2, 0) and (0, −3)"}
         correct: b
         explanation: |-
-          Set \( y=0 \): \( 2x=6 \), so \( x=3 \), the point \( (3,0) \). Set \( x=0 \): \( -3y=6 \), so \( y=-2 \), the point \( (0,-2) \). Standard form makes intercepts quick. \( (0,2) \) loses the sign from dividing by \( -3 \); \( (-3,0) \) and \( (0,2) \) come from changing the sign of the 6, as \( 2x=-6 \) and \( -3y=-6 \); and \( (2,0) \) and \( (0,-3) \) divide 6 by the other variable's number. <strong>\( (3,0) \) and \( (0,-2) \).</strong>
+          Set \( y=0 \): \( 2x=6 \), so \( x=3 \), the point \( (3,0) \). Set \( x=0 \): \( -3y=6 \), so \( y=-2 \), the point \( (0,-2) \). Standard form makes intercepts quick. \( (0,2) \) loses the sign from dividing by \( -3 \); \( (-3,0) \) and \( (0,2) \) come from changing the sign of the 6, as \( 2x=-6 \) and \( -3y=-6 \); and \( (2,0) \) and \( (0,-3) \) use the coefficients 2 and \( -3 \) as if they were the intercepts, but an intercept comes from setting the other variable to 0. <strong>\( (3,0) \) and \( (0,-2) \).</strong>
       - id: e4
         title: "Standard Form 2"
         math:

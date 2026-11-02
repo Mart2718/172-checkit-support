@@ -20,13 +20,13 @@ worked:   # used for the worked-examples recording document
   coreQuestion: "Do I know a point and the slope? If not, what will get me there?"
   coreFollowup: "Every equation of a line comes from a point and a slope. Point-slope form writes them straight in: y − y₁ = m(x − x₁). From two points, find the slope first. From a graph, find two grid corners on the line. From standard form, solve for y: the number in front of x is the slope, and the constant is the y-intercept."
 summary:   # the Quick Summary tab
-  intro: 'A line is pinned down by <strong>one point and its slope</strong>. Every LF2 question either gives you those two things or asks you to find them first.'
+  intro: 'A non-vertical line is pinned down by <strong>one point and its slope</strong>. Every LF2 question either gives you those two things or asks you to find them first.'
   caption: "Summary: Equations of Lines"
   columns: ["You have", "How to get the equation", "What to watch for"]
   rows:     # first cell of each row is the row header
     -
       - 'Standard form'
-      - 'For <span>\( Ax+By=C \)</span>, solve for <span>\( y \)</span>. The slope is <span>\( -\tfrac{A}{B} \)</span> and the <span>\( y \)</span>-intercept is <span>\( \left(0,\tfrac{C}{B}\right) \)</span>.'
+      - 'For <span>\( Ax+By=C \)</span> with <span>\( B\neq 0 \)</span>, solve for <span>\( y \)</span>. The slope is <span>\( -\tfrac{A}{B} \)</span> and the <span>\( y \)</span>-intercept is <span>\( \left(0,\tfrac{C}{B}\right) \)</span>.'
       - 'Divide <em>every</em> term by <span>\( B \)</span>, sign included. The <span>\( y \)</span>-intercept is a point, and it can be a fraction.'
     -
       - 'A point and the slope'
@@ -44,7 +44,7 @@ summary:   # the Quick Summary tab
       - 'Checking'
       - 'Put a known point into your equation. Both sides should match.'
       - 'Slope-intercept and point-slope forms are both correct answers on CheckIt.'
-  note: 'Slope-intercept form is <span>\( y=mx+b \)</span>, with slope <span>\( m \)</span> and <span>\( y \)</span>-intercept <span>\( (0,b) \)</span>. Point-slope form is <span>\( y-y_{1}=m(x-x_{1}) \)</span> for a point <span>\( (x_{1},y_{1}) \)</span> on the line. They describe the same line; one is just solved for <span>\( y \)</span>. Your CheckIt numbers will be different. A point and a slope are what transfer.'
+  note: 'Slope-intercept form is <span>\( y=mx+b \)</span>, with slope <span>\( m \)</span> and <span>\( y \)</span>-intercept <span>\( (0,b) \)</span>. Point-slope form is <span>\( y-y_{1}=m(x-x_{1}) \)</span> for a point <span>\( (x_{1},y_{1}) \)</span> on the line. They describe the same line; one is just solved for <span>\( y \)</span>. Neither works for a vertical line: <span>\( y=4 \)</span> is horizontal, with slope 0, but <span>\( x=4 \)</span> is vertical, with undefined slope. Your CheckIt numbers will be different. A point and a slope are what transfer.'
 tabs:
   - id: standard
     label: "Try It: Slope and Intercept"
