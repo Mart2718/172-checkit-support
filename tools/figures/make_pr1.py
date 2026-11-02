@@ -27,7 +27,7 @@ def parabola(name, q, xa, xb, window, cell=19, vertex=None, roots=(), xstep=1, y
 
 
 parabola('b3.svg', lambda x: (x + 4) * (x - 1), -5, 2, (-6, 3, -8, 8), roots=(-4, 1))                 # x-intercepts only
-parabola('c1.svg', lambda x: (x - 2) ** 2 - 1, -1, 5, (-2, 6, -2, 9), vertex=(2, -1), roots=(1, 3))
+parabola('c1.svg', lambda x: 2 * (x - 1) ** 2 + 1, -2, 4, (-2, 4, -2, 20), vertex=(1, 1))
 parabola('c2.svg', lambda x: 2 * (x + 1) ** 2 - 8, -4, 2, (-5, 3, -9, 11), vertex=(-1, -8), roots=(-3, 1))
 parabola('c3.svg', lambda x: -(x - 4) ** 2, 1, 7, (-1, 8, -10, 2), vertex=(4, 0))
 print('wrote', sorted(os.listdir(OUT)))
