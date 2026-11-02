@@ -1,0 +1,318 @@
+# LF2 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt LF2 has two parts. (1) A line in standard form Ax + By = C (A, B from -10 to 10, not 0; C from -10 to 10, can be 0):
+# give its slope, -A/B, and its y-intercept, (0, C/B), usually fractions. (2) Equations of three lines: one graphed on a -10 to 10
+# grid with no points marked (it passes through a grid point with x and y from -5 to 5, slope a nonzero multiple of 1/2 from -3 to
+# 3, negative when that point is in quadrant II or IV); one with a whole-number slope (-8 to 8, not 0) through a point; and one
+# through two points (four different coordinates from -10 to 10, so the slope is often a fraction). CheckIt accepts slope-intercept
+# form or point-slope form.
+# Figures drawn by tools/figures/make_lf2.py.
+code: LF2
+h1: "LF2 Support: Equations of Lines"
+pageTitle: "LF2 Support: Equations of Lines — Math 172, Santa Ana College"
+hubSummary: "Equations of lines: slope and y-intercept from standard form, and equations from a point and slope, two points, or a graph"
+videoIntro: "A narrated walkthrough of equations of lines: reading the slope and y-intercept from an equation in standard form, and writing an equation in slope-intercept or point-slope form from a point and a slope, two points, or a graph."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|slope is|intercept is'
+worked:   # used for the worked-examples recording document
+  title: "LF2 Worked Examples: Equations of Lines"
+  coreQuestion: "Do I know a point and the slope? If not, what will get me there?"
+  coreFollowup: "Every equation of a line comes from a point and a slope. Point-slope form writes them straight in: y − y₁ = m(x − x₁). From two points, find the slope first. From a graph, find two grid corners on the line. From standard form, solve for y: the number in front of x is the slope, and the constant is the y-intercept."
+summary:   # the Quick Summary tab
+  intro: 'A line is pinned down by <strong>one point and its slope</strong>. Every LF2 question either gives you those two things or asks you to find them first.'
+  caption: "Summary: Equations of Lines"
+  columns: ["You have", "How to get the equation", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Standard form'
+      - 'For <span>\( Ax+By=C \)</span>, solve for <span>\( y \)</span>. The slope is <span>\( -\tfrac{A}{B} \)</span> and the <span>\( y \)</span>-intercept is <span>\( \left(0,\tfrac{C}{B}\right) \)</span>.'
+      - 'Divide <em>every</em> term by <span>\( B \)</span>, sign included. The <span>\( y \)</span>-intercept is a point, and it can be a fraction.'
+    -
+      - 'A point and the slope'
+      - 'Point-slope form: <span>\( y-y_{1}=m(x-x_{1}) \)</span>. To get slope-intercept form, distribute and solve for <span>\( y \)</span>.'
+      - 'A negative coordinate flips the sign inside: through <span>\( (-2,5) \)</span>, write <span>\( x+2 \)</span>.'
+    -
+      - 'Two points'
+      - 'Find the slope, <span>\( m=\dfrac{y_{2}-y_{1}}{x_{2}-x_{1}} \)</span>, then use either point in point-slope form.'
+      - 'Subtract in the same order on top and bottom. Fraction slopes are normal; keep them exact.'
+    -
+      - 'A graph'
+      - 'Find two grid corners on the line. Count the rise and the run for the slope, then use one corner as the point.'
+      - 'CheckIt marks no points. If the line crosses the <span>\( y \)</span>-axis between grid lines, use point-slope form.'
+    -
+      - 'Checking'
+      - 'Put a known point into your equation. Both sides should match.'
+      - 'Slope-intercept and point-slope forms are both correct answers on CheckIt.'
+  note: 'Slope-intercept form is <span>\( y=mx+b \)</span>, with slope <span>\( m \)</span> and <span>\( y \)</span>-intercept <span>\( (0,b) \)</span>. Point-slope form is <span>\( y-y_{1}=m(x-x_{1}) \)</span> for a point <span>\( (x_{1},y_{1}) \)</span> on the line. They describe the same line; one is just solved for <span>\( y \)</span>. Your CheckIt numbers will be different. A point and a slope are what transfer.'
+tabs:
+  - id: standard
+    label: "Try It: Slope and Intercept"
+    heading: "Try It: Slope and Intercept"
+    intro: |-
+      Each line is in standard form. Solve for y to read off the slope and the y-intercept. Make your best guess on each one, then check it.
+    items:
+      - id: sf1
+        title: "Standard Form 1"
+        math:
+          display: '3x+4y=12'
+          speak: "3 x plus 4 y equals 12"
+        prompt: 'What are the slope and the y-intercept of this line?'
+        choices:
+          - {value: a, label: "slope −3/4, y-intercept (0, 3)"}
+          - {value: b, label: "slope 3/4, y-intercept (0, 3)"}
+          - {value: c, label: "slope −4/3, y-intercept (0, 3)"}
+          - {value: d, label: "slope −3/4, y-intercept (0, 12)"}
+        correct: a
+        explanation: |-
+          Solve for \( y \): \( 4y=-3x+12 \), so \( y=-\tfrac{3}{4}x+3 \). The slope is the number in front of \( x \), \( -\tfrac{3}{4} \), and the \( y \)-intercept is \( (0,3) \). A slope of \( \tfrac{3}{4} \) loses the minus sign from moving \( 3x \) across; \( -\tfrac{4}{3} \) divides the wrong way, \( B \) over \( A \); and \( (0,12) \) forgets to divide the 12 by 4. <strong>Slope \( -\tfrac{3}{4} \), \( y \)-intercept \( (0,3) \).</strong>
+      - id: sf2
+        title: "Standard Form 2"
+        math:
+          display: '2x-5y=10'
+          speak: "2 x minus 5 y equals 10"
+        prompt: 'What are the slope and the y-intercept of this line?'
+        choices:
+          - {value: a, label: "slope −2/5, y-intercept (0, −2)"}
+          - {value: b, label: "slope 2/5, y-intercept (0, 2)"}
+          - {value: c, label: "slope 2/5, y-intercept (0, −2)"}
+          - {value: d, label: "slope 5/2, y-intercept (0, −2)"}
+        correct: c
+        explanation: |-
+          Move \( 2x \): \( -5y=-2x+10 \). Now divide <em>every</em> term by \( -5 \): \( y=\tfrac{2}{5}x-2 \). Slope \( \tfrac{2}{5} \), \( y \)-intercept \( (0,-2) \). With a negative \( B \), the signs are where the mistakes happen: \( -\tfrac{2}{5} \) divides \( -2x \) by \( +5 \); \( (0,2) \) divides 10 by \( +5 \); and \( \tfrac{5}{2} \) divides the wrong way. <strong>Slope \( \tfrac{2}{5} \), \( y \)-intercept \( (0,-2) \).</strong>
+      - id: sf3
+        title: "Standard Form 3"
+        math:
+          display: '4x+6y=-9'
+          speak: "4 x plus 6 y equals negative 9"
+        prompt: 'What are the slope and the y-intercept of this line?'
+        choices:
+          - {value: a, label: "slope −3/2, y-intercept (0, −3/2)"}
+          - {value: b, label: "slope −2/3, y-intercept (0, −3/2)"}
+          - {value: c, label: "slope −2/3, y-intercept (0, −9)"}
+          - {value: d, label: "slope −2/3, y-intercept (0, 3/2)"}
+        correct: b
+        explanation: |-
+          \( 6y=-4x-9 \), so \( y=-\tfrac{4}{6}x-\tfrac{9}{6}=-\tfrac{2}{3}x-\tfrac{3}{2} \). Both reduce. The \( y \)-intercept does not have to be a whole number: it is \( \left(0,-\tfrac{3}{2}\right) \), halfway between \( -1 \) and \( -2 \). A slope of \( -\tfrac{3}{2} \) divides 6 by 4 instead of 4 by 6; \( (0,-9) \) forgets to divide by 6; and \( \left(0,\tfrac{3}{2}\right) \) drops the sign of \( -9 \). <strong>Slope \( -\tfrac{2}{3} \), \( y \)-intercept \( \left(0,-\tfrac{3}{2}\right) \).</strong>
+      - id: sf4
+        title: "Standard Form 4"
+        math:
+          display: '-7x+y=0'
+          speak: "negative 7 x plus y equals 0"
+        prompt: 'What are the slope and the y-intercept of this line?'
+        choices:
+          - {value: a, label: "slope −7, y-intercept (0, 0)"}
+          - {value: b, label: "slope 7, y-intercept (0, 7)"}
+          - {value: c, label: "slope 7, y-intercept (0, 0)"}
+          - {value: d, label: "slope 7, and there is no y-intercept"}
+        correct: c
+        explanation: |-
+          Add \( 7x \) to both sides: \( y=7x \). The slope is 7, and since there is no constant, \( b=0 \): the line goes through the origin, so the \( y \)-intercept is \( (0,0) \). CheckIt's \( C \) can be 0, so this happens. \( -7 \) forgets that moving \( -7x \) across changes its sign; \( (0,7) \) uses the slope as the intercept; and every non-vertical line has a \( y \)-intercept, even when it is 0. <strong>Slope 7, \( y \)-intercept \( (0,0) \).</strong>
+  - id: equations
+    label: "Try It: Point and Slope, or Two Points"
+    heading: "Try It: Point and Slope, or Two Points"
+    intro: |-
+      Start from a point and the slope. With two points, find the slope first. Make your best guess, then check it.
+    items:
+      - id: eq1
+        title: "Point and Slope"
+        math:
+          display: 'm=-3,\quad (4,-2)'
+          speak: "slope negative 3, through the point 4 comma negative 2"
+        prompt: 'Which is an equation of the line with this slope through this point?'
+        choices:
+          - {value: a, label: '\( y=-3x-14 \)', speak: "y equals negative 3 x minus 14"}
+          - {value: b, label: '\( y=-3x+10 \)', speak: "y equals negative 3 x plus 10"}
+          - {value: c, label: '\( y=-3x-2 \)', speak: "y equals negative 3 x minus 2"}
+          - {value: d, label: '\( y=-3x-10 \)', speak: "y equals negative 3 x minus 10"}
+        correct: b
+        explanation: |-
+          Point-slope form: \( y-(-2)=-3(x-4) \), so \( y+2=-3x+12 \) and \( y=-3x+10 \). Check: \( -3(4)+10=-2 \). \( -14 \) comes from \( -2=-12+b \) worked as \( -2=12+b \); \( -2 \) puts the point in backwards, \( 4=-3(-2)+b \); and \( -10 \) flips both signs inside, \( y-2=-3(x+4) \). <strong>\( y=-3x+10 \), or \( y+2=-3(x-4) \).</strong>
+      - id: eq2
+        title: "Two Points 1"
+        math:
+          display: '(-6,1)\ \text{ and }\ (4,-4)'
+          speak: "the point negative 6 comma 1, and the point 4 comma negative 4"
+        prompt: 'Which is an equation of the line through these points?'
+        choices:
+          - {value: a, label: '\( y=-\tfrac{1}{2}x-2 \)', speak: "y equals negative one half x, minus 2"}
+          - {value: b, label: '\( y=-2x-11 \)', speak: "y equals negative 2 x minus 11"}
+          - {value: c, label: '\( y=-\tfrac{1}{2}x+4 \)', speak: "y equals negative one half x, plus 4"}
+          - {value: d, label: '\( y=\tfrac{1}{2}x+4 \)', speak: "y equals one half x, plus 4"}
+        correct: a
+        explanation: |-
+          Slope first: \( m=\dfrac{-4-1}{4-(-6)}=\dfrac{-5}{10}=-\tfrac{1}{2} \). Then point-slope with \( (-6,1) \): \( y-1=-\tfrac{1}{2}(x+6) \), so \( y=-\tfrac{1}{2}x-3+1=-\tfrac{1}{2}x-2 \). Check the other point: \( -\tfrac{1}{2}(4)-2=-4 \). \( -2x-11 \) flips the slope to \( -2 \); \( +4 \) writes \( x-6 \) instead of \( x+6 \); and \( \tfrac{1}{2}x+4 \) loses the slope's sign too. <strong>\( y=-\tfrac{1}{2}x-2 \).</strong>
+      - id: eq3
+        title: "Point-Slope Form"
+        math:
+          display: 'm=5,\quad (-3,7)'
+          speak: "slope 5, through the point negative 3 comma 7"
+        prompt: 'Which is the point-slope form of this line?'
+        choices:
+          - {value: a, label: '\( y+7=5(x-3) \)', speak: "y plus 7 equals 5 times the quantity x minus 3, end quantity"}
+          - {value: b, label: '\( y-7=5(x-3) \)', speak: "y minus 7 equals 5 times the quantity x minus 3, end quantity"}
+          - {value: c, label: '\( y-3=5(x+7) \)', speak: "y minus 3 equals 5 times the quantity x plus 7, end quantity"}
+          - {value: d, label: '\( y-7=5(x+3) \)', speak: "y minus 7 equals 5 times the quantity x plus 3, end quantity"}
+        correct: d
+        explanation: |-
+          Point-slope form subtracts the point's coordinates: \( y-y_{1}=m(x-x_{1}) \). With \( x_{1}=-3 \), \( x-(-3)=x+3 \); with \( y_{1}=7 \), \( y-7 \). So \( y-7=5(x+3) \). \( y+7=5(x-3) \) flips both signs; \( y-7=5(x-3) \) ignores that \( -3 \) is negative; and \( y-3=5(x+7) \) swaps the coordinates. CheckIt accepts this form or slope-intercept, \( y=5x+22 \). <strong>\( y-7=5(x+3) \).</strong>
+      - id: eq4
+        title: "Two Points 2"
+        math:
+          display: '(-8,-3)\ \text{ and }\ (7,7)'
+          speak: "the point negative 8 comma negative 3, and the point 7 comma 7"
+        prompt: 'Which is an equation of the line through these points?'
+        choices:
+          - {value: a, label: '\( y=\tfrac{3}{2}x+9 \)', speak: "y equals 3 halves x, plus 9"}
+          - {value: b, label: '\( y=\tfrac{2}{3}x+\tfrac{7}{3} \)', speak: "y equals 2 thirds x, plus 7 thirds"}
+          - {value: c, label: '\( y=\tfrac{2}{3}x-\tfrac{7}{3} \)', speak: "y equals 2 thirds x, minus 7 thirds"}
+          - {value: d, label: '\( y=\tfrac{2}{3}x+\tfrac{16}{3} \)', speak: "y equals 2 thirds x, plus 16 thirds"}
+        correct: b
+        explanation: |-
+          \( m=\dfrac{7-(-3)}{7-(-8)}=\dfrac{10}{15}=\tfrac{2}{3} \). With \( (-8,-3) \): \( y+3=\tfrac{2}{3}(x+8) \), so \( y=\tfrac{2}{3}x+\tfrac{16}{3}-3=\tfrac{2}{3}x+\tfrac{7}{3} \). Check the other point: \( \tfrac{2}{3}(7)+\tfrac{7}{3}=\tfrac{21}{3}=7 \). The fraction intercept is normal for two random points; point-slope form, \( y+3=\tfrac{2}{3}(x+8) \), is just as correct. \( \tfrac{3}{2}x+9 \) flips the slope; \( -\tfrac{7}{3} \) writes \( y-3=\tfrac{2}{3}(x-8) \); and \( +\tfrac{16}{3} \) forgets to subtract the 3. <strong>\( y=\tfrac{2}{3}x+\tfrac{7}{3} \).</strong>
+  - id: graph
+    label: "Try It: From a Graph"
+    heading: "Try It: From a Graph"
+    intro: |-
+      Like CheckIt's graphs, these have no points marked. Find two grid corners on the line, then the slope and a point. Make your best guess, then check it.
+    items:
+      - id: gr1
+        title: "Graph 1"
+        figure:
+          file: figures/LF2/g1.svg
+          title: "A straight line on a grid from −10 to 10"
+          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It rises from left to right, passing through (0, −2), (2, 1) and (4, 4).'
+          collapse: true
+        prompt: 'Which is an equation of this line?'
+        choices:
+          - {value: a, label: '\( y=\tfrac{2}{3}x-2 \)', speak: "y equals 2 thirds x, minus 2"}
+          - {value: b, label: '\( y=-\tfrac{3}{2}x-2 \)', speak: "y equals negative 3 halves x, minus 2"}
+          - {value: c, label: '\( y=\tfrac{3}{2}x-2 \)', speak: "y equals 3 halves x, minus 2"}
+          - {value: d, label: '\( y=\tfrac{3}{2}x+1 \)', speak: "y equals 3 halves x, plus 1"}
+        correct: c
+        explanation: |-
+          Grid corners at \( (0,-2) \) and \( (2,1) \): over 2, up 3, so \( m=\tfrac{3}{2} \). The line crosses the \( y \)-axis at \( -2 \): \( y=\tfrac{3}{2}x-2 \). Check: \( \tfrac{3}{2}(4)-2=4 \). \( \tfrac{2}{3} \) is run over rise; \( -\tfrac{3}{2} \) has the wrong sign for a rising line; and \( +1 \) uses the height of the point \( (2,1) \) as if it were the \( y \)-intercept. <strong>\( y=\tfrac{3}{2}x-2 \).</strong>
+      - id: gr2
+        title: "Graph 2"
+        figure:
+          file: figures/LF2/g2.svg
+          title: "A straight line on a grid from −10 to 10"
+          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It falls steeply from left to right, passing through (−4, 6), (−3, 4) and (0, −2).'
+          collapse: true
+        prompt: 'Which is an equation of this line?'
+        choices:
+          - {value: a, label: '\( y=-2x-2 \)', speak: "y equals negative 2 x minus 2"}
+          - {value: b, label: '\( y=2x-2 \)', speak: "y equals 2 x minus 2"}
+          - {value: c, label: '\( y=-\tfrac{1}{2}x-2 \)', speak: "y equals negative one half x, minus 2"}
+          - {value: d, label: '\( y=-2x+4 \)', speak: "y equals negative 2 x plus 4"}
+        correct: a
+        explanation: |-
+          From \( (-3,4) \) to \( (0,-2) \): over 3, down 6, so \( m=\tfrac{-6}{3}=-2 \). It crosses the \( y \)-axis at \( -2 \): \( y=-2x-2 \). Check: \( -2(-3)-2=4 \). \( 2x-2 \) has the wrong sign for a falling line; \( -\tfrac{1}{2} \) is run over rise; and \( +4 \) uses the height of \( (-3,4) \) as the \( y \)-intercept. <strong>\( y=-2x-2 \).</strong>
+      - id: gr3
+        title: "Graph 3"
+        figure:
+          file: figures/LF2/g3.svg
+          title: "A straight line on a grid from −10 to 10"
+          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It falls gently from left to right, passing through (−4, 2), (0, 0) and (4, −2).'
+          collapse: true
+        prompt: 'Which is an equation of this line?'
+        choices:
+          - {value: a, label: '\( y=-\tfrac{1}{2}x \)', speak: "y equals negative one half x"}
+          - {value: b, label: '\( y=-2x \)', speak: "y equals negative 2 x"}
+          - {value: c, label: '\( y=\tfrac{1}{2}x \)', speak: "y equals one half x"}
+          - {value: d, label: '\( y=-\tfrac{1}{2}x-2 \)', speak: "y equals negative one half x, minus 2"}
+        correct: a
+        explanation: |-
+          The line goes through the origin, so \( b=0 \). From \( (0,0) \) to \( (4,-2) \): over 4, down 2, so \( m=-\tfrac{2}{4}=-\tfrac{1}{2} \). Equation: \( y=-\tfrac{1}{2}x \). \( -2x \) is run over rise; \( \tfrac{1}{2}x \) has the wrong sign; and \( -2 \) at the end uses the height of \( (4,-2) \) as the \( y \)-intercept. <strong>\( y=-\tfrac{1}{2}x \).</strong>
+      - id: gr4
+        title: "Graph 4"
+        figure:
+          file: figures/LF2/g4.svg
+          title: "A straight line on a grid from −10 to 10"
+          caption: 'A straight line on a grid from −10 to 10 in both directions, with grid lines every 1 unit and no points marked. It rises steeply from left to right, passing through (−5, −4), (−3, 1) and (−1, 6), and crosses the y-axis between 8 and 9.'
+          collapse: true
+        prompt: 'Which is an equation of this line?'
+        choices:
+          - {value: a, label: '\( y-4=\tfrac{5}{2}(x-5) \)', speak: "y minus 4 equals 5 halves times the quantity x minus 5, end quantity"}
+          - {value: b, label: '\( y+4=\tfrac{2}{5}(x+5) \)', speak: "y plus 4 equals 2 fifths times the quantity x plus 5, end quantity"}
+          - {value: c, label: '\( y=\tfrac{5}{2}x-4 \)', speak: "y equals 5 halves x, minus 4"}
+          - {value: d, label: '\( y+4=\tfrac{5}{2}(x+5) \)', speak: "y plus 4 equals 5 halves times the quantity x plus 5, end quantity"}
+        correct: d
+        explanation: |-
+          This line crosses the \( y \)-axis between grid lines, so read a grid corner instead. From \( (-5,-4) \) to \( (-3,1) \): over 2, up 5, so \( m=\tfrac{5}{2} \). Point-slope with \( (-5,-4) \): \( y+4=\tfrac{5}{2}(x+5) \). In slope-intercept form that is \( y=\tfrac{5}{2}x+\tfrac{17}{2} \), and CheckIt accepts either. \( y-4=\tfrac{5}{2}(x-5) \) flips both signs; \( \tfrac{2}{5} \) is run over rise; and \( y=\tfrac{5}{2}x-4 \) uses the point's height as the \( y \)-intercept. <strong>\( y+4=\tfrac{5}{2}(x+5) \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} &6x+2y=8\\ &\text{slope}=\tfrac{6}{2}=3 \end{aligned}'
+          speak: "For 6 x plus 2 y equals 8: slope equals 6 halves, which equals 3"
+        prompt: 'A student found the slope this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Solve for y: y = −3x + 4, so the slope is −3."}
+          - {value: c, label: "Slope is B over A, so it should be 2/6, or 1/3."}
+          - {value: d, label: "The slope is 8/2 = 4, the constant divided by B."}
+        correct: b
+        explanation: |-
+          Moving \( 6x \) to the other side changes its sign: \( 2y=-6x+8 \), so \( y=-3x+4 \) and the slope is \( -3 \), which is \( -\tfrac{A}{B} \). The student skipped the minus. \( \tfrac{2}{6} \) divides the wrong way; and \( \tfrac{8}{2}=4 \) is the \( y \)-intercept's height, not the slope. <strong>The slope is \( -3 \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} &5x-2y=8\\ &y\text{-intercept}=(0,8) \end{aligned}'
+          speak: "For 5 x minus 2 y equals 8: y-intercept equals the point 0 comma 8"
+        prompt: 'A student found the y-intercept this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be (8, 0), since the 8 is on the right."}
+          - {value: c, label: "Divide by −2 too: the intercept is (0, −4)."}
+          - {value: d, label: "Divide by 5 instead: the intercept is (0, 8/5)."}
+        correct: c
+        explanation: |-
+          The 8 is not the intercept until \( y \) is alone: \( -2y=-5x+8 \), so \( y=\tfrac{5}{2}x-4 \). Setting \( x=0 \) in the original gives the same thing: \( -2y=8 \), \( y=-4 \). So the \( y \)-intercept is \( (0,-4) \). \( (8,0) \) puts the number in the \( x \) place, which is a different point; and \( \tfrac{8}{5} \) divides by the \( x \)-coefficient, which gives the \( x \)-intercept's value, not the \( y \)-intercept's. <strong>The \( y \)-intercept is \( (0,-4) \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} &(1,5),\ (3,9)\\ &m=\tfrac{9-5}{3-1}=2\\ &5=2(1)+b,\ b=3\\ &y=2x+3 \end{aligned}'
+          speak: "For the point 1 comma 5, and the point 3 comma 9. Next line: m equals the fraction 9 minus 5, over 3 minus 1, end fraction, which equals 2. Next line: 5 equals 2 times 1, plus b, so b equals 3. Next line: y equals 2 x plus 3."
+        prompt: 'A student wrote this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The slope should be 1/2, run over rise."}
+          - {value: c, label: "b should come from the second point, so b = 9."}
+          - {value: d, label: "The equation should be y − 5 = 2(x + 1)."}
+        correct: a
+        explanation: |-
+          The slope is \( \tfrac{4}{2}=2 \), and \( 5=2+b \) gives \( b=3 \). Check the other point: \( 2(3)+3=9 \). The student is right. Slope is rise over run, so \( \tfrac{1}{2} \) is upside down; either point gives the same \( b \), and \( 9=2(3)+b \) also gives 3, not 9; and point-slope form with \( (1,5) \) is \( y-5=2(x-1) \), with a minus. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} &m=4,\ (-2,3)\\ &y-3=4(x-2) \end{aligned}'
+          speak: "Slope 4, through the point negative 2 comma 3: y minus 3 equals 4 times the quantity x minus 2, end quantity"
+        prompt: 'A student wrote this equation. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be y + 3 = 4(x − 2) instead."}
+          - {value: c, label: "It should be y − 2 = 4(x − 3) instead."}
+          - {value: d, label: "x − (−2) is x + 2: y − 3 = 4(x + 2)."}
+        correct: d
+        explanation: |-
+          Point-slope form subtracts the coordinates: \( x-x_{1}=x-(-2)=x+2 \). So \( y-3=4(x+2) \), which is \( y=4x+11 \). The student's line goes through \( (2,3) \) instead. \( y+3 \) would be for a point with \( y \)-coordinate \( -3 \); and swapping the coordinates puts the point at \( (3,2) \). <strong>\( y-3=4(x+2) \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} &m=-2,\ (3,1)\\ &1=-2(3)+b\\ &b=-5\\ &y=-2x-5 \end{aligned}'
+          speak: "Slope negative 2, through the point 3 comma 1. Next line: 1 equals negative 2 times 3, plus b. Next line: b equals negative 5. Next line: y equals negative 2 x minus 5."
+        prompt: 'A student wrote this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "1 = −6 + b gives b = 7, so y = −2x + 7."}
+          - {value: c, label: "The point goes in backwards: 3 = −2(1) + b, so b = 5."}
+          - {value: d, label: "The slope should be 2, so y = 2x − 5."}
+        correct: b
+        explanation: |-
+          \( 1=-6+b \). Adding 6 to both sides gives \( b=7 \), not \( -5 \): the student subtracted. So \( y=-2x+7 \). Check: \( -2(3)+7=1 \). The point goes in as \( x=3 \), \( y=1 \), not the other way around; and the slope is given as \( -2 \), so it stays \( -2 \). <strong>\( y=-2x+7 \).</strong>
