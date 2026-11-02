@@ -1,0 +1,319 @@
+# PR1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt PR1 gives one quadratic q(x), in standard form ax^2 + bx + c or vertex form a(x - h)^2 + k (half the time each), with
+# a from -5 to 5 (not 0). It asks which way the parabola opens, the vertex and whether it is a maximum or a minimum, the axis
+# of symmetry, and for a sketch. A third of the parabolas have two whole-number x-intercepts (from -5 to 5, not 0), a third
+# touch the x-axis at a whole number (the vertex is on the axis), and a third have no x-intercepts. About 45% of vertices have
+# a fraction for h, and 40% a fraction for k. CheckIt's answer graph marks the vertex and the x-intercepts.
+# Figures drawn by tools/figures/make_pr1.py.
+code: PR1
+h1: "PR1 Support: Graphing Quadratic Functions"
+pageTitle: "PR1 Support: Graphing Quadratic Functions — Math 172, Santa Ana College"
+hubSummary: "Graphing quadratic functions: which way the parabola opens, the vertex as a maximum or minimum, the axis of symmetry, and a sketch"
+videoIntro: "A narrated walkthrough of graphing quadratic functions: telling which way a parabola opens, finding the vertex from standard or vertex form, deciding whether it is a maximum or a minimum, naming the axis of symmetry, and sketching the graph."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|vertex is|maximum|minimum'
+worked:   # used for the worked-examples recording document
+  title: "PR1 Worked Examples: Graphing Quadratic Functions"
+  coreQuestion: "Where is the vertex, and which way does the parabola open from there?"
+  coreFollowup: "The sign of a tells the direction: up if a is positive, down if it is negative. The vertex is the turning point: in vertex form a(x − h)² + k it is (h, k); in standard form, h = −b/(2a) and k = q(h). Opening up makes the vertex a minimum; opening down makes it a maximum. The axis of symmetry is the vertical line x = h, and the sketch is the vertex, the x-intercepts if there are any, and a mirror-image pair of points."
+summary:   # the Quick Summary tab
+  intro: 'Every question about a parabola starts from <strong>two facts: the sign of <span>\( a \)</span> and the vertex</strong>. The direction, the maximum or minimum, the axis and the sketch all follow from them.'
+  caption: "Summary: Graphing Quadratic Functions"
+  columns: ["Question", "How to answer it", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Up or down'
+      - 'Look at the sign of <span>\( a \)</span>, the number in front of <span>\( x^{2} \)</span> or of the squared quantity.'
+      - 'A minus sign in front of the parentheses counts: <span>\( -(x+1)^{2}+3 \)</span> opens down, even though the square is never negative.'
+    -
+      - 'Vertex from standard form'
+      - 'For <span>\( ax^{2}+bx+c \)</span>, <span>\( h=-\dfrac{b}{2a} \)</span>, then <span>\( k=q(h) \)</span>.'
+      - 'Keep the minus in <span>\( -b \)</span>, and keep fractions exact: <span>\( 2x^{2}+10x+1 \)</span> has <span>\( h=-\tfrac{5}{2} \)</span>. Square a negative <span>\( h \)</span> before multiplying by <span>\( a \)</span>.'
+    -
+      - 'Vertex from vertex form'
+      - 'For <span>\( a(x-h)^{2}+k \)</span>, the vertex is <span>\( (h,k) \)</span>.'
+      - 'The sign inside is the opposite of <span>\( h \)</span>: <span>\( (x+4)^{2} \)</span> means <span>\( h=-4 \)</span>. The <span>\( k \)</span> keeps its sign.'
+    -
+      - 'Maximum or minimum'
+      - 'Opens up: the vertex is a minimum. Opens down: the vertex is a maximum.'
+      - 'The maximum or minimum value is <span>\( k \)</span>, the height of the vertex.'
+    -
+      - 'Axis of symmetry'
+      - 'The vertical line <span>\( x=h \)</span>, halfway between the <span>\( x \)</span>-intercepts when there are two.'
+      - 'It is a line, so write <span>\( x=h \)</span>, not <span>\( y=k \)</span> or just a number.'
+    -
+      - 'Sketch'
+      - 'Plot the vertex, the <span>\( x \)</span>-intercepts if any, and the <span>\( y \)</span>-intercept <span>\( (0,c) \)</span> with its mirror point across the axis.'
+      - 'Vertex on the <span>\( x \)</span>-axis: one <span>\( x \)</span>-intercept. Opening up from above the axis, or down from below it: none.'
+  note: 'CheckIt uses both forms equally, and almost half of its vertices have a fraction in them, such as <span>\( \left(-\tfrac{3}{4},\tfrac{7}{8}\right) \)</span>. Fractions are normal; keep them exact. Your CheckIt function will be different. The sign of <span>\( a \)</span> and the vertex are what transfer.'
+tabs:
+  - id: vertex
+    label: "Try It: The Vertex"
+    heading: "Try It: The Vertex"
+    intro: |-
+      Find the vertex, and decide whether it is the highest or the lowest point. Make your best guess on each one, then check it.
+    items:
+      - id: a1
+        title: "Standard Form 1"
+        math:
+          display: 'q(x)=-2x^{2}+8x-6'
+          speak: "q of x equals negative 2 x squared plus 8 x minus 6"
+        prompt: 'What is the vertex, and is it a maximum or a minimum?'
+        choices:
+          - {value: a, label: "(2, 2), a maximum"}
+          - {value: b, label: "(2, 2), a minimum"}
+          - {value: c, label: "(−2, −30), a maximum"}
+          - {value: d, label: "(−2, −30), a minimum"}
+        correct: a
+        explanation: |-
+          \( h=-\dfrac{b}{2a}=-\dfrac{8}{2(-2)}=2 \), and \( k=q(2)=-8+16-6=2 \). Since \( a=-2 \) is negative, the parabola opens down, so the vertex \( (2,2) \) is the highest point: a maximum. Calling it a minimum misses the sign of \( a \); \( (-2,-30) \) drops the minus in \( -\tfrac{b}{2a} \), giving \( h=-2 \) and \( q(-2)=-30 \); and \( (-2,-30) \) as a minimum makes both slips. <strong>\( (2,2) \), a maximum.</strong>
+      - id: a2
+        title: "Standard Form 2"
+        math:
+          display: 'q(x)=2x^{2}-14x+20'
+          speak: "q of x equals 2 x squared minus 14 x plus 20"
+        prompt: 'What is the vertex of this parabola?'
+        choices:
+          - {value: a, label: '\( \left(-\tfrac{7}{2},\tfrac{187}{2}\right) \)', speak: "the point negative the fraction 7, over 2, end fraction, comma the fraction 187, over 2, end fraction"}
+          - {value: b, label: '\( (7,20) \)', speak: "the point 7 comma 20"}
+          - {value: c, label: '\( \left(\tfrac{7}{2},-\tfrac{9}{2}\right) \)', speak: "the point the fraction 7, over 2, end fraction, comma negative the fraction 9, over 2, end fraction"}
+          - {value: d, label: '\( \left(\tfrac{7}{2},20\right) \)', speak: "the point the fraction 7, over 2, end fraction, comma 20"}
+        correct: c
+        explanation: |-
+          \( h=-\dfrac{-14}{2(2)}=\tfrac{14}{4}=\tfrac{7}{2} \). Then \( k=2\left(\tfrac{7}{2}\right)^{2}-14\left(\tfrac{7}{2}\right)+20=2\cdot\tfrac{49}{4}-49+20=\tfrac{49}{2}-29=-\tfrac{9}{2} \). The vertex has fractions, which is normal on CheckIt. \( -\tfrac{7}{2} \) drops the minus in \( -\tfrac{b}{2a} \), and then \( q\left(-\tfrac{7}{2}\right)=\tfrac{187}{2} \); \( (7,20) \) divides by \( a \) instead of \( 2a \), and \( q(7)=20 \); and \( \left(\tfrac{7}{2},20\right) \) squares the 2 along with \( \tfrac{7}{2} \), as \( \left(2\cdot\tfrac{7}{2}\right)^{2}=49 \), so the first two terms cancel. <strong>\( \left(\tfrac{7}{2},-\tfrac{9}{2}\right) \).</strong>
+      - id: a3
+        title: "Standard Form 3"
+        math:
+          display: 'q(x)=2x^{2}-12x+18'
+          speak: "q of x equals 2 x squared minus 12 x plus 18"
+        prompt: 'What is the vertex of this parabola?'
+        choices:
+          - {value: a, label: '\( (-3,72) \)', speak: "the point negative 3 comma 72"}
+          - {value: b, label: '\( (3,0) \)', speak: "the point 3 comma 0"}
+          - {value: c, label: '\( (6,18) \)', speak: "the point 6 comma 18"}
+          - {value: d, label: '\( (0,18) \)', speak: "the point 0 comma 18"}
+        correct: b
+        explanation: |-
+          \( h=-\dfrac{-12}{2(2)}=3 \), and \( k=q(3)=18-36+18=0 \). The vertex \( (3,0) \) is on the \( x \)-axis, so the parabola touches the axis at one point: \( q(x)=2(x-3)^{2} \). This happens in about a third of CheckIt's problems. \( (-3,72) \) drops the minus in \( -\tfrac{b}{2a} \); \( (6,18) \) divides by \( a \) instead of \( 2a \); and \( (0,18) \) is the \( y \)-intercept, not the vertex. <strong>\( (3,0) \).</strong>
+      - id: a4
+        title: "Vertex Form"
+        math:
+          display: 'q(x)=4\left(x-\tfrac{1}{2}\right)^{2}+1'
+          speak: "q of x equals 4 times the quantity x minus the fraction 1, over 2, end fraction, end quantity, squared, plus 1"
+        prompt: 'What is the vertex, and is it a maximum or a minimum?'
+        choices:
+          - {value: a, label: "(1/2, 1), a minimum"}
+          - {value: b, label: "(−1/2, 1), a minimum"}
+          - {value: c, label: "(1/2, 1), a maximum"}
+          - {value: d, label: "(−1/2, 1), a maximum"}
+        correct: a
+        explanation: |-
+          Vertex form is \( a(x-h)^{2}+k \), so \( x-\tfrac{1}{2} \) means \( h=\tfrac{1}{2} \), and \( k=1 \). With \( a=4 \), positive, the parabola opens up, so \( \left(\tfrac{1}{2},1\right) \) is the lowest point: a minimum. \( -\tfrac{1}{2} \) reads the sign as written instead of the opposite; calling it a maximum misses that \( a \) is positive; and \( -\tfrac{1}{2} \) with a maximum makes both slips. <strong>\( \left(\tfrac{1}{2},1\right) \), a minimum.</strong>
+  - id: axis
+    label: "Try It: Axis and Shape"
+    heading: "Try It: Axis and Shape"
+    intro: |-
+      The axis of symmetry runs through the vertex. Which way the parabola opens and where the vertex sits tell you how many times it crosses the x-axis. Make your best guess, then check it.
+    items:
+      - id: b1
+        title: "Axis from Vertex Form"
+        math:
+          display: 'q(x)=-3(x+2)^{2}+3'
+          speak: "q of x equals negative 3 times the quantity x plus 2, end quantity, squared, plus 3"
+        prompt: 'What is the axis of symmetry?'
+        choices:
+          - {value: a, label: '\( x=3 \)', speak: "x equals 3"}
+          - {value: b, label: '\( x=-2 \)', speak: "x equals negative 2"}
+          - {value: c, label: '\( y=-2 \)', speak: "y equals negative 2"}
+          - {value: d, label: '\( y=3 \)', speak: "y equals 3"}
+        correct: b
+        explanation: |-
+          \( x+2=x-(-2) \), so \( h=-2 \) and the vertex is \( (-2,3) \). The axis of symmetry is the vertical line through the vertex: \( x=-2 \). \( x=3 \) uses \( k \), the vertex's height, as if it were \( h \); \( y=-2 \) has the right number but makes a horizontal line; and \( y=3 \) is the horizontal line at the vertex's height, but a parabola like this is symmetric left to right, about a vertical line. <strong>\( x=-2 \).</strong>
+      - id: b2
+        title: "How Many Crossings"
+        math:
+          display: 'q(x)=x^{2}-4x+7'
+          speak: "q of x equals x squared minus 4 x plus 7"
+        prompt: 'How many x-intercepts does the graph of q have?'
+        choices:
+          - {value: a, label: "None"}
+          - {value: b, label: "One"}
+          - {value: c, label: "Two"}
+        correct: a
+        explanation: |-
+          Find the vertex: \( h=-\dfrac{-4}{2(1)}=2 \), and \( k=4-8+7=3 \). The vertex \( (2,3) \) is above the \( x \)-axis, and \( a=1 \) is positive, so the parabola opens up from there and never comes down to the axis. A third of CheckIt's parabolas are like this, so the sketch has no \( x \)-intercepts; plot the vertex and the \( y \)-intercept \( (0,7) \) with its mirror point \( (4,7) \). One crossing would need the vertex on the axis, and two crossings would need it to open toward the axis from the other side. <strong>None.</strong>
+      - id: b3
+        title: "Axis from the Intercepts"
+        figure:
+          file: figures/PR1/b3.svg
+          title: "A parabola with its two x-intercepts marked"
+          caption: 'A parabola on a grid with x from −6 to 3 and y from −8 to 8. It opens upward, and its two x-intercepts are marked with dots at (−4, 0) and (1, 0). Its lowest point is below the x-axis, between the two intercepts.'
+        prompt: 'What is the axis of symmetry of this parabola?'
+        choices:
+          - {value: a, label: '\( x=-\tfrac{5}{2} \)', speak: "x equals negative the fraction 5, over 2, end fraction"}
+          - {value: b, label: '\( x=\tfrac{3}{2} \)', speak: "x equals the fraction 3, over 2, end fraction"}
+          - {value: c, label: '\( x=-\tfrac{3}{2} \)', speak: "x equals negative the fraction 3, over 2, end fraction"}
+          - {value: d, label: '\( y=-\tfrac{25}{4} \)', speak: "y equals negative the fraction 25, over 4, end fraction"}
+        correct: c
+        explanation: |-
+          The axis is halfway between the \( x \)-intercepts: \( \dfrac{-4+1}{2}=-\tfrac{3}{2} \). So the axis is \( x=-\tfrac{3}{2} \), and the vertex is \( \left(-\tfrac{3}{2},-\tfrac{25}{4}\right) \) for this parabola, \( q(x)=(x+4)(x-1) \). \( -\tfrac{5}{2} \) averages \( -4 \) and \( -1 \), dropping the sign of 1; \( \tfrac{3}{2} \) drops the sign of the average; and \( y=-\tfrac{25}{4} \) is the horizontal line at the vertex's height, not the axis. <strong>\( x=-\tfrac{3}{2} \).</strong>
+      - id: b4
+        title: "Which Way"
+        math:
+          display: 'q(x)=-(x-2)^{2}+9'
+          speak: "q of x equals negative the quantity x minus 2, end quantity, squared, plus 9"
+        prompt: 'Which way does this parabola open, and what is its vertex?'
+        choices:
+          - {value: a, label: "Up, since (x − 2)² is never negative; vertex (2, 9) is the lowest point"}
+          - {value: b, label: "Down; vertex (2, 9) is the highest point"}
+          - {value: c, label: "Down; vertex (−2, 9) is the highest point"}
+          - {value: d, label: "Up; vertex (−2, 9) is the lowest point"}
+        correct: b
+        explanation: |-
+          The minus in front means \( a=-1 \): whatever \( (x-2)^{2} \) is, it gets subtracted from 9. So \( q \) is never more than 9, and the parabola opens down from the vertex \( (2,9) \), its highest point, a maximum. The square is never negative, but the minus in front makes the whole term never positive; \( (-2,9) \) reads the sign inside as written; and opening up with \( (-2,9) \) makes both slips. <strong>Down, with vertex \( (2,9) \) as the highest point.</strong>
+  - id: graph
+    label: "Try It: Graphs and Sketches"
+    heading: "Try It: Graphs and Sketches"
+    intro: |-
+      Like CheckIt's answer graphs, these mark the vertex with a square and the x-intercepts with dots. Match the graph to its function, or plan a sketch. Make your best guess, then check it.
+    items:
+      - id: c1
+        title: "Graph 1"
+        figure:
+          file: figures/PR1/c1.svg
+          title: "A parabola with its vertex and x-intercepts marked"
+          caption: 'A parabola on a grid with x from −2 to 6 and y from −2 to 9. It opens upward. A square marks the vertex at (2, −1), and the x-intercepts are marked with dots at (1, 0) and (3, 0). It also passes through (0, 3) and (4, 3).'
+          collapse: true
+        prompt: 'Which function does this graph show?'
+        choices:
+          - {value: a, label: '\( q(x)=(x+2)^{2}-1 \)', speak: "q of x equals the quantity x plus 2, end quantity, squared, minus 1"}
+          - {value: b, label: '\( q(x)=(x-2)^{2}+1 \)', speak: "q of x equals the quantity x minus 2, end quantity, squared, plus 1"}
+          - {value: c, label: '\( q(x)=(x+2)^{2}+1 \)', speak: "q of x equals the quantity x plus 2, end quantity, squared, plus 1"}
+          - {value: d, label: '\( q(x)=(x-2)^{2}-1 \)', speak: "q of x equals the quantity x minus 2, end quantity, squared, minus 1"}
+        correct: d
+        explanation: |-
+          The vertex is \( (2,-1) \), so in vertex form \( h=2 \) and \( k=-1 \): \( (x-2)^{2}-1 \), with \( a=1 \) since it opens up and goes up 1 from the vertex for a step of 1 across. Check an intercept: \( (1-2)^{2}-1=0 \). \( (x+2)^{2}-1 \) puts the vertex at \( (-2,-1) \), the sign as written; \( (x-2)^{2}+1 \) gives \( k \) the wrong sign, which would put the vertex above the axis with no \( x \)-intercepts; and \( (x+2)^{2}+1 \) makes both slips. <strong>\( q(x)=(x-2)^{2}-1 \).</strong>
+      - id: c2
+        title: "Graph 2"
+        figure:
+          file: figures/PR1/c2.svg
+          title: "A parabola with its vertex and x-intercepts marked"
+          caption: 'A parabola on a grid with x from −5 to 3 and y from −9 to 11. It opens upward. A square marks the vertex at (−1, −8), and the x-intercepts are marked with dots at (−3, 0) and (1, 0). It also passes through (0, −6) and (−2, −6).'
+          collapse: true
+        prompt: 'Which function does this graph show?'
+        choices:
+          - {value: a, label: '\( q(x)=2(x+1)^{2}-8 \)', speak: "q of x equals 2 times the quantity x plus 1, end quantity, squared, minus 8"}
+          - {value: b, label: '\( q(x)=(x+1)^{2}-8 \)', speak: "q of x equals the quantity x plus 1, end quantity, squared, minus 8"}
+          - {value: c, label: '\( q(x)=(x+1)^{2}-4 \)', speak: "q of x equals the quantity x plus 1, end quantity, squared, minus 4"}
+          - {value: d, label: '\( q(x)=2(x-1)^{2}-8 \)', speak: "q of x equals 2 times the quantity x minus 1, end quantity, squared, minus 8"}
+        correct: a
+        explanation: |-
+          The vertex is \( (-1,-8) \), so \( q(x)=a(x+1)^{2}-8 \). To find \( a \), use an intercept: \( a(1+1)^{2}-8=0 \), so \( 4a=8 \) and \( a=2 \). From the vertex, one step across goes up 2, not 1: \( (0,-6) \). \( (x+1)^{2}-8 \) leaves out \( a \), so it would cross the axis at \( -1\pm 2\sqrt{2} \), not at whole numbers; \( (x+1)^{2}-4 \) has the right intercepts but puts the vertex at \( (-1,-4) \); and \( 2(x-1)^{2}-8 \) puts the vertex at \( (1,-8) \), the sign as written. <strong>\( q(x)=2(x+1)^{2}-8 \).</strong>
+      - id: c3
+        title: "Graph 3"
+        figure:
+          file: figures/PR1/c3.svg
+          title: "A parabola with its vertex marked"
+          caption: 'A parabola on a grid with x from −1 to 8 and y from −10 to 2. It opens downward. Its vertex, marked with a square at (4, 0), is its only point on the x-axis. It also passes through (3, −1), (5, −1), (2, −4) and (6, −4).'
+          collapse: true
+        prompt: 'Which function, in standard form, does this graph show?'
+        choices:
+          - {value: a, label: '\( q(x)=-x^{2}-8x-16 \)', speak: "q of x equals negative x squared minus 8 x minus 16"}
+          - {value: b, label: '\( q(x)=x^{2}-8x+16 \)', speak: "q of x equals x squared minus 8 x plus 16"}
+          - {value: c, label: '\( q(x)=-x^{2}+8x-16 \)', speak: "q of x equals negative x squared plus 8 x minus 16"}
+          - {value: d, label: '\( q(x)=-x^{2}+16 \)', speak: "q of x equals negative x squared plus 16"}
+        correct: c
+        explanation: |-
+          The vertex \( (4,0) \) is on the axis, and from it one step across goes down 1, so \( q(x)=-(x-4)^{2} \). Expand: \( -(x^{2}-8x+16)=-x^{2}+8x-16 \). Check: \( h=-\dfrac{8}{2(-1)}=4 \). \( -x^{2}-8x-16=-(x+4)^{2} \) puts the vertex at \( (-4,0) \); \( x^{2}-8x+16=(x-4)^{2} \) opens up; and \( -x^{2}+16 \) squares only the \( x \), as if \( (x-4)^{2}=x^{2}-16 \), which gives a parabola with vertex \( (0,16) \) crossing at \( \pm 4 \). <strong>\( q(x)=-x^{2}+8x-16 \).</strong>
+      - id: c4
+        title: "Plan the Sketch"
+        math:
+          display: 'q(x)=-2x^{2}+4x+6'
+          speak: "q of x equals negative 2 x squared plus 4 x plus 6"
+        prompt: 'Which points should a sketch of this parabola show?'
+        choices:
+          - {value: a, label: "Vertex (1, 8); x-intercepts −1 and 3"}
+          - {value: b, label: "Vertex (1, 8); x-intercepts 1 and −3"}
+          - {value: c, label: "Vertex (−1, 0); x-intercepts −1 and 3"}
+          - {value: d, label: "Vertex (−1, 0); x-intercepts 1 and −3"}
+        correct: a
+        explanation: |-
+          Vertex: \( h=-\dfrac{4}{2(-2)}=1 \), and \( k=-2+4+6=8 \). Intercepts: \( -2x^{2}+4x+6=-2(x^{2}-2x-3)=-2(x-3)(x+1) \), which is 0 at \( x=3 \) and \( x=-1 \). The axis \( x=1 \) is halfway between them, which checks. Opening down from \( (1,8) \), the parabola crosses the axis twice. Intercepts 1 and \( -3 \) take the numbers from the factors with their signs, but \( x-3=0 \) means \( x=3 \); vertex \( (-1,0) \) drops the minus in \( -\tfrac{b}{2a} \), and \( q(-1)=0 \) only because \( -1 \) is an intercept; and vertex \( (-1,0) \) with intercepts 1 and \( -3 \) makes both slips. <strong>Vertex \( (1,8) \); \( x \)-intercepts \( -1 \) and 3.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} &q(x)=3x^{2}+12x-15\\ &h=\tfrac{12}{2(3)}=2\\ &k=q(2)=21\\ &\text{vertex }(2,21) \end{aligned}'
+          speak: "q of x equals 3 x squared plus 12 x minus 15. Next line: h equals the fraction 12, over 2 times 3, end fraction, which equals 2. Next line: k equals q of 2, which equals 21. Next line: vertex, the point 2 comma 21."
+        prompt: 'A student found the vertex this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "With the minus, h = −2: the vertex is (−2, −27)."}
+          - {value: c, label: "Divide by a, not 2a: h = −4, so the vertex is (−4, −15)."}
+          - {value: d, label: "The vertex is the y-intercept, (0, −15)."}
+        correct: b
+        explanation: |-
+          The formula is \( h=-\dfrac{b}{2a} \), with a minus: \( h=-\tfrac{12}{6}=-2 \). Then \( k=q(-2)=12-24-15=-27 \), so the vertex is \( (-2,-27) \). The student left out the minus. Check with the intercepts: \( 3(x+5)(x-1) \) is 0 at \( -5 \) and 1, and halfway is \( -2 \). Dividing by \( a \) instead of \( 2a \) gives \( -4 \), which is not halfway between the intercepts; and \( (0,-15) \) is where the parabola crosses the \( y \)-axis, not where it turns. <strong>The vertex is \( (-2,-27) \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} &q(x)=-2(x+3)^{2}+8\\ &\text{vertex }(3,8),\ \text{a maximum} \end{aligned}'
+          speak: "q of x equals negative 2 times the quantity x plus 3, end quantity, squared, plus 8. Next line: vertex, the point 3 comma 8, a maximum."
+        prompt: 'A student read the vertex from vertex form. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "x + 3 means h = −3: the vertex is (−3, 8)."}
+          - {value: c, label: "Both signs change: the vertex is (−3, −8)."}
+          - {value: d, label: "It opens down, so the vertex is a minimum."}
+        correct: b
+        explanation: |-
+          Vertex form is \( a(x-h)^{2}+k \), and \( x+3=x-(-3) \), so \( h=-3 \). The \( k \) is \( +8 \) as written. The vertex is \( (-3,8) \), and since \( a=-2 \) is negative it is a maximum, as the student said. Only the sign inside the parentheses is the opposite of \( h \): \( k \) keeps its sign, so \( (-3,-8) \) is wrong; and a parabola that opens down has its vertex at the top, a maximum. <strong>The vertex is \( (-3,8) \), a maximum.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} &q(x)=-x^{2}+6x-5\\ &h=-\tfrac{6}{2(-1)}=3\\ &k=-9+18-5=4\\ &\text{vertex }(3,4),\ \text{a maximum; axis }x=3 \end{aligned}'
+          speak: "q of x equals negative x squared plus 6 x minus 5. Next line: h equals negative the fraction 6, over 2 times negative 1, end fraction, which equals 3. Next line: k equals negative 9 plus 18 minus 5, which equals 4. Next line: vertex, the point 3 comma 4, a maximum; axis x equals 3."
+        prompt: 'A student wrote this work. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "(−x)² is x², so k = 9 + 18 − 5 = 22."}
+          - {value: c, label: "h should be 6/2 = 3, so a is not part of it."}
+          - {value: d, label: "The axis of symmetry should be y = 4."}
+        correct: a
+        explanation: |-
+          \( a=-1 \), \( b=6 \): \( h=-\dfrac{6}{-2}=3 \). In \( q(3) \), only the 3 is squared, \( -(3^{2})=-9 \), so \( k=-9+18-5=4 \). With \( a \) negative, \( (3,4) \) is a maximum, and the axis is the vertical line \( x=3 \). The student is right. The minus in \( -x^{2} \) is outside the square, so \( k=22 \) squares it by mistake; the formula needs \( 2a \), and here leaving it out only works because the two minus signs happen to cancel; and \( y=4 \) is a horizontal line, not the axis. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} &q(x)=2x^{2}+2x-4\\ &h=-\tfrac{2}{2(2)}=-\tfrac{1}{2}\\ &k=2\left(-\tfrac{1}{4}\right)-1-4=-\tfrac{11}{2} \end{aligned}'
+          speak: "q of x equals 2 x squared plus 2 x minus 4. Next line: h equals negative the fraction 2, over 2 times 2, end fraction, which equals negative the fraction 1, over 2, end fraction. Next line: k equals 2 times negative the fraction 1, over 4, end fraction, minus 1, minus 4, which equals negative the fraction 11, over 2, end fraction."
+        prompt: 'A student found the vertex this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "A vertex has whole numbers: round to (−1, −4)."}
+          - {value: c, label: "(−1/2)² is +1/4, so k = 1/2 − 1 − 4 = −9/2."}
+          - {value: d, label: "The vertex should be (1/2, −5/2), with h positive."}
+        correct: c
+        explanation: |-
+          \( h=-\tfrac{1}{2} \) is right. But \( \left(-\tfrac{1}{2}\right)^{2}=\tfrac{1}{4} \): a negative number squared is positive. So \( k=2\cdot\tfrac{1}{4}-1-4=\tfrac{1}{2}-5=-\tfrac{9}{2} \), and the vertex is \( \left(-\tfrac{1}{2},-\tfrac{9}{2}\right) \). Check with the intercepts: \( 2(x+2)(x-1) \) is 0 at \( -2 \) and 1, and halfway is \( -\tfrac{1}{2} \). A vertex can have fractions, and \( (-1,-4) \) is a point on the parabola but not its vertex; and \( \left(\tfrac{1}{2},-\tfrac{5}{2}\right) \) drops the minus in \( -\tfrac{b}{2a} \). <strong>The vertex is \( \left(-\tfrac{1}{2},-\tfrac{9}{2}\right) \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} &q(x)=-x^{2}-2x-3\\ &\text{vertex }(-1,-2),\ \text{a maximum}\\ &\text{two }x\text{-intercepts} \end{aligned}'
+          speak: "q of x equals negative x squared minus 2 x minus 3. Next line: vertex, the point negative 1 comma negative 2, a maximum. Next line: two x-intercepts."
+        prompt: 'A student planned a sketch this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The vertex is a minimum, since its y-value k is negative."}
+          - {value: c, label: "The vertex should be (1, −6), with h positive instead."}
+          - {value: d, label: "A maximum below the x-axis means no x-intercepts."}
+        correct: d
+        explanation: |-
+          The vertex is right: \( h=-\dfrac{-2}{2(-1)}=-1 \) and \( k=-1+2-3=-2 \). It is a maximum, since \( a=-1 \). But a maximum below the \( x \)-axis means the whole parabola is below the axis: it opens down from a height of \( -2 \) and never reaches 0. So there are no \( x \)-intercepts. Whether the vertex is a maximum or a minimum depends on the sign of \( a \), not of \( k \); and \( (1,-6) \) drops the minus in \( -\tfrac{b}{2a} \). <strong>There are no \( x \)-intercepts.</strong>
