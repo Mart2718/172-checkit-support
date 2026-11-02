@@ -33,6 +33,11 @@ Answer choices
 - Every distractor comes from a real mistake, and its origin is named in the feedback with correct arithmetic.
   **(heuristic warning; a person confirms)**
 - Feedback never refers to a choice by position ("the first one", "choice b"). **(checked)**
+- No convergence giveaway. When each distractor changes one feature of the key (the slope, the intercept, a
+  sign), the key is the only choice that has the most common value of every feature, so a student can find it
+  without doing the math. Mix single and double errors so that no choice is the "intersection" of the others.
+- Distractor values come from the generator's real range: do not use a slope, form or value CheckIt can never
+  produce.
 
 Spot the Slip
 - "There is no mistake." is choice a in every slip. **(checked)**
