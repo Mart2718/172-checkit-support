@@ -59,7 +59,7 @@
 </g>
 <text x="376" y="174.0" text-anchor="end" fill="#333" font-style="italic">x</text>
 <text x="220.0" y="28" text-anchor="start" fill="#333" font-style="italic">y</text>
-<line x1="44.0" y1="201.0" x2="380.0" y2="33.0" stroke="#1a6b6b" stroke-width="3.5"/>
+<line x1="96.5" y1="348.0" x2="264.5" y2="12.0" stroke="#1a6b6b" stroke-width="3.5"/>
 <circle cx="212.0" cy="117.0" r="6" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
-<circle cx="254.0" cy="96.0" r="6" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<circle cx="233.0" cy="75.0" r="6" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
 </svg>
