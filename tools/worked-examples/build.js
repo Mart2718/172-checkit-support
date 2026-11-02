@@ -42,9 +42,11 @@ function texToText(tex) {   // convert commands, fractions and roots; leave ^ an
     const name = m[0]; i += name.length;
     if (name === 'frac' || name === 'tfrac' || name === 'dfrac') {
       const [a, j] = braceGroup(tex, i + 1); const [b, k] = braceGroup(tex, j);
-      const ta = texToText(a); out += (/^[A-Za-z]+\([^()]*\)$/.test(ta) ? ta : wrap(ta)) + '/' + wrapDen(texToText(b)); i = k - 1;
+      const ta = texToText(a); let fr = (/^[A-Za-z]+\([^()]*\)$/.test(ta) ? ta : wrap(ta)) + '/' + wrapDen(texToText(b));
+      if (/^\s*([A-Za-z(]|\\(left|pi|theta|sqrt)\b)/.test(tex.slice(k))) fr = '(' + fr + ')';   // (1/2)x and (2/3)(x + 8), so the letter is not read as part of the denominator
+      out += fr; i = k - 1;
     } else if (name === 'text' || name === 'mathrm') {   // words inside math print as they are
-      const [a, j] = braceGroup(tex, i + 1); out += a; i = j - 1;
+      const [a, j] = braceGroup(tex, i + 1); out += a.split('-').join('\u2010'); i = j - 1;   // a hyphen in words (y-intercept) stays a hyphen, not a minus sign
     } else if (name === 'sqrt') {
       const [a, j] = braceGroup(tex, i + 1); out += '√' + wrap(texToText(a)); i = j - 1;
     } else if (FUNC.includes(name) && /[A-Za-z0-9)]$/.test(out)) out += ' ' + name;   // keep "sin x tan x" from gluing into "sin xtan x"

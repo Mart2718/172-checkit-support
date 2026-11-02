@@ -7,6 +7,6 @@ from linegrid import draw
 OUT = os.path.join(os.path.dirname(__file__), '..', '..', 'figures', 'LF2')
 draw(os.path.join(OUT, 'g1.svg'), lines=[(Fr(3, 2), -2)])        # through (2, 1), slope 3/2
 draw(os.path.join(OUT, 'g2.svg'), lines=[(-2, -2)])              # through (-3, 4), slope -2
-draw(os.path.join(OUT, 'g3.svg'), lines=[(Fr(-1, 2), 0)])        # through (4, -2), slope -1/2
+draw(os.path.join(OUT, 'g3.svg'), lines=[(3, -15)])                 # through (5, 0), slope 3, y-intercept off the grid
 draw(os.path.join(OUT, 'g4.svg'), lines=[(Fr(5, 2), Fr(17, 2))])  # through (-5, -4), slope 5/2
 print('wrote', sorted(os.listdir(OUT)))
