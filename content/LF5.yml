@@ -1,0 +1,318 @@
+# LF5 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt LF5 tells one of five stories and asks for the slope and the y-intercept with their meanings, the linear model, one
+# output and one input. (A) Cost of making x items: a per-item cost (1 to 20 dollars) plus fixed costs (50 to 1000 dollars);
+# x is often in the hundreds or thousands. (B) A town's population x years after a start year from 2000 to 2023: 20,000 to
+# 100,000 people, growing or shrinking by a multiple of 500 from 1,000 up to about a tenth of the start; one question gives a
+# calendar year and the other asks for one. (C) A phone plan: 20 to 40 dollars for the first line plus 5, 10 or 15 dollars for
+# each additional line; x counts additional lines (1 to 5). (D) Rice left after d days: a 100 to 400 ounce bag, 8 to 20
+# ounces a day. (E) Water left in a leaking bucket or tank after x minutes or hours: 50, 55 or 200 ounces, 1 to 7 ounces per
+# unit of time. All answers are whole numbers. In stories D and E CheckIt's answer key prints the slope as the positive rate,
+# though the model's slope is negative.
+# Figures drawn by tools/figures/make_lf5.py.
+code: LF5
+h1: "LF5 Support: Linear Models"
+pageTitle: "LF5 Support: Linear Models — Math 172, Santa Ana College"
+hubSummary: "Linear models from word problems: the meaning of slope and intercept, writing the model, and using it to find an input or an output"
+videoIntro: "A narrated walkthrough of linear models: reading the rate and the starting amount from a story, writing the model, explaining what the slope and the intercept mean, and using the model to answer questions."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|slope is|intercept is'
+worked:   # used for the worked-examples recording document
+  title: "LF5 Worked Examples: Linear Models"
+  coreQuestion: "What is the starting amount, and what changes by the same amount each time?"
+  coreFollowup: "A linear model is a starting amount plus a constant rate times the input: f(x) = mx + b. The rate is the slope, with a minus sign if the amount goes down. The starting amount is the y-intercept, the output when the input is 0. Before you plug in or solve, check what x counts: items, additional lines, days, or years after the start year."
+summary:   # the Quick Summary tab
+  intro: 'Every LF5 story has <strong>a starting amount and a constant rate</strong>. Find those two numbers, with their units, and the model follows.'
+  caption: "Summary: Linear Models"
+  columns: ["In the story", "In the model", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'A rate: per item, per line, per day, each year'
+      - 'The slope <span>\( m \)</span>: how much the output changes when the input goes up by 1.'
+      - 'If the amount goes down (rice used, water leaking, a town shrinking), the slope is negative.'
+    -
+      - 'A starting or fixed amount'
+      - 'The <span>\( y \)</span>-intercept <span>\( b \)</span>: the output when the input is 0.'
+      - 'Input 0 means 0 items, 0 additional lines, 0 days, or the start year, not the year 0.'
+    -
+      - 'Writing the model'
+      - '<span>\( f(x)=mx+b \)</span>: rate times input, plus the starting amount.'
+      - 'Check what <span>\( x \)</span> counts: additional lines, not all lines; years after the start, not the calendar year.'
+    -
+      - 'Finding an output'
+      - 'Put the input into the model.'
+      - 'Change a calendar year to years after the start first: if the model starts in 2020, the year 2031 is <span>\( x=11 \)</span>.'
+    -
+      - 'Finding an input'
+      - 'Set the model equal to the output and solve for <span>\( x \)</span>: undo the starting amount, then divide by the rate.'
+      - 'If the question asks for a year, add the start year back at the end.'
+    -
+      - 'Explaining slope and intercept'
+      - 'Give the number, its units, and what it means: "−6 ounces per hour: the water left goes down 6 ounces each hour."'
+      - 'For a shrinking amount, CheckIt''s answer key may print the rate, 6, as the slope. The slope of the model is still −6.'
+  note: 'Name the units on every number in the story, and you will know where it goes: dollars per item is a rate, dollars for fixed costs is a starting amount. CheckIt''s answers are whole numbers, so if you get a decimal, check your steps. Your CheckIt story and numbers will be different. Finding the starting amount and the rate is what transfers.'
+tabs:
+  - id: meaning
+    label: "Try It: What the Numbers Mean"
+    heading: "Try It: What the Numbers Mean"
+    intro: |-
+      Each story gives a starting amount and a rate. Decide what the slope or the y-intercept is and what it means. Make your best guess on each one, then check it.
+    items:
+      - id: m1
+        title: "A Bag of Rice"
+        figure:
+          file: figures/LF5/rice.svg
+          title: "A graph of the rice left in the bag over time"
+          caption: 'A graph with days, d, from 0 to 18 across and ounces left, R(d), from 0 to 275 up. A straight line starts at (0, 250), marked with a dot, falls through the marked point (10, 100), and reaches 0 between day 16 and day 17.'
+        prompt: 'A family buys a 250-ounce bag of rice and uses 15 ounces per day. R(d) is the rice left after d days. What is the slope of R, and what does it mean?'
+        choices:
+          - {value: a, label: "250 ounces: the amount in the bag at the start"}
+          - {value: b, label: "−15 ounces per day: the rice left drops 15 ounces a day"}
+          - {value: c, label: "−15 ounces: the amount of rice that is left after one day"}
+          - {value: d, label: "15 days: how long the bag of rice lasts before it is empty"}
+        correct: b
+        explanation: |-
+          The model is \( R(d)=250-15d \). Each day the rice left goes down by 15 ounces, so the slope is \( -15 \), in ounces per day. On the graph, the line drops 150 ounces over 10 days: \( \tfrac{-150}{10}=-15 \). CheckIt's answer key prints this slope as 15, the rate of use; say both: the family uses 15 ounces a day, so the slope of \( R \) is \( -15 \). The 250 ounces is the \( y \)-intercept, not the slope; the rice left after one day is \( R(1)=235 \) ounces, an amount, while the slope is a rate; and the bag lasts \( \tfrac{250}{15}\approx 16.7 \) days, not 15, because 15 is the ounces used per day. <strong>−15 ounces per day.</strong>
+      - id: m2
+        title: "A Phone Plan"
+        math:
+          display: 'C(x)=10x+35'
+          speak: "C of x equals 10 x plus 35"
+        prompt: 'A phone plan costs $35 a month for the first line and $10 for each additional line. C(x) is the monthly cost with x additional lines. What is the y-intercept, and what does it mean?'
+        choices:
+          - {value: a, label: "35: the cost with only the first line"}
+          - {value: b, label: "35: the cost of each additional line on the plan"}
+          - {value: c, label: "45: the cost of the first line, since x = 1"}
+          - {value: d, label: "0: a plan with no lines costs nothing"}
+        correct: a
+        explanation: |-
+          The model is \( C(x)=10x+35 \), and the \( y \)-intercept is \( C(0)=35 \). Here \( x \) counts <em>additional</em> lines, so \( x=0 \) is a plan with just the first line, which costs $35. Each additional line is $10, the slope, not 35; \( C(1)=45 \) is the plan with one additional line, two lines in all, because \( x=1 \) does not mean the first line; and \( x=0 \) still includes the first line, so the cost is not 0. <strong>35: the cost with only the first line.</strong>
+      - id: m3
+        title: "A Shrinking Town"
+        math:
+          display: 'P(x)=48000-1500x'
+          speak: "P of x equals 48000 minus 1500 x"
+        prompt: 'In 2010, the population of Pawnee was 48,000, and it has decreased by 1,500 per year since. P(x) is the population x years after 2010. What is the y-intercept, and what does it mean?'
+        choices:
+          - {value: a, label: "48,000: the population in the year 0"}
+          - {value: b, label: "2010: the year the model starts"}
+          - {value: c, label: "−1,500: the change in population each year"}
+          - {value: d, label: "48,000: the population in 2010"}
+        correct: d
+        explanation: |-
+          The model is \( P(x)=48{,}000-1{,}500x \), and the \( y \)-intercept is \( P(0)=48{,}000 \). Since \( x \) counts years after 2010, \( x=0 \) is the year 2010 itself. So 48,000 is the population in 2010, not in the calendar year 0; 2010 is the start year, which tells you what \( x=0 \) means but is not an output of the model; and \( -1{,}500 \) people per year is the slope. <strong>48,000: the population in 2010.</strong>
+      - id: m4
+        title: "Printing Posters"
+        math:
+          display: 'C(x)=3x+150'
+          speak: "C of x equals 3 x plus 150"
+        prompt: 'Producing posters costs $3 per poster plus an additional $150 for fixed costs. C(x) is the cost of producing x posters. What is the slope, and what does it mean?'
+        choices:
+          - {value: a, label: "3: each extra poster adds $3"}
+          - {value: b, label: "150: the cost goes up $150 for each poster"}
+          - {value: c, label: "153: the cost of producing the first poster"}
+          - {value: d, label: "1/3: each extra dollar makes 1/3 of a poster"}
+        correct: a
+        explanation: |-
+          The model is \( C(x)=3x+150 \). The slope is the rate, 3 dollars per poster: each additional poster adds $3. The $150 is paid once, whatever the number of posters, so it is the \( y \)-intercept, not a rate; 153 is \( C(1) \), the total cost of one poster, which includes the fixed costs; and \( \tfrac{1}{3} \) poster per dollar flips the rate, input over output. <strong>3 dollars per poster.</strong>
+  - id: write
+    label: "Try It: Write the Model"
+    heading: "Try It: Write the Model"
+    intro: |-
+      Find the starting amount and the rate, then fill in m and b. Make your best guess, then check it.
+    items:
+      - id: w1
+        title: "Widgets"
+        math:
+          display: 'C(x)=mx+b'
+          speak: "C of x equals m x plus b"
+        prompt: 'Manufacturing widgets costs $12 per widget plus an additional $400 for fixed costs. Which function gives C(x), the cost of manufacturing x widgets?'
+        choices:
+          - {value: a, label: '\( C(x)=400x+12 \)', speak: "C of x equals 400 x plus 12"}
+          - {value: b, label: '\( C(x)=12x+400 \)', speak: "C of x equals 12 x plus 400"}
+          - {value: c, label: '\( C(x)=12x-400 \)', speak: "C of x equals 12 x minus 400"}
+          - {value: d, label: '\( C(x)=412x \)', speak: "C of x equals 412 x"}
+        correct: b
+        explanation: |-
+          The rate is $12 per widget, so the slope is 12; the fixed costs, $400, are paid even for 0 widgets, so they are the \( y \)-intercept. \( C(x)=12x+400 \). Check: 0 widgets cost \( C(0)=400 \), the fixed costs. \( 400x+12 \) swaps the rate and the starting amount; \( 12x-400 \) subtracts the fixed costs, but they add to the cost; and \( 412x \) adds the two numbers, which charges the fixed costs again for every widget. <strong>\( C(x)=12x+400 \).</strong>
+      - id: w2
+        title: "Population"
+        math:
+          display: 'P(x)=mx+b'
+          speak: "P of x equals m x plus b"
+        prompt: 'In 2015, the population of Springfield was 85,000, and it has decreased by 3,000 per year since. Which function gives P(x), the population x years after 2015?'
+        choices:
+          - {value: a, label: '\( P(x)=3000x+85000 \)', speak: "P of x equals 3000 x plus 85000"}
+          - {value: b, label: '\( P(x)=85000-3000x \)', speak: "P of x equals 85000 minus 3000 x"}
+          - {value: c, label: '\( P(x)=85000x-3000 \)', speak: "P of x equals 85000 x minus 3000"}
+          - {value: d, label: '\( P(x)=85000-3000(x-2015) \)', speak: "P of x equals 85000 minus 3000 times the quantity x minus 2015, end quantity"}
+        correct: b
+        explanation: |-
+          The town starts at 85,000 when \( x=0 \), the year 2015, and loses 3,000 people each year, so the slope is \( -3{,}000 \): \( P(x)=85{,}000-3{,}000x \). \( 3000x+85000 \) makes the population grow; \( 85000x-3000 \) swaps the rate and the starting amount; and \( 85000-3000(x-2015) \) treats \( x \) as the calendar year, but here \( x \) is years after 2015, so it would give \( P(0)=6{,}130{,}000 \). <strong>\( P(x)=85{,}000-3{,}000x \).</strong>
+      - id: w3
+        title: "Phone Lines"
+        math:
+          display: 'C(x)=mx+b'
+          speak: "C of x equals m x plus b"
+        prompt: 'A phone plan costs $25 a month for the first line and $15 for each additional line. Which function gives C(x), the monthly cost with x additional lines?'
+        choices:
+          - {value: a, label: '\( C(x)=15x+25 \)', speak: "C of x equals 15 x plus 25"}
+          - {value: b, label: '\( C(x)=25x+15 \)', speak: "C of x equals 25 x plus 15"}
+          - {value: c, label: '\( C(x)=15(x-1)+25 \)', speak: "C of x equals 15 times the quantity x minus 1, end quantity, plus 25"}
+          - {value: d, label: '\( C(x)=40x \)', speak: "C of x equals 40 x"}
+        correct: a
+        explanation: |-
+          The first line is always there, so $25 is the starting amount, and each additional line adds $15: \( C(x)=15x+25 \). Check: one additional line, two lines in all, costs \( C(1)=40 \). \( 25x+15 \) swaps the two prices; \( 15(x-1)+25 \) would be right if \( x \) counted all the lines, but \( x \) counts only the additional ones; and \( 40x \) charges both prices for every additional line. <strong>\( C(x)=15x+25 \).</strong>
+      - id: w4
+        title: "A Leaking Tank"
+        math:
+          display: 'W(x)=mx+b'
+          speak: "W of x equals m x plus b"
+        prompt: 'A leaky tank is losing water at a constant rate of 4 ounces per hour. The tank started with 200 ounces. Which function gives W(x), the water left after x hours?'
+        choices:
+          - {value: a, label: '\( W(x)=4x+200 \)', speak: "W of x equals 4 x plus 200"}
+          - {value: b, label: '\( W(x)=200x-4 \)', speak: "W of x equals 200 x minus 4"}
+          - {value: c, label: '\( W(x)=200-4x \)', speak: "W of x equals 200 minus 4 x"}
+          - {value: d, label: '\( W(x)=4x-200 \)', speak: "W of x equals 4 x minus 200"}
+        correct: c
+        explanation: |-
+          The tank starts with 200 ounces and loses 4 each hour, so the slope is \( -4 \): \( W(x)=200-4x \). Check: after 10 hours, \( 200-40=160 \) ounces are left. \( 4x+200 \) adds water instead of losing it; \( 200x-4 \) swaps the rate and the starting amount; and \( 4x-200 \) subtracts in the wrong order, which starts the tank at \( -200 \) ounces. <strong>\( W(x)=200-4x \).</strong>
+  - id: use
+    label: "Try It: Use the Model"
+    heading: "Try It: Use the Model"
+    intro: |-
+      Each model is given. Decide whether you know the input or the output, then use the model. Make your best guess, then check it.
+    items:
+      - id: u1
+        title: "A Calendar Year"
+        math:
+          display: 'P(x)=34000+2000x'
+          speak: "P of x equals 34000 plus 2000 x"
+        prompt: 'In 2012, the population of Capeside was 34,000, and it has grown by 2,000 per year since. P(x) is the population x years after 2012. What will the population be in 2027?'
+        choices:
+          - {value: a, label: "4,088,000"}
+          - {value: b, label: "64,000"}
+          - {value: c, label: "30,000"}
+          - {value: d, label: "62,000"}
+        correct: b
+        explanation: |-
+          The model is \( P(x)=34{,}000+2{,}000x \). The year 2027 is \( x=2027-2012=15 \) years after the start, so \( P(15)=34{,}000+30{,}000=64{,}000 \). Putting in \( x=2027 \) gives 4,088,000, because \( x \) is years after 2012, not the year; 30,000 is only the growth, \( 2{,}000(15) \), without the starting population; and 62,000 uses 14 years, counting from 2013 instead of 2012. <strong>64,000.</strong>
+      - id: u2
+        title: "How Many Hats"
+        math:
+          display: 'C(x)=9x+480'
+          speak: "C of x equals 9 x plus 480"
+        prompt: 'Producing hats costs $9 per hat plus an additional $480 for fixed costs. How many hats can be produced for $1,830?'
+        choices:
+          - {value: a, label: "150 hats"}
+          - {value: b, label: "about 203 hats"}
+          - {value: c, label: "about 257 hats"}
+          - {value: d, label: "16,950 hats"}
+        correct: a
+        explanation: |-
+          The model is \( C(x)=9x+480 \), and this time the output is known: solve \( 9x+480=1830 \). Subtract 480: \( 9x=1350 \). Divide by 9: \( x=150 \). Check: \( 9(150)+480=1830 \). About 203 is \( \tfrac{1830}{9} \), which forgets the fixed costs; about 257 is \( \tfrac{1830+480}{9} \), which adds 480 instead of subtracting it; and 16,950 is \( C(1830) \), which puts the dollars in as the number of hats. <strong>150 hats.</strong>
+      - id: u3
+        title: "Rice Left"
+        math:
+          display: 'R(d)=300-12d'
+          speak: "R of d equals 300 minus 12 d"
+        prompt: 'A family buys a 300-ounce bag of rice and uses 12 ounces per day. After how many days will the family have 84 ounces of rice left in the bag?'
+        choices:
+          - {value: a, label: "7 days"}
+          - {value: b, label: "32 days"}
+          - {value: c, label: "−708 days"}
+          - {value: d, label: "18 days"}
+        correct: d
+        explanation: |-
+          The model is \( R(d)=300-12d \). Solve \( 300-12d=84 \): subtract 300, \( -12d=-216 \), and divide by \( -12 \), \( d=18 \). Check: \( 300-12(18)=84 \). 7 days is \( \tfrac{84}{12} \), which divides the amount left instead of the amount used; 32 days is \( \tfrac{300+84}{12} \), which adds the 84; and \( -708 \) is \( R(84) \), which puts the ounces in as the number of days. <strong>18 days.</strong>
+      - id: u4
+        title: "Plan Cost"
+        math:
+          display: 'C(x)=5x+30'
+          speak: "C of x equals 5 x plus 30"
+        prompt: 'A phone plan costs $30 a month for the first line and $5 for each additional line. How much does a plan with 4 additional lines cost?'
+        choices:
+          - {value: a, label: "$45"}
+          - {value: b, label: "$50"}
+          - {value: c, label: "$140"}
+          - {value: d, label: "$120"}
+        correct: b
+        explanation: |-
+          The model is \( C(x)=5x+30 \), with \( x \) the number of additional lines. \( C(4)=5(4)+30=50 \). $45 uses \( x=3 \), counting the first line as one of the 4; $140 is \( 4(30+5) \), which charges both prices for every line; and $120 is \( 4(30) \), which charges the first-line price for each additional line. <strong>$50.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: 'W(x)=3x+55'
+          speak: "W of x equals 3 x plus 55"
+        prompt: 'A leaky bucket starts with 55 ounces of water and loses 3 ounces per minute. A student wrote this model for W(x), the water left after x minutes. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Water is lost, so the slope is −3: W(x) = 55 − 3x."}
+          - {value: c, label: "The rate and the start are swapped: it should be W(x) = 55x + 3."}
+          - {value: d, label: "Subtract the 55 instead: W(x) = 3x − 55, since water is lost."}
+        correct: b
+        explanation: |-
+          The bucket loses water, so the amount goes down 3 ounces each minute and the slope is \( -3 \): \( W(x)=55-3x \). The student's model has the bucket gaining water. \( 55x+3 \) swaps the rate and the starting amount; and \( 3x-55 \) subtracts in the wrong order, which starts the bucket at \( -55 \) ounces. <strong>\( W(x)=55-3x \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} P(x)&=72000+4000x\\ P(2023)&=72000+4000(2023)\\ &=8164000 \end{aligned}'
+          speak: "P of x equals 72000 plus 4000 x. Next line: P of 2023 equals 72000 plus 4000 times 2023. Next line: equals 8164000."
+        prompt: 'In 2018, the population of Bayside was 72,000, and it has grown by 4,000 per year since. P(x) is the population x years after 2018. A student found the population in 2023. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "x counts years after 2018: use x = 5, so P(5) = 92,000."}
+          - {value: c, label: "The town grows 4,000 once, so it should be 76,000."}
+          - {value: d, label: "Count 2018 through 2023: use x = 6, so P(6) = 96,000."}
+        correct: b
+        explanation: |-
+          The model is right, but 2023 is not the input. The input is years after 2018: \( x=2023-2018=5 \), and \( P(5)=72{,}000+20{,}000=92{,}000 \). The student's 8,164,000 is far too big for a town that grows 4,000 a year. 76,000 is one year of growth, \( P(1) \); and counting both 2018 and 2023 gives 6, but from 2018 to 2023 is 5 years, so 96,000 is the population in 2024. <strong>92,000.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} C(x)&=10x+40\\ C(3)&=10(3)+40=70 \end{aligned}'
+          speak: "C of x equals 10 x plus 40. Next line: C of 3 equals 10 times 3, plus 40, which equals 70."
+        prompt: 'A phone plan costs $40 a month for the first line and $10 for each additional line. A student found the monthly cost with 3 additional lines. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The first line is not extra: use C(x) = 10(x − 1) + 40."}
+          - {value: c, label: "Three additional lines means x = 4, so the cost is $80."}
+          - {value: d, label: "The slope should be 40, the bigger of the two prices."}
+        correct: a
+        explanation: |-
+          The first line costs $40 whatever happens, so it is the starting amount, and each additional line adds $10: \( C(x)=10x+40 \). With 3 additional lines, \( C(3)=70 \), which is 4 lines in all. The student is right. \( 10(x-1)+40 \) would be right if \( x \) counted every line, but here \( x \) counts only the additional ones; for the same reason, 3 additional lines is \( x=3 \), not 4; and the slope is the price that repeats, $10, not the larger price. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: 'C(x)=7x+600'
+          speak: "C of x equals 7 x plus 600"
+        prompt: 'Manufacturing books costs $7 per book plus an additional $600 for fixed costs. A student wrote this model and said, "The y-intercept, 600, is the cost of manufacturing one book." What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The y-intercept is 7, the cost of each book."}
+          - {value: c, label: "600 is the cost of 0 books: the fixed costs."}
+          - {value: d, label: "600 is the number of books that can be made, not a cost."}
+        correct: c
+        explanation: |-
+          The model is right, but the explanation is not. The \( y \)-intercept is the output when the input is 0: \( C(0)=600 \), the fixed costs paid before any books are made. One book costs \( C(1)=607 \). The 7 is the slope, the cost per book, not the \( y \)-intercept; and \( C(x) \) is a cost in dollars, so 600 is dollars, not a number of books. <strong>600 dollars is the cost of making 0 books: the fixed costs.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} 180-9d&=54\\ -9d&=234\\ d&=-26 \end{aligned}'
+          speak: "180 minus 9 d equals 54. Next line: negative 9 d equals 234. Next line: d equals negative 26."
+        prompt: 'A family buys a 180-ounce bag of rice and uses 9 ounces per day. A student found when 54 ounces will be left. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Set the model equal to 0 instead, which gives d = 20 days."}
+          - {value: c, label: "Just divide the 54 by the 9 ounces a day: d = 6 days."}
+          - {value: d, label: "Subtracting 180 gives −9d = −126, so d = 14."}
+        correct: d
+        explanation: |-
+          The model \( R(d)=180-9d \) and the equation are right. Then subtract 180 from both sides: \( 54-180=-126 \), so \( -9d=-126 \) and \( d=14 \). The student added 180 instead, \( 54+180=234 \). A negative number of days is a sign that something went wrong. Check: \( 180-9(14)=54 \). Setting the model equal to 0 answers a different question, when the bag is empty; and \( \tfrac{54}{9}=6 \) divides the amount left instead of the amount used. <strong>14 days.</strong>
