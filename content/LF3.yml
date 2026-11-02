@@ -1,0 +1,339 @@
+# LF3 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt LF3 asks students to graph four lines on a -8 to 8 grid. (1) A line through two points in opposite quadrants, through a
+# point and an x- or y-intercept, or through two intercepts. (2) A line with a slope from -4 to 4 (which can be 0) through a point
+# or with an x- or y-intercept. (3) A horizontal or vertical line, y = c or x = c, with c from -7 to 7. (4) A line from its equation
+# in point-slope form, slope-intercept form, or standard form Ax + By = C (whose slope and intercepts are often fractions).
+# The answer is a graph, so these items practice the decisions behind the graph: which points to plot and which way to move.
+# Figures drawn by tools/figures/make_lf3.py.
+code: LF3
+h1: "LF3 Support: Graphing Lines"
+pageTitle: "LF3 Support: Graphing Lines — Math 172, Santa Ana College"
+hubSummary: "Graphing lines from points, intercepts, a slope, or an equation in any form, including horizontal and vertical lines"
+videoIntro: "A narrated walkthrough of graphing lines: plotting two points or intercepts, using a slope to find a second point, reading point-slope, slope-intercept, and standard form, and graphing horizontal and vertical lines."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|horizontal|vertical|rising|falling'
+worked:   # used for the worked-examples recording document
+  title: "LF3 Worked Examples: Graphing Lines"
+  coreQuestion: "What two points can I plot?"
+  coreFollowup: "Every line needs two points. Intercepts give points with a 0 in them: an x-intercept of 3 is the point (3, 0). A slope gives a second point from the first: a slope of −2/3 means right 3, down 2. From an equation, find a point and the slope, or both intercepts. x = c is a vertical line and y = c is a horizontal one."
+summary:   # the Quick Summary tab
+  intro: 'To graph a line you need <strong>two points</strong>, or one point and the slope to find a second. Every LF3 problem hands you one of those combinations, sometimes in disguise.'
+  caption: "Summary: Graphing Lines"
+  columns: ["You are given", "Points to plot", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Intercepts'
+      - 'An <span>\( x \)</span>-intercept <span>\( a \)</span> is the point <span>\( (a,0) \)</span>; a <span>\( y \)</span>-intercept <span>\( b \)</span> is <span>\( (0,b) \)</span>.'
+      - 'Put the 0 in the right place: the <span>\( x \)</span>-intercept is on the <span>\( x \)</span>-axis.'
+    -
+      - 'A point and a slope'
+      - 'Plot the point. For slope <span>\( \tfrac{p}{q} \)</span>, move right <span>\( q \)</span> and up <span>\( p \)</span> (down if the slope is negative), and plot again.'
+      - 'Rise over run: the top number is up or down, the bottom is across. Slope 0 means a flat line.'
+    -
+      - 'Slope-intercept form'
+      - 'For <span>\( y=mx+b \)</span>, start at <span>\( (0,b) \)</span> and use the slope <span>\( m \)</span>.'
+      - 'A whole-number slope like 3 means right 1, up 3.'
+    -
+      - 'Point-slope form'
+      - 'For <span>\( y-y_{1}=m(x-x_{1}) \)</span>, plot <span>\( (x_{1},y_{1}) \)</span> and use the slope.'
+      - 'The signs flip: <span>\( y+1=2(x-3) \)</span> goes through <span>\( (3,-1) \)</span>.'
+    -
+      - 'Standard form'
+      - 'For <span>\( Ax+By=C \)</span>, set <span>\( x=0 \)</span> for the <span>\( y \)</span>-intercept and <span>\( y=0 \)</span> for the <span>\( x \)</span>-intercept, or solve for <span>\( y \)</span>.'
+      - 'If an intercept is a fraction, solve for <span>\( y \)</span> and use the slope instead.'
+    -
+      - 'x = c or y = c'
+      - '<span>\( x=c \)</span> is the vertical line through <span>\( (c,0) \)</span>; <span>\( y=c \)</span> is the horizontal line through <span>\( (0,c) \)</span>.'
+      - 'Every point on <span>\( x=c \)</span> has <span>\( x \)</span>-coordinate <span>\( c \)</span>, so it goes up and down.'
+  note: 'Draw the line all the way across the grid, with arrows if you like, not just between your two points. A good check: plot a third point from the equation and make sure it lands on your line. CheckIt''s grid runs from −8 to 8, and its slopes go from −4 to 4. Your CheckIt lines will be different. Finding two points is what transfers.'
+tabs:
+  - id: plan
+    label: "Try It: Find Two Points"
+    heading: "Try It: Find Two Points"
+    intro: |-
+      Before you draw, decide which points to plot. Make your best guess on each one, then check it.
+    items:
+      - id: g1
+        title: "Two Intercepts"
+        math:
+          display: '\begin{aligned} &x\text{-intercept }-3\\ &y\text{-intercept }5 \end{aligned}'
+          speak: "x-intercept negative 3, y-intercept 5"
+        prompt: 'Which two points do you plot to graph this line?'
+        choices:
+          - {value: a, label: "(0, −3) and (5, 0)"}
+          - {value: b, label: "(−3, 0) and (0, 5)"}
+          - {value: c, label: "(−3, 5) only"}
+          - {value: d, label: "(3, 0) and (0, 5)"}
+        correct: b
+        explanation: |-
+          An intercept is where the line crosses an axis. The \( x \)-intercept is on the \( x \)-axis, where \( y=0 \): \( (-3,0) \). The \( y \)-intercept is on the \( y \)-axis, where \( x=0 \): \( (0,5) \). Plot both and draw the line through them. \( (0,-3) \) and \( (5,0) \) put each 0 in the wrong place; \( (-3,5) \) is a single point, which is not enough for a line and is not on this one; and \( (3,0) \) drops the minus sign. <strong>\( (-3,0) \) and \( (0,5) \).</strong>
+      - id: g2
+        title: "Point and Intercept"
+        figure:
+          file: figures/LF3/g2.svg
+          title: "Two points plotted on a grid from −8 to 8, with no line drawn yet"
+          caption: 'A grid from −8 to 8 in both directions, with grid lines every 1 unit. Two points are plotted: (0, 3) on the y-axis and (4, −2). No line is drawn yet.'
+        math:
+          display: '(4,-2),\quad y\text{-intercept }3'
+          speak: "the point 4 comma negative 2, and y-intercept 3"
+        prompt: 'What is the slope of the line through these two points?'
+        choices:
+          - {value: a, label: '\( -\tfrac{5}{4} \)', speak: "negative 5 fourths"}
+          - {value: b, label: '\( \tfrac{5}{4} \)', speak: "5 fourths"}
+          - {value: c, label: '\( -\tfrac{4}{5} \)', speak: "negative 4 fifths"}
+          - {value: d, label: '\( -\tfrac{1}{4} \)', speak: "negative one fourth"}
+        correct: a
+        explanation: |-
+          The \( y \)-intercept 3 is the point \( (0,3) \). From \( (0,3) \) to \( (4,-2) \): over 4, down 5, so \( m=\dfrac{-2-3}{4-0}=-\tfrac{5}{4} \). You do not need the slope to draw this line, since two points are enough, but it tells you which way the line goes. \( \tfrac{5}{4} \) misses that the line goes down; \( -\tfrac{4}{5} \) is run over rise; and \( -\tfrac{1}{4} \) works out \( -2-3 \) as \( -1 \). <strong>\( -\tfrac{5}{4} \).</strong>
+      - id: g3
+        title: "Slope and Intercept"
+        math:
+          display: 'm=-2,\quad x\text{-intercept }3'
+          speak: "slope negative 2, x-intercept 3"
+        prompt: 'You plot (3, 0). Which point should you plot next?'
+        choices:
+          - {value: a, label: "(4, 2)"}
+          - {value: b, label: "(5, −1)"}
+          - {value: c, label: "(3, −2)"}
+          - {value: d, label: "(4, −2)"}
+        correct: d
+        explanation: |-
+          The \( x \)-intercept 3 is the point \( (3,0) \). A slope of \( -2 \) is \( \tfrac{-2}{1} \): right 1, down 2, to \( (4,-2) \). Going left 1 and up 2, to \( (2,2) \), works too. \( (4,2) \) goes up instead of down; \( (5,-1) \) moves right 2 and down 1, which is slope \( -\tfrac{1}{2} \); and \( (3,-2) \) moves down without moving across, which does not use a run at all. <strong>\( (4,-2) \).</strong>
+      - id: g4
+        title: "Point and Slope"
+        math:
+          display: 'm=3,\quad (-2,1)'
+          speak: "slope 3, through the point negative 2 comma 1"
+        prompt: 'You plot (−2, 1). Which point is also on the line?'
+        choices:
+          - {value: a, label: "(−3, 4)"}
+          - {value: b, label: "(−1, 4)"}
+          - {value: c, label: "(1, 2)"}
+          - {value: d, label: "(−2, 4)"}
+        correct: b
+        explanation: |-
+          Slope 3 means \( \tfrac{3}{1} \): right 1, up 3. From \( (-2,1) \) that lands on \( (-1,4) \). \( (-3,4) \) goes left 1 and up 3, which is slope \( -3 \); \( (1,2) \) goes right 3 and up 1, slope \( \tfrac{1}{3} \); and \( (-2,4) \) goes straight up, with no run. <strong>\( (-1,4) \).</strong>
+  - id: forms
+    label: "Try It: Read the Equation"
+    heading: "Try It: Read the Equation"
+    intro: |-
+      Each form of a line's equation tells you something to plot. Make your best guess, then check it.
+    items:
+      - id: e1
+        title: "Slope-Intercept Form"
+        math:
+          display: 'y=-\tfrac{2}{3}x+4'
+          speak: "y equals negative 2 thirds x, plus 4"
+        prompt: 'How do you graph this line?'
+        choices:
+          - {value: a, label: "Start at (4, 0); go right 3, down 2."}
+          - {value: b, label: "Start at (0, 4); go right 2, down 3."}
+          - {value: c, label: "Start at (0, 4); go right 3, down 2."}
+          - {value: d, label: "Start at (0, 4); go right 3, up 2."}
+        correct: c
+        explanation: |-
+          In \( y=mx+b \), \( b=4 \) is the \( y \)-intercept, the point \( (0,4) \). The slope \( -\tfrac{2}{3} \) is rise over run: down 2 for every 3 across. So from \( (0,4) \) go right 3 and down 2, to \( (3,2) \). \( (4,0) \) puts the intercept on the wrong axis; right 2, down 3 flips rise and run; and up 2 misses the minus sign. <strong>Start at \( (0,4) \); go right 3, down 2.</strong>
+      - id: e2
+        title: "Point-Slope Form"
+        math:
+          display: 'y-2=-3(x+1)'
+          speak: "y minus 2 equals negative 3 times the quantity x plus 1, end quantity"
+        prompt: 'Which point and slope does this equation give?'
+        choices:
+          - {value: a, label: "The point (−1, 2), slope −3"}
+          - {value: b, label: "The point (1, −2), slope −3"}
+          - {value: c, label: "The point (−1, 2), slope 3"}
+          - {value: d, label: "The point (2, −1), slope −3"}
+        correct: a
+        explanation: |-
+          Point-slope form is \( y-y_{1}=m(x-x_{1}) \). Here \( y-2 \) means \( y_{1}=2 \), and \( x+1=x-(-1) \) means \( x_{1}=-1 \). The slope is the number in front, \( -3 \). Plot \( (-1,2) \), then go right 1 and down 3. \( (1,-2) \) reads the signs as written instead of flipping them; slope 3 drops the minus; and \( (2,-1) \) swaps the coordinates. <strong>\( (-1,2) \), slope \( -3 \).</strong>
+      - id: e3
+        title: "Standard Form 1"
+        math:
+          display: '2x-3y=6'
+          speak: "2 x minus 3 y equals 6"
+        prompt: 'Which two intercepts can you plot to graph this line?'
+        choices:
+          - {value: a, label: "(3, 0) and (0, 2)"}
+          - {value: b, label: "(3, 0) and (0, −2)"}
+          - {value: c, label: "(−3, 0) and (0, −2)"}
+          - {value: d, label: "(2, 0) and (0, −3)"}
+        correct: b
+        explanation: |-
+          Set \( y=0 \): \( 2x=6 \), so \( x=3 \), the point \( (3,0) \). Set \( x=0 \): \( -3y=6 \), so \( y=-2 \), the point \( (0,-2) \). Standard form makes intercepts quick. \( (0,2) \) loses the sign from dividing by \( -3 \); \( (-3,0) \) gives \( x \) a sign it does not have; and \( (2,0) \) and \( (0,-3) \) divide 6 by the other variable's number. <strong>\( (3,0) \) and \( (0,-2) \).</strong>
+      - id: e4
+        title: "Standard Form 2"
+        math:
+          display: '3x+4y=8'
+          speak: "3 x plus 4 y equals 8"
+        prompt: 'The x-intercept here is 8/3, which is hard to plot. Which two points work better?'
+        choices:
+          - {value: a, label: "(0, 2) and (4, −1)"}
+          - {value: b, label: "(0, 2) and (4, 5)"}
+          - {value: c, label: "(0, 8) and (4, 5)"}
+          - {value: d, label: "(0, 2) and (3, −2)"}
+        correct: a
+        explanation: |-
+          Solve for \( y \): \( 4y=-3x+8 \), so \( y=-\tfrac{3}{4}x+2 \). Start at the \( y \)-intercept \( (0,2) \) and use the slope: right 4, down 3, to \( (4,-1) \). Check: \( 3(4)+4(-1)=8 \). This is the move to make whenever a standard-form intercept is a fraction. \( (4,5) \) goes up instead of down; \( (0,8) \) forgets to divide by 4; and \( (3,-2) \) goes right 3 and down 4, which flips rise and run. <strong>\( (0,2) \) and \( (4,-1) \).</strong>
+  - id: flat
+    label: "Try It: Flat and Upright Lines"
+    heading: "Try It: Flat and Upright Lines"
+    intro: |-
+      One CheckIt line is always x = c or y = c, and a slope can be 0. Make your best guess, then check it.
+    items:
+      - id: h1
+        title: "x = c"
+        math:
+          display: 'x=-4'
+          speak: "x equals negative 4"
+        prompt: 'What does the graph of this line look like?'
+        choices:
+          - {value: a, label: "A vertical line through (−4, 0)"}
+          - {value: b, label: "A horizontal line through (0, −4)"}
+          - {value: c, label: "A line through the origin with slope −4"}
+          - {value: d, label: "A vertical line through (4, 0)"}
+        correct: a
+        explanation: |-
+          The equation says every point has \( x=-4 \), whatever \( y \) is: \( (-4,0) \), \( (-4,3) \), \( (-4,-7) \). Those points stack straight up and down, so the graph is the vertical line through \( (-4,0) \). A horizontal line through \( (0,-4) \) is \( y=-4 \); slope \( -4 \) through the origin is \( y=-4x \); and \( (4,0) \) drops the sign. <strong>A vertical line through \( (-4,0) \).</strong>
+      - id: h2
+        title: "Name the Line"
+        figure:
+          file: figures/LF3/h2.svg
+          title: "A straight line on a grid from −8 to 8"
+          caption: 'A straight line on a grid from −8 to 8 in both directions, with grid lines every 1 unit. It runs straight across at height −2, through (−8, −2), (0, −2) and (8, −2).'
+          collapse: true
+        prompt: 'Which equation does this graph show?'
+        choices:
+          - {value: a, label: '\( x=-2 \)', speak: "x equals negative 2"}
+          - {value: b, label: '\( y=-2x \)', speak: "y equals negative 2 x"}
+          - {value: c, label: '\( y=-2 \)', speak: "y equals negative 2"}
+          - {value: d, label: '\( y=x-2 \)', speak: "y equals x minus 2"}
+        correct: c
+        explanation: |-
+          Every point on this line has height \( -2 \), whatever its \( x \): \( (-8,-2) \), \( (0,-2) \), \( (8,-2) \). That is the equation \( y=-2 \). \( x=-2 \) would be an up-and-down line through \( (-2,0) \); \( y=-2x \) goes through the origin and falls steeply; and \( y=x-2 \) rises with slope 1. <strong>\( y=-2 \).</strong>
+      - id: h3
+        title: "Slope 0"
+        math:
+          display: 'm=0,\quad (2,-5)'
+          speak: "slope 0, through the point 2 comma negative 5"
+        prompt: 'Which is the equation of this line?'
+        choices:
+          - {value: a, label: '\( x=2 \)', speak: "x equals 2"}
+          - {value: b, label: '\( y=-5 \)', speak: "y equals negative 5"}
+          - {value: c, label: '\( y=2 \)', speak: "y equals 2"}
+          - {value: d, label: '\( y=-5x \)', speak: "y equals negative 5 x"}
+        correct: b
+        explanation: |-
+          Slope 0 means the height never changes. The line goes through \( (2,-5) \), so its height is always \( -5 \): \( y=-5 \). Point-slope form agrees: \( y+5=0(x-2) \), so \( y=-5 \). \( x=2 \) is the up-and-down line, whose slope is undefined, not 0; \( y=2 \) uses the wrong coordinate; and \( y=-5x \) treats the \( -5 \) as a slope. <strong>\( y=-5 \).</strong>
+      - id: h4
+        title: "Undefined Slope"
+        prompt: 'Which of these lines has an undefined slope?'
+        math:
+          display: 'm=\dfrac{y_{2}-y_{1}}{x_{2}-x_{1}}'
+          speak: "m equals the fraction y 2 minus y 1, over x 2 minus x 1, end fraction"
+        choices:
+          - {value: a, label: '\( y=6 \)', speak: "y equals 6"}
+          - {value: b, label: '\( x=6 \)', speak: "x equals 6"}
+          - {value: c, label: '\( y=6x \)', speak: "y equals 6 x"}
+          - {value: d, label: '\( y=x+6 \)', speak: "y equals x plus 6"}
+        correct: b
+        explanation: |-
+          \( x=6 \) is the vertical line through \( (6,0) \). Between any two of its points the run is 0, and dividing by 0 is undefined. \( y=6 \) is horizontal, with slope 0, not undefined; \( y=6x \) has slope 6; and \( y=x+6 \) has slope 1. <strong>\( x=6 \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each graph below was drawn by a student, with the student's plotted points marked. Decide whether it is right, and if not, what went wrong, before you check.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        figure:
+          file: figures/LF3/s1.svg
+          title: "A student's graph on a grid from −8 to 8, with two plotted points"
+          caption: 'A student''s graph on a grid from −8 to 8. The student plotted (0, 3) and (2, 4) and drew the straight line through them, which goes up from left to right.'
+        math:
+          display: 'y=-\tfrac{1}{2}x+3'
+          speak: "y equals negative one half x, plus 3"
+        prompt: 'A student graphed this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should go down: right 2, down 1 from (0, 3)."}
+          - {value: c, label: "The y-intercept should be the point (3, 0) instead."}
+          - {value: d, label: "Slope 1/2 means right 1, up 2, starting from (0, 3)."}
+        correct: b
+        explanation: |-
+          The starting point \( (0,3) \) is right. But the slope is \( -\tfrac{1}{2} \), so from \( (0,3) \) the line goes right 2 and <em>down</em> 1, to \( (2,2) \). The student went up, to \( (2,4) \), which is slope \( +\tfrac{1}{2} \). The \( y \)-intercept is on the \( y \)-axis, \( (0,3) \), not \( (3,0) \); and right 1, up 2 would be slope 2. <strong>From \( (0,3) \), go right 2 and down 1.</strong>
+      - id: sl2
+        title: "Slip 2"
+        figure:
+          file: figures/LF3/s2.svg
+          title: "A student's graph on a grid from −8 to 8, with two plotted points"
+          caption: 'A student''s graph on a grid from −8 to 8. The student plotted (2, 0) and (0, −4) and drew the straight line through them.'
+        math:
+          display: '\begin{aligned} &x\text{-intercept }2\\ &y\text{-intercept }-4 \end{aligned}'
+          speak: "x-intercept 2, y-intercept negative 4"
+        prompt: 'A student graphed the line with these intercepts. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The points should be (0, 2) and (−4, 0)."}
+          - {value: c, label: "The line should go down from left to right."}
+          - {value: d, label: "A line needs a slope, not two intercepts."}
+        correct: a
+        explanation: |-
+          The \( x \)-intercept 2 is \( (2,0) \) and the \( y \)-intercept \( -4 \) is \( (0,-4) \), and the student plotted both and drew the line through them. The student is right: the line is \( y=2x-4 \). Swapping the coordinates puts each point on the wrong axis; this line rises, because from \( (0,-4) \) to \( (2,0) \) it goes up 4 and over 2; and two points are always enough for a line. <strong>There is no mistake.</strong>
+      - id: sl3
+        title: "Slip 3"
+        figure:
+          file: figures/LF3/s3.svg
+          title: "A student's graph on a grid from −8 to 8, with one plotted point"
+          caption: 'A student''s graph on a grid from −8 to 8. The student plotted (0, 3) and drew a straight line through it that runs left to right at height 3.'
+        math:
+          display: 'x=3'
+          speak: "x equals 3"
+        prompt: 'A student graphed this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be the line through the origin with slope 3."}
+          - {value: c, label: "x = 3 is the up-and-down line through (3, 0)."}
+          - {value: d, label: "It should be the left-to-right line at height −3."}
+        correct: c
+        explanation: |-
+          \( x=3 \) says every point has \( x \)-coordinate 3: \( (3,0) \), \( (3,5) \), \( (3,-2) \). Those points line up vertically, through \( (3,0) \). The student drew \( y=3 \), the horizontal line. The line through the origin with slope 3 is \( y=3x \); and height \( -3 \) is \( y=-3 \), a horizontal line again. <strong>Draw the vertical line through \( (3,0) \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        figure:
+          file: figures/LF3/s4.svg
+          title: "A student's graph on a grid from −8 to 8, with two plotted points"
+          caption: 'A student''s graph on a grid from −8 to 8. The student plotted (2, 0) and (0, 5) and drew the straight line through them.'
+        math:
+          display: '2x+5y=10'
+          speak: "2 x plus 5 y equals 10"
+        prompt: 'A student graphed this line using its intercepts. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The line should go up, since both numbers are positive."}
+          - {value: c, label: "The intercepts should be (−5, 0) and (0, −2)."}
+          - {value: d, label: "The intercepts are swapped: they are (5, 0) and (0, 2)."}
+        correct: d
+        explanation: |-
+          Set \( y=0 \): \( 2x=10 \), so \( x=5 \), the point \( (5,0) \). Set \( x=0 \): \( 5y=10 \), so \( y=2 \), the point \( (0,2) \). The student divided 10 by the wrong number each time. Check the student's point: \( 2(2)+5(0)=4 \), not 10. Positive \( A \) and \( B \) make the line go down, since the slope is \( -\tfrac{2}{5} \); and nothing here makes an intercept negative. <strong>Plot \( (5,0) \) and \( (0,2) \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        figure:
+          file: figures/LF3/s5.svg
+          title: "A student's graph on a grid from −8 to 8, with two plotted points"
+          caption: 'A student''s graph on a grid from −8 to 8. The student plotted (−3, 1) and (−2, 3) and drew the straight line through them.'
+        math:
+          display: 'y+1=2(x-3)'
+          speak: "y plus 1 equals 2 times the quantity x minus 3, end quantity"
+        prompt: 'A student graphed this line. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The point is (3, −1); the student flipped both signs."}
+          - {value: c, label: "The slope should be 1/2, so right 2 and up 1."}
+          - {value: d, label: "The point should be (1, −3), with the numbers swapped."}
+        correct: b
+        explanation: |-
+          Point-slope form subtracts the coordinates: \( y+1=y-(-1) \), so \( y_{1}=-1 \), and \( x-3 \) means \( x_{1}=3 \). The point is \( (3,-1) \). The student used \( (-3,1) \). The slope 2 was used correctly: right 1, up 2. Slope \( \tfrac{1}{2} \) would flip rise and run; and swapping the coordinates gives a point that is not on the line. <strong>Plot \( (3,-1) \), then right 1 and up 2.</strong>
