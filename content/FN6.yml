@@ -1,0 +1,314 @@
+# FN6 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt FN6 asks for the inverse of one function, named f, g or h, of one of two kinds (half the time each).
+# (1) A fraction (ax + b)/(cx + d), where a, b, c, d have four different sizes from 1, 2, 3, 5, 7 with random signs; the
+# inverse is (-dx + b)/(cx - a). (2) a + (x + b)^r with r = 3, 5, 7, 1/3, 1/5 or 1/7, and a, b from the same list; the
+# inverse is (x - a)^(1/r) - b. CheckIt prints roots as fractional powers, (x + 2)^(1/5), and Sage may print an answer in an
+# equal form, such as -(2x - 5)/(3x + 1) for (-2x + 5)/(3x + 1), or with the terms in a different order.
+# Figures drawn by tools/figures/make_fn6.py.
+code: FN6
+h1: "FN6 Support: Inverse Functions"
+pageTitle: "FN6 Support: Inverse Functions — Math 172, Santa Ana College"
+hubSummary: "Inverse functions: what an inverse undoes, and finding the inverse of a power or root function and of a fraction"
+videoIntro: "A narrated walkthrough of inverse functions: what it means for one function to undo another, undoing a power or root function step by step, solving for the inverse of a fraction, and checking the answer."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|inverse is'
+worked:   # used for the worked-examples recording document
+  title: "FN6 Worked Examples: Inverse Functions"
+  coreQuestion: "What does f do to x, and how do I undo it?"
+  coreFollowup: "The inverse undoes the function: if f(a) = b, then f⁻¹(b) = a. To find it, write y = f(x), swap x and y, and solve for y. For a power or root, that means undoing the steps in reverse order. For a fraction, clear the denominator, gather the y terms on one side, factor out y, and divide. Check by putting an output of f into your answer: you should get the input back."
+summary:   # the Quick Summary tab
+  intro: 'An inverse function <strong>runs the function backward</strong>: it takes each output of <span>\( f \)</span> back to the input it came from.'
+  caption: "Summary: Inverse Functions"
+  columns: ["Topic", "What to do", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'The idea'
+      - 'If <span>\( f(a)=b \)</span>, then <span>\( f^{-1}(b)=a \)</span>. The graphs are mirror images across the line <span>\( y=x \)</span>.'
+      - '<span>\( f^{-1}(x) \)</span> is not <span>\( \dfrac{1}{f(x)} \)</span>; the <span>\( -1 \)</span> names the inverse, not a power.'
+    -
+      - 'Swap and solve'
+      - 'Write <span>\( y=f(x) \)</span>, swap <span>\( x \)</span> and <span>\( y \)</span>, then solve for <span>\( y \)</span>.'
+      - 'Swap every <span>\( x \)</span> and every <span>\( y \)</span>, then solve; the answer is the new <span>\( y \)</span>.'
+    -
+      - 'A power or a root'
+      - 'Undo the steps in reverse order: <span>\( f(x)=(x+7)^{3}-5 \)</span> adds 7, cubes, then subtracts 5, so <span>\( f^{-1}(x)=(x+5)^{1/3}-7 \)</span>.'
+      - 'CheckIt writes roots as powers: <span>\( (x+5)^{1/3} \)</span> is the cube root. A power of 3 undoes a power of <span>\( \tfrac{1}{3} \)</span>, and the other way around.'
+    -
+      - 'A fraction'
+      - 'Clear the denominator, gather the <span>\( y \)</span> terms on one side, factor out <span>\( y \)</span>, and divide.'
+      - 'Move each term with its sign. Never cancel terms across the fraction bar.'
+    -
+      - 'Checking'
+      - 'Pick an input, find its output, and put that output into your inverse: you should get the input back.'
+      - 'An answer can look different and still be equal: <span>\( \dfrac{-3x+2}{x+5} \)</span> and <span>\( -\dfrac{3x-2}{x+5} \)</span> are the same.'
+  note: 'Every CheckIt function here is one-to-one: an odd power or odd root never gives the same output twice, and neither does a fraction like these. That is why each one has an inverse. Your CheckIt function will be different. Undoing the steps, or swapping and solving, is what transfers.'
+tabs:
+  - id: undo
+    label: "Try It: Undo the Steps"
+    heading: "Try It: Undo the Steps"
+    intro: |-
+      Each function adds, raises to a power, then adds again. Undo those steps in reverse order. Make your best guess on each one, then check it.
+    items:
+      - id: o1
+        title: "A Fifth Power"
+        math:
+          display: 'f(x)=(x+3)^{5}-2'
+          speak: "f of x equals the quantity x plus 3, end quantity, to the 5th power, minus 2"
+        prompt: 'What is the inverse of this function?'
+        choices:
+          - {value: a, label: '\( f^{-1}(x)=(x+2)^{1/5}-3 \)', speak: "f inverse of x equals the quantity x plus 2, end quantity, to the power the fraction 1, over 5, end fraction, end power, minus 3"}
+          - {value: b, label: '\( f^{-1}(x)=(x-2)^{1/5}+3 \)', speak: "f inverse of x equals the quantity x minus 2, end quantity, to the power the fraction 1, over 5, end fraction, end power, plus 3"}
+          - {value: c, label: '\( f^{-1}(x)=(x+3)^{1/5}-2 \)', speak: "f inverse of x equals the quantity x plus 3, end quantity, to the power the fraction 1, over 5, end fraction, end power, minus 2"}
+          - {value: d, label: '\( f^{-1}(x)=\dfrac{1}{(x+3)^{5}-2} \)', speak: "f inverse of x equals the fraction 1, over the quantity x plus 3, end quantity, to the 5th power, minus 2, end fraction"}
+        correct: a
+        explanation: |-
+          \( f \) adds 3, raises to the 5th power, then subtracts 2. Undo in reverse order: add 2, take the fifth root (the \( \tfrac{1}{5} \) power), then subtract 3. So \( f^{-1}(x)=(x+2)^{1/5}-3 \). Check: \( f(-2)=1^{5}-2=-1 \), and \( f^{-1}(-1)=1^{1/5}-3=-2 \). \( (x-2)^{1/5}+3 \) undoes each step with the wrong sign, repeating them instead of reversing them; \( (x+3)^{1/5}-2 \) keeps the numbers in their original places, undoing the steps in the original order instead of reverse order; and \( \tfrac{1}{f(x)} \) is the reciprocal, which the \( -1 \) in \( f^{-1} \) does not mean. <strong>\( f^{-1}(x)=(x+2)^{1/5}-3 \).</strong>
+      - id: o2
+        title: "A Cube Root"
+        math:
+          display: 'g(x)=7+(x-1)^{1/3}'
+          speak: "g of x equals 7 plus the quantity x minus 1, end quantity, to the power the fraction 1, over 3, end fraction, end power"
+        prompt: 'What is the inverse of this function?'
+        choices:
+          - {value: a, label: '\( g^{-1}(x)=(x-7)^{3}-1 \)', speak: "g inverse of x equals the quantity x minus 7, end quantity, cubed, minus 1"}
+          - {value: b, label: '\( g^{-1}(x)=(x-7)^{3}+1 \)', speak: "g inverse of x equals the quantity x minus 7, end quantity, cubed, plus 1"}
+          - {value: c, label: '\( g^{-1}(x)=(x+7)^{3}+1 \)', speak: "g inverse of x equals the quantity x plus 7, end quantity, cubed, plus 1"}
+          - {value: d, label: '\( g^{-1}(x)=(x+7)^{3}-1 \)', speak: "g inverse of x equals the quantity x plus 7, end quantity, cubed, minus 1"}
+        correct: b
+        explanation: |-
+          The \( \tfrac{1}{3} \) power is the cube root. \( g \) subtracts 1, takes the cube root, then adds 7. Undo in reverse: subtract 7, cube, then add 1: \( g^{-1}(x)=(x-7)^{3}+1 \). Check: \( g(28)=7+27^{1/3}=10 \), and \( g^{-1}(10)=3^{3}+1=28 \). \( (x-7)^{3}-1 \) undoes the first step with the wrong sign; \( (x+7)^{3}+1 \) undoes the last step with the wrong sign; and \( (x+7)^{3}-1 \) gets both signs wrong. <strong>\( g^{-1}(x)=(x-7)^{3}+1 \).</strong>
+      - id: o3
+        title: "The First Step"
+        math:
+          display: 'h(x)=(x-5)^{7}+3'
+          speak: "h of x equals the quantity x minus 5, end quantity, to the 7th power, plus 3"
+        prompt: 'To find the inverse, you undo the steps of h. Which step do you undo first?'
+        choices:
+          - {value: a, label: "Subtract 3"}
+          - {value: b, label: "Take the seventh root"}
+          - {value: c, label: "Add 5"}
+          - {value: d, label: "Subtract 5"}
+        correct: a
+        explanation: |-
+          \( h \) subtracts 5, raises to the 7th power, then adds 3. The last step done is undone first, like taking off shoes before socks. So subtract 3 first, then take the seventh root, then add 5: \( h^{-1}(x)=(x-3)^{1/7}+5 \). Taking the seventh root is the second step to undo, not the first; adding 5 undoes the first step of \( h \), so it comes last; and subtracting 5 repeats that step instead of undoing it. <strong>Subtract 3.</strong>
+      - id: o4
+        title: "A Fifth Root"
+        math:
+          display: 'f(x)=(x-3)^{1/5}+2'
+          speak: "f of x equals the quantity x minus 3, end quantity, to the power the fraction 1, over 5, end fraction, end power, plus 2"
+        prompt: 'CheckIt writes roots as powers. What is the inverse of this function?'
+        choices:
+          - {value: a, label: '\( f^{-1}(x)=(x+2)^{5}-3 \)', speak: "f inverse of x equals the quantity x plus 2, end quantity, to the 5th power, minus 3"}
+          - {value: b, label: '\( f^{-1}(x)=(x-2)^{1/5}+3 \)', speak: "f inverse of x equals the quantity x minus 2, end quantity, to the power the fraction 1, over 5, end fraction, end power, plus 3"}
+          - {value: c, label: '\( f^{-1}(x)=(x-2)^{5}+3 \)', speak: "f inverse of x equals the quantity x minus 2, end quantity, to the 5th power, plus 3"}
+          - {value: d, label: '\( f^{-1}(x)=(x-3)^{5}+2 \)', speak: "f inverse of x equals the quantity x minus 3, end quantity, to the 5th power, plus 2"}
+        correct: c
+        explanation: |-
+          The \( \tfrac{1}{5} \) power is the fifth root, and raising to the 5th power undoes it. \( f \) subtracts 3, takes the fifth root, then adds 2. Undo in reverse: subtract 2, raise to the 5th power, then add 3: \( f^{-1}(x)=(x-2)^{5}+3 \). Check: \( f(35)=32^{1/5}+2=4 \), and \( f^{-1}(4)=2^{5}+3=35 \). \( (x+2)^{5}-3 \) repeats each addition or subtraction instead of undoing it; \( (x-2)^{1/5}+3 \) keeps the fifth root, but a root is undone by a power; and \( (x-3)^{5}+2 \) undoes the steps in the original order. <strong>\( f^{-1}(x)=(x-2)^{5}+3 \).</strong>
+  - id: fraction
+    label: "Try It: Fractions"
+    heading: "Try It: Fractions"
+    intro: |-
+      For a fraction, swap x and y, clear the denominator, and solve for y. Make your best guess, then check it.
+    items:
+      - id: q1
+        title: "Fraction 1"
+        math:
+          display: 'f(x)=\dfrac{2x+3}{x-5}'
+          speak: "f of x equals the fraction 2 x plus 3, over x minus 5, end fraction"
+        prompt: 'What is the inverse of this function?'
+        choices:
+          - {value: a, label: '\( f^{-1}(x)=\dfrac{x-5}{2x+3} \)', speak: "f inverse of x equals the fraction x minus 5, over 2 x plus 3, end fraction"}
+          - {value: b, label: '\( f^{-1}(x)=\dfrac{-5x+3}{x-2} \)', speak: "f inverse of x equals the fraction negative 5 x plus 3, over x minus 2, end fraction"}
+          - {value: c, label: '\( f^{-1}(x)=\dfrac{5x+3}{x-2} \)', speak: "f inverse of x equals the fraction 5 x plus 3, over x minus 2, end fraction"}
+          - {value: d, label: '\( f^{-1}(x)=\dfrac{5x+3}{x+2} \)', speak: "f inverse of x equals the fraction 5 x plus 3, over x plus 2, end fraction"}
+        correct: c
+        explanation: |-
+          Swap: \( x=\dfrac{2y+3}{y-5} \). Clear the denominator: \( xy-5x=2y+3 \). Gather the \( y \) terms: \( xy-2y=5x+3 \). Factor: \( y(x-2)=5x+3 \), so \( y=\dfrac{5x+3}{x-2} \). Check: \( f(6)=\tfrac{15}{1}=15 \), and \( \tfrac{5(15)+3}{15-2}=\tfrac{78}{13}=6 \). \( \tfrac{x-5}{2x+3} \) is \( \tfrac{1}{f(x)} \), the reciprocal; \( -5x+3 \) moves \( -5x \) across without changing its sign; and \( x+2 \) moves \( 2y \) across without changing its sign. <strong>\( f^{-1}(x)=\dfrac{5x+3}{x-2} \).</strong>
+      - id: q2
+        title: "The Key Move"
+        math:
+          display: '\begin{aligned} x&=\dfrac{3y-1}{2y+7}\\ 2xy+7x&=3y-1 \end{aligned}'
+          speak: "x equals the fraction 3 y minus 1, over 2 y plus 7, end fraction. Next line: 2 x y plus 7 x equals 3 y minus 1."
+        prompt: 'A student is finding the inverse of f(x) = (3x − 1)/(2x + 7) and has cleared the denominator. What is the next move?'
+        choices:
+          - {value: a, label: "Get both y terms on one side: 2xy − 3y = −7x − 1"}
+          - {value: b, label: "Divide both sides by 2x: y + 7 = (3y − 1)/(2x)"}
+          - {value: c, label: "Subtract 7x, then divide by 2x: y = (3y − 1 − 7x)/(2x)"}
+          - {value: d, label: "Cancel the y terms: 2x + 7x = 3 − 1"}
+        correct: a
+        explanation: |-
+          \( y \) appears on both sides, so gather the \( y \) terms on one side and everything else on the other: \( 2xy-3y=-7x-1 \). Then factor out \( y \): \( y(2x-3)=-7x-1 \), and \( f^{-1}(x)=\dfrac{-7x-1}{2x-3} \). Dividing by \( 2x \) does not divide the \( 7x \) correctly and still leaves \( y \) on both sides; subtracting \( 7x \) and dividing gives a "solution" with \( y \) on the right, so \( y \) is not solved for; and you cannot cancel \( y \) from terms that are added or subtracted. <strong>Get both \( y \) terms on one side.</strong>
+      - id: q3
+        title: "Fraction 2"
+        math:
+          display: 'g(x)=\dfrac{-x+5}{3x+2}'
+          speak: "g of x equals the fraction negative x plus 5, over 3 x plus 2, end fraction"
+        prompt: 'What is the inverse of this function?'
+        choices:
+          - {value: a, label: '\( g^{-1}(x)=\dfrac{2x+5}{3x+1} \)', speak: "g inverse of x equals the fraction 2 x plus 5, over 3 x plus 1, end fraction"}
+          - {value: b, label: '\( g^{-1}(x)=\dfrac{-2x+5}{3x+1} \)', speak: "g inverse of x equals the fraction negative 2 x plus 5, over 3 x plus 1, end fraction"}
+          - {value: c, label: '\( g^{-1}(x)=\dfrac{-2x+5}{3x-1} \)', speak: "g inverse of x equals the fraction negative 2 x plus 5, over 3 x minus 1, end fraction"}
+          - {value: d, label: '\( g^{-1}(x)=\dfrac{3x+2}{-x+5} \)', speak: "g inverse of x equals the fraction 3 x plus 2, over negative x plus 5, end fraction"}
+        correct: b
+        explanation: |-
+          Swap: \( x=\dfrac{-y+5}{3y+2} \). Clear: \( 3xy+2x=-y+5 \). Gather: \( 3xy+y=-2x+5 \). Factor: \( y(3x+1)=-2x+5 \), so \( g^{-1}(x)=\dfrac{-2x+5}{3x+1} \). CheckIt may print this as \( -\dfrac{2x-5}{3x+1} \), which is the same. \( 2x+5 \) moves \( 2x \) across without changing its sign; \( 3x-1 \) moves \( -y \) across without changing its sign; and \( \tfrac{3x+2}{-x+5} \) is the reciprocal. <strong>\( g^{-1}(x)=\dfrac{-2x+5}{3x+1} \).</strong>
+      - id: q4
+        title: "Check with a Point"
+        math:
+          display: 'f(x)=\dfrac{x+7}{5x-3},\quad f(2)=\tfrac{9}{7}'
+          speak: "f of x equals the fraction x plus 7, over 5 x minus 3, end fraction, and f of 2 equals the fraction 9, over 7, end fraction"
+        prompt: 'Since f(2) = 9/7, the inverse must send 9/7 back to 2. Which candidate does that?'
+        choices:
+          - {value: a, label: '\( \dfrac{5x-3}{x+7} \)', speak: "the fraction 5 x minus 3, over x plus 7, end fraction"}
+          - {value: b, label: '\( \dfrac{3x-7}{5x-1} \)', speak: "the fraction 3 x minus 7, over 5 x minus 1, end fraction"}
+          - {value: c, label: '\( \dfrac{3x+7}{5x-1} \)', speak: "the fraction 3 x plus 7, over 5 x minus 1, end fraction"}
+          - {value: d, label: '\( \dfrac{-3x+7}{5x-1} \)', speak: "the fraction negative 3 x plus 7, over 5 x minus 1, end fraction"}
+        correct: c
+        explanation: |-
+          Put in \( x=\tfrac{9}{7} \). For \( \tfrac{3x+7}{5x-1} \): the top is \( \tfrac{27}{7}+\tfrac{49}{7}=\tfrac{76}{7} \) and the bottom is \( \tfrac{45}{7}-\tfrac{7}{7}=\tfrac{38}{7} \), so it gives \( \tfrac{76}{38}=2 \). That is the inverse, and solving confirms it: \( 5xy-3x=y+7 \), \( y(5x-1)=3x+7 \). The reciprocal \( \tfrac{5x-3}{x+7} \) gives \( \tfrac{24/7}{58/7}=\tfrac{12}{29} \); \( \tfrac{3x-7}{5x-1} \), which moves the 7 with the wrong sign, gives \( -\tfrac{11}{19} \); and \( \tfrac{-3x+7}{5x-1} \), which moves \( 3x \) with the wrong sign, gives \( \tfrac{11}{19} \). <strong>\( \dfrac{3x+7}{5x-1} \).</strong>
+  - id: idea
+    label: "Try It: What an Inverse Is"
+    heading: "Try It: What an Inverse Is"
+    intro: |-
+      Before the algebra, the idea: an inverse takes each output back to its input. Make your best guess, then check it.
+    items:
+      - id: k1
+        title: "The Notation"
+        math:
+          display: 'f^{-1}(x)'
+          speak: "f inverse of x"
+        prompt: 'Which statement about f⁻¹ is true?'
+        choices:
+          - {value: a, label: "f⁻¹(x) means 1/f(x), the reciprocal of the function f"}
+          - {value: b, label: "f⁻¹ undoes f: if f(2) = 9, then f⁻¹(9) = 2"}
+          - {value: c, label: "f⁻¹(x) means −f(x), the opposite of f"}
+          - {value: d, label: "f⁻¹ is f with every x replaced by −x"}
+        correct: b
+        explanation: |-
+          The \( -1 \) in \( f^{-1} \) is a name, not an exponent: \( f^{-1} \) is the function that undoes \( f \). If \( f \) sends 2 to 9, \( f^{-1} \) sends 9 back to 2. The reciprocal \( \tfrac{1}{f(x)} \) is a different function, written \( (f(x))^{-1} \); \( -f(x) \) flips the graph over the \( x \)-axis; and replacing every \( x \) by \( -x \) gives \( f(-x) \), which flips it over the \( y \)-axis. The graph of \( f^{-1} \) is the flip of \( f \) over the line \( y=x \). <strong>\( f^{-1} \) undoes \( f \).</strong>
+      - id: k2
+        title: "A Point on Each Graph"
+        figure:
+          file: figures/FN6/mirror.svg
+          title: "Graphs of f and its inverse, with the line y = x"
+          caption: 'A grid with x and y from −4 to 6. A solid curve labeled f rises from lower left to upper right through (0, 1), (1, 2) and (2, 3), flattening out near (1, 2); the point (2, 3) on it is marked with a dot. A long-dashed curve labeled f⁻¹ rises through (1, 0), (2, 1) and (3, 2), standing nearly upright near (2, 1). A short-dashed line labeled y = x runs between them, and each curve is the mirror image of the other across it.'
+          collapse: true
+        math:
+          display: 'f(x)=(x-1)^{3}+2'
+          speak: "f of x equals the quantity x minus 1, end quantity, cubed, plus 2"
+        prompt: 'The point (2, 3) is on the graph of f. Which point must be on the graph of f⁻¹?'
+        choices:
+          - {value: a, label: '\( (3,2) \)', speak: "the point 3 comma 2"}
+          - {value: b, label: '\( (2,3) \)', speak: "the point 2 comma 3"}
+          - {value: c, label: '\( (-2,-3) \)', speak: "the point negative 2 comma negative 3"}
+          - {value: d, label: '\( \left(2,\tfrac{1}{3}\right) \)', speak: "the point 2 comma the fraction 1, over 3, end fraction"}
+        correct: a
+        explanation: |-
+          \( f(2)=1^{3}+2=3 \), so \( f \) sends 2 to 3, and \( f^{-1} \) sends 3 back to 2: the point \( (3,2) \). Swapping the coordinates is the mirror image across \( y=x \). Check with the inverse, \( f^{-1}(x)=(x-2)^{1/3}+1 \): \( f^{-1}(3)=1+1=2 \). \( (2,3) \) is on \( f \), and on \( f^{-1} \) only if the two graphs cross there, which they do not; \( (-2,-3) \) changes the signs instead of swapping; and \( \left(2,\tfrac{1}{3}\right) \) takes the reciprocal of the output. <strong>\( (3,2) \).</strong>
+      - id: k3
+        title: "Why Swap"
+        math:
+          display: 'y=f(x)\ \longrightarrow\ x=f(y)'
+          speak: "y equals f of x, becomes x equals f of y"
+        prompt: 'When you find an inverse, why do you swap x and y?'
+        choices:
+          - {value: a, label: "The inverse takes the outputs of f as its inputs"}
+          - {value: b, label: "Swapping makes the equation easier to solve"}
+          - {value: c, label: "The inverse is the flip of f over the x-axis"}
+          - {value: d, label: "The inverse is the reciprocal of f, so x and y trade places"}
+        correct: a
+        explanation: |-
+          \( f \) turns inputs \( x \) into outputs \( y \). The inverse runs the other way: its inputs are the outputs of \( f \), and its outputs are the inputs of \( f \). Swapping the letters writes that down, and solving for the new \( y \) gives a formula for \( f^{-1}(x) \). Swapping does not make the algebra easier, it changes which question you are answering; the flip over the \( x \)-axis is \( -f(x) \), but swapping coordinates flips over the line \( y=x \); and the inverse is not the reciprocal. <strong>The inverse takes the outputs of \( f \) as its inputs.</strong>
+      - id: k4
+        title: "One-to-One"
+        math:
+          display: 'f(x)=a+(x+b)^{r}'
+          speak: "f of x equals a plus the quantity x plus b, end quantity, to the power r"
+        prompt: 'On CheckIt, r is always 3, 5, 7, 1/3, 1/5 or 1/7. Why does every such function have an inverse?'
+        choices:
+          - {value: a, label: "Every function has an inverse"}
+          - {value: b, label: "These functions have no fractions in them"}
+          - {value: c, label: "The exponent r is always a positive number"}
+          - {value: d, label: "Odd powers and roots never repeat outputs"}
+        correct: d
+        explanation: |-
+          A function has an inverse when it is one-to-one: no two inputs give the same output, so each output leads back to exactly one input. Odd powers and odd roots keep the sign: \( 2^{3}=8 \) but \( (-2)^{3}=-8 \), so they never repeat an output. Not every function has an inverse, though: \( x^{2} \) gives 4 for both 2 and \( -2 \), so 4 cannot be sent back to one input; fractions are fine, since the fractions in the other kind of CheckIt problem are one-to-one too; and \( x^{2} \) also has a positive exponent, so the exponent being a positive number is not the reason. <strong>Odd powers and odd roots never repeat an output.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} x&=\dfrac{3y+2}{y-7}\\ xy-7x&=3y+2\\ xy-3y&=2-7x\\ y&=\dfrac{2-7x}{x-3} \end{aligned}'
+          speak: "x equals the fraction 3 y plus 2, over y minus 7, end fraction. Next line: x y minus 7 x equals 3 y plus 2. Next line: x y minus 3 y equals 2 minus 7 x. Next line: y equals the fraction 2 minus 7 x, over x minus 3, end fraction."
+        prompt: 'A student found the inverse of f(x) = (3x + 2)/(x − 7). What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Moving −7x across gives +7x: (7x + 2)/(x − 3)."}
+          - {value: c, label: "The inverse is the reciprocal of f, (x − 7)/(3x + 2)."}
+          - {value: d, label: "Cancel the y terms instead, which gives x − 7x = 3 + 2."}
+        correct: b
+        explanation: |-
+          From \( xy-7x=3y+2 \), add \( 7x \) to both sides and subtract \( 3y \): \( xy-3y=7x+2 \). The student moved \( -7x \) but kept its minus sign. So \( y(x-3)=7x+2 \) and \( f^{-1}(x)=\dfrac{7x+2}{x-3} \). Check: \( f(8)=26 \), and \( \tfrac{7(26)+2}{26-3}=\tfrac{184}{23}=8 \). The reciprocal is \( \tfrac{1}{f(x)} \), not the inverse; and \( y \) terms that are added or subtracted cannot be canceled. <strong>\( f^{-1}(x)=\dfrac{7x+2}{x-3} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} &f(x)=(x-5)^{3}+7\\ &\text{undo }-5:\ \text{add }5\\ &\text{undo the cube: cube root}\\ &\text{undo }+7:\ \text{subtract }7\\ &f^{-1}(x)=(x+5)^{1/3}-7 \end{aligned}'
+          speak: "f of x equals the quantity x minus 5, end quantity, cubed, plus 7. Next line: undo minus 5: add 5. Next line: undo the cube: cube root. Next line: undo plus 7: subtract 7. Next line: f inverse of x equals the quantity x plus 5, end quantity, to the power the fraction 1, over 3, end fraction, end power, minus 7."
+        prompt: 'A student found this inverse by undoing the steps. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "A cube is undone by a square root, not a cube root."}
+          - {value: c, label: "Undo in reverse order: f⁻¹(x) = (x − 7)^(1/3) + 5."}
+          - {value: d, label: "The signs are wrong: f⁻¹(x) = (x − 5)^(1/3) + 7."}
+        correct: c
+        explanation: |-
+          Each undo step is right, but they are in the wrong order. \( f \) subtracts 5, cubes, then adds 7, so the inverse undoes the last step first: subtract 7, take the cube root, then add 5: \( f^{-1}(x)=(x-7)^{1/3}+5 \). Check: \( f(6)=1+7=8 \), and \( (8-7)^{1/3}+5=6 \), but the student's version gives \( 13^{1/3}-7 \), not 6. A cube root undoes a cube, not a square root; and \( (x-5)^{1/3}+7 \) repeats each step of \( f \) instead of undoing it. <strong>\( f^{-1}(x)=(x-7)^{1/3}+5 \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} x&=2+(y+5)^{1/7}\\ x-2&=(y+5)^{1/7}\\ (x-2)^{7}&=y+5\\ y&=(x-2)^{7}-5 \end{aligned}'
+          speak: "x equals 2 plus the quantity y plus 5, end quantity, to the power the fraction 1, over 7, end fraction, end power. Next line: x minus 2 equals the quantity y plus 5, end quantity, to the power the fraction 1, over 7, end fraction, end power. Next line: the quantity x minus 2, end quantity, to the 7th power, equals y plus 5. Next line: y equals the quantity x minus 2, end quantity, to the 7th power, minus 5."
+        prompt: 'A student found the inverse of h(x) = 2 + (x + 5)^(1/7) by swapping and solving. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Raising to the 7th power should give (x − 2)^(1/7)."}
+          - {value: c, label: "The 2 should be subtracted last: y = (x − 5)^7 − 2."}
+          - {value: d, label: "The inverse is 1/h(x), so swapping is not needed."}
+        correct: a
+        explanation: |-
+          Swap, subtract 2, raise both sides to the 7th power (which undoes the \( \tfrac{1}{7} \) power), and subtract 5: \( h^{-1}(x)=(x-2)^{7}-5 \). Check: \( h(-4)=2+1=3 \), and \( (3-2)^{7}-5=-4 \). The student is right. The 7th power undoes the \( \tfrac{1}{7} \) power, so the root is gone, not kept; the 2 was added last in \( h \), so it is undone first, as the student did; and the inverse is not the reciprocal. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} f(x)&=\dfrac{5x-1}{2x+3}\\ f^{-1}(x)&=\dfrac{2x+3}{5x-1} \end{aligned}'
+          speak: "f of x equals the fraction 5 x minus 1, over 2 x plus 3, end fraction. Next line: f inverse of x equals the fraction 2 x plus 3, over 5 x minus 1, end fraction."
+        prompt: 'A student wrote this inverse. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should be the opposite of f instead: −(5x − 1)/(2x + 3)."}
+          - {value: c, label: "Only the x terms trade places: (2x − 1)/(5x + 3)."}
+          - {value: d, label: "That is 1/f(x); solving gives (−3x − 1)/(2x − 5)."}
+        correct: d
+        explanation: |-
+          Flipping the fraction gives \( \tfrac{1}{f(x)} \), the reciprocal, not the inverse. Swap and solve: \( x(2y+3)=5y-1 \), so \( 2xy+3x=5y-1 \), \( 2xy-5y=-3x-1 \), \( y(2x-5)=-3x-1 \), and \( f^{-1}(x)=\dfrac{-3x-1}{2x-5} \). Check: \( f(1)=\tfrac{4}{5} \), and \( \tfrac{-12/5-1}{8/5-5}=\tfrac{-17/5}{-17/5}=1 \); the student's version gives \( \tfrac{23/5}{3}=\tfrac{23}{15} \). \( -f(x) \) is the opposite, also not the inverse; and swapping only the \( x \) terms is not a rule for anything. <strong>\( f^{-1}(x)=\dfrac{-3x-1}{2x-5} \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} y(5x+1)&=2-7x\\ y&=\dfrac{2-7x}{5x+1}=\dfrac{2-7}{5+1}=-\tfrac{5}{6} \end{aligned}'
+          speak: "y times the quantity 5 x plus 1, end quantity, equals 2 minus 7 x. Next line: y equals the fraction 2 minus 7 x, over 5 x plus 1, end fraction, which equals the fraction 2 minus 7, over 5 plus 1, end fraction, which equals negative the fraction 5, over 6, end fraction."
+        prompt: 'A student was finding the inverse of f(x) = (−x + 2)/(5x + 7) and got this far. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The x's cannot be canceled: f⁻¹(x) = (2 − 7x)/(5x + 1)."}
+          - {value: c, label: "The y-term should be y(5x − 1), not y(5x + 1)."}
+          - {value: d, label: "An inverse is a number, so −5/6 is right but should be 5/6."}
+        correct: b
+        explanation: |-
+          Everything up to \( y=\dfrac{2-7x}{5x+1} \) is right: \( 5xy+7x=-y+2 \), so \( 5xy+y=2-7x \). The last step is the slip. The \( x \) in \( 7x \) and in \( 5x \) are parts of sums, not factors of the whole top and bottom, so they cannot be canceled. The inverse is a function of \( x \): \( f^{-1}(x)=\dfrac{2-7x}{5x+1} \). Moving \( -y \) across gives \( +y \), so the factor is \( 5x+1 \); and an inverse function is a formula, not a single number. <strong>\( f^{-1}(x)=\dfrac{2-7x}{5x+1} \).</strong>
