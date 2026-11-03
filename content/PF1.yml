@@ -1,0 +1,317 @@
+# PF1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt PF1 gives f(x) = a sin(bx + c) or a cos(bx + c), unfactored, with a = -5 to 5 (not -1, 0 or 1), b = 2, 3 or 4, and
+# c = k b pi / d for k = -4 to 4 and d = 1, 2 or 3. It asks for the amplitude |a|, the period 2pi/b (pi, 2pi/3 or pi/2), the
+# phase shift |c/b| with its direction (a multiple of pi/3, pi/2 or pi, from 0 up to 4pi, so it can be longer than a period),
+# and a graph of two full periods. When c = 0, CheckIt's key says the shift is "0 to the left".
+# Figures drawn by tools/figures/make_pf1.py.
+code: PF1
+h1: "PF1 Support: Graphs of Sine and Cosine"
+pageTitle: "PF1 Support: Graphs of Sine and Cosine — Math 172, Santa Ana College"
+hubSummary: "Graphs of sine and cosine: amplitude, period, phase shift, and sketching two periods"
+videoIntro: "A narrated walkthrough of sinusoidal graphs: reading the amplitude, period and phase shift from a sine or cosine function, and sketching two full periods."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|amplitude is|period is'
+worked:   # used for the worked-examples recording document
+  title: "PF1 Worked Examples: Graphs of Sine and Cosine"
+  coreQuestion: "How tall, how long, and where does a cycle start?"
+  coreFollowup: "For a sin(bx + c) or a cos(bx + c): the amplitude is |a|, how far the graph rises above and falls below the midline. The period is 2π/b, the length of one cycle. The phase shift is c/b: factor out b to write b(x + c/b), so a plus sign shifts left and a minus sign shifts right. Start a cycle at the shift and mark every quarter period."
+summary:   # the Quick Summary tab
+  intro: 'For <span>\( a\sin(bx+c) \)</span> or <span>\( a\cos(bx+c) \)</span>, <strong>each number has one job</strong>: <span>\( a \)</span> sets the height, <span>\( b \)</span> sets the length of a cycle, and <span>\( c \)</span>, divided by <span>\( b \)</span>, sets where it starts.'
+  caption: "Summary: Graphs of Sine and Cosine"
+  columns: ["Feature", "How to find it", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Amplitude'
+      - '<span>\( |a| \)</span>: half the distance from the highest point to the lowest.'
+      - 'A negative <span>\( a \)</span> flips the graph upside down, but the amplitude is still positive.'
+    -
+      - 'Period'
+      - '<span>\( \dfrac{2\pi}{b} \)</span>, the length of one full cycle.'
+      - 'Divide <span>\( 2\pi \)</span> by <span>\( b \)</span>; do not multiply. A larger <span>\( b \)</span> squeezes the graph.'
+    -
+      - 'Phase shift'
+      - 'Factor out <span>\( b \)</span>: <span>\( \cos(4x-2\pi)=\cos\left(4\left(x-\tfrac{\pi}{2}\right)\right) \)</span>, a shift of <span>\( \tfrac{\pi}{2} \)</span> to the right.'
+      - 'The shift is <span>\( \tfrac{c}{b} \)</span>, not <span>\( c \)</span>. A plus sign inside means left; a minus sign means right.'
+    -
+      - 'Graphing two periods'
+      - 'Start a cycle at the shift, then mark points every quarter period: midline, peak or valley, midline, and so on.'
+      - 'Sine starts on the midline going up; cosine starts at a peak. A negative <span>\( a \)</span> turns these upside down.'
+    -
+      - 'No shift'
+      - 'If there is no <span>\( c \)</span>, the phase shift is 0.'
+      - 'CheckIt''s key words this as "0 to the left"; it means no shift.'
+  note: 'CheckIt''s <span>\( b \)</span> is 2, 3 or 4, so its periods are <span>\( \pi \)</span>, <span>\( \tfrac{2\pi}{3} \)</span> or <span>\( \tfrac{\pi}{2} \)</span>. Its phase shifts are multiples of <span>\( \tfrac{\pi}{3} \)</span>, <span>\( \tfrac{\pi}{2} \)</span> or <span>\( \pi \)</span>, and can be longer than one period. Your CheckIt function will be different. The job of each number is what transfers.'
+tabs:
+  - id: size
+    label: "Try It: Amplitude and Period"
+    heading: "Try It: Amplitude and Period"
+    intro: |-
+      The amplitude comes from a, and the period from b. Make your best guess on each one, then check it.
+    items:
+      - id: ap1
+        title: "Amplitude"
+        math:
+          display: 'f(x)=-3\sin(2x+\pi)'
+          speak: "f of x equals negative 3 sine of the quantity 2 x plus pi, end quantity"
+        prompt: 'What is the amplitude of f?'
+        choices:
+          - {value: a, label: '\( -3 \)', speak: "negative 3"}
+          - {value: b, label: '\( 3 \)', speak: "3"}
+          - {value: c, label: '\( 2 \)', speak: "2"}
+          - {value: d, label: '\( 6 \)', speak: "6"}
+        correct: b
+        explanation: |-
+          The amplitude is \( |a|=|-3|=3 \): the graph rises 3 above the midline and falls 3 below it. \( -3 \) keeps the sign, but a distance is never negative; the minus only flips the graph. 2 is \( b \), which sets the period; and 6 is the full distance from the highest point to the lowest, twice the amplitude. <strong>3.</strong>
+      - id: ap2
+        title: "Period"
+        math:
+          display: 'g(x)=4\cos(3x-2\pi)'
+          speak: "g of x equals 4 cosine of the quantity 3 x minus 2 pi, end quantity"
+        prompt: 'What is the period of g?'
+        choices:
+          - {value: a, label: '\( \dfrac{2\pi}{3} \)', speak: "the fraction 2 pi, over 3, end fraction"}
+          - {value: b, label: '\( 6\pi \)', speak: "6 pi"}
+          - {value: c, label: '\( \dfrac{\pi}{3} \)', speak: "the fraction pi, over 3, end fraction"}
+          - {value: d, label: '\( 2\pi \)', speak: "2 pi"}
+        correct: a
+        explanation: |-
+          The period is \( \dfrac{2\pi}{b}=\dfrac{2\pi}{3} \): with \( b=3 \), the graph fits 3 cycles where plain cosine fits 1. The shift does not change the period. \( 6\pi \) multiplies by 3 instead of dividing, which stretches the graph instead of squeezing it; \( \tfrac{\pi}{3} \) is \( \tfrac{\pi}{b} \), half a period; and \( 2\pi \) ignores \( b \). <strong>\( \dfrac{2\pi}{3} \).</strong>
+      - id: ap3
+        title: "Both at Once"
+        math:
+          display: 'h(x)=-2\sin(4x+2\pi)'
+          speak: "h of x equals negative 2 sine of the quantity 4 x plus 2 pi, end quantity"
+        prompt: 'What are the amplitude and the period of h?'
+        choices:
+          - {value: a, label: "Amplitude −2, period π/2"}
+          - {value: b, label: "Amplitude 2, period 8π"}
+          - {value: c, label: "Amplitude 2, period π/2"}
+          - {value: d, label: "Amplitude −2, period 8π"}
+        correct: c
+        explanation: |-
+          Amplitude \( |-2|=2 \), and period \( \tfrac{2\pi}{4}=\tfrac{\pi}{2} \). Amplitude \( -2 \) keeps the sign of \( a \); period \( 8\pi \) multiplies \( 2\pi \) by 4; and amplitude −2 with period 8π makes both slips. <strong>Amplitude 2, period \( \dfrac{\pi}{2} \).</strong>
+      - id: ap4
+        title: "Period with b = 2"
+        math:
+          display: 'f(x)=5\cos\left(2x-\dfrac{2\pi}{3}\right)'
+          speak: "f of x equals 5 cosine of the quantity 2 x minus the fraction 2 pi, over 3, end fraction, end quantity"
+        prompt: 'What is the period of f?'
+        choices:
+          - {value: a, label: '\( 4\pi \)', speak: "4 pi"}
+          - {value: b, label: '\( \dfrac{\pi}{2} \)', speak: "the fraction pi, over 2, end fraction"}
+          - {value: c, label: '\( \pi \)', speak: "pi"}
+          - {value: d, label: '\( \dfrac{2\pi}{3} \)', speak: "the fraction 2 pi, over 3, end fraction"}
+        correct: c
+        explanation: |-
+          Period \( =\tfrac{2\pi}{2}=\pi \). \( 4\pi \) multiplies by 2 instead of dividing; \( \tfrac{\pi}{2} \) is \( \tfrac{\pi}{b} \), half a period; and \( \tfrac{2\pi}{3} \) reads the number inside with \( x \), \( c \), which has nothing to do with the period. <strong>\( \pi \).</strong>
+  - id: shift
+    label: "Try It: Phase Shift"
+    heading: "Try It: Phase Shift"
+    intro: |-
+      Factor out b to see the shift: a plus sign means left, a minus sign means right. Make your best guess, then check it.
+    items:
+      - id: ph1
+        title: "Shift 1"
+        math:
+          display: 'f(x)=3\sin\left(2x-\dfrac{2\pi}{3}\right)'
+          speak: "f of x equals 3 sine of the quantity 2 x minus the fraction 2 pi, over 3, end fraction, end quantity"
+        prompt: 'What is the phase shift of f?'
+        choices:
+          - {value: a, label: "π/3 to the right"}
+          - {value: b, label: "2π/3 to the right"}
+          - {value: c, label: "π/3 to the left"}
+          - {value: d, label: "2π/3 to the left"}
+        correct: a
+        explanation: |-
+          Factor out 2: \( 2x-\tfrac{2\pi}{3}=2\left(x-\tfrac{\pi}{3}\right) \). So the graph is \( 3\sin(2x) \) moved \( \tfrac{\pi}{3} \) to the right: the cycle that started at 0 now starts at \( \tfrac{\pi}{3} \). 2π/3 to the right uses \( c \) without dividing by \( b \); π/3 to the left reads the minus sign the wrong way; and 2π/3 to the left makes both slips. <strong>\( \dfrac{\pi}{3} \) to the right.</strong>
+      - id: ph2
+        title: "Shift 2"
+        math:
+          display: 'g(x)=-4\cos(3x+\pi)'
+          speak: "g of x equals negative 4 cosine of the quantity 3 x plus pi, end quantity"
+        prompt: 'What is the phase shift of g?'
+        choices:
+          - {value: a, label: "π to the left"}
+          - {value: b, label: "π/3 to the right"}
+          - {value: c, label: "π/3 to the left"}
+          - {value: d, label: "π to the right"}
+        correct: c
+        explanation: |-
+          \( 3x+\pi=3\left(x+\tfrac{\pi}{3}\right) \), so the shift is \( \tfrac{\pi}{3} \) to the left. The \( -4 \) flips the graph but does not move it sideways. π to the left uses \( c \) without dividing by 3; π/3 to the right reads the plus sign the wrong way; and π to the right makes both slips. <strong>\( \dfrac{\pi}{3} \) to the left.</strong>
+      - id: ph3
+        title: "Shift 3"
+        math:
+          display: 'h(x)=2\sin\left(4x+\dfrac{8\pi}{3}\right)'
+          speak: "h of x equals 2 sine of the quantity 4 x plus the fraction 8 pi, over 3, end fraction, end quantity"
+        prompt: 'What is the phase shift of h?'
+        choices:
+          - {value: a, label: "8π/3 to the left"}
+          - {value: b, label: "2π/3 to the left"}
+          - {value: c, label: "2π/3 to the right"}
+          - {value: d, label: "8π/3 to the right"}
+        correct: b
+        explanation: |-
+          \( \tfrac{8\pi}{3}\div4=\tfrac{8\pi}{12}=\tfrac{2\pi}{3} \), and the plus sign means left: \( 4\left(x+\tfrac{2\pi}{3}\right) \). The shift is longer than the period, \( \tfrac{\pi}{2} \); that is allowed, and CheckIt still wants the shift itself, \( \tfrac{2\pi}{3} \). 8π/3 to the left forgets to divide by 4; 2π/3 to the right reads the sign the wrong way; and 8π/3 to the right makes both slips. <strong>\( \dfrac{2\pi}{3} \) to the left.</strong>
+      - id: ph4
+        title: "Shift 4"
+        math:
+          display: 'f(x)=5\sin(3x)'
+          speak: "f of x equals 5 sine of 3 x"
+        prompt: 'What is the phase shift of f?'
+        choices:
+          - {value: a, label: "0 (no shift)"}
+          - {value: b, label: "3 to the left"}
+          - {value: c, label: "2π/3 to the right"}
+          - {value: d, label: "π/3 to the left"}
+        correct: a
+        explanation: |-
+          There is no number added to \( 3x \), so \( c=0 \) and the shift is \( \tfrac{0}{3}=0 \): a cycle starts at \( x=0 \). CheckIt's key words this as "0 to the left", which means the same thing. 3 is \( b \), which squeezes the graph instead of moving it; \( \tfrac{2\pi}{3} \) is the period, the length of a cycle, not a shift; and \( \tfrac{\pi}{3} \) is half a period. <strong>0.</strong>
+  - id: graph
+    label: "Try It: Graphs"
+    heading: "Try It: Graphs"
+    intro: |-
+      Read the height, the length of a cycle and where a cycle starts. Make your best guess, then check it.
+    items:
+      - id: g1
+        title: "Graph 1"
+        figure:
+          file: figures/PF1/g1.svg
+          title: "Two periods of a sinusoid starting at the origin"
+          caption: 'A wave on a grid with x from 0 to 4π/3, marked every π/6 and labeled at π/3, 2π/3, π and 4π/3, and y from −3 to 3. It starts at the origin going down, reaches −2 at x = π/6, crosses back up through 0 at π/3, reaches 2 at π/2, returns to 0 at 2π/3, and repeats once more, ending at 4π/3.'
+          collapse: true
+        prompt: 'Which function does this graph show?'
+        choices:
+          - {value: a, label: '\( y=2\sin(3x) \)', speak: "y equals 2 sine of 3 x"}
+          - {value: b, label: '\( y=-2\sin(2x) \)', speak: "y equals negative 2 sine of 2 x"}
+          - {value: c, label: '\( y=2\sin(2x) \)', speak: "y equals 2 sine of 2 x"}
+          - {value: d, label: '\( y=-2\sin(3x) \)', speak: "y equals negative 2 sine of 3 x"}
+        correct: d
+        explanation: |-
+          The graph goes from 2 to \( -2 \), so the amplitude is 2. It starts on the midline going down, which is sine flipped, so \( a=-2 \). One cycle runs from 0 to \( \tfrac{2\pi}{3} \), so \( \tfrac{2\pi}{b}=\tfrac{2\pi}{3} \) and \( b=3 \). \( 2\sin(3x) \) would start going up; \( -2\sin(2x) \) has period \( \pi \), so it would fit only one and a third cycles here; and \( 2\sin(2x) \) makes both slips. <strong>\( y=-2\sin(3x) \).</strong>
+      - id: g2
+        title: "Graph 2"
+        figure:
+          file: figures/PF1/g2.svg
+          title: "Two periods of a sinusoid"
+          caption: 'A wave on a grid with x from −π/2 to 3π/2, marked every π/4 and labeled at −π/2, π/2, π and 3π/2, and y from −5 to 5. It is at 4 at x = −π/2, falls to −4 at x = 0, rises to 4 at π/2, falls to −4 at π, and rises to 4 at 3π/2.'
+          collapse: true
+        math:
+          display: 'f(x)=4\cos(2x+\pi)'
+          speak: "f of x equals 4 cosine of the quantity 2 x plus pi, end quantity"
+        prompt: 'This is the graph CheckIt would draw for f. What amplitude and period does it show?'
+        choices:
+          - {value: a, label: "Amplitude 4, period π"}
+          - {value: b, label: "Amplitude 8, period π"}
+          - {value: c, label: "Amplitude 4, period π/2"}
+          - {value: d, label: "Amplitude 8, period π/2"}
+        correct: a
+        explanation: |-
+          The graph goes up to 4 and down to \( -4 \): the amplitude is half that 8-unit spread, 4, which matches \( |a| \). From one peak at \( -\tfrac{\pi}{2} \) to the next at \( \tfrac{\pi}{2} \) is \( \pi \), matching \( \tfrac{2\pi}{2} \). Amplitude 8 is the full distance from peak to valley; period \( \tfrac{\pi}{2} \) measures from a peak to the next valley, half a cycle; and amplitude 8 with period \( \tfrac{\pi}{2} \) makes both slips. <strong>Amplitude 4, period \( \pi \).</strong>
+      - id: g3
+        title: "Where a Cycle Starts"
+        math:
+          display: 'f(x)=3\sin(2x-\pi)'
+          speak: "f of x equals 3 sine of the quantity 2 x minus pi, end quantity"
+        prompt: 'Over which interval does one full cycle of f run, starting at the phase shift?'
+        choices:
+          - {value: a, label: "From π/2 to 3π/2"}
+          - {value: b, label: "From π to 2π"}
+          - {value: c, label: "From −π/2 to π/2"}
+          - {value: d, label: "From π/2 to 5π/2"}
+        correct: a
+        explanation: |-
+          \( 2x-\pi=2\left(x-\tfrac{\pi}{2}\right) \): the shift is \( \tfrac{\pi}{2} \) to the right. The period is \( \tfrac{2\pi}{2}=\pi \). So a cycle starts at \( \tfrac{\pi}{2} \) and ends one period later, at \( \tfrac{\pi}{2}+\pi=\tfrac{3\pi}{2} \). From π to 2π shifts by \( c=\pi \) without dividing by 2; from \( -\tfrac{\pi}{2} \) shifts left instead of right; and ending at \( \tfrac{5\pi}{2} \) uses a period of \( 2\pi \), ignoring \( b \). <strong>From \( \dfrac{\pi}{2} \) to \( \dfrac{3\pi}{2} \).</strong>
+      - id: g4
+        title: "Graph 3"
+        figure:
+          file: figures/PF1/g4.svg
+          title: "Two periods of a sinusoid with its first peak marked"
+          caption: 'A wave on a grid with x from 0 to 11π/6, marked every π/6 and labeled at π/2, π and 3π/2, and y from −3 to 3. It starts at 0 at the origin, falls to −2 at π/6, rises to its first peak at (π/2, 2), which is marked, and continues with peaks at 7π/6 and 11π/6.'
+          collapse: true
+        prompt: 'The first peak to the right of 0 is at (π/2, 2), and the graph repeats every 2π/3. Which function does it show?'
+        choices:
+          - {value: a, label: '\( y=2\cos\left(3x+\dfrac{3\pi}{2}\right) \)', speak: "y equals 2 cosine of the quantity 3 x plus the fraction 3 pi, over 2, end fraction, end quantity"}
+          - {value: b, label: '\( y=2\cos\left(3x-\dfrac{\pi}{2}\right) \)', speak: "y equals 2 cosine of the quantity 3 x minus the fraction pi, over 2, end fraction, end quantity"}
+          - {value: c, label: '\( y=2\cos\left(3x-\dfrac{3\pi}{2}\right) \)', speak: "y equals 2 cosine of the quantity 3 x minus the fraction 3 pi, over 2, end fraction, end quantity"}
+          - {value: d, label: '\( y=2\sin\left(3x-\dfrac{3\pi}{2}\right) \)', speak: "y equals 2 sine of the quantity 3 x minus the fraction 3 pi, over 2, end fraction, end quantity"}
+        correct: c
+        explanation: |-
+          Cosine starts a cycle at a peak, so this is a cosine shifted so its peak sits at \( \tfrac{\pi}{2} \): \( 2\cos\left(3\left(x-\tfrac{\pi}{2}\right)\right)=2\cos\left(3x-\tfrac{3\pi}{2}\right) \). Check: at \( x=\tfrac{\pi}{2} \), the inside is 0 and \( 2\cos0=2 \). \( 3x+\tfrac{3\pi}{2} \) shifts left instead, and at \( \tfrac{\pi}{2} \) it gives \( 2\cos3\pi=-2 \), a valley; \( 3x-\tfrac{\pi}{2} \) uses the shift as \( c \) without multiplying by \( b \), so its peak is at \( \tfrac{\pi}{6} \); and the sine version is 0 at \( \tfrac{\pi}{2} \), with its peaks at 0 and \( \tfrac{2\pi}{3} \). <strong>\( y=2\cos\left(3x-\dfrac{3\pi}{2}\right) \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\begin{aligned} &f(x)=2\sin(3x-\pi)\\ &\text{phase shift: }\pi\text{ to the right} \end{aligned}'
+          speak: "f of x equals 2 sine of the quantity 3 x minus pi, end quantity. Next line: phase shift: pi to the right."
+        prompt: 'A student found the phase shift this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Divide by b: π/3 to the right."}
+          - {value: c, label: "A minus sign means left: π to the left."}
+          - {value: d, label: "The shift is the period, 2π/3 to the right."}
+        correct: b
+        explanation: |-
+          Factor out 3: \( 3x-\pi=3\left(x-\tfrac{\pi}{3}\right) \). The shift is \( \tfrac{c}{b}=\tfrac{\pi}{3} \) to the right; the student used \( c \) itself. A minus sign means right, so the direction was correct; and the period, \( \tfrac{2\pi}{3} \), is the length of a cycle, not where it starts. <strong>\( \dfrac{\pi}{3} \) to the right.</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\begin{aligned} &f(x)=4\cos(2x+2\pi)\\ &\text{period}=2\pi\cdot2=4\pi\\ &\text{phase shift: }\pi\text{ to the left} \end{aligned}'
+          speak: "f of x equals 4 cosine of the quantity 2 x plus 2 pi, end quantity. Next line: period equals 2 pi times 2, which equals 4 pi. Next line: phase shift: pi to the left."
+        prompt: 'A student found the period and the phase shift. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The shift should be 2π to the left, not π."}
+          - {value: c, label: "Divide, not multiply: the period is π."}
+          - {value: d, label: "The period is 2π, since cosine repeats every 2π."}
+        correct: c
+        explanation: |-
+          The period is \( \tfrac{2\pi}{b}=\tfrac{2\pi}{2}=\pi \). Multiplying by \( b \) would stretch the graph, but a larger \( b \) squeezes it. The shift is right: \( 2x+2\pi=2(x+\pi) \), \( \pi \) to the left. 2π to the left forgets to divide \( c \) by 2; and plain cosine repeats every \( 2\pi \), but this one is squeezed by \( b=2 \). <strong>The period is \( \pi \).</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\begin{aligned} &f(x)=-5\sin\left(4x+\tfrac{4\pi}{3}\right)\\ &\text{amplitude }5,\ \text{period }\tfrac{\pi}{2},\ \text{shift }\tfrac{\pi}{3}\text{ left} \end{aligned}'
+          speak: "f of x equals negative 5 sine of the quantity 4 x plus the fraction 4 pi, over 3, end fraction, end quantity. Next line: amplitude 5, period the fraction pi, over 2, end fraction, shift the fraction pi, over 3, end fraction, left."
+        prompt: 'A student found all three features. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The amplitude should be −5, since a = −5."}
+          - {value: c, label: "The shift should be 4π/3 to the left."}
+          - {value: d, label: "The period should be 8π, 2π times 4."}
+        correct: a
+        explanation: |-
+          Amplitude \( |-5|=5 \); period \( \tfrac{2\pi}{4}=\tfrac{\pi}{2} \); and \( 4x+\tfrac{4\pi}{3}=4\left(x+\tfrac{\pi}{3}\right) \), so the shift is \( \tfrac{\pi}{3} \) to the left. The student is right. An amplitude is a distance, so it is positive even when \( a \) is negative; \( \tfrac{4\pi}{3} \) is \( c \) before dividing by 4; and the period divides by \( b \). <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\begin{aligned} &f(x)=3\cos\left(2x+\tfrac{2\pi}{3}\right)\\ &\text{phase shift: }\tfrac{\pi}{3}\text{ to the right} \end{aligned}'
+          speak: "f of x equals 3 cosine of the quantity 2 x plus the fraction 2 pi, over 3, end fraction, end quantity. Next line: phase shift: the fraction pi, over 3, end fraction, to the right."
+        prompt: 'A student found the phase shift this way. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Do not divide by b: the shift is 2π/3 to the right."}
+          - {value: c, label: "The shift is the period: π to the right."}
+          - {value: d, label: "A plus sign means left: π/3 to the left."}
+        correct: d
+        explanation: |-
+          \( 2x+\tfrac{2\pi}{3}=2\left(x+\tfrac{\pi}{3}\right)=2\left(x-\left(-\tfrac{\pi}{3}\right)\right) \): the graph moves \( \tfrac{\pi}{3} \) to the left. The size was right, but the direction was backward. A check: the peak of cosine, where the inside is 0, is at \( x=-\tfrac{\pi}{3} \), left of 0. The shift is \( \tfrac{c}{b} \), so dividing is right; and the period, \( \pi \), is not the shift. <strong>\( \dfrac{\pi}{3} \) to the left.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} &f(x)=-4\sin(3x-2\pi)\\ &\text{amplitude }-4,\ \text{period }\tfrac{2\pi}{3},\ \text{shift }\tfrac{2\pi}{3}\text{ right} \end{aligned}'
+          speak: "f of x equals negative 4 sine of the quantity 3 x minus 2 pi, end quantity. Next line: amplitude negative 4, period the fraction 2 pi, over 3, end fraction, shift the fraction 2 pi, over 3, end fraction, right."
+        prompt: 'A student found all three features. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The amplitude is a distance: it is 4."}
+          - {value: c, label: "The shift should be 2π to the right."}
+          - {value: d, label: "The period should be 6π, 2π times 3."}
+        correct: b
+        explanation: |-
+          The amplitude is \( |a|=|-4|=4 \); the minus flips the graph upside down but does not make the height negative. The period, \( \tfrac{2\pi}{3} \), and the shift, \( \tfrac{2\pi}{3} \) to the right from \( 3\left(x-\tfrac{2\pi}{3}\right) \), are both right. Here the shift happens to equal the period, so the graph lines up with an unshifted one. 2π to the right forgets to divide by 3; and the period divides by \( b \). <strong>Amplitude 4.</strong>
