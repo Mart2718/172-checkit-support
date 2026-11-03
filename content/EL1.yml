@@ -37,7 +37,7 @@ summary:   # the Quick Summary tab
       - 'Work with base e'
       - '<span>\( e\approx 2.718 \)</span> is a number, and it follows the same rules as any other base. <span>\( e^{0}=1 \)</span>, and <span>\( e^{-x}=\left(\tfrac{1}{e}\right)^{x} \)</span> has a base less than 1, so it decays.'
       - 'Reading <span>\( e^{2} \)</span> as <span>\( 2e \)</span>, or treating <span>\( e \)</span> as a variable.'
-  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+  note: 'In <span>\( a\cdot b^{x} \)</span>, <span>\( a\ne0 \)</span>, <span>\( b>0 \)</span> and <span>\( b\ne1 \)</span>; so a table is exponential when its ratio is positive and not 1. Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
 tabs:
   - id: tables
     label: "Try It: Tables"

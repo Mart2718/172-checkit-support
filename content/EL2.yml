@@ -148,7 +148,7 @@ tabs:
           - {value: d, label: "(−∞, ∞)"}
         correct: c
         explanation: |-
-          The asymptote is \( y=-1 \). The base \( \tfrac{1}{2} \) is the same as \( 2^{-x} \), which flips the graph left to right, not upside down. The values of \( \left(\tfrac{1}{2}\right)^{x} \) are still positive, so the curve stays above the asymptote. <strong>The range is \( (-1, \infty) \).</strong>
+          The asymptote is \( y=-1 \). \( \left(\tfrac{1}{2}\right)^{x}=2^{-x} \), which flips the graph left to right, not upside down. The values of \( \left(\tfrac{1}{2}\right)^{x} \) are still positive, so the curve stays above the asymptote. <strong>The range is \( (-1, \infty) \).</strong>
       - id: dr4
         title: "Range 4"
         math:

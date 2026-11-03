@@ -200,7 +200,7 @@ tabs:
         math:
           display: '(-9,-4)\cup(1,6)'
           speak: "the interval from negative 9 to negative 4, union the interval from 1 to 6"
-        prompt: 'Your graph must be decreasing on (−9, −4) ∪ (1, 6) and increasing between those intervals. What must it have at x = −4?'
+        prompt: 'Your graph must be one unbroken (continuous) curve, decreasing on (−9, −4) ∪ (1, 6) and increasing between those intervals. What must it have at x = −4?'
         choices:
           - {value: a, label: "A local minimum"}
           - {value: b, label: "A local maximum"}
@@ -214,7 +214,7 @@ tabs:
         math:
           display: '(-8,10]'
           speak: "the interval from negative 8, not included, to 10, included"
-        prompt: 'Your graph must have domain (−8, 10]. How should its ends look?'
+        prompt: 'Your graph must be one unbroken curve with domain (−8, 10] that does not shoot off to infinity at either end. How should its ends look?'
         choices:
           - {value: a, label: "Filled dots at both ends, x = −8 and x = 10"}
           - {value: b, label: "Open dots at both ends, x = −8 and x = 10"}
@@ -241,7 +241,7 @@ tabs:
           - {value: d, label: "(−6, 4)"}
         correct: b
         explanation: |-
-          Everywhere in the domain that the graph is not decreasing, it is increasing, apart from the turning points themselves. The domain starts at −10 and the graph is decreasing from −8, so it rises from the left end up to the local maximum at \( x=-8 \). It also rises from the local minimum at \( x=-2 \) to the local maximum at \( x=3 \). \( (-2,3) \) alone forgets the stretch from the left end; \( (-8,-2)\cup(3,9) \) repeats the decreasing intervals; and \( (-6,4) \) uses heights. <strong>\( (-10,-8)\cup(-2,3) \).</strong>
+          CheckIt's sketches have no flat stretches: each piece between turning points either rises or falls. So everywhere in the domain that the graph is not decreasing, it is increasing, apart from the turning points themselves. The domain starts at −10 and the graph is decreasing from −8, so it rises from the left end up to the local maximum at \( x=-8 \). It also rises from the local minimum at \( x=-2 \) to the local maximum at \( x=3 \). \( (-2,3) \) alone forgets the stretch from the left end; \( (-8,-2)\cup(3,9) \) repeats the decreasing intervals; and \( (-6,4) \) uses heights. <strong>\( (-10,-8)\cup(-2,3) \).</strong>
       - id: bg4
         title: "Impossible?"
         table:
@@ -346,4 +346,4 @@ tabs:
           - {value: d, label: "The global minimum is 2, at the last turning point, (4, 2)."}
         correct: b
         explanation: |-
-          An open dot only rules out a global maximum or minimum when it is at the very top or bottom of the graph. Here the open dot at \( (11,8) \) is partway up, and the graph is lower elsewhere: its lowest point is \( (-7,-4) \), which is reached. So the global minimum is −4. The open dot's height, 8, is not reached and is not the lowest; and 2 is a local minimum, but the graph goes lower at \( x=-7 \). <strong>The global minimum is −4.</strong>
+          An open dot only rules out a global maximum or minimum when it is at the very top or bottom of the graph. Here the open dot at \( (11,8) \) is partway up, and the graph is lower elsewhere: its lowest point is \( (-7,-4) \), which is reached. So the global minimum is −4. The point \( (11,8) \) itself is left out, though the height 8 is reached elsewhere on the graph, and 8 is not the lowest height anyway; and 2 is a local minimum, but the graph goes lower at \( x=-7 \). <strong>The global minimum is −4.</strong>

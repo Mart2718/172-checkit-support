@@ -114,7 +114,7 @@ tabs:
           - {value: d, label: '\( \dfrac{3x+1}{2x} \)', speak: "the fraction 3 x plus 1, over 2 x, end fraction"}
         correct: a
         explanation: |-
-          Dividing by a fraction means multiplying by its flip: \( (3x+1)\div\left(\dfrac{2x}{x-4}\right)=(3x+1)\cdot\dfrac{x-4}{2x}=\dfrac{(3x+1)(x-4)}{2x} \). \( \dfrac{2x}{(3x+1)(x-4)} \) is the flip of the answer, \( h(x) \) divided by \( g(x) \); \( \dfrac{2x(3x+1)}{x-4} \) multiplies by \( h \) instead of dividing; and \( \dfrac{3x+1}{2x} \) loses the \( x-4 \) when flipping. <strong>\( \dfrac{(3x+1)(x-4)}{2x} \).</strong>
+          Dividing by a fraction means multiplying by its flip: \( (3x+1)\div\left(\dfrac{2x}{x-4}\right)=(3x+1)\cdot\dfrac{x-4}{2x}=\dfrac{(3x+1)(x-4)}{2x} \). \( \dfrac{2x}{(3x+1)(x-4)} \) is the flip of the answer, \( h(x) \) divided by \( g(x) \); \( \dfrac{2x(3x+1)}{x-4} \) multiplies by \( h \) instead of dividing; and \( \dfrac{3x+1}{2x} \) loses the \( x-4 \) when flipping. <strong>\( \dfrac{(3x+1)(x-4)}{2x} \).</strong> CheckIt's key shows this simplified form, but the quotient also needs \( x\ne4 \), where \( h \) itself is undefined, and \( x\ne0 \), where \( h(x)=0 \): the domain is every real number except 0 and 4, even though the formula alone would allow 4.
   - id: compose
     label: "Try It: Build a Composition"
     heading: "Try It: Build a Composition"

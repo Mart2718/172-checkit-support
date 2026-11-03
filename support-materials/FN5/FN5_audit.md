@@ -45,3 +45,6 @@ TBIL's FN5 generator checks out. Notes:
 - Product: "A product can be left factored, including when a factor contains a radical" (the old wording sounded like a rule against distributing).
 - Composition: names the (f∘g)(x) notation, and says "Follow the composition notation: in f(g(x)), apply g first, then f, whichever function is listed first."
 - Composition at a number: "Follow the order shown in each question; it may differ from the previous question."
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Quotient notes the domain restriction x ≠ 0, 4 alongside CheckIt's simplified form.

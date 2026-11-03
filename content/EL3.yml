@@ -37,7 +37,7 @@ summary:   # the Quick Summary tab
       - 'Common and natural logarithms'
       - '<span>\( \log x \)</span> with no base written means base 10. <span>\( \ln x \)</span> means base <span>\( e \)</span>. Both follow the same rule as every other logarithm.'
       - 'Treating <span>\( \ln \)</span> as a different kind of operation, or thinking that <span>\( \log \)</span> has no base.'
-  note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
+  note: '<span>\( \log_b x \)</span> needs <span>\( b>0 \)</span>, <span>\( b\ne1 \)</span> and <span>\( x>0 \)</span>. Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
 tabs:
   - id: convert
     label: "Try It: Convert Between Forms"

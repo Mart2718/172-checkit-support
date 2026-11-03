@@ -37,7 +37,7 @@ summary:   # the Quick Summary tab
       - 'Condensing (going backward)'
       - 'Move each coefficient up to be an exponent first. Then added logarithms become a product, and subtracted logarithms become a quotient.'
       - 'Skipping the coefficient step, or putting a subtracted term in the numerator.'
-  note: 'Your CheckIt problem will have different letters, bases, and exponents than the examples here. The reasoning is what transfers. CheckIt may write a condensed answer with negative exponents, such as <span>\( x^{4}y^{-3} \)</span>. That means the same thing as <span>\( \tfrac{x^{4}}{y^{3}} \)</span>.'
+  note: '<strong>Unless stated otherwise, every variable stands for a positive number</strong>, as CheckIt''s answers assume. That matters: <span>\( \log_5(x^{4}) \)</span> is defined for negative <span>\( x \)</span>, but <span>\( 4\log_5 x \)</span> is not. For all <span>\( x\ne0 \)</span>, <span>\( \log_5(x^{4})=4\log_5|x| \)</span>. When you condense, keep the original domain even if the condensed form allows more inputs. Your CheckIt problem will have different letters, bases, and exponents than the examples here. The reasoning is what transfers. CheckIt may write a condensed answer with negative exponents, such as <span>\( x^{4}y^{-3} \)</span>. That means the same thing as <span>\( \tfrac{x^{4}}{y^{3}} \)</span>.'
 tabs:
   - id: property
     label: "Try It: Which Rewrite"

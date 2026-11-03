@@ -35,3 +35,6 @@ This is an AI-assisted audit, not a compliance certification. For DOJ Title II s
 - Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
 - Fixed after the independent review: one feedback line was reworded so it is not read as "the natural log, natural log".
 - Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary states the conditions for log_b x: b > 0, b ≠ 1, x > 0.

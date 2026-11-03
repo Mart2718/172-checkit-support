@@ -314,7 +314,7 @@ tabs:
           - {value: d, label: 'Arccosine ignores the sign, so the answer is \( \tfrac{\pi}{4} \).', speak: "Arccosine ignores the sign, so the answer is pi over 4."}
         correct: c
         explanation: |-
-          Arccosine gives angles from 0 to \( \pi \), the top half of the circle, so it is never negative. A negative cosine puts the angle on the left side of the top half: \( \tfrac{3\pi}{4} \). The student used arcsine's rule. The angle \( \tfrac{5\pi}{4} \) is on the bottom half, and ignoring the sign gives \( \tfrac{\pi}{4} \), whose cosine is positive. <strong>The correct value is \( \tfrac{3\pi}{4} \).</strong>
+          Arccosine gives angles from 0 to \( \pi \), the top half of the circle, so it is never negative. A negative cosine puts the angle on the left side of the top half: \( \tfrac{3\pi}{4} \). The student used arcsine's rule: \( -\tfrac{\pi}{4} \) is outside arccosine's range, and its cosine is positive, so it does not even match the negative input. The angle \( \tfrac{5\pi}{4} \) is on the bottom half, and ignoring the sign gives \( \tfrac{\pi}{4} \), whose cosine is positive. <strong>The correct value is \( \tfrac{3\pi}{4} \).</strong>
       - id: sl3
         title: "Slip 3"
         math:

@@ -273,7 +273,7 @@ tabs:
           - {value: d, label: "Add the coordinates instead, giving 2 over 8, or 1/4."}
         correct: b
         explanation: |-
-          On top the student used the second point minus the first, \( -3-5 \), but on the bottom the first minus the second, \( 2-6 \). Use one order for both: \( \dfrac{-3-5}{6-2}=\dfrac{-8}{4}=-2 \). The line falls from \( (2,5) \) to \( (6,-3) \), so its slope must be negative. Slope is rise over run, not run over rise, which would give \( \tfrac{-4}{-8}=\tfrac{1}{2} \); and adding the coordinates, \( \tfrac{5+(-3)}{2+6}=\tfrac{2}{8} \), does not measure change at all. <strong>The slope is \( -2 \).</strong>
+          On top the student used the second point minus the first, \( -3-5 \), but on the bottom the first minus the second, \( 2-6 \). Use one order for both: \( \dfrac{-3-5}{6-2}=\dfrac{-8}{4}=-2 \). The line falls from \( (2,5) \) to \( (6,-3) \), so its slope must be negative. Slope is rise over run, not run over rise: with one order, run over rise is \( -\tfrac{1}{2} \), and the student's mixed order turns that into \( \tfrac{-4}{-8}=\tfrac{1}{2} \), two slips at once; and adding the coordinates, \( \tfrac{5+(-3)}{2+6}=\tfrac{2}{8} \), does not measure change at all. <strong>The slope is \( -2 \).</strong>
       - id: sl2
         title: "Slip 2"
         math:

@@ -55,7 +55,7 @@ summary:   # the Quick Summary tab
       - 'Subtract it from each location: <span>\( x=\tfrac{\pi}{4}+k\pi \)</span>. Adding shifts left.'
       - 'No change.'
       - 'No change.'
-  note: 'The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end. For <span>\( \tan\left(x+\tfrac{\pi}{4}\right) \)</span> from the table, that is <span>\( \ldots\cup\left(-\tfrac{3\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{5\pi}{4}\right)\cup\ldots \)</span>. CheckIt keeps a negative number inside, as in <span>\( \tan(-4x) \)</span>. For tangent, cotangent, and cosecant that flips the graph upside down, the same as <span>\( -\tan(4x) \)</span>; for secant there is no flip, since <span>\( \sec(-4x)=\sec(4x) \)</span>. It never moves the asymptotes or changes the period. CheckIt also writes a shift with the number first, as in <span>\( \sec\left(-\tfrac{3}{2}\pi+x\right) \)</span> (secant of negative three halves of π, plus x), which is <span>\( \sec\left(x-\tfrac{3\pi}{2}\right) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
+  note: 'The period means the shortest length after which the graph repeats. Tangent, cotangent and cosecant are odd: <span>\( \tan(-u)=-\tan u \)</span>, <span>\( \cot(-u)=-\cot u \)</span>, <span>\( \csc(-u)=-\csc u \)</span>; secant is even, <span>\( \sec(-u)=\sec u \)</span>. The domain is every real number except the asymptotes. CheckIt writes it as the open intervals between neighboring asymptotes, with dots at each end. For <span>\( \tan\left(x+\tfrac{\pi}{4}\right) \)</span> from the table, that is <span>\( \ldots\cup\left(-\tfrac{3\pi}{4},\tfrac{\pi}{4}\right)\cup\left(\tfrac{\pi}{4},\tfrac{5\pi}{4}\right)\cup\ldots \)</span>. CheckIt keeps a negative number inside, as in <span>\( \tan(-4x) \)</span>. For tangent, cotangent, and cosecant that flips the graph upside down, the same as <span>\( -\tan(4x) \)</span>; for secant there is no flip, since <span>\( \sec(-4x)=\sec(4x) \)</span>. It never moves the asymptotes or changes the period. CheckIt also writes a shift with the number first, as in <span>\( \sec\left(-\tfrac{3}{2}\pi+x\right) \)</span> (secant of negative three halves of π, plus x), which is <span>\( \sec\left(x-\tfrac{3\pi}{2}\right) \)</span>. Your CheckIt functions will have different numbers than these examples. The reasoning is what transfers.'
 tabs:
   - id: asym
     label: "Try It: Asymptotes & Period"
@@ -280,7 +280,7 @@ tabs:
           - {value: d, label: "There is no mistake."}
         correct: c
         explanation: |-
-          A number multiplying \( x \) squeezes the graph, so the period gets shorter. Tangent's period is \( \pi \), so divide: \( \tfrac{\pi}{4} \). A number in front of the function would change the height, but this 4 is inside. <strong>The period is \( \tfrac{\pi}{4} \).</strong>
+          A number multiplying \( x \) squeezes the graph, so the period gets shorter. (Tangent does repeat every \( 2\pi \) too, but the period means the shortest repeat, \( \pi \) for plain tangent.) Tangent's period is \( \pi \), so divide: \( \tfrac{\pi}{4} \). A number in front of the function would change the height, but this 4 is inside. <strong>The period is \( \tfrac{\pi}{4} \).</strong>
       - id: sl2
         title: "Slip 2"
         math:

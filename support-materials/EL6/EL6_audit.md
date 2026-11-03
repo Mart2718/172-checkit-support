@@ -27,3 +27,6 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 ## Needs a live screen reader
 - How NVDA reads each equation, answer button, and the stacked student work, and whether feedback is announced once.
 - Forced-colors and 200%/400% zoom rendering.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary says to check every answer's log inputs, and that b^u = c has no real solution when c ≤ 0.

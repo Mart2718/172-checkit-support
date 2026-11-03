@@ -34,7 +34,7 @@ summary:   # the Quick Summary tab
       - 'Thinking a flip or a vertical shift puts a ceiling or a floor on the outputs. The outputs of a log never stop in either direction.'
     -
       - 'Graph'
-      - 'Draw the dashed asymptote. Mark where the inside equals 1 (the log is 0) and where the inside equals the base (the log is 1). Then sketch the curve hugging the dashed line.'
+      - 'Draw the dashed asymptote. Mark where the inside equals 1 (the log itself is 0) and where the inside equals the base (the log itself is 1), then apply any number in front or added: <span>\( -\log_2x+3 \)</span> passes through <span>\( (1,3) \)</span> and <span>\( (2,2) \)</span>. Then sketch the curve hugging the dashed line.'
       - 'Missing a flip. A minus sign outside the log flips the graph upside down. A minus sign on the <span>\( x \)</span> inside flips it left to right.'
   note: 'Your CheckIt problem will have different numbers than the examples here. The reasoning is what transfers.'
 tabs:
@@ -105,7 +105,7 @@ tabs:
           - {value: d, label: "y = 0"}
         correct: c
         explanation: |-
-          The asymptote sits at the one input the log can never accept: the value that makes the inside equal to zero. Solve \( x+5=0 \) to get \( x=-5 \). It is a vertical line, so its equation starts with \( x \). <strong>The asymptote is \( x=-5 \).</strong>
+          The asymptote sits at the boundary of the domain, where the log's inside approaches zero from the positive side. Solve \( x+5=0 \) to get \( x=-5 \). It is a vertical line, so its equation starts with \( x \). <strong>The asymptote is \( x=-5 \).</strong>
       - id: asy2
         title: "Asymptote 2"
         math:

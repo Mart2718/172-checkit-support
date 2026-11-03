@@ -12,3 +12,6 @@ The original FN1 page was built before audit notes were kept. This file records 
 ## Update 2026-10-30: graph descriptions that gave answers away
 - The sideways-parabola description (Graph 2 and Slip 5) no longer lists the points in same-x pairs, which did the vertical line test for the student. It now names the leftmost point and where each branch leaves the grid. Worked examples and Canvas quiz regenerated.
 - Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the equation rule now says to solve for y or test for two outputs, and explains why the power on y decides it for CheckIt's equation forms (with y² = 0 as a case outside them); Equation 2 explains that an even power loses the sign, instead of calling roots not invertible.

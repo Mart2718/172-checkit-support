@@ -31,3 +31,6 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 ## Needs a live screen reader
 - How NVDA reads each equation, interval, and graph caption, and whether feedback is announced once.
 - Forced-colors and 200%/400% zoom rendering of the graphs.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary defines the period as the shortest repeat and lists which reciprocal functions are odd or even; Slip 1 notes that tangent also repeats every 2π.

@@ -44,3 +44,6 @@ This is an AI-assisted audit, not a compliance certification. For DOJ Title II s
 ## Update 2026-10-30: graph descriptions that gave answers away
 - Graph 2 (range): its text description now sits in a closed "Text description of the graph" disclosure, because it read the range off the graph for the student. Screen readers still get it through aria-describedby. Canvas quiz regenerated.
 - Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: (1/2)^x = 2^(−x) is written as an equation between expressions, not as "the base is the same as".

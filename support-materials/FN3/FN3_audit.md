@@ -53,3 +53,6 @@ TBIL's FN3 generator checks out. Notes:
 
 ## Needs a live screen reader
 - How NVDA and VoiceOver read the closed disclosures and the aria-describedby descriptions, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the sketch items state their assumptions (one unbroken curve, finite ends, no flat stretches, as on CheckIt); Slip 5 no longer says the height 8 is never reached.

@@ -50,3 +50,6 @@ An independent agent re-checked all 20 items, the figures (byte for byte against
 8. Speak lines use "the fraction …, end fraction", and Slip 2 puts the negative sign outside the fraction, as displayed.
 9. Worked-examples document tool: fractions of a single term print without extra parentheses (√3/2, 2π/3, 1/sin(x)), and arcsin, arccos and arctan print upright like sin. This applies to any outcome's document when it is next regenerated.
 Worked examples and the Canvas quiz were regenerated.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Slip 2 adds that −π/4 has a positive cosine, so it cannot match the negative input.

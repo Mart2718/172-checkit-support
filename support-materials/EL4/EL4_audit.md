@@ -8,3 +8,6 @@ The original EL4 page was built before audit notes were kept. This file records 
 - Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
 - Fixed after the independent review: none specific to EL4 beyond choice balancing.
 - Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the asymptote is described as the boundary where the inside approaches 0 from the positive side; the graph row explains applying a number in front or added after finding the log's 0 and 1 points.

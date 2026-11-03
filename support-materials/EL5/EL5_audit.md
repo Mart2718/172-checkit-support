@@ -34,3 +34,6 @@ Date: 2026-10-17. Checked by: build guardrails, lint, axe-core on every tab (sta
 - Result: axe-core 0 violations on every tab; every keyed answer verified twice, independently. Each tab has one item with correct work, in a different position on each page, and every prompt asks "What is the mistake, if any?" No correct choice is the only longest one.
 - Fixed after the independent review: four prompts said "What is the mistake?" while the correct-work item said "if any", which gave it away; all now say "if any". One "There is no mistake" choice had an extra sentence; it now matches the others. One equation widened the page at 320 px with text spacing; it is now on two lines.
 - Note: some answer buttons put math in a sentence ("…, so the asymptote is y = 1"). axe's best-practice rule on label-in-name can flag these; the visible words come first in each spoken name, so voice-control users can still activate them.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary states that variables are positive unless stated otherwise, as CheckIt's answers assume, with log₅(x⁴) = 4 log₅|x| for x ≠ 0 as the reason.

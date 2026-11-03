@@ -40,3 +40,6 @@ TBIL's LF1 generator checks out. Notes:
 
 ## Needs a live screen reader
 - How NVDA reads the vertical table and the collapsed graph descriptions, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Slip 1 names both slips behind the 1/2 distractor (run over rise, and mixed subtraction order).

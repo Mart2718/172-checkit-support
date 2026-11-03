@@ -42,7 +42,7 @@ summary:   # the Quick Summary tab
       - 'A number added to the logarithm: <span>\( a+\log_b(cx)=a+d \)</span>'
       - 'Subtract <span>\( a \)</span> first: <span>\( \log_b(cx)=d \)</span>. Then <span>\( cx=b^{d} \)</span>, so <span>\( x=\tfrac{b^{d}}{c} \)</span>.'
       - 'Writing <span>\( b \)</span> times <span>\( d \)</span> instead of <span>\( b \)</span> to the power <span>\( d \)</span>.'
-  note: 'Your CheckIt problem will have different letters, bases, and numbers than the examples here, and the variable may be any letter. The reasoning is what transfers. CheckIt answers are exact, such as <span>\( \log_3(7)+4 \)</span> or <span>\( \tfrac{25}{3} \)</span>, so you do not need a calculator. Sometimes a logarithm simplifies, such as <span>\( \log_4(16)=2 \)</span>. Both forms are correct.'
+  note: 'Check every answer in the original equation: each log''s inside must be positive. And <span>\( b^{u}=c \)</span> has no real solution when <span>\( c\le0 \)</span>, since a positive base to any power is positive. Your CheckIt problem will have different letters, bases, and numbers than the examples here, and the variable may be any letter. The reasoning is what transfers. CheckIt answers are exact, such as <span>\( \log_3(7)+4 \)</span> or <span>\( \tfrac{25}{3} \)</span>, so you do not need a calculator. Sometimes a logarithm simplifies, such as <span>\( \log_4(16)=2 \)</span>. Both forms are correct.'
 tabs:
   - id: first
     label: "Try It: First Move"

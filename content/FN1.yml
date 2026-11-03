@@ -30,8 +30,8 @@ summary:   # the Quick Summary tab
       - 'two pairs share an x but have different y'
     -
       - 'Equation'
-      - 'The power on <span>\( y \)</span>'
-      - '<span>\( y \)</span> has an even power (<span>\( y^2, y^4 \)</span>). With <span>\( y \)</span> in just one term, an odd power always gives a function'
+      - 'Solve for <span>\( y \)</span>, or test whether some allowed <span>\( x \)</span> gives two different <span>\( y \)</span>-values.'
+      - 'In CheckIt''s equations, a nonzero multiple of <span>\( y \)</span> to one power is paired with an <span>\( x \)</span> term, so the power on <span>\( y \)</span> decides it. An odd power (<span>\( y^3, y^5 \)</span>) can be undone by an odd root, which gives one <span>\( y \)</span>: a function. An even power (<span>\( y^2, y^4 \)</span>) loses the sign, so <span>\( y^4=c>0 \)</span> has two solutions, <span>\( \pm\sqrt[4]{c} \)</span>: not a function. Outside these forms, check directly: <span>\( y^{2}=0 \)</span> does define the function <span>\( y=0 \)</span>.'
     -
       - 'Graph'
       - 'The vertical line test'
@@ -108,7 +108,7 @@ tabs:
           - {value: no, label: "Not a function"}
         correct: no
         explanation: |-
-          Solving for <span>\( y \)</span> here means taking a <strong>fourth root</strong> — an even root. Even roots aren't invertible: the fourth root can't tell you whether the original number was positive or negative, so one value of \(x\) can correspond to two values of \(y\). So <strong>this equation does not define a function of \(x\).</strong>
+          Here \( 2y^4=-3x^5 \). Raising to an even power loses the sign: for \( x=-1 \), \( y^4=\tfrac{3}{2} \), and both \( y=\sqrt[4]{3/2} \) and \( y=-\sqrt[4]{3/2} \) work. So one value of \(x\) gives two values of \(y\). So <strong>this equation does not define a function of \(x\).</strong>
   - id: graphs
     label: "Try It: Graphs"
     heading: "Try It: Graphs"
@@ -200,7 +200,7 @@ tabs:
           - {value: d, label: "It is a function only when x is a positive number."}
         correct: b
         explanation: |-
-          Solve for \( y \): \( y=4-x^2 \). Each \( x \) gives exactly one \( y \); for example \( x=2 \) and \( x=-2 \) both give \( y=0 \), which is two inputs sharing an output, not one input with two outputs. The power that matters is the power on \( y \). <strong>The equation defines a function.</strong>
+          Solve for \( y \): \( y=4-x^2 \). Each \( x \) gives exactly one \( y \); for example \( x=2 \) and \( x=-2 \) both give \( y=0 \), which is two inputs sharing an output, not one input with two outputs. In equations like CheckIt's, where \( y \) appears in one term, the power that matters is the power on \( y \). <strong>The equation defines a function.</strong>
       - id: sl4
         title: "Slip 4"
         math:
