@@ -95,7 +95,7 @@ tabs:
       - id: ap4
         title: "Period with b = 2"
         math:
-          display: 'f(x)=5\cos\left(2x-\dfrac{2\pi}{3}\right)'
+          display: 'f(x)=5\cos\left(2x-\tfrac{2\pi}{3}\right)'
           speak: "f of x equals 5 cosine of the quantity 2 x minus the fraction 2 pi, over 3, end fraction, end quantity"
         prompt: 'What is the period of f?'
         choices:
@@ -115,7 +115,7 @@ tabs:
       - id: ph1
         title: "Shift 1"
         math:
-          display: 'f(x)=3\sin\left(2x-\dfrac{2\pi}{3}\right)'
+          display: 'f(x)=3\sin\left(2x-\tfrac{2\pi}{3}\right)'
           speak: "f of x equals 3 sine of the quantity 2 x minus the fraction 2 pi, over 3, end fraction, end quantity"
         prompt: 'What is the phase shift of f?'
         choices:
@@ -143,7 +143,7 @@ tabs:
       - id: ph3
         title: "Shift 3"
         math:
-          display: 'h(x)=2\sin\left(4x+\dfrac{8\pi}{3}\right)'
+          display: 'h(x)=2\sin\left(4x+\tfrac{8\pi}{3}\right)'
           speak: "h of x equals 2 sine of the quantity 4 x plus the fraction 8 pi, over 3, end fraction, end quantity"
         prompt: 'What is the phase shift of h?'
         choices:
