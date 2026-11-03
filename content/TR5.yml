@@ -1,0 +1,320 @@
+# TR5 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TR5 asks for exact values of the six trig functions in three settings. (1) Two values at special angles (multiples of
+# 30 degrees, including 90, 180 and 270, and odd multiples of 45), one given in degrees and one in radians; a value can be
+# "undefined". (2) Two values for an angle theta whose terminal point on the unit circle is given, such as (-sqrt3/2, 1/2).
+# (3) One value for an angle alpha whose unit-circle point lies in a given quadrant and has a given x- or y-value from a
+# Pythagorean triple with hypotenuse up to 50, such as x = -3/5. Sage prints 1/sqrt3 as 1/3 sqrt3. In part (3), when the quadrant
+# is II or IV, CheckIt's generator builds the angle in Quadrant III or I instead, so its key can have the wrong sign (or the
+# given value can have the wrong sign for the stated quadrant).
+# Figures drawn by tools/figures/make_tr5.py.
+code: TR5
+h1: "TR5 Support: Exact Trig Values"
+pageTitle: "TR5 Support: Exact Trig Values — Math 172, Santa Ana College"
+hubSummary: "Exact values of the six trig functions from special angles, from a point on the unit circle, and from one coordinate and a quadrant"
+videoIntro: "A narrated walkthrough of exact trig values: reference angles and signs at special angles, reading all six functions from a point on the unit circle, and finding a missing coordinate from the quadrant."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|undefined'
+worked:   # used for the worked-examples recording document
+  title: "TR5 Worked Examples: Exact Trig Values"
+  coreQuestion: "Where is the point on the unit circle, and what are its coordinates?"
+  coreFollowup: "On the unit circle, cos θ = x and sin θ = y, so tan θ = y/x, sec θ = 1/x, csc θ = 1/y and cot θ = x/y. For a special angle, the reference angle gives the size of the coordinates and the quadrant gives their signs. From one coordinate, x² + y² = 1 gives the other, with its sign from the quadrant. A zero in a denominator means the value is undefined."
+summary:   # the Quick Summary tab
+  intro: 'Every TR5 question is about one point <strong><span>\( (x,y) \)</span> on the unit circle</strong>: <span>\( \cos\theta=x \)</span> and <span>\( \sin\theta=y \)</span>, and the other four functions come from those two.'
+  caption: "Summary: Exact Trig Values"
+  columns: ["Topic", "What to do", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'Six functions from <span>\( (x,y) \)</span>'
+      - '<span>\( \cos\theta=x \)</span>, <span>\( \sin\theta=y \)</span>, <span>\( \tan\theta=\tfrac{y}{x} \)</span>, <span>\( \sec\theta=\tfrac{1}{x} \)</span>, <span>\( \csc\theta=\tfrac{1}{y} \)</span>, <span>\( \cot\theta=\tfrac{x}{y} \)</span>.'
+      - 'If a denominator is 0, the value is undefined, such as <span>\( \tan 90^\circ \)</span> or <span>\( \cot 180^\circ \)</span>.'
+    -
+      - 'Reference angle'
+      - 'The angle between the terminal side and the <span>\( x \)</span>-axis: <span>\( 300^\circ \)</span> has reference angle <span>\( 60^\circ \)</span>.'
+      - 'Measure to the <span>\( x \)</span>-axis, never to the <span>\( y \)</span>-axis.'
+    -
+      - 'Special values'
+      - 'For <span>\( 30^\circ,45^\circ,60^\circ \)</span>, the sine is <span>\( \tfrac{1}{2},\tfrac{\sqrt{2}}{2},\tfrac{\sqrt{3}}{2} \)</span> and the cosine runs the other way.'
+      - 'At <span>\( 30^\circ \)</span> the point is wide and low, <span>\( \left(\tfrac{\sqrt{3}}{2},\tfrac{1}{2}\right) \)</span>; at <span>\( 60^\circ \)</span> it is narrow and high.'
+    -
+      - 'Signs'
+      - '<span>\( x \)</span> is negative in Quadrants II and III; <span>\( y \)</span> is negative in Quadrants III and IV.'
+      - 'Each reciprocal has the same sign as its function; <span>\( \tan \)</span> and <span>\( \cot \)</span> are positive in I and III.'
+    -
+      - 'One coordinate and a quadrant'
+      - 'Use <span>\( x^{2}+y^{2}=1 \)</span> to find the other coordinate, then give it the sign of that quadrant.'
+      - 'The square root gives the size only. A Pythagorean triple, such as 5, 12, 13, often makes it quick.'
+    -
+      - 'Exact answers'
+      - 'Leave roots exact: <span>\( \tfrac{1}{\sqrt{3}}=\tfrac{\sqrt{3}}{3} \)</span>.'
+      - 'CheckIt may print <span>\( \tfrac{\sqrt{3}}{3} \)</span> as <span>\( \tfrac{1}{3}\sqrt{3} \)</span>; they are equal.'
+  note: 'When CheckIt gives a quadrant, the signs of x and y must match it. In Quadrant II and IV problems, CheckIt''s answer key can show the wrong sign, so trust the quadrant. Your CheckIt angles and points will be different. The unit-circle point is what transfers.'
+tabs:
+  - id: special
+    label: "Try It: Special Angles"
+    heading: "Try It: Special Angles"
+    intro: |-
+      Find the reference angle for the size, and the quadrant for the sign. Make your best guess on each one, then check it.
+    items:
+      - id: e1
+        title: "Sine of 150 Degrees"
+        math:
+          display: '\sin(150^\circ)'
+          speak: "sine of 150 degrees"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( -\dfrac{1}{2} \)', speak: "negative one half"}
+          - {value: b, label: '\( \dfrac{\sqrt{3}}{2} \)', speak: "the fraction the square root of 3, end root, over 2, end fraction"}
+          - {value: c, label: '\( \dfrac{1}{2} \)', speak: "one half"}
+          - {value: d, label: '\( -\dfrac{\sqrt{3}}{2} \)', speak: "negative the fraction the square root of 3, end root, over 2, end fraction"}
+        correct: c
+        explanation: |-
+          150° is in Quadrant II, 30° short of 180°, so its reference angle is 30°. \( \sin30^\circ=\tfrac{1}{2} \), and sine (the \( y \)-coordinate) is positive in Quadrant II: \( \sin150^\circ=\tfrac{1}{2} \). \( -\tfrac{1}{2} \) gives the wrong sign; \( \tfrac{\sqrt{3}}{2} \) is \( \sin60^\circ \), from using the wrong reference angle or the cosine of 30°; and \( -\tfrac{\sqrt{3}}{2} \) makes both slips. <strong>\( \dfrac{1}{2} \).</strong>
+      - id: e2
+        title: "Cosine of 5π/4"
+        math:
+          display: '\cos\left(\dfrac{5\pi}{4}\right)'
+          speak: "cosine of the fraction 5 pi, over 4, end fraction"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( -\dfrac{\sqrt{2}}{2} \)', speak: "negative the fraction the square root of 2, end root, over 2, end fraction"}
+          - {value: b, label: '\( \dfrac{\sqrt{2}}{2} \)', speak: "the fraction the square root of 2, end root, over 2, end fraction"}
+          - {value: c, label: '\( -\sqrt{2} \)', speak: "negative the square root of 2, end root"}
+          - {value: d, label: '\( \sqrt{2} \)', speak: "the square root of 2, end root"}
+        correct: a
+        explanation: |-
+          \( \tfrac{5\pi}{4}=225^\circ \), in Quadrant III, with reference angle \( \tfrac{\pi}{4} \). \( \cos\tfrac{\pi}{4}=\tfrac{\sqrt{2}}{2} \), and cosine (the \( x \)-coordinate) is negative in Quadrant III: \( -\tfrac{\sqrt{2}}{2} \). \( \tfrac{\sqrt{2}}{2} \) misses the sign; \( -\sqrt{2} \) is \( \tfrac{1}{x} \), the secant; and \( \sqrt{2} \) makes both slips. <strong>\( -\dfrac{\sqrt{2}}{2} \).</strong>
+      - id: e3
+        title: "Tangent of 2π/3"
+        math:
+          display: '\tan\left(\dfrac{2\pi}{3}\right)'
+          speak: "tangent of the fraction 2 pi, over 3, end fraction"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: '\( \sqrt{3} \)', speak: "the square root of 3, end root"}
+          - {value: b, label: '\( -\sqrt{3} \)', speak: "negative the square root of 3, end root"}
+          - {value: c, label: '\( -\dfrac{\sqrt{3}}{3} \)', speak: "negative the fraction the square root of 3, end root, over 3, end fraction"}
+          - {value: d, label: '\( \dfrac{\sqrt{3}}{3} \)', speak: "the fraction the square root of 3, end root, over 3, end fraction"}
+        correct: b
+        explanation: |-
+          \( \tfrac{2\pi}{3}=120^\circ \), in Quadrant II, with reference angle 60°. The point is \( \left(-\tfrac{1}{2},\tfrac{\sqrt{3}}{2}\right) \), so \( \tan=\tfrac{y}{x}=\tfrac{\sqrt{3}/2}{-1/2}=-\sqrt{3} \). \( \sqrt{3} \) misses that \( x \) is negative; \( -\tfrac{\sqrt{3}}{3} \) is \( \tfrac{x}{y} \), the cotangent, or \( \tan30^\circ \) with a minus; and \( \tfrac{\sqrt{3}}{3} \) makes both slips. <strong>\( -\sqrt{3} \).</strong>
+      - id: e4
+        title: "Secant of 270 Degrees"
+        math:
+          display: '\sec(270^\circ)'
+          speak: "secant of 270 degrees"
+        prompt: 'What is the exact value?'
+        choices:
+          - {value: a, label: "Undefined"}
+          - {value: b, label: "0, the x-coordinate"}
+          - {value: c, label: "1"}
+          - {value: d, label: "−1, the y-coordinate"}
+        correct: a
+        explanation: |-
+          At 270° the point on the unit circle is \( (0,-1) \), straight down. \( \sec=\tfrac{1}{x}=\tfrac{1}{0} \), and dividing by 0 is undefined. CheckIt accepts "undefined" as an answer here. 0 is \( \cos270^\circ \), the \( x \)-coordinate itself; 1 would be \( \sec0^\circ \); and \( -1 \) is \( \sin270^\circ \), or \( \csc270^\circ \). <strong>Undefined.</strong>
+  - id: point
+    label: "Try It: From a Unit Circle Point"
+    heading: "Try It: From a Unit Circle Point"
+    intro: |-
+      The point (x, y) gives every function: cos θ = x and sin θ = y. Make your best guess, then check it.
+    items:
+      - id: p1
+        title: "Tangent from a Point"
+        figure:
+          file: figures/TR5/p1.svg
+          title: "An angle θ on the unit circle with its terminal point labeled"
+          caption: 'A unit circle with an angle θ in standard position. The terminal side points up and to the left, into Quadrant II, and meets the circle at the point labeled (−√3/2, 1/2).'
+        math:
+          display: '\left(-\dfrac{\sqrt{3}}{2},\dfrac{1}{2}\right)'
+          speak: "the point negative the fraction the square root of 3, end root, over 2, end fraction, comma one half"
+        prompt: 'The terminal side of θ meets the unit circle at this point. What is tan θ?'
+        choices:
+          - {value: a, label: '\( -\sqrt{3} \)', speak: "negative the square root of 3, end root"}
+          - {value: b, label: '\( -\dfrac{\sqrt{3}}{3} \)', speak: "negative the fraction the square root of 3, end root, over 3, end fraction"}
+          - {value: c, label: '\( \dfrac{\sqrt{3}}{3} \)', speak: "the fraction the square root of 3, end root, over 3, end fraction"}
+          - {value: d, label: '\( \sqrt{3} \)', speak: "the square root of 3, end root"}
+        correct: b
+        explanation: |-
+          \( \tan\theta=\dfrac{y}{x}=\dfrac{1/2}{-\sqrt{3}/2}=-\dfrac{1}{\sqrt{3}}=-\dfrac{\sqrt{3}}{3} \). The halves cancel, and multiplying top and bottom by \( \sqrt{3} \) clears the root from the bottom. \( -\sqrt{3} \) is \( \tfrac{x}{y} \), the cotangent; \( \tfrac{\sqrt{3}}{3} \) drops the sign of \( x \); and \( \sqrt{3} \) makes both slips. <strong>\( -\dfrac{\sqrt{3}}{3} \).</strong>
+      - id: p2
+        title: "Cosecant from a Point"
+        math:
+          display: '\left(\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2}\right)'
+          speak: "the point the fraction the square root of 2, end root, over 2, end fraction, comma negative the fraction the square root of 2, end root, over 2, end fraction"
+        prompt: 'The terminal side of θ meets the unit circle at this point. What is csc θ?'
+        choices:
+          - {value: a, label: '\( \sqrt{2} \)', speak: "the square root of 2, end root"}
+          - {value: b, label: '\( -\dfrac{\sqrt{2}}{2} \)', speak: "negative the fraction the square root of 2, end root, over 2, end fraction"}
+          - {value: c, label: '\( \dfrac{\sqrt{2}}{2} \)', speak: "the fraction the square root of 2, end root, over 2, end fraction"}
+          - {value: d, label: '\( -\sqrt{2} \)', speak: "negative the square root of 2, end root"}
+        correct: d
+        explanation: |-
+          \( \csc\theta=\dfrac{1}{y}=\dfrac{1}{-\sqrt{2}/2}=-\dfrac{2}{\sqrt{2}}=-\sqrt{2} \). \( \sqrt{2} \) drops the sign of \( y \); \( -\tfrac{\sqrt{2}}{2} \) is \( y \) itself, the sine, without taking the reciprocal; and \( \tfrac{\sqrt{2}}{2} \) is \( x \), the cosine. <strong>\( -\sqrt{2} \).</strong>
+      - id: p3
+        title: "Secant from a Point"
+        math:
+          display: '\left(-\dfrac{1}{2},-\dfrac{\sqrt{3}}{2}\right)'
+          speak: "the point negative one half, comma negative the fraction the square root of 3, end root, over 2, end fraction"
+        prompt: 'The terminal side of θ meets the unit circle at this point. What is sec θ?'
+        choices:
+          - {value: a, label: '\( -2 \)', speak: "negative 2"}
+          - {value: b, label: '\( 2 \)', speak: "2"}
+          - {value: c, label: '\( -\dfrac{2\sqrt{3}}{3} \)', speak: "negative the fraction 2 times the square root of 3, end root, over 3, end fraction"}
+          - {value: d, label: '\( -\dfrac{1}{2} \)', speak: "negative one half"}
+        correct: a
+        explanation: |-
+          \( \sec\theta=\dfrac{1}{x}=\dfrac{1}{-1/2}=-2 \). 2 drops the sign; \( -\tfrac{2\sqrt{3}}{3} \) is \( \tfrac{1}{y} \), the cosecant; and \( -\tfrac{1}{2} \) is \( x \) itself, the cosine, without the reciprocal. <strong>\( -2 \).</strong>
+      - id: p4
+        title: "On the Axis"
+        math:
+          display: '(0,-1)'
+          speak: "the point 0 comma negative 1"
+        prompt: 'The terminal side of θ meets the unit circle at this point. What is cot θ?'
+        choices:
+          - {value: a, label: "−1"}
+          - {value: b, label: "0"}
+          - {value: c, label: "Undefined"}
+          - {value: d, label: "1"}
+        correct: b
+        explanation: |-
+          \( \cot\theta=\dfrac{x}{y}=\dfrac{0}{-1}=0 \). Zero on top is fine; only zero on the bottom is undefined. Undefined is \( \tan\theta=\tfrac{y}{x}=\tfrac{-1}{0} \), the reciprocal; \( -1 \) is \( y \), the sine; and 1 has no source here except dropping the sign of \( -1 \). <strong>0.</strong>
+  - id: quadrant
+    label: "Try It: One Coordinate and a Quadrant"
+    heading: "Try It: One Coordinate and a Quadrant"
+    intro: |-
+      Use x² + y² = 1 for the missing coordinate, and the quadrant for its sign. Make your best guess, then check it.
+    items:
+      - id: q1
+        title: "Quadrant II"
+        figure:
+          file: figures/TR5/q1.svg
+          title: "An angle α on the unit circle with its terminal point in Quadrant II"
+          caption: 'A unit circle with an angle α in standard position. The terminal side points up and to the left, into Quadrant II, and meets the circle at the point labeled (−3/5, y).'
+        prompt: 'The point (x, y) on the unit circle is in Quadrant II with x = −3/5, and α is its angle. What is tan α?'
+        choices:
+          - {value: a, label: '\( -\dfrac{4}{3} \)', speak: "negative the fraction 4, over 3, end fraction"}
+          - {value: b, label: '\( \dfrac{4}{3} \)', speak: "the fraction 4, over 3, end fraction"}
+          - {value: c, label: '\( -\dfrac{3}{4} \)', speak: "negative the fraction 3, over 4, end fraction"}
+          - {value: d, label: '\( \dfrac{3}{4} \)', speak: "the fraction 3, over 4, end fraction"}
+        correct: a
+        explanation: |-
+          \( y^{2}=1-\tfrac{9}{25}=\tfrac{16}{25} \), so \( y=\pm\tfrac{4}{5} \), and in Quadrant II \( y \) is positive: \( y=\tfrac{4}{5} \). Then \( \tan\alpha=\tfrac{y}{x}=\tfrac{4/5}{-3/5}=-\tfrac{4}{3} \). It is the 3, 4, 5 triple. \( \tfrac{4}{3} \) drops the sign of \( x \) (or makes \( y \) negative too); \( -\tfrac{3}{4} \) is \( \tfrac{x}{y} \), the cotangent; and \( \tfrac{3}{4} \) makes both slips. <strong>\( -\dfrac{4}{3} \).</strong>
+      - id: q2
+        title: "Quadrant IV"
+        math:
+          display: 'y=-\dfrac{5}{13}'
+          speak: "y equals negative the fraction 5, over 13, end fraction"
+        prompt: 'The point (x, y) on the unit circle is in Quadrant IV with this y-value, and α is its angle. What is csc α?'
+        choices:
+          - {value: a, label: '\( \dfrac{13}{5} \)', speak: "the fraction 13, over 5, end fraction"}
+          - {value: b, label: '\( -\dfrac{5}{13} \)', speak: "negative the fraction 5, over 13, end fraction"}
+          - {value: c, label: '\( -\dfrac{13}{5} \)', speak: "negative the fraction 13, over 5, end fraction"}
+          - {value: d, label: '\( -\dfrac{13}{12} \)', speak: "negative the fraction 13, over 12, end fraction"}
+        correct: c
+        explanation: |-
+          \( \csc\alpha=\tfrac{1}{y}=\tfrac{1}{-5/13}=-\tfrac{13}{5} \). You do not need \( x \) for this one, though it is \( \tfrac{12}{13} \) (5, 12, 13, positive in Quadrant IV). \( \tfrac{13}{5} \) drops the sign; \( -\tfrac{5}{13} \) is \( y \) itself, the sine; and \( -\tfrac{13}{12} \) takes the reciprocal of \( x \), the secant, and also gives it the wrong sign. <strong>\( -\dfrac{13}{5} \).</strong>
+      - id: q3
+        title: "Quadrant III"
+        math:
+          display: 'x=-\dfrac{8}{17}'
+          speak: "x equals negative the fraction 8, over 17, end fraction"
+        prompt: 'The point (x, y) on the unit circle is in Quadrant III with this x-value, and α is its angle. What is cot α?'
+        choices:
+          - {value: a, label: '\( -\dfrac{8}{15} \)', speak: "negative the fraction 8, over 15, end fraction"}
+          - {value: b, label: '\( \dfrac{15}{8} \)', speak: "the fraction 15, over 8, end fraction"}
+          - {value: c, label: '\( -\dfrac{15}{8} \)', speak: "negative the fraction 15, over 8, end fraction"}
+          - {value: d, label: '\( \dfrac{8}{15} \)', speak: "the fraction 8, over 15, end fraction"}
+        correct: d
+        explanation: |-
+          \( y^{2}=1-\tfrac{64}{289}=\tfrac{225}{289} \), so \( y=-\tfrac{15}{17} \), negative in Quadrant III (the 8, 15, 17 triple). Then \( \cot\alpha=\tfrac{x}{y}=\tfrac{-8/17}{-15/17}=\tfrac{8}{15} \): two negatives make a positive, as cotangent always is in Quadrant III. \( -\tfrac{8}{15} \) makes \( y \) positive; \( \tfrac{15}{8} \) is \( \tfrac{y}{x} \), the tangent; and \( -\tfrac{15}{8} \) makes both slips. <strong>\( \dfrac{8}{15} \).</strong>
+      - id: q4
+        title: "Quadrant I"
+        math:
+          display: 'y=\dfrac{20}{29}'
+          speak: "y equals the fraction 20, over 29, end fraction"
+        prompt: 'The point (x, y) on the unit circle is in Quadrant I with this y-value, and α is its angle. What is sec α?'
+        choices:
+          - {value: a, label: '\( \dfrac{29}{21} \)', speak: "the fraction 29, over 21, end fraction"}
+          - {value: b, label: '\( \dfrac{21}{29} \)', speak: "the fraction 21, over 29, end fraction"}
+          - {value: c, label: '\( \dfrac{29}{20} \)', speak: "the fraction 29, over 20, end fraction"}
+          - {value: d, label: '\( \dfrac{20}{21} \)', speak: "the fraction 20, over 21, end fraction"}
+        correct: a
+        explanation: |-
+          \( x^{2}=1-\tfrac{400}{841}=\tfrac{441}{841} \), so \( x=\tfrac{21}{29} \), positive in Quadrant I (the 20, 21, 29 triple). Then \( \sec\alpha=\tfrac{1}{x}=\tfrac{29}{21} \). \( \tfrac{21}{29} \) is \( x \) itself, the cosine; \( \tfrac{29}{20} \) is \( \tfrac{1}{y} \), the cosecant; and \( \tfrac{20}{21} \) is \( \tfrac{y}{x} \), the tangent. <strong>\( \dfrac{29}{21} \).</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '\cos(210^\circ)=\cos(30^\circ)=\dfrac{\sqrt{3}}{2}'
+          speak: "cosine of 210 degrees equals cosine of 30 degrees, which equals the fraction the square root of 3, end root, over 2, end fraction"
+        prompt: 'A student found this exact value. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "In Quadrant III, x is negative: −√3/2."}
+          - {value: c, label: "The reference angle is 60°, so the value is 1/2."}
+          - {value: d, label: "Cosine of 210° is undefined, since 210° > 180°."}
+        correct: b
+        explanation: |-
+          The reference angle is right: \( 210^\circ-180^\circ=30^\circ \), so the size is \( \tfrac{\sqrt{3}}{2} \). But 210° is in Quadrant III, where the \( x \)-coordinate is negative, so \( \cos210^\circ=-\tfrac{\sqrt{3}}{2} \). The reference angle is measured to the \( x \)-axis, so it is 30°, not 60°; and cosine is defined for every angle. <strong>\( -\dfrac{\sqrt{3}}{2} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\tan\left(\dfrac{\pi}{2}\right)=\dfrac{\sin(\pi/2)}{\cos(\pi/2)}=\dfrac{1}{0}=0'
+          speak: "tangent of pi over 2 equals sine of pi over 2, over cosine of pi over 2, which equals 1 over 0, which equals 0"
+        prompt: 'A student found this exact value. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The cosine of π/2 is 1, so the value is 0/1 = 0."}
+          - {value: c, label: "Dividing by 0 is not 0: tan(π/2) is undefined."}
+          - {value: d, label: "1/0 is 1, so tan(π/2) = 1."}
+        correct: c
+        explanation: |-
+          At \( \tfrac{\pi}{2} \) the point is \( (0,1) \), so \( \tan=\tfrac{y}{x}=\tfrac{1}{0} \), and division by 0 has no value: \( \tan\tfrac{\pi}{2} \) is undefined. CheckIt's key prints undefined for this. \( \cos\tfrac{\pi}{2}=0 \), not 1, and \( \sin\tfrac{\pi}{2}=1 \); and \( \tfrac{1}{0} \) is not 1 or anything else. <strong>Undefined.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '\csc\left(\dfrac{7\pi}{4}\right)=\dfrac{1}{-\sqrt{2}/2}=-\sqrt{2}'
+          speak: "cosecant of the fraction 7 pi, over 4, end fraction, equals 1 over negative the fraction the square root of 2, end root, over 2, end fraction, which equals negative the square root of 2, end root"
+        prompt: 'A student found this exact value. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Cosecant uses x: the value is √2."}
+          - {value: c, label: "7π/4 is in Quadrant III, so the value is √2."}
+          - {value: d, label: "The answer must be rationalized: −√2/2."}
+        correct: a
+        explanation: |-
+          \( \tfrac{7\pi}{4}=315^\circ \), in Quadrant IV, with point \( \left(\tfrac{\sqrt{2}}{2},-\tfrac{\sqrt{2}}{2}\right) \). \( \csc=\tfrac{1}{y}=-\tfrac{2}{\sqrt{2}}=-\sqrt{2} \). The student is right. Cosecant is the reciprocal of \( y \), and \( \tfrac{1}{x} \) is secant; \( \tfrac{7\pi}{4} \) is between \( \tfrac{3\pi}{2} \) and \( 2\pi \), Quadrant IV; and \( -\sqrt{2} \) has no root in a denominator, while \( -\tfrac{\sqrt{2}}{2} \) is the sine, a different value. <strong>There is no mistake.</strong>
+      - id: sl4
+        title: "Slip 4"
+        math:
+          display: '\left(-\dfrac{1}{2},\dfrac{\sqrt{3}}{2}\right):\quad \sec\theta=\dfrac{2}{\sqrt{3}}=\dfrac{2\sqrt{3}}{3}'
+          speak: "For the point negative one half, comma the fraction the square root of 3, end root, over 2, end fraction: secant theta equals the fraction 2, over the square root of 3, end root, end fraction, which equals the fraction 2 times the square root of 3, end root, over 3, end fraction"
+        prompt: 'A student found sec θ for the angle whose unit-circle point is shown. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "It should not be rationalized; leave it as 2/√3."}
+          - {value: c, label: "Secant is y/x: the value is −√3."}
+          - {value: d, label: "Secant is 1/x, so the value is −2."}
+        correct: d
+        explanation: |-
+          \( \sec\theta=\tfrac{1}{\cos\theta}=\tfrac{1}{x}=\tfrac{1}{-1/2}=-2 \). The student used \( \tfrac{1}{y} \), which is the cosecant. Rationalizing is fine and equal, but it is the wrong function either way; and \( \tfrac{y}{x}=-\sqrt{3} \) is the tangent. <strong>\( -2 \).</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\begin{aligned} &y=\dfrac{12}{13},\ \text{Quadrant II}\\ &x=\sqrt{1-\tfrac{144}{169}}=\dfrac{5}{13}\\ &\cos\alpha=\dfrac{5}{13} \end{aligned}'
+          speak: "y equals the fraction 12, over 13, end fraction, Quadrant II. Next line: x equals the square root of 1 minus the fraction 144, over 169, end fraction, end root, which equals the fraction 5, over 13, end fraction. Next line: cosine alpha equals the fraction 5, over 13, end fraction."
+        prompt: 'A student found cos α for a unit-circle point in Quadrant II. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "In Quadrant II, x is negative: −5/13."}
+          - {value: c, label: "cos α is the y-value, so it is 12/13."}
+          - {value: d, label: "x = 1 − 12/13 = 1/13, so cos α = 1/13."}
+        correct: b
+        explanation: |-
+          The size of \( x \) is right: \( \sqrt{\tfrac{25}{169}}=\tfrac{5}{13} \). But the square root gives only the size, and in Quadrant II \( x \) is negative, so \( x=-\tfrac{5}{13} \) and \( \cos\alpha=-\tfrac{5}{13} \). Cosine is the \( x \)-value, and \( \tfrac{12}{13} \) is the sine; and \( x^{2}+y^{2}=1 \) works with squares, so \( 1-\tfrac{12}{13} \) is not \( x \). <strong>\( -\dfrac{5}{13} \).</strong>

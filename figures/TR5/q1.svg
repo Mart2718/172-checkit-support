@@ -1,0 +1,14 @@
+<svg viewBox="0 0 360 360" font-family="Arial, Helvetica, sans-serif" font-size="18">
+<rect x="0" y="0" width="360" height="360" fill="#fcfcfc"/>
+<circle cx="180" cy="180" r="140" fill="none" stroke="#6b6b6b" stroke-width="1.6"/>
+<g stroke="#6b6b6b" stroke-width="1.8"><line x1="12" y1="180" x2="348" y2="180"/><line x1="180" y1="12" x2="180" y2="348"/></g>
+<text x="344" y="172" text-anchor="end" fill="#333" font-style="italic">x</text>
+<text x="188" y="24" fill="#333" font-style="italic">y</text>
+<line x1="180" y1="180" x2="320.0" y2="180.0" stroke="#1a6b6b" stroke-width="4"/>
+<line x1="180" y1="180" x2="96.0" y2="68.0" stroke="#1a6b6b" stroke-width="4"/>
+<polyline points="214.0,180.0 214.0,177.6 213.9,175.1 213.5,172.7 213.0,170.3 212.3,167.9 211.5,165.6 210.5,163.4 209.3,161.2 208.0,159.1 206.5,157.1 204.8,155.2 203.1,153.4 201.2,151.7 199.1,150.2 197.0,148.8 194.8,147.6 192.5,146.5 190.1,145.6 187.6,144.9 185.1,144.3 182.6,143.9 180.0,143.7 177.4,143.7 174.8,143.9 172.2,144.3 169.6,144.8 167.1,145.6 164.7,146.5 162.3,147.6 159.9,148.8 157.7,150.3" fill="none" stroke="#a84d16" stroke-width="2.6"/>
+<polygon points="157.7,150.3 163.8,141.1 168.7,149.3" fill="#a84d16"/>
+<text x="213.1" y="119.8" text-anchor="middle" fill="#a84d16" font-weight="bold">α</text>
+<circle cx="96.0" cy="68.0" r="6" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
+<text x="80.4" y="53.2" text-anchor="end" fill="#1f4e9c">(−3/5, y)</text>
+</svg>
