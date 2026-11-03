@@ -24,16 +24,16 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'Amplitude'
-      - '<span>\( |a| \)</span>: half the distance from the highest point to the lowest.'
+      - '<span>\( |a| \)</span>: half the distance from the highest point to the lowest. The midline is <span>\( y=0 \)</span>, and the graph runs from <span>\( -|a| \)</span> to <span>\( |a| \)</span>.'
       - 'A negative <span>\( a \)</span> flips the graph upside down, but the amplitude is still positive.'
     -
       - 'Period'
-      - '<span>\( \dfrac{2\pi}{b} \)</span>, the length of one full cycle.'
+      - '<span>\( \dfrac{2\pi}{b} \)</span>, the length of one full cycle. (CheckIt''s <span>\( b \)</span> is always positive.)'
       - 'Divide <span>\( 2\pi \)</span> by <span>\( b \)</span>; do not multiply. A larger <span>\( b \)</span> squeezes the graph.'
     -
       - 'Phase shift'
-      - 'Factor out <span>\( b \)</span>: <span>\( \cos\left(2x-\tfrac{4\pi}{3}\right)=\cos\left(2\left(x-\tfrac{2\pi}{3}\right)\right) \)</span>, a shift of <span>\( \tfrac{2\pi}{3} \)</span> to the right.'
-      - 'The shift is <span>\( \tfrac{c}{b} \)</span>, not <span>\( c \)</span>. A plus sign inside means left; a minus sign means right.'
+      - 'Write <span>\( bx+c=b(x-h) \)</span>, so <span>\( h=-\tfrac{c}{b} \)</span>. CheckIt reports the size of <span>\( h \)</span> with a direction: positive <span>\( h \)</span> is to the right, negative is to the left. For example, <span>\( \cos\left(2x-\tfrac{4\pi}{3}\right)=\cos\left(2\left(x-\tfrac{2\pi}{3}\right)\right) \)</span>: <span>\( \tfrac{2\pi}{3} \)</span> to the right.'
+      - 'Divide <span>\( c \)</span> by <span>\( b \)</span>: a plus sign inside means left, a minus sign means right. A periodic graph has no single starting point; shifts that differ by whole periods draw the same graph. CheckIt, and this page, want the one read from the expression as written.'
     -
       - 'Graphing two periods'
       - 'Start a cycle at the shift, then mark points every quarter period: midline, peak or valley, midline, and so on.'
@@ -110,14 +110,14 @@ tabs:
     label: "Try It: Phase Shift"
     heading: "Try It: Phase Shift"
     intro: |-
-      Factor out b to see the shift: a plus sign means left, a minus sign means right. Make your best guess, then check it.
+      Write bx + c as b(x − h) to read the shift, the way CheckIt does: a plus sign means left, a minus sign means right. Make your best guess, then check it.
     items:
       - id: ph1
         title: "Shift 1"
         math:
           display: 'f(x)=3\sin(2x-8\pi)'
           speak: "f of x equals 3 sine of the quantity 2 x minus 8 pi, end quantity"
-        prompt: 'What is the phase shift of f?'
+        prompt: 'Reading the expression as written, as CheckIt does, what is the phase shift of f?'
         choices:
           - {value: a, label: "4π to the right"}
           - {value: b, label: "8π to the right"}
@@ -125,13 +125,13 @@ tabs:
           - {value: d, label: "8π to the left"}
         correct: a
         explanation: |-
-          Factor out 2: \( 2x-8\pi=2(x-4\pi) \). So the graph is \( 3\sin(2x) \) moved \( 4\pi \) to the right. That is 4 full periods (the period is \( \pi \)), so the graph looks the same as \( 3\sin(2x) \), but CheckIt still asks for the shift itself, \( 4\pi \). 8π to the right uses \( c \) without dividing by \( b \); 4π to the left reads the minus sign the wrong way; and 8π to the left makes both slips. <strong>\( 4\pi \) to the right.</strong>
+          Factor out 2: \( 2x-8\pi=2(x-4\pi) \). So the graph is \( 3\sin(2x) \) moved \( 4\pi \) to the right. That is 4 full periods (the period is \( \pi \)), so the graph looks the same as \( 3\sin(2x) \). In fact every choice here is a whole number of periods, so all four draw the same graph; but only \( 4\pi \) to the right is read from the expression, which is what CheckIt asks for. 8π to the right uses \( c \) without dividing by \( b \); 4π to the left reads the minus sign the wrong way; and 8π to the left makes both slips. <strong>\( 4\pi \) to the right.</strong>
       - id: ph2
         title: "Shift 2"
         math:
           display: 'g(x)=-4\cos(3x+4\pi)'
           speak: "g of x equals negative 4 cosine of the quantity 3 x plus 4 pi, end quantity"
-        prompt: 'What is the phase shift of g?'
+        prompt: 'Reading the expression as written, as CheckIt does, what is the phase shift of g?'
         choices:
           - {value: a, label: "4π to the left"}
           - {value: b, label: "4π/3 to the right"}
@@ -139,13 +139,13 @@ tabs:
           - {value: d, label: "4π to the right"}
         correct: c
         explanation: |-
-          \( 3x+4\pi=3\left(x+\tfrac{4\pi}{3}\right) \), so the shift is \( \tfrac{4\pi}{3} \) to the left: two periods of \( \tfrac{2\pi}{3} \). The \( -4 \) flips the graph but does not move it sideways. 4π to the left uses \( c \) without dividing by 3; 4π/3 to the right reads the plus sign the wrong way; and 4π to the right makes both slips. <strong>\( \dfrac{4\pi}{3} \) to the left.</strong>
+          \( 3x+4\pi=3\left(x+\tfrac{4\pi}{3}\right) \), so the shift is \( \tfrac{4\pi}{3} \) to the left: two periods of \( \tfrac{2\pi}{3} \). All four choices differ by whole periods, so they draw the same graph; the question is which one the expression gives. The \( -4 \) flips the graph but does not move it sideways. 4π to the left uses \( c \) without dividing by 3; 4π/3 to the right reads the plus sign the wrong way; and 4π to the right makes both slips. <strong>\( \dfrac{4\pi}{3} \) to the left.</strong>
       - id: ph3
         title: "Shift 3"
         math:
           display: 'h(x)=2\sin\left(4x+\tfrac{8\pi}{3}\right)'
           speak: "h of x equals 2 sine of the quantity 4 x plus the fraction 8 pi, over 3, end fraction, end quantity"
-        prompt: 'What is the phase shift of h?'
+        prompt: 'Reading the expression as written, as CheckIt does, what is the phase shift of h?'
         choices:
           - {value: a, label: "8π/3 to the left"}
           - {value: b, label: "2π/3 to the left"}
@@ -153,13 +153,13 @@ tabs:
           - {value: d, label: "8π/3 to the right"}
         correct: b
         explanation: |-
-          \( \tfrac{8\pi}{3}\div4=\tfrac{8\pi}{12}=\tfrac{2\pi}{3} \), and the plus sign means left: \( 4\left(x+\tfrac{2\pi}{3}\right) \). The shift is longer than the period, \( \tfrac{\pi}{2} \); that is allowed, and CheckIt still wants the shift itself, \( \tfrac{2\pi}{3} \). 8π/3 to the left forgets to divide by 4; 2π/3 to the right reads the sign the wrong way; and 8π/3 to the right makes both slips. <strong>\( \dfrac{2\pi}{3} \) to the left.</strong>
+          \( \tfrac{8\pi}{3}\div4=\tfrac{8\pi}{12}=\tfrac{2\pi}{3} \), and the plus sign means left: \( 4\left(x+\tfrac{2\pi}{3}\right) \). The shift is longer than the period, \( \tfrac{\pi}{2} \); that is allowed, and CheckIt still wants the shift read from the expression, \( \tfrac{2\pi}{3} \). (8π/3 to the left draws the same graph, four periods farther, but it is not what the expression gives.) 8π/3 to the left forgets to divide by 4; 2π/3 to the right reads the sign the wrong way; and 8π/3 to the right makes both slips. <strong>\( \dfrac{2\pi}{3} \) to the left.</strong>
       - id: ph4
         title: "Shift 4"
         math:
           display: 'f(x)=5\sin(3x)'
           speak: "f of x equals 5 sine of 3 x"
-        prompt: 'What is the phase shift of f?'
+        prompt: 'Reading the expression as written, as CheckIt does, what is the phase shift of f?'
         choices:
           - {value: a, label: "0 (no shift)"}
           - {value: b, label: "3 to the left"}
@@ -167,7 +167,7 @@ tabs:
           - {value: d, label: "π/3 to the left"}
         correct: a
         explanation: |-
-          There is no number added to \( 3x \), so \( c=0 \) and the shift is \( \tfrac{0}{3}=0 \): a cycle starts at \( x=0 \). CheckIt's key words this as "0 to the left", which means the same thing. 3 is \( b \), which squeezes the graph instead of moving it; \( \tfrac{2\pi}{3} \) is the period, the length of a cycle, not a shift; and \( \tfrac{\pi}{3} \) is half a period. <strong>0.</strong>
+          There is no number added to \( 3x \), so \( c=0 \) and the shift is \( \tfrac{0}{3}=0 \): a cycle starts at \( x=0 \). Shifting one full period, \( \tfrac{2\pi}{3} \), would draw the same graph, but the expression gives 0. CheckIt's key words this as "0 to the left", which means the same thing. 3 is \( b \), which squeezes the graph instead of moving it; \( \tfrac{2\pi}{3} \) is the period, the length of a cycle, not a shift; and \( \tfrac{\pi}{3} \) is half a period. <strong>0.</strong>
   - id: graph
     label: "Try It: Graphs"
     heading: "Try It: Graphs"
@@ -214,7 +214,7 @@ tabs:
         math:
           display: 'f(x)=3\sin(2x-\pi)'
           speak: "f of x equals 3 sine of the quantity 2 x minus pi, end quantity"
-        prompt: 'Over which interval does one full cycle of f run, starting at the phase shift?'
+        prompt: 'Over which interval does one full cycle of f run, starting at the phase shift read from the expression?'
         choices:
           - {value: a, label: "From π/2 to 3π/2"}
           - {value: b, label: "From π to 3π"}
@@ -222,7 +222,7 @@ tabs:
           - {value: d, label: "From π/2 to 5π/2"}
         correct: a
         explanation: |-
-          \( 2x-\pi=2\left(x-\tfrac{\pi}{2}\right) \): the shift is \( \tfrac{\pi}{2} \) to the right. The period is \( \tfrac{2\pi}{2}=\pi \). So a cycle starts at \( \tfrac{\pi}{2} \) and ends one period later, at \( \tfrac{\pi}{2}+\pi=\tfrac{3\pi}{2} \). From π to 3π makes two slips: it shifts by \( c=\pi \) without dividing by 2, and uses a period of \( 2\pi \); from \( -\tfrac{\pi}{2} \) shifts left instead of right; and ending at \( \tfrac{5\pi}{2} \) uses a period of \( 2\pi \), ignoring \( b \). <strong>From \( \dfrac{\pi}{2} \) to \( \dfrac{3\pi}{2} \).</strong>
+          \( 2x-\pi=2\left(x-\tfrac{\pi}{2}\right) \): the shift is \( \tfrac{\pi}{2} \) to the right. The period is \( \tfrac{2\pi}{2}=\pi \). So a cycle starts at \( \tfrac{\pi}{2} \) and ends one period later, at \( \tfrac{\pi}{2}+\pi=\tfrac{3\pi}{2} \). From π to 3π makes two slips: it shifts by \( c=\pi \) without dividing by 2, and uses a period of \( 2\pi \); from \( -\tfrac{\pi}{2} \) shifts left instead of right (that interval does hold a full cycle, but it does not start at the shift the expression gives); and ending at \( \tfrac{5\pi}{2} \) uses a period of \( 2\pi \), ignoring \( b \). <strong>From \( \dfrac{\pi}{2} \) to \( \dfrac{3\pi}{2} \).</strong>
       - id: g4
         title: "Graph 3"
         figure:
@@ -258,7 +258,7 @@ tabs:
           - {value: d, label: "The shift is the period, 2π/3 to the right."}
         correct: b
         explanation: |-
-          Factor out 3: \( 3x-\tfrac{9\pi}{2}=3\left(x-\tfrac{3\pi}{2}\right) \). The shift is \( \tfrac{c}{b}=\tfrac{9\pi}{2}\div3=\tfrac{3\pi}{2} \) to the right; the student used \( c \) itself. A minus sign means right, so the direction was correct; and the period, \( \tfrac{2\pi}{3} \), is the length of a cycle, not where it starts. <strong>\( \dfrac{3\pi}{2} \) to the right.</strong>
+          Factor out 3: \( 3x-\tfrac{9\pi}{2}=3\left(x-\tfrac{3\pi}{2}\right) \). So \( h=-\tfrac{c}{b}=\tfrac{9\pi}{2}\div3=\tfrac{3\pi}{2} \): \( \tfrac{3\pi}{2} \) to the right. The student used \( c \) without dividing by \( b \). A minus sign means right, so the direction was correct; and the period, \( \tfrac{2\pi}{3} \), is the length of a cycle, not where it starts. <strong>\( \dfrac{3\pi}{2} \) to the right.</strong>
       - id: sl2
         title: "Slip 2"
         math:
@@ -300,7 +300,7 @@ tabs:
           - {value: d, label: "A plus sign means left: π/3 to the left."}
         correct: d
         explanation: |-
-          \( 2x+\tfrac{2\pi}{3}=2\left(x+\tfrac{\pi}{3}\right)=2\left(x-\left(-\tfrac{\pi}{3}\right)\right) \): the graph moves \( \tfrac{\pi}{3} \) to the left. The size was right, but the direction was backward. A check: the peak of cosine, where the inside is 0, is at \( x=-\tfrac{\pi}{3} \), left of 0. The shift is \( \tfrac{c}{b} \), so dividing is right; and the period, \( \pi \), is not the shift. <strong>\( \dfrac{\pi}{3} \) to the left.</strong>
+          \( 2x+\tfrac{2\pi}{3}=2\left(x+\tfrac{\pi}{3}\right)=2\left(x-\left(-\tfrac{\pi}{3}\right)\right) \): the graph moves \( \tfrac{\pi}{3} \) to the left. The size was right, but the direction was backward. A check: the peak of cosine, where the inside is 0, is at \( x=-\tfrac{\pi}{3} \), left of 0. Dividing \( c \) by \( b \) is right; and the period, \( \pi \), is not the shift. <strong>\( \dfrac{\pi}{3} \) to the left.</strong>
       - id: sl5
         title: "Slip 5"
         math:

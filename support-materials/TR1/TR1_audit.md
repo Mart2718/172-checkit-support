@@ -31,3 +31,6 @@ Date: 2026-11-02. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the angle descriptions and the π speak lines, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions and answer forms: Two Thirds of Pi no longer calls 300° the mirror image of 120° across the x-axis (that is 240°); "measured clockwise" is now "coterminal with −45°/−60°"; the summary says the π cancels for multiples of π, and defines radians as θ = s/r.

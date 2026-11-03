@@ -25,7 +25,7 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'Coterminal, in degrees'
-      - 'Add or subtract 360°: <span>\( 60^\circ \)</span> is coterminal with <span>\( 420^\circ \)</span> and <span>\( -300^\circ \)</span>.'
+      - 'Add or subtract 360°: <span>\( 60^\circ \)</span> is coterminal with <span>\( 420^\circ \)</span> and <span>\( -300^\circ \)</span>. In general, every angle <span>\( \theta+360^\circ k \)</span> for a whole number <span>\( k \)</span> (positive, negative or zero) is coterminal with <span>\( \theta \)</span>; in radians, <span>\( \theta+2\pi k \)</span>.'
       - 'The negative of an angle, <span>\( -60^\circ \)</span>, is not coterminal; it is the mirror image across the <span>\( x \)</span>-axis.'
     -
       - 'Coterminal, in radians'

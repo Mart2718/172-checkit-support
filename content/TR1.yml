@@ -25,7 +25,7 @@ summary:   # the Quick Summary tab
     -
       - 'The key fact'
       - '<span>\( 180^\circ=\pi \)</span> radians, so <span>\( 360^\circ=2\pi \)</span>.'
-      - 'Here <span>\( \pi \)</span> stands for half a turn. <span>\( \pi \)</span> radians is a half turn, not a number of degrees.'
+      - 'An angle''s radian measure is arc length over radius, <span>\( \theta=\tfrac{s}{r} \)</span>; a half turn cuts off half the circle, <span>\( \pi r \)</span>, so it is <span>\( \pi \)</span> radians. That is a half turn, not a number of degrees.'
     -
       - 'Degrees to radians'
       - 'Multiply by <span>\( \dfrac{\pi}{180} \)</span> and reduce: <span>\( 60^\circ\cdot\dfrac{\pi}{180}=\dfrac{\pi}{3} \)</span>.'
@@ -33,7 +33,7 @@ summary:   # the Quick Summary tab
     -
       - 'Radians to degrees'
       - 'Multiply by <span>\( \dfrac{180}{\pi} \)</span>: <span>\( \dfrac{\pi}{6}\cdot\dfrac{180}{\pi}=30^\circ \)</span>.'
-      - 'The <span>\( \pi \)</span> cancels, so the answer in degrees has no <span>\( \pi \)</span>. Multiplying by <span>\( \tfrac{\pi}{180} \)</span> here gives a tiny wrong answer.'
+      - 'For multiples of <span>\( \pi \)</span>, like every CheckIt angle, the <span>\( \pi \)</span> cancels, so the answer in degrees has no <span>\( \pi \)</span>. Multiplying by <span>\( \tfrac{\pi}{180} \)</span> here gives a tiny wrong answer.'
     -
       - 'Standard position'
       - 'Vertex at the origin, initial side on the positive <span>\( x \)</span>-axis, and a counterclockwise turn for a positive angle.'
@@ -95,7 +95,7 @@ tabs:
           - {value: d, label: '\( \dfrac{\pi}{4} \)', speak: "the fraction pi, over 4, end fraction"}
         correct: d
         explanation: |-
-          \( 45\cdot\dfrac{\pi}{180}=\dfrac{45\pi}{180}=\dfrac{\pi}{4} \), dividing by 45: an eighth of a full turn. \( \tfrac{\pi}{2} \) divides by 90 instead of 180, as if \( \pi \) were a quarter turn; \( \tfrac{3\pi}{4} \) is \( 180^\circ-45^\circ \), the mirror image in Quadrant II; and \( \tfrac{7\pi}{4} \) is \( 360^\circ-45^\circ \), the same 45° measured clockwise. <strong>\( \dfrac{\pi}{4} \).</strong>
+          \( 45\cdot\dfrac{\pi}{180}=\dfrac{45\pi}{180}=\dfrac{\pi}{4} \), dividing by 45: an eighth of a full turn. \( \tfrac{\pi}{2} \) divides by 90 instead of 180, as if \( \pi \) were a quarter turn; \( \tfrac{3\pi}{4} \) is \( 180^\circ-45^\circ \), the mirror image in Quadrant II; and \( \tfrac{7\pi}{4} \) is \( 360^\circ-45^\circ \), which is coterminal with \( -45^\circ \), not with \( 45^\circ \). <strong>\( \dfrac{\pi}{4} \).</strong>
       - id: d4
         title: "330 Degrees"
         math:
@@ -129,7 +129,7 @@ tabs:
           - {value: d, label: "270°"}
         correct: c
         explanation: |-
-          \( \dfrac{2\pi}{3}\cdot\dfrac{180}{\pi}=\dfrac{360}{3}=120^\circ \). Two thirds of a half turn is 120°. 60° is the reference angle, the distance to the \( x \)-axis; 300° is \( 360^\circ-60^\circ \), the mirror image across the \( x \)-axis, in Quadrant IV; and 270° flips the fraction to \( \tfrac{3}{2}\cdot180 \). <strong>120°.</strong>
+          \( \dfrac{2\pi}{3}\cdot\dfrac{180}{\pi}=\dfrac{360}{3}=120^\circ \). Two thirds of a half turn is 120°. 60° is the reference angle, the distance to the \( x \)-axis; 300° is \( 360^\circ-60^\circ \), the reference angle placed in Quadrant IV, which points the opposite way from 120°, half a turn away; and 270° flips the fraction to \( \tfrac{3}{2}\cdot180 \). <strong>120°.</strong>
       - id: r2
         title: "Seven Fourths of Pi"
         math:
@@ -157,7 +157,7 @@ tabs:
           - {value: d, label: "300°"}
         correct: b
         explanation: |-
-          \( \dfrac{\pi}{3}\cdot\dfrac{180}{\pi}=60^\circ \), a third of a half turn. 120° takes \( \pi \) as 360°, a full turn instead of a half; about 1.05° writes the number \( \tfrac{\pi}{3}\approx1.05 \) with a degree sign, but that is the angle in radians, not degrees; and 300° is \( 360^\circ-60^\circ \), the same size measured clockwise. <strong>60°.</strong>
+          \( \dfrac{\pi}{3}\cdot\dfrac{180}{\pi}=60^\circ \), a third of a half turn. 120° takes \( \pi \) as 360°, a full turn instead of a half; about 1.05° writes the number \( \tfrac{\pi}{3}\approx1.05 \) with a degree sign, but that is the angle in radians, not degrees; and 300° is \( 360^\circ-60^\circ \), which is coterminal with \( -60^\circ \), not with \( 60^\circ \). <strong>60°.</strong>
       - id: r4
         title: "Seven Sixths of Pi"
         math:
@@ -269,7 +269,7 @@ tabs:
           - {value: d, label: "5π/6 is in Quadrant III, so it is 210°."}
         correct: a
         explanation: |-
-          Multiplying by \( \tfrac{180}{\pi} \) cancels the \( \pi \): \( \tfrac{5\cdot180}{6}=150^\circ \). The student is right. Multiplying by \( \tfrac{\pi}{180} \) goes the wrong way and leaves \( \pi^{2} \); the \( \pi \) cancels, so degrees have none; and \( \tfrac{5\pi}{6} \) is less than \( \pi \), so it is in Quadrant II, not III. <strong>There is no mistake.</strong>
+          Multiplying by \( \tfrac{180}{\pi} \) cancels the \( \pi \): \( \tfrac{5\cdot180}{6}=150^\circ \). The student is right. Multiplying by \( \tfrac{\pi}{180} \) goes the wrong way and leaves \( \pi^{2} \); the \( \pi \) cancels here, so this answer in degrees has none; and \( \tfrac{5\pi}{6} \) is less than \( \pi \), so it is in Quadrant II, not III. <strong>There is no mistake.</strong>
       - id: sl3
         title: "Slip 3"
         math:

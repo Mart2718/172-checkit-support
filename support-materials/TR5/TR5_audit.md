@@ -32,3 +32,6 @@ Date: 2026-11-02. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the root speak lines and the unit-circle descriptions, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions and answer forms: the reference angle is defined as acute, with axis angles handled by their points; the CheckIt note now says to check that a given coordinate fits the stated quadrant and flag the problem if it does not, before using the quadrant for the missing sign.

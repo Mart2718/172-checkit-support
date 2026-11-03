@@ -31,8 +31,8 @@ summary:   # the Quick Summary tab
       - 'If a denominator is 0, the value is undefined, such as <span>\( \cot 180^\circ \)</span>.'
     -
       - 'Reference angle'
-      - 'The angle between the terminal side and the <span>\( x \)</span>-axis: <span>\( 300^\circ \)</span> has reference angle <span>\( 60^\circ \)</span>.'
-      - 'Measure to the <span>\( x \)</span>-axis, never to the <span>\( y \)</span>-axis.'
+      - 'The acute angle between the terminal side and the <span>\( x \)</span>-axis: <span>\( 300^\circ \)</span> has reference angle <span>\( 60^\circ \)</span>.'
+      - 'Measure to the <span>\( x \)</span>-axis, never to the <span>\( y \)</span>-axis. An angle on an axis (90°, 180°, 270°) has no reference angle: use its point, such as <span>\( (0,-1) \)</span>, directly.'
     -
       - 'Special values'
       - 'For <span>\( 30^\circ,45^\circ,60^\circ \)</span>, the sine is <span>\( \tfrac{1}{2},\tfrac{\sqrt{2}}{2},\tfrac{\sqrt{3}}{2} \)</span> and the cosine runs the other way.'
@@ -49,7 +49,7 @@ summary:   # the Quick Summary tab
       - 'Exact answers'
       - 'Leave roots exact: <span>\( \tfrac{1}{\sqrt{3}}=\tfrac{\sqrt{3}}{3} \)</span>.'
       - 'CheckIt''s key rationalizes, so <span>\( \tfrac{1}{\sqrt{3}} \)</span> shows as <span>\( \tfrac{\sqrt{3}}{3} \)</span>; both are equal.'
-  note: 'When CheckIt gives a quadrant, the signs of x and y must match it. In its Quadrant II and IV problems, CheckIt''s key gives the wrong sign for sine, cosecant, tangent and cotangent (cosine and secant are right), a given y-value can carry the wrong sign, and the picture shows the wrong quadrant. Trust the stated quadrant. Your CheckIt angles and points will be different. The unit-circle point is what transfers.'
+  note: 'When CheckIt gives a quadrant, the signs of x and y must match it. In its Quadrant II and IV problems, CheckIt''s key gives the wrong sign for sine, cosecant, tangent and cotangent (cosine and secant are right), a given y-value can carry the wrong sign, and the picture shows the wrong quadrant. So first check that a given coordinate fits the stated quadrant; if it does not, the problem is inconsistent, so flag it. If it fits, use <span>\( x^{2}+y^{2}=1 \)</span> and let the quadrant choose the sign of the missing coordinate, even where CheckIt''s key shows the other sign. Your CheckIt angles and points will be different. The unit-circle point is what transfers.'
 tabs:
   - id: special
     label: "Try It: Special Angles"
@@ -213,7 +213,7 @@ tabs:
           - {value: d, label: '\( \dfrac{5}{12} \)', speak: "the fraction 5, over 12, end fraction"}
         correct: c
         explanation: |-
-          \( y^{2}=1-\tfrac{25}{169}=\tfrac{144}{169} \), so \( y=\pm\tfrac{12}{13} \), and in Quadrant IV \( y \) is negative: \( y=-\tfrac{12}{13} \) (the 5, 12, 13 triple). Then \( \tan\alpha=\tfrac{y}{x}=\tfrac{-12/13}{5/13}=-\tfrac{12}{5} \). Tangent is negative in Quadrant IV. CheckIt's answer key shows \( \tfrac{12}{5} \) for problems like this, because its generator puts the point in Quadrant I; trust the quadrant. \( \tfrac{12}{5} \) makes \( y \) positive; \( -\tfrac{5}{12} \) is \( \tfrac{x}{y} \), the cotangent; and \( \tfrac{5}{12} \) makes both slips. <strong>\( -\dfrac{12}{5} \).</strong>
+          \( y^{2}=1-\tfrac{25}{169}=\tfrac{144}{169} \), so \( y=\pm\tfrac{12}{13} \), and in Quadrant IV \( y \) is negative: \( y=-\tfrac{12}{13} \) (the 5, 12, 13 triple). Then \( \tan\alpha=\tfrac{y}{x}=\tfrac{-12/13}{5/13}=-\tfrac{12}{5} \). Tangent is negative in Quadrant IV. CheckIt's answer key shows \( \tfrac{12}{5} \) for problems like this, because its generator puts the point in Quadrant I; the quadrant decides the sign. \( \tfrac{12}{5} \) makes \( y \) positive; \( -\tfrac{5}{12} \) is \( \tfrac{x}{y} \), the cotangent; and \( \tfrac{5}{12} \) makes both slips. <strong>\( -\dfrac{12}{5} \).</strong>
       - id: q3
         title: "Quadrant III"
         math:

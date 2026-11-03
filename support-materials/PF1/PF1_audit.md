@@ -30,3 +30,6 @@ Date: 2026-11-02. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the long function speak lines and the graph descriptions, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions and answer forms: the phase shift is written as h = −c/b from bx + c = b(x − h), with answers still in CheckIt's form (size and direction); each shift item asks for the shift read from the expression as written and explains which choices draw the same graph; the summary adds the midline and range, and that CheckIt's b is positive.
