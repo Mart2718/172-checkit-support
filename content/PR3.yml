@@ -35,7 +35,7 @@ summary:   # the Quick Summary tab
       - 'Square before multiplying: <span>\( (0-6)^{2}=36 \)</span>, not <span>\( -6 \)</span> or <span>\( -36 \)</span>. Write it as a point, <span>\( (0,\ f(0)) \)</span>.'
     -
       - 'Degree and leading coefficient'
-      - 'Degree: add the exponents. Leading coefficient: the number in front. Even degree: both ends go the same way, up if it is positive and down if it is negative. Odd degree: the ends go opposite ways; positive goes down on the left and up on the right.'
+      - 'Degree: add the exponents. Leading coefficient: the number in front, times the leading coefficient of each factor raised to its power (each factor like \( (x-3) \) contributes 1, but \( (2x-3)^{2} \) contributes 4). Even degree: both ends go the same way, up if it is positive and down if it is negative. Odd degree: the ends go opposite ways; positive goes down on the left and up on the right.'
       - 'CheckIt says it this way: "As <span>\( x \)</span> approaches infinity, <span>\( y \)</span> approaches positive infinity." Approaching infinity means going to the right; approaching negative infinity means going to the left.'
   note: 'To sketch, plot the zeros and the <span>\( y \)</span>-intercept, draw the two ends, then connect them, touching or crossing at each zero. CheckIt calls the zeros "zeroes" or "roots"; they mean the same thing. Your CheckIt polynomial will have different numbers. Reading the factors is what transfers.'
 tabs:
@@ -120,7 +120,7 @@ tabs:
           - {value: d, label: "(0, 72)"}
         correct: d
         explanation: |-
-          \( f(0)=2(0+4)(0-3)^{2}=2\cdot 4\cdot 9=72 \). Square first: \( (-3)^{2}=9 \), which is positive. The answer 24 forgets the square, \( 2\cdot 4\cdot 3 \); −72 squares \( -3 \) to get \( -9 \); and 2 is just the coefficient. <strong>\( (0,72) \).</strong>
+          \( f(0)=2(0+4)(0-3)^{2}=2\cdot 4\cdot 9=72 \). Square first: \( (-3)^{2}=9 \), which is positive. The answer 24 forgets the square and drops the minus, \( 2\cdot 4\cdot 3 \); −72 squares \( -3 \) to get \( -9 \); and 2 is just the coefficient. <strong>\( (0,72) \).</strong>
       - id: ie2
         title: "Intercept 2"
         math:
@@ -130,11 +130,11 @@ tabs:
         choices:
           - {value: a, label: "(0, −300)"}
           - {value: b, label: "(0, 300)"}
-          - {value: c, label: "(0, −30)"}
+          - {value: c, label: "(0, 30)"}
           - {value: d, label: "(0, −150)"}
         correct: a
         explanation: |-
-          \( f(0)=-3(2)^{2}(-5)^{2}=-3\cdot 4\cdot 25=-300 \). Both squares are positive, so the sign comes only from the −3. The answer 300 loses that sign, −30 forgets both squares, and −150 squares only one of them. <strong>\( (0,-300) \).</strong>
+          \( f(0)=-3(2)^{2}(-5)^{2}=-3\cdot 4\cdot 25=-300 \). Both squares are positive, so the sign comes only from the −3. The answer 300 loses that sign, 30 forgets both squares, \( -3\cdot 2\cdot(-5) \), and −150 squares only one of them. <strong>\( (0,-300) \).</strong>
       - id: ie3
         title: "Ends 1"
         math:
@@ -227,7 +227,7 @@ tabs:
           - {value: d, label: "Starts high, goes through the axis at 1, turns at −3, ends low"}
         correct: c
         explanation: |-
-          Degree \( 2+1=3 \) with a negative leading coefficient: up on the left, down on the right. Coming down from the upper left, the graph crosses at \( x=-1 \) (multiplicity 1), dips to a low point, passes through the \( y \)-intercept \( -2(-3)^{2}(1)=-18 \), rises to touch the axis at \( x=3 \) (multiplicity 2), and turns back down. Starting low is the positive version, turning at −1 swaps the multiplicities, and 1 and −3 read the signs as written. <strong>Starts high, crosses at −1, touches at 3, ends low.</strong> To sketch it, plot \( (-1,0) \), \( (3,0) \), and \( (0,-18) \), then connect them this way.
+          Degree \( 2+1=3 \) with a negative leading coefficient: up on the left, down on the right. Coming down from the upper left, the graph crosses at \( x=-1 \) (multiplicity 1), passes through the \( y \)-intercept \( -2(-3)^{2}(1)=-18 \), reaches a low point just to the right of the \( y \)-axis (at \( x=\tfrac{1}{3} \)), rises to touch the axis at \( x=3 \) (multiplicity 2), and turns back down. Starting low is the positive version, turning at −1 swaps the multiplicities, and 1 and −3 read the signs as written. <strong>Starts high, crosses at −1, touches at 3, ends low.</strong> To sketch it, plot \( (-1,0) \), \( (3,0) \), and \( (0,-18) \), then connect them this way.
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"

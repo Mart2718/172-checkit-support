@@ -39,7 +39,7 @@ summary:   # the Quick Summary tab
       - 'Bring each term down into its own column, under its own power.'
     -
       - 'Write and check'
-      - 'Write <span>\( f(x)=\text{quotient}+\dfrac{\text{remainder}}{\text{divisor}} \)</span>.'
+      - 'Dividing <span>\( P \)</span> by <span>\( D \)</span> gives <span>\( P=D\cdot Q+R \)</span>, so <span>\( \dfrac{P}{D}=Q+\dfrac{R}{D} \)</span> wherever <span>\( D\ne0 \)</span>. CheckIt calls the fraction <span>\( f(x)=\dfrac{P}{D} \)</span>, so write <span>\( f(x)=\text{quotient}+\dfrac{\text{remainder}}{\text{divisor}} \)</span>.'
       - 'Check: quotient times divisor, plus remainder, should give back the dividend.'
   note: 'CheckIt''s outcome calls the answer "a polynomial plus a proper rational function": the quotient is the polynomial, and the remainder over the divisor is proper because its top has a lower degree than its bottom. Your CheckIt problem divides a degree 3 polynomial by a degree 2 polynomial. Your numbers will be different. The loop is what transfers, and in calculus the same division shows which line a graph follows far out.'
 tabs:

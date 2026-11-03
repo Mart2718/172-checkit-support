@@ -43,3 +43,6 @@ TBIL's PR8 generator builds d1 d2 (x − r1)(x − r2), with r1 and r2 drawn fro
 
 ## Needs a live screen reader
 - How NVDA reads the interval speak lines and the number-line captions, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Slip 1's correct choice says dividing by x needs cases rather than calling it not allowed. (Three explanations the review flagged as broken were correct on the page; the review packet tool had stripped inequality signs, and is fixed.)

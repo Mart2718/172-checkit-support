@@ -54,3 +54,6 @@ Worked examples and the Canvas quiz were regenerated.
 
 ## Source note: a labeling issue in CheckIt TE4
 In the whole-degree-angle case (generator lines 19-20) CheckIt computes b = c cos B and a = c cos A, which puts side a next to angle A instead of across from it. So for A = 35°, c = 12 its key says a ≈ 9.8, b ≈ 6.9; the standard labels give a ≈ 6.9, b ≈ 9.8. Its whole-number-sides case (line 8) follows the standard convention. Swapping lines 19 and 20 (a = c sin A, b = c cos A) would fix it; worth reporting to the TBIL maintainers.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the calculator note says entering sin(30) in radian mode gives about −0.988, while sin 30° is always 0.5.

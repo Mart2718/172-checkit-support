@@ -43,7 +43,7 @@ summary:   # the Quick Summary tab
       - 'Rename and finish'
       - 'Turn <span>\( \tfrac{1}{\cos x} \)</span> back into <span>\( \sec x \)</span>, <span>\( \tfrac{\cos x}{\sin x} \)</span> into <span>\( \cot x \)</span>, and so on, to match the other side.'
       - 'Start from one side, usually the more complicated one, or simplify each side separately until they meet. Do not do the same operation to both sides, as if solving an equation.'
-  note: 'CheckIt''s TE2 problems have no answer key: you write the verification. The product with parentheses may be on either side, so start with whichever side is more complicated. A good verification starts with one side, lists each step on its own line, and ends with the other side. CheckIt may write a side in mixed form, like <span>\( \sec(x)-\tfrac{\cos(x)}{\sin(x)} \)</span>, or with a power after the parentheses, like <span>\( \sin(x)^{2} \)</span> for <span>\( \sin^{2}x \)</span>. Plugging in a number can show that an equation is <em>not</em> an identity, but it can never prove that one is. Your CheckIt identities will be different from these examples. The moves are what transfer.'
+  note: 'Every identity and simplification here holds on the domain where the original expressions are defined, even when the simplified form is defined at more inputs. CheckIt''s TE2 problems have no answer key: you write the verification. The product with parentheses may be on either side, so start with whichever side is more complicated. A good verification starts with one side, lists each step on its own line, and ends with the other side. CheckIt may write a side in mixed form, like <span>\( \sec(x)-\tfrac{\cos(x)}{\sin(x)} \)</span>, or with a power after the parentheses, like <span>\( \sin(x)^{2} \)</span> for <span>\( \sin^{2}x \)</span>. Plugging in a number can show that an equation is <em>not</em> an identity, but it can never prove that one is. Your CheckIt identities will be different from these examples. The moves are what transfer.'
 tabs:
   - id: rewrite
     label: "Try It: Rewrite It"
@@ -69,10 +69,10 @@ tabs:
           - {value: a, label: '\( \csc x \)', speak: "cosecant x"}
           - {value: b, label: '\( \sec x \)', speak: "secant x"}
           - {value: c, label: '\( \dfrac{\sin^{2}x}{\cos x} \)', speak: "sine squared x, over cosine x"}
-          - {value: d, label: '\( \cot x \)', speak: "cotangent x"}
+          - {value: d, label: '\( \tan x\sec x \)', speak: "tangent x times secant x"}
         correct: b
         explanation: |-
-          \( \tan x\csc x=\tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x}=\tfrac{1}{\cos x}=\sec x \). The sines cancel because they multiply. The answer \( \cot x \) flips the result, and the answer \( \tfrac{\sin^{2}x}{\cos x} \) uses \( \csc x=\sin x \), and \( \csc x \) comes from canceling the cosine instead of the sine. <strong>\( \tan x\csc x=\sec x \).</strong>
+          \( \tan x\csc x=\tfrac{\sin x}{\cos x}\cdot\tfrac{1}{\sin x}=\tfrac{1}{\cos x}=\sec x \). The sines cancel because they multiply. The answer \( \tan x\sec x \) mixes up cosecant and secant, using \( \csc x=\tfrac{1}{\cos x} \); the answer \( \tfrac{\sin^{2}x}{\cos x} \) uses \( \csc x=\sin x \), and \( \csc x \) comes from canceling the cosine instead of the sine. <strong>\( \tan x\csc x=\sec x \).</strong>
       - id: rw2
         title: "Rewrite 2"
         math:
@@ -285,12 +285,12 @@ tabs:
         prompt: 'To verify \( \sec x-\cos x=\sin x\tan x \), a student multiplied both sides by \( \cos x \) and simplified. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "It should multiply both sides by sec x, not by cos x."}
+          - {value: b, label: "It should multiply both sides by sec x instead of by cos x."}
           - {value: c, label: "1 − cos²x is cos²x, not sin²x."}
-          - {value: d, label: "It changes both sides at once instead of one."}
+          - {value: d, label: "Changing both sides needs a reason the steps reverse."}
         correct: d
         explanation: |-
-          The student started from the identity itself and changed both sides. Ending at \( \sin^{2}x=\sin^{2}x \) proves nothing unless every step can be reversed, which is why verifications are written as one chain from one side to the other: \( \sec x-\cos x=\tfrac{1-\cos^{2}x}{\cos x}=\tfrac{\sin^{2}x}{\cos x}=\sin x\tan x \). The algebra here is right, but the method is not how a verification is written. <strong>Work from one side to the other.</strong>
+          The algebra is correct. But the student started from the identity itself, which is what is to be shown, and changed both sides. Ending at \( \sin^{2}x=\sin^{2}x \) proves the identity only if every step can be reversed. Here it can: on the identity's domain \( \cos x\ne0 \), so multiplying by \( \cos x \) can be undone. The work is incomplete, not wrong, until it says so. The cleaner way, and the one CheckIt expects, is one chain from one side to the other: \( \sec x-\cos x=\tfrac{1-\cos^{2}x}{\cos x}=\tfrac{\sin^{2}x}{\cos x}=\sin x\tan x \). Multiplying by \( \sec x \) would not help; and \( 1-\cos^{2}x=\sin^{2}x \), from \( \sin^{2}x+\cos^{2}x=1 \). <strong>Justify that each step can be undone, or work from one side to the other.</strong>
       - id: sl4
         title: "Slip 4"
         math:

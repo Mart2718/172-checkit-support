@@ -187,7 +187,7 @@ tabs:
         figure:
           file: figures/TE3/sq1.svg
           title: "The unit circle crossed by a horizontal line"
-          caption: 'The unit circle, centered at the origin with radius 1. A dashed horizontal line y = square root of 3 over 2 crosses the circle at two points above the x-axis, one on each side of the y-axis. The points are marked with dots but not labeled.'
+          caption: 'The unit circle, centered at the origin with radius 1. A dashed horizontal line y = square root of 3 over 2 crosses the circle at two points above the x-axis, one on each side of the y-axis. The points are marked with dots but not labeled. The picture shows only this positive branch.'
         math:
           display: '4\sin^{2}\theta-3=0'
           speak: "four sine squared theta minus 3 equals 0"

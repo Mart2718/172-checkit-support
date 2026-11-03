@@ -24,7 +24,7 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'A right angle (ladder and wall, cliff, climbing plane)'
-      - 'Sine, cosine, or tangent, and inverse trig for an angle. "How far away" means the straight line from one person to the other.'
+      - 'Sine, cosine, or tangent, and inverse trig for an angle. Read the question for which distance it means: the straight line of sight, the horizontal distance along the ground, or the distance traveled.'
       - 'An angle of depression is measured down from the horizontal. It equals the angle of elevation at the other end, because the horizontal is parallel to the ground.'
     -
       - 'Two angles and a side (fire towers, divers, lighthouses)'

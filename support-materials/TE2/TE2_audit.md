@@ -33,3 +33,6 @@ TBIL's TE2 generator gives two "verify that A = B" tasks with no answer key, so 
 
 ## Needs a live screen reader
 - How NVDA reads the stacked verification lines and the "missing step" marker, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Slip 3 no longer calls working on both sides wrong: the algebra is valid because multiplying by cos x can be undone where cos x ≠ 0; the missing piece is saying so, or working from one side as CheckIt expects. Rewrite 1's cot x distractor (whose explanation was wrong) is now tan x sec x, from mixing up cosecant and secant. The summary says identities hold on the original expressions' domain.

@@ -40,3 +40,6 @@ TBIL's PR4 generator checks out. It builds f = q·g + r with g = (x − a)(x −
 
 ## Needs a live screen reader
 - How NVDA reads the long division captions and the plain-text superscripts in the Spot the Slip buttons, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary writes P = D·Q + R, so P/D = Q + R/D wherever D ≠ 0.

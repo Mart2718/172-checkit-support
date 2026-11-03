@@ -24,11 +24,11 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'An angle in twelfths, like <span>\( \tfrac{\pi}{12} \)</span>, <span>\( \tfrac{7\pi}{12} \)</span>, or <span>\( \tfrac{17\pi}{12} \)</span>'
-      - 'Write it as a sum or difference of unit-circle angles, then use <span>\( \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B \)</span> or <span>\( \cos(A\pm B)=\cos A\cos B\mp\sin A\sin B \)</span>.'
+      - 'Write it as a sum or difference of special angles, then use <span>\( \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B \)</span> or <span>\( \cos(A\pm B)=\cos A\cos B\mp\sin A\sin B \)</span>.'
       - 'The cosine formula flips the sign. And <span>\( \sin(A-B) \)</span> is not <span>\( \sin A-\sin B \)</span>.'
     -
       - 'An angle in eighths, like <span>\( \tfrac{\pi}{8} \)</span> or <span>\( \tfrac{3\pi}{8} \)</span>'
-      - 'It is half of a unit-circle angle. Use <span>\( \cos\left(\tfrac{\theta}{2}\right)=\pm\sqrt{\tfrac{1+\cos\theta}{2}} \)</span> or <span>\( \sin\left(\tfrac{\theta}{2}\right)=\pm\sqrt{\tfrac{1-\cos\theta}{2}} \)</span>.'
+      - 'It is half of a special angle. Use <span>\( \cos\left(\tfrac{\theta}{2}\right)=\pm\sqrt{\tfrac{1+\cos\theta}{2}} \)</span> or <span>\( \sin\left(\tfrac{\theta}{2}\right)=\pm\sqrt{\tfrac{1-\cos\theta}{2}} \)</span>.'
       - 'The quadrant of the half angle picks the sign. Half the angle is not half the cosine.'
     -
       - 'One of sine or cosine, and a quadrant'
@@ -44,7 +44,7 @@ tabs:
     label: "Try It: Build the Angle"
     heading: "Try It: Build the Angle"
     intro: |-
-      Before any formula, rewrite the angle using angles you know, and decide on the sign. The angles you know are the unit-circle angles: multiples of π/6 and π/4, like π/3, 3π/4, or 7π/6. Make your best guess on each one, then check it.
+      Before any formula, rewrite the angle using angles you know, and decide on the sign. The angles you know are the special angles, whose exact sine and cosine you know: multiples of π/6 and π/4, like π/3, 3π/4, or 7π/6. Make your best guess on each one, then check it.
     items:
       - id: bd1
         title: "Build 1"
@@ -55,7 +55,7 @@ tabs:
         math:
           display: '\dfrac{7\pi}{12}'
           speak: "7 pi over 12"
-        prompt: 'Which way of writing this angle uses only angles from the unit circle?'
+        prompt: 'Which way of writing this angle uses only special angles?'
         choices:
           - {value: a, label: '\( \dfrac{\pi}{6}+\dfrac{\pi}{4} \)', speak: "pi over 6, plus pi over 4"}
           - {value: b, label: '\( \dfrac{\pi}{3}+\dfrac{\pi}{4} \)', speak: "pi over 3, plus pi over 4"}
@@ -69,7 +69,7 @@ tabs:
         math:
           display: '\dfrac{\pi}{12}'
           speak: "pi over 12"
-        prompt: 'Which difference of unit-circle angles equals this angle?'
+        prompt: 'Which difference of special angles equals this angle?'
         choices:
           - {value: a, label: '\( \dfrac{\pi}{4}-\dfrac{\pi}{3} \)', speak: "pi over 4, minus pi over 3"}
           - {value: b, label: '\( \dfrac{\pi}{2}-\dfrac{\pi}{3} \)', speak: "pi over 2, minus pi over 3"}
@@ -83,7 +83,7 @@ tabs:
         math:
           display: '\dfrac{\pi}{8}'
           speak: "pi over 8"
-        prompt: 'No sum or difference of unit-circle angles makes this angle. It is half of which unit-circle angle?'
+        prompt: 'No sum or difference of special angles makes this angle. It is half of which special angle?'
         choices:
           - {value: a, label: '\( \dfrac{\pi}{4} \)', speak: "pi over 4"}
           - {value: b, label: '\( \dfrac{\pi}{16} \)', speak: "pi over 16"}
@@ -130,7 +130,7 @@ tabs:
         title: "Exact 2"
         figure:
           file: figures/TE1/ex2.svg
-          title: "An angle built from two unit-circle angles placed one after the other"
+          title: "An angle built from two special angles placed one after the other"
           caption: 'The upper half of the unit circle. A first ray makes an angle of pi/3 with the positive x-axis. A second ray is pi/4 farther counterclockwise, so the total angle from the positive x-axis to the second ray is pi/3 plus pi/4. The second ray is labeled angle question mark.'
         math:
           display: '\cos\left(\dfrac{7\pi}{12}\right)'
@@ -148,7 +148,7 @@ tabs:
         title: "Exact 3"
         figure:
           file: figures/TE1/ex3.svg
-          title: "An angle that is half of a unit-circle angle"
+          title: "An angle that is half of a special angle"
           caption: 'The first quadrant of the unit circle. A ray at pi/4 meets the circle at a point labeled cos = square root of 2 over 2. A second ray, halfway between the positive x-axis and the first ray, is at pi/8. Its point on the circle is labeled cos = question mark.'
         math:
           display: '\cos\left(\dfrac{\pi}{8}\right)'

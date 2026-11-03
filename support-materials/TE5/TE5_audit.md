@@ -30,3 +30,6 @@ TBIL's TE5 generator checks out. Three sides or two sides and the angle between 
 
 ## Needs a live screen reader
 - How NVDA reads the figure captions, degrees, and the stacked (aligned) equations in Spot the Slip, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: How Many 2 states that exactly one triangle when a ≥ b assumes the given angle is acute.

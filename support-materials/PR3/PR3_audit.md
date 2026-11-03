@@ -35,3 +35,6 @@ TBIL's PR3 generator gives f(x) = k(x − a)²(x − b)ⁿ and asks for the zero
 
 ## Needs a live screen reader
 - How NVDA reads "end quantity, squared" in the formulas, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: two y-intercept distractors now name their slips correctly (24 also drops the minus; the −30 choice is now 30, from skipping both squares); Sketch It lists the y-intercept before the low point at x = 1/3; the summary explains that factors like (2x − 3) also contribute to the leading coefficient.

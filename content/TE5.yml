@@ -314,7 +314,7 @@ tabs:
           - {value: d, label: "Infinitely many"}
         correct: a
         explanation: |-
-          The height is \( h=8\sin 35^\circ\approx 4.6 \), and \( a=12 \) is longer, so it reaches the line. But \( a \) is also longer than \( b=8 \). Swinging toward \( A \), it would land behind \( A \), on the wrong side, so only one landing point makes a triangle. When \( a\ge b \), there is exactly one. <strong>Exactly one triangle fits.</strong>
+          The height is \( h=8\sin 35^\circ\approx 4.6 \), and \( a=12 \) is longer, so it reaches the line. But \( a \) is also longer than \( b=8 \). Swinging toward \( A \), it would land behind \( A \), on the wrong side, so only one landing point makes a triangle. For an acute given angle \( A \), when \( a\ge b \) there is exactly one. <strong>Exactly one triangle fits.</strong>
       - id: am3
         title: "Swing 1"
         figure:

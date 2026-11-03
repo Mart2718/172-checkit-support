@@ -47,3 +47,6 @@ TBIL's TE6 generator checks out: all 12 problem types compute correctly. These c
 
 ## Needs a live screen reader
 - How NVDA reads the longer scenario captions, the stacked equations in Spot the Slip, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary tells students to read which distance is asked: line of sight, horizontal distance, or distance traveled.

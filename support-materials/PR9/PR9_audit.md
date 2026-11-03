@@ -40,3 +40,6 @@ Date: 2026-10-26. Checked by:
 
 ## Needs a live screen reader
 - How NVDA reads the plain-text interval choices that differ only by a bracket, the long fraction speak lines, and the number-line captions.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: nothing to change: the explanation the review flagged as broken is correct on the page; the review packet tool had stripped its inequality signs, and is fixed.

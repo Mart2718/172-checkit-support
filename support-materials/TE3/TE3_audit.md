@@ -46,3 +46,6 @@ Every value is one the function can reach, so CheckIt never gives a no-solution 
 
 ## Needs a live screen reader
 - How NVDA reads the comma-separated angle lists in the answer buttons, and whether feedback is announced once.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the Squared 1 figure description says it shows only the positive branch.

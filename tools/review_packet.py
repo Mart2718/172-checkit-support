@@ -11,7 +11,7 @@ os.makedirs(OUT, exist_ok=True)
 def text(t):
     t = re.sub(r'<strong>(.*?)</strong>', r'**\1**', str(t), flags=re.S)
     t = re.sub(r'<em>(.*?)</em>', r'*\1*', t, flags=re.S)
-    t = re.sub(r'<[^>]+>', '', t)
+    t = re.sub(r'</?[a-zA-Z][^<>]*>', '', t)   # only real HTML tags; a < in math (like 2<0) stays
     return t.replace('\\(', '$').replace('\\)', '$').replace('\\[', '$$').replace('\\]', '$$').strip()
 
 

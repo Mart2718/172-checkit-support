@@ -41,7 +41,7 @@ summary:   # the Quick Summary tab
     -
       - 'Write linear factors'
       - 'One factor <span>\( (x-r) \)</span> for each zero, written again for each repeat.'
-      - 'A fractional zero like <span>\( -\tfrac{4}{5} \)</span> gives the factor <span>\( (5x+4) \)</span>. Irrational and complex zeros give factors too, like <span>\( \big(x-(1+\sqrt{2})\big) \)</span> and <span>\( (x-7i) \)</span>.'
+      - 'A fractional zero like <span>\( -\tfrac{4}{5} \)</span> gives the factor <span>\( \left(x+\tfrac{4}{5}\right) \)</span>, or <span>\( (5x+4) \)</span>, which has the same zero; using <span>\( 5x+4 \)</span> puts a factor of 5 into the polynomial, so divide the number in front by 5 to keep it the same. Irrational and complex zeros give factors too, like <span>\( \big(x-(1+\sqrt{2})\big) \)</span> and <span>\( (x-7i) \)</span>.'
   note: 'Count as you go: a degree <span>\( n \)</span> polynomial has exactly <span>\( n \)</span> zeros when you count repeats and complex zeros. That count tells you when you are done. CheckIt gives no graph, but if you can, graph the polynomial (Desmos works) to see which candidates to test first. Your CheckIt polynomials will have different numbers. The plan is what transfers.'
 tabs:
   - id: cand
@@ -69,7 +69,7 @@ tabs:
         math:
           display: '\begin{aligned} h(x)&=3x^{4}+x^{3}+2x^{2}\\ &\quad+4x-40 \end{aligned}'
           speak: "h of x equals 3 x to the fourth plus x cubed plus 2 x squared plus 4 x minus 40"
-        prompt: 'Which of these cannot be a rational zero of h?'
+        prompt: 'Which value is not on the list of possible rational zeros that the Rational Zero Theorem gives for h?'
         choices:
           - {value: a, label: "5/3"}
           - {value: b, label: "−8"}
@@ -77,7 +77,7 @@ tabs:
           - {value: d, label: "2/3"}
         correct: c
         explanation: |-
-          A candidate's top must divide 40 and its bottom must divide 3. \( \tfrac{3}{5} \) has 5 on the bottom, and 5 does not divide 3, so it cannot be a rational zero. \( \tfrac{5}{3} \), \( -8 \), and \( \tfrac{2}{3} \) all fit the rule, so each could be one; only testing tells. <strong>3/5.</strong>
+          A candidate's top must divide 40 and its bottom must divide 3. \( \tfrac{3}{5} \) has 5 on the bottom, and 5 does not divide 3, so it is not on the list. \( \tfrac{5}{3} \), \( -8 \), and \( \tfrac{2}{3} \) all fit the rule, so they are on the list; being on the list only makes them candidates, and testing tells whether any of them is actually a zero. <strong>3/5.</strong>
       - id: cz3
         title: "Candidates 3"
         math:
@@ -96,7 +96,7 @@ tabs:
           - {value: d, label: "x = 4 and x = 3/2"}
         correct: d
         explanation: |-
-          The graph crosses at 4 and at 1.5, which is \( \tfrac{3}{2} \): both are candidates, so test them first. The other two crossings, near −5.2 and −0.8, sit between candidates, so they are not rational zeros. They are irrational, and you find them later with the quadratic formula. −5 is not even a candidate, since 5 does not divide 48, and −1 and −1/2 are close to a crossing but not on it. A graph tells you where to look; a remainder of 0 proves it. <strong>x = 4 and x = 3/2.</strong>
+          The graph crosses at 4 and at 1.5, which is \( \tfrac{3}{2} \): both are candidates, so test them first. The other two crossings, near −5.2 and −0.8, sit between candidates, which suggests they are not rational zeros. The algebra confirms it: dividing out \( (x-4)(2x-3) \) leaves \( x^{2}+6x+4 \), whose zeros are \( -3\pm\sqrt{5} \), irrational. −5 is not even a candidate, since 5 does not divide 48, and −1 and −1/2 are close to a crossing but not on it. A graph tells you where to look; a remainder of 0 proves it. <strong>x = 4 and x = 3/2.</strong>
       - id: cz4
         title: "Candidates 4"
         math:

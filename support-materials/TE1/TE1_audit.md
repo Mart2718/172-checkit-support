@@ -54,3 +54,6 @@ Sage may print equivalent forms that look different from a textbook's. For examp
 
 ## Update 2026-10-21: reflow fix
 - Slip 4 work now wraps onto three lines. With the WCAG 1.4.12 text-spacing override at 320 px, it had been 332 px wide (1.4.10). The worked-examples document was regenerated, and function names no longer run together.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: "unit-circle angles" is now "special angles, whose exact sine and cosine you know" throughout.

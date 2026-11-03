@@ -255,7 +255,7 @@ tabs:
         choices:
           - {value: a, label: "There is no mistake."}
           - {value: b, label: "The inequality should flip when dividing, giving x ≥ 4."}
-          - {value: c, label: "Dividing by x is not allowed; x(x − 4) ≤ 0 gives [0, 4]."}
+          - {value: c, label: "Dividing by x needs cases; x(x − 4) ≤ 0 gives [0, 4]."}
           - {value: d, label: "The bracket at 4 should be a parenthesis, since x is 4 there."}
         correct: c
         explanation: |-

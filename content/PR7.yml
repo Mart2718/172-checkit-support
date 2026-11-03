@@ -24,7 +24,7 @@ summary:   # the Quick Summary tab
   rows:     # first cell of each row is the row header
     -
       - 'A factor on top and bottom'
-      - 'It cancels, and leaves a hole at the <span>\( x \)</span> that makes it 0. For the height, plug that <span>\( x \)</span> into the cancelled form.'
+      - 'Cancel common factors fully. If the cancelled form has a finite value at that <span>\( x \)</span>, there is a hole there, at that height. If a copy of the factor is still on the bottom, as in <span>\( \tfrac{x-1}{(x-1)^{2}}=\tfrac{1}{x-1} \)</span>, it is a vertical asymptote instead.'
       - 'In the original form you get <span>\( \tfrac{0}{0} \)</span>, which is not a number. Cancel first, then plug in.'
     -
       - 'A factor left on the bottom'
@@ -32,7 +32,7 @@ summary:   # the Quick Summary tab
       - 'A squared factor goes the same way on both sides; a single factor goes opposite ways.'
     -
       - 'Factors left on top'
-      - 'The zeros: where the graph meets the <span>\( x \)</span>-axis.'
+      - 'The zeros: where the graph meets the <span>\( x \)</span>-axis. A zero must make the cancelled top 0 and also be in the original domain.'
       - 'If every top factor cancels, there are no zeros. CheckIt says "zeroes" or "roots"; they mean the same thing.'
     -
       - '<span>\( f(0) \)</span>'
@@ -42,7 +42,7 @@ summary:   # the Quick Summary tab
       - 'Degrees of top and bottom'
       - 'Bottom bigger: <span>\( y=0 \)</span>. Equal: <span>\( y= \)</span> the ratio of the leading coefficients. Top bigger: none.'
       - 'Leading coefficients include the numbers in front. With degree 2 over degree 2 and a <span>\( \tfrac{4}{3} \)</span> in front, the asymptote is <span>\( y=\tfrac{4}{3} \)</span>.'
-  note: 'The domain is every real number except the <span>\( x \)</span>-values that make the original bottom 0: the hole and the vertical asymptote. To sketch, draw the asymptotes as dashed lines, plot the intercepts, mark the hole with an open circle, and connect, staying close to the asymptotes. The range is easiest to read from your finished sketch: watch for y-values the graph skips, like the horizontal asymptote''s value or the hole''s height. Your CheckIt function will have different numbers. Sorting the factors is what transfers.'
+  note: 'The domain is every real number except the <span>\( x \)</span>-values that make the original bottom 0: the hole and the vertical asymptote. To sketch, draw the asymptotes as dashed lines, plot the intercepts, mark the hole with an open circle, and connect, staying close to the asymptotes. The range is easiest to read from your finished sketch: watch for y-values the graph skips, like the horizontal asymptote A hole''s height or an asymptote''s height is missing from the range only if no other input reaches it: check, since a graph can cross its horizontal asymptote.''s value or the hole''s height. Your CheckIt function will have different numbers. Sorting the factors is what transfers.'
 tabs:
   - id: factors
     label: "Try It: Read the Factors"

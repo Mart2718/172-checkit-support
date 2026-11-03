@@ -46,3 +46,6 @@ TBIL's PR5 generator checks out. Each problem has two polynomials. Each is (x �
 ## Update 2026-10-30: graph descriptions that gave answers away
 - Candidates 3: its description gave approximate crossings with "about" but the candidate crossings exactly, which pointed to the answer. It now sits in a closed "Text description of the graph" disclosure. Canvas quiz regenerated.
 - Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: Candidates 2 asks which value is not on the Rational Zero Theorem list; Candidates 3 confirms the irrational zeros algebraically (x² + 6x + 4, zeros −3 ± √5) instead of from the graph alone; the summary explains the number in front when a fractional zero becomes a factor like (5x + 4).

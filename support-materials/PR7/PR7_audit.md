@@ -55,3 +55,6 @@ Each function has one hole and one vertical asymptote.
 ## Update 2026-10-30: graph descriptions that gave answers away
 - Read the Graph (the hole-and-asymptote list): its description lined up with the keyed list ("no other dashed lines", the open circle at x = 1). It now sits in a closed "Text description of the graph" disclosure. Canvas quiz regenerated.
 - Found in a sweep of every graph description after the FN3 audit, with an independent second opinion.
+
+## Dr. Romero's math review (2026-11-03)
+An outside AI math check found no wrong keys. Applied, keeping CheckIt's conventions: the summary covers repeated factors (a hole only if the cancelled form has a finite value there), zeros that must lie in the original domain, and checking whether a hole's or asymptote's height is really missing from the range.
