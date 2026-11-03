@@ -41,7 +41,7 @@ summary:   # the Quick Summary tab
       - 'Do not use <span>\( \pi r^{2} \)</span>: that is area, not length.'
     -
       - 'CheckIt''s angles'
-      - 'Fractions of a full turn with denominators 2, 3, 4, 5, 6, 8 or 9, such as <span>\( 72^\circ=\tfrac{2\pi}{5} \)</span> and <span>\( 40^\circ=\tfrac{2\pi}{9} \)</span>.'
+      - 'Fractions of a full turn with denominators 2, 3, 4, 5, 6, 8 or 9, such as <span>\( 120^\circ=\tfrac{2\pi}{3} \)</span> and <span>\( 280^\circ=\tfrac{14\pi}{9} \)</span>. They are all multiples of 40°, 45°, 60° or 72°.'
       - 'Not all are special angles, so convert with <span>\( \tfrac{\pi}{180} \)</span> rather than from memory. Keep <span>\( \pi \)</span> in exact answers.'
   note: 'Check a coterminal angle by adding or subtracting 360° (or <span>\( 2\pi \)</span>) until you get back to the original. Any correct pair counts, not only the one in the answer key. When the angle is in degrees, CheckIt''s key can show a negative angle that is not coterminal, so trust your check. Your CheckIt angles will be different. Whole turns and fractions of a turn are what transfer.'
 tabs:
@@ -68,7 +68,7 @@ tabs:
           - {value: d, label: "315° and −135°"}
         correct: a
         explanation: |-
-          Add a full turn: \( 135^\circ+360^\circ=495^\circ \). Subtract a full turn: \( 135^\circ-360^\circ=-225^\circ \). Both end on the same terminal side as 135°. 315° adds only 180°, a half turn, which points the opposite way; \( -135^\circ \) negates the angle, which reflects it across the \( x \)-axis instead of ending in the same place; so 495° with \( -135^\circ \) and 315° with \( -225^\circ \) each have one slip, and 315° with \( -135^\circ \) has both. <strong>495° and −225°.</strong>
+          Add a full turn: \( 135^\circ+360^\circ=495^\circ \). Subtract a full turn: \( 135^\circ-360^\circ=-225^\circ \). Both end on the same terminal side as 135°. 315° adds only 180°, a half turn, which points the opposite way; \( -135^\circ \) negates the angle, which is not \( 135^\circ-360^\circ \); so 495° with \( -135^\circ \) and 315° with \( -225^\circ \) each have one slip, and 315° with \( -135^\circ \) has both. <strong>495° and −225°.</strong>
       - id: c2
         title: "In Radians"
         math:
@@ -100,17 +100,17 @@ tabs:
       - id: c4
         title: "A Negative One"
         math:
-          display: '\dfrac{7\pi}{4}'
-          speak: "the fraction 7 pi, over 4, end fraction"
+          display: '\dfrac{3\pi}{2}'
+          speak: "the fraction 3 pi, over 2, end fraction"
         prompt: 'Which is a negative angle coterminal with this angle?'
         choices:
-          - {value: a, label: '\( -\dfrac{\pi}{4} \)', speak: "negative the fraction pi, over 4, end fraction"}
-          - {value: b, label: '\( -\dfrac{7\pi}{4} \)', speak: "negative the fraction 7 pi, over 4, end fraction"}
-          - {value: c, label: '\( \dfrac{3\pi}{4} \)', speak: "the fraction 3 pi, over 4, end fraction"}
-          - {value: d, label: '\( \dfrac{15\pi}{4} \)', speak: "the fraction 15 pi, over 4, end fraction"}
+          - {value: a, label: '\( -\dfrac{\pi}{2} \)', speak: "negative the fraction pi, over 2, end fraction"}
+          - {value: b, label: '\( -\dfrac{3\pi}{2} \)', speak: "negative the fraction 3 pi, over 2, end fraction"}
+          - {value: c, label: '\( -\dfrac{7\pi}{2} \)', speak: "negative the fraction 7 pi, over 2, end fraction"}
+          - {value: d, label: '\( -2\pi \)', speak: "negative 2 pi"}
         correct: a
         explanation: |-
-          \( 2\pi=\tfrac{8\pi}{4} \), so \( \tfrac{7\pi}{4}-\tfrac{8\pi}{4}=-\tfrac{\pi}{4} \). That makes sense: \( \tfrac{7\pi}{4} \) is \( \tfrac{\pi}{4} \) short of a full turn, so turning \( \tfrac{\pi}{4} \) clockwise lands in the same place. \( -\tfrac{7\pi}{4} \) negates the angle, which ends in Quadrant I; \( \tfrac{3\pi}{4} \) subtracts \( \pi=\tfrac{4\pi}{4} \), a half turn, and is not negative; and \( \tfrac{15\pi}{4} \) is coterminal but positive, from adding \( 2\pi \). <strong>\( -\dfrac{\pi}{4} \).</strong>
+          \( 2\pi=\tfrac{4\pi}{2} \), so \( \tfrac{3\pi}{2}-\tfrac{4\pi}{2}=-\tfrac{\pi}{2} \). That makes sense: \( \tfrac{3\pi}{2} \) points straight down, and so does a quarter turn clockwise. \( -\tfrac{3\pi}{2} \) negates the angle, which points straight up; \( -\tfrac{7\pi}{2} \) negates the positive coterminal angle \( \tfrac{7\pi}{2} \) instead of subtracting, and it points straight up too; and \( -2\pi \) is the full turn by itself, which points along the positive \( x \)-axis. <strong>\( -\dfrac{\pi}{2} \).</strong>
   - id: arc
     label: "Try It: Arc Length"
     heading: "Try It: Arc Length"
@@ -121,20 +121,20 @@ tabs:
         title: "Radius 6"
         figure:
           file: figures/TR2/a1.svg
-          title: "A circle with a central angle of 5π/6 and its arc"
-          caption: 'A circle with two radii, one labeled 6, forming a central angle labeled 5π/6 at the center. The arc between the ends of the radii, across the top of the circle, is highlighted and labeled s.'
+          title: "A circle with a central angle of 3π/4 and its arc"
+          caption: 'A circle with two radii, one labeled 6, forming a central angle labeled 3π/4 at the center. The arc between the ends of the radii, across the top of the circle, is highlighted and labeled s.'
         math:
-          display: 'r=6,\quad \theta=\dfrac{5\pi}{6}'
-          speak: "r equals 6, theta equals the fraction 5 pi, over 6, end fraction"
+          display: 'r=6,\quad \theta=\dfrac{3\pi}{4}'
+          speak: "r equals 6, theta equals the fraction 3 pi, over 4, end fraction"
         prompt: 'What is the length of the arc cut off by this angle?'
         choices:
-          - {value: a, label: '\( 10\pi \)', speak: "10 pi"}
-          - {value: b, label: '\( 5\pi \)', speak: "5 pi"}
-          - {value: c, label: '\( \dfrac{5\pi}{36} \)', speak: "the fraction 5 pi, over 36, end fraction"}
-          - {value: d, label: '\( 900 \)', speak: "900"}
+          - {value: a, label: '\( 9\pi \)', speak: "9 pi"}
+          - {value: b, label: '\( \dfrac{9\pi}{2} \)', speak: "the fraction 9 pi, over 2, end fraction"}
+          - {value: c, label: '\( 810 \)', speak: "810"}
+          - {value: d, label: '\( 1620 \)', speak: "1620"}
         correct: b
         explanation: |-
-          The angle is already in radians, so \( s=r\theta=6\cdot\tfrac{5\pi}{6}=5\pi \), about 15.7 units. A check: \( \tfrac{5\pi}{6} \) is \( \tfrac{5}{12} \) of a full turn, and \( \tfrac{5}{12} \) of the circumference \( 12\pi \) is \( 5\pi \). \( 10\pi \) uses the diameter, 12, instead of the radius; \( \tfrac{5\pi}{36} \) divides by the radius instead of multiplying; and 900 multiplies 6 by 150°, the angle in degrees. <strong>\( 5\pi \).</strong>
+          The angle is already in radians, so \( s=r\theta=6\cdot\tfrac{3\pi}{4}=\tfrac{18\pi}{4}=\tfrac{9\pi}{2} \), about 14.1 units. A check: \( \tfrac{3\pi}{4} \) is \( \tfrac{3}{8} \) of a full turn, and \( \tfrac{3}{8} \) of the circumference \( 12\pi \) is \( \tfrac{9\pi}{2} \). \( 9\pi \) uses the diameter, 12, instead of the radius; 810 multiplies 6 by 135°, the angle in degrees; and 1620 makes both slips. <strong>\( \dfrac{9\pi}{2} \).</strong>
       - id: a2
         title: "An Angle in Degrees"
         math:
@@ -144,11 +144,11 @@ tabs:
         choices:
           - {value: a, label: '\( 4\pi \)', speak: "4 pi"}
           - {value: b, label: '\( 720 \)', speak: "720"}
-          - {value: c, label: '\( 4 \)', speak: "4"}
+          - {value: c, label: '\( 1440 \)', speak: "1440"}
           - {value: d, label: '\( 8\pi \)', speak: "8 pi"}
         correct: a
         explanation: |-
-          Convert first: \( 80\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{9} \). Then \( s=9\cdot\tfrac{4\pi}{9}=4\pi \). 720 is \( 9\cdot80 \), with the angle still in degrees; 4 drops the \( \pi \) from \( \tfrac{4\pi}{9} \); and \( 8\pi \) uses the diameter, 18. <strong>\( 4\pi \).</strong>
+          Convert first: \( 80\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{9} \). Then \( s=9\cdot\tfrac{4\pi}{9}=4\pi \). 720 is \( 9\cdot80 \), with the angle still in degrees; \( 8\pi \) uses the diameter, 18; and 1440 is \( 18\cdot80 \), both slips. <strong>\( 4\pi \).</strong>
       - id: a3
         title: "Radius 14"
         math:
@@ -162,7 +162,7 @@ tabs:
           - {value: d, label: '\( \dfrac{112}{5} \)', speak: "the fraction 112, over 5, end fraction"}
         correct: c
         explanation: |-
-          \( 144\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{5} \), dividing by 36. Then \( s=14\cdot\tfrac{4\pi}{5}=\tfrac{56\pi}{5} \), about 35.2. \( \tfrac{112\pi}{5} \) uses the diameter, 28; \( \tfrac{56}{5} \) drops the \( \pi \); and \( \tfrac{112}{5} \) makes both slips. A fraction with \( \pi \) like this is normal for CheckIt. <strong>\( \dfrac{56\pi}{5} \).</strong>
+          \( 144\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{5} \), dividing by 36. Then \( s=14\cdot\tfrac{4\pi}{5}=\tfrac{56\pi}{5} \), about 35.2. \( \tfrac{112\pi}{5} \) uses the diameter, 28; \( \tfrac{56}{5} \) drops the \( \pi \); and \( \tfrac{112}{5} \) makes both slips. A fraction with \( \pi \) like this is normal for CheckIt, which prints it as \( \tfrac{56}{5}\pi \), the same number. <strong>\( \dfrac{56\pi}{5} \).</strong>
       - id: a4
         title: "Part of the Circle"
         math:
@@ -206,11 +206,11 @@ tabs:
         choices:
           - {value: a, label: "144°"}
           - {value: b, label: "72°"}
-          - {value: c, label: "about 0.07°"}
+          - {value: c, label: "about 0.02°"}
           - {value: d, label: "450°"}
         correct: b
         explanation: |-
-          \( \tfrac{2\pi}{5}\cdot\tfrac{180}{\pi}=\tfrac{360}{5}=72^\circ \), a fifth of a full turn. 144° uses \( \pi=360^\circ \); about 0.07° multiplies by \( \tfrac{\pi}{180} \) instead of \( \tfrac{180}{\pi} \); and 450° flips the fraction to \( \tfrac{5}{2}\cdot180 \). <strong>72°.</strong>
+          \( \tfrac{2\pi}{5}\cdot\tfrac{180}{\pi}=\tfrac{360}{5}=72^\circ \), a fifth of a full turn. 144° uses \( \pi=360^\circ \); about 0.02° multiplies by \( \tfrac{\pi}{180} \) instead of \( \tfrac{180}{\pi} \), giving \( \tfrac{2\pi^{2}}{900} \); and 450° flips the fraction to \( \tfrac{5}{2}\cdot180 \). <strong>72°.</strong>
       - id: v3
         title: "288 Degrees"
         math:
@@ -248,17 +248,17 @@ tabs:
       - id: sl1
         title: "Slip 1"
         math:
-          display: '\dfrac{5\pi}{6}:\quad \dfrac{17\pi}{6}\ \text{and}\ -\dfrac{5\pi}{6}'
-          speak: "For the fraction 5 pi, over 6, end fraction: the fraction 17 pi, over 6, end fraction, and negative the fraction 5 pi, over 6, end fraction"
-        prompt: 'A student found a positive and a negative angle coterminal with 5π/6. What is the mistake, if any?'
+          display: '\dfrac{14\pi}{9}:\quad \dfrac{32\pi}{9}\ \text{and}\ -\dfrac{14\pi}{9}'
+          speak: "For the fraction 14 pi, over 9, end fraction: the fraction 32 pi, over 9, end fraction, and negative the fraction 14 pi, over 9, end fraction"
+        prompt: 'A student found a positive and a negative angle coterminal with 14π/9. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "Subtract 2π for the negative one: −7π/6."}
-          - {value: c, label: "The positive one should be 11π/6, adding π."}
-          - {value: d, label: "Both should be negative: −5π/6 and −17π/6."}
+          - {value: b, label: "Subtract 2π for the negative one: −4π/9."}
+          - {value: c, label: "The positive one should be 23π/9, adding π."}
+          - {value: d, label: "Both should be negative: −14π/9 and −32π/9."}
         correct: b
         explanation: |-
-          \( \tfrac{5\pi}{6}+\tfrac{12\pi}{6}=\tfrac{17\pi}{6} \) is right. But \( -\tfrac{5\pi}{6} \) is the mirror image across the \( x \)-axis, in Quadrant III, not coterminal. Subtract a full turn: \( \tfrac{5\pi}{6}-\tfrac{12\pi}{6}=-\tfrac{7\pi}{6} \). Adding \( \pi \) is a half turn, which gives \( \tfrac{11\pi}{6} \), on the opposite side; and CheckIt asks for one positive and one negative angle, and \( -\tfrac{17\pi}{6} \) is not coterminal either. <strong>\( \dfrac{17\pi}{6} \) and \( -\dfrac{7\pi}{6} \).</strong>
+          \( 2\pi=\tfrac{18\pi}{9} \), and \( \tfrac{14\pi}{9}+\tfrac{18\pi}{9}=\tfrac{32\pi}{9} \) is right. But \( -\tfrac{14\pi}{9} \) just negates the angle, so it ends in Quadrant I instead of Quadrant IV. Subtract a full turn: \( \tfrac{14\pi}{9}-\tfrac{18\pi}{9}=-\tfrac{4\pi}{9} \). Adding \( \pi \) is a half turn, which gives \( \tfrac{23\pi}{9} \), on the opposite side; and CheckIt asks for one positive and one negative angle, and \( -\tfrac{32\pi}{9} \) is not coterminal either. <strong>\( \dfrac{32\pi}{9} \) and \( -\dfrac{4\pi}{9} \).</strong>
       - id: sl2
         title: "Slip 2"
         math:
@@ -290,28 +290,28 @@ tabs:
       - id: sl4
         title: "Slip 4"
         math:
-          display: 's=20\cdot\dfrac{\pi}{5}=4\pi'
-          speak: "s equals 20 times the fraction pi, over 5, end fraction, which equals 4 pi"
-        prompt: 'A student found the arc length for a circle of radius 10 and an angle of π/5. What is the mistake, if any?'
+          display: 's=14\cdot\dfrac{4\pi}{9}=\dfrac{56\pi}{9}'
+          speak: "s equals 14 times the fraction 4 pi, over 9, end fraction, which equals the fraction 56 pi, over 9, end fraction"
+        prompt: 'A student found the arc length for a circle of radius 7 and an angle of 4π/9. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "Convert π/5 to degrees first: s = 20(36) = 720."}
-          - {value: c, label: "The π should cancel, so s = 4."}
-          - {value: d, label: "Use the radius, not the diameter: s = 2π."}
+          - {value: b, label: "Convert 4π/9 to degrees first: s = 14(80) = 1,120."}
+          - {value: c, label: "The π should cancel, so s = 56/9."}
+          - {value: d, label: "Use the radius, not the diameter: s = 28π/9."}
         correct: d
         explanation: |-
-          The formula is \( s=r\theta \), with the radius 10: \( s=10\cdot\tfrac{\pi}{5}=2\pi \). The student used 20, the diameter, which doubles the arc. A check: \( \tfrac{\pi}{5} \) is \( \tfrac{1}{10} \) of a full turn, and \( \tfrac{1}{10} \) of the circumference \( 20\pi \) is \( 2\pi \). The angle must stay in radians, not degrees; and nothing cancels the \( \pi \), since the radius has none. <strong>\( 2\pi \).</strong>
+          The formula is \( s=r\theta \), with the radius 7: \( s=7\cdot\tfrac{4\pi}{9}=\tfrac{28\pi}{9} \). The student used 14, the diameter, which doubles the arc. A check: \( \tfrac{4\pi}{9} \) is \( \tfrac{2}{9} \) of a full turn, and \( \tfrac{2}{9} \) of the circumference \( 14\pi \) is \( \tfrac{28\pi}{9} \). The angle must stay in radians, not degrees; and nothing cancels the \( \pi \), since the radius has none. <strong>\( \dfrac{28\pi}{9} \).</strong>
       - id: sl5
         title: "Slip 5"
         math:
-          display: '\dfrac{7\pi}{9}=140^\circ,\quad s=3(140)=420'
-          speak: "the fraction 7 pi, over 9, end fraction, equals 140 degrees, so s equals 3 times 140, which equals 420"
-        prompt: 'A student found the arc length for a radius of 3 and an angle of 7π/9. What is the mistake, if any?'
+          display: '\dfrac{16\pi}{9}=320^\circ,\quad s=3(320)=960'
+          speak: "the fraction 16 pi, over 9, end fraction, equals 320 degrees, so s equals 3 times 320, which equals 960"
+        prompt: 'A student found the arc length for a radius of 3 and an angle of 16π/9. What is the mistake, if any?'
         choices:
           - {value: a, label: "There is no mistake."}
-          - {value: b, label: "Keep radians: s = 3(7π/9) = 7π/3."}
-          - {value: c, label: "140° is wrong, since 7π/9 is really 70°."}
-          - {value: d, label: "Use s = πr²θ for an arc: 63π²/9."}
+          - {value: b, label: "Keep radians: s = 3(16π/9) = 16π/3."}
+          - {value: c, label: "320° is wrong, since 16π/9 is really 160°."}
+          - {value: d, label: "Use s = πr²θ for an arc: 16π²."}
         correct: b
         explanation: |-
-          The conversion to 140° is right, but it was not needed: \( s=r\theta \) uses radians, and \( \tfrac{7\pi}{9} \) already is. So \( s=3\cdot\tfrac{7\pi}{9}=\tfrac{7\pi}{3} \), about 7.3. Each \( \tfrac{\pi}{9} \) is 20°, so \( \tfrac{7\pi}{9}=140^\circ \), not 70°; and \( \pi r^{2} \) is area, so it does not belong in a length. <strong>\( \dfrac{7\pi}{3} \).</strong>
+          The conversion to 320° is right, but it was not needed: \( s=r\theta \) uses radians, and \( \tfrac{16\pi}{9} \) already is. So \( s=3\cdot\tfrac{16\pi}{9}=\tfrac{16\pi}{3} \), about 16.8. The whole circle is only \( 6\pi\approx18.8 \) around, so 960 cannot be right. Each \( \tfrac{\pi}{9} \) is 20°, so \( \tfrac{16\pi}{9}=320^\circ \), not 160°; and \( \pi r^{2} \) is area, so it does not belong in a length. <strong>\( \dfrac{16\pi}{3} \).</strong>
