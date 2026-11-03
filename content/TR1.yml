@@ -25,7 +25,7 @@ summary:   # the Quick Summary tab
     -
       - 'The key fact'
       - '<span>\( 180^\circ=\pi \)</span> radians, so <span>\( 360^\circ=2\pi \)</span>.'
-      - 'Here <span>\( \pi \)</span> stands for half a turn. <span>\( \pi \)</span> radians is not <span>\( 3.14^\circ \)</span>.'
+      - 'Here <span>\( \pi \)</span> stands for half a turn. <span>\( \pi \)</span> radians is a half turn, not a number of degrees.'
     -
       - 'Degrees to radians'
       - 'Multiply by <span>\( \dfrac{\pi}{180} \)</span> and reduce: <span>\( 60^\circ\cdot\dfrac{\pi}{180}=\dfrac{\pi}{3} \)</span>.'
@@ -37,7 +37,7 @@ summary:   # the Quick Summary tab
     -
       - 'Standard position'
       - 'Vertex at the origin, initial side on the positive <span>\( x \)</span>-axis, and a counterclockwise turn for a positive angle.'
-      - 'CheckIt''s angles are all between <span>\( 0^\circ \)</span> and <span>\( 360^\circ \)</span>, so each is less than one full counterclockwise turn.'
+      - 'CheckIt''s angles are all between <span>\( 0^\circ \)</span> and <span>\( 360^\circ \)</span>, so each is less than one full counterclockwise turn. Its answer pictures show a small arc without an arrowhead.'
     -
       - 'Landmarks'
       - '<span>\( 90^\circ=\dfrac{\pi}{2} \)</span>, <span>\( 180^\circ=\pi \)</span>, <span>\( 270^\circ=\dfrac{3\pi}{2} \)</span>, <span>\( 360^\circ=2\pi \)</span>.'
@@ -61,13 +61,13 @@ tabs:
           speak: "150 degrees"
         prompt: 'What is this angle in radians?'
         choices:
-          - {value: a, label: '\( \dfrac{6\pi}{5} \)', speak: "the fraction 6 pi, over 5, end fraction"}
+          - {value: a, label: '\( \dfrac{\pi}{6} \)', speak: "the fraction pi, over 6, end fraction"}
           - {value: b, label: '\( \dfrac{5\pi}{6} \)', speak: "the fraction 5 pi, over 6, end fraction"}
-          - {value: c, label: '\( \dfrac{5}{6} \)', speak: "the fraction 5, over 6, end fraction"}
-          - {value: d, label: '\( \dfrac{6}{5} \)', speak: "the fraction 6, over 5, end fraction"}
+          - {value: c, label: '\( \dfrac{7\pi}{6} \)', speak: "the fraction 7 pi, over 6, end fraction"}
+          - {value: d, label: '\( \dfrac{5\pi}{3} \)', speak: "the fraction 5 pi, over 3, end fraction"}
         correct: b
         explanation: |-
-          \( 150^\circ\cdot\dfrac{\pi}{180}=\dfrac{150\pi}{180}=\dfrac{5\pi}{6} \), dividing top and bottom by 30. A check: 150° is a little less than 180°, and \( \tfrac{5}{6}\pi \) is a little less than \( \pi \). \( \tfrac{6\pi}{5} \) multiplies by \( \tfrac{180}{150} \), upside down, and is more than \( \pi \); \( \tfrac{5}{6} \) drops the \( \pi \), which is about 0.83 radians, less than a quarter turn; and \( \tfrac{6}{5} \) makes both slips. <strong>\( \dfrac{5\pi}{6} \).</strong>
+          \( 150^\circ\cdot\dfrac{\pi}{180}=\dfrac{150\pi}{180}=\dfrac{5\pi}{6} \), dividing top and bottom by 30. A check: 150° is a little less than 180°, and \( \tfrac{5}{6}\pi \) is a little less than \( \pi \). \( \tfrac{\pi}{6} \) is 30°, the reference angle, not the angle itself; \( \tfrac{7\pi}{6} \) is 210°, the mirror image of 150° across the \( x \)-axis; and \( \tfrac{5\pi}{3} \) divides by 90 instead of 180, as if \( \pi \) were a quarter turn. <strong>\( \dfrac{5\pi}{6} \).</strong>
       - id: d2
         title: "225 Degrees"
         math:
@@ -76,26 +76,26 @@ tabs:
         prompt: 'What is this angle in radians?'
         choices:
           - {value: a, label: '\( \dfrac{5\pi}{4} \)', speak: "the fraction 5 pi, over 4, end fraction"}
-          - {value: b, label: '\( \dfrac{5\pi}{8} \)', speak: "the fraction 5 pi, over 8, end fraction"}
-          - {value: c, label: '\( \dfrac{4\pi}{5} \)', speak: "the fraction 4 pi, over 5, end fraction"}
-          - {value: d, label: '\( \dfrac{8\pi}{5} \)', speak: "the fraction 8 pi, over 5, end fraction"}
+          - {value: b, label: '\( \dfrac{\pi}{4} \)', speak: "the fraction pi, over 4, end fraction"}
+          - {value: c, label: '\( \dfrac{3\pi}{4} \)', speak: "the fraction 3 pi, over 4, end fraction"}
+          - {value: d, label: '\( \dfrac{7\pi}{4} \)', speak: "the fraction 7 pi, over 4, end fraction"}
         correct: a
         explanation: |-
-          \( 225\cdot\dfrac{\pi}{180}=\dfrac{225\pi}{180}=\dfrac{5\pi}{4} \), dividing by 45. 225° is 45° past 180°, and \( \tfrac{5\pi}{4} \) is \( \tfrac{\pi}{4} \) past \( \pi \). \( \tfrac{5\pi}{8} \) divides by 360 instead of 180; \( \tfrac{4\pi}{5} \) flips the fraction; and \( \tfrac{8\pi}{5} \) makes both slips. <strong>\( \dfrac{5\pi}{4} \).</strong>
+          \( 225\cdot\dfrac{\pi}{180}=\dfrac{225\pi}{180}=\dfrac{5\pi}{4} \), dividing by 45. 225° is 45° past 180°, and \( \tfrac{5\pi}{4} \) is \( \tfrac{\pi}{4} \) past \( \pi \). \( \tfrac{\pi}{4} \) is 45°, the reference angle; \( \tfrac{3\pi}{4} \) is 135°, the mirror image across the \( x \)-axis, in Quadrant II; and \( \tfrac{7\pi}{4} \) is 315°, the mirror image across the \( y \)-axis, in Quadrant IV. <strong>\( \dfrac{5\pi}{4} \).</strong>
       - id: d3
-        title: "270 Degrees"
+        title: "45 Degrees"
         math:
-          display: '270^\circ'
-          speak: "270 degrees"
+          display: '45^\circ'
+          speak: "45 degrees"
         prompt: 'What is this angle in radians?'
         choices:
-          - {value: a, label: '\( \dfrac{2\pi}{3} \)', speak: "the fraction 2 pi, over 3, end fraction"}
+          - {value: a, label: '\( \dfrac{\pi}{2} \)', speak: "the fraction pi, over 2, end fraction"}
           - {value: b, label: '\( \dfrac{3\pi}{4} \)', speak: "the fraction 3 pi, over 4, end fraction"}
-          - {value: c, label: '\( \dfrac{4\pi}{3} \)', speak: "the fraction 4 pi, over 3, end fraction"}
-          - {value: d, label: '\( \dfrac{3\pi}{2} \)', speak: "the fraction 3 pi, over 2, end fraction"}
+          - {value: c, label: '\( \dfrac{7\pi}{4} \)', speak: "the fraction 7 pi, over 4, end fraction"}
+          - {value: d, label: '\( \dfrac{\pi}{4} \)', speak: "the fraction pi, over 4, end fraction"}
         correct: d
         explanation: |-
-          \( 270\cdot\dfrac{\pi}{180}=\dfrac{3\pi}{2} \), dividing by 90. It is a landmark: three quarter turns, pointing straight down. \( \tfrac{2\pi}{3} \) flips the fraction; \( \tfrac{3\pi}{4} \) divides by 360 instead of 180; and \( \tfrac{4\pi}{3} \) makes both slips. <strong>\( \dfrac{3\pi}{2} \).</strong>
+          \( 45\cdot\dfrac{\pi}{180}=\dfrac{45\pi}{180}=\dfrac{\pi}{4} \), dividing by 45: an eighth of a full turn. \( \tfrac{\pi}{2} \) divides by 90 instead of 180, as if \( \pi \) were a quarter turn; \( \tfrac{3\pi}{4} \) is \( 180^\circ-45^\circ \), the mirror image in Quadrant II; and \( \tfrac{7\pi}{4} \) is \( 360^\circ-45^\circ \), the same 45° measured clockwise. <strong>\( \dfrac{\pi}{4} \).</strong>
       - id: d4
         title: "330 Degrees"
         math:
@@ -103,13 +103,13 @@ tabs:
           speak: "330 degrees"
         prompt: 'What is this angle in radians?'
         choices:
-          - {value: a, label: '\( \dfrac{11\pi}{12} \)', speak: "the fraction 11 pi, over 12, end fraction"}
+          - {value: a, label: '\( \dfrac{\pi}{6} \)', speak: "the fraction pi, over 6, end fraction"}
           - {value: b, label: '\( \dfrac{11\pi}{6} \)', speak: "the fraction 11 pi, over 6, end fraction"}
-          - {value: c, label: '\( \dfrac{6\pi}{11} \)', speak: "the fraction 6 pi, over 11, end fraction"}
-          - {value: d, label: '\( \dfrac{12\pi}{11} \)', speak: "the fraction 12 pi, over 11, end fraction"}
+          - {value: c, label: '\( \dfrac{7\pi}{6} \)', speak: "the fraction 7 pi, over 6, end fraction"}
+          - {value: d, label: '\( \dfrac{5\pi}{6} \)', speak: "the fraction 5 pi, over 6, end fraction"}
         correct: b
         explanation: |-
-          \( 330\cdot\dfrac{\pi}{180}=\dfrac{330\pi}{180}=\dfrac{11\pi}{6} \), dividing by 30. 330° is 30° short of a full turn, and \( \tfrac{11\pi}{6} \) is \( \tfrac{\pi}{6} \) short of \( 2\pi \). \( \tfrac{11\pi}{12} \) divides by 360 instead of 180; \( \tfrac{6\pi}{11} \) flips the fraction; and \( \tfrac{12\pi}{11} \) makes both slips. <strong>\( \dfrac{11\pi}{6} \).</strong>
+          \( 330\cdot\dfrac{\pi}{180}=\dfrac{330\pi}{180}=\dfrac{11\pi}{6} \), dividing by 30. 330° is 30° short of a full turn, and \( \tfrac{11\pi}{6} \) is \( \tfrac{\pi}{6} \) short of \( 2\pi \). \( \tfrac{\pi}{6} \) is 30°, the reference angle; \( \tfrac{7\pi}{6} \) is 210°, the mirror image across the \( y \)-axis; and \( \tfrac{5\pi}{6} \) is 150°, pointing the opposite way, half a turn from 330°. <strong>\( \dfrac{11\pi}{6} \).</strong>
   - id: todegrees
     label: "Try It: Radians to Degrees"
     heading: "Try It: Radians to Degrees"
@@ -123,13 +123,13 @@ tabs:
           speak: "the fraction 2 pi, over 3, end fraction"
         prompt: 'What is this angle in degrees?'
         choices:
-          - {value: a, label: "240°"}
-          - {value: b, label: "270°"}
+          - {value: a, label: "60°"}
+          - {value: b, label: "300°"}
           - {value: c, label: "120°"}
-          - {value: d, label: "about 0.04°"}
+          - {value: d, label: "270°"}
         correct: c
         explanation: |-
-          \( \dfrac{2\pi}{3}\cdot\dfrac{180}{\pi}=\dfrac{360}{3}=120^\circ \). Two thirds of a half turn is 120°. 240° uses \( \pi=360^\circ \), a full turn instead of a half; 270° flips the fraction to \( \tfrac{3}{2}\cdot180 \); and about 0.04° multiplies by \( \tfrac{\pi}{180} \) instead of \( \tfrac{180}{\pi} \), which gives \( \tfrac{2\pi^{2}}{540} \). <strong>120°.</strong>
+          \( \dfrac{2\pi}{3}\cdot\dfrac{180}{\pi}=\dfrac{360}{3}=120^\circ \). Two thirds of a half turn is 120°. 60° is the reference angle, the distance to the \( x \)-axis; 300° is \( 360^\circ-60^\circ \), the mirror image across the \( x \)-axis, in Quadrant IV; and 270° flips the fraction to \( \tfrac{3}{2}\cdot180 \). <strong>120°.</strong>
       - id: r2
         title: "Seven Fourths of Pi"
         math:
@@ -138,26 +138,26 @@ tabs:
         prompt: 'What is this angle in degrees?'
         choices:
           - {value: a, label: "315°"}
-          - {value: b, label: "630°"}
-          - {value: c, label: "about 0.1°"}
-          - {value: d, label: "about 102.9°"}
+          - {value: b, label: "45°"}
+          - {value: c, label: "225°"}
+          - {value: d, label: "135°"}
         correct: a
         explanation: |-
-          \( \dfrac{7\pi}{4}\cdot\dfrac{180}{\pi}=7\cdot45=315^\circ \). Each \( \tfrac{\pi}{4} \) is 45°, and there are 7 of them. 630° uses \( \pi=360^\circ \); about 0.1° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{7\pi^{2}}{720} \); and about 102.9° flips the fraction to \( \tfrac{4}{7}\cdot180 \). <strong>315°.</strong>
+          \( \dfrac{7\pi}{4}\cdot\dfrac{180}{\pi}=7\cdot45=315^\circ \). Each \( \tfrac{\pi}{4} \) is 45°, and there are 7 of them. 45° is the reference angle; 225° is the mirror image across the \( y \)-axis, in Quadrant III; and 135° is the mirror image across the origin, in Quadrant II, half a turn away. <strong>315°.</strong>
       - id: r3
-        title: "Pi"
+        title: "A Third of Pi"
         math:
-          display: '\pi'
-          speak: "pi"
-        prompt: 'CheckIt writes this angle as π. What is it in degrees?'
+          display: '\dfrac{\pi}{3}'
+          speak: "the fraction pi, over 3, end fraction"
+        prompt: 'What is this angle in degrees?'
         choices:
-          - {value: a, label: "360°"}
-          - {value: b, label: "180°"}
-          - {value: c, label: "about 0.05°"}
-          - {value: d, label: "about 3.14°"}
+          - {value: a, label: "120°"}
+          - {value: b, label: "60°"}
+          - {value: c, label: "about 1.05°"}
+          - {value: d, label: "300°"}
         correct: b
         explanation: |-
-          \( \pi \) radians is a half turn: \( \pi\cdot\dfrac{180}{\pi}=180^\circ \). 360° is a full turn, \( 2\pi \); about 0.05° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{\pi^{2}}{180} \); and about 3.14° writes the number \( \pi \) with a degree sign, but \( \pi \) radians is not \( \pi \) degrees. <strong>180°.</strong>
+          \( \dfrac{\pi}{3}\cdot\dfrac{180}{\pi}=60^\circ \), a third of a half turn. 120° takes \( \pi \) as 360°, a full turn instead of a half; about 1.05° writes the number \( \tfrac{\pi}{3}\approx1.05 \) with a degree sign, but that is the angle in radians, not degrees; and 300° is \( 360^\circ-60^\circ \), the same size measured clockwise. <strong>60°.</strong>
       - id: r4
         title: "Seven Sixths of Pi"
         math:
@@ -165,13 +165,13 @@ tabs:
           speak: "the fraction 7 pi, over 6, end fraction"
         prompt: 'What is this angle in degrees?'
         choices:
-          - {value: a, label: "105°"}
-          - {value: b, label: "about 0.06°"}
+          - {value: a, label: "30°"}
+          - {value: b, label: "150°"}
           - {value: c, label: "210°"}
-          - {value: d, label: "about 154.3°"}
+          - {value: d, label: "330°"}
         correct: c
         explanation: |-
-          \( \dfrac{7\pi}{6}\cdot\dfrac{180}{\pi}=7\cdot30=210^\circ \). Each \( \tfrac{\pi}{6} \) is 30°. 105° uses \( \pi=90^\circ \), a quarter turn instead of a half; about 0.06° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{7\pi^{2}}{1080} \); and about 154.3° flips the fraction to \( \tfrac{6}{7}\cdot180 \). <strong>210°.</strong>
+          \( \dfrac{7\pi}{6}\cdot\dfrac{180}{\pi}=7\cdot30=210^\circ \). Each \( \tfrac{\pi}{6} \) is 30°. 30° is the reference angle; 150° is the mirror image across the \( x \)-axis, in Quadrant II; and 330° is \( 360^\circ-30^\circ \), in Quadrant IV. <strong>210°.</strong>
   - id: position
     label: "Try It: Standard Position"
     heading: "Try It: Standard Position"
@@ -193,7 +193,7 @@ tabs:
           - {value: d, label: '\( \dfrac{7\pi}{6} \)', speak: "the fraction 7 pi, over 6, end fraction"}
         correct: c
         explanation: |-
-          The arc passes the negative \( x \)-axis (180°) and goes 2 guide lines farther, \( 180^\circ+60^\circ=240^\circ \). In radians, \( 240\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{3} \). \( \tfrac{2\pi}{3} \) is 120°, the mirror image across the \( x \)-axis, above it instead of below; \( \tfrac{5\pi}{3} \) is 300°, the mirror image across the \( y \)-axis; and \( \tfrac{7\pi}{6} \) is 210°, one guide line short. <strong>\( \dfrac{4\pi}{3} \).</strong>
+          The arc passes the negative \( x \)-axis (180°) and goes 2 guide lines farther, \( 180^\circ+60^\circ=240^\circ \). In radians, \( 240\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{3} \). \( \tfrac{2\pi}{3} \) is 120°, the mirror image across the \( x \)-axis, above it instead of below; \( \tfrac{5\pi}{3} \) is the mirror image across the \( y \)-axis; and \( \tfrac{7\pi}{6} \) is 210°, one guide line short. <strong>\( \dfrac{4\pi}{3} \).</strong>
       - id: s2
         title: "Which Quadrant"
         math:
@@ -211,17 +211,17 @@ tabs:
       - id: s3
         title: "On an Axis"
         math:
-          display: '270^\circ'
-          speak: "270 degrees"
-        prompt: 'Where is the terminal side of this angle in standard position?'
+          display: '\pi'
+          speak: "pi"
+        prompt: 'CheckIt writes this angle as π. Where is its terminal side in standard position?'
         choices:
           - {value: a, label: "Along the positive y-axis"}
-          - {value: b, label: "Along the negative y-axis"}
-          - {value: c, label: "Along the negative x-axis"}
-          - {value: d, label: "Inside the third quadrant"}
+          - {value: b, label: "Along the negative x-axis"}
+          - {value: c, label: "Along the negative y-axis"}
+          - {value: d, label: "Inside the second quadrant"}
         correct: b
         explanation: |-
-          Counterclockwise from the positive \( x \)-axis: 90° points up, 180° points left, and 270° points down. So the terminal side lies along the negative \( y \)-axis. An angle on an axis is in no quadrant. The positive \( y \)-axis is 90°; the negative \( x \)-axis is 180°; and the third quadrant is strictly between 180° and 270°. <strong>Along the negative \( y \)-axis.</strong>
+          \( \pi \) radians is a half turn, 180°. Counterclockwise from the positive \( x \)-axis, a half turn points left, along the negative \( x \)-axis. An angle on an axis is in no quadrant. The positive \( y \)-axis is a quarter turn, \( \tfrac{\pi}{2} \); the negative \( y \)-axis is three quarter turns, \( \tfrac{3\pi}{2} \); and the second quadrant is strictly between \( \tfrac{\pi}{2} \) and \( \pi \). <strong>Along the negative \( x \)-axis.</strong>
       - id: s4
         title: "Describe the Turn"
         math:
@@ -230,12 +230,12 @@ tabs:
         prompt: 'Which describes how to draw this angle in standard position?'
         choices:
           - {value: a, label: "Turn clockwise 300° from the positive x-axis"}
-          - {value: b, label: "Turn counterclockwise 5/3 of a full turn"}
+          - {value: b, label: "Turn counterclockwise 150° from the positive x-axis"}
           - {value: c, label: "Turn counterclockwise 300° from the positive x-axis"}
-          - {value: d, label: "Turn counterclockwise 300° from the positive y-axis"}
+          - {value: d, label: "Turn clockwise 150° from the positive y-axis"}
         correct: c
         explanation: |-
-          \( \tfrac{5\pi}{3}\cdot\tfrac{180}{\pi}=300^\circ \). A positive angle in standard position starts on the positive \( x \)-axis and turns counterclockwise, so turn 300° counterclockwise, ending in Quadrant IV. Turning clockwise 300° would be the angle \( -\tfrac{5\pi}{3} \); \( \tfrac{5\pi}{3} \) is \( \tfrac{5}{6} \) of a full turn, \( 2\pi \), not \( \tfrac{5}{3} \) of one; and standard position always starts on the positive \( x \)-axis, not the \( y \)-axis. <strong>Turn counterclockwise 300° from the positive \( x \)-axis.</strong>
+          \( \tfrac{5\pi}{3}\cdot\tfrac{180}{\pi}=300^\circ \). A positive angle in standard position starts on the positive \( x \)-axis and turns counterclockwise, so turn 300° counterclockwise, ending in Quadrant IV. Turning clockwise 300° would be the angle \( -\tfrac{5\pi}{3} \); 150° takes \( \pi \) as 90°, \( \tfrac{5}{3}\cdot90 \); and clockwise 150° from the positive \( y \)-axis makes three slips: the direction, the size, and starting from the \( y \)-axis instead of the positive \( x \)-axis. <strong>Turn counterclockwise 300° from the positive \( x \)-axis.</strong>
   - id: slip
     label: "Try It: Spot the Slip"
     heading: "Try It: Spot the Slip"
@@ -255,7 +255,7 @@ tabs:
           - {value: d, label: "Use π = 3.14 first: 240 × 3.14 = 753.6."}
         correct: b
         explanation: |-
-          To go to radians, the degrees must cancel, so multiply by \( \tfrac{\pi}{180} \): \( \tfrac{240\pi}{180}=\tfrac{4\pi}{3} \). The student's \( \tfrac{43200}{\pi}\approx13{,}751 \) radians would be over 2,000 full turns. Dividing by 360 gives \( \tfrac{2}{3} \), the fraction of a full turn, not the angle in radians; and using \( \pi=3.14 \) first, \( 240\times3.14 \), is not the conversion at all. <strong>\( \dfrac{4\pi}{3} \).</strong>
+          To go to radians, the degrees must cancel, so multiply by \( \tfrac{\pi}{180} \): \( \tfrac{240\pi}{180}=\tfrac{4\pi}{3} \). The student's \( \tfrac{43200}{\pi}\approx13{,}751 \) radians would be over 2,000 full turns. Dividing by 360 gives \( \tfrac{2}{3} \), the fraction of a full turn, not the angle in radians; and \( 240\times3.14 \) substitutes 3.14 for \( \pi \) and never divides by 180. <strong>\( \dfrac{4\pi}{3} \).</strong>
       - id: sl2
         title: "Slip 2"
         math:
