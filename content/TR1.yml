@@ -1,0 +1,318 @@
+# TR1 content file. Edit the wording here; the shared template adds the layout and the accessibility markup.
+# Fields marked (HTML) may use <strong>, <em> and math in backslash-paren ( ... ) or backslash-bracket [ ... ] delimiters.
+# Every choice that contains math written in backslash-paren delimiters needs a "speak" line: the plain-words reading that screen readers announce.
+# CheckIt TR1 picks two different special angles strictly between 0 and 360 degrees that are multiples of 30 or 45 degrees
+# (30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330). One is given in degrees and the other in radians
+# (written like 5pi/6, or pi for 180). For each, students draw the angle in standard position and convert it to the other unit.
+# No negative angles and no angles of a full turn or more.
+# Figures drawn by tools/figures/make_tr1.py.
+code: TR1
+h1: "TR1 Support: Degrees, Radians and Standard Position"
+pageTitle: "TR1 Support: Degrees, Radians and Standard Position — Math 172, Santa Ana College"
+hubSummary: "Converting between degrees and radians, and drawing angles in standard position"
+videoIntro: "A narrated walkthrough of angle measure: why 180 degrees equals pi radians, converting in both directions, and drawing an angle in standard position."
+# Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
+banPhrases: 'no mistake|the answer|quadrant (i|ii|iii|iv)\b'
+worked:   # used for the worked-examples recording document
+  title: "TR1 Worked Examples: Degrees, Radians and Standard Position"
+  coreQuestion: "How much of a half turn is this angle?"
+  coreFollowup: "A half turn is 180 degrees and also π radians, so 180° = π. To go from degrees to radians, multiply by π/180; from radians to degrees, multiply by 180/π. To draw an angle in standard position, put its vertex at the origin, start on the positive x-axis, and turn counterclockwise for a positive angle."
+summary:   # the Quick Summary tab
+  intro: 'Degrees and radians measure the same turns. Everything comes from one fact: <strong>a half turn is <span>\( 180^\circ \)</span>, and it is also <span>\( \pi \)</span> radians.</strong>'
+  caption: "Summary: Degrees, Radians and Standard Position"
+  columns: ["Task", "How to do it", "What to watch for"]
+  rows:     # first cell of each row is the row header
+    -
+      - 'The key fact'
+      - '<span>\( 180^\circ=\pi \)</span> radians, so <span>\( 360^\circ=2\pi \)</span>.'
+      - 'Here <span>\( \pi \)</span> stands for half a turn. <span>\( \pi \)</span> radians is not <span>\( 3.14^\circ \)</span>.'
+    -
+      - 'Degrees to radians'
+      - 'Multiply by <span>\( \dfrac{\pi}{180} \)</span> and reduce: <span>\( 60^\circ\cdot\dfrac{\pi}{180}=\dfrac{\pi}{3} \)</span>.'
+      - 'Keep the <span>\( \pi \)</span> in the answer, and divide by 180, not 360.'
+    -
+      - 'Radians to degrees'
+      - 'Multiply by <span>\( \dfrac{180}{\pi} \)</span>: <span>\( \dfrac{\pi}{6}\cdot\dfrac{180}{\pi}=30^\circ \)</span>.'
+      - 'The <span>\( \pi \)</span> cancels, so the answer in degrees has no <span>\( \pi \)</span>. Multiplying by <span>\( \tfrac{\pi}{180} \)</span> here gives a tiny wrong answer.'
+    -
+      - 'Standard position'
+      - 'Vertex at the origin, initial side on the positive <span>\( x \)</span>-axis, and a counterclockwise turn for a positive angle.'
+      - 'CheckIt''s angles are all between <span>\( 0^\circ \)</span> and <span>\( 360^\circ \)</span>, so each is less than one full counterclockwise turn.'
+    -
+      - 'Landmarks'
+      - '<span>\( 90^\circ=\dfrac{\pi}{2} \)</span>, <span>\( 180^\circ=\pi \)</span>, <span>\( 270^\circ=\dfrac{3\pi}{2} \)</span>, <span>\( 360^\circ=2\pi \)</span>.'
+      - 'Compare an angle with these to find where its terminal side lands before you draw it.'
+  note: 'CheckIt uses the special angles: multiples of <span>\( 30^\circ=\tfrac{\pi}{6} \)</span> and <span>\( 45^\circ=\tfrac{\pi}{4} \)</span>. Knowing those two well makes every conversion quick. Your CheckIt angles will be different. The half-turn fact is what transfers.'
+tabs:
+  - id: toradians
+    label: "Try It: Degrees to Radians"
+    heading: "Try It: Degrees to Radians"
+    intro: |-
+      Multiply by π/180 and reduce. Make your best guess on each one, then check it.
+    items:
+      - id: d1
+        title: "150 Degrees"
+        figure:
+          file: figures/TR1/d1.svg
+          title: "An angle of 150 degrees in standard position"
+          caption: 'An angle in standard position: the initial side lies on the positive x-axis, and an arc labeled 150° turns counterclockwise to the terminal side, which points up and to the left, 30° short of the negative x-axis.'
+        math:
+          display: '150^\circ'
+          speak: "150 degrees"
+        prompt: 'What is this angle in radians?'
+        choices:
+          - {value: a, label: '\( \dfrac{6\pi}{5} \)', speak: "the fraction 6 pi, over 5, end fraction"}
+          - {value: b, label: '\( \dfrac{5\pi}{6} \)', speak: "the fraction 5 pi, over 6, end fraction"}
+          - {value: c, label: '\( \dfrac{5}{6} \)', speak: "the fraction 5, over 6, end fraction"}
+          - {value: d, label: '\( \dfrac{6}{5} \)', speak: "the fraction 6, over 5, end fraction"}
+        correct: b
+        explanation: |-
+          \( 150^\circ\cdot\dfrac{\pi}{180}=\dfrac{150\pi}{180}=\dfrac{5\pi}{6} \), dividing top and bottom by 30. A check: 150° is a little less than 180°, and \( \tfrac{5}{6}\pi \) is a little less than \( \pi \). \( \tfrac{6\pi}{5} \) multiplies by \( \tfrac{180}{150} \), upside down, and is more than \( \pi \); \( \tfrac{5}{6} \) drops the \( \pi \), which is about 0.83 radians, less than a quarter turn; and \( \tfrac{6}{5} \) makes both slips. <strong>\( \dfrac{5\pi}{6} \).</strong>
+      - id: d2
+        title: "225 Degrees"
+        math:
+          display: '225^\circ'
+          speak: "225 degrees"
+        prompt: 'What is this angle in radians?'
+        choices:
+          - {value: a, label: '\( \dfrac{5\pi}{4} \)', speak: "the fraction 5 pi, over 4, end fraction"}
+          - {value: b, label: '\( \dfrac{5\pi}{8} \)', speak: "the fraction 5 pi, over 8, end fraction"}
+          - {value: c, label: '\( \dfrac{4\pi}{5} \)', speak: "the fraction 4 pi, over 5, end fraction"}
+          - {value: d, label: '\( \dfrac{8\pi}{5} \)', speak: "the fraction 8 pi, over 5, end fraction"}
+        correct: a
+        explanation: |-
+          \( 225\cdot\dfrac{\pi}{180}=\dfrac{225\pi}{180}=\dfrac{5\pi}{4} \), dividing by 45. 225° is 45° past 180°, and \( \tfrac{5\pi}{4} \) is \( \tfrac{\pi}{4} \) past \( \pi \). \( \tfrac{5\pi}{8} \) divides by 360 instead of 180; \( \tfrac{4\pi}{5} \) flips the fraction; and \( \tfrac{8\pi}{5} \) makes both slips. <strong>\( \dfrac{5\pi}{4} \).</strong>
+      - id: d3
+        title: "270 Degrees"
+        math:
+          display: '270^\circ'
+          speak: "270 degrees"
+        prompt: 'What is this angle in radians?'
+        choices:
+          - {value: a, label: '\( \dfrac{2\pi}{3} \)', speak: "the fraction 2 pi, over 3, end fraction"}
+          - {value: b, label: '\( \dfrac{3\pi}{4} \)', speak: "the fraction 3 pi, over 4, end fraction"}
+          - {value: c, label: '\( \dfrac{4\pi}{3} \)', speak: "the fraction 4 pi, over 3, end fraction"}
+          - {value: d, label: '\( \dfrac{3\pi}{2} \)', speak: "the fraction 3 pi, over 2, end fraction"}
+        correct: d
+        explanation: |-
+          \( 270\cdot\dfrac{\pi}{180}=\dfrac{3\pi}{2} \), dividing by 90. It is a landmark: three quarter turns, pointing straight down. \( \tfrac{2\pi}{3} \) flips the fraction; \( \tfrac{3\pi}{4} \) divides by 360 instead of 180; and \( \tfrac{4\pi}{3} \) makes both slips. <strong>\( \dfrac{3\pi}{2} \).</strong>
+      - id: d4
+        title: "330 Degrees"
+        math:
+          display: '330^\circ'
+          speak: "330 degrees"
+        prompt: 'What is this angle in radians?'
+        choices:
+          - {value: a, label: '\( \dfrac{11\pi}{12} \)', speak: "the fraction 11 pi, over 12, end fraction"}
+          - {value: b, label: '\( \dfrac{11\pi}{6} \)', speak: "the fraction 11 pi, over 6, end fraction"}
+          - {value: c, label: '\( \dfrac{6\pi}{11} \)', speak: "the fraction 6 pi, over 11, end fraction"}
+          - {value: d, label: '\( \dfrac{12\pi}{11} \)', speak: "the fraction 12 pi, over 11, end fraction"}
+        correct: b
+        explanation: |-
+          \( 330\cdot\dfrac{\pi}{180}=\dfrac{330\pi}{180}=\dfrac{11\pi}{6} \), dividing by 30. 330° is 30° short of a full turn, and \( \tfrac{11\pi}{6} \) is \( \tfrac{\pi}{6} \) short of \( 2\pi \). \( \tfrac{11\pi}{12} \) divides by 360 instead of 180; \( \tfrac{6\pi}{11} \) flips the fraction; and \( \tfrac{12\pi}{11} \) makes both slips. <strong>\( \dfrac{11\pi}{6} \).</strong>
+  - id: todegrees
+    label: "Try It: Radians to Degrees"
+    heading: "Try It: Radians to Degrees"
+    intro: |-
+      Multiply by 180/π; the π cancels. Make your best guess, then check it.
+    items:
+      - id: r1
+        title: "Two Thirds of Pi"
+        math:
+          display: '\dfrac{2\pi}{3}'
+          speak: "the fraction 2 pi, over 3, end fraction"
+        prompt: 'What is this angle in degrees?'
+        choices:
+          - {value: a, label: "240°"}
+          - {value: b, label: "270°"}
+          - {value: c, label: "120°"}
+          - {value: d, label: "about 0.04°"}
+        correct: c
+        explanation: |-
+          \( \dfrac{2\pi}{3}\cdot\dfrac{180}{\pi}=\dfrac{360}{3}=120^\circ \). Two thirds of a half turn is 120°. 240° uses \( \pi=360^\circ \), a full turn instead of a half; 270° flips the fraction to \( \tfrac{3}{2}\cdot180 \); and about 0.04° multiplies by \( \tfrac{\pi}{180} \) instead of \( \tfrac{180}{\pi} \), which gives \( \tfrac{2\pi^{2}}{540} \). <strong>120°.</strong>
+      - id: r2
+        title: "Seven Fourths of Pi"
+        math:
+          display: '\dfrac{7\pi}{4}'
+          speak: "the fraction 7 pi, over 4, end fraction"
+        prompt: 'What is this angle in degrees?'
+        choices:
+          - {value: a, label: "315°"}
+          - {value: b, label: "630°"}
+          - {value: c, label: "about 0.1°"}
+          - {value: d, label: "about 102.9°"}
+        correct: a
+        explanation: |-
+          \( \dfrac{7\pi}{4}\cdot\dfrac{180}{\pi}=7\cdot45=315^\circ \). Each \( \tfrac{\pi}{4} \) is 45°, and there are 7 of them. 630° uses \( \pi=360^\circ \); about 0.1° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{7\pi^{2}}{720} \); and about 102.9° flips the fraction to \( \tfrac{4}{7}\cdot180 \). <strong>315°.</strong>
+      - id: r3
+        title: "Pi"
+        math:
+          display: '\pi'
+          speak: "pi"
+        prompt: 'CheckIt writes this angle as π. What is it in degrees?'
+        choices:
+          - {value: a, label: "360°"}
+          - {value: b, label: "180°"}
+          - {value: c, label: "about 0.05°"}
+          - {value: d, label: "about 3.14°"}
+        correct: b
+        explanation: |-
+          \( \pi \) radians is a half turn: \( \pi\cdot\dfrac{180}{\pi}=180^\circ \). 360° is a full turn, \( 2\pi \); about 0.05° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{\pi^{2}}{180} \); and about 3.14° writes the number \( \pi \) with a degree sign, but \( \pi \) radians is not \( \pi \) degrees. <strong>180°.</strong>
+      - id: r4
+        title: "Seven Sixths of Pi"
+        math:
+          display: '\dfrac{7\pi}{6}'
+          speak: "the fraction 7 pi, over 6, end fraction"
+        prompt: 'What is this angle in degrees?'
+        choices:
+          - {value: a, label: "105°"}
+          - {value: b, label: "about 0.06°"}
+          - {value: c, label: "210°"}
+          - {value: d, label: "about 154.3°"}
+        correct: c
+        explanation: |-
+          \( \dfrac{7\pi}{6}\cdot\dfrac{180}{\pi}=7\cdot30=210^\circ \). Each \( \tfrac{\pi}{6} \) is 30°. 105° uses \( \pi=90^\circ \), a quarter turn instead of a half; about 0.06° multiplies by \( \tfrac{\pi}{180} \), giving \( \tfrac{7\pi^{2}}{1080} \); and about 154.3° flips the fraction to \( \tfrac{6}{7}\cdot180 \). <strong>210°.</strong>
+  - id: position
+    label: "Try It: Standard Position"
+    heading: "Try It: Standard Position"
+    intro: |-
+      An angle in standard position starts on the positive x-axis and turns counterclockwise when it is positive. Make your best guess, then check it.
+    items:
+      - id: s1
+        title: "Read the Angle"
+        figure:
+          file: figures/TR1/s1.svg
+          title: "An unlabeled angle in standard position, with guide lines every 30 degrees"
+          caption: 'An angle in standard position, with faint guide lines every 30°. The arc turns counterclockwise from the positive x-axis, past the positive y-axis and the negative x-axis, and stops on the second guide line after the negative x-axis, below and to the left of the origin.'
+          collapse: true
+        prompt: 'The guide lines are 30° apart. What is the angle, in radians?'
+        choices:
+          - {value: a, label: '\( \dfrac{2\pi}{3} \)', speak: "the fraction 2 pi, over 3, end fraction"}
+          - {value: b, label: '\( \dfrac{5\pi}{3} \)', speak: "the fraction 5 pi, over 3, end fraction"}
+          - {value: c, label: '\( \dfrac{4\pi}{3} \)', speak: "the fraction 4 pi, over 3, end fraction"}
+          - {value: d, label: '\( \dfrac{7\pi}{6} \)', speak: "the fraction 7 pi, over 6, end fraction"}
+        correct: c
+        explanation: |-
+          The arc passes the negative \( x \)-axis (180°) and goes 2 guide lines farther, \( 180^\circ+60^\circ=240^\circ \). In radians, \( 240\cdot\tfrac{\pi}{180}=\tfrac{4\pi}{3} \). \( \tfrac{2\pi}{3} \) is 120°, the mirror image across the \( x \)-axis, above it instead of below; \( \tfrac{5\pi}{3} \) is 300°, the mirror image across the \( y \)-axis; and \( \tfrac{7\pi}{6} \) is 210°, one guide line short. <strong>\( \dfrac{4\pi}{3} \).</strong>
+      - id: s2
+        title: "Which Quadrant"
+        math:
+          display: '\dfrac{5\pi}{4}'
+          speak: "the fraction 5 pi, over 4, end fraction"
+        prompt: 'In which quadrant does the terminal side of this angle lie?'
+        choices:
+          - {value: a, label: "Quadrant I"}
+          - {value: b, label: "Quadrant II"}
+          - {value: c, label: "Quadrant III"}
+          - {value: d, label: "Quadrant IV"}
+        correct: c
+        explanation: |-
+          Compare with the landmarks: \( \pi=\tfrac{4\pi}{4} \) and \( \tfrac{3\pi}{2}=\tfrac{6\pi}{4} \). So \( \tfrac{5\pi}{4} \) is between a half turn and three quarter turns, in Quadrant III, 45° past the negative \( x \)-axis. Quadrant I would need less than \( \tfrac{\pi}{2} \); Quadrant II, between \( \tfrac{\pi}{2} \) and \( \pi \); and Quadrant IV, between \( \tfrac{3\pi}{2} \) and \( 2\pi \). <strong>Quadrant III.</strong>
+      - id: s3
+        title: "On an Axis"
+        math:
+          display: '270^\circ'
+          speak: "270 degrees"
+        prompt: 'Where is the terminal side of this angle in standard position?'
+        choices:
+          - {value: a, label: "Along the positive y-axis"}
+          - {value: b, label: "Along the negative y-axis"}
+          - {value: c, label: "Along the negative x-axis"}
+          - {value: d, label: "Inside the third quadrant"}
+        correct: b
+        explanation: |-
+          Counterclockwise from the positive \( x \)-axis: 90° points up, 180° points left, and 270° points down. So the terminal side lies along the negative \( y \)-axis. An angle on an axis is in no quadrant. The positive \( y \)-axis is 90°; the negative \( x \)-axis is 180°; and the third quadrant is strictly between 180° and 270°. <strong>Along the negative \( y \)-axis.</strong>
+      - id: s4
+        title: "Describe the Turn"
+        math:
+          display: '\dfrac{5\pi}{3}'
+          speak: "the fraction 5 pi, over 3, end fraction"
+        prompt: 'Which describes how to draw this angle in standard position?'
+        choices:
+          - {value: a, label: "Turn clockwise 300° from the positive x-axis"}
+          - {value: b, label: "Turn counterclockwise 5/3 of a full turn"}
+          - {value: c, label: "Turn counterclockwise 300° from the positive x-axis"}
+          - {value: d, label: "Turn counterclockwise 300° from the positive y-axis"}
+        correct: c
+        explanation: |-
+          \( \tfrac{5\pi}{3}\cdot\tfrac{180}{\pi}=300^\circ \). A positive angle in standard position starts on the positive \( x \)-axis and turns counterclockwise, so turn 300° counterclockwise, ending in Quadrant IV. Turning clockwise 300° would be the angle \( -\tfrac{5\pi}{3} \); \( \tfrac{5\pi}{3} \) is \( \tfrac{5}{6} \) of a full turn, \( 2\pi \), not \( \tfrac{5}{3} \) of one; and standard position always starts on the positive \( x \)-axis, not the \( y \)-axis. <strong>Turn counterclockwise 300° from the positive \( x \)-axis.</strong>
+  - id: slip
+    label: "Try It: Spot the Slip"
+    heading: "Try It: Spot the Slip"
+    intro: |-
+      Each set of work below was written by a student. Decide whether it is right, and if not, what went wrong, before you check. Checking someone else's work is good practice for checking your own.
+    items:
+      - id: sl1
+        title: "Slip 1"
+        math:
+          display: '240^\circ\cdot\dfrac{180}{\pi}=\dfrac{43200}{\pi}'
+          speak: "240 degrees times the fraction 180, over pi, end fraction, equals the fraction 43200, over pi, end fraction"
+        prompt: 'A student converted 240° to radians. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Use π/180: 240π/180 = 4π/3."}
+          - {value: c, label: "Divide by 360 instead, which gives 240/360 = 2/3."}
+          - {value: d, label: "Use π = 3.14 first: 240 × 3.14 = 753.6."}
+        correct: b
+        explanation: |-
+          To go to radians, the degrees must cancel, so multiply by \( \tfrac{\pi}{180} \): \( \tfrac{240\pi}{180}=\tfrac{4\pi}{3} \). The student's \( \tfrac{43200}{\pi}\approx13{,}751 \) radians would be over 2,000 full turns. Dividing by 360 gives \( \tfrac{2}{3} \), the fraction of a full turn, not the angle in radians; and using \( \pi=3.14 \) first, \( 240\times3.14 \), is not the conversion at all. <strong>\( \dfrac{4\pi}{3} \).</strong>
+      - id: sl2
+        title: "Slip 2"
+        math:
+          display: '\dfrac{5\pi}{6}\cdot\dfrac{180}{\pi}=\dfrac{900}{6}=150^\circ'
+          speak: "the fraction 5 pi, over 6, end fraction, times the fraction 180, over pi, end fraction, equals the fraction 900, over 6, end fraction, which equals 150 degrees"
+        prompt: 'A student converted 5π/6 to degrees. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "Multiply by π/180 instead, to get 5π²/1080."}
+          - {value: c, label: "Degrees need π too: the answer is 150π°."}
+          - {value: d, label: "5π/6 is in Quadrant III, so it is 210°."}
+        correct: a
+        explanation: |-
+          Multiplying by \( \tfrac{180}{\pi} \) cancels the \( \pi \): \( \tfrac{5\cdot180}{6}=150^\circ \). The student is right. Multiplying by \( \tfrac{\pi}{180} \) goes the wrong way and leaves \( \pi^{2} \); the \( \pi \) cancels, so degrees have none; and \( \tfrac{5\pi}{6} \) is less than \( \pi \), so it is in Quadrant II, not III. <strong>There is no mistake.</strong>
+      - id: sl3
+        title: "Slip 3"
+        math:
+          display: '315^\circ\cdot\dfrac{\pi}{360}=\dfrac{7\pi}{8}'
+          speak: "315 degrees times the fraction pi, over 360, end fraction, equals the fraction 7 pi, over 8, end fraction"
+        prompt: 'A student converted 315° to radians. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The π should not be there: the answer is 7/8."}
+          - {value: c, label: "Use 180, not 360: 315π/180 = 7π/4."}
+          - {value: d, label: "Flip the fraction: the answer is 8π/7."}
+        correct: c
+        explanation: |-
+          \( \pi \) radians is 180°, not 360°, so the factor is \( \tfrac{\pi}{180} \): \( \tfrac{315\pi}{180}=\tfrac{7\pi}{4} \). A check: 315° is almost a full turn, and \( \tfrac{7\pi}{4} \) is almost \( 2\pi \), but \( \tfrac{7\pi}{8} \) is less than a half turn. Radians for these angles keep the \( \pi \); and the student's fraction is not upside down, it uses the wrong half-turn value. <strong>\( \dfrac{7\pi}{4} \).</strong>
+      - id: sl4
+        title: "Slip 4"
+        figure:
+          file: figures/TR1/sl4.svg
+          title: "A student's drawing of an angle labeled 2π/3"
+          caption: 'A student''s drawing of an angle labeled 2π/3. The arc starts on the positive x-axis and turns clockwise, downward, ending with the terminal side below and to the left of the origin.'
+        math:
+          display: '\dfrac{2\pi}{3}'
+          speak: "the fraction 2 pi, over 3, end fraction"
+        prompt: 'A student drew this angle in standard position. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "The angle should start from the positive y-axis instead."}
+          - {value: c, label: "2π/3 is more than half a turn, so it ends below the x-axis."}
+          - {value: d, label: "It should turn counterclockwise, into Quadrant II."}
+        correct: d
+        explanation: |-
+          \( \tfrac{2\pi}{3}=120^\circ \), a positive angle, so it turns counterclockwise from the positive \( x \)-axis and ends in Quadrant II, above the axis. The student turned 120° clockwise, which is the angle \( -\tfrac{2\pi}{3} \). Standard position starts on the positive \( x \)-axis; and \( \tfrac{2\pi}{3} \) is less than \( \pi \), so it is less than half a turn. <strong>Turn counterclockwise, into Quadrant II.</strong>
+      - id: sl5
+        title: "Slip 5"
+        math:
+          display: '\dfrac{3\pi}{4}=\dfrac{3(3.14)}{4}\approx 2.36^\circ'
+          speak: "the fraction 3 pi, over 4, end fraction, equals the fraction 3 times 3.14, over 4, end fraction, which is about 2.36 degrees"
+        prompt: 'A student converted 3π/4 to degrees. What is the mistake, if any?'
+        choices:
+          - {value: a, label: "There is no mistake."}
+          - {value: b, label: "That is radians; times 180/π, it is 135°."}
+          - {value: c, label: "Use π = 3 instead, so the answer is 2.25°."}
+          - {value: d, label: "Multiply by π/180, so the answer is about 0.04°."}
+        correct: b
+        explanation: |-
+          About 2.36 is \( \tfrac{3\pi}{4} \) as a number of radians, not degrees. To get degrees, multiply by \( \tfrac{180}{\pi} \): \( \tfrac{3\pi}{4}\cdot\tfrac{180}{\pi}=3\cdot45=135^\circ \). A different value for \( \pi \) still leaves the answer in radians; and multiplying by \( \tfrac{\pi}{180} \) goes the wrong way. <strong>135°.</strong>
