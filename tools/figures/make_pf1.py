@@ -11,5 +11,5 @@ tg = g['trig_graph']
 sin, cos, PI = math.sin, math.cos, math.pi
 tg('g1.svg', lambda x: -2 * sin(3 * x), (F(0), F(4, 3)), (-3, 3), [], [], step=F(1, 6), label_every=2, cell=34)
 tg('g2.svg', lambda x: 4 * cos(2 * x + PI), (F(-1, 2), F(3, 2)), (-5, 5), [], [], step=F(1, 4), label_every=2, cell=24)
-tg('g4.svg', lambda x: 2 * cos(3 * x - 3 * PI / 2), (F(0), F(11, 6)), (-3, 3), [], [(F(1, 2), 2, 'start', 8, -8)], step=F(1, 6), label_every=3, cell=36)
+tg('g4.svg', lambda x: 2 * cos(4 * x - 4 * PI / 3), (F(0), F(4, 3)), (-3, 3), [], [], step=F(1, 12), label_every=3, cell=26)
 print('wrote', sorted(os.listdir(g['OUT'])))
