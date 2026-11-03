@@ -34,8 +34,11 @@ for code in [a.upper() for a in sys.argv[1:]]:
                 o += [f"Figure: {text(it['figure']['caption'])}", '']
             if it.get('table'):
                 o += [f"Table ({it['table']['caption']}):", ''] + ['| ' + ' | '.join(r) + ' |' for r in it['table']['rows']] + ['']
-            if it.get('math'):
-                o += [f"$$ {it['math']['display']} $$", '']
+            m = it.get('math') or {}
+            if m.get('display'):
+                o += [f"$$ {m['display']} $$", '']
+            if m.get('inline'):   # a list of short math pieces, such as ordered pairs
+                o += ['Given: ' + ', '.join(f"$ {x} $" for x in m['inline']), '']
             o += [text(it['prompt']), '']
             for ch in it['choices']:
                 mark = '  ← marked correct' if ch['value'] == it['correct'] else ''
