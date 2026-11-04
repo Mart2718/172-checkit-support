@@ -10,5 +10,5 @@
 <polygon points="157.7,150.3 163.8,141.1 168.7,149.3" fill="#a84d16"/>
 <text x="213.1" y="119.8" text-anchor="middle" fill="#a84d16" font-weight="bold">α</text>
 <circle cx="96.0" cy="68.0" r="6" fill="#1f4e9c" stroke="#fff" stroke-width="1.5"/>
-<text x="80.4" y="53.2" text-anchor="end" fill="#1f4e9c">(−3/5, y)</text>
+<text x="6.0" y="52.0" text-anchor="start" fill="#1f4e9c" stroke="#fcfcfc" stroke-width="5" paint-order="stroke">(−3/5, y)</text>
 </svg>

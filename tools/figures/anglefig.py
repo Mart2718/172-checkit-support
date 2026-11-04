@@ -1,5 +1,5 @@
 """Shared drawing code for angles in standard position (TR1, TR2, TR5): axes, the initial side on the positive x-axis,
-the terminal side, a turn arc with an arrowhead, and optionally guide rays, a unit circle and a labeled point.
+the terminal side (both drawn as rays with arrowheads, or as segments on a unit circle with a marked point), a turn arc with an arrowhead, and optionally guide rays, a unit circle and a labeled point.
 Import it from a make_<code>.py script."""
 import math, os
 TEAL, ORANGE, BLUE, GRAY, INK = '#1a6b6b', '#a84d16', '#1f4e9c', '#6b6b6b', '#1a1a2e'
@@ -29,10 +29,16 @@ def draw(path, deg, label=None, clockwise=False, guides=None, unit_circle=False,
     o.append(f'<g stroke="{GRAY}" stroke-width="1.8"><line x1="12" y1="{C}" x2="{S-12}" y2="{C}"/><line x1="{C}" y1="12" x2="{C}" y2="{S-12}"/></g>')
     o.append(f'<text x="{S-16}" y="{C-8}" text-anchor="end" fill="#333" font-style="italic">x</text>')
     o.append(f'<text x="{C+8}" y="24" fill="#333" font-style="italic">y</text>')
-    x, y = pt(R, 0)
-    o.append(f'<line x1="{C}" y1="{C}" x2="{x:.1f}" y2="{y:.1f}" stroke="{TEAL}" stroke-width="4"/>')
-    x, y = pt(R, deg)
-    o.append(f'<line x1="{C}" y1="{C}" x2="{x:.1f}" y2="{y:.1f}" stroke="{TEAL}" stroke-width="4"/>')
+    # the sides are rays (arrowheads), except on a unit circle with a marked point, where they are segments
+    for side in (0, deg):
+        if unit_circle and point is not None:
+            x, y = pt(R, side)
+            o.append(f'<line x1="{C}" y1="{C}" x2="{x:.1f}" y2="{y:.1f}" stroke="{TEAL}" stroke-width="4"/>')
+            continue
+        x, y = pt(R - 10, side)
+        o.append(f'<line x1="{C}" y1="{C}" x2="{x:.1f}" y2="{y:.1f}" stroke="{TEAL}" stroke-width="4"/>')
+        tx, ty = pt(R + 6, side); bl = pt(R - 12, side - 4.2); br = pt(R - 12, side + 4.2)
+        o.append(f'<polygon points="{tx:.1f},{ty:.1f} {bl[0]:.1f},{bl[1]:.1f} {br[0]:.1f},{br[1]:.1f}" fill="{TEAL}"/>')
     # turn arc as a polyline spiral (so extra full turns stay visible), with an arrowhead at the end
     sweep = (deg - 360 if deg > 0 else deg) if clockwise else deg
     sweep += (360 * extra_arcs) * (1 if sweep >= 0 else -1)
@@ -60,7 +66,14 @@ def draw(path, deg, label=None, clockwise=False, guides=None, unit_circle=False,
         if point_label:
             lx, ly = pt(R + 26, deg)
             anc = 'start' if math.cos(math.radians(deg)) > 0.2 else ('end' if math.cos(math.radians(deg)) < -0.2 else 'middle')
-            o.append(f'<text x="{lx:.1f}" y="{ly+6:.1f}" text-anchor="{anc}" fill="{BLUE}">{point_label}</text>')
+            w = 9.5 * len(point_label)          # rough text width at font-size 18
+            if anc == 'end' and lx - w < 6:     # would run off the left edge: put it above (or below) the point instead
+                anc, lx = 'start', 6
+                ly = py - 22 if py < C else py + 22
+            elif anc == 'start' and lx + w > S - 6:
+                anc, lx = 'end', S - 6
+                ly = py - 22 if py < C else py + 22
+            o.append(f'<text x="{lx:.1f}" y="{ly+6:.1f}" text-anchor="{anc}" fill="{BLUE}" stroke="#fcfcfc" stroke-width="5" paint-order="stroke">{point_label}</text>')
     o.append('</svg>')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, 'w', encoding='utf-8').write('\n'.join(o) + '\n')

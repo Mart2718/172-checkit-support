@@ -15,7 +15,7 @@ script; the rest need a person or an independent reviewer.
 3. **Write `content/<CODE>.yml`.** Three Try It tabs of 4 items and a Spot the Slip tab of 5 (17 items), unless
    the outcome needs a Beyond CheckIt tab. Design the items to cover the map from step 2, not just the easy cases.
 4. **Draw figures** with `tools/figures/make_<code>.py`, at least at the first exposure to each problem type.
-   Graphs follow CheckIt's look (its window, no points marked if CheckIt marks none).
+   Graphs follow CheckIt's look (its window, no points marked if CheckIt marks none). Angle sides are rays with arrowheads, as in CheckIt's answer pictures; on a unit circle with a marked point they are segments ending at the point.
 5. **Build and check** (section 4), then make the worked examples, the Canvas quiz, and the LibreTexts code.
 6. **Independent audit** (section 5), fix, write `support-materials/<CODE>/<CODE>_audit.md` and the README row,
    commit, push, and confirm the Netlify deploy.
