@@ -14,7 +14,10 @@ def graph_text(gid):
 def clean(t):
     if not isinstance(t, str): return str(t)
     t = re.sub(r'\[\[graph:([^\]]+)\]\]', lambda m: ' ' + graph_text(m.group(1)), t)
+    t = re.sub(r'<svg\b.*?</svg>', lambda m: ' [Graph: ' + (re.search(r'aria-label="([^"]*)"', m.group(0)) or [None, 'NO TEXT DESCRIPTION'])[1] + '] ', t, flags=re.S)
+    t = re.sub(r'</?(div|p|br|li|ul|ol|h[1-6])\b[^<>]*>', ' ', t)
     t = re.sub(r'</?[a-zA-Z][^<>]*>', '', t)
+    t = re.sub(r'  +', ' ', t)
     return t.replace('\\(', '$').replace('\\)', '$').replace('\\[', '$$').replace('\\]', '$$')
 o = [f"# {d.get('section','')} FAQ and guided learning: math review packet", '',
      f"Learning objective: {d.get('learningObjective','')}", '',
