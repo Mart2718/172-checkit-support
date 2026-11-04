@@ -33,11 +33,11 @@ summary:   # the Quick Summary tab
     -
       - 'Radians to degrees'
       - 'Multiply by <span>\( \dfrac{180}{\pi} \)</span>: <span>\( \dfrac{\pi}{6}\cdot\dfrac{180}{\pi}=30^\circ \)</span>.'
-      - 'For multiples of <span>\( \pi \)</span>, like every CheckIt angle, the <span>\( \pi \)</span> cancels, so the answer in degrees has no <span>\( \pi \)</span>. Multiplying by <span>\( \tfrac{\pi}{180} \)</span> here gives a tiny wrong answer.'
+      - 'For multiples of <span>\( \pi \)</span>, like every CheckIt angle, the <span>\( \pi \)</span> cancels, so the answer in degrees has no <span>\( \pi \)</span>.'
     -
       - 'Standard position'
       - 'Vertex at the origin, initial side on the positive <span>\( x \)</span>-axis, and a counterclockwise turn for a positive angle.'
-      - 'CheckIt''s angles are all between <span>\( 0^\circ \)</span> and <span>\( 360^\circ \)</span>, so each is less than one full counterclockwise turn. Its answer pictures show a small arc without an arrowhead.'
+      - 'CheckIt''s angles are all between <span>\( 0^\circ \)</span> and <span>\( 360^\circ \)</span>, so each is less than one full counterclockwise turn. Its answer pictures draw both sides as rays with arrowheads and mark the angle with a small arc and its measure.'
     -
       - 'Landmarks'
       - '<span>\( 90^\circ=\dfrac{\pi}{2} \)</span>, <span>\( 180^\circ=\pi \)</span>, <span>\( 270^\circ=\dfrac{3\pi}{2} \)</span>, <span>\( 360^\circ=2\pi \)</span>.'
