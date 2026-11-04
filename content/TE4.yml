@@ -14,6 +14,10 @@ h1: "TE4 Support: Solving Right Triangles"
 pageTitle: "TE4 Support: Solving Right Triangles — Math 172, Santa Ana College"
 hubSummary: "Solving right triangles with sine, cosine, tangent, and the Pythagorean Theorem"
 videoIntro: "A narrated walkthrough of solving right triangles: labeling the sides, choosing sine, cosine, or tangent, using the Pythagorean Theorem, and finding angles with inverse trig."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/nt06XCFdBeQ"
+  embed: "https://www.youtube-nocookie.com/embed/nt06XCFdBeQ"
+  title: "TE4 video walkthrough: Solving Right Triangles"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'opposite|adjacent|hypotenuse|across from|SOH|\bsine\b|cosine|tangent'
 worked:   # used for the worked-examples recording document
