@@ -9,7 +9,7 @@ for p in d.get('paths', []):
     graphs.update(p.get('graphs', {}))
 def graph_text(gid):
     svg = graphs.get(gid, '')
-    m = re.search(r'aria-label="([^"]*)"', svg)
+    m = re.search(r'<svg\b[^>]*\baria-label="([^"]*)"', svg) or re.search(r'aria-label="([^"]*)"', svg)   # prefer the graph's own label over a wrapper's
     return f"[Graph {gid}: {m.group(1) if m else 'NO TEXT DESCRIPTION'}]"
 def clean(t):
     if not isinstance(t, str): return str(t)
