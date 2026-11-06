@@ -7,17 +7,31 @@ d = json.load(open(data_file, encoding='utf-8'))
 graphs = {}
 for p in d.get('paths', []):
     graphs.update(p.get('graphs', {}))
+def svg_labels(html):
+    """Every graph's own description (a graph entry can hold several SVGs, e.g. panels (a), (b), (c))."""
+    labs = [m.group(1) for m in re.finditer(r'<svg\b[^>]*?\baria-label="([^"]*)"', html)]
+    if not labs and '<svg' in html:
+        m = re.search(r'aria-label="([^"]*)"', html)
+        labs = [m.group(1)] if m else ['NO TEXT DESCRIPTION']
+    return labs
 def graph_text(gid):
-    svg = graphs.get(gid, '')
-    m = re.search(r'<svg\b[^>]*\baria-label="([^"]*)"', svg) or re.search(r'aria-label="([^"]*)"', svg)   # prefer the graph's own label over a wrapper's
-    return f"[Graph {gid}: {m.group(1) if m else 'NO TEXT DESCRIPTION'}]"
+    labs = svg_labels(graphs.get(gid, '')) or ['NO TEXT DESCRIPTION']
+    if len(labs) == 1: return f"[Graph {gid}: {labs[0]}]"
+    return f"[Graph {gid}: " + ' | '.join(f"panel {i+1}: {l}" for i, l in enumerate(labs)) + ']'
+def table_text(m):
+    rows = []
+    for r in re.findall(r'<tr\b.*?</tr>', m.group(0), flags=re.S):
+        cells = [re.sub(r'<[^>]+>', '', c).strip() for c in re.findall(r'<t[hd]\b[^>]*>(.*?)</t[hd]>', r, flags=re.S)]
+        rows.append('| ' + ' | '.join(cells) + ' |')
+    return '\n\n' + '\n'.join(rows) + '\n\n' if rows else ' '
 def clean(t):
     if not isinstance(t, str): return str(t)
     t = re.sub(r'\[\[graph:([^\]]+)\]\]', lambda m: ' ' + graph_text(m.group(1)), t)
-    t = re.sub(r'<svg\b.*?</svg>', lambda m: ' [Graph: ' + (re.search(r'aria-label="([^"]*)"', m.group(0)) or [None, 'NO TEXT DESCRIPTION'])[1] + '] ', t, flags=re.S)
+    t = re.sub(r'<svg\b.*?</svg>', lambda m: ' [Graph: ' + svg_labels(m.group(0))[0] + '] ', t, flags=re.S)
+    t = re.sub(r'<table\b.*?</table>', table_text, t, flags=re.S)
     t = re.sub(r'</?(div|p|br|li|ul|ol|h[1-6])\b[^<>]*>', ' ', t)
     t = re.sub(r'</?[a-zA-Z][^<>]*>', '', t)
-    t = re.sub(r'  +', ' ', t)
+    t = re.sub(r'[ \t]{2,}', ' ', t)
     return t.replace('\\(', '$').replace('\\)', '$').replace('\\[', '$$').replace('\\]', '$$')
 o = [f"# {d.get('section','')} FAQ and guided learning: math review packet", '',
      f"Learning objective: {d.get('learningObjective','')}", '',
