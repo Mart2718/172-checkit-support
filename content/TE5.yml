@@ -10,6 +10,10 @@ h1: "TE5 Support: The Law of Sines and the Law of Cosines"
 pageTitle: "TE5 Support: The Law of Sines and the Law of Cosines — Math 172, Santa Ana College"
 hubSummary: "Solving non-right triangles with the law of sines and the law of cosines, including the two-triangle case"
 videoIntro: "A narrated walkthrough of solving non-right triangles: choosing the law of sines or the law of cosines, using each one, and checking for a second triangle."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/UPxFNWxfgow"
+  embed: "https://www.youtube-nocookie.com/embed/UPxFNWxfgow"
+  title: "TE5 video walkthrough: The Law of Sines and the Law of Cosines"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'law of|\bsines?\b|cosines?|\b(SSS|SAS|AAS|ASA|SSA)\b|ambiguous|included|two triangles|one triangle|no triangle'
 worked:   # used for the worked-examples recording document
