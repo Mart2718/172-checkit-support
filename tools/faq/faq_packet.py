@@ -23,6 +23,7 @@ def table_text(m):
     for r in re.findall(r'<tr\b.*?</tr>', m.group(0), flags=re.S):
         cells = [re.sub(r'<[^>]+>', '', c).strip() for c in re.findall(r'<t[hd]\b[^>]*>(.*?)</t[hd]>', r, flags=re.S)]
         rows.append('| ' + ' | '.join(cells) + ' |')
+        if len(rows) == 1: rows.append('|' + '---|' * len(cells))
     return '\n\n' + '\n'.join(rows) + '\n\n' if rows else ' '
 def clean(t):
     if not isinstance(t, str): return str(t)
