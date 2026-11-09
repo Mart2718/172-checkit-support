@@ -15,7 +15,11 @@ def svg_labels(html):
         labs = [m.group(1)] if m else ['NO TEXT DESCRIPTION']
     return labs
 def graph_text(gid):
-    labs = svg_labels(graphs.get(gid, '')) or ['NO TEXT DESCRIPTION']
+    html = graphs.get(gid, '')
+    if '<svg' not in html and '<table' in html:   # a step table, not a figure
+        cap = re.search(r'<caption\b[^>]*>(.*?)</caption>', html, flags=re.S)
+        return f"[Table {gid}{': ' + re.sub(r'<[^>]+>', '', cap.group(1)).strip() if cap else ''}]" + re.sub(r'<table\b.*?</table>', table_text, html, flags=re.S)
+    labs = svg_labels(html) or ['NO TEXT DESCRIPTION']
     if len(labs) == 1: return f"[Graph {gid}: {labs[0]}]"
     return f"[Graph {gid}: " + ' | '.join(f"panel {i+1}: {l}" for i, l in enumerate(labs)) + ']'
 def table_text(m):
