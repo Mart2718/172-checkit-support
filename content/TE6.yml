@@ -11,6 +11,10 @@ h1: "TE6 Support: Applications of Trigonometry"
 pageTitle: "TE6 Support: Applications of Trigonometry — Math 172, Santa Ana College"
 hubSummary: "Word problems that use trigonometry to find a side or an angle: sketching the triangle and choosing the right tool"
 videoIntro: "A narrated walkthrough of trigonometry word problems: sketching the situation, finding the triangle and its angles, and choosing right-triangle trig, the law of sines, or the law of cosines."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/tLKBTsqxUso"
+  embed: "https://www.youtube-nocookie.com/embed/tLKBTsqxUso"
+  title: "TE6 video walkthrough: Applications of Trigonometry"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'law of|\bsines?\b|cosines?|tangent|\bSOH|closer|farther|nearer'
 worked:   # used for the worked-examples recording document
