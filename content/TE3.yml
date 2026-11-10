@@ -11,6 +11,10 @@ h1: "TE3 Support: Solving Trigonometric Equations"
 pageTitle: "TE3 Support: Solving Trigonometric Equations — Math 172, Santa Ana College"
 hubSummary: "Solving trigonometric equations: unit-circle angles, all solutions, squared equations, and multiple angles"
 videoIntro: "A narrated walkthrough of solving trigonometric equations: isolating the function, finding every unit-circle angle that works, writing all solutions with 2πk, handling squares with plus or minus, and solving equations like cos(3θ) = 1/2 on [0, 2π)."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/hRhYjSI5P1M"
+  embed: "https://www.youtube-nocookie.com/embed/hRhYjSI5P1M"
+  title: "TE3 video walkthrough: Solving Trigonometric Equations"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'two solutions|four solutions|no solution|Quadrant (I|II|III|IV)\b'
 worked:   # used for the worked-examples recording document
