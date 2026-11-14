@@ -4,9 +4,10 @@ import json, re, sys, glob, os
 repo = sys.argv[1]
 data_file = next(iter(sorted(glob.glob(os.path.join(repo, '*-data.json')) + glob.glob(os.path.join(repo, '*data*.json')))))
 d = json.load(open(data_file, encoding='utf-8'))
-graphs = {}
+all_graphs = {}
 for p in d.get('paths', []):
-    graphs.update(p.get('graphs', {}))
+    all_graphs.update(p.get('graphs', {}))
+graphs = dict(all_graphs)   # rebound to each path's own graphs while that path is written (paths can reuse ids)
 def svg_labels(html):
     """Every graph's own description (a graph entry can hold several SVGs, e.g. panels (a), (b), (c))."""
     labs = [m.group(1) for m in re.finditer(r'<svg\b[^>]*?\baria-label="([^"]*)"', html)]
@@ -45,6 +46,7 @@ o += ['## FAQs', '']
 for f in d.get('faqs', []):
     o += [f"### {f['id']} ({f.get('category','')})", f"**Q:** {clean(f['question'])}", '', f"**A:** {clean(f['answer'])}", '']
 for p in d.get('paths', []):
+    graphs.clear(); graphs.update(p.get('graphs', {}))
     o += [f"## Guided path: {p.get('label','')}", '', clean(p.get('intro', '')), '']
     for st in p.get('stages', []):
         o += [f"### Stage {st.get('stage','')}: {clean(st.get('desc',''))}", '']
@@ -61,4 +63,4 @@ for kind, lst in (d.get('prompts') or {}).items():
 out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(repo, 'review_packet.md')
 open(out, 'w', encoding='utf-8').write('\n'.join(o) + '\n')
 used = set(re.findall(r'\[\[graph:([^\]]+)\]\]', json.dumps(d)))
-print('wrote', out, '| graphs:', len(graphs), '| referenced but missing:', sorted(used - set(graphs)), '| defined but unused:', sorted(set(graphs) - used))
+print('wrote', out, '| graphs:', len(all_graphs), '| referenced but missing:', sorted(used - set(all_graphs)), '| defined but unused:', sorted(set(all_graphs) - used))
