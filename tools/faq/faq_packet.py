@@ -19,7 +19,7 @@ def graph_text(gid):
     html = graphs.get(gid, '')
     if '<svg' not in html and '<table' in html:   # a step table, not a figure
         cap = re.search(r'<caption\b[^>]*>(.*?)</caption>', html, flags=re.S)
-        return f"[Table {gid}{': ' + re.sub(r'<[^>]+>', '', cap.group(1)).strip() if cap else ''}]" + re.sub(r'<table\b.*?</table>', table_text, html, flags=re.S)
+        return f"[Table {gid}{': ' + re.sub(r'<[^>]+>', '', cap.group(1)).strip() if cap else ''}]" + ''.join(table_text(t) for t in re.finditer(r'<table\b.*?</table>', html, flags=re.S))
     labs = svg_labels(html) or ['NO TEXT DESCRIPTION']
     if len(labs) == 1: return f"[Graph {gid}: {labs[0]}]"
     return f"[Graph {gid}: " + ' | '.join(f"panel {i+1}: {l}" for i, l in enumerate(labs)) + ']'
