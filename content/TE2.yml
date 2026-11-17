@@ -12,6 +12,10 @@ h1: "TE2 Support: Verifying Trigonometric Identities"
 pageTitle: "TE2 Support: Verifying Trigonometric Identities — Math 172, Santa Ana College"
 hubSummary: "Verifying identities: rewriting in sines and cosines, distributing, simplifying, and working on one side"
 videoIntro: "A narrated walkthrough of verifying trigonometric identities: rewriting each function in sines and cosines, distributing and simplifying fractions, using the Pythagorean identity, and writing the verification one side at a time."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/HdVw7vrYtHk"
+  embed: "https://www.youtube-nocookie.com/embed/HdVw7vrYtHk"
+  title: "TE2 video walkthrough: Verifying Trigonometric Identities"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'not an identity|is an identity|cancel|cancels'
 worked:   # used for the worked-examples recording document
