@@ -11,6 +11,10 @@ h1: "TE1 Support: Trigonometric Identities"
 pageTitle: "TE1 Support: Trigonometric Identities — Math 172, Santa Ana College"
 hubSummary: "Sum and difference, half-angle, and power-reducing formulas, and the Pythagorean identity"
 videoIntro: "A narrated walkthrough of finding exact values with the sum, difference, and half-angle formulas, using the Pythagorean identity with a quadrant, and rewriting squared sines and cosines with the power-reducing formulas."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/YTKJF9rdb7g"
+  embed: "https://www.youtube-nocookie.com/embed/YTKJF9rdb7g"
+  title: "TE1 video walkthrough: Trigonometric Identities"
 # Phrases that must NOT appear in text shown before the student guesses (item titles, captions, table captions).
 banPhrases: 'sum formula|difference formula|half[- ]angle formula|power[- ]reduc|Pythagorean identity'
 worked:   # used for the worked-examples recording document
