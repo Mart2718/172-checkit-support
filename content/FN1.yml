@@ -5,6 +5,10 @@ h1: "FN1 Support: Is It a Function?"
 pageTitle: "FN1 Support: Is a Relation a Function? — Math 172, Santa Ana College"
 hubSummary: "Is a relation a function?"
 videoIntro: "A narrated walkthrough of how to decide whether a relation is a function, covering mapping diagrams, tables, ordered pairs, equations, and graphs."
+video:    # YouTube: url opens on YouTube; embed is the privacy-enhanced player shown on the page
+  url: "https://youtu.be/bshHuRkHH2o"
+  embed: "https://www.youtube-nocookie.com/embed/bshHuRkHH2o"
+  title: "FN1 video walkthrough: Is It a Function?"
 # Phrases that must NOT appear in text shown before the student guesses (figure titles, captions, table captions).
 banPhrases: '(is|are|represents|defines|does not define|not) (a )?function|not a function|one-to-one'
 worked:   # used for the worked-examples recording document
