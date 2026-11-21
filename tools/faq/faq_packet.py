@@ -21,8 +21,9 @@ def graph_text(gid):
         cap = re.search(r'<caption\b[^>]*>(.*?)</caption>', html, flags=re.S)
         return f"[Table {gid}{': ' + re.sub(r'<[^>]+>', '', cap.group(1)).strip() if cap else ''}]" + ''.join(table_text(t) for t in re.finditer(r'<table\b.*?</table>', html, flags=re.S))
     labs = svg_labels(html) or ['NO TEXT DESCRIPTION']
-    if len(labs) == 1: return f"[Graph {gid}: {labs[0]}]"
-    return f"[Graph {gid}: " + ' | '.join(f"panel {i+1}: {l}" for i, l in enumerate(labs)) + ']'
+    tables = ''.join(table_text(t) for t in re.finditer(r'<table\b.*?</table>', html, flags=re.S))  # tables shown beside a figure
+    if len(labs) == 1: return f"[Graph {gid}: {labs[0]}]" + tables
+    return f"[Graph {gid}: " + ' | '.join(f"panel {i+1}: {l}" for i, l in enumerate(labs)) + ']' + tables
 def table_text(m):
     rows = []
     for r in re.findall(r'<tr\b.*?</tr>', m.group(0), flags=re.S):
