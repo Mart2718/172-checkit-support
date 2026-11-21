@@ -16,7 +16,7 @@ Date: 2026-11-02. Checked by:
 ## Fixed before publishing
 1. Graph 3: two of its choices simplified to the same function, one was outside CheckIt's range, and its key drew the same curve as Graph 1. It is now 2cos(4x − 4π/3), a visibly shifted graph, with four different functions as choices (checked numerically), ticks every π/4 as CheckIt draws them, and no marked point.
 2. Where a Cycle Starts: the choices no longer point to the key (one distractor now makes two slips).
-3. Coverage: about half of CheckIt's phase shifts are π or more, often several periods. Shift 1 is now 4π to the right, Shift 2 is 4π/3 to the left, and Slip 1 is 3π/2 to the right. The Quick Summary says how CheckIt prints the number inside (8/3 π) and how it draws the graph.
+3. Coverage: about two-thirds of CheckIt's phase shifts are π or more (18 of the 27 equally likely values of c/b), often several periods. Shift 1 is now 4π to the right, Shift 2 is 4π/3 to the left, and Slip 1 is 3π/2 to the right. The Quick Summary says how CheckIt prints the number inside (8/3 π) and how it draws the graph.
 4. Displays narrowed so they fit a phone screen with text spacing; wording fixes in two slip explanations.
 
 ## Advisory (not changed)
@@ -25,7 +25,7 @@ Date: 2026-11-02. Checked by:
 
 ## Source notes (CheckIt, not this page)
 1. f prints unfactored, such as 2 sin(4x + 8/3 π). With no shift, the key says "0 to the left".
-2. The phase shift is π or more in about half of problems and longer than a period in most; in 69 of 81 cases the shift is a whole number of quarter periods, so the graph looks like an unshifted ±a sin or ±a cos.
+2. The phase shift is π or more in about two-thirds of problems and longer than a period in most; in 69 of 81 cases the shift is a whole number of quarter periods, so the graph looks like an unshifted ±a sin or ±a cos.
 3. The graph's window is from min(0, −c/b) to two periods past the shift, with x ticks every π/b and no points marked. Its image has no text description (description="."). The template asks "What is the phase shift f(x)?" (missing "of").
 
 ## Needs a live screen reader

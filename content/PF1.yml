@@ -42,7 +42,7 @@ summary:   # the Quick Summary tab
       - 'No shift'
       - 'If there is no <span>\( c \)</span>, the phase shift is 0.'
       - 'CheckIt''s key words this as "0 to the left"; it means no shift.'
-  note: 'CheckIt''s <span>\( b \)</span> is 2, 3 or 4, so its periods are <span>\( \pi \)</span>, <span>\( \tfrac{2\pi}{3} \)</span> or <span>\( \tfrac{\pi}{2} \)</span>. Its phase shifts are multiples of <span>\( \tfrac{\pi}{3} \)</span>, <span>\( \tfrac{\pi}{2} \)</span> or <span>\( \pi \)</span>, and in about half of problems the shift is <span>\( \pi \)</span> or more, longer than one period. CheckIt prints the number inside as a coefficient times <span>\( \pi \)</span>, such as <span>\( \tfrac{8}{3}\pi \)</span>, and its graph marks <span>\( x \)</span> every <span>\( \tfrac{\pi}{b} \)</span> with no points labeled. Your CheckIt function will be different. The job of each number is what transfers.'
+  note: 'CheckIt''s <span>\( b \)</span> is 2, 3 or 4, so its periods are <span>\( \pi \)</span>, <span>\( \tfrac{2\pi}{3} \)</span> or <span>\( \tfrac{\pi}{2} \)</span>. Its phase shifts are multiples of <span>\( \tfrac{\pi}{3} \)</span>, <span>\( \tfrac{\pi}{2} \)</span> or <span>\( \pi \)</span>, and in about two-thirds of problems the shift is <span>\( \pi \)</span> or more, often longer than one period. CheckIt prints the number inside as a coefficient times <span>\( \pi \)</span>, such as <span>\( \tfrac{8}{3}\pi \)</span>, and its graph marks <span>\( x \)</span> every <span>\( \tfrac{\pi}{b} \)</span> with no points labeled. Your CheckIt function will be different. The job of each number is what transfers.'
 tabs:
   - id: size
     label: "Try It: Amplitude and Period"
