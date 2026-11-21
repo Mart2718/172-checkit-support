@@ -33,7 +33,7 @@ def table_text(m):
     return '\n\n' + '\n'.join(rows) + '\n\n' if rows else ' '
 def clean(t):
     if not isinstance(t, str): return str(t)
-    t = re.sub(r'\[\[graph:([^\]]+)\]\]', lambda m: ' ' + graph_text(m.group(1)), t)
+    t = re.sub(r'\[\[graph:([^\]]+)\]\]', lambda m: ' ' + graph_text(m.group(1)) + ' ', t)
     t = re.sub(r'<svg\b.*?</svg>', lambda m: ' [Graph: ' + svg_labels(m.group(0))[0] + '] ', t, flags=re.S)
     t = re.sub(r'<table\b.*?</table>', table_text, t, flags=re.S)
     t = re.sub(r'</?(div|p|br|li|ul|ol|h[1-6])\b[^<>]*>', ' ', t)
